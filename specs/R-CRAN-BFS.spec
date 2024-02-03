@@ -1,50 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  egor
-%global packver   1.24.2
+%global packname  BFS
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.2
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Analyse Ego-Centered Network Data
+Summary:          Get Data from the Swiss Federal Statistical Office
 
-License:          AGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pxweb 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-srvyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-tidyRSS 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rstac 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-pxweb 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-srvyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-tidyRSS 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rstac 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-fs 
+Requires:         R-tools 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Tools for importing, analyzing and visualizing ego-centered network data.
-Supports several data formats, including the export formats of 'EgoNet',
-'EgoWeb 2.0' and 'openeddi'. An interactive (shiny) app for the intuitive
-visualization of ego-centered networks is provided. Also included are
-procedures for creating and visualizing Clustered Graphs (Lerner 2008
-<DOI:10.1109/PACIFICVIS.2008.4475458>).
+Search and download data from the Swiss Federal Statistical Office (BFS)
+APIs <https://www.bfs.admin.ch/>.
 
 %prep
 %setup -q -c -n %{packname}

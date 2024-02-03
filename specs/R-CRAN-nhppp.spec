@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.12.1
+%global packname  nhppp
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Simulating Nonhomogeneous Poisson Point Processes
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.12.0
-Requires:         R-CRAN-nanonext >= 0.12.0
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rstream 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rstream 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Efficient scheduling over fast inter-process communications or secure TLS
-connections over TCP/IP, built on 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Simulates events from one dimensional nonhomogeneous Poisson point
+processes (NHPPPs). Functions are based on three algorithms that provably
+sample from a target NHPPP: the time-transformation of a homogeneous
+Poisson process (of intensity one) via the inverse of the integrated
+intensity function (Cinlar E, "Theory of stochastic processes" (1975,
+ISBN:0486497996)); the generation of a Poisson number of order statistics
+from a fixed density function; and the thinning of a majorizing NHPPP via
+an acceptance-rejection scheme (Lewis PAW, Shedler, GS (1979)
+<doi:10.1002/nav.3800260304>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  devEMF
-%global packver   4.4-1
+%global packver   4.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1
+Version:          4.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          EMF Graphics Output Device
 
@@ -14,7 +14,6 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
 BuildRequires:    R-devel >= 2.10.1
 Requires:         R-core >= 2.10.1
 

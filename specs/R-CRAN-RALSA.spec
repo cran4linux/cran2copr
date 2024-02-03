@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RALSA
-%global packver   1.3.7
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreign 
@@ -32,9 +33,11 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreign 
@@ -49,6 +52,7 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 

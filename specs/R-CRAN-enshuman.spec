@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.12.1
+%global packname  enshuman
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Human Gene Annotation Data from 'Ensembl'
 
-License:          GPL (>= 3)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.12.0
-Requires:         R-CRAN-nanonext >= 0.12.0
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Efficient scheduling over fast inter-process communications or secure TLS
-connections over TCP/IP, built on 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Gene information from 'Ensembl' genome builds 'GRCh38.p14' and
+'GRCh37.p13' to use with the 'topr' package. The datasets were originally
+downloaded from
+<https://ftp.ensembl.org/pub/current/gtf/homo_sapiens/Homo_sapiens.GRCh38.111.gtf.gz>
+and
+<https://ftp.ensembl.org/pub/grch37/current/gtf/homo_sapiens/Homo_sapiens.GRCh37.87.gtf.gz>
+and converted into the format required by the 'topr' package. See
+<https://github.com/totajuliusd/topr?tab=readme-ov-file#how-to-use-topr-with-other-species-than-human>
+to see the required format.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  anipaths
-%global packver   0.10.3
+%global packname  metricminer
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.3
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Animation of Multiple Trajectories with Uncertainty
+Summary:          Mine Metrics from Common Places on the Web
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,48 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-animation 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-crawl 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-animation 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-crawl 
-Requires:         R-CRAN-mgcv 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggmap 
+BuildRequires:    R-CRAN-googledrive 
+BuildRequires:    R-CRAN-googlesheets4 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-googledrive 
+Requires:         R-CRAN-googlesheets4 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 
 %description
-Animation of observed trajectories using spline-based interpolation (see
-for example, Buderman, F. E., Hooten, M. B., Ivan, J. S. and Shenk, T. M.
-(2016), <doi:10.1111/2041-210X.12465> "A functional model for
-characterizing long-distance movement behaviour". Methods Ecol Evol).
-Intended to be used exploratory data analysis, and perhaps for preparation
-of presentations.
+Mine metrics on common places on the web through the power of their APIs
+(application programming interfaces). It also helps make the data in a
+format that is easily used for a dashboard or other purposes. There is an
+associated dashboard template and tutorials that are underdevelopment that
+help you fully utilize 'metricminer'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasmodel
-%global packver   0.5.1
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Autoregressive Score Models
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-arrangements 
 BuildRequires:    R-CRAN-CircStats 
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-tidyr
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-arrangements 
 Requires:         R-CRAN-CircStats 
+Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
@@ -50,7 +52,7 @@ modeling of exogenous variables and dynamics, higher score and
 autoregressive orders, custom and unconditional initial values of
 time-varying parameters, fixed and bounded values of coefficients, and
 missing values. Model estimation is performed by the maximum likelihood
-method and the Hessian matrix.
+method.
 
 %prep
 %setup -q -c -n %{packname}

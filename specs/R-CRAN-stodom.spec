@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.12.1
+%global packname  stodom
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Estimating Consistent Tests for Stochastic Dominance
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.12.0
-Requires:         R-CRAN-nanonext >= 0.12.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-tidyr 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Efficient scheduling over fast inter-process communications or secure TLS
-connections over TCP/IP, built on 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Stochastic dominance tests help ranking different distributions. The
+package implements the consistent test for stochastic dominance by Barrett
+and Donald (2003) <doi:10.1111/1468-0262.00390>. Specifically, it
+implements Barrett and Donald's Kolmogorov-Smirnov type tests for first-
+and second-order stochastic dominance based on bootstrapping 2 and 1.
 
 %prep
 %setup -q -c -n %{packname}

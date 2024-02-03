@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GaussSuppression
-%global packver   0.8.0
+%global packname  pref
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Suppression using Gaussian Elimination
+Summary:          Preference Voting with Explanatory Graphics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.5.0
-BuildRequires:    R-CRAN-RegSDC >= 0.7.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-base 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-SSBtools >= 1.5.0
-Requires:         R-CRAN-RegSDC >= 0.7.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-base 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-jpeg 
 Requires:         R-utils 
 
 %description
-A statistical disclosure control tool to protect tables by suppression
-using the Gaussian elimination secondary suppression algorithm. A
-suggestion is to start by working with functions SuppressSmallCounts() and
-SuppressDominantCells(). These functions use primary suppression functions
-for the minimum frequency rule and the dominance rule, respectively. Novel
-functionality for suppression of disclosive cells is also included.
-General primary suppression functions can be supplied as input to the
-general working horse function, GaussSuppressionFromData(). Suppressed
-frequencies can be replaced by synthetic decimal numbers as described in
-Langsrud (2019) <doi:10.1007/s11222-018-9848-9>.
+Implements the Single Transferable Vote (STV) electoral system, with clear
+explanatory graphics. The core function stv() uses Meek's method, the
+purest expression of the simple principles of STV, but which requires
+electronic counting. It can handle votes expressing equal preferences for
+subsets of the candidates. A function stv.wig() implementing the Weighted
+Inclusive Gregory method, as used in Scottish council elections, is also
+provided, and with the same options, as described in the manual. The
+required vote data format is as an R list: a function pref.data() is
+provided to transform some commonly used data formats into this format.
+References for methodology: Hill, Wichmann and Woodall (1987)
+<doi:10.1093/comjnl/30.3.277>, Hill, David (2006)
+<https://www.votingmatters.org.uk/ISSUE22/I22P2.pdf>, Mollison, Denis
+(2023) <arXiv:2303.15310>, (see also the package manual
+pref_pkg_manual.pdf).
 
 %prep
 %setup -q -c -n %{packname}

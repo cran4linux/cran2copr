@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  freesurferformats
-%global packver   0.1.17
+%global packver   0.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write 'FreeSurfer' Neuroimaging File Formats
 
@@ -17,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pkgfilecache >= 0.1.1
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-pkgfilecache >= 0.1.1
+Requires:         R-utils 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Provides functions to read and write neuroimaging data in various file

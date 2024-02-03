@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fbati
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene by Environment Interaction and Conditional Gene Tests for Nuclear Families
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-pbatR >= 2.0.0
+BuildRequires:    R-CRAN-pbatR >= 2.2.17
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-fgui 
 BuildRequires:    R-CRAN-rootSolve 
-Requires:         R-CRAN-pbatR >= 2.0.0
+Requires:         R-CRAN-pbatR >= 2.2.17
 Requires:         R-tcltk 
 Requires:         R-CRAN-fgui 
 Requires:         R-CRAN-rootSolve 

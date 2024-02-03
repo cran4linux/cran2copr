@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.12.1
+%global packname  geboes.score
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Evaluate the Geboes Score for Histology in Ulcerative Colitis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.12.0
-Requires:         R-CRAN-nanonext >= 0.12.0
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Efficient scheduling over fast inter-process communications or secure TLS
-connections over TCP/IP, built on 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Evaluate and validate the Geboes score for histological assessment of
+inflammation in ulcerative colitis.  The original Geboes score from
+Geboes, et al. (2000) <doi:10.1136/gut.47.3.404>, binary version from Li,
+et al. (2019) <doi:10.1093/ecco-jcc/jjz022>, and continuous version from
+Magro, et al. (2020) <doi:10.1093/ecco-jcc/jjz123> are all described and
+implemented.
 
 %prep
 %setup -q -c -n %{packname}

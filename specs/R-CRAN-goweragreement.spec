@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.12.1
+%global packname  goweragreement
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Bayesian Gower Agreement for Categorical Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.12.0
-Requires:         R-CRAN-nanonext >= 0.12.0
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Efficient scheduling over fast inter-process communications or secure TLS
-connections over TCP/IP, built on 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Provides tools for applying the Bayesian Gower agreement methodology
+(presented in the package vignette) to nominal or ordinal data. The
+framework can accommodate any number of units, any number of coders, and
+missingness; and can handle both one-way and two-way random study designs.
+Influential units and/or coders can be identified easily using
+leave-one-out statistics.
 
 %prep
 %setup -q -c -n %{packname}

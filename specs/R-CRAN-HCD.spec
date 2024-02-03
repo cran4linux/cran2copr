@@ -1,47 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  expectreg
-%global packver   0.53
+%global packname  HCD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.53
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expectile and Quantile Regression
+Summary:          Hierarchical Community Detection by Recursive Partitioning
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mboost >= 2.1.0
-BuildRequires:    R-CRAN-colorspace >= 0.97
-BuildRequires:    R-CRAN-BayesX >= 0.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-mboost >= 2.1.0
-Requires:         R-CRAN-colorspace >= 0.97
-Requires:         R-CRAN-BayesX >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-randnet 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dendextend 
 Requires:         R-CRAN-Matrix 
-Requires:         R-splines 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-fields 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-randnet 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dendextend 
 
 %description
-Expectile and quantile regression of models with nonlinear effects e.g.
-spatial, random, ridge using least asymmetric weighed squares / absolutes
-as well as boosting; also supplies expectiles for common distributions.
+Hierarchical community detection on networks by a recursive spectral
+partitioning strategy, which is shown to be effective and efficient in Li,
+Lei, Bhattacharyya, Sarkar, Bickel, and Levina (2018) <arXiv:1810.01509>.
+The package also includes a data generating function for a binary tree
+stochastic block model, a special case of stochastic block model that
+admits hierarchy between communities.
 
 %prep
 %setup -q -c -n %{packname}

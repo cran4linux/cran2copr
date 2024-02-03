@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mirai
-%global packver   0.12.1
+%global packname  PCGII
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimalist Async Evaluation Framework for R
+Summary:          Partial Correlation Graph with Information Incorporation
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 0.12.0
-Requires:         R-CRAN-nanonext >= 0.12.0
+BuildRequires:    R-CRAN-corpcor >= 1.6.10
+BuildRequires:    R-CRAN-igraph >= 1.5.0.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-corpcor >= 1.6.10
+Requires:         R-CRAN-igraph >= 1.5.0.1
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-stats 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
 
 %description
-Lightweight parallel code execution and distributed computing. Designed
-for simplicity, a 'mirai' evaluates an R expression asynchronously, on
-local or network resources, resolving automatically upon completion.
-Efficient scheduling over fast inter-process communications or secure TLS
-connections over TCP/IP, built on 'nanonext' and 'NNG' (Nanomsg Next Gen).
+Large-scale gene expression studies allow gene network construction to
+uncover associations among genes. This package is developed for estimating
+and testing partial correlation graphs with prior information
+incorporated.
 
 %prep
 %setup -q -c -n %{packname}

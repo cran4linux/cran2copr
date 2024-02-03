@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MatTransMix
-%global packver   0.1.16
+%global packname  ggfields
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.16
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering with Matrix Gaussian and Matrix Transformation Mixture Models
+Summary:          Add Vector Field Layers to Ggplots
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-grid >= 4.3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.2
+BuildRequires:    R-CRAN-sf >= 1.0.15
+Requires:         R-grid >= 4.3.2
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.2
+Requires:         R-CRAN-sf >= 1.0.15
 
 %description
-Provides matrix Gaussian mixture models, matrix transformation mixture
-models and their model-based clustering results. The parsimonious models
-of the mean matrices and variance covariance matrices are implemented with
-a total of 196 variations.
+Add vector field layers to ggplots. Ideal for visualising wind speeds,
+water currents, electric/magnetic fields, etc. Accepts data.frames simple
+features (sf) and spatiotemporal arrays (stars) objects as input. Vector
+fields are depicted as arrows starting at specified locations, and with
+specified angles and radii.
 
 %prep
 %setup -q -c -n %{packname}
