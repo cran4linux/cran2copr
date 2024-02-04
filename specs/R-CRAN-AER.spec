@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AER
-%global packver   1.2-10
+%global packver   1.2-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applied Econometrics with R
 
@@ -34,8 +35,9 @@ Requires:         R-stats
 %description
 Functions, data sets, examples, demos, and vignettes for the book
 Christian Kleiber and Achim Zeileis (2008), Applied Econometrics with R,
-Springer-Verlag, New York. ISBN 978-0-387-77316-2. (See the vignette "AER"
-for a package overview.)
+Springer-Verlag, New York. ISBN 978-0-387-77316-2.
+<doi:10.1007/978-0-387-77318-6> (See the vignette "AER" for a package
+overview.)
 
 %prep
 %setup -q -c -n %{packname}

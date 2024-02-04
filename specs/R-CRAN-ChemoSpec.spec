@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ChemoSpec
-%global packver   6.1.9
+%global packver   6.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.9
+Version:          6.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Chemometrics for Spectroscopy
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ChemoSpecUtils >= 1.0
 BuildRequires:    R-CRAN-readJDX >= 0.6
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-ChemoSpecUtils >= 1.0
 Requires:         R-CRAN-readJDX >= 0.6
-Requires:         R-CRAN-plyr 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 

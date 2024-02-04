@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hstats
-%global packver   1.1.2
+%global packname  OneSampleLogRankTest
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interaction Statistics
+Summary:          One-Sample Log-Rank Test
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-rlang 
 
 %description
-Fast, model-agnostic implementation of different H-statistics introduced
-by Jerome H. Friedman and Bogdan E. Popescu (2008)
-<doi:10.1214/07-AOAS148>.  These statistics quantify interaction strength
-per feature, feature pair, and feature triple.  The package supports
-multi-output predictions and can account for case weights. In addition,
-several variants of the original statistics are provided. The shape of the
-interactions can be explored through partial dependence plots or
-individual conditional expectation plots. 'DALEX' explainers, meta
-learners ('mlr3', 'tidymodels', 'caret') and most other models work
-out-of-the-box.
+The log-rank test is performed to assess the survival outcomes between two
+group. When there is no proper control group or obtaining such data is
+cumbersome, one sample log-rank test can be applied. This package performs
+one sample log-rank test as described in Finkelstein et al.
+(2003)<doi:10.1093/jnci/djt227> and variation of the test for small sample
+sizes which is detailed in FD Liddell (1984)<doi:10.1136/jech.38.1.85>
+paper. Visualization function in the package generates Kaplan-Meier Curve
+comparing survival curve of the general population against that of the
+population of interest.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpfa
-%global packver   1.1-0
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -37,9 +37,9 @@ Requires:         R-CRAN-rda
 %description
 Classification using Richard A. Harshman's Parallel Factor Analysis-1
 (Parafac) model or Parallel Factor Analysis-2 (Parafac2) model fit to a
-three-way or four-way data tensor/array. See Harshman and Lundy (1994):
+three-way or four-way data array. See Harshman and Lundy (1994):
 <doi:10.1016/0167-9473(94)90132-5>. Uses component weights from one mode
-of the Parafac or Parafac2 model as features to tune parameters for one or
+of a Parafac or Parafac2 model as features to tune parameters for one or
 more classification methods via a k-fold cross-validation procedure.
 Allows for constraints on different tensor modes. Supports penalized
 logistic regression, support vector machine, random forest, feed-forward

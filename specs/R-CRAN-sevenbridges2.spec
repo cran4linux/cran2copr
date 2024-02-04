@@ -1,44 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yahoofinancer
-%global packver   0.3.0
+%global packname  sevenbridges2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fetch Data from Yahoo Finance API
+Summary:          The 'Seven Bridges Platform' API Client
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-data.table 
 
 %description
-Obtain historical and near real time data related to stocks, index and
-currencies from the Yahoo Finance API. This package is community
-maintained and is not officially supported by 'Yahoo'. The accuracy of
-data is only as correct as provided on <https://finance.yahoo.com/>.
+R client and utilities for 'Seven Bridges Platform' API, from 'Cancer
+Genomics Cloud' to other 'Seven Bridges' supported platforms. API
+documentation is hosted publicly at
+<https://docs.sevenbridges.com/docs/the-api>.
 
 %prep
 %setup -q -c -n %{packname}

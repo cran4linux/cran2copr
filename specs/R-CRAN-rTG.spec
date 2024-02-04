@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rTG
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Analyse Seasonal Radial Tree Growth Data
 
@@ -19,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
 BuildRequires:    R-CRAN-mgcv >= 1.8.34
 BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-minpack.lm >= 1.2.4
 BuildRequires:    R-CRAN-knitr >= 1.19
 BuildRequires:    R-CRAN-brnn >= 0.6
 BuildRequires:    R-CRAN-dplyr >= 0.1.0
@@ -26,6 +28,7 @@ BuildRequires:    R-methods
 Requires:         R-CRAN-ggplot2 >= 2.2.0
 Requires:         R-CRAN-mgcv >= 1.8.34
 Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-minpack.lm >= 1.2.4
 Requires:         R-CRAN-knitr >= 1.19
 Requires:         R-CRAN-brnn >= 0.6
 Requires:         R-CRAN-dplyr >= 0.1.0
@@ -35,11 +38,12 @@ Requires:         R-methods
 Methods for comparing different regression algorithms for describing the
 temporal dynamics of secondary tree growth (xylem and phloem). Users can
 compare the accuracy of the most common fitting methods usually used to
-analyse xylem and phloem data, i.e., Gompertz function and General
-Additive Models (GAMs); and an algorithm newly introduced to the field,
-i.e., Bayesian Regularised Neural Networks (brnn). The core function of
-the package is XPSgrowth(), while the results can be interpreted using
-implemented generic S3 methods, such as plot() and summary().
+analyse xylem and phloem data, i.e., Gompertz function, Double Gompertz
+function, General Additive Models (GAMs); and an algorithm newly
+introduced to the field, i.e., Bayesian Regularised Neural Networks
+(brnn). The core function of the package is XPSgrowth(), while the results
+can be interpreted using implemented generic S3 methods, such as plot()
+and summary().
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hstats
-%global packver   1.1.2
+%global packname  SubgrpID
+%global packver   0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interaction Statistics
+Summary:          Patient Subgroup Identification for Clinical Drug Development
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Fast, model-agnostic implementation of different H-statistics introduced
-by Jerome H. Friedman and Bogdan E. Popescu (2008)
-<doi:10.1214/07-AOAS148>.  These statistics quantify interaction strength
-per feature, feature pair, and feature triple.  The package supports
-multi-output predictions and can account for case weights. In addition,
-several variants of the original statistics are provided. The shape of the
-interactions can be explored through partial dependence plots or
-individual conditional expectation plots. 'DALEX' explainers, meta
-learners ('mlr3', 'tidymodels', 'caret') and most other models work
-out-of-the-box.
+Implementation of Sequential BATTing (bootstrapping and aggregating of
+thresholds from trees) for developing threshold-based multivariate
+(prognostic/predictive) biomarker signatures. Variable selection is
+automatically built-in. Final signatures are returned with interaction
+plots for predictive signatures. Cross-validation performance evaluation
+and testing dataset results are also output. Detail algorithms are
+described in Huang et al (2017) <doi:10.1002/sim.7236>.
 
 %prep
 %setup -q -c -n %{packname}

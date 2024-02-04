@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hstats
-%global packver   1.1.2
+%global packname  RGraphSpace
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interaction Statistics
+Summary:          A Lightweight Package for Representing Large 'igraph' Objects in a Normalized Coordinate System
 
-License:          GPL (>= 2)
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-grid 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-scales 
+Requires:         R-grid 
 
 %description
-Fast, model-agnostic implementation of different H-statistics introduced
-by Jerome H. Friedman and Bogdan E. Popescu (2008)
-<doi:10.1214/07-AOAS148>.  These statistics quantify interaction strength
-per feature, feature pair, and feature triple.  The package supports
-multi-output predictions and can account for case weights. In addition,
-several variants of the original statistics are provided. The shape of the
-interactions can be explored through partial dependence plots or
-individual conditional expectation plots. 'DALEX' explainers, meta
-learners ('mlr3', 'tidymodels', 'caret') and most other models work
-out-of-the-box.
+Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
+maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
+prototypes, customized for representing large 'igraph' objects in a
+normalized coordinate system. By scaling shapes and graph elements,
+'RGraphSpace' can provide a framework for layered visualizations.
 
 %prep
 %setup -q -c -n %{packname}
