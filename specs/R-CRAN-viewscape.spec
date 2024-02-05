@@ -1,33 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usmapdata
-%global packver   0.2.1
+%global packname  viewscape
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mapping Data for 'usmap' Package
+Summary:          Viewscape Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ForestTools 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbmcapply 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ForestTools 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbmcapply 
 
 %description
-Provides a container for data used by the 'usmap' package. The data used
-by 'usmap' has been extracted into this package so that the file size of
-the 'usmap' package can be reduced greatly. The data in this package will
-be updated roughly once per year (plus bug fixes) as new shapefiles are
-provided by the US Census bureau.
+A collection of functions to make R a more effective viewscape analysis
+tool for calculating viewscape metrics based on computing the viewable
+area for given a point/multiple viewpoints and a digital elevation
+model.The method of calculating viewscape metrics implemented in this
+package are based on the work of Tabrizian et al. (2020)
+<doi:10.1016/j.landurbplan.2019.103704>. The algorithm of computing
+viewshed is based on the work of Franklin & Ray. (1994)
+<https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=555780f6f5d7e537eb1edb28862c86d1519af2be>.
 
 %prep
 %setup -q -c -n %{packname}

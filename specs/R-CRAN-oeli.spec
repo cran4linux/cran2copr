@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          My Utilities for Developing Data Science Software
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-benchmarkme 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-sysfonts
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-benchmarkme 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 

@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  elgbd
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          Empirical Likelihood for General Block Designs
 
-License:          EUPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+Performs hypothesis testing for general block designs with empirical
+likelihood. The core computational routines are implemented using the
+'Eigen' 'C++' library and 'RcppEigen' interface, with 'OpenMP' for
+parallel computation. Details of the methods are given in Kim, MacEachern,
+and Peruggia (2023) <doi:10.1080/10485252.2023.2206919>. This work was
+supported by the U.S. National Science Foundation under Grants No.
+SES-1921523 and DMS-2015552.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  Qval
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          The Q-Matrix Validation Methods Framework
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-GDINA 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-GDINA 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+Provide a variety of Q-matrix validation methods for the generalized
+cognitive diagnosis models, including the method based on the generalized
+deterministic input, noisy, “and” gate model (G-DINA) by de la Torre
+(2011) <DOI:10.1007/s11336-011-9207-7> discrimination index (the GDI
+method) by de la Torre and Chiu (2016) <DOI:10.1007/s11336-015-9467-8>,
+the step-wise Wald test method (the Wald method) by Ma and de la Torre
+(2020) <DOI:10.1111/bmsp.12156>, the Hull method by Najera et al. (2021)
+<DOI:10.1111/bmsp.12228>, the multiple logistic regression‑based Q‑matrix
+validation method (the MLR-B method) by Tu et al. (2022)
+<DOI:10.3758/s13428-022-01880-x>. Different research methods during
+Q-matrix validating are available.
 
 %prep
 %setup -q -c -n %{packname}

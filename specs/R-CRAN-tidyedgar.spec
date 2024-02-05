@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  tidyedgar
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          Tidy Fundamental Financial Data from 'SEC's 'EDGAR' 'API'
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-parallel 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+Streamline the process of accessing fundamental financial data from the
+United States Securities and Exchange Commission's ('SEC') Electronic Data
+Gathering, Analysis, and Retrieval system ('EDGAR') 'API'
+<https://www.sec.gov/edgar/sec-api-documentation>, transforming it into a
+tidy, analysis-ready format.
 
 %prep
 %setup -q -c -n %{packname}

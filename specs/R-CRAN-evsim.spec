@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evsim
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Electric Vehicle Charging Sessions Simulation
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-xts 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-xts 
 
 %description
 Simulation of Electric Vehicles charging sessions using Gaussian models,

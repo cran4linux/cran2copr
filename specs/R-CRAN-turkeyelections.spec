@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  turkeyelections
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          The Most Comprehensive R Package for Turkish Election Results
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggparliament 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggparliament 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+Includes the results of general, local, and presidential elections held in
+Turkey between 1995 and 2023, broken down by provinces and overall
+national results. It facilitates easy processing of this data and the
+creation of visual representations based on these election results.
 
 %prep
 %setup -q -c -n %{packname}

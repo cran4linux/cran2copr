@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.linnet
-%global packver   3.1-3
+%global packver   3.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Networks Functionality of the 'spatstat' Family
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.model >= 3.2.8
+BuildRequires:    R-CRAN-spatstat.model >= 3.2.9
 BuildRequires:    R-CRAN-spatstat.geom >= 3.2.7
 BuildRequires:    R-CRAN-spatstat.explore >= 3.2.5
 BuildRequires:    R-CRAN-spatstat.random >= 3.2.1
@@ -29,7 +29,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.model >= 3.2.8
+Requires:         R-CRAN-spatstat.model >= 3.2.9
 Requires:         R-CRAN-spatstat.geom >= 3.2.7
 Requires:         R-CRAN-spatstat.explore >= 3.2.5
 Requires:         R-CRAN-spatstat.random >= 3.2.1

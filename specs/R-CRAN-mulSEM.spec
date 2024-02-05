@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  mulSEM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          Some Multivariate Analyses using Structural Equation Modeling
 
-License:          EUPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-OpenMx 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-OpenMx 
 Requires:         R-stats 
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+A set of functions for some multivariate analyses utilizing a structural
+equation modeling (SEM) approach through the 'OpenMx' package. These
+analyses include canonical correlation analysis (CANCORR), redundancy
+analysis (RDA), and multivariate principal component regression (MPCR). It
+implements procedures discussed in Gu and Cheung (2023)
+<doi:10.1111/bmsp.12301>, Gu, Yung, and Cheung (2019)
+<doi:10.1080/00273171.2018.1512847>, and Gu et al. (2023)
+<doi:10.1080/00273171.2022.2141675>.
 
 %prep
 %setup -q -c -n %{packname}

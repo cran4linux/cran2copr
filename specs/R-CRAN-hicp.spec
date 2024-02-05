@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  hicp
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          Harmonised Index of Consumer Prices
 
 License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-restatapi >= 0.21.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-restatapi >= 0.21.0
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+The Harmonised Index of Consumer Prices (HICP) is the key economic figure
+to measure inflation in the euro area. The methodology underlying the HICP
+is documented in the HICP Methodological Manual
+(<https://ec.europa.eu/eurostat/de/web/products-manuals-and-guidelines/-/ks-gq-17-015>).
+Based on the manual, this package provides functions to access and work
+with HICP data from Eurostat's public database
+(<https://ec.europa.eu/eurostat/data/database>).
 
 %prep
 %setup -q -c -n %{packname}

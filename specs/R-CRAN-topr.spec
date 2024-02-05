@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topr
-%global packver   1.1.10
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.10
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom Plots for Viewing Genetic Association Results
 
@@ -28,7 +28,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-toprdata 
+BuildRequires:    R-CRAN-enshuman 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -40,7 +40,7 @@ Requires:         R-grid
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-toprdata 
+Requires:         R-CRAN-enshuman 
 
 %description
 A collection of functions for visualizing,exploring and annotating genetic

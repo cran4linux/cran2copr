@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rjdqa
-%global packver   0.1.3
+%global packname  jage
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quality Assessment for Seasonal Adjustment
+Summary:          Estimation of Developmental Age
 
-License:          EUPL
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.1
-Requires:         R-core >= 3.1.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
-Requires:         R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 
 %description
-Add-in to the 'RJDemetra' package on seasonal adjustments. It allows to
-produce dashboards to summarise models and quickly check the quality of
-the seasonal adjustment.
+Bayesian methods for estimating developmental age from ordinal dental
+data. For an explanation of the model used, see Konigsberg (2015)
+<doi:10.3109/03014460.2015.1045430>. For details on the conditional
+correlation correction, see Sgheiza (2022)
+<doi:10.1016/j.forsciint.2021.111135>. Dental scoring is based on
+Moorrees, Fanning, and Hunt (1963) <doi:10.1177/00220345630420062701>.
 
 %prep
 %setup -q -c -n %{packname}

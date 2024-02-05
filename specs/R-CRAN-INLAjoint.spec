@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAjoint
-%global packver   23.10.28
+%global packver   24.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.10.28
+Version:          24.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Joint Modeling for Longitudinal and Time-to-Event Outcomes with 'INLA'
 
@@ -22,11 +22,15 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
 Estimation of joint models for multivariate longitudinal markers (with
