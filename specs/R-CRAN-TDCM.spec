@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bReeze
-%global packver   0.4-4
+%global packname  TDCM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Wind Resource Assessment
+Summary:          The Transition Diagnostic Classification Model Framework
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-CDM 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-polycor 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-CDM 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-polycor 
+Requires:         R-CRAN-stringr 
 
 %description
-A collection of functions to analyse, visualize and interpret wind data
-and to calculate the potential energy production of wind turbines.
+Estimate the transition diagnostic classification model (TDCM) described
+in Madison & Bradshaw (2018) <doi:10.1007/s11336-018-9638-5>, a
+longitudinal extension of the log-linear cognitive diagnosis model (LCDM)
+in Henson, Templin & Willse (2009) <doi:10.1007/s11336-008-9089-5>. As the
+LCDM subsumes many other diagnostic classification models (DCMs), many
+other DCMs can be estimated longitudinally via the TDCM. The 'TDCM'
+package includes functions to estimate the single-group and multigroup
+TDCM, summarize results of interest including item parameters, growth
+proportions, transition probabilities, transitional reliability, attribute
+correlations, model fit, and growth plots.
 
 %prep
 %setup -q -c -n %{packname}

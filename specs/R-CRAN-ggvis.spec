@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggvis
-%global packver   0.4.8
+%global packver   0.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.8
+Version:          0.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Grammar of Graphics
 
@@ -23,16 +23,16 @@ BuildRequires:    R-CRAN-htmltools >= 0.2.4
 BuildRequires:    R-CRAN-shiny >= 0.11.1
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 0.9.11
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-htmltools >= 0.2.4
 Requires:         R-CRAN-shiny >= 0.11.1
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
 An implementation of an interactive grammar of graphics, taking the best

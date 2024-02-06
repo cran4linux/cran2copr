@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OLCPM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Online Change Point Detection for Matrix-Valued Time Series
 
@@ -36,7 +36,9 @@ Based on this, we propose two families of procedures - one based on the
 fluctuations of partial sums, and one based on extreme value theory - to
 monitor whether the first non-spiked eigenvalue diverges after a point in
 time in the monitoring horizon, thereby indicating the presence of a
-change point. See more details in He et al. (2021)<arXiv:2112.13479>.
+change point. This package also provides some simple functions for
+detecting and removing outliers, imputing missing entries and testing
+moments. See more details in He et al. (2021)<arXiv:2112.13479>.
 
 %prep
 %setup -q -c -n %{packname}

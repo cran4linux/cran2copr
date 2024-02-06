@@ -1,56 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inti
-%global packver   0.6.4
+%global packname  One4All
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and Statistical Procedures in Plant Science
+Summary:          Validate, Share, and Download Data
 
-License:          GPL-3 | file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-validate 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ckanr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-lexicon 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-agricolae 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-aws.s3 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-mongolite 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-validate 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ckanr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-lexicon 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-agricolae 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-mongolite 
+Requires:         R-CRAN-httr 
 
 %description
-The 'inti' package is part of the 'inkaverse' project for developing
-different procedures and tools used in plant science and experimental
-designs. The mean aim of the package is to support researchers during the
-planning of experiments and data collection (tarpuy()), data analysis and
-graphics (yupana()) , and technical writing. Learn more about the
-'inkaverse' project at <https://inkaverse.com/>.
+Designed to enhance data validation and management processes by employing
+a set of functions that read a set of rules from a 'CSV' or 'Excel' file
+and apply them to a dataset. Funded by the National Renewable Energy
+Laboratory and Possibility Lab, maintained by the Moore Institute for
+Plastic Pollution Research.
 
 %prep
 %setup -q -c -n %{packname}

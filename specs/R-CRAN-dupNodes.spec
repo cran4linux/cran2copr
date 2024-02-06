@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapmisc
-%global packver   2.0.3
+%global packname  dupNodes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Producing Maps
+Summary:          Creates an 'igraph' Object that Duplicates Nodes with Self-Loops
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-geosphere 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-geosphere 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-dogesr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-dogesr 
 
 %description
-Provides a minimal, light-weight set of tools for producing nice looking
-maps in R, with support for map projections.  See Brown (2016)
-<doi:10.32614/RJ-2016-005>.
+Creates a new graph from an existing one, duplicating nodes with
+self-loops. This can be used for a computation of betweenness centrality
+that does not drop this essential information. Implements Merelo &
+Molinari (2021) <doi:10.1007/s42001-023-00245-4>.
 
 %prep
 %setup -q -c -n %{packname}

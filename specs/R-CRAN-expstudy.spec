@@ -1,69 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  expstudy
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Experience Study Tools for Analytics and Communications
+Summary:          Tools for Actuarial Experience Studies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.6
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-pillar >= 1.6.4
-BuildRequires:    R-CRAN-glue >= 1.6.0
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-dtplyr >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-tidyselect >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.7
-BuildRequires:    R-CRAN-lifecycle >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 3.1.6
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-pillar >= 1.6.4
-Requires:         R-CRAN-glue >= 1.6.0
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-dtplyr >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-tidyselect >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.7
-Requires:         R-CRAN-lifecycle >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-CRAN-checkmate 
-Requires:         R-methods 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Provides a data class of 'tbl_es' to help aid in the formation and
-analyses of recurrent or novel experience studies. A 'tbl_es' has
-attributes which identify the key variables used for calculating metrics
-under an actuarial perspective. Common metrics (such as actual-to-expected
-analysis) can be quickly generated in aggregate or according to different
-qualitative factors. If multiple factors are of interest, grouped metrics
-can be automatically computed for each factor individually as well as for
-all possible combinations. All resulting output can then be formatted for
-presentations or left unformatted for subsequent analyses. Ultimately,
-this package aims to reduce time spent completing repetitive code
-therefore increasing time for analysis and insight.
+Experiences studies are an integral component of the actuarial control
+cycle. Regardless of the decrement or policyholder behavior of interest,
+the analyses conducted is often the same. Ultimately, this package aims to
+reduce time spent writing the same code used for different experience
+studies, therefore increasing the time for to uncover new insights inherit
+within the relevant experience.
 
 %prep
 %setup -q -c -n %{packname}

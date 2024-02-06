@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DRIP
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discontinuous Regression and Image Processing
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,9 +25,8 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-This is a collection of functions for discontinuous regression analysis
-and image processing (DRIP). This version removes the dependence on the
-GNU Scientific Library.
+A collection of functions that perform jump regression and image analysis
+such as denoising, deblurring and jump detection.
 
 %prep
 %setup -q -c -n %{packname}

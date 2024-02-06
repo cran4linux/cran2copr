@@ -1,36 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bReeze
-%global packver   0.4-4
+%global packname  testthatmulti
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Wind Resource Assessment
+Summary:          Testing for R Packages with Multiple Attempts for Noisy Tests
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A collection of functions to analyse, visualize and interpret wind data
-and to calculate the potential energy production of wind turbines.
+Runs tests using the 'testthat' package but allows for multiple attempts
+for a single test. This is useful for noisy or flaky tests that generally
+pass but can fail due to occasional random errors, such as numeric
+instability or using random data.
 
 %prep
 %setup -q -c -n %{packname}

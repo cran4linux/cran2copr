@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bReeze
-%global packver   0.4-4
+%global packname  ZIPG
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Wind Resource Assessment
+Summary:          Zero-Inflated Poisson-Gamma Regression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-MASS 
 
 %description
-A collection of functions to analyse, visualize and interpret wind data
-and to calculate the potential energy production of wind turbines.
+We provide a flexible Zero-inflated Poisson-Gamma Model (ZIPG) by
+connecting both the mean abundance and the variability to different
+covariates, and build valid statistical inference procedures for both
+parameter estimation and hypothesis testing. These functions can be used
+to analyze microbiome count data with zero-inflation and overdispersion.
+The model is discussed in Jiang et al (2023)
+<doi:10.1080/01621459.2022.2151447>.
 
 %prep
 %setup -q -c -n %{packname}

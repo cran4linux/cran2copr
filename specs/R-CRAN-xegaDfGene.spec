@@ -1,36 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bReeze
-%global packver   0.4-4
+%global packname  xegaDfGene
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Wind Resource Assessment
+Summary:          Gene Operations for Real-Coded Genes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-xegaSelectGene 
+Requires:         R-CRAN-xegaSelectGene 
 
 %description
-A collection of functions to analyse, visualize and interpret wind data
-and to calculate the potential energy production of wind turbines.
+Representation-dependent gene level operations for genetic and
+evolutionary algorithms with real-coded genes are collected in this
+package. The common feature of the gene operations is that all of them are
+useful for derivation-free optimization algorithms. At the moment the
+package implements initialization, mutation, crossover, and replication
+operations for differential evolution as described in Price, Kenneth V.,
+Storn, Rainer M. and Lampinen, Jouni A. (2005)
+<doi:10.1007/3-540-31306-0>.
 
 %prep
 %setup -q -c -n %{packname}

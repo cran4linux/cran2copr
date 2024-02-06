@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesMultiMode
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Mode Inference
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-sn
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-dplyr 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-sn
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-scales 
 
 %description
 A Bayesian approach for mode inference which works in two steps. First, a

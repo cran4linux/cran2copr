@@ -1,65 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  galah
-%global packver   2.0.1
+%global packname  vyos
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biodiversity Data from the GBIF Node Network
+Summary:          Interface for Multiple Data Providers 'EDDS' and 'FRED'
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-glue >= 1.3.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.8
-BuildRequires:    R-CRAN-potions >= 0.2.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-devel >= 3.4.3
+Requires:         R-core >= 3.4.3
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-glue >= 1.3.2
-Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.8
-Requires:         R-CRAN-potions >= 0.2.0
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
 
 %description
-The Global Biodiversity Information Facility ('GBIF',
-<https://www.gbif.org>) sources data from an international network of data
-providers, known as 'nodes'. Several of these nodes - the "living atlases"
-(<https://living-atlases.gbif.org>) - maintain their own web services
-using software originally developed by the Atlas of Living Australia
-('ALA', <https://www.ala.org.au>). 'galah' enables the R community to
-directly access data and resources hosted by 'GBIF' and its partner nodes.
+Interface for multiple data sources, such as the 'EDDS' API
+<https://evds2.tcmb.gov.tr/index.php?/evds/userDocs> of the Central Bank
+of the Republic of Türkiye and the 'FRED' API
+<https://fred.stlouisfed.org/docs/api/fred/> of the Federal Reserve Bank.
+Both data providers require API keys for access, which users can easily
+obtain by creating accounts on their respective websites. The package
+provides caching ability with the selection of periods to increase the
+speed and efficiency of requests. It combines datasets requested from
+different sources, helping users when the data has common frequencies.
+While combining data frames whenever possible, it also keeps all requested
+data available as separate data frames to increase efficiency.
 
 %prep
 %setup -q -c -n %{packname}

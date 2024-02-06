@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diseasemapping
-%global packver   2.0.5
+%global packname  fastliu
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modelling Spatial Variation in Disease Risk for Areal Data
+Summary:          Fast Functions for Liu Regression with Regularization Parameter and Statistics
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
 
 %description
-Formatting of population and case data, calculation of Standardized
-Incidence Ratios, and fitting the BYM model using 'INLA'. For details see
-Brown (2015) <doi:10.18637/jss.v063.i12>.
+Efficient computation of the Liu regression coefficient paths, Liu-related
+statistics and information criteria for a grid of the regularization
+parameter. The computations are based on the 'C++' library 'Armadillo'
+through the 'R' package 'Rcpp'.
 
 %prep
 %setup -q -c -n %{packname}

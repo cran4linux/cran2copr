@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  R2jags
-%global packver   0.7-1
+%global packver   0.7-1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using R to Run 'JAGS'
 

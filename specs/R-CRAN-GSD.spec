@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evprof
-%global packver   1.1.1
+%global packname  GSD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Electric Vehicle Charging Sessions Profiling and Modelling
+Summary:          Graph Signal Decomposition
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-EbayesThresh 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-EbayesThresh 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
-Tools for modelling electric vehicle charging sessions into generic groups
-with similar connection patterns called "user profiles", using Gaussian
-Mixture Models clustering. The clustering and profiling methodology is
-described in Cañigueral and Meléndez (2021, ISBN:0142-0615)
-<doi:10.1016/j.ijepes.2021.107195>.
+Graph signals residing on the vertices of a graph have recently gained
+prominence in research in various fields. Many methodologies have been
+proposed to analyze graph signals by adapting classical signal processing
+tools. Recently, several notable graph signal decomposition methods have
+been proposed, which include graph Fourier decomposition based on graph
+Fourier transform, graph empirical mode decomposition, and statistical
+graph empirical mode decomposition. This package efficiently implements
+multiscale analysis applicable to various fields, and offers an effective
+tool for visualizing and decomposing graph signals. For the detailed
+methodology, see Ortega et al. (2018) <doi:10.1109/JPROC.2018.2820126>,
+Shuman et al. (2013) <doi:10.1109/MSP.2012.2235192>, Tremblay et al.
+(2014)
+<https://www.eurasip.org/Proceedings/Eusipco/Eusipco2014/HTML/papers/1569922141.pdf>,
+and Cho et al. (2024) "Statistical graph empirical mode decomposition by
+graph denoising and boundary treatment".
 
 %prep
 %setup -q -c -n %{packname}

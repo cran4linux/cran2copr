@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDMConnector
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to an OMOP Common Data Model
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dbplyr >= 2.4.0
 BuildRequires:    R-CRAN-DBI >= 0.3.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.0.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -37,9 +38,9 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-snakecase 
 Requires:         R-CRAN-dbplyr >= 2.4.0
 Requires:         R-CRAN-DBI >= 0.3.0
+Requires:         R-CRAN-omopgenerics >= 0.0.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
@@ -58,7 +59,6 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-snakecase 
 
 %description
 Provides tools for working with observational health data in the

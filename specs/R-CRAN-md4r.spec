@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bReeze
-%global packver   0.4-4
+%global packname  md4r
+%global packver   0.5.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Wind Resource Assessment
+Summary:          Markdown Parser Implemented using the 'MD4C' Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-stringr 
 
 %description
-A collection of functions to analyse, visualize and interpret wind data
-and to calculate the potential energy production of wind turbines.
+Provides an R wrapper for the 'MD4C' (Markdown for 'C') library. Functions
+exist for parsing markdown ('CommonMark' compliant) along with support for
+other common markdown extensions (e.g. GitHub flavored markdown, 'LaTeX'
+equation support, etc.). The package also provides a number of higher
+level functions for exploring and manipulating markdown abstract syntax
+trees as well as translating and displaying the documents.
 
 %prep
 %setup -q -c -n %{packname}

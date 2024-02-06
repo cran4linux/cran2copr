@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bReeze
-%global packver   0.4-4
+%global packname  dominanceanalysis
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Wind Resource Assessment
+Summary:          Dominance Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.2
-Requires:         R-core >= 2.14.2
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A collection of functions to analyse, visualize and interpret wind data
-and to calculate the potential energy production of wind turbines.
+Dominance analysis is a method that allows to compare the relative
+importance of predictors in multiple regression models: ordinary least
+squares, generalized linear models, hierarchical linear models, beta
+regression and dynamic linear models. The main principles and methods of
+dominance analysis are described in Budescu, D. V. (1993)
+<doi:10.1037/0033-2909.114.3.542> and Azen, R., & Budescu, D. V. (2003)
+<doi:10.1037/1082-989X.8.2.129> for ordinary least squares regression.
+Subsequently, the extensions for multivariate regression, logistic
+regression and hierarchical linear models were described in Azen, R., &
+Budescu, D. V. (2006) <doi:10.3102/10769986031002157>, Azen, R., & Traxel,
+N. (2009) <doi:10.3102/1076998609332754> and Luo, W., & Azen, R. (2013)
+<doi:10.3102/1076998612458319>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

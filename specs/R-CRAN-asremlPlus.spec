@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asremlPlus
-%global packver   4.4.24
+%global packver   4.4.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.24
+Version:          4.4.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -21,64 +21,63 @@ BuildRequires:    R-CRAN-dae
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-sticky 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dae 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-foreach 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-qqplotr 
 Requires:         R-parallel 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-qqplotr 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-sticky 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
 Assists in automating the selection of terms to include in mixed models
-when 'asreml' is used to fit the models. Also used to display, in tables
-and graphs, predictions obtained using any model fitting function and to
-explore differences between predictions. The content falls into the
-following natural groupings: (i) Data, (ii) Object manipulation functions,
-(iii) Model modification functions, (iv) Model selection functions, (v)
-Model diagnostics and simulation functions, (vi) Prediction production and
-presentation functions, (vii) Response transformation functions, and
-(viii) Miscellaneous functions (for further details see
-'asremlPlus-package' in help). A history of the fitting of a sequence of
-models is kept in a data frame. Procedures are available for choosing
-models that conform to the hierarchy or marginality principle, for fitting
-and choosing between two-dimensional spatial models using correlation,
-natural cubic smoothing spline and P-spline models, for displaying
-predictions for significant terms in tables and graphs. The 'asreml'
-package provides a computationally efficient algorithm for fitting a wide
-range of linear mixed models using Residual Maximum Likelihood. It is a
-commercial package that can be purchased from 'VSNi' <https://vsni.co.uk/>
-as 'asreml-R', who will supply a zip file for local installation/updating
-(see <https://asreml.kb.vsni.co.uk/>). It is not needed for functions that
-are methods for 'alldiffs' and 'data.frame' objects. The package
-'asremPlus' can also be installed from
+when 'asreml' is used to fit the models. Procedures are available for
+choosing models that conform to the hierarchy or marginality principle,
+for fitting and choosing between two-dimensional spatial models using
+correlation, natural cubic smoothing spline and P-spline models. A history
+of the fitting of a sequence of models is kept in a data frame. Also used
+to compute functions and contrasts of, to investigate differences between
+and to plot predictions obtained using any model fitting function. The
+content falls into the following natural groupings: (i) Data, (ii) Model
+modification functions, (iii) Model selection and description functions,
+(iv) Model diagnostics and simulation functions, (v) Prediction production
+and presentation functions, (vi) Response transformation functions, (vii)
+Object manipulation functions, and (viii) Miscellaneous functions (for
+further details see 'asremlPlus-package' in help). The 'asreml' package
+provides a computationally efficient algorithm for fitting a wide range of
+linear mixed models using Residual Maximum Likelihood. It is a commercial
+package and a license for it can be purchased from 'VSNi'
+<https://vsni.co.uk/> as 'asreml-R', who will supply a zip file for local
+installation/updating (see <https://asreml.kb.vsni.co.uk/>). It is not
+needed for functions that are methods for 'alldiffs' and 'data.frame'
+objects. The package 'asremPlus' can also be installed from
 <http://chris.brien.name/rpackages/>.
 
 %prep

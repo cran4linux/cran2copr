@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DCluster
-%global packver   0.2-9
+%global packver   0.2-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for the Detection of Spatial Clusters of Diseases
 
@@ -19,9 +19,13 @@ Requires:         R-core >= 1.6.2
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-spdep 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
 A set of functions for the detection of spatial clusters of disease using

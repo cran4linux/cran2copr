@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ao
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternating Optimization
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimizeR >= 1.0.3
+BuildRequires:    R-CRAN-optimizeR >= 1.0.4
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-optimizeR >= 1.0.3
+Requires:         R-CRAN-optimizeR >= 1.0.4
 Requires:         R-CRAN-checkmate 
 Requires:         R-utils 
 

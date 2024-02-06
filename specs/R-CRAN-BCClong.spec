@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BCClong
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Consensus Clustering for Multiple Longitudinal Features
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-nnet
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-cluster 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-nnet
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-stats 
 Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-abind 
 
 %description
 It is very common nowadays for a study to collect multiple features and

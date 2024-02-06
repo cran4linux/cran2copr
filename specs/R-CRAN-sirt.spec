@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sirt
-%global packver   4.0-32
+%global packver   4.1-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.32
+Version:          4.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supplementary Item Response Theory Models
 
