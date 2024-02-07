@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  MARMoT
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Matching on Poset-Based Average Rank for Multiple Treatments (MARMoT)
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parsec 
+BuildRequires:    R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-parsec 
+Requires:         R-stats 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+It contains the function to apply MARMoT balancing technique discussed in:
+Silan, Boccuzzo, Arpino (2021) <DOI:10.1002/sim.9192>, Silan, Belloni,
+Boccuzzo, (2023) <DOI:10.1007/s10260-023-00695-0>; furthermore it contains
+a function for computing the Deloof's approximation of the average rank
+(and also a parallelized version) and a function to compute the Absolute
+Standardized Bias.
 
 %prep
 %setup -q -c -n %{packname}

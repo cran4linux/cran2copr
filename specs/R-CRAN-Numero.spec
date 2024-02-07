@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  Numero
+%global packver   1.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.9.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Statistical Framework to Define Subgroups in Complex Datasets
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+High-dimensional datasets that do not exhibit a clear intrinsic clustered
+structure pose a challenge to conventional clustering algorithms. For this
+reason, we developed an unsupervised framework that helps scientists to
+better subgroup their datasets based on visual cues, please see Gao S,
+Mutter S, Casey A, Makinen V-P (2019) Numero: a statistical framework to
+define multivariable subgroups in complex population-based datasets, Int J
+Epidemiology, 48:369-37, <doi:10.1093/ije/dyy113>. The framework includes
+the necessary functions to construct a self-organizing map of the data, to
+evaluate the statistical significance of the observed data patterns, and
+to visualize the results.
 
 %prep
 %setup -q -c -n %{packname}

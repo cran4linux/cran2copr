@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  shp2graph
+%global packver   1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Convert a 'SpatialLinesDataFrame' -Class Object to an 'igraph'-Class Object
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
-BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sp 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+Requires:         R-methods 
+Requires:         R-CRAN-sp 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+Functions for converting and processing network data from a
+'SpatialLinesDataFrame' -Class object to an 'igraph'-Class object.
 
 %prep
 %setup -q -c -n %{packname}

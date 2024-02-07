@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  visOmopResults
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Graphs and Tables for OMOP Results
 
-License:          Artistic-2.0
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+BuildRequires:    R-CRAN-omopgenerics >= 0.0.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-omopgenerics >= 0.0.2
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+Provides methods to transform omop_result objects into formatted tables
+and figures, facilitating the visualization of study results working with
+the Observational Medical Outcomes Partnership (OMOP) Common Data Model.
 
 %prep
 %setup -q -c -n %{packname}

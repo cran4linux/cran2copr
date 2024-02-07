@@ -1,44 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  traudem
-%global packver   1.0.2
+%global packname  comtradr
+%global packver   0.4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.4.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use TauDEM
+Summary:          Interface with the United Nations 'Comtrade' API
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-askpass 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sys 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-poorman 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-askpass 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sys 
-Requires:         R-tools 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-poorman 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
 
 %description
-Simple trustworthy utility functions to use TauDEM (Terrain Analysis Using
-Digital Elevation Models <https://hydrology.usu.edu/taudem/taudem5/>)
-command-line interface. This package provides a guide to installation of
-TauDEM and its dependencies GDAL (Geopatial Data Abstraction Library) and
-MPI (Message Passing Interface) for different operating systems. Moreover,
-it checks that TauDEM and its dependencies are correctly installed and
-included to the PATH, and it provides wrapper commands for calling TauDEM
-methods from R.
+Interface with and extract data from the United Nations 'Comtrade' API
+<https://comtradeplus.un.org/>. 'Comtrade' provides country level shipping
+data for a variety of commodities, these functions allow for easy API
+query and data returned as a tidy data frame.
 
 %prep
 %setup -q -c -n %{packname}

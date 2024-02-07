@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  instantiate
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pre-Compiled 'CmdStan' Models in R Packages
 
@@ -16,9 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 

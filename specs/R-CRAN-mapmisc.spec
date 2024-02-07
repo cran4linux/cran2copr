@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  mapmisc
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Utilities for Producing Maps
 
-License:          Artistic-2.0
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-geosphere 
+Requires:         R-CRAN-terra 
 Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-geosphere 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+Provides a minimal, light-weight set of tools for producing nice looking
+maps in R, with support for map projections.  See Brown (2016)
+<doi:10.32614/RJ-2016-005>.
 
 %prep
 %setup -q -c -n %{packname}

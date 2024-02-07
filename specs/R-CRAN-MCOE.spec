@@ -1,41 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  MCOE
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Creates New Folders and Loads Standard Practices for Monterey County Office of Education
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-googlesheets4 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-odbc 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-googlesheets4 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-odbc 
 Requires:         R-CRAN-scales 
-Requires:         R-grid 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+Basic Setup for Projects in R for Monterey County Office of Education. It
+contains functions often used in the analysis of education data in the
+county office including seeing if an item is not in a list, rounding in
+the manner the general public expects, including logos for districts,
+switching between district names and their county-district-school codes,
+accessing the local 'SQL' table and making thematically consistent graphs.
 
 %prep
 %setup -q -c -n %{packname}

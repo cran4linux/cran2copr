@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.RiskDemo
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for Risk Demonstration
 
@@ -18,7 +18,6 @@ BuildRequires:    xorg-x11-server-Xvfb
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcmdr 
 BuildRequires:    R-CRAN-demography 
 BuildRequires:    R-CRAN-forecast 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-stats 
 Requires:         R-CRAN-Rcmdr 
 Requires:         R-CRAN-demography 
 Requires:         R-CRAN-forecast 

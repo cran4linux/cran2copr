@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  mvcauchy
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Multivariate Cauchy Distribution
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+The Cauchy distribution is a special case of the t distribution when the
+degrees of freedom are equal to 1. The functions are related to the
+multivariate Cauchy distribution and include simulation, computation of
+the density, maximum likelihood estimation, contour plot of the bivariate
+Cauchy distribution, and discriminant analysis. References include:
+Nadarajah S. and Kotz S. (2008). "Estimation methods for the multivariate
+t distribution". Acta Applicandae Mathematicae, 102(1): 99--118.
+<doi:10.1007/s10440-008-9212-8>, and Kanti V. Mardia, John T. Kent and
+John M. Bibby (1979). "Multivariate analysis", ISBN:978-0124712522.
+Academic Press, London.
 
 %prep
 %setup -q -c -n %{packname}

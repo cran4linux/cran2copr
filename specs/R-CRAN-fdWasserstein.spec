@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  fdWasserstein
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Application of Optimal Transport to Functional Data Analysis
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+These functions were developed to support statistical analysis on
+functional covariance operators. The package contains functions to: -
+compute 2-Wasserstein distances between Gaussian Processes as in
+Masarotto, Panaretos & Zemel (2019) <doi:10.1007/s13171-018-0130-1>; -
+compute the Wasserstein barycenter (Frechet mean) as in Masarotto,
+Panaretos & Zemel (2019) <doi:10.1007/s13171-018-0130-1>; - perform
+analysis of variance testing procedures for functional covariances and
+tangent space principal component analysis of covariance operators as in
+Masarotto, Panaretos & Zemel (2022) <arXiv:2212.04797>. - perform a
+soft-clustering based on the Wasserstein distance where functional data
+are classified based on their covariance structure as in Masarotto &
+Masarotto (2023) <doi:10.1111/sjos.12692>.
 
 %prep
 %setup -q -c -n %{packname}

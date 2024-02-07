@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmediate
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Micro-Macro Analysis for Social Networks
 
@@ -53,7 +53,9 @@ BugReports: <https://github.com/sduxbury/netmediate/issues>. Robins,
 Garry, Phillipa Pattison, and Jodie Woolcock (2005) <doi:10.1086/427322>.
 Snijders, Tom A. B., and Christian E. G. Steglich (2015)
 <doi:10.1177/0049124113494573>. Imai, Kosuke, Luke Keele, and Dustin
-Tingley (2010) <doi:10.1037/a0020761>.
+Tingley (2010) <doi:10.1037/a0020761>. Duxbury, Scott (2023)
+<doi:10.1177/00811750231209040>. Duxbury, Scott (2024)
+<doi:10.1177/00811750231220950>.
 
 %prep
 %setup -q -c -n %{packname}

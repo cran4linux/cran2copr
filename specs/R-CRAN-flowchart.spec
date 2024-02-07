@@ -1,38 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbm3
-%global packver   3.0
+%global packname  flowchart
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Boosted Regression Models
+Summary:          Tidy Flowchart Generator
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-splines 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-lattice 
-Requires:         R-splines 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Gmisc 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Gmisc 
+Requires:         R-grid 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
 
 %description
-Extensions to Freund and Schapire's AdaBoost algorithm, Y. Freund and R.
-Schapire (1997) <doi:10.1006/jcss.1997.1504> and Friedman's gradient
-boosting machine, J.H. Friedman (2001) <doi:10.1214/aos/1013203451>.
-Includes regression methods for least squares, absolute loss,
-t-distribution loss, quantile regression, logistic, Poisson, Cox
-proportional hazards partial likelihood, AdaBoost exponential loss,
-Huberized hinge loss, and Learning to Rank measures (LambdaMART).
+Creates participant flow diagrams directly from a dataframe. Representing
+the flow of participants through each stage of a study, especially in
+clinical trials, is essential to assess the generalisability and validity
+of the results. This package provides a set of functions that can be
+combined with a pipe operator to create all kinds of flowcharts from a
+data frame in an easy way.
 
 %prep
 %setup -q -c -n %{packname}

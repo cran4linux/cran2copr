@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NormData
-%global packver   1.0
+%global packname  sampbias
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Derivation of Regression-Based Normative Data
+Summary:          Evaluating Geographic Sampling Bias in Biological Collections
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-doBy 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-doBy 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-lmtest 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rnaturalearth 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rnaturalearth 
 
 %description
-Normative data are often used to estimate the relative position of a raw
-test score in the population. This package allows for deriving
-regression-based normative data. It includes functions that enable the
-fitting of regression models for the mean and residual (or variance)
-structures, test the model assumptions, derive the normative data in the
-form of normative tables or automatic scoring sheets, and estimate
-confidence intervals for the norms. This package accompanies the book Van
-der Elst, W. (2024). Regression-based normative data for psychological
-assessment. A hands-on approach using R. Springer Nature.
+Evaluating the biasing impact of geographic features such as airports,
+cities, roads, rivers in datasets of coordinates based biological
+collection datasets, by Bayesian estimation of the parameters of a Poisson
+process. Enables also spatial visualization of sampling bias and includes
+a set of convenience functions for publication level plotting. Also
+available as 'shiny' app. The reference for the methodology is: Zizka et
+al. (2020) <doi:10.1111/ecog.05102>.
 
 %prep
 %setup -q -c -n %{packname}

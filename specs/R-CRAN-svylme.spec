@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGraphSpace
-%global packver   1.0.5
+%global packname  svylme
+%global packver   1.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Lightweight Interface Between 'ggplot2' and 'igraph' Objects
+Summary:          Linear Mixed Models for Complex Survey Data
 
-License:          Artistic-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lme4 
 Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-Interface to integrate 'igraph' and 'ggplot2' graphics within spatial
-maps. 'RGraphSpace' implements new geometric objects using 'ggplot2'
-prototypes, customized for representing large 'igraph' objects in a
-normalized coordinate system. By scaling shapes and graph elements,
-'RGraphSpace' can provide a framework for layered visualizations.
+Linear mixed models for complex survey data, by pairwise composite
+likelihood, as described in Lumley & Huang (2023) <arXiv:2311.13048>.
+Supports nested and crossed random effects, and correlated random effects
+as in genetic models.  Allows for multistage sampling and for other
+designs where pairwise sampling probabilities are specified or can be
+calculated.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivo.table
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nicely Formatted Contingency Tables and Frequency Tables
 
@@ -19,25 +19,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-officer 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description
 Nicely formatted frequency tables and contingency tables (1-way, 2-way,
 3-way and 4-way tables), that can easily be exported to HTML or 'Office'
-documents, including 'Excel'. Designed to work with pipes.
+documents. Designed to work with pipes.
 
 %prep
 %setup -q -c -n %{packname}

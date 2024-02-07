@@ -1,52 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  palettes
-%global packver   0.2.0
+%global packname  PublicWorksFinanceIT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Colour Vectors and Colour Palettes
+Summary:          Soil Defense Investments in Italy: Data Retrieval, Analysis, Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-farver >= 2.0.3
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-prismatic 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-farver >= 2.0.3
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-prismatic 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides a comprehensive library for colour vectors and colour palettes
-using a new family of colour classes (palettes_colour and
-palettes_palette) that always print as hex codes with colour previews.
-Capabilities include: formatting, casting and coercion, extraction and
-updating of components, plotting, colour mixing arithmetic, and colour
-interpolation.
+Facilitates the retrieval and analysis of financial data related to public
+works in Italy, focusing on soil defense investments. It extracts data
+from 'OpenCoesione', 'OpenBDAP', and the 'ReNDiS' database, eliminating
+the need for direct access to these platforms. The package boasts a
+user-friendly design, featuring real time updates and a set of functions
+tailored for data retrieval and visualization. See the webpages for
+further information <http://www.rendis.isprambiente.it/rendisweb/>,
+<https://opencoesione.gov.it/en/>, and
+<https://bdap-opendata.rgs.mef.gov.it/>.
 
 %prep
 %setup -q -c -n %{packname}
