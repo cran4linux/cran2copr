@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaGaGene
-%global packver   1.0.0.1
+%global packname  CommonDataModel
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Gene Operations for Genetic Algorithms
+Summary:          OMOP CDM DDL and Documentation Generator
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-DatabaseConnector 
+BuildRequires:    R-CRAN-SqlRender 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-DatabaseConnector 
+Requires:         R-CRAN-SqlRender 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
 
 %description
-Representation-dependent gene level operations of a genetic algorithm with
-binary coded genes: Initialization of random binary genes, several gene
-maps for binary genes, several mutation operators, several crossover
-operators with 1 and 2 kids, replication pipelines for 1 and 2 kids, and,
-last but not least, function factories for configuration. See Goldberg, D.
-E. (1989, ISBN:0-201-15767-5). For crossover operators, see Syswerda, G.
-(1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K. (1991,
-ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A. and
-Daida, J. M. (1996, ISBN:0-18-201-031-7).
+Generates the scripts required to create an Observational Medical Outcomes
+Partnership (OMOP) Common Data Model (CDM) database and associated
+documentation for supported database platforms. Leverages the 'SqlRender'
+package to convert the Data Definition Language (DDL) script written in
+parameterized Structured Query Language (SQL) to the other supported
+dialects.
 
 %prep
 %setup -q -c -n %{packname}

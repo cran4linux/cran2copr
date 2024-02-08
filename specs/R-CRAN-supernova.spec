@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  supernova
-%global packver   2.5.8
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.8
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Judd, McClelland, & Ryan Formatting for ANOVA Output
 
-License:          AGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,11 +18,7 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -30,11 +26,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-backports 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

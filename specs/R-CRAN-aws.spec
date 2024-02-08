@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aws
-%global packver   2.5-4
+%global packver   2.5-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.4
+Version:          2.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Weights Smoothing
 
@@ -31,9 +31,9 @@ Approach to adaptive smoothing, the Intersecting Confidence Intervals
 described in detail in Polzehl J, Papafitsoros K, Tabelow K (2020).
 Patch-Wise Adaptive Weights Smoothing in R. Journal of Statistical
 Software, 95(6), 1-27. <doi:10.18637/jss.v095.i06>, Usage of the package
-in MR imaging is illustrated in Polzehl and Tabelow (2019), Magnetic
-Resonance Brain Imaging, Appendix A, Springer, Use R! Series.
-<doi:10.1007/978-3-030-29184-6_6>.
+in MR imaging is illustrated in Polzehl and Tabelow (2023), Magnetic
+Resonance Brain Imaging, 2nd Ed. Appendix A, Springer, Use R! Series.
+<doi:10.1007/978-3-031-38949-8>.
 
 %prep
 %setup -q -c -n %{packname}

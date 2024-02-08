@@ -1,35 +1,45 @@
+%global debug_package %{nil}
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaGaGene
-%global packver   1.0.0.1
+%global packname  mixl
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Gene Operations for Genetic Algorithms
+Summary:          Simulated Maximum Likelihood Estimation of Mixed Logit Models for Large Datasets
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-stringr >= 1.3.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-stringr >= 1.3.1
+Requires:         R-CRAN-Rcpp >= 0.12.19
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 
 %description
-Representation-dependent gene level operations of a genetic algorithm with
-binary coded genes: Initialization of random binary genes, several gene
-maps for binary genes, several mutation operators, several crossover
-operators with 1 and 2 kids, replication pipelines for 1 and 2 kids, and,
-last but not least, function factories for configuration. See Goldberg, D.
-E. (1989, ISBN:0-201-15767-5). For crossover operators, see Syswerda, G.
-(1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K. (1991,
-ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A. and
-Daida, J. M. (1996, ISBN:0-18-201-031-7).
+Specification and estimation of multinomial logit models.  Large datasets
+and complex models are supported, with an intuitive syntax.  Multinomial
+Logit Models, Mixed models, random coefficients and Hybrid Choice are all
+supported.  For more information, see Molloy et al. (2021)
+<https://www.research-collection.ethz.ch/handle/20.500.11850/477416>.
 
 %prep
 %setup -q -c -n %{packname}

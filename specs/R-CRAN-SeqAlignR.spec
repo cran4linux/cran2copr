@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaGaGene
-%global packver   1.0.0.1
+%global packname  SeqAlignR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Gene Operations for Genetic Algorithms
+Summary:          Sequence Alignment and Visualization Tool
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-plot.matrix 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-plot.matrix 
+Requires:         R-graphics 
 
 %description
-Representation-dependent gene level operations of a genetic algorithm with
-binary coded genes: Initialization of random binary genes, several gene
-maps for binary genes, several mutation operators, several crossover
-operators with 1 and 2 kids, replication pipelines for 1 and 2 kids, and,
-last but not least, function factories for configuration. See Goldberg, D.
-E. (1989, ISBN:0-201-15767-5). For crossover operators, see Syswerda, G.
-(1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K. (1991,
-ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A. and
-Daida, J. M. (1996, ISBN:0-18-201-031-7).
+Computes the optimal alignment of two character sequences. Visualizes the
+result of the alignment in a matrix plot. Needleman, Saul B.; Wunsch,
+Christian D. (1970) "A general method applicable to the search for
+similarities in the amino acid sequence of two proteins"
+<doi:10.1016/0022-2836(70)90057-4>.
 
 %prep
 %setup -q -c -n %{packname}

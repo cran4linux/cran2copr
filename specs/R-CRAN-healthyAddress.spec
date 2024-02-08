@@ -1,31 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sitree
-%global packver   0.1-14
+%global packname  healthyAddress
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Single Tree Simulator
+Summary:          Convert Addresses to Standard Inputs
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-hutils 
+BuildRequires:    R-CRAN-hutilscpp 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-qs 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-fst 
+Requires:         R-CRAN-hutils 
+Requires:         R-CRAN-hutilscpp 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-qs 
+Requires:         R-utils 
 
 %description
-Framework to build an individual tree simulator.
+Efficient tools for parsing and standardizing Australian addresses from
+textual data. It utilizes optimized algorithms to accurately identify and
+extract components of addresses, such as street names, types, and
+postcodes, especially for large batched data in contexts where sending
+addresses to internet services may be slow or inappropriate. The core
+functionality is built on fast string processing techniques to handle
+variations in address formats and abbreviations commonly found in
+Australian address data. Designed for data scientists, urban planners, and
+logistics analysts, the package facilitates the cleaning and normalization
+of address information, supporting better data integration and analysis in
+urban studies, geography, and related fields.
 
 %prep
 %setup -q -c -n %{packname}

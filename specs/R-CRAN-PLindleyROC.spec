@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PLindleyROC
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Receiver Operating Characteristic for Power Lindley Distribution
+Summary:          Receiver Operating Characteristic Based on Power Lindley Distribution
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +19,9 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Receiver operating characteristic (ROC) analysis is carried out from the
-Power Lindley distribution. Specificity, sensitivity, area under the
-curve, and ROC curve are evaluated.
+Receiver Operating Characteristic (ROC) analysis is performed assuming
+samples are from the Power Lindley distribution. Specificity, sensitivity,
+area under the curve and ROC curve are provided.
 
 %prep
 %setup -q -c -n %{packname}

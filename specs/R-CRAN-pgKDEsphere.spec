@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaGaGene
-%global packver   1.0.0.1
+%global packname  pgKDEsphere
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Gene Operations for Genetic Algorithms
+Summary:          Parametrically Guided Kernel Density Estimator for Spherical Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Directional 
+BuildRequires:    R-CRAN-DirStats 
+BuildRequires:    R-CRAN-circular 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-rotasym 
+BuildRequires:    R-CRAN-movMF 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Directional 
+Requires:         R-CRAN-DirStats 
+Requires:         R-CRAN-circular 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-rotasym 
+Requires:         R-CRAN-movMF 
 
 %description
-Representation-dependent gene level operations of a genetic algorithm with
-binary coded genes: Initialization of random binary genes, several gene
-maps for binary genes, several mutation operators, several crossover
-operators with 1 and 2 kids, replication pipelines for 1 and 2 kids, and,
-last but not least, function factories for configuration. See Goldberg, D.
-E. (1989, ISBN:0-201-15767-5). For crossover operators, see Syswerda, G.
-(1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K. (1991,
-ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A. and
-Daida, J. M. (1996, ISBN:0-18-201-031-7).
+Nonparametric density estimation for (hyper)spherical data by means of a
+parametrically guided kernel estimator (adaptation of the method of Hjort
+and Glad (1995) <doi:10.1214/aos/1176324627> to the spherical setting).
+The package also allows the data-driven selection of the smoothing
+parameter and the representation of the estimated density for circular and
+spherical data. Estimators of the density without guide can also be
+obtained.
 
 %prep
 %setup -q -c -n %{packname}

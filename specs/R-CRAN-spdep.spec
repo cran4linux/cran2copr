@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdep
-%global packver   1.3-1
+%global packver   1.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -64,11 +64,16 @@ approximations ('Tiefelsdorf' 2002)
 local 'Moran's I' ('Bivand et al.' 2009) <doi:10.1016/j.csda.2008.07.021>
 and 'LOSH' local indicators of spatial heteroscedasticity ('Ord' and
 'Getis') <doi:10.1007/s00168-011-0492-y>. The implementation of most of
-the measures is described in 'Bivand' and 'Wong' (2018)
+these measures is described in 'Bivand' and 'Wong' (2018)
 <doi:10.1007/s11749-018-0599-x>, with further extensions in 'Bivand'
-(2022) <doi:10.1111/gean.12319>. From 'spdep' and 'spatialreg' versions >=
-1.2-1, the model fitting functions previously present in this package are
-defunct in 'spdep' and may be found in 'spatialreg'.
+(2022) <doi:10.1111/gean.12319>. 'Lagrange' multiplier tests for spatial
+dependence in linear models are provided ('Anselin et al'. 1996)
+<doi:10.1016/0166-0462(95)02111-6>, as are 'Rao' score tests for
+hypothesised spatial 'Durbin' models based on linear models ('Koley' and
+'Bera' 2023) <doi:10.1080/17421772.2023.2256810>. From 'spdep' and
+'spatialreg' versions >= 1.2-1, the model fitting functions previously
+present in this package are defunct in 'spdep' and may be found in
+'spatialreg'.
 
 %prep
 %setup -q -c -n %{packname}

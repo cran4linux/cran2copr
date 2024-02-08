@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaGaGene
-%global packver   1.0.0.1
+%global packname  ggtibble
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary Gene Operations for Genetic Algorithms
+Summary:          Create Tibbles and Lists of 'ggplot' Figures for Reporting
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Representation-dependent gene level operations of a genetic algorithm with
-binary coded genes: Initialization of random binary genes, several gene
-maps for binary genes, several mutation operators, several crossover
-operators with 1 and 2 kids, replication pipelines for 1 and 2 kids, and,
-last but not least, function factories for configuration. See Goldberg, D.
-E. (1989, ISBN:0-201-15767-5). For crossover operators, see Syswerda, G.
-(1989, ISBN:1-55860-066-3), Spears, W. and De Jong, K. (1991,
-ISBN:1-55860-208-9). For mutation operators, see Stanhope, S. A. and
-Daida, J. M. (1996, ISBN:0-18-201-031-7).
+Create tibbles and lists of 'ggplot' figures that can be modified as
+easily as regular 'ggplot' figures.  Typical use cases are for creating
+reports or web pages where many figures are needed with different data and
+similar formatting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasano.franceschini.test
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fasano-Franceschini Test: A Multidimensional Kolmogorov-Smirnov Two-Sample Test
+Summary:          Fasano-Franceschini Test: A Multivariate Kolmogorov-Smirnov Two-Sample Test
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,12 +22,12 @@ Requires:         R-CRAN-RcppParallel >= 5.0.1
 Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-An implementation of the two-sample multidimensional Kolmogorov-Smirnov
-test described by Fasano and Franceschini (1987)
-<doi:10.1093/mnras/225.1.155>. This test evaluates the null hypothesis
-that two i.i.d. random samples were drawn from the same underlying
-probability distribution. The data can be of any dimension, and can be of
-any type (continuous, discrete, or mixed).
+An implementation of the two-sample multivariate Kolmogorov-Smirnov test
+described by Fasano and Franceschini (1987) <doi:10.1093/mnras/225.1.155>.
+This test evaluates the null hypothesis that two i.i.d. random samples
+were drawn from the same underlying probability distribution. The data can
+be of any dimension, and can be of any type (continuous, discrete, or
+mixed).
 
 %prep
 %setup -q -c -n %{packname}

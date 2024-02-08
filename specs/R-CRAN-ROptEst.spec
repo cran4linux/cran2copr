@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rearrr
-%global packver   0.3.4
+%global packname  ROptEst
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rearranging Data
+Summary:          Optimally Robust Estimation
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-distrMod >= 2.8.1
+BuildRequires:    R-CRAN-distr >= 2.8.0
+BuildRequires:    R-CRAN-distrEx >= 2.8.0
+BuildRequires:    R-CRAN-RandVar >= 1.2.0
+BuildRequires:    R-CRAN-RobAStBase >= 1.2.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-startupmsg 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-distrMod >= 2.8.1
+Requires:         R-CRAN-distr >= 2.8.0
+Requires:         R-CRAN-distrEx >= 2.8.0
+Requires:         R-CRAN-RandVar >= 1.2.0
+Requires:         R-CRAN-RobAStBase >= 1.2.0
+Requires:         R-methods 
+Requires:         R-CRAN-startupmsg 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-grDevices 
 
 %description
-Arrange data by a set of methods. Use rearrangers to reorder data points
-and mutators to change their values. From basic utilities, to centering
-the greatest value, to swirling in 3-dimensional space, 'rearrr' enables
-creativity when plotting and experimenting with data.
+R infrastructure for optimally robust estimation in general smoothly
+parameterized models using S4 classes and methods as decribed Kohl, M.,
+Ruckdeschel, P., and Rieder, H. (2010), <doi:10.1007/s10260-010-0133-0>,
+and in Rieder, H., Kohl, M., and Ruckdeschel, P. (2008),
+<doi:10.1007/s10260-007-0047-7>.
 
 %prep
 %setup -q -c -n %{packname}
