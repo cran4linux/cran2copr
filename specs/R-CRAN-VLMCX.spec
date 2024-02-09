@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DiscreteFDR
-%global packver   1.3.7
+%global packname  VLMCX
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Testing Procedures with Adaptation for Discrete Tests
+Summary:          Variable Length Markov Chain with Exogenous Covariates
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.00
-Requires:         R-core >= 3.00
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-berryFunctions 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-berryFunctions 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Multiple testing procedures described in the paper Döhler, Durand and
-Roquain (2018) "New FDR bounds for discrete and heterogeneous tests"
-<doi:10.1214/18-EJS1441>. The main procedures of the paper (HSU and HSD),
-their adaptive counterparts (AHSU and AHSD), and the HBR variant are
-available and are coded to take as input a set of observed p-values and
-their discrete support under the null. A function to compute such p-values
-and supports for Fisher's exact tests is also provided, along with a
-wrapper allowing to apply discrete procedures directly from contingency
-tables.
+Models categorical time series through a Markov Chain when a) covariates
+are predictors for transitioning into the next state/symbol and b) when
+the dependence in the past states has variable length. The probability of
+transitioning to the next state in the Markov Chain is defined by a
+multinomial regression whose parameters depend on the past states of the
+chain and, moreover, the number of states in the past needed to predict
+the next state also depends on the observed states themselves. See Zambom,
+Kim, and Garcia (2022) <doi:10.1111/jtsa.12615>.
 
 %prep
 %setup -q -c -n %{packname}

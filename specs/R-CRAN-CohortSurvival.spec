@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSurvival
-%global packver   0.2.5
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Survival from Common Data Model Cohorts
 
@@ -19,13 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-CDMConnector 
+BuildRequires:    R-CRAN-omopgenerics 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-PatientProfiles 
@@ -36,13 +36,13 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-CDMConnector 
+Requires:         R-CRAN-omopgenerics 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-PatientProfiles 

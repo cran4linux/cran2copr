@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lmw
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Model Weights
 
@@ -19,14 +19,16 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sandwich >= 3.0.2
 BuildRequires:    R-CRAN-backports >= 1.4.1
+BuildRequires:    R-CRAN-chk >= 0.9.1
 Requires:         R-CRAN-sandwich >= 3.0.2
 Requires:         R-CRAN-backports >= 1.4.1
+Requires:         R-CRAN-chk >= 0.9.1
 
 %description
 Computes the implied weights of linear regression models for estimating
 average causal effects and provides diagnostics based on these weights.
 These diagnostics rely on the analyses in Chattopadhyay and Zubizarreta
-(2022) <doi:10.1093/biomet/asac058> where several regression estimators
+(2023) <doi:10.1093/biomet/asac058> where several regression estimators
 are represented as weighting estimators, in connection to inverse
 probability weighting. 'lmw' provides tools to diagnose
 representativeness, balance, extrapolation, and influence for these

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RprobitB
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Probit Choice Modeling
 
@@ -16,35 +16,49 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-plotROC 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-oeli 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotROC 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-plotROC 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-oeli 
+Requires:         R-parallel 
+Requires:         R-CRAN-plotROC 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-viridis 
 
 %description
 Bayes estimation of probit choice models, both in the cross-sectional and

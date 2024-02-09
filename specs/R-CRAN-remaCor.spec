@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remaCor
-%global packver   0.0.16
+%global packver   0.0.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.16
+Version:          0.0.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Effects Meta-Analysis for Correlated Test Statistics
 

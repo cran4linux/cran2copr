@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qfratio
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Moments and Distributions of Ratios of Quadratic Forms Using Recursion
 
@@ -18,15 +18,17 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
 Evaluates moments of ratios (and products) of quadratic forms in normal
 variables, specifically using recursive algorithms developed by Bao and
 Kan (2013) <doi:10.1016/j.jmva.2013.03.002> and Hillier et al. (2014)
-<doi:10.1017/S0266466613000364>. Also provides distribution and
+<doi:10.1017/S0266466613000364>. Also provides distribution, quantile, and
 probability density functions of simple ratios of quadratic forms in
 normal variables with several algorithms. Originally developed as a
 supplement to Watanabe (2023) <doi:10.1007/s00285-023-01930-8> for

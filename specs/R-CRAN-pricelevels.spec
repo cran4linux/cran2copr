@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DiscreteFDR
-%global packver   1.3.7
+%global packname  pricelevels
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Testing Procedures with Adaptation for Discrete Tests
+Summary:          Spatial Price Level Comparisons
 
-License:          GPL-3
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.00
-Requires:         R-core >= 3.00
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel >= 4.0.1
+Requires:         R-core >= 4.0.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-minpack.lm >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-minpack.lm >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.14.0
 
 %description
-Multiple testing procedures described in the paper Döhler, Durand and
-Roquain (2018) "New FDR bounds for discrete and heterogeneous tests"
-<doi:10.1214/18-EJS1441>. The main procedures of the paper (HSU and HSD),
-their adaptive counterparts (AHSU and AHSD), and the HBR variant are
-available and are coded to take as input a set of observed p-values and
-their discrete support under the null. A function to compute such p-values
-and supports for Fisher's exact tests is also provided, along with a
-wrapper allowing to apply discrete procedures directly from contingency
-tables.
+Price comparisons within or between countries provide an overall measure
+of the relative difference in prices, often denoted as price levels. This
+package provides index number methods for such price comparisons (e.g.,
+The World Bank, 2011, <doi:10.1596/978-0-8213-9728-2>). Moreover, it
+contains functions for sampling and characterizing price data.
 
 %prep
 %setup -q -c -n %{packname}

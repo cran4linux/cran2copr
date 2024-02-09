@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xfun
-%global packver   0.41
+%global packver   0.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41
+Version:          0.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supporting Functions for Packages Maintained by 'Yihui Xie'
 
@@ -16,8 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
+Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-tools 
 

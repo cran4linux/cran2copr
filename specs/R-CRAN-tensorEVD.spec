@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tensorEVD
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Fast Algorithm to Factorize High-Dimensional Tensor Product Matrices
 
@@ -21,7 +21,9 @@ Requires:         R-core >= 3.6.0
 Here we provide tools for the computation and factorization of
 high-dimensional tensor products that are formed by smaller matrices. The
 methods are based on properties of Kronecker products (Searle 1982, p.
-265, ISBN-10: 0470009616).
+265, ISBN-10: 0470009616). We evaluated this methodology by benchmark
+testing and illustrated its use in Gaussian Linear Models ('Lopez-Cruz et
+al., 2024') <doi:10.1093/g3journal/jkae001>.
 
 %prep
 %setup -q -c -n %{packname}

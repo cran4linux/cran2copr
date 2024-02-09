@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IBMPopSim
-%global packver   0.4.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Individual Based Model Population Simulation
 
@@ -32,13 +32,21 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-ggplot2 
 
 %description
-Simulation of the random evolution of structured population dynamics,
-called stochastic Individual Based Models (IBMs) (see e.g. Ferrière and
-Tran (2009) <doi:10.1051/proc/2009033>, Bansaye and Méléard (2015)
-<doi:10.1007/978-3-319-21711-6>, Boumezoued (2016)). The package allows
-users to simulate the random evolution of a population in which
-individuals are characterised by their date of birth, a set of attributes,
-and their potential date of death.
+Simulation of the random evolution of heterogeneous populations using
+stochastic Individual-Based Models (IBMs) <doi:10.48550/arXiv.2303.06183>.
+The package enables users to simulate population evolution, in which
+individuals are characterized by their age and some characteristics, and
+the population is modified by different types of events, including
+births/arrivals, death/exit events, or changes of characteristics. The
+frequency at which an event can occur to an individual can depend on their
+age and characteristics, but also on the characteristics of other
+individuals (interactions). Such models have a wide range of applications.
+For instance, IBMs can be used for simulating the evolution of a
+heterogeneous insurance portfolio with selection or for validating
+mortality forecasts. This package overcomes the limitations of
+time-consuming IBMs simulations by implementing new efficient algorithms
+based on thinning methods, which are compiled using the 'Rcpp' package
+while providing a user-friendly interface.
 
 %prep
 %setup -q -c -n %{packname}

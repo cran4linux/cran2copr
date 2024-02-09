@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loadeR
-%global packver   1.1.6
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load Data for Analysis System
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-caret
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-echarts4r 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-readxl 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-caret
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-echarts4r 
+Requires:         R-grDevices 
 Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-readxl 

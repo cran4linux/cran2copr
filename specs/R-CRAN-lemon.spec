@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lemon
-%global packver   0.4.7
+%global packver   0.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Freshing Up your 'ggplot2' Plots
 

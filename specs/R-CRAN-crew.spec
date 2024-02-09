@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Distributed Worker Launcher Framework
 
@@ -18,11 +18,13 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.1.0
-BuildRequires:    R-CRAN-mirai >= 0.11.3
-BuildRequires:    R-CRAN-nanonext >= 0.11.0
+BuildRequires:    R-CRAN-mirai >= 0.12.0
+BuildRequires:    R-CRAN-nanonext >= 0.12.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-getip 
+BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
@@ -32,11 +34,13 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.1.0
-Requires:         R-CRAN-mirai >= 0.11.3
-Requires:         R-CRAN-nanonext >= 0.11.0
+Requires:         R-CRAN-mirai >= 0.12.0
+Requires:         R-CRAN-nanonext >= 0.12.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-getip 
+Requires:         R-CRAN-later 
 Requires:         R-CRAN-processx 
+Requires:         R-CRAN-promises 
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 

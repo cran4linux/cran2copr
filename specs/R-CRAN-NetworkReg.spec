@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DiscreteFDR
-%global packver   1.3.7
+%global packname  NetworkReg
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.7
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Testing Procedures with Adaptation for Discrete Tests
+Summary:          Regression Model on Network-Linked Data with Statistical Inference
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.00
-Requires:         R-core >= 3.00
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-randnet 
+BuildRequires:    R-CRAN-RSpectra 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-randnet 
+Requires:         R-CRAN-RSpectra 
 
 %description
-Multiple testing procedures described in the paper Döhler, Durand and
-Roquain (2018) "New FDR bounds for discrete and heterogeneous tests"
-<doi:10.1214/18-EJS1441>. The main procedures of the paper (HSU and HSD),
-their adaptive counterparts (AHSU and AHSD), and the HBR variant are
-available and are coded to take as input a set of observed p-values and
-their discrete support under the null. A function to compute such p-values
-and supports for Fisher's exact tests is also provided, along with a
-wrapper allowing to apply discrete procedures directly from contingency
-tables.
+Linear regression model with nonparametric network effects on
+network-linked observations. The model is proposed by Le and Li (2022)
+<arXiv:2007.00803> and is assumed on observations that are connected by a
+network or similar relational data structure. The model does not assume
+that the relational data or network structure to be precisely observed;
+thus, the method is provably robust to a certain level of perturbation of
+the network structure. The package contains the estimation and inference
+function for the model.
 
 %prep
 %setup -q -c -n %{packname}

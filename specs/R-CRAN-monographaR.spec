@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  monographaR
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxonomic Monographs Tools
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-png 
@@ -24,6 +24,10 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-circular 
@@ -33,6 +37,10 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-rnaturalearth 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-terra 
 
@@ -40,9 +48,10 @@ Requires:         R-CRAN-terra
 Contains functions intended to facilitate the production of plant
 taxonomic monographs. The package includes functions to convert tables
 into taxonomic descriptions, lists of collectors, examined specimens,
-dichotomous keys, and can generate a monograph skeleton. Additionally,
-wrapper functions to batch the production of phenology charts and
-distributional and diversity maps are also available.
+identification keys (dichotomous and interactive), and can generate a
+monograph skeleton. Additionally, wrapper functions to batch the
+production of phenology histograms and distributional and diversity maps
+are also available.
 
 %prep
 %setup -q -c -n %{packname}
