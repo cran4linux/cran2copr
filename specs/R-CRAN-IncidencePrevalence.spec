@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IncidencePrevalence
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Incidence and Prevalence using the OMOP Common Data Model
 
@@ -25,15 +25,16 @@ BuildRequires:    R-CRAN-dbplyr >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-CRAN-glue >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-scales >= 1.1.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.0.0
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-lubridate >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.5
+BuildRequires:    R-CRAN-omopgenerics 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli >= 3.0.0
@@ -43,15 +44,16 @@ Requires:         R-CRAN-dbplyr >= 2.0.0
 Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-CRAN-glue >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-CDMConnector >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-scales >= 1.1.0
-Requires:         R-CRAN-CDMConnector >= 1.0.0
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-lubridate >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.5
+Requires:         R-CRAN-omopgenerics 
 Requires:         R-CRAN-tibble 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fabletools
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Tools for Packages in the 'fable' Framework
 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 1.4.1
 Requires:         R-CRAN-tidyr >= 1.1.0
@@ -47,6 +49,8 @@ Requires:         R-CRAN-R6
 Requires:         R-utils 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-scales 
 
 %description
 Provides tools, helpers and data structures for developing models and time

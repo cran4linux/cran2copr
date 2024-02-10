@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wikkitidy
-%global packver   0.1.12
+%global packname  fitODBODRshiny
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Analysis of Wikipedia
+Summary:          'Shiny' Application for R Package 'fitODBOD'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,38 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-CRAN-shiny >= 1.8.0
+BuildRequires:    R-CRAN-golem >= 0.4.1
+BuildRequires:    R-CRAN-config >= 0.3.2
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyscreenshot 
+Requires:         R-CRAN-shiny >= 1.8.0
+Requires:         R-CRAN-golem >= 0.4.1
+Requires:         R-CRAN-config >= 0.3.2
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyscreenshot 
 
 %description
-Access 'Wikipedia' through the several 'MediaWiki' APIs
-(<https://www.mediawiki.org/wiki/API>), as well as through the 'XTools'
-API (<https://www.mediawiki.org/wiki/XTools/API>). Ensure your API calls
-are correct, and receive results in tidy tibbles.
+For binomial outcome data Alternate Binomial Distributions and Binomial
+Mixture Distributions are fitted when overdispersion is available.
 
 %prep
 %setup -q -c -n %{packname}

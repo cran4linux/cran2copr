@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LDAandLDAS
-%global packver   1.1.1
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linkage Disequilibrium of Ancestry (LDA) and LDA Score (LDAS)
 
@@ -26,8 +26,8 @@ Computation of linkage disequilibrium of ancestry (LDA) and linkage
 disequilibrium of ancestry score (LDAS). LDA calculates the pairwise
 linkage disequilibrium of ancestry between single nucleotide polymorphisms
 (SNPs). LDAS calculates the LDA score of SNPs. The methods are described
-in Barrie W, Yang Y, Attfield K E, et al (2022)
-<doi:10.1101/2022.09.23.509097>.
+in Barrie W, Yang Y, Irving-Pease E.K, et al (2024)
+<doi:10.1038/s41586-023-06618-z>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xaringan
-%global packver   0.28
+%global packver   0.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.28
+Version:          0.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation Ninja
 
@@ -19,13 +19,13 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.8
 BuildRequires:    R-CRAN-knitr >= 1.30
+BuildRequires:    R-CRAN-servr >= 0.29
 BuildRequires:    R-CRAN-xfun >= 0.18
-BuildRequires:    R-CRAN-servr >= 0.13
 BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-rmarkdown >= 2.8
 Requires:         R-CRAN-knitr >= 1.30
+Requires:         R-CRAN-servr >= 0.29
 Requires:         R-CRAN-xfun >= 0.18
-Requires:         R-CRAN-servr >= 0.13
 Requires:         R-CRAN-htmltools 
 
 %description

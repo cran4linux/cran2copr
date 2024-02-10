@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  superb
-%global packver   0.95.7
+%global packver   0.95.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.95.7
+Version:          0.95.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Plots with Adjusted Error Bars
 
