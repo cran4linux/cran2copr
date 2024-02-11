@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oolong
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Validation Tests for Automated Content Analysis
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-quanteda >= 3.0.0
-BuildRequires:    R-CRAN-keyATM >= 0.2.2
+BuildRequires:    R-CRAN-seededlda 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-shiny 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-quanteda >= 3.0.0
-Requires:         R-CRAN-keyATM >= 0.2.2
+Requires:         R-CRAN-seededlda 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-shiny 

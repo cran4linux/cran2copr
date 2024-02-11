@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  respirometry
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Conducting and Analyzing Respirometry Experiments
 
@@ -20,25 +20,29 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-seacarb >= 3.1
 BuildRequires:    R-CRAN-measurements >= 1.1.0
 BuildRequires:    R-CRAN-segmented >= 1.0.0
-BuildRequires:    R-CRAN-PKNCA 
 BuildRequires:    R-CRAN-birk 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-marelac 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-seacarb >= 3.1
 Requires:         R-CRAN-measurements >= 1.1.0
 Requires:         R-CRAN-segmented >= 1.0.0
-Requires:         R-CRAN-PKNCA 
 Requires:         R-CRAN-birk 
+Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-marelac 
 Requires:         R-methods 
 Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggDoE
-%global packver   0.7.9
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.9
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modern Graphs for Design of Experiments with 'ggplot2'
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.7.0
+Requires:         R-core >= 3.7.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-insight >= 0.19.5
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-insight 
+Requires:         R-CRAN-insight >= 0.19.5
 
 %description
 Generate commonly used plots in the field of design of experiments using
