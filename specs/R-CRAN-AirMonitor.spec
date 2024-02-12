@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AirMonitor
-%global packver   0.3.12
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.12
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Air Quality Data Analysis
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.13
-BuildRequires:    R-CRAN-MazamaTimeSeries >= 0.2.12
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.5.2
+BuildRequires:    R-CRAN-MazamaTimeSeries >= 0.2.16
 BuildRequires:    R-CRAN-MazamaRollUtils >= 0.1.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dygraphs 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-xts 
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-MazamaCoreUtils >= 0.4.13
-Requires:         R-CRAN-MazamaTimeSeries >= 0.2.12
+Requires:         R-CRAN-MazamaCoreUtils >= 0.5.2
+Requires:         R-CRAN-MazamaTimeSeries >= 0.2.16
 Requires:         R-CRAN-MazamaRollUtils >= 0.1.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dygraphs 

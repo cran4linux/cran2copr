@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LDLcalc
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Predict the Low Density Lipoprotein Values
 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-moments
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-philentropy 
-BuildRequires:    R-CRAN-sets 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-caretEnsemble 
@@ -41,7 +41,6 @@ Requires:         R-CRAN-moments
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-philentropy 
-Requires:         R-CRAN-sets 
 
 %description
 A wide variety of ways to calculate (through equations) or predict (using
