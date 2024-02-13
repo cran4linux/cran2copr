@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daiR
-%global packver   0.9.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface with Google Cloud Document AI API
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-gargle 
@@ -28,6 +29,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-purrr 
@@ -38,6 +40,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-gargle 
@@ -47,6 +50,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-purrr 
@@ -60,11 +64,10 @@ Requires:         R-CRAN-xml2
 R interface for the Google Cloud Services 'Document AI API'
 <https://cloud.google.com/document-ai/> with additional tools for output
 file parsing and text reconstruction. 'Document AI' is a powerful
-server-based OCR processor that extracts text and tables from images and
-PDF files with high accuracy. 'daiR' gives R users programmatic access to
-this processor and additional tools to handle and visualize the output.
-See the package website <https://dair.info/> for more information and
-examples.
+server-based OCR service that extracts text and tables from images and PDF
+files with high accuracy. 'daiR' gives R users programmatic access to this
+service and additional tools to handle and visualize the output. See the
+package website <https://dair.info/> for more information and examples.
 
 %prep
 %setup -q -c -n %{packname}

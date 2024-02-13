@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bizdays
-%global packver   1.0.15
+%global packver   1.0.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          1.0.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Business Days Calculations and Utilities
 

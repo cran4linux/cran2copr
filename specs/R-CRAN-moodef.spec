@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iGraphMatch
-%global packver   2.0.3
+%global packname  moodef
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Graph Matching
+Summary:          Defining 'Moodle' Elements from R
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
-BuildRequires:    R-CRAN-igraph >= 1.1.2
-BuildRequires:    R-CRAN-clue >= 0.3.54
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix >= 1.5.0
-Requires:         R-CRAN-igraph >= 1.1.2
-Requires:         R-CRAN-clue >= 0.3.54
-Requires:         R-CRAN-irlba 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-blastula 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-blastula 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-CRAN-xml2 
 
 %description
-Versatile tools and data for graph matching analysis with various forms of
-prior information that supports working with 'igraph' objects, matrix
-objects, or lists of either.
+The main objective of this package is to support the definition of
+'Moodle' elements taking advantage of the power that R offers. In this
+first version, it allows the definition of questions to be included in the
+question bank.
 
 %prep
 %setup -q -c -n %{packname}

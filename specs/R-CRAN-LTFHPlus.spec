@@ -1,48 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyglotr
-%global packver   1.4.0
+%global packname  LTFHPlus
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate Text
+Summary:          Implementation of LT-FH++
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-batchmeans 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-batchmeans 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-tidyr 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+Implementation of LT-FH++, an extension of the liability threshold family
+history (LT-FH) model. LT-FH++ uses a Gibbs sampler for sampling from the
+truncated multivariate normal distribution and allows for flexible family
+structures. LT-FH++ was first described in Pedersen, Emil M., et al.
+(2022) <https://pure.au.dk/ws/portalfiles/portal/353346245/> as an
+extension to LT-FH with more flexible family structures, and again as the
+age-dependent liability threshold (ADuLT) model Pedersen, Emil M., et al.
+(2023) <https://www.nature.com/articles/s41467-023-41210-z> as an
+alternative to traditional time-to-event genome-wide association studies,
+where family history was not considered.
 
 %prep
 %setup -q -c -n %{packname}

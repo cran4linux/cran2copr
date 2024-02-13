@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chromote
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Headless Chrome Web Browser Interface
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-websocket >= 1.2.0
 Requires:         R-CRAN-promises >= 1.1.1
 Requires:         R-CRAN-later >= 1.1.0
@@ -37,6 +38,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
 An implementation of the 'Chrome DevTools Protocol', for controlling a

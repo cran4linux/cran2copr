@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BTLLasso
-%global packver   0.1-12
+%global packver   0.1-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Heterogeneity in Paired Comparison Data
 
@@ -19,14 +19,12 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-TeachingDemos 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-psychotools 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.3
 Requires:         R-CRAN-Matrix 
 Requires:         R-parallel 
-Requires:         R-CRAN-TeachingDemos 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-psychotools 
 

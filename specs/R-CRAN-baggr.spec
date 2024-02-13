@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baggr
-%global packver   0.7.6
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Aggregate Treatment Effects
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.1
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-BH >= 1.66.0.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
@@ -27,19 +27,23 @@ BuildRequires:    R-CRAN-bayesplot
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-forestplot 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-Rcpp >= 0.12.17
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-forestplot 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplotify 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
 Requires:         R-stats 
