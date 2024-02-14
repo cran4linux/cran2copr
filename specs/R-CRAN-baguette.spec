@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baguette
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Model Functions for Bagging
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-hardhat >= 1.1.0
 BuildRequires:    R-CRAN-parsnip >= 1.0.0
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-butcher
 BuildRequires:    R-CRAN-C50 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-magrittr 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-butcher
 Requires:         R-CRAN-C50 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-magrittr 

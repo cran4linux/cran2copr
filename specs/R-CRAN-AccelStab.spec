@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AccelStab
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Stability Kinetic Modelling
 
@@ -22,24 +22,25 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
+Requires:         R-CRAN-scales 
 
 %description
 Estimate the Šesták–Berggren kinetic model (degradation model) from
-experimental data. A closed-form (analytic) solution to the degradation
+experimental data. A A closed-form (analytic) solution to the degradation
 model is implemented as a non-linear fit, allowing for the extrapolation
-of the degradation of a drug product - both in time and temperature (Campa
-C. et al, 2021 <doi:10.3390/vaccines9101114>). Parametric bootstrap, with
-kinetic parameters drawn from the multivariate t-distribution, and
-analytical formulae (the delta method) are available options to calculate
-the confidence and prediction intervals. The results (modelling,
-extrapolations and statistical intervals) can be visualised with multiple
-plots. The examples illustrate the accelerated stability modelling in
-drugs and vaccines development.
+of the degradation of a drug product - both in time and temperature.
+Parametric bootstrap, with kinetic parameters drawn from the multivariate
+t-distribution, and analytical formulae (the delta method) are available
+options to calculate the confidence and prediction intervals. The results
+(modelling, extrapolations and statistical intervals) can be visualised
+with multiple plots. The examples illustrate the accelerated stability
+modelling in drugs and vaccines development.
 
 %prep
 %setup -q -c -n %{packname}

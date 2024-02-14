@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MixedIndTests
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Randomness and Tests of Independence
 
@@ -38,7 +38,8 @@ for testing independence between random variables with arbitrary
 distributions. The test statistics are based on the multilinear empirical
 copula and multipliers are used to compute P-values. The test of
 independence between random variables appeared in Genest, Nešlehová,
-Rémillard & Murphy (2019).
+Rémillard & Murphy (2019) and the test of randomness appeared in Nasri
+(2022).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POMADE
-%global packver   0.2.0
+%global packname  filibustr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power for Meta-Analysis of Dependent Effects
+Summary:          Data Utilities for Congressional Research
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-furrr 
-Requires:         R-stats 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides functions to compute and plot power levels, minimum detectable
-effect sizes, and minimum required sample sizes for the test of the
-overall average effect size in meta-analysis of dependent effect sizes.
+Provides easy-to-understand and consistent interfaces for accessing data
+on the U.S. Congress. The functions in 'filibustr' streamline the process
+for importing data on Congress into R, removing the need to download and
+work from CSV files and the like. Data sources include 'Voteview'
+(<https://voteview.com/>), the U.S. Senate website
+(<https://www.senate.gov/>), and more.
 
 %prep
 %setup -q -c -n %{packname}

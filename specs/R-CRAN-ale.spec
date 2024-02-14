@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ale
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
@@ -17,31 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-labeling 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-univariateML 
 BuildRequires:    R-CRAN-yaImpute 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-glue 
 Requires:         R-grDevices 
+Requires:         R-CRAN-insight 
 Requires:         R-CRAN-labeling 
-Requires:         R-methods 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-univariateML 
 Requires:         R-CRAN-yaImpute 
 
 %description

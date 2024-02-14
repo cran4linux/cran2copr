@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vvconverter
-%global packver   0.5.9
+%global packname  xegaDerivationTrees
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.9
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Apply Transformations to Data
+Summary:          Generating and Manipulating Derivation Trees
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-polyglotr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-polyglotr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-xegaBNF 
+Requires:         R-CRAN-xegaBNF 
 
 %description
-Provides a set of functions for data transformations. Transformations are
-performed on character and numeric data. As the scope of the package is
-within Student Analytics, there are functions focused around the academic
-year.
+Derivation tree operations are needed for implementing grammar-based
+genetic programming and grammatical evolution: Generating of a random
+derivation trees of a context-free grammar of bounded depth, decoding a
+derivation tree, choosing a random node in a derivation tree, extracting a
+tree whose root is a specified node, and inserting a subtree into a
+derivation tree at a specified node. These operations are necessary for
+the initializiation and for decoders of a random population of programs,
+as well as for implementing crossover and mutation operators. Depth-bounds
+are guaranteed by switching to a grammar without recursive production
+rules. For executing the examples, the package 'BNF' is needed. The basic
+tree operations of generating, extracting, and inserting of derivation
+trees as well as the conditions for guaranteeing complete derivation trees
+have been presented in Geyer-Schulz (1997, ISBN:978-3-7908-0830-X). The
+use of random integer vectors for the generation of derivation trees has
+been introduced in Ryan, C., Collins, J. J., and O'Neill, M. (1998)
+<doi:10.1007/BFb0055930>.
 
 %prep
 %setup -q -c -n %{packname}

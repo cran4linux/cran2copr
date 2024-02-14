@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funspace
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Representing Functional Trait Spaces
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-missForest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-paran 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ade4 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-missForest 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-paran 
+Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-viridis 
 

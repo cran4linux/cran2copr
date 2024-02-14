@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  POMADE
-%global packver   0.2.0
+%global packname  valentine
+%global packver   2024.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2024.2.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power for Meta-Analysis of Dependent Effects
+Summary:          Spread the Love for R Packages with Poetry
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-furrr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-openai 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-openai 
 
 %description
-Provides functions to compute and plot power levels, minimum detectable
-effect sizes, and minimum required sample sizes for the test of the
-overall average effect size in meta-analysis of dependent effect sizes.
+Uses 'ChatGPT' <https://openai.com/> to create poems about R packages.
+Currently contains the roses() function to make "roses are red, ..." style
+poems and the prompt() function to only assemble the prompt without
+submitting it to 'ChatGPT'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlstools
-%global packver   2.0-1
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Nonlinear Regression Analysis
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Several tools for assessing the quality of fit of a gaussian nonlinear
