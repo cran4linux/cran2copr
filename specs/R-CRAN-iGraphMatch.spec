@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prqlr
-%global packver   0.8.0
+%global packname  iGraphMatch
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for the 'prqlc' Rust Library
+Summary:          Tools for Graph Matching
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-igraph >= 1.1.2
+BuildRequires:    R-CRAN-clue >= 0.3.54
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-igraph >= 1.1.2
+Requires:         R-CRAN-clue >= 0.3.54
+Requires:         R-CRAN-irlba 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined
-with other R functions that take 'SQL' as an argument, 'PRQL' can be used
-on R.
+Versatile tools and data for graph matching analysis with various forms of
+prior information that supports working with 'igraph' objects, matrix
+objects, or lists of either.
 
 %prep
 %setup -q -c -n %{packname}

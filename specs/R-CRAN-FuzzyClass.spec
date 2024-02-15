@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyClass
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy and Non-Fuzzy Classifiers
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-trapezoid 
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-e1071 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
+Requires:         R-CRAN-trapezoid 
 
 %description
 It provides classifiers which can be used for discrete variables and for

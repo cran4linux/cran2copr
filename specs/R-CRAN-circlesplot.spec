@@ -1,26 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prqlr
-%global packver   0.8.0
+%global packname  circlesplot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for the 'prqlc' Rust Library
+Summary:          Visualize Proportions with Circles in a Plot
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-plotrix 
+Requires:         R-CRAN-plotrix 
 
 %description
-Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined
-with other R functions that take 'SQL' as an argument, 'PRQL' can be used
-on R.
+Method for visualizing proportions between objects of different sizes. The
+proportions are drawn as circles with different diameters, which makes
+them ideal for visualizing proportions between planets.
 
 %prep
 %setup -q -c -n %{packname}

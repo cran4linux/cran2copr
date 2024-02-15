@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rstac
-%global packver   1.0.0
+%global packname  trajmsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client Library for SpatioTemporal Asset Catalog
+Summary:          Marginal Structural Models with Latent Class Growth Analysis of Treatment Trajectories
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-flexmix 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-flexmix 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-sandwich 
 Requires:         R-utils 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-jpeg 
-Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
 
 %description
-Provides functions to access, search and download spacetime earth
-observation data via SpatioTemporal Asset Catalog (STAC). This package
-supports the version 1.0.0 (and older) of the STAC specification
-(<https://github.com/radiantearth/stac-spec>). For further details see
-Simoes et al. (2021) <doi:10.1109/IGARSS47720.2021.9553518>.
+Implements marginal structural models combined with a latent class growth
+analysis framework for assessing the causal effect of treatment
+trajectories. Based on the approach described in "Marginal Structural
+Models with Latent Class Growth Analysis of Treatment Trajectories" Diop,
+A., Sirois, C., Guertin, J.R., Schnitzer, M.E., Candas, B., Cossette, B.,
+Poirier, P., Brophy, J., Mésidor, M., Blais, C. and Hamel, D., (2023)
+<doi:10.1177/09622802231202384>.
 
 %prep
 %setup -q -c -n %{packname}

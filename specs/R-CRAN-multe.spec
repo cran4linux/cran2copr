@@ -1,26 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prqlr
-%global packver   0.8.0
+%global packname  multe
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for the 'prqlc' Rust Library
+Summary:          Multiple Treatment Effects Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-nnet 
+Requires:         R-stats 
+Requires:         R-CRAN-nnet 
 
 %description
-Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined
-with other R functions that take 'SQL' as an argument, 'PRQL' can be used
-on R.
+Implements contamination bias diagnostics and alternative estimators for
+regressions with multiple treatments. The implementation is based on
+Goldsmith-Pinkham, Hull, and Kolesár (2022) <arXiv:2106.05024>.
 
 %prep
 %setup -q -c -n %{packname}

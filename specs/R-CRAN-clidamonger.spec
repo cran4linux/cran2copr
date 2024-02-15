@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clidamonger
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Monthly Climate Data for Germany, Usable for Heating and Cooling Calculations
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-This data package contains monthly climate data for Germany, it can be
-used for heating and cooling calculations (external temperature, heating /
+This data package contains monthly climate data in Germany, it can be used
+for heating and cooling calculations (external temperature, heating /
 cooling days, solar radiation).
 
 %prep

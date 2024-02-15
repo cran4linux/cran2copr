@@ -1,26 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prqlr
-%global packver   0.8.0
+%global packname  nnR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for the 'prqlc' Rust Library
+Summary:          Neural Networks Made Algebraic
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined
-with other R functions that take 'SQL' as an argument, 'PRQL' can be used
-on R.
+Do algebraic operations on neural networks. We seek here to implement in
+R, operations on neural networks and their resulting approximations. Our
+operations derive their descriptions mainly from Rafi S., Padgett, J.L.,
+and Nakarmi, U. (2024), "Towards an Algebraic Framework For Approximating
+Functions Using Neural Network Polynomials",
+<doi:10.48550/arXiv.2402.01058>, Grohs P., Hornung, F., Jentzen, A. et al.
+(2023), "Space-time error estimates for deep neural network approximations
+for differential equations", <doi:10.1007/s10444-022-09970-2>, Jentzen A.,
+Kuckuck B., von Wurstemberger, P. (2023), "Mathematical Introduction to
+Deep Learning Methods, Implementations, and Theory"
+<doi:10.48550/arXiv.2310.20360>. Our implementation is meant mainly as a
+pedagogical tool, and proof of concept. Faster implementations with deeper
+vectorizations may be made in future versions.
 
 %prep
 %setup -q -c -n %{packname}

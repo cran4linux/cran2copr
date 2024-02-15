@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Trading
-%global packver   2.5
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          CCR, Advanced Correlation & Beta Estimates, Betting Strategies
 
@@ -21,10 +21,16 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-RcppAlgos 
 Requires:         R-methods 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-RcppAlgos 
 
 %description
 Contains performance analysis metrics of track records including
@@ -38,8 +44,10 @@ tables. The implementation follows an object oriented logic whereby each
 trade inherits from more abstract classes while also the curves/tables are
 objects. Furthermore, odds calculators and P&L back-testing functionality
 has been implemented for the most widely used betting/trading strategies
-including martingale, DAlembert, Labouchere and Fibonacci. Some basic
-functionality about climate risk was also added in the latest version.
+including martingale, DAlembert, Labouchere and Fibonacci. Back-testing
+has also been included for the EuroMillions and EuroJackpot lotteries.
+Furthermore, some basic functionality about climate risk has been
+included.
 
 %prep
 %setup -q -c -n %{packname}

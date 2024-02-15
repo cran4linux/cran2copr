@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parallelly
-%global packver   1.36.0
+%global packver   1.37.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.36.0
+Version:          1.37.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhancing the 'parallel' Package
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
