@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  togglr
-%global packver   0.1.99
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.99
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Toggl.com' Api for 'Rstudio'
 
@@ -17,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-glue 
@@ -29,10 +31,12 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-parsedate 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-glue 
@@ -45,6 +49,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-stats 
 Requires:         R-utils 

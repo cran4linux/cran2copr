@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GenAI
-%global packver   0.1.15
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generative Artificial Intelligence
 
@@ -17,17 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-listenv 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-ggplotify 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-tools 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-listenv 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-ggplotify 
 
 %description
-Utilizing 'Generative Artificial Intelligence' models like 'GPT-4' and
+Utilizing Generative Artificial Intelligence models like 'GPT-4' and
 'Gemini Pro' as coding and writing assistants for 'R' users. Through these
 models, 'GenAI' offers a variety of functions, encompassing text
 generation, code optimization, natural language processing, chat, and

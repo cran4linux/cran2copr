@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfars
-%global packver   0.3.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download and Analyze Fatal Crash Data
+Summary:          Download and Analyze Crash Data
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -49,8 +49,8 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-zoo 
 
 %description
-Download raw data from the Fatality Analysis Reporting System and prepare
-it for research.
+Download crash data from the National Highway Traffic Safety
+Administration and prepare it for research.
 
 %prep
 %setup -q -c -n %{packname}

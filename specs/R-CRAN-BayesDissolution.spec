@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesDissolution
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Models for Dissolution Testing
 
@@ -17,20 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-geoR 
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-geoR 
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
 
 %description
-Fits Bayesian models to dissolution data sets that can be used for
-dissolution testing. Currently the package includes the Bayesian models
-outlined in Pourmohamad et al. (2022) <doi:10.1111/rssc.12535>, but more
-models may be added over time.
+Fits Bayesian models (amongst others) to dissolution data sets that can be
+used for dissolution testing. The package was originally constructed to
+include only the Bayesian models outlined in Pourmohamad et al. (2022)
+<doi:10.1111/rssc.12535>. However, additional Bayesian and non-Bayesian
+models (based on bootstrapping and generalized pivotal quanties) have also
+been added. More models may be added over time.
 
 %prep
 %setup -q -c -n %{packname}

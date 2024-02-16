@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  myCRAN
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph of Daily and Cumulative Downloads of your Packages
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cranlogs 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pkgsearch 
 Requires:         R-CRAN-cranlogs 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-pkgsearch 
 
 %description
 Plot the daily and cumulative number of downloads of your packages. It is

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnrfa
-%global packver   2.1.0
+%global packver   2.1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK National River Flow Archive Data from R
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggmap >= 4.0.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
@@ -24,11 +25,11 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-ggmap >= 4.0.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
@@ -36,7 +37,6 @@ Requires:         R-graphics
 Requires:         R-stats 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-ggmap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sf 
 Requires:         R-parallel 

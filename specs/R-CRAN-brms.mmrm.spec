@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brms.mmrm
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian MMRMs using 'brms'
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-brms >= 2.19.0
 BuildRequires:    R-CRAN-emmeans >= 1.8.7
-BuildRequires:    R-CRAN-brms 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -34,8 +34,8 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-trialr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-brms >= 2.19.0
 Requires:         R-CRAN-emmeans >= 1.8.7
-Requires:         R-CRAN-brms 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -58,7 +58,7 @@ longitudinal clinical trial data with continuous endpoints, and 'brms' is
 a powerful and versatile package for fitting Bayesian regression models.
 The 'brms.mmrm' R package leverages 'brms' to run MMRMs, and it supports a
 simplified interfaced to reduce difficulty and align with the best
-practices of the life sciences. References: Bürkner (2017)
+practices of the life sciences.  References: Bürkner (2017)
 <doi:10.18637/jss.v080.i01>, Mallinckrodt (2008)
 <doi:10.1177/009286150804200402>.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  holiglm
-%global packver   0.2.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Holistic Generalized Linear Models
 
@@ -36,7 +36,7 @@ models (GLMs) by enabling the possibility to add further constraints to
 the model. The 'holiglm' package simplifies estimating HGLMs using convex
 optimization. Additional information about the package can be found in the
 reference manual, the 'README' and the accompanying paper
-<doi:10.48550/arXiv.2205.15447>.
+<doi:10.18637/jss.v108.i07>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompAREdesign
-%global packver   2.2
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Functions for the Design of Studies with Composite Endpoints
 
@@ -34,10 +34,9 @@ Requires:         R-CRAN-numDeriv
 
 %description
 It has been designed to calculate the required sample size in randomized
-clinical trials with composite endpoints. This package also includes
-functions to calculate the probability of observing the composite endpoint
-and the expected effect on the composite endpoint, among others. The
-methods implemented can be found in Bofill & Gómez (2019)
+clinical trials with composite endpoints. It also calculates the expected
+effect and the probability of observing the composite endpoint, among
+others. The methodology can be found in Bofill & Gómez (2019)
 <doi:10.1002/sim.8092> and Gómez & Lagakos (2013) <doi:10.1002/sim.5547>.
 
 %prep

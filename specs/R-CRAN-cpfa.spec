@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpfa
-%global packver   1.1-1
+%global packver   1.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Parallel Factor Analysis
 
@@ -22,17 +22,17 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-rda 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-rda 
 Requires:         R-CRAN-multiway 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-rda 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-rda 
 
 %description
 Classification using Richard A. Harshman's Parallel Factor Analysis-1

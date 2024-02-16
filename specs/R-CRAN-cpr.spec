@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Control Polygon Reduction
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-lme4 >= 1.1.35.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.11
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-lme4 >= 1.1.35.1
 Requires:         R-CRAN-Rcpp >= 1.0.11
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-scales 
 
 %description

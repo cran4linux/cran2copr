@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DoubleML
-%global packver   0.5.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Machine Learning in R
 
@@ -51,7 +51,9 @@ variable regression models. 'DoubleML' allows estimation of the nuisance
 parts in these models by machine learning methods and computation of the
 Neyman orthogonal score functions. 'DoubleML' is built on top of 'mlr3'
 and the 'mlr3' ecosystem. The object-oriented implementation of 'DoubleML'
-based on the 'R6' package is very flexible.
+based on the 'R6' package is very flexible. More information available in
+the publication in the Journal of Statistical Software:
+<doi:10.18637/jss.v108.i03>.
 
 %prep
 %setup -q -c -n %{packname}

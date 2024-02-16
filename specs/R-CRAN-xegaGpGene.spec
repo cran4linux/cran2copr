@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SKFCPD
-%global packver   0.2.3
+%global packname  xegaGpGene
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Online Changepoint Detection for Temporally Correlated Data
+Summary:          Genetic Operations for Grammar-Based Genetic Programming
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods >= 4.2.2
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-reshape2 >= 1.4.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-FastGaSP >= 0.5.2
-BuildRequires:    R-CRAN-ggpubr >= 0.5.0
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-methods >= 4.2.2
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-reshape2 >= 1.4.4
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-FastGaSP >= 0.5.2
-Requires:         R-CRAN-ggpubr >= 0.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xegaBNF 
+BuildRequires:    R-CRAN-xegaDerivationTrees 
+BuildRequires:    R-CRAN-xegaSelectGene 
+Requires:         R-stats 
+Requires:         R-CRAN-xegaBNF 
+Requires:         R-CRAN-xegaDerivationTrees 
+Requires:         R-CRAN-xegaSelectGene 
 
 %description
-Sequential Kalman filter for scalable online changepoint detection by
-temporally correlated data. It enables fast single and multiple change
-points with missing values. See the reference: Hanmo Li, Yuedong Wang,
-Mengyang Gu (2023), <arXiv:2310.18611>.
+An implementation of the representation-dependent gene level operations of
+grammar-based genetic programming with genes which are derivation trees of
+a context-free grammar: Initialization of a gene with a complete random
+derivation tree, decoding of a derivation tree. Crossover is implemented
+by exchanging subtrees. Depth-bounds for the minimal and the maximal depth
+of the roots of the subtrees exchanged by crossover can be set. Mutation
+is implemented by replacing a subtree by a random subtree. The depth of
+the random subtree and the insertion node are configurable. For details,
+see Geyer-Schulz (1997, ISBN:978-3-7908-0830-X).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ProTrackR
-%global packver   0.4.3
+%global packname  survivalSL
+%global packver   0.92
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.92
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Play 'ProTracker' Modules
+Summary:          Super Learner for Survival Prediction from Censored Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tuneR >= 1.0
-BuildRequires:    R-CRAN-audio 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-date 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-survivalmodels 
+BuildRequires:    R-CRAN-hdnom 
+BuildRequires:    R-CRAN-glmnetUtils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
-Requires:         R-CRAN-tuneR >= 1.0
-Requires:         R-CRAN-audio 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-signal 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-date 
 Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-survivalmodels 
+Requires:         R-CRAN-hdnom 
+Requires:         R-CRAN-glmnetUtils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rpart 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-XML 
 
 %description
-'ProTracker' is a popular music tracker to sequence music on a Commodore
-Amiga machine. This package offers the opportunity to import, export,
-manipulate and play 'ProTracker' module files. Even though the file format
-could be considered archaic, it still remains popular to this date. This
-package intends to contribute to this popularity and therewith keeping the
-legacy of 'ProTracker' and the Commodore Amiga alive.
+Several functions and S3 methods to construct a super learner in the
+presence of censored times-to-event and to evaluate its prognostic
+capacities.
 
 %prep
 %setup -q -c -n %{packname}
