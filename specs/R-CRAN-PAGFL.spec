@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stlnpp
-%global packver   0.3.10
+%global packname  PAGFL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
+Summary:          Joint Estimation and Identification of Latent Groups in Panel Data Models
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.linnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.linnet 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pbapply 
 
 %description
-Statistical analysis of spatio-temporal point processes on linear
-networks. This packages provides tools to visualise and analyse
-spatio-temporal point patterns on linear networks using first- and
-second-order summary statistics.
+In panel data analysis, unobservable group structures are a common
+challenge. Disregarding group-level heterogeneity by assuming an entirely
+homogeneous panel can introduce bias. Conversely, estimating individual
+coefficients for each cross-sectional unit is inefficient and may lead to
+high uncertainty. This package addresses this issue by implementing the
+pairwise adaptive group fused Lasso (PAGFL) by Mehrabani (2023)
+<doi:10.1016/j.jeconom.2022.12.002>. PAGFL is an efficient methodology to
+identify latent group structures and estimate group-specific coefficients
+simultaneously.
 
 %prep
 %setup -q -c -n %{packname}

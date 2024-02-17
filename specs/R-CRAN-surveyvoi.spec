@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveyvoi
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Value of Information
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    fftw3-devel
+BuildRequires:    fftw-devel
 BuildRequires:    gmp-devel
 BuildRequires:    mpfr-devel
 BuildRequires:    R-devel >= 4.0.0
@@ -78,7 +78,8 @@ value of information. Please note that several functions depend on the
 'Gurobi' optimization software (available from <https://www.gurobi.com>).
 Additionally, the 'JAGS' software (available from
 <https://mcmc-jags.sourceforge.io/>) is required to fit hierarchical
-generalized linear models.
+generalized linear models. For further details, see Hanson et al. (2022)
+<doi:10.1111/1365-2664.14309>.
 
 %prep
 %setup -q -c -n %{packname}

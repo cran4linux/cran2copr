@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Rilostat
-%global packver   1.1.8
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          ILO Open Data via Ilostat Bulk Download Facility or SDMX Web Service
 
@@ -13,31 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.0.6
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-readr >= 2.1.4
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-tibble >= 3.0.6
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-dplyr >= 1.0.4
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-readr >= 2.1.4
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-DT 
 
 %description
 Tools to download data from the ilostat database <https://ilostat.ilo.org>

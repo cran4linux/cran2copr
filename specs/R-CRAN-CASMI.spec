@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CASMI
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'CASMI'-Based Functions
 
@@ -28,10 +28,11 @@ Requires:         R-stats
 Contains Coverage Adjusted Standardized Mutual Information ('CASMI')-based
 functions. 'CASMI' is a fundamental concept of a series of methods. For
 more information about 'CASMI' and 'CASMI'-related methods, please refer
-to the corresponding publications (for example, a feature selection
-method, Shi, J., Zhang, J., & Ge, Y. (2019) <doi:10.3390/e21121179>, and a
-dataset quality measurement method, Shi, J., Zhang, J., & Ge, Y. (2019)
-<doi:10.1109/ICHI.2019.8904553>) or contact the package author.
+to the corresponding publications (e.g., a feature selection method, Shi,
+J., Zhang, J., & Ge, Y. (2019) <doi:10.3390/e21121179>, and a dataset
+quality measurement method, Shi, J., Zhang, J., & Ge, Y. (2019)
+<doi:10.1109/ICHI.2019.8904553>) or contact the package author for the
+latest updates.
 
 %prep
 %setup -q -c -n %{packname}

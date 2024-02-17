@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stlnpp
-%global packver   0.3.10
+%global packname  executablePackeR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
+Summary:          Make 'shiny' App to Executable Program
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.linnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.linnet 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-automagic 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-automagic 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-utils 
 
 %description
-Statistical analysis of spatio-temporal point processes on linear
-networks. This packages provides tools to visualise and analyse
-spatio-temporal point patterns on linear networks using first- and
-second-order summary statistics.
+Make your 'shiny' application as executable program. Users do not need to
+install 'R' and 'shiny' on their system.
 
 %prep
 %setup -q -c -n %{packname}

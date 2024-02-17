@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wru
-%global packver   1.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Who are You? Bayesian Prediction of Racial Category Using Surname, First Name, Middle Name, and Geolocation
 
@@ -18,21 +18,27 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-piggyback >= 0.1.4
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-PL94171 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-PL94171 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-piggyback >= 0.1.4
 Requires:         R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-PL94171 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-PL94171 
+Requires:         R-CRAN-rlang 
 
 %description
 Predicts individual race/ethnicity using surname, first name, middle name,
@@ -42,7 +48,12 @@ compute the posterior probability of each racial category for any given
 individual. The package implements methods described in Imai and Khanna
 (2016) "Improving Ecological Inference by Predicting Individual Ethnicity
 from Voter Registration Records" Political Analysis
-<DOI:10.1093/pan/mpw001>.
+<DOI:10.1093/pan/mpw001> and Imai, Olivella, and Rosenman (2022)
+"Addressing census data problems in race imputation via fully Bayesian
+Improved Surname Geocoding and name supplements"
+<DOI:10.1126/sciadv.adc9824>.  The package also incorporates the data
+described in Rosenman, Olivella, and Imai (2023) "Race and ethnicity data
+for first, middle, and surnames" <DOI:10.1038/s41597-023-02202-2>.
 
 %prep
 %setup -q -c -n %{packname}

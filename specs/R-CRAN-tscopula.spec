@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tscopula
-%global packver   0.3.1
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Copula Models
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-ltsa
 BuildRequires:    R-CRAN-rvinecopulib 
 BuildRequires:    R-CRAN-arfima 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-kdensity 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -41,14 +43,15 @@ Requires:         R-CRAN-ltsa
 Requires:         R-CRAN-rvinecopulib 
 Requires:         R-CRAN-arfima 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-kdensity 
 
 %description
 Functions for the analysis of time series using copula models. The package
 is based on methodology described in the following references. McNeil,
 A.J. (2021) <doi:10.3390/risks9010014>, Bladt, M., & McNeil, A.J. (2021)
-<doi:10.1016/j.ecosta.2021.07.004>, Bladt, M., & McNeil, A.J. (2021)
-<arXiv:2107.00960>.
+<doi:10.1016/j.ecosta.2021.07.004>, Bladt, M., & McNeil, A.J. (2022)
+<doi:10.1515/demo-2022-0105>.
 
 %prep
 %setup -q -c -n %{packname}

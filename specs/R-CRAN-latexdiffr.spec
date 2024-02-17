@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  latexdiffr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diff 'rmarkdown' Files Using the 'latexdiff' Utility
+Summary:          Diff TeX, 'rmarkdown' or 'quarto' Files Using the 'latexdiff' Utility
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       /usr/bin/latexdiff
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rprojroot 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rprojroot 
 
 %description
-Produces a PDF diff of two 'rmarkdown', Sweave or TeX files, using the
-external 'latexdiff' utility.
+Produces a PDF diff of two 'rmarkdown', 'quarto', Sweave or TeX files,
+using the external 'latexdiff' utility.
 
 %prep
 %setup -q -c -n %{packname}
@@ -33,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

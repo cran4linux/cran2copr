@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stlnpp
-%global packver   0.3.10
+%global packname  basicdrm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
+Summary:          Fit Hill Dose Response Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.linnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.linnet 
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Statistical analysis of spatio-temporal point processes on linear
-networks. This packages provides tools to visualise and analyse
-spatio-temporal point patterns on linear networks using first- and
-second-order summary statistics.
+Evaluate, fit, and analyze Hill dose response models (Goutelle et al.,
+2008 <doi:10.1111/j.1472-8206.2008.00633.x>), also sometimes referred to
+as four-parameter log-logistic models.  Includes tools to invert Hill
+models, select models based on the Akaike information criterion (Akaike,
+1974 <doi:10.1109/TAC.1974.1100705>) or Bayesian information criterion
+(Schwarz, 1978 <https://www.jstor.org/stable/2958889>), and construct
+bootstrapped confidence intervals both on the Hill model parameters and
+values derived from the Hill model parameters.
 
 %prep
 %setup -q -c -n %{packname}

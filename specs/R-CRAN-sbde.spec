@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stlnpp
-%global packver   0.3.10
+%global packname  sbde
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
+Summary:          Semiparametric Bayesian Density Estimation
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.linnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.linnet 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.6
+Requires:         R-core >= 2.6
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-extremefit 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-extremefit 
 
 %description
-Statistical analysis of spatio-temporal point processes on linear
-networks. This packages provides tools to visualise and analyse
-spatio-temporal point patterns on linear networks using first- and
-second-order summary statistics.
+Offers Bayesian semiparametric density estimation and tail-index
+estimation for heavy tailed data, by using a parametric, tail-respecting
+transformation of the data to the unit interval and then modeling the
+transformed data with a purely nonparametric logistic Gaussian process
+density prior. Based on Tokdar et al. (2022)
+<doi:10.1080/01621459.2022.2104727>.
 
 %prep
 %setup -q -c -n %{packname}

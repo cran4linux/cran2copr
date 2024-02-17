@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spork
-%global packver   0.2.3
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Label Formatting
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-latexpdf 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-latexpdf 
+Requires:         R-CRAN-kableExtra 
 
 %description
 The 'spork' syntax describes label formatting concisely, supporting mixed

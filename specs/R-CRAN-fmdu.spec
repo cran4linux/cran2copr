@@ -1,42 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stlnpp
-%global packver   0.3.10
+%global packname  fmdu
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatio-Temporal Analysis of Point Patterns on Linear Networks
+Summary:          (Restricted) [external] Multidimensional Unfolding
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.linnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.linnet 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-smacof 
+Requires:         R-CRAN-smacof 
 
 %description
-Statistical analysis of spatio-temporal point processes on linear
-networks. This packages provides tools to visualise and analyse
-spatio-temporal point patterns on linear networks using first- and
-second-order summary statistics.
+Functions for performing (external) multidimensional unfolding.
+Restrictions (fixed coordinates or model restrictions) are available for
+both row and column coordinates in all combinations.
 
 %prep
 %setup -q -c -n %{packname}

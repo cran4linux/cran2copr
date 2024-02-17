@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IALS
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Iterative Alternating Least Square Algorithm for Large-Dimensional Matrix Factor Model
+Summary:          Iterative Alternating Least Square Estimation for Large-Dimensional Matrix Factor Model
 
 License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,8 +29,8 @@ The matrix factor model has drawn growing attention for its advantage in
 achieving two-directional dimension reduction simultaneously for
 matrix-structured observations. In contrast to the Principal Component
 Analysis (PCA)-based methods, we propose a simple Iterative Alternating
-Least Squares (IALS) algorithm for matrix factor models, see the details
-in He et al. (2023) <arXiv:2301.00360>.
+Least Squares (IALS) algorithm for matrix factor model, see the details in
+He et al. (2023) <arXiv:2301.00360>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tablet
-%global packver   0.6.3
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabulate Descriptive Statistics in Multiple Formats
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-kableExtra >= 0.9.0
-BuildRequires:    R-CRAN-spork >= 0.2.2
+BuildRequires:    R-CRAN-spork >= 0.2.7
 BuildRequires:    R-CRAN-yamlet >= 0.10.21
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-reactable 
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-kableExtra >= 0.9.0
-Requires:         R-CRAN-spork >= 0.2.2
+Requires:         R-CRAN-spork >= 0.2.7
 Requires:         R-CRAN-yamlet >= 0.10.21
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 

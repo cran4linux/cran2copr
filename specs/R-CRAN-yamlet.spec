@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yamlet
-%global packver   0.10.33
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.33
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Versatile Curation of Table Metadata
 
@@ -19,10 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-csv >= 0.6.2
+BuildRequires:    R-CRAN-spork >= 0.2.7
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-encode 
 BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-spork 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-rlang 
@@ -30,12 +30,13 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-csv >= 0.6.2
+Requires:         R-CRAN-spork >= 0.2.7
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-encode 
 Requires:         R-CRAN-units 
-Requires:         R-CRAN-spork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-rlang 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-xtable
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-knitr 
 
 %description
 A YAML-based mechanism for working with table metadata. Supports compact

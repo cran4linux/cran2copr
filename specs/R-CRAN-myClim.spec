@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  myClim
-%global packver   1.0.12
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microclimatic Data Processing
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tibble 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-zoo 
 Requires:         R-methods 
 Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-progress 
 
 %description
 Handling the microclimatic data in R. The 'myClim' workflow begins at the

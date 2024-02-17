@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vaccine
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Immune Correlates Analysis of Vaccine Clinical Trial Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-utils >= 4.3.2
 BuildRequires:    R-methods >= 4.2.2
 BuildRequires:    R-splines >= 4.2.2
 BuildRequires:    R-stats >= 4.2.2
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-ggpubr >= 0.5.0
 BuildRequires:    R-CRAN-simest >= 0.4
 BuildRequires:    R-CRAN-ranger >= 0.16.0
 BuildRequires:    R-CRAN-survML >= 0.0.0.9000
+Requires:         R-utils >= 4.3.2
 Requires:         R-methods >= 4.2.2
 Requires:         R-splines >= 4.2.2
 Requires:         R-stats >= 4.2.2
