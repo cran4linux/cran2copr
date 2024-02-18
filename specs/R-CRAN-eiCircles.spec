@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataset
-%global packver   0.3.1
+%global packname  eiCircles
+%global packver   0.0.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Data Frames that are Easier to Exchange and Reuse
+Summary:          Ecological Inference of RxC Tables by Overdispersed-Multinomial Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-ISOcodes 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-The aim of the 'dataset' package is to make tidy datasets easier to
-release, exchange and reuse. It organizes and formats data frame 'R'
-objects into well-referenced, well-described, interoperable datasets into
-release and reuse ready form. A subjective interpretation of the W3C
-DataSet recommendation and the datacube model
-<https://www.w3.org/TR/vocab-data-cube/>, which is also used in the global
-Statistical Data and Metadata eXchange standards, the application of the
-connected Dublin Core
-<https://www.dublincore.org/specifications/dublin-core/dcmi-terms/> and
-DataCite <https://support.datacite.org/docs/datacite-metadata-schema-44/>
-standards preferred by European open science repositories to improve the
-findability, accessibility, interoperability and reusability of the
-datasets.
+Estimates RxC (R by C) vote transfer matrices (ecological contingency
+tables) from aggregate data using the model described in Forcina et al.
+(2012), as extension of the model proposed in Brown and Payne (1986).
+Allows incorporation of covariates. References: Brown, P. and Payne, C.
+(1986). ''Aggregate data, ecological regression and voting transitions''.
+Journal of the American Statistical Association, 81, 453–460.
+<DOI:10.1080/01621459.1986.10478290>. Forcina, A., Gnaldi, M. and
+Bracalente, B. (2012). ''A revised Brown and Payne model of voting
+behaviour applied to the 2009 elections in Italy''. Statistical Methods &
+Applications, 21, 109–119. <DOI:10.1007/s10260-011-0184-x>.
 
 %prep
 %setup -q -c -n %{packname}

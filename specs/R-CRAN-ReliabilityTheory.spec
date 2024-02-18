@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsem
-%global packver   1.1.0
+%global packname  ReliabilityTheory
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Dynamic Structural Equation Models
+Summary:          Structural Reliability Analysis
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sem 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sem 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 1.0.1
+BuildRequires:    R-CRAN-PhaseType >= 0.2.0
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-FRACTION 
+BuildRequires:    R-CRAN-mcmc 
+BuildRequires:    R-CRAN-sfsmisc 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-igraph >= 1.0.1
+Requires:         R-CRAN-PhaseType >= 0.2.0
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-FRACTION 
+Requires:         R-CRAN-mcmc 
+Requires:         R-CRAN-sfsmisc 
+Requires:         R-utils 
 
 %description
-Applies dynamic structural equation models to time-series data with
-generic and simplified specification for simultaneous and lagged effects.
-Methods are described in Thorson et al. (2024) "Dynamic structural
-equation models synthesize ecosystem dynamics constrained by ecological
-mechanisms."
+Perform structural reliability analysis, including computation and
+simulation with system signatures, Samaniego (2007)
+<doi:10.1007/978-0-387-71797-5>, and survival signatures, Coolen and
+Coolen-Maturi (2013) <doi:10.1007/978-3-642-30662-4_8>. Additionally
+supports parametric and topological inference given system lifetime data,
+Aslett (2012) <https://www.louisaslett.com/PhD_Thesis.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

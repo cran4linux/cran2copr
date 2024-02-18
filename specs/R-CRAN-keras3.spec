@@ -1,37 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  odns
-%global packver   1.0.2
+%global packname  keras3
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Scottish Health and Social Care Open Data
+Summary:          R Interface to 'Keras'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tensorflow >= 2.15
+BuildRequires:    R-CRAN-tfruns >= 1.5.2
+BuildRequires:    R-CRAN-reticulate >= 1.35
+BuildRequires:    R-CRAN-generics >= 0.0.1
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-zeallot 
+BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tensorflow >= 2.15
+Requires:         R-CRAN-tfruns >= 1.5.2
+Requires:         R-CRAN-reticulate >= 1.35
+Requires:         R-CRAN-generics >= 0.0.1
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Allows potential users of Scottish Health and Social Care Open Data
-(<https://www.opendata.nhs.scot/>) to easily explore and extract the
-available data.
+Interface to 'Keras' <https://keras.io>, a high-level neural networks API.
+'Keras' was developed with a focus on enabling fast experimentation,
+supports both convolution based networks and recurrent networks (as well
+as combinations of the two), and runs seamlessly on both CPU and GPU
+devices.
 
 %prep
 %setup -q -c -n %{packname}

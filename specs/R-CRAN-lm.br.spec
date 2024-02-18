@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSiena
-%global packver   1.4.1
+%global packname  lm.br
+%global packver   2.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          2.9.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Siena - Simulation Investigation for Empirical Network Analysis
+Summary:          Linear Model with Breakpoint
 
-License:          GPL-2 | GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.0.1
+Requires:         R-core >= 3.0.1
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-datasets 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-xtable 
+Requires:         R-graphics 
+Requires:         R-datasets 
 
 %description
-The main purpose of this package is to perform simulation-based estimation
-of stochastic actor-oriented models for longitudinal network data
-collected as panel data. Dependent variables can be single or multivariate
-networks, which can be directed, non-directed, or two-mode; and associated
-actor variables. There are also functions for testing parameters and
-checking goodness of fit. An overview of these models is given in Snijders
-(2017), <doi:10.1146/annurev-statistics-060116-054035>.
+Exact significance tests for a changepoint in linear or multiple linear
+regression. Confidence regions with exact coverage probabilities for the
+changepoint.  Based on Knowles, Siegmund and Zhang (1991)
+<doi:10.1093/biomet/78.1.15>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,7 +51,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

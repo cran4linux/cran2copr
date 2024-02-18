@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  N2H4
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling Methods for Naver News Text Crawling
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-magrittr 
 

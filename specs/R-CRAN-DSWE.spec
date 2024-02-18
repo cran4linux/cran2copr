@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DSWE
-%global packver   1.8.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Science for Wind Energy
 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.870.2.0
 BuildRequires:    R-CRAN-matrixStats >= 0.55.0
-BuildRequires:    R-CRAN-GpGp >= 0.4.0
-BuildRequires:    R-CRAN-GPvecchia >= 0.1.4
 Requires:         R-stats >= 3.5.0
 Requires:         R-CRAN-KernSmooth >= 2.23.16
 Requires:         R-CRAN-gss >= 2.2.2
@@ -39,8 +37,6 @@ Requires:         R-CRAN-mixtools >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-matrixStats >= 0.55.0
-Requires:         R-CRAN-GpGp >= 0.4.0
-Requires:         R-CRAN-GPvecchia >= 0.1.4
 
 %description
 Data science methods used in wind energy applications. Current

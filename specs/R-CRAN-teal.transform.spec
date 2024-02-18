@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  performance
-%global packver   0.10.9
+%global packname  teal.transform
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.9
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment of Regression Models Performance
+Summary:          Functions for Extracting and Merging Data in the 'teal' Framework
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.9.1
-BuildRequires:    R-CRAN-insight >= 0.19.8
-BuildRequires:    R-CRAN-bayestestR >= 0.13.2
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 0.8.3
+BuildRequires:    R-CRAN-teal.data >= 0.5.0
+BuildRequires:    R-CRAN-teal.widgets >= 0.4.0
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-logger >= 0.2.0
+BuildRequires:    R-CRAN-teal.logger >= 0.1.1
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyvalidate 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-datawizard >= 0.9.1
-Requires:         R-CRAN-insight >= 0.19.8
-Requires:         R-CRAN-bayestestR >= 0.13.2
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-tidyr >= 0.8.3
+Requires:         R-CRAN-teal.data >= 0.5.0
+Requires:         R-CRAN-teal.widgets >= 0.4.0
+Requires:         R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-logger >= 0.2.0
+Requires:         R-CRAN-teal.logger >= 0.1.1
 Requires:         R-methods 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyvalidate 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Utilities for computing measures to assess model quality, which are not
-directly provided by R's 'base' or 'stats' packages. These include e.g.
-measures like r-squared, intraclass correlation coefficient (Nakagawa,
-Johnson & Schielzeth (2017) <doi:10.1098/rsif.2017.0213>), root mean
-squared error or functions to check models for overdispersion, singularity
-or zero-inflation and more. Functions apply to a large variety of
-regression models, including generalized linear models, mixed effects
-models and Bayesian models. References: Lüdecke et al. (2021)
-<doi:10.21105/joss.03139>.
+A standardized user interface for column selection, that facilitates
+dataset merging in 'teal' framework.
 
 %prep
 %setup -q -c -n %{packname}

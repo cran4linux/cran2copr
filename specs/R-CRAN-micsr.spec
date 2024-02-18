@@ -1,56 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jstable
-%global packver   1.1.6
+%global packname  micsr
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Tables from Different Types of Regression
+Summary:          Microeconometrics with R
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.0.0
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-tableone 
-BuildRequires:    R-CRAN-coxme 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-survival >= 3.0.0
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-lme4 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-tableone 
-Requires:         R-CRAN-coxme 
-Requires:         R-CRAN-survey 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Create regression tables from generalized linear model(GLM), generalized
-estimating equation(GEE), generalized linear mixed-effects model(GLMM),
-Cox proportional hazards model, survey-weighted generalized linear
-model(svyglm) and survey-weighted Cox model results for publication.
+Functions, data sets and examples for the book: Yves Croissant (2024)
+"Microeconometrics with R", Chapman and Hall/CRC The R Series. The package
+includes a set of estimators for models used in microeconometrics,
+especially for count data and limited dependent variables. Test functions
+include score test, Hausman test, Vuong test, Sargan test and conditional
+moment test. A small subset of the data set used in the book is also
+included.
 
 %prep
 %setup -q -c -n %{packname}

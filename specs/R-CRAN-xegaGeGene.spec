@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsem
-%global packver   1.1.0
+%global packname  xegaGeGene
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Dynamic Structural Equation Models
+Summary:          Grammatical Evolution
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sem 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sem 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-xegaBNF 
+BuildRequires:    R-CRAN-xegaDerivationTrees 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-xegaSelectGene 
+Requires:         R-CRAN-xegaBNF 
+Requires:         R-CRAN-xegaDerivationTrees 
 
 %description
-Applies dynamic structural equation models to time-series data with
-generic and simplified specification for simultaneous and lagged effects.
-Methods are described in Thorson et al. (2024) "Dynamic structural
-equation models synthesize ecosystem dynamics constrained by ecological
-mechanisms."
+Grammatical evolution (see O'Neil, M. and Ryan, C.
+(2003,ISBN:1-4020-7444-1)) uses decoders to convert linear (binary or
+integer genes) into programs. In addition, automatic determination of
+codon precision with a limited rule choice bias is provided. For a recent
+survey of grammatical evolution, see Ryan, C., O'Neill, M., and Collins,
+J. J. (2018) <doi:10.1007/978-3-319-78717-6>.
 
 %prep
 %setup -q -c -n %{packname}

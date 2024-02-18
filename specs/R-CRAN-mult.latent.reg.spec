@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsem
-%global packver   1.1.0
+%global packname  mult.latent.reg
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Dynamic Structural Equation Models
+Summary:          Regression and Clustering in Multivariate Response Scenarios
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sem 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sem 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-utils 
+Requires:         R-CRAN-lme4 
 
 %description
-Applies dynamic structural equation models to time-series data with
-generic and simplified specification for simultaneous and lagged effects.
-Methods are described in Thorson et al. (2024) "Dynamic structural
-equation models synthesize ecosystem dynamics constrained by ecological
-mechanisms."
+Fitting multivariate response models with random effects on one or two
+levels; whereby the (one-dimensional) random effect represents a latent
+variable approximating the multivariate space of outcomes, after possible
+adjustment for covariates. The method is particularly useful for
+multivariate, highly correlated outcome variables with unobserved
+heterogeneities. Applications include regression with multivariate
+responses, as well as multivariate clustering or ranking problems. See
+Zhang and Einbeck (2024) <doi:10.1007/s42519-023-00357-0>.
 
 %prep
 %setup -q -c -n %{packname}

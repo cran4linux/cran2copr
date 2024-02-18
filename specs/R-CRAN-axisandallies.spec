@@ -1,46 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LPDynR
-%global packver   1.0.4
+%global packname  axisandallies
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Land Productivity Dynamics Indicator
+Summary:          Axis and Allies Spring
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-virtualspecies 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-stats 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-virtualspecies 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
 
 %description
-It uses 'phenological' and productivity-related variables derived from
-time series of vegetation indexes, such as the Normalized Difference
-Vegetation Index, to assess ecosystem dynamics and change, which
-eventually might drive to land degradation. The final result of the Land
-Productivity Dynamics indicator is a categorical map with 5 classes of
-land productivity dynamics, ranging from declining to increasing
-productivity. See
-<https://www.sciencedirect.com/science/article/pii/S1470160X21010517/> for
-a description of the methods used in the package to calculate the
-indicator.
+Simulates battles in the board game Axis and Allies Spring 1942, and
+calculates your probability of winning a battle. This speeds the game up
+significantly.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  elfgen
-%global packver   2.3.3
+%global packname  proteomicsCV
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Limit Function Model Generation and Analysis Toolkit
+Summary:          Calculates the Percentage CV for Mass Spectrometry-Based Proteomics Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,38 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-testit 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sbtools 
-BuildRequires:    R-CRAN-nhdplusTools 
-Requires:         R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-testit 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sbtools 
-Requires:         R-CRAN-nhdplusTools 
 
 %description
-A toolset for generating Ecological Limit Function (ELF) models and
-evaluating potential species loss resulting from flow change, based on the
-'elfgen' framework. ELFs describe the relation between aquatic species
-richness (fish or benthic macroinvertebrates) and stream size
-characteristics (streamflow or drainage area). Journal publications are
-available outlining framework methodology (Kleiner et al. (2020)
-<doi:10.1111/1752-1688.12876>) and application (Rapp et al. (2020)
-<doi:10.1111/1752-1688.12877>).
+Calculates the percentage coefficient of variation (CV) for mass
+spectrometry-based proteomic data. Intensity based quantification is log
+normal, there the CV is calculated with the lognormal function. This
+package currently does not reference any academic publication.
 
 %prep
 %setup -q -c -n %{packname}

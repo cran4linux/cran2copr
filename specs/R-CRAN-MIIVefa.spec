@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsem
-%global packver   1.1.0
+%global packname  MIIVefa
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Dynamic Structural Equation Models
+Summary:          Exploratory Factor Analysis Using Model Implied Instrumental Variables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sem 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sem 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MIIVsem 
+Requires:         R-CRAN-MIIVsem 
 
 %description
-Applies dynamic structural equation models to time-series data with
-generic and simplified specification for simultaneous and lagged effects.
-Methods are described in Thorson et al. (2024) "Dynamic structural
-equation models synthesize ecosystem dynamics constrained by ecological
-mechanisms."
+Data-driven approach for Exploratory Factor Analysis (EFA) that uses Model
+Implied Instrumental Variables (MIIVs). The method starts with a one
+factor model and arrives at a suggested model with enhanced
+interpretability that allows cross-loadings and correlated errors.
 
 %prep
 %setup -q -c -n %{packname}

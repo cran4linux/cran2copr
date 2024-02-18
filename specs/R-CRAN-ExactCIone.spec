@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dsem
-%global packver   1.1.0
+%global packname  ExactCIone
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Dynamic Structural Equation Models
+Summary:          Admissible Exact Intervals for One-Dimensional Discrete Distributions
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sem 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sem 
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Applies dynamic structural equation models to time-series data with
-generic and simplified specification for simultaneous and lagged effects.
-Methods are described in Thorson et al. (2024) "Dynamic structural
-equation models synthesize ecosystem dynamics constrained by ecological
-mechanisms."
+Construct the admissible exact intervals for the binomial proportion, the
+Poisson mean and the total number of subjects with a certain attribute or
+the total number of the subjects for the hypergeometric distribution. Both
+one-sided and two-sided intervals are of interest. This package can be
+used to calculate the intervals constructed methods developed by Wang
+(2014) <doi:10.5705/ss.2012.257> and Wang (2015) <doi:10.1111/biom.12360>.
 
 %prep
 %setup -q -c -n %{packname}
