@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmxcode
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Pharmacometric Models
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-golem >= 0.3.3
 BuildRequires:    R-CRAN-config >= 0.3.1
 BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-golem >= 0.3.3
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 

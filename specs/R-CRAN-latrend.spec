@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latrend
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Clustering Longitudinal Data
 
@@ -49,8 +49,7 @@ cluster analyses, including repeated estimation, model validation, and
 model assessment. The interface enables users to compare results between
 methods, and to implement and evaluate new methods with ease. The
 'akmedoids' package is available from
-<https://github.com/MAnalytics/akmedoids>. The 'clusterCrit' package is
-available from the CRAN archive.
+<https://github.com/MAnalytics/akmedoids>.
 
 %prep
 %setup -q -c -n %{packname}

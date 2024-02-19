@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BIFIEsurvey
-%global packver   3.4-15
+%global packver   3.5-19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.15
+Version:          3.5.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Survey Statistics in Educational Assessment
 

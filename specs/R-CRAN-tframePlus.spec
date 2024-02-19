@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tframePlus
-%global packver   2022.3-1
+%global packver   2024.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.3.1
+Version:          2024.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Frame Coding Kernel Extensions
 

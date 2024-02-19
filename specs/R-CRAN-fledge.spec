@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fledge
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smoother Change Tracking and Versioning for R Packages
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-gert >= 1.4.0
 BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-rlang >= 0.4.12
 BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-brio 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-enc 
 BuildRequires:    R-CRAN-rematch2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whoami 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-gert >= 1.4.0
 Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-rlang >= 0.4.12
 Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-brio 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-enc 
 Requires:         R-CRAN-rematch2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-whoami 

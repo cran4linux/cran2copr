@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conquestr
-%global packver   1.1.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package to Extend 'ACER ConQuest'
 
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zlib 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggrepel 
@@ -40,6 +41,7 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zlib 
 
 %description
 Extends 'ACER ConQuest' through a family of functions designed to improve
