@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  callr
-%global packver   3.7.5
+%global packname  TLCAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call R from R
+Summary:          Computation of Topp-Leone Cauchy Rayleigh (TLCAR ) distribution's properties
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.6.1
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-processx >= 3.6.1
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-It is sometimes useful to perform a computation in a separate R process,
-without affecting the current R process at all.  This packages does
-exactly that.
+Provides a comprehensive suite of statistical tools for analyzing,
+simulating, and computing properties of the Topp-Leone Cauchy Rayleigh
+(TLCAR) distribution, a versatile distribution amalgamating features of
+the Topp-Leone, Cauchy, and Rayleigh distributions, ideal for modeling
+intricate, heterogeneous data across scientific domains. See Atchadé,
+M.N., Bogninou, M.J., and Djibril, A.M. (2023)
+<doi:10.1007/s44199-023-00066-4> and Atchadé, M.N., Bogninou, M.J., and
+Djibril, A.M. (2024) <doi:10.1007/s44199-023-00069-1> for further
+insights.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geeCRT
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias-Corrected GEE for Cluster Randomized Trials
 
@@ -32,7 +32,7 @@ the generalized estimating equations (GEE) and matrix-adjusted estimating
 equations (MAEE) approaches to jointly estimate the marginal mean models
 correlation models both for general CRTs and stepped wedge CRTs. Despite
 the general GEE/MAEE approach, the package also implements a fast
-cluster-period GEE method by Li et al. (2021)
+cluster-period GEE method by Li et al. (2022)
 <doi:10.1093/biostatistics/kxaa056> specifically for stepped wedge CRTs
 with large and variable cluster-period sizes and gives a simple and
 efficient estimating equations approach based on the cluster-period means

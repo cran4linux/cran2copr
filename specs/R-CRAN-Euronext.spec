@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Euronext
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Historical Data of Companies Listed on the 'Euronext' Stock Exchange
 
@@ -44,7 +44,7 @@ Requires:         R-grDevices
 
 %description
 Provides seamless access to historical data of companies listed on the
-'Euronext' Stock Exchange(<https://live.euronext.com/en>), enabling users
+'Euronext' Stock Exchange (<https://live.euronext.com/en>), enabling users
 to retrieve real-time information directly within the R environment. With
 functions tailored for data retrieval and manipulation, users can
 effortlessly access a wide range of financial data, including stock

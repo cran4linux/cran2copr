@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  callr
-%global packver   3.7.5
+%global packname  EncompassTest
+%global packver   0.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.5
+Version:          0.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call R from R
+Summary:          Direct Multi-Step Forecast Based Comparison of Nested Models via an Encompassing Test
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.6.1
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-processx >= 3.6.1
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
 
 %description
-It is sometimes useful to perform a computation in a separate R process,
-without affecting the current R process at all.  This packages does
-exactly that.
+The encompassing test is developed based on multi-step-ahead predictions
+of two nested models as in Pitarakis, J. (2023)
+<doi:10.48550/arXiv.2312.16099>. The statistics are standardised to a
+normal distribution, and the null hypothesis is that the larger model
+contains no additional useful information. P-values will be provided in
+the output.
 
 %prep
 %setup -q -c -n %{packname}

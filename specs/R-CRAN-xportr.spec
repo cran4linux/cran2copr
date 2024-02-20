@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xportr
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities to Output CDISC SDTM/ADaM XPT Files
 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-haven >= 2.5.0
 Requires:         R-CRAN-glue >= 1.4.2
@@ -40,8 +38,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-tm 
 Requires:         R-CRAN-lifecycle 
 
 %description

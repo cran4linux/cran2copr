@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rblt
-%global packver   0.2.4.7
+%global packname  npsp
+%global packver   0.7-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4.7
+Version:          0.7.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bio-Logging Toolbox
+Summary:          Nonparametric Spatial Statistics
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-hdf5r >= 1.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-dygraphs 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-devel >= 2.14.0
+Requires:         R-core >= 2.14.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-hdf5r >= 1.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-dygraphs 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-spam 
+Requires:         R-graphics 
+Requires:         R-CRAN-sp 
 Requires:         R-methods 
-Requires:         R-tools 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-spam 
 
 %description
-An R-shiny application to visualize bio-loggers time series at a
-microsecond precision as Acceleration, Temperature, Pressure, Light
-intensity. It is possible to link behavioral labels extracted from 'BORIS'
-software <http://www.boris.unito.it> or manually written in a csv file.
+Multidimensional nonparametric spatial (spatio-temporal) geostatistics. S3
+classes and methods for multidimensional: linear binning, local polynomial
+kernel regression (spatial trend estimation), density and variogram
+estimation. Nonparametric methods for simultaneous inference on both
+spatial trend and variogram functions (for spatial processes).
+Nonparametric residual kriging (spatial prediction). For details on these
+methods see, for example, Fernandez-Casal and Francisco-Fernandez (2014)
+<doi:10.1007/s00477-013-0817-8> or Castillo-Paez et al. (2019)
+<doi:10.1016/j.csda.2019.01.017>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,7 +54,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-
+test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  callr
-%global packver   3.7.5
+%global packname  roxylint
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call R from R
+Summary:          Lint 'roxygen2'-Generated Documentation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-processx >= 3.6.1
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-processx >= 3.6.1
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-roxygen2 
 Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-roxygen2 
 
 %description
-It is sometimes useful to perform a computation in a separate R process,
-without affecting the current R process at all.  This packages does
-exactly that.
+Provides formatting linting to 'roxygen2' tags. Linters report 'roxygen2'
+tags that do not conform to a standard style. These linters can be a
+helpful check for building more consistent documentation and to provide
+reminders about best practices or checks for typos. Default linting suites
+are provided for common style guides such as the one followed by the
+'tidyverse', though custom linters can be registered by other packages or
+be custom-tailored to a specific package.
 
 %prep
 %setup -q -c -n %{packname}

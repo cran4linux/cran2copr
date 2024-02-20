@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whippr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Manipulating Gas Exchange Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readxl >= 1.3.1
@@ -33,10 +33,9 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-nlstools 
 BuildRequires:    R-CRAN-pillar 
-Requires:         R-CRAN-ggplot2 >= 3.3.2
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readxl >= 1.3.1
@@ -52,7 +51,6 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-nlstools 
 Requires:         R-CRAN-pillar 
 

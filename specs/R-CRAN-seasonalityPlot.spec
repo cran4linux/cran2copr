@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seasonalityPlot
-%global packver   1.1.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonality Variation Plots of Stock Prices and Cryptocurrencies
 
@@ -26,6 +26,9 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-crypto2 
+BuildRequires:    R-CRAN-TTR 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-dygraphs 
@@ -35,6 +38,9 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-crypto2 
+Requires:         R-CRAN-TTR 
+Requires:         R-CRAN-assertthat 
 
 %description
 The price action at any given time is determined by investor sentiment and
