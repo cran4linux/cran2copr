@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SuperLearner
-%global packver   2.0-29
+%global packname  aberrance
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.29
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Super Learner Prediction
+Summary:          Detect Aberrant Behavior in Test Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gam >= 1.15
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-cvAUC 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-gam >= 1.15
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-cvAUC 
-Requires:         R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements the super learner prediction method and contains a library of
-prediction algorithms to be used in the super learner.
+Detect several types of aberrant behavior, including answer copying,
+answer similarity, nonparametric misfit, parametric misfit, preknowledge,
+rapid guessing, and test tampering.
 
 %prep
 %setup -q -c -n %{packname}

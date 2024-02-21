@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Surrogate
-%global packver   3.2.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Surrogate Endpoints in Clinical Trials
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lattice 
@@ -26,22 +26,15 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-flexsurv 
-BuildRequires:    R-CRAN-kdecopula 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rvinecopulib 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-maxLik 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-CRAN-fitdistrplus 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-MBESS 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
@@ -51,22 +44,15 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-logistf 
 Requires:         R-CRAN-rms 
-Requires:         R-parallel 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-copula 
 Requires:         R-CRAN-flexsurv 
-Requires:         R-CRAN-kdecopula 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rvinecopulib 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-maxLik 
-Requires:         R-CRAN-cubature 
-Requires:         R-CRAN-fitdistrplus 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-MBESS 
+Requires:         R-CRAN-tidyr 
 
 %description
 In a clinical trial, it frequently occurs that the most credible outcome
@@ -79,8 +65,10 @@ evaluation of the appropriateness of a candidate surrogate endpoint based
 on the meta-analytic, information-theoretic, and causal-inference
 frameworks. Part of this software has been developed using funding
 provided from the European Union's Seventh Framework Programme for
-research, technological development and demonstration under Grant
-Agreement no 602552.
+research, technological development and demonstration (Grant Agreement no
+602552), the Special Research Fund (BOF) of Hasselt University
+(BOF-number: BOF2OCPO3), GlaxoSmithKline Biologicals, Baekeland Mandaat
+(HBC.2022.0145), and Johnson & Johnson Innovative Medicine.
 
 %prep
 %setup -q -c -n %{packname}

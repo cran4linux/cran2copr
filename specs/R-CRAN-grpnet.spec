@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grpnet
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Elastic Net Regularized GLM
+Summary:          Group Elastic Net Regularized GLMs and GAMs
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,16 +18,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 
 %description
-Efficient algorithms for fitting generalized linear models with group
-elastic net penalties. Implements group lasso, group MCP, and group SCAD
-with an optional group ridge penalty. Computes the regularization path for
-linear regression (gaussian), logistic regression (binomial), multinomial
-logistic regression (multinomial), log-linear count regression (poisson
-and negative.binomial), and log-linear continuous regression (gamma and
-inverse gaussian). Supports default and formula methods for model
-specification, k-fold cross-validation for tuning the regularization
-parameters, and nonparametric regression via tensor product reproducing
-kernel (smoothing spline) basis function expansion.
+Efficient algorithms for fitting generalized linear and additive models
+with group elastic net penalties. Implements group lasso, group MCP, and
+group SCAD with an optional group ridge penalty. Computes the
+regularization path for linear regression (gaussian), logistic regression
+(binomial), multinomial logistic regression (multinomial), log-linear
+count regression (poisson and negative.binomial), and log-linear
+continuous regression (gamma and inverse gaussian). Supports default and
+formula methods for model specification, k-fold cross-validation for
+tuning the regularization parameters, and nonparametric regression via
+tensor product reproducing kernel (smoothing spline) basis function
+expansion.
 
 %prep
 %setup -q -c -n %{packname}

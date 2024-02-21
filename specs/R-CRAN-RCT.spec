@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RCT
-%global packver   1.1.2
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assign Treatments, Power Calculations, Balances, Impact Evaluation of Experiments
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-broom >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -25,12 +27,12 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-lfe 
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-estimatr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-broom >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -40,8 +42,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-lfe 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-estimatr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 

@@ -1,34 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SuperLearner
-%global packver   2.0-29
+%global packname  emery
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.29
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Super Learner Prediction
+Summary:          Accuracy Statistic Estimation for Imperfect Gold Standards
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gam >= 1.15
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-cvAUC 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-gam >= 1.15
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-cvAUC 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Implements the super learner prediction method and contains a library of
-prediction algorithms to be used in the super learner.
+Produce maximum likelihood estimates of common accuracy statistics for
+multiple measurement methods when a gold standard is not available. An R
+implementation of the expectation maximization algorithms described in
+Zhou et al. (2011) <doi:10.1002/9780470906514> with additional functions
+for creating simulated data and visualizing results. Supports binary,
+ordinal, and continuous measurement methods.
 
 %prep
 %setup -q -c -n %{packname}

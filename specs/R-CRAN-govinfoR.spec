@@ -1,58 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mpathsenser
-%global packver   1.1.3
+%global packname  govinfoR
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Process and Analyse Data from m-Path Sense
+Summary:          A 'GovInfo' API Wrapper
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description
-Overcomes one of the major challenges in mobile (passive) sensing, namely
-being able to pre-process the raw data that comes from a mobile sensing
-app, specifically "m-Path Sense" <https://m-path.io>. The main task of
-'mpathsenser' is therefore to read "m-Path Sense" JSON files into a
-database and provide several convenience functions to aid in data
-processing.
+Access data provided by the United States Government Publishing Office
+(GPO) 'GovInfo' API (<https://github.com/usgpo/api>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAMetA
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fatty Acid Metabolic Analysis
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LipidMS 
+BuildRequires:    R-CRAN-LipidMS >= 3.0.4
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-accucor 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-gplots 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-LipidMS 
+Requires:         R-CRAN-LipidMS >= 3.0.4
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-accucor 

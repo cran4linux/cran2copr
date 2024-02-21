@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayrender
-%global packver   0.31.2
+%global packver   0.32.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31.2
+Version:          0.32.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Raytrace 3D Scenes
 
@@ -18,28 +18,34 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-spacefillr >= 0.3.0
-BuildRequires:    R-CRAN-rayvertex >= 0.10.2
+BuildRequires:    R-CRAN-rayvertex >= 0.10.4
 BuildRequires:    R-CRAN-rayimage >= 0.10.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-decido 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-rayvertex >= 0.10.2
+Requires:         R-CRAN-rayvertex >= 0.10.4
 Requires:         R-CRAN-rayimage >= 0.10.0
 Requires:         R-parallel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-decido 
 Requires:         R-stats 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pillar 
 
 %description
 Render scenes using pathtracing. Build 3D scenes out of spheres, cubes,

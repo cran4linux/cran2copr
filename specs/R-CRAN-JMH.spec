@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JMH
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Model of Heterogeneous Repeated Measures and Survival Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-timeROC 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-survival 
@@ -37,6 +38,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-timeROC 
 
 %description
 Maximum likelihood estimation for the semi-parametric joint modeling of

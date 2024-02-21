@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SuperLearner
-%global packver   2.0-29
+%global packname  MacBehaviour
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.29
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Super Learner Prediction
+Summary:          Behavioural Studies of Large Language Models
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gam >= 1.15
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-cvAUC 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-gam >= 1.15
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-cvAUC 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rjson 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rjson 
 
 %description
-Implements the super learner prediction method and contains a library of
-prediction algorithms to be used in the super learner.
+We provide an efficient way to design and conduct psycholinguistic
+experiments for testing the performance of large language models. It
+simplifies the process of setting up experiments, and data collection via
+large language models' API, streamlining workflow for researchers in the
+field of machine behavior. For methodology details, see Duan, X., Li, S.,
+& Cai, Z. G. (2023) <doi:10.31234/osf.io/ywtfd>.
 
 %prep
 %setup -q -c -n %{packname}

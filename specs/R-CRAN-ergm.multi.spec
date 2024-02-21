@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm.multi
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Multiple or Multilayer Networks
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-statnet.common >= 4.9.0
-BuildRequires:    R-CRAN-ergm >= 4.5.0
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-glue >= 1.6.2
-BuildRequires:    R-CRAN-network >= 1.18.0
-BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-ergm >= 4.6.0
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-Rdpack >= 2.6
+BuildRequires:    R-CRAN-glue >= 1.7.0
+BuildRequires:    R-CRAN-network >= 1.18.2
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-rle >= 0.9.2
-BuildRequires:    R-CRAN-purrr >= 0.3.5
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-statnet.common >= 4.9.0
-Requires:         R-CRAN-ergm >= 4.5.0
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-glue >= 1.6.2
-Requires:         R-CRAN-network >= 1.18.0
-Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-ergm >= 4.6.0
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-Rdpack >= 2.6
+Requires:         R-CRAN-glue >= 1.7.0
+Requires:         R-CRAN-network >= 1.18.2
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-rle >= 0.9.2
-Requires:         R-CRAN-purrr >= 0.3.5
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-parallel 
@@ -46,8 +46,8 @@ A set of extensions for the 'ergm' package to fit
 multilayer/multiplex/multirelational networks and samples of multiple
 networks. 'ergm.multi' is a part of the Statnet suite of packages for
 network analysis. See Krivitsky, Koehly, and Marcum (2020)
-<doi:10.1007/s11336-020-09720-7> and Krivitsky, Coletti, and Hens (2022)
-<doi:10.48550/arXiv.2202.03685>.
+<doi:10.1007/s11336-020-09720-7> and Krivitsky, Coletti, and Hens (2023)
+<doi:10.1080/01621459.2023.2242627>.
 
 %prep
 %setup -q -c -n %{packname}

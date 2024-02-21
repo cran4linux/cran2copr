@@ -1,52 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesTools
-%global packver   0.2.17
+%global packname  Colossus
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.17
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Bayesian Analyses
+Summary:          "Risk Model Regression and Analysis with Complex Non-Linear Models"
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-bridgesampling 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-bridgesampling 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table 
 Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
 
 %description
-Provides tools for conducting Bayesian analyses and Bayesian model
-averaging (Kass and Raftery, 1995, <doi:10.1080/01621459.1995.10476572>,
-Hoeting et al., 1999, <doi:10.1214/ss/1009212519>). The package contains
-functions for creating a wide range of prior distribution objects, mixing
-posterior samples from 'JAGS' and 'Stan' models, plotting posterior
-distributions, and etc... The tools for working with prior distribution
-span from visualization, generating 'JAGS' and 'bridgesampling' syntax to
-basic functions such as rng, quantile, and distribution functions.
+Performs survival analysis using general non-linear models. Risk models
+can be the sum or product of terms. Each term is the product of
+exponential/linear functions of covariates. Additionally sub-terms can be
+defined as a sum of exponential, linear threshold, and step functions. Cox
+Proportional hazards
+<https://en.wikipedia.org/wiki/Proportional_hazards_model>, Poisson
+<https://en.wikipedia.org/wiki/Poisson_regression>, and Fine-Grey
+competing risks
+<https://www.publichealth.columbia.edu/research/population-health-methods/competing-risk-analysis>
+regression are supported. This work was sponsored by NASA Grant
+80NSSC19M0161 through a subcontract from the National Council on Radiation
+Protection and Measurements (NCRP). The computing for this project was
+performed on the Beocat Research Cluster at Kansas State University, which
+is funded in part by NSF grants CNS-1006860, EPS-1006860, EPS-0919443,
+ACI-1440548, CHE-1726332, and NIH P20GM113109.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  changepoint.influence
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package to Calculate the Influence of the Data on a Changepoint Segmentation
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-data.table 
@@ -35,10 +36,10 @@ Requires:         R-methods
 Allows users to input their data, segmentation and function used for the
 segmentation (and additional arguments) and the package calculates the
 influence of the data on the changepoint locations, see Wilms et al.
-(2021) <arXiv:2107.10572>.  Currently this can only be used with the
-changepoint package functions to identify changes, but we plan to extend
-this.  There are options for different types of graphics to assess the
-influence.
+(2022) <doi:10.1080/10618600.2021.2000873>.  Currently this can only be
+used with the changepoint package functions to identify changes, but we
+plan to extend this.  There are options for different types of graphics to
+assess the influence.
 
 %prep
 %setup -q -c -n %{packname}

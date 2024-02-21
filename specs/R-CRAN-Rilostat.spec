@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rilostat
-%global packver   1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          ILO Open Data via Ilostat Bulk Download Facility or SDMX Web Service
+Summary:          ILO Open Data via Ilostat Bulk Download Facility
 
 License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

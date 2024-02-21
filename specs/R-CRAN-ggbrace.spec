@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SuperLearner
-%global packver   2.0-29
+%global packname  ggbrace
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.29
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Super Learner Prediction
+Summary:          Curly Braces for 'ggplot2'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gam >= 1.15
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-cvAUC 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-gam >= 1.15
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-cvAUC 
-Requires:         R-methods 
+BuildRequires:    R-stats >= 4.3.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
+Requires:         R-stats >= 4.3.1
+Requires:         R-CRAN-ggplot2 >= 3.4.2
 
 %description
-Implements the super learner prediction method and contains a library of
-prediction algorithms to be used in the super learner.
+Provides curly braces in 'ggplot2' plus matching text. stat_brace() plots
+braces partially in the confines of data so that the brace is set apart
+from it. stat_bracetext() plots corresponding text, fitting to the braces
+from stat_brace().
 
 %prep
 %setup -q -c -n %{packname}

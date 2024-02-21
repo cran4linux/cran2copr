@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RweaveExtra
-%global packver   1.0-0
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sweave Drivers with Extra Tricks Up their Sleeve
 
@@ -20,12 +21,14 @@ BuildRequires:    R-utils
 Requires:         R-utils 
 
 %description
-Weave and tangle drivers for Sweave extending the standard drivers with
-additional code chunk options. Currently, these are only options to
-completely ignore, or skip, code chunks on weaving, tangling, or both.
-Chunks ignored on weaving are not parsed and are written out verbatim on
-tangling. Chunks ignored on tangling are processed as usual on weaving,
-but completely left out of the tangled scripts.
+Weave and tangle drivers for Sweave extending the standard drivers.
+RweaveExtraLatex and RtangleExtra provide options to completely ignore
+code chunks on weaving, tangling, or both. Chunks ignored on weaving are
+not parsed, yet are written out verbatim on tangling. Chunks ignored on
+tangling may be evaluated as usual on weaving, but are completely left out
+of the tangled scripts. The driver RtangleExtra also provides an option to
+specify the extension of the file name (or remove it entirely) when
+splitting is selected on tangling.
 
 %prep
 %setup -q -c -n %{packname}
@@ -35,6 +38,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
