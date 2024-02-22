@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scrapeR
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          These Functions Fetch and Extract Text Content from Specified Web Pages
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
 
 %description
 The 'scrapeR' package utilizes functions that fetch and extract text

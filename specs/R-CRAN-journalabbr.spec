@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  journalabbr
-%global packver   0.4.0
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Journal Abbreviations for BibTeX Documents
 
@@ -14,23 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-tidytable 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-tidytable 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-stringi >= 1.7.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-tidytable >= 0.11.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-stringi >= 1.7.0
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-tidytable >= 0.11.0
 
 %description
 Since the reference management software (such as 'Zotero', 'Mendeley')

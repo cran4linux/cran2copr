@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecocomDP
-%global packver   1.2.2
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Create, Use, and Convert ecocomDP Data
 
@@ -38,6 +38,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-neonOS 
 Requires:         R-CRAN-neonUtilities >= 2.1.1
 Requires:         R-CRAN-EML >= 2.0.5
 Requires:         R-CRAN-emld >= 0.5.1
@@ -59,6 +60,7 @@ Requires:         R-tools
 Requires:         R-utils 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-neonOS 
 
 %description
 Work with the Ecological Community Data Design Pattern. 'ecocomDP' is a

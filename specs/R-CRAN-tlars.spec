@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tlars
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The T-LARS Algorithm: Early-Terminated Forward Variable Selection
 
@@ -28,8 +29,8 @@ Requires:         R-graphics
 %description
 Computes the solution path of the Terminating-LARS (T-LARS) algorithm. The
 T-LARS algorithm is a major building block of the T-Rex selector (see R
-package 'trex'). The package is based on the papers Machkour, Muma, and
-Palomar (2021) <arXiv:2110.06048>, Efron, Hastie, Johnstone, and
+package 'TRexSelector'). The package is based on the papers Machkour,
+Muma, and Palomar (2022) <arXiv:2110.06048>, Efron, Hastie, Johnstone, and
 Tibshirani (2004) <doi:10.1214/009053604000000067>, and Tibshirani (1996)
 <doi:10.1111/j.2517-6161.1996.tb02080.x>.
 

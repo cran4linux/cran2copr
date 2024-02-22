@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayshader
-%global packver   0.35.7
+%global packver   0.37.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.35.7
+Version:          0.37.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Maps and Visualize Data in 2D and 3D
 
@@ -16,10 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-rayimage >= 0.9.0
-BuildRequires:    R-CRAN-rayvertex >= 0.7.6
-BuildRequires:    R-CRAN-rayrender >= 0.29.6
+BuildRequires:    R-CRAN-rayrender >= 0.32.2
 BuildRequires:    R-CRAN-rgl >= 0.110.7
+BuildRequires:    R-CRAN-rayvertex >= 0.10.4
+BuildRequires:    R-CRAN-rayimage >= 0.10.0
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-Rcpp 
@@ -35,10 +35,10 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-terrainmeshr 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-rayimage >= 0.9.0
-Requires:         R-CRAN-rayvertex >= 0.7.6
-Requires:         R-CRAN-rayrender >= 0.29.6
+Requires:         R-CRAN-rayrender >= 0.32.2
 Requires:         R-CRAN-rgl >= 0.110.7
+Requires:         R-CRAN-rayvertex >= 0.10.4
+Requires:         R-CRAN-rayimage >= 0.10.0
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-Rcpp 

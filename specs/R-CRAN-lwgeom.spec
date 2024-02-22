@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lwgeom
-%global packver   0.2-13
+%global packver   0.2-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.13
+Version:          0.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to Selected 'liblwgeom' Functions for Simple Features
 
@@ -19,10 +19,10 @@ BuildRequires:    proj-devel
 BuildRequires:    sqlite-devel
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-sf >= 0.9.3
+BuildRequires:    R-CRAN-sf >= 1.0.15
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.9.3
+Requires:         R-CRAN-sf >= 1.0.15
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-units 
 

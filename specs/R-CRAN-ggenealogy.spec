@@ -1,44 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spnaf
-%global packver   0.2.1
+%global packname  ggenealogy
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Network Autocorrelation for Flow Data
+Summary:          Visualization Tools for Genealogical Data
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-plotly >= 4.5.6
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-plyr >= 1.8.1
+BuildRequires:    R-CRAN-reshape2 >= 1.4
+BuildRequires:    R-CRAN-igraph >= 0.7.1
+Requires:         R-CRAN-plotly >= 4.5.6
+Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-plyr >= 1.8.1
+Requires:         R-CRAN-reshape2 >= 1.4
+Requires:         R-CRAN-igraph >= 0.7.1
 
 %description
-Identify statistically significant flow clusters using the local spatial
-network autocorrelation statistic G_ij* proposed by 'Berglund' and
-'Karlström' (1999) <doi:10.1007/s101090050013>. The metric, an extended
-statistic of 'Getis/Ord' G ('Getis' and 'Ord' 1992)
-<doi:10.1111/j.1538-4632.1992.tb00261.x>, detects a group of flows having
-similar traits in terms of directionality. You provide OD data and the
-associated polygon to get results with several parameters, some of which
-are defined by spdep package.
+Methods for searching through genealogical data and displaying the
+results. Plotting algorithms assist with data exploration and
+publication-quality image generation. Includes interactive genealogy
+visualization tools. Provides parsing and calculation methods for
+variables in descendant branches of interest. Uses the Grammar of
+Graphics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  raymolecule
-%global packver   0.5.0
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse and Render Molecular Structures in 3D
 
@@ -16,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rayrender 
+BuildRequires:    R-CRAN-rayrender >= 0.31.2
+BuildRequires:    R-CRAN-rayvertex >= 0.10.4
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-PeriodicTable 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rayvertex 
-Requires:         R-CRAN-rayrender 
+Requires:         R-CRAN-rayrender >= 0.31.2
+Requires:         R-CRAN-rayvertex >= 0.10.4
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-PeriodicTable 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rayvertex 
 
 %description
 Downloads and parses 'SDF' (Structural Description Format) and 'PDB'

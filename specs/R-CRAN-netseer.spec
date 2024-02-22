@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oeli
-%global packver   0.4.0
+%global packname  netseer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          My Utilities for Developing Data Science Software
+Summary:          Graph Prediction from a Graph Time Series
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,38 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-benchmarkme 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hexSticker 
-BuildRequires:    R-CRAN-latex2exp 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-showtext 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fable 
+BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-benchmarkme 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hexSticker 
-Requires:         R-CRAN-latex2exp 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-showtext 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tsibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fable 
+Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-sysfonts 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tsibble 
 
 %description
-Some general utilities (helper functions) that I and maybe others find
-useful when developing data science software. Functionality includes
-argument validation, density calculation, sampling, matrix printing, user
-interaction, storage helpers and more. The vignettes illustrate use cases.
+Predicting the structure of a graph including new nodes and edges using a
+time series of graphs. Flux balance analysis, a linear and integer
+programming technique used in biochemistry is used with time series
+prediction methods to predict the graph structure at a future time point
+Kandanaarachchi (2024) <doi:10.48550/arXiv.2401.04280>.
 
 %prep
 %setup -q -c -n %{packname}

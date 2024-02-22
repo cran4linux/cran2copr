@@ -1,53 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fHMM
-%global packver   1.2.1
+%global packname  metainc
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting Hidden Markov Models to Financial Data
+Summary:          Assessment of Inconsistency in Meta-Analysis using Decision Thresholds
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-oeli >= 0.3.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-padr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-oeli >= 0.3.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-foreach 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-padr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-meta >= 7.0.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-confintr 
+Requires:         R-CRAN-meta >= 7.0.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-confintr 
 
 %description
-Fitting (hierarchical) hidden Markov models to financial data via maximum
-likelihood estimation. See Oelschläger, L. and Adam, T. "Detecting bearish
-and bullish markets in financial time series using hierarchical hidden
-Markov models" (2021, Statistical Modelling)
-<doi:10.1177/1471082X211034048> for a reference.
+Assessment of inconsistency in meta-analysis by calculating the Decision
+Inconsistency index (DI) and the Across-Studies Inconsistency (ASI) index.
+These indices quantify inconsistency taking into account outcome-level
+decision thresholds.
 
 %prep
 %setup -q -c -n %{packname}

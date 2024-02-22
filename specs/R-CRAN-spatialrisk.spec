@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spatialrisk
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Spatial Risk
 
@@ -26,7 +27,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-leafem 
 BuildRequires:    R-CRAN-leafgl 
 BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppProgress 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-leafem 
 Requires:         R-CRAN-leafgl 
 Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppProgress 

@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  optimizeR
-%global packver   1.0.4
+%global packname  VIMPS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unified Framework for Numerical Optimizers
+Summary:          Calculate Variable Importance with Knock Off Variables
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oeli >= 0.4.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TestFunctions 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-oeli >= 0.4.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-TestFunctions 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-knockoff 
+BuildRequires:    R-CRAN-ROCR 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-knockoff 
+Requires:         R-CRAN-ROCR 
 
 %description
-Provides a unified object-oriented framework for numerical optimizers in
-R. Allows for both minimization and maximization with any optimizer,
-optimization over more than one function argument, measuring of
-computation time, setting a time limit for long optimization tasks.
+The variable importance is calculated using knock off variables. Then
+output can be provided in numerical and graphical form. Meredith L Wallace
+(2023) <doi:10.1186/s12874-023-01965-x>.
 
 %prep
 %setup -q -c -n %{packname}

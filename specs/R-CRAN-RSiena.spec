@@ -1,48 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  graphicalVAR
-%global packver   0.3.4
+%global packname  RSiena
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical VAR for Experience Sampling Data
+Summary:          Siena - Simulation Investigation for Empirical Network Analysis
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-qgraph >= 1.3.1
-BuildRequires:    R-CRAN-Rcpp >= 0.11.3
+BuildRequires:    xorg-x11-server-Xvfb
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-glasso 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-qgraph >= 1.3.1
-Requires:         R-CRAN-Rcpp >= 0.11.3
+BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-glasso 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lattice 
+Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xtable 
 
 %description
-Estimates within and between time point interactions in experience
-sampling data, using the Graphical vector autoregression model in
-combination with regularization. See also Epskamp, Waldorp, Mottus &
-Borsboom (2018) <doi:10.1080/00273171.2018.1454823>.
+The main purpose of this package is to perform simulation-based estimation
+of stochastic actor-oriented models for longitudinal network data
+collected as panel data. Dependent variables can be single or multivariate
+networks, which can be directed, non-directed, or two-mode; and associated
+actor variables. There are also functions for testing parameters and
+checking goodness of fit. An overview of these models is given in Snijders
+(2017), <doi:10.1146/annurev-statistics-060116-054035>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -62,7 +57,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

@@ -1,61 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gratis
-%global packver   1.0.5
+%global packname  saens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Time Series with Diverse and Controllable Characteristics
+Summary:          Small Area Estimation with Cluster Information for Estimation of Non-Sampled Areas
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast >= 8.16
-BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-polynom 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tsfeatures 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-forecast >= 8.16
-Requires:         R-CRAN-doRNG 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-GA 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-polynom 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tsfeatures 
-Requires:         R-CRAN-tsibble 
-Requires:         R-utils 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-tidyr 
 
 %description
-Generates synthetic time series based on various univariate time series
-models including MAR and ARIMA processes. Kang, Y., Hyndman, R.J., Li,
-F.(2020) <doi:10.1002/sam.11461>.
+Implementation of small area estimation (Fay-Herriot model) with EBLUP
+(Empirical Best Linear Unbiased Prediction) Approach for non-sampled area
+estimation by adding cluster information and assuming that there are
+similarities among particular areas. See also Rao & Molina (2015,
+ISBN:978-1-118-73578-7) and Anisa et al. (2013)
+<doi:10.9790/5728-10121519>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bigsimr
-%global packver   0.11.2
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Generation of High-Dimensional Random Vectors
 
@@ -21,10 +22,10 @@ Requires:         R-CRAN-JuliaCall
 
 %description
 Simulate multivariate data with arbitrary marginal distributions.
-'bigsimr' is an package for simulating high-dimensional multivariate data
+'bigsimr' is a package for simulating high-dimensional multivariate data
 with a target correlation and arbitrary marginal distributions via
-Gaussian copula. It utilizes a Julia package named 'Bigsimr.jl' for its
-core routines.
+Gaussian copula. It utilizes the Julia package 'Bigsimr.jl' for its core
+routines.
 
 %prep
 %setup -q -c -n %{packname}
