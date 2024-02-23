@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReplicationSuccess
-%global packver   1.3.2
+%global packname  hyperbolicDEA
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design and Analysis of Replication Studies
+Summary:          Hyperbolic DEA Estimation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-lpSolveAPI 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-Benchmarking 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-lpSolveAPI 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-Benchmarking 
 
 %description
-Provides utilities for the design and analysis of replication studies.
-Features both traditional methods based on statistical significance and
-more recent methods such as the sceptical p-value; Held L. (2020)
-<doi:10.1111/rssa.12493>, Held et al. (2022) <doi:10.1214/21-AOAS1502>,
-Micheloud et al. (2023) <doi:10.1111/stan.12312>. Also provides related
-methods including the harmonic mean chi-squared test; Held, L. (2020)
-<doi:10.1111/rssc.12410>, and intrinsic credibility; Held, L. (2019)
-<doi:10.1098/rsos.181534>. Contains datasets from five large-scale
-replication projects.
+Implements Data Envelopment Analysis (DEA) with a hyperbolic orientation
+using a non-linear programming solver. It enables flexible estimations
+with weight restrictions, non-discretionary variables, and a generalized
+distance function. Additionally, it allows for the calculation of slacks
+and super-efficiency scores. The methods are detailed in Öttl et al.
+(2023), <doi:10.1016/j.dajour.2023.100343>. Furthermore, the package
+provides a non-linear profitability estimation built upon the DEA
+framework.
 
 %prep
 %setup -q -c -n %{packname}

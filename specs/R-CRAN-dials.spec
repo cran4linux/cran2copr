@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dials
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Tuning Parameter Values
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-hardhat >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-vctrs >= 0.3.8
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DiceDesign 
 BuildRequires:    R-CRAN-glue 
@@ -31,11 +31,11 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-hardhat >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-vctrs >= 0.3.8
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DiceDesign 
 Requires:         R-CRAN-glue 

@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReplicationSuccess
-%global packver   1.3.2
+%global packname  nc
+%global packver   2024.2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2024.2.21
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design and Analysis of Replication Studies
+Summary:          Named Capture to Data Tables
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.14
+Requires:         R-core >= 2.14
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-data.table >= 1.15.0
 
 %description
-Provides utilities for the design and analysis of replication studies.
-Features both traditional methods based on statistical significance and
-more recent methods such as the sceptical p-value; Held L. (2020)
-<doi:10.1111/rssa.12493>, Held et al. (2022) <doi:10.1214/21-AOAS1502>,
-Micheloud et al. (2023) <doi:10.1111/stan.12312>. Also provides related
-methods including the harmonic mean chi-squared test; Held, L. (2020)
-<doi:10.1111/rssc.12410>, and intrinsic credibility; Held, L. (2019)
-<doi:10.1098/rsos.181534>. Contains datasets from five large-scale
-replication projects.
+User-friendly functions for extracting a data table (row for each match,
+column for each group) from non-tabular text data using regular
+expressions, and for melting columns that match a regular expression.
+Patterns are defined using a readable syntax that makes it easy to build
+complex patterns in terms of simpler, re-usable sub-patterns. Named R
+arguments are translated to column names in the output; capture groups
+without names are used internally in order to provide a standard interface
+to three regular expression 'C' libraries ('PCRE', 'RE2', 'ICU'). Output
+can also include numeric columns via user-specified type conversion
+functions.
 
 %prep
 %setup -q -c -n %{packname}

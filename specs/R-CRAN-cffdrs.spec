@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NMsim
-%global packver   0.1.0
+%global packname  cffdrs
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seamless 'Nonmem' Simulation Platform
+Summary:          Canadian Forest Fire Danger Rating System
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.1.3
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.1.3
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-geosphere 
+Requires:         R-methods 
+Requires:         R-parallel 
 
 %description
-A complete and seamless 'Nonmem' simulation interface from within R. Turns
-'Nonmem' control streams into simulation control streams, executes them
-with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating time spent and risks of
-re-implementation of models in other tools.
+This project provides a group of new functions to calculate the outputs of
+the two main components of the Canadian Forest Fire Danger Rating System
+(CFFDRS) Van Wagner and Pickett (1985)
+<https://cfs.nrcan.gc.ca/publications?id=19973>) at various time scales:
+the Fire Weather Index (FWI) System Wan Wagner (1985)
+<https://cfs.nrcan.gc.ca/publications?id=19927> and the Fire Behaviour
+Prediction (FBP) System Forestry Canada Fire Danger Group (1992)
+<https://cfs.nrcan.gc.ca/pubwarehouse/pdfs/10068.pdf>. Some functions have
+two versions, table and raster based.
 
 %prep
 %setup -q -c -n %{packname}

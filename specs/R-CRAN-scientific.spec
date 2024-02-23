@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scientific
-%global packver   2024.0
+%global packver   2024.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.0
+Version:          2024.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elegant Scientific Themed Reporting for 'Markdown'
 
@@ -33,7 +33,8 @@ contemporary appearance with vibrant visuals, providing numerous styles
 for effective highlighting. The package also includes additional features
 specifically tailored for front-page slides, enhancing the overall
 presentation and customization options. The package was created using the
-'tufte' R package code as a starting point.
+'tufte' <https://rstudio.github.io/tufte/> package code as a starting
+point.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  xpose4
-%global packver   4.7.2
+%global packver   4.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.7.2
+Version:          4.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostics for Nonlinear Mixed-Effect Models
 

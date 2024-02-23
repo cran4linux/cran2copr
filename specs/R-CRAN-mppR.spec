@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mppR
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Parent Population QTL Analysis
 
@@ -50,8 +50,10 @@ be composed of crosses between a set of at least three parents (e.g.
 factorial design, 'diallel', or nested association mapping). The functions
 cover data processing, QTL detection, and results visualization. The
 implemented methodology is described in Garin, Wimmer, Mezmouk, Malosetti
-and van Eeuwijk (2017) <doi:10.1007/s00122-017-2923-3> as well as in
-Garin, Malosetti and van Eeuwijk (2020) <doi: 10.1007/s00122-020-03621-0>.
+and van Eeuwijk (2017) <doi:10.1007/s00122-017-2923-3>, in Garin,
+Malosetti and van Eeuwijk (2020) <doi: 10.1007/s00122-020-03621-0>, and in
+Garin, Diallo, Tekete, Thera, ..., and Rami (2024) <doi:
+10.1093/genetics/iyae003>.
 
 %prep
 %setup -q -c -n %{packname}

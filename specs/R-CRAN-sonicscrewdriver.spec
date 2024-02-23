@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sonicscrewdriver
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bioacoustic Analysis and Publication Tools
 
@@ -16,27 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-suncalc 
-BuildRequires:    R-CRAN-hms 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hms 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-suncalc 
-Requires:         R-CRAN-hms 
+Requires:         R-CRAN-tuneR 
 
 %description
-Provides basic tools for manipulating sound files for bioacoustic
-analysis, and preparing analyses these for publication. The package
-validates that values are physically possible wherever feasible.
+Provides tools for manipulating sound files for bioacoustic analysis, and
+preparing analyses these for publication. The package validates that
+values are physically possible wherever feasible.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
