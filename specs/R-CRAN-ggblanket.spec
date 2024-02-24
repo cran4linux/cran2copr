@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggblanket
-%global packver   5.2.0
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify 'ggplot2' Visualisation
 
@@ -17,36 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.8
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-stringr >= 1.3.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.4
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-hms >= 0.5.0
+BuildRequires:    R-CRAN-viridisLite >= 0.4.0
+BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-lubridate >= 1.7.8
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-stringr >= 1.3.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.0.4
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-hms >= 0.5.0
+Requires:         R-CRAN-viridisLite >= 0.4.0
+Requires:         R-CRAN-farver 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.

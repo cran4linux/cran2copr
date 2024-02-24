@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebirdst
-%global packver   3.2022.1
+%global packver   3.2022.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2022.1
+Version:          3.2022.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Analyze eBird Status and Trends Data Products
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.6.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-viridisLite
 Requires:         R-CRAN-terra >= 1.6.3
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-arrow 
 Requires:         R-grDevices 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 

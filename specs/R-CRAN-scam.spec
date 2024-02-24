@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scam
-%global packver   1.2-15
+%global packver   1.2-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.15
+Version:          1.2.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shape Constrained Additive Models
 
@@ -30,14 +30,15 @@ Requires:         R-CRAN-Matrix
 Requires:         R-splines 
 
 %description
-Routines for generalized additive modelling under shape constraints on the
-component functions of the linear predictor (Pya and Wood, 2015)
-<doi:10.1007/s11222-013-9448-7>. Models can contain multiple shape
-constrained (univariate and/or bivariate) and unconstrained terms. The
-routines of gam() in package 'mgcv' are used for setting up the model
-matrix, printing and plotting the results.  Penalized likelihood
-maximization based on Newton-Raphson method is used to fit a model with
-multiple smoothing parameter selection by GCV or UBRE/AIC.
+Generalized additive models under shape constraints on the component
+functions of the linear predictor. Models can include multiple
+shape-constrained (univariate and bivariate) and unconstrained terms.
+Routines of the package 'mgcv' are used to set up the model matrix, print,
+and plot the results. Multiple smoothing parameter estimation by the
+Generalized Cross Validation or similar. See Pya and Wood (2015)
+<doi:10.1007/s11222-013-9448-7> for an overview. A broad selection of
+shape-constrained smoothers, linear functionals of smooths with shape
+constraints, and Gaussian models with AR1 residuals.
 
 %prep
 %setup -q -c -n %{packname}

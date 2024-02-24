@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dimensio
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Analysis
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.4.0
+BuildRequires:    R-CRAN-arkhe >= 1.6.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-arkhe >= 1.4.0
+Requires:         R-CRAN-arkhe >= 1.6.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
@@ -31,9 +31,8 @@ Simple Principal Components Analysis (PCA) and (Multiple) Correspondence
 Analysis (CA) based on the Singular Value Decomposition (SVD). This
 package provides S4 classes and methods to compute, extract, summarize and
 visualize results of multivariate data analysis. It also includes methods
-for partial bootstrap validation described in Greenacre (1984)
-<isbn:978-0-12-299050-2> and Lebart et al. (2006)
-<isbn:978-2-10-049616-7>.
+for partial bootstrap validation described in Greenacre (1984, ISBN:
+978-0-12-299050-2) and Lebart et al. (2006, ISBN: 978-2-10-049616-7).
 
 %prep
 %setup -q -c -n %{packname}

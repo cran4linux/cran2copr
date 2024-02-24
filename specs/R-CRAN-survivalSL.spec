@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survivalSL
-%global packver   0.92
+%global packver   0.93
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.92
+Version:          0.93
 Release:          1%{?dist}%{?buildtag}
 Summary:          Super Learner for Survival Prediction from Censored Data
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-date 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-randomForestSRC 
-BuildRequires:    R-CRAN-survivalmodels 
 BuildRequires:    R-CRAN-hdnom 
 BuildRequires:    R-CRAN-glmnetUtils 
 BuildRequires:    R-CRAN-dplyr 
@@ -35,7 +33,6 @@ BuildRequires:    R-CRAN-rpart
 BuildRequires:    R-methods 
 Requires:         R-splines 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-date 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
@@ -43,7 +40,6 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-randomForestSRC 
-Requires:         R-CRAN-survivalmodels 
 Requires:         R-CRAN-hdnom 
 Requires:         R-CRAN-glmnetUtils 
 Requires:         R-CRAN-dplyr 

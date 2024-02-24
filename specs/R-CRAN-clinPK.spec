@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  clinPK
-%global packver   0.11.1
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Pharmacokinetics Toolkit
 
@@ -18,12 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Calculates equations commonly used in clinical pharmacokinetics and
-clinical pharmacology, such as equations for dose individualization,
-compartmental pharmacokinetics, drug exposure, anthropomorphic
-calculations, clinical chemistry, and conversion of common clinical
-parameters. Where possible and relevant, it provides multiple published
-and peer-reviewed equations within the respective R function.
+Provides equations commonly used in clinical pharmacokinetics and clinical
+pharmacology, such as equations for dose individualization, compartmental
+pharmacokinetics, drug exposure, anthropomorphic calculations, clinical
+chemistry, and conversion of common clinical parameters. Where possible
+and relevant, it provides multiple published and peer-reviewed equations
+within the respective R function.
 
 %prep
 %setup -q -c -n %{packname}

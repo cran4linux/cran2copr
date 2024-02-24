@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BalancedSampling
-%global packver   1.6.3
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Balanced and Spatially Balanced Sampling
 
@@ -15,10 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-CRAN-SamplingBigData 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-CRAN-SamplingBigData 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
 Select balanced and spatially balanced probability samples in

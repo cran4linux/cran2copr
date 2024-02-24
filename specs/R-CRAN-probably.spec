@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  probably
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Post-Processing Class Probability Estimates
+Summary:          Tools for Post-Processing Predicted Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-yardstick >= 1.3.0
+BuildRequires:    R-CRAN-workflows >= 1.1.4
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
+BuildRequires:    R-CRAN-tune >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-tune >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.4
 BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-generics >= 0.1.3
-BuildRequires:    R-CRAN-yardstick > 1.0.0
 BuildRequires:    R-CRAN-butcher 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-furrr 
@@ -33,15 +34,15 @@ BuildRequires:    R-CRAN-hardhat
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-workflows 
 Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-yardstick >= 1.3.0
+Requires:         R-CRAN-workflows >= 1.1.4
 Requires:         R-CRAN-tidyselect >= 1.1.2
+Requires:         R-CRAN-tune >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-tune >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.4
 Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-generics >= 0.1.3
-Requires:         R-CRAN-yardstick > 1.0.0
 Requires:         R-CRAN-butcher 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-furrr 
@@ -50,7 +51,6 @@ Requires:         R-CRAN-hardhat
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-workflows 
 
 %description
 Models can be improved by post-processing class probabilities, by:

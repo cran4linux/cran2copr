@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  escalation
-%global packver   0.1.5
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modular Approach to Dose Finding Clinical Trials
+Summary:          A Modular Approach to Dose-Finding Clinical Trials
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-dfcrm 
 BuildRequires:    R-CRAN-BOIN 
@@ -32,6 +33,8 @@ BuildRequires:    R-CRAN-DiagrammeR
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-binom 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-tidyr >= 1.0
 Requires:         R-CRAN-trialr >= 0.1.5
 Requires:         R-CRAN-magrittr 
@@ -40,6 +43,7 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-dfcrm 
 Requires:         R-CRAN-BOIN 
@@ -47,6 +51,8 @@ Requires:         R-CRAN-DiagrammeR
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-binom 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Methods for working with dose-finding clinical trials. We provide

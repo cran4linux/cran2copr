@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TRexSelector
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          T-Rex Selector: High-Dimensional Variable Selection & FDR Control
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-tlars 
@@ -35,11 +36,12 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-doRNG 
 Requires:         R-methods 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-boot 
 
 %description
 Performs fast variable selection in high-dimensional settings while
 controlling the false discovery rate (FDR) at a user-defined target level.
-The package is based on the paper Machkour, Muma, and Palomar (2021)
+The package is based on the paper Machkour, Muma, and Palomar (2022)
 <arXiv:2110.06048>.
 
 %prep

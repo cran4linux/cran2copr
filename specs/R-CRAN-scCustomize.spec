@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scCustomize
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Visualizations & Functions for Streamlined Analyses of Single Cell Sequencing
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-Seurat >= 4.3.0.1
 BuildRequires:    R-CRAN-cli >= 3.2.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-CRAN-scattermore >= 1.2
-BuildRequires:    R-CRAN-rlang >= 1.0.1
+BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-circlize 
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-data.table 
@@ -55,7 +55,7 @@ Requires:         R-CRAN-Seurat >= 4.3.0.1
 Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-scattermore >= 1.2
-Requires:         R-CRAN-rlang >= 1.0.1
+Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-circlize 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-data.table 

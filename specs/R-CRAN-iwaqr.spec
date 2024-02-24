@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AugmenterR
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  iwaqr
+%global packver   1.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.8.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Augmentation for Machine Learning on Tabular Data
+Summary:          Irrigation Water Quality Assessment and Visualizations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,17 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-scales 
 
 %description
-Implementation of a data augmentation technique based on conditional
-entropy It was devised by both authors during their masters and is
-discussed in detail in the second author dissertation. It is able to
-create novel samples conditioned on a desired value of a categorical
-attribute, as a way to augment data for classification tasks Tests
-discussed in the dissertation and future paper present that the technique
-satisfies several statistical assumptions for the novel samples. It also
-shows significant improvement for machine learning models trained on small
-data.
+Calculates irrigation water quality ratios and has functions that could be
+used to plot several popular diagrams for irrigation water quality
+classification.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
