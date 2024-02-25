@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sc2sc
-%global packver   0.0.1-9
+%global packver   0.0.1-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.9
+Version:          0.0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Transfer of Statistics among Spanish Census Sections
 
@@ -22,7 +22,7 @@ Requires:         R-stats
 
 %description
 Transfers/imputes statistics among Spanish spatial polygons (census
-sections or postal code areas) from different moments in time (2001-202)3
+sections or postal code areas) from different moments in time (2001-2023)
 without need of spatial files, just linking statistics to the ID codes of
 the spatial units. The data available in the census sections of a
 partition/division (cartography) into force in a moment of time is

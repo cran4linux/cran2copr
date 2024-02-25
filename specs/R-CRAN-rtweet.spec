@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtweet
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collecting Twitter Data
 
@@ -23,11 +23,12 @@ BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-tibble >= 1.3.4
 BuildRequires:    R-CRAN-httr >= 1.3.0
 BuildRequires:    R-CRAN-progress >= 1.2.2
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-jsonlite >= 0.9.22
 BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-httr2 >= 0.2.2
 BuildRequires:    R-methods 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl >= 4.3.2
 Requires:         R-CRAN-bit64 >= 4.0.5
@@ -35,11 +36,12 @@ Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-tibble >= 1.3.4
 Requires:         R-CRAN-httr >= 1.3.0
 Requires:         R-CRAN-progress >= 1.2.2
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.22
 Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-httr2 >= 0.2.2
 Requires:         R-methods 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

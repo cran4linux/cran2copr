@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SegEnvIneq
-%global packver   1.1
+%global packname  BayesPPDSurv
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Environmental Inequality Indices Based on Segregation Measures
+Summary:          Bayesian Power Prior Design for Survival Data
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-OasisR >= 3.1.0
-BuildRequires:    R-CRAN-spdep >= 1.2.8
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-outliers >= 0.15
-Requires:         R-CRAN-OasisR >= 3.1.0
-Requires:         R-CRAN-spdep >= 1.2.8
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-outliers >= 0.15
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-A set of segregation-based indices and randomization methods to make
-robust environmental inequality assessments, as described in Schaeffer and
-Tivadar (2019) "Measuring Environmental Inequalities: Insights from the
-Residential Segregation Literature" <doi:10.1016/j.ecolecon.2019.05.009>.
+Bayesian power/type I error calculation and model fitting using the power
+prior and the normalized power prior for proportional hazards models with
+piecewise constant hazard. The Bayesian clinical trial design methodology
+is described in Chen et al. (2011) <doi:10.1111/j.1541-0420.2011.01561.x>,
+and Psioda and Ibrahim (2019) <doi:10.1093/biostatistics/kxy009>. The
+proportional hazards model with piecewise constant hazard is detailed in
+Ibrahim et al. (2001) <doi:10.1007/978-1-4757-3447-8>.
 
 %prep
 %setup -q -c -n %{packname}

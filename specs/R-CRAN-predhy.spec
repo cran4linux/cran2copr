@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predhy
-%global packver   1.2.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genomic Prediction of Hybrid Performance
 
@@ -20,23 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-BGLR 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-lightgbm 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-BGLR 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-lightgbm 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 
 %description
 Performs genomic prediction of hybrid performance using eight GS methods
-including GBLUP, BayesB, RKHS, PLS, LASSO, Elastic net, Random forest and
+including GBLUP, BayesB, RKHS, PLS, LASSO, Elastic net, LightGBM and
 XGBoost. It also provides fast cross-validation and mating design scheme
 for training population (Xu S et al (2016) <doi:10.1111/tpj.13242>; Xu S
 (2017) <doi:10.1534/g3.116.038059>).

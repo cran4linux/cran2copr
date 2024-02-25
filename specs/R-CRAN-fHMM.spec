@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggeffects
-%global packver   1.5.0
+%global packname  fHMM
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' from Model Outputs
+Summary:          Fitting Hidden Markov Models to Financial Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.19.8
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-oeli >= 0.3.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-padr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.19.8
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-oeli >= 0.3.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-padr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Compute marginal effects and adjusted predictions from statistical models
-and returns the result as tidy data frames. These data frames are ready to
-use with the 'ggplot2'-package. Effects and predictions can be calculated
-for many different models. Interaction terms, splines and polynomial terms
-are also supported. The main functions are ggpredict(), ggemmeans() and
-ggeffect(). There is a generic plot()-method to plot the results using
-'ggplot2'.
+Fitting (hierarchical) hidden Markov models to financial data via maximum
+likelihood estimation. See Oelschläger, L. and Adam, T. "Detecting bearish
+and bullish markets in financial time series using hierarchical hidden
+Markov models" (2021, Statistical Modelling)
+<doi:10.1177/1471082X211034048> for a reference.
 
 %prep
 %setup -q -c -n %{packname}

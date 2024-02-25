@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loo
-%global packver   2.6.0
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Leave-One-Out Cross-Validation and WAIC for Bayesian Models
 
@@ -14,14 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel >= 3.1.2
 Requires:         R-core >= 3.1.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-posterior >= 1.5.0
 BuildRequires:    R-CRAN-matrixStats >= 0.52
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-posterior >= 1.5.0
 Requires:         R-CRAN-matrixStats >= 0.52
 Requires:         R-CRAN-checkmate 
 Requires:         R-parallel 

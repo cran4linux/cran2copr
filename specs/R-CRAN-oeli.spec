@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hfr
-%global packver   0.7.0
+%global packname  oeli
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Hierarchical Feature Regression Models
+Summary:          My Utilities for Developing Data Science Software
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-benchmarkme 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hexSticker 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-showtext 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-quadprog 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-benchmarkme 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hexSticker 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-showtext 
 Requires:         R-stats 
-Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-usethis 
 
 %description
-Provides functions for the estimation, plotting, predicting and
-cross-validation of hierarchical feature regression models as described in
-Pfitzinger (2024). Cluster Regularization via a Hierarchical Feature
-Regression. Journal of Econometrics and Statistics (in press).
-<doi:10.1016/j.ecosta.2024.01.003>.
+Some general helper functions that I and maybe others find useful when
+developing data science software. Functionality includes argument
+validation, density calculation, sampling, matrix printing, user
+interaction, storage helpers and more. The vignettes illustrate use cases.
 
 %prep
 %setup -q -c -n %{packname}
