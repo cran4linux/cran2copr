@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BRugs
-%global packver   0.9-2
+%global packver   0.9-2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'OpenBUGS' MCMC Software
 
@@ -14,8 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openbugs
-BuildRequires:    glibc-devel(x86-32)
+BuildRequires:    openbugs glibc-devel(x86-32)
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildRequires:    R-utils 

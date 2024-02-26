@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smoothHR
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Hazard Ratio Curves Taking a Reference Value
 
@@ -25,9 +25,9 @@ Requires:         R-splines
 %description
 Provides flexible hazard ratio curves allowing non-linear relationships
 between continuous predictors and survival. To better understand the
-effects that each continuous covariate has on the outcome, results are ex
-pressed in terms of hazard ratio curves, taking a specific covariate value
-as reference. Confidence bands for these curves are also derived.
+effects that each continuous covariate has on the outcome, results are
+expressed in terms of hazard ratio curves, taking a specific covariate
+value as reference. Confidence bands for these curves are also derived.
 
 %prep
 %setup -q -c -n %{packname}
