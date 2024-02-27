@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  raybevel
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          Generates Polygon Straight Skeletons and 3D Bevels
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-RcppThread >= 2.1.6
+BuildRequires:    R-CRAN-rayvertex >= 0.10.4
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-decido 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+Requires:         R-CRAN-rayvertex >= 0.10.4
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-decido 
+Requires:         R-CRAN-sf 
+Requires:         R-grid 
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+Generates polygon straight skeletons and 3D models. Provides functions to
+create and visualize interior polygon offsets, 3D beveled polygons, and 3D
+roof models.
 
 %prep
 %setup -q -c -n %{packname}

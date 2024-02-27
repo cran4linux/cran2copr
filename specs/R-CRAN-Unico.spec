@@ -1,65 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyfit
-%global packver   0.7.0
+%global packname  Unico
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Linear Modeling with Tidy Data
+Summary:          Unified Cross-Omics Deconvolution
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dials 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-compositions 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-testit 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dials 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-compositions 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-nloptr 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-testit 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-yardstick 
 
 %description
-An extension to the 'R' tidy data environment for automated machine
-learning. The package allows fitting and cross validation of linear
-regression and classification algorithms on grouped data.
+UNIfied Cross-Omics deconvolution (Unico) deconvolves standard
+2-dimensional bulk matrices of samples by features into a 3-dimensional
+tensors representing samples by features by cell types. Unico stands out
+as the first principled model-based deconvolution method that is
+theoretically justified for any heterogeneous genomic data. For more
+details see Chen and Rahmani et al. (2024)
+<doi:10.1101/2024.01.27.577588>.
 
 %prep
 %setup -q -c -n %{packname}

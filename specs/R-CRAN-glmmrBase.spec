@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmrBase
-%global packver   0.6.2
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Linear Mixed Models in R
 
@@ -17,6 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstan >= 2.32.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.32.0
+BuildRequires:    R-CRAN-rstantools >= 2.3.1.1
 BuildRequires:    R-CRAN-Matrix >= 1.3.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.11
 BuildRequires:    R-CRAN-SparseChol >= 0.3.1
@@ -24,10 +27,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.32.1
+Requires:         R-CRAN-rstantools >= 2.3.1.1
 Requires:         R-CRAN-Matrix >= 1.3.1
 Requires:         R-CRAN-Rcpp >= 1.0.11
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rstantools
 
 %description
 Specification, analysis, simulation, and fitting of generalised linear

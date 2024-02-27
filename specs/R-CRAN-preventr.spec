@@ -1,48 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  preventr
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          An Implementation of the AHA PREVENT Equations
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+Implements the American Heart Association (AHA) Predicting Risk of
+cardiovascular disease EVENTs (PREVENT) equations from Khan SS, Matsushita
+K, Sang Y, and colleagues (2024) <doi:10.1161/CIRCULATIONAHA.123.067626>.
 
 %prep
 %setup -q -c -n %{packname}

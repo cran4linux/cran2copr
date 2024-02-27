@@ -1,65 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyfit
-%global packver   0.7.0
+%global packname  Rapi
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Linear Modeling with Tidy Data
+Summary:          Interface for Multiple Data Providers 'EDDS' and 'FRED'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-devel >= 3.4.3
+Requires:         R-core >= 3.4.3
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dials 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsample 
-Requires:         R-stats 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-yardstick 
 
 %description
-An extension to the 'R' tidy data environment for automated machine
-learning. The package allows fitting and cross validation of linear
-regression and classification algorithms on grouped data.
+Interface for multiple data sources, such as the 'EDDS' API
+<https://evds2.tcmb.gov.tr/index.php?/evds/userDocs> of the Central Bank
+of the Republic of Türkiye and the 'FRED' API
+<https://fred.stlouisfed.org/docs/api/fred/> of the Federal Reserve Bank.
+Both data providers require API keys for access, which users can easily
+obtain by creating accounts on their respective websites. The package
+provides caching ability with the selection of periods to increase the
+speed and efficiency of requests. It combines datasets requested from
+different sources, helping users when the data has common frequencies.
+While combining data frames whenever possible, it also keeps all requested
+data available as separate data frames to increase efficiency.
 
 %prep
 %setup -q -c -n %{packname}

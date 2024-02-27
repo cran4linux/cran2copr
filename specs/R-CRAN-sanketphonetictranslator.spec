@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  sanketphonetictranslator
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          Phonetic Transliteration Between Hindi and English
 
-License:          GPL (>= 3)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+Facilitate phonetic transliteration between different languages. With
+support for both Hindi and English, this package provides a way to convert
+text between Hindi and English dataset. Whether you're working with
+multilingual data or need to convert dataset for analysis or presentation
+purposes, it offers a simple and efficient solution and harness the power
+of phonetic transliteration in your projects with this versatile package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcutils
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Some Useful Functions for Statistics and Visualization
 
@@ -25,7 +25,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-tools 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
@@ -36,7 +35,6 @@ Requires:         R-utils
 Requires:         R-grDevices 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-agricolae 
 Requires:         R-tools 
 Requires:         R-graphics 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfields
-%global packver   0.0.3
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Vector Field Layers to Ggplots
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grid >= 4.3.2
+BuildRequires:    R-grid >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.2
 BuildRequires:    R-CRAN-sf >= 1.0.15
-Requires:         R-grid >= 4.3.2
+Requires:         R-grid >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.4
@@ -32,8 +32,8 @@ Requires:         R-CRAN-sf >= 1.0.15
 
 %description
 Add vector field layers to ggplots. Ideal for visualising wind speeds,
-water currents, electric/magnetic fields, etc. Accepts data.frames simple
-features (sf) and spatiotemporal arrays (stars) objects as input. Vector
+water currents, electric/magnetic fields, etc. Accepts data.frames, simple
+features (sf), and spatiotemporal arrays (stars) objects as input. Vector
 fields are depicted as arrows starting at specified locations, and with
 specified angles and radii.
 

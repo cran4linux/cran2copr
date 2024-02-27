@@ -1,48 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  camtrapR
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          Camera Trap Data Management and Preparation of Occupancy and Spatial Capture-Recapture Analyses
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+Recommends:       /usr/bin/exiftool
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-secr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
+Requires:         R-CRAN-secr 
+Requires:         R-CRAN-sf 
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+Management of and data extraction from camera trap data in wildlife
+studies. The package provides a workflow for storing and sorting camera
+trap photos (and videos), tabulates records of species and individuals,
+and creates detection/non-detection matrices for occupancy and spatial
+capture-recapture analyses with great flexibility. In addition, it can
+visualise species activity data and provides simple mapping functions with
+GIS export.
 
 %prep
 %setup -q -c -n %{packname}

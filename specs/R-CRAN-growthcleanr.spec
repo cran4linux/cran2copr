@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  growthcleanr
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          Data Cleaner for Anthropometric Measurements
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-labelled >= 2.5.0
+BuildRequires:    R-CRAN-R.utils >= 2.11.0
+BuildRequires:    R-CRAN-plyr >= 1.8.6
+BuildRequires:    R-CRAN-foreach >= 1.5.0
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-doParallel >= 1.0.15
+BuildRequires:    R-CRAN-dplyr >= 1.0.1
+Requires:         R-CRAN-labelled >= 2.5.0
+Requires:         R-CRAN-R.utils >= 2.11.0
+Requires:         R-CRAN-plyr >= 1.8.6
+Requires:         R-CRAN-foreach >= 1.5.0
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-data.table >= 1.13.0
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-doParallel >= 1.0.15
+Requires:         R-CRAN-dplyr >= 1.0.1
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+Identifies implausible anthropometric (e.g., height, weight) measurements
+in irregularly spaced longitudinal datasets, such as those from electronic
+health records.
 
 %prep
 %setup -q -c -n %{packname}

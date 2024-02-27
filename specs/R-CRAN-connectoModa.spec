@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  cgrcusum
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  connectoModa
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Continuous Time Generalized Rapid Response CUSUM
+Summary:          Download Data from Moda
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 
 %description
-Allows users to construct the Continuous Time Generalized Rapid Response
-CUSUM (CGR-CUSUM), Biswas & Kalbfleisch (2008) <doi:10.1002/sim.3296>
-CUSUM, Binary CUSUM and risk-adjusted funnel plot for survival data. These
-procedures can be used to monitor survival processes and detect problems
-in their quality.
+Connect to WFP's Moda platform to R, download data, and obtain the list of
+individuals with access to the project along with their access level.
 
 %prep
 %setup -q -c -n %{packname}

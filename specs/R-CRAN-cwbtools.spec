@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cwbtools
-%global packver   0.3.9
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Create, Modify and Manage 'CWB' Corpora
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zen4R >= 0.9
-BuildRequires:    R-CRAN-RcppCWB >= 0.5.2
+BuildRequires:    R-CRAN-RcppCWB >= 0.6.3
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-xml2 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-rstudioapi
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-zen4R >= 0.9
-Requires:         R-CRAN-RcppCWB >= 0.5.2
+Requires:         R-CRAN-RcppCWB >= 0.6.3
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-xml2 

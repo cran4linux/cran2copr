@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  bigrquerystorage
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          An Interface to Google's 'BigQuery Storage' API
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-bigrquery 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-arrow 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-bigrquery 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-tibble 
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+Easily talk to Google's 'BigQuery Storage' API from R
+(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
 
 %prep
 %setup -q -c -n %{packname}

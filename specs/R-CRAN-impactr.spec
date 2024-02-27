@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  impactr
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mechanical Loading Prediction Through Accelerometer Data
 
@@ -49,7 +49,7 @@ Requires:         R-CRAN-vroom
 Functions to read, process and analyse accelerometer data related to
 mechanical loading variables. This package is developed and tested for use
 with raw accelerometer data from triaxial 'ActiGraph'
-<https://actigraphcorp.com> accelerometers.
+<https://theactigraph.com> accelerometers.
 
 %prep
 %setup -q -c -n %{packname}

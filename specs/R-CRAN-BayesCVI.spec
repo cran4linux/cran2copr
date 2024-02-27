@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  folio
-%global packver   1.4.0
+%global packname  BayesCVI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for Teaching Archaeology and Paleontology
+Summary:          Bayesian Cluster Validity Index
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-UniversalCVI 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-UniversalCVI 
 
 %description
-Datasets for teaching quantitative approaches and modeling in archaeology
-and paleontology. This package provides several types of data related to
-broad topics (cultural evolution, radiocarbon dating, paleoenvironments,
-etc.), which can be used to illustrate statistical methods in the
-classroom (multivariate data analysis, compositional data analysis,
-diversity measurement, etc.).
+Algorithms for computing and generating plots with and without error bars
+for Bayesian cluster validity index (BCVI) (N. Wiroonsri, O. Preedasawakul
+(2024) <arXiv:2402.02162>) based on several underlying cluster validity
+indexes (CVIs) including Calinski-Harabasz, Chou-Su-Lai, Davies-Bouldin,
+Dunn, Pakhira-Bandyopadhyay-Maulik, Point biserial correlation, the score
+function, Starczewski, and Wiroonsri indices for hard clustering, and
+Correlation Cluster Validity, the generalized C, HF, KWON, KWON2, Modified
+Pakhira-Bandyopadhyay-Maulik, Pakhira-Bandyopadhyay-Maulik, Tang,
+Wiroonsri-Preedasawakul, Wu-Li, and Xie-Beni indices for soft clustering.
+The package is compatible with K-means, fuzzy C means, EM clustering, and
+hierarchical clustering (single, average, and complete linkage). Though
+BCVI is compatible with any underlying existing CVIs, we recommend users
+to use either WI or WP as the underlying CVI.
 
 %prep
 %setup -q -c -n %{packname}

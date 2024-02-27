@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  plotmo
-%global packver   3.6.2
+%global packver   3.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.2
+Version:          3.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot a Model's Residuals, Response, and Partial Dependence Plots
 
@@ -18,10 +19,8 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Formula >= 1.2.3
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-TeachingDemos 
 Requires:         R-CRAN-Formula >= 1.2.3
 Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-TeachingDemos 
 
 %description
 Plot model surfaces for a wide variety of models using partial dependence

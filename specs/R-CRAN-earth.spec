@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  earth
-%global packver   5.3.2
+%global packver   5.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.2
+Version:          5.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Adaptive Regression Splines
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-plotmo >= 3.6.0
-BuildRequires:    R-CRAN-TeachingDemos >= 2.10
 BuildRequires:    R-CRAN-Formula >= 1.2.3
 Requires:         R-CRAN-plotmo >= 3.6.0
-Requires:         R-CRAN-TeachingDemos >= 2.10
 Requires:         R-CRAN-Formula >= 1.2.3
 
 %description

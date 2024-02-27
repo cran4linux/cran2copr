@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crandep
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Analysis of Dependencies of CRAN Packages
 
@@ -22,6 +22,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-xml2 
@@ -30,6 +32,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-gsl 
 Requires:         R-stats 
 
 %description
