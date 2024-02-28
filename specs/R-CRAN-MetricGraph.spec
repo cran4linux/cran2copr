@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetricGraph
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Fields on Metric Graphs
 
@@ -22,7 +22,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
@@ -33,6 +32,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-rSPDE >= 2.3.3
 Requires:         R-CRAN-Rcpp >= 1.0.5
@@ -40,7 +40,6 @@ Requires:         R-stats
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
@@ -51,6 +50,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggnewscale 
 
 %description
 Facilitates creation and manipulation of metric graphs, such as street or
@@ -63,10 +63,9 @@ can be fitted to data based on computationally efficient sparse matrix
 representations. Interfaces to the R packages 'INLA' and 'inlabru' are
 also provided, which facilitate working with Bayesian statistical models
 on metric graphs. The main references for the methods are Bolin, Simas and
-Wallin (2022) <doi:10.48550/arXiv.2205.06163>, Bolin, Kovacs, Kumar and
-Simas (2023) <doi:10.48550/arXiv.2302.03995> and Bolin, Simas and Wallin
-(2023) <doi:10.48550/arXiv.2304.03190> and
-<doi:10.48550/arXiv.2304.10372>.
+Wallin (2024) <doi:10.3150/23-BEJ1647>, Bolin, Kovacs, Kumar and Simas
+(2023) <doi:10.1090/mcom/3929> and Bolin, Simas and Wallin (2023)
+<doi:10.48550/arXiv.2304.03190> and <doi:10.48550/arXiv.2304.10372>.
 
 %prep
 %setup -q -c -n %{packname}

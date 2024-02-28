@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gganimate
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Grammar of Animated Graphics
 
@@ -17,26 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-tweenr >= 1.0.1
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-tweenr >= 2.0.3
+BuildRequires:    R-CRAN-transformr >= 0.1.5
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-tweenr >= 1.0.1
-Requires:         R-CRAN-stringi 
-Requires:         R-grid 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-tweenr >= 2.0.3
+Requires:         R-CRAN-transformr >= 0.1.5
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-scales 
 Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringi 
 Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 The grammar of graphics as implemented in the 'ggplot2' package has been

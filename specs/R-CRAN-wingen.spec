@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ceramic
-%global packver   0.9.5
+%global packname  wingen
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Online Imagery Tiles
+Summary:          Continuous Mapping of Genetic Diversity
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,48 +17,53 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fs >= 1.3.0
-BuildRequires:    R-CRAN-slippymath >= 0.3.0
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-automap 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-gdistance 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hierfstat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pegas 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-crsmeta 
-BuildRequires:    R-CRAN-vapour 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-wk 
-Requires:         R-CRAN-fs >= 1.3.0
-Requires:         R-CRAN-slippymath >= 0.3.0
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-vcfR 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-automap 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-gdistance 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hierfstat 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pegas 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
-Requires:         R-CRAN-crsmeta 
-Requires:         R-CRAN-vapour 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-wk 
+Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-viridis 
 
 %description
-Download imagery tiles to a standard cache and load the data into raster
-objects. Facilities for 'AWS' terrain
-<https://registry.opendata.aws/terrain-tiles/> terrain and 'Mapbox'
-<https://www.mapbox.com/> servers are provided.
+Generate continuous maps of genetic diversity using moving windows with
+options for rarefaction, interpolation, and masking as described in Bishop
+et al. (2023) <doi:10.1111/2041-210X.14090>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mvord
-%global packver   1.2.2
+%global packname  bcf
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Ordinal Regression Models
+Summary:          Causal Inference using Bayesian Causal Forests
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-coda >= 0.19.3
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-coda >= 0.19.3
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-matrixStats 
 
 %description
-A flexible framework for fitting multivariate ordinal regression models
-with composite likelihood methods. Methodological details are given in
-Hirk, Hornik, Vana (2020) <doi:10.18637/jss.v093.i04>.
+Causal inference for a binary treatment and continuous outcome using
+Bayesian Causal Forests. See Hahn, Murray and Carvalho (2020)
+<doi:10.1214/19-BA1195> for additional information. This implementation
+relies on code originally accompanying Pratola et. al. (2013)
+<arXiv:1309.1906>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simfinapi
-%global packver   0.2.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing 'SimFin' Data
 
@@ -18,22 +18,18 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-future.apply >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.12.8
 BuildRequires:    R-CRAN-memoise >= 1.1.0
 BuildRequires:    R-CRAN-RcppSimdJson >= 0.1.1
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-future.apply >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.12.8
 Requires:         R-CRAN-memoise >= 1.1.0
 Requires:         R-CRAN-RcppSimdJson >= 0.1.1
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-utils 
 
 %description

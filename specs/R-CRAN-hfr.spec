@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hfr
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Hierarchical Feature Regression Models
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-corpcor
 Provides functions for the estimation, plotting, predicting and
 cross-validation of hierarchical feature regression models as described in
 Pfitzinger (2024). Cluster Regularization via a Hierarchical Feature
-Regression. Journal of Econometrics and Statistics (in press).
+Regression. Econometrics and Statistics (in press).
 <doi:10.1016/j.ecosta.2024.01.003>.
 
 %prep

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lrstat
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power and Sample Size Calculation for Non-Proportional Hazards
+Summary:          Power and Sample Size Calculation for Non-Proportional Hazards and Beyond
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,8 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-lpSolve >= 5.6.1
+BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-lpSolve >= 5.6.1
+Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-CRAN-Rcpp >= 1.0.9
 
@@ -30,7 +34,19 @@ independent increments as characterized in Anastasios A. Tsiatis (1982)
 test score statistics are calculated based on Kaifeng Lu (2021)
 <doi:10.1002/pst.2069>. The boundary crossing probabilities are calculated
 using the recursive integration algorithm described in Christopher
-Jennison and Bruce W. Turnbull (2000, ISBN:0849303168).
+Jennison and Bruce W. Turnbull (2000, ISBN:0849303168). The package can
+also be used for continuous, binary, and count data. For continuous data,
+it can handle missing data through mixed-model for repeated measures
+(MMRM). In crossover designs, it can estimate direct treatment effects
+while accounting for carryover effects. For binary data, it can design
+Simon's 2-stage, modified toxicity probability-2 (mTPI-2), and Bayesian
+optimal interval (BOIN) trials. For count data, it can design group
+sequential trials for negative binomial endpoints with censoring.
+Additionally, it facilitates group sequential equivalence trials for all
+supported data types. Moreover, it can design adaptive group sequential
+trials for changes in sample size, error spending function, number and
+spacing or future looks. Finally, it offers various options for adjusted
+p-values, including graphical and gatekeeping procedures.
 
 %prep
 %setup -q -c -n %{packname}

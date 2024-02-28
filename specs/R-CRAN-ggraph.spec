@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggraph
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of Grammar of Graphics for Graphs and Networks
 
@@ -16,17 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-graphlayouts >= 1.1.0
 BuildRequires:    R-CRAN-igraph >= 1.0.0
-BuildRequires:    R-CRAN-graphlayouts >= 0.5.0
 BuildRequires:    R-CRAN-ggforce >= 0.3.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.2
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -37,17 +34,16 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-graphlayouts >= 1.1.0
 Requires:         R-CRAN-igraph >= 1.0.0
-Requires:         R-CRAN-graphlayouts >= 0.5.0
 Requires:         R-CRAN-ggforce >= 0.3.1
-Requires:         R-CRAN-Rcpp >= 0.12.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-grid 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-utils 
 Requires:         R-stats 
@@ -58,6 +54,7 @@ Requires:         R-CRAN-withr
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-memoise 
 
 %description
 The grammar of graphics as implemented in ggplot2 is a poor fit for graph
