@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckdbfs
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Performance Remote File System Access Using 'duckdb'
+Summary:          High Performance Remote File System, Database and 'Geospatial' Access Using 'duckdb'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-duckdb >= 0.8.1
+BuildRequires:    R-CRAN-duckdb >= 0.9.2
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-duckdb >= 0.8.1
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-duckdb >= 0.9.2
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 
 %description
 Provides friendly wrappers for creating 'duckdb'-backed connections to

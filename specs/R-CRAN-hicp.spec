@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hicp
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harmonised Index of Consumer Prices
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-restatapi >= 0.21.0
 The Harmonised Index of Consumer Prices (HICP) is the key economic figure
 to measure inflation in the euro area. The methodology underlying the HICP
 is documented in the HICP Methodological Manual
-(<https://ec.europa.eu/eurostat/de/web/products-manuals-and-guidelines/-/ks-gq-17-015>).
+(<https://ec.europa.eu/eurostat/web/products-manuals-and-guidelines/w/ks-gq-24-003>).
 Based on the manual, this package provides functions to access and work
 with HICP data from Eurostat's public database
 (<https://ec.europa.eu/eurostat/data/database>).

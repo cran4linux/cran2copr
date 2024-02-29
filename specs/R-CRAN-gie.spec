@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AccelStab
-%global packver   2.0.0
+%global packname  gie
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Stability Kinetic Modelling
+Summary:          API Wrapper for the Natural Gas Transparency Platforms of Gas Infrastructure Europe
 
-License:          AGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 
 %description
-Estimate the Šesták–Berggren kinetic model (degradation model) from
-experimental data. A A closed-form (analytic) solution to the degradation
-model is implemented as a non-linear fit, allowing for the extrapolation
-of the degradation of a drug product - both in time and temperature.
-Parametric bootstrap, with kinetic parameters drawn from the multivariate
-t-distribution, and analytical formulae (the delta method) are available
-options to calculate the confidence and prediction intervals. The results
-(modelling, extrapolations and statistical intervals) can be visualised
-with multiple plots. The examples illustrate the accelerated stability
-modelling in drugs and vaccines development.
+Providing access to the API for Gas Infrastructure Europe's natural gas
+transparency platforms <https://agsi.gie.eu/> and <https://alsi.gie.eu/>.
+Lets the user easily download metadata on companies and gas storage units
+covered by the API as well as the respective data on regional, country,
+company or facility level.
 
 %prep
 %setup -q -c -n %{packname}

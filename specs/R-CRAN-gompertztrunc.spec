@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gompertztrunc
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conducting Maximum Likelihood Estimation with Truncated Mortality Data
 
@@ -50,7 +50,8 @@ Requires:         R-CRAN-tidyr
 
 %description
 Estimates hazard ratios and mortality differentials for doubly-truncated
-data without population denominators.
+data without population denominators. This method is described in
+Goldstein et al. (2023) <doi:10.1007/s11113-023-09785-z>.
 
 %prep
 %setup -q -c -n %{packname}

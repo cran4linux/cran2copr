@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drugDemand
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drug Demand Forecasting
 
@@ -22,14 +22,12 @@ BuildRequires:    R-parallel >= 4.1.2
 BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-CRAN-nlme >= 3.1.153
 BuildRequires:    R-CRAN-survival >= 2.41.3
-BuildRequires:    R-CRAN-icenReg >= 2.0.15
 BuildRequires:    R-CRAN-doRNG >= 1.8.6
-BuildRequires:    R-CRAN-pscl >= 1.5.5
 BuildRequires:    R-CRAN-foreach >= 1.5.2
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-tictoc >= 1.1
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-doParallel >= 1.0.17
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
@@ -42,14 +40,12 @@ Requires:         R-parallel >= 4.1.2
 Requires:         R-stats >= 3.5.0
 Requires:         R-CRAN-nlme >= 3.1.153
 Requires:         R-CRAN-survival >= 2.41.3
-Requires:         R-CRAN-icenReg >= 2.0.15
 Requires:         R-CRAN-doRNG >= 1.8.6
-Requires:         R-CRAN-pscl >= 1.5.5
 Requires:         R-CRAN-foreach >= 1.5.2
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-mvtnorm >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-tictoc >= 1.1
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-doParallel >= 1.0.17
 Requires:         R-CRAN-Rcpp >= 1.0.10

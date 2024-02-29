@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CFtime
-%global packver   1.3.0
+%global packname  rgl.cry
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using CF-Compliant Calendars with Climate Projection Data
+Summary:          'cry' and 'rgl' — Applications in Crystallography
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cry 
+BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-utils 
-Requires:         R-methods 
+Requires:         R-CRAN-cry 
+Requires:         R-CRAN-rgl 
 Requires:         R-utils 
 
 %description
-Support for all calendars as specified in the Climate and Forecast (CF)
-Metadata Conventions for climate and forecasting data. The CF Metadata
-Conventions is widely used for distributing files with climate
-observations or projections, including the Coupled Model Intercomparison
-Project (CMIP) data used by climate change scientists and the
-Intergovernmental Panel on Climate Change (IPCC). This package
-specifically allows the user to work with any of the CF-compliant
-calendars (many of which are not compliant with POSIXt). The CF time
-coordinate is formally defined in the CF Metadata Conventions document
-available at
-<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.10/cf-conventions.html#time-coordinate>.
+Visualizing crystal structures and selected area electron diffraction
+(SAED) patterns.  It provides functions cry_demo() and dp_demo() to load a
+file in 'CIF' (Crystallographic Information Framework) formats and display
+crystal structures and electron diffraction patterns.  The function
+dp_demo() also performs simple simulation of powder X-ray diffraction
+(PXRD) patterns, and the results can be saved to a file in the working
+directory.  The package has been tested on several platforms, including
+Linux on 'Crostini' with a Core™ m3-8100Y Chromebook, I found that even on
+this low-powered platform, the performance was acceptable. T. Hanashima
+(2001) <https://www2.kek.jp/imss/pf/tools/sasaki/sinram/sinram.html> Todd
+Helmenstine (2019)
+<https://sciencenotes.org/molecule-atom-colors-cpk-colors/> Wikipedia
+contributors (2023)
+<https://en.wikipedia.org/w/index.php?title=Atomic_radius&oldid=1179864711>.
 
 %prep
 %setup -q -c -n %{packname}

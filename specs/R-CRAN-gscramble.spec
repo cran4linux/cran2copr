@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JSmediation
-%global packver   0.2.2
+%global packname  gscramble
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediation Analysis Using Joint Significance
+Summary:          Simulating Admixed Genotypes Without Replacement
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.9
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang >= 0.4.9
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr 
 
 %description
-A set of helper functions to conduct joint-significance tests for
-mediation analysis, as recommended by Yzerbyt, Muller, Batailler, & Judd.
-(2018) <doi:10.1037/pspa0000132>.
+A genomic simulation approach for creating biologically informed
+individual genotypes from empirical data that 1) samples alleles from
+populations without replacement, 2) segregates alleles based on
+species-specific recombination rates. 'gscramble' is a flexible simulation
+approach that allows users to create pedigrees of varying complexity in
+order to simulate admixed genotypes. Furthermore, it allows users to track
+haplotype blocks from the source populations through the pedigrees.
 
 %prep
 %setup -q -c -n %{packname}
