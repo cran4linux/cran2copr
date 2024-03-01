@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lfe
-%global packver   2.9-0
+%global packver   3.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Group Fixed Effects
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -39,9 +39,8 @@ control variables. See Gaure (2013) <doi:10.1016/j.csda.2013.03.024>
 Includes support for instrumental variables, conditional F statistics for
 weak instruments, robust and multi-way clustered standard errors, as well
 as limited mobility bias correction (Gaure 2014 <doi:10.1002/sta4.68>).
-WARNING: This package is NOT under active development anymore, no further
-improvements are to be expected, and the package is at risk of being
-removed from CRAN.
+Since version 3.0, it provides dedicated functions to estimate Poisson
+models.
 
 %prep
 %setup -q -c -n %{packname}

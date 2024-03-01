@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  Lifertable
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Life and Fertility Tables Specially for Insects
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Life and Fertility Tables are appropriate to study the dynamics of
+arthropods populations. This package provides utilities for constructing
+Life Tables and Fertility Tables, related demographic parameters, and some
+simple graphs of interest. It also offers functions to transform the
+obtained data into a known format for better manipulation. This document
+is based on the article by Maia, Luiz, and Campanhola "Statistical
+Inference on Associated Fertility Life Table Parameters Using Jackknife
+Technique Computational Aspects" (April 2000, Journal of Economic
+Entomology, Volume 93, Issue 2) <doi:10.1603/0022-0493-93.2.511>.
 
 %prep
 %setup -q -c -n %{packname}

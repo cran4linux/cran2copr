@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  dlim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Distributed Lag Interaction Model
 
-License:          MPL-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dlnm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-tsModel 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-dlnm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-splines 
+Requires:         R-CRAN-tsModel 
+Requires:         R-CRAN-viridis 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Collection of functions for fitting and interpreting distributed lag
+interaction models (DLIM). A DLIM regresses a scalar outcome on repeated
+measures of exposure and allows for modification by a continuous variable.
+Includes a dlim() function for fitting, predict() function for inference,
+and plotting functions for visualization. Details on methodology are
+described in Demateis et al. (2024) <doi:10.1002/env.2843>.
 
 %prep
 %setup -q -c -n %{packname}

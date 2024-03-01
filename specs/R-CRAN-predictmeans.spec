@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predictmeans
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predicted Means for Linear and Semiparametric Models
 
@@ -66,8 +66,8 @@ Requires:         R-utils
 Providing functions to diagnose and make inferences from various linear
 models, such as those obtained from 'aov', 'lm', 'glm', 'gls', 'lme',
 'lmer', 'glmmTMB' and 'semireg'. Inferences include predicted means and
-standard errors, contrasts, multiple comparisons, permutation tests and
-graphs.
+standard errors, contrasts, multiple comparisons, permutation tests,
+adjusted R-square and graphs.
 
 %prep
 %setup -q -c -n %{packname}

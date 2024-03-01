@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zdeskR
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to Your 'Zendesk' Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-plyr >= 1.8.6
 BuildRequires:    R-CRAN-jsonlite >= 1.6.1
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.3
@@ -28,6 +29,7 @@ Requires:         R-CRAN-plyr >= 1.8.6
 Requires:         R-CRAN-jsonlite >= 1.6.1
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.3

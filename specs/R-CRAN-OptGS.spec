@@ -1,30 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  OptGS
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Near-Optimal Group-Sequential Designs for Continuous Outcomes
 
-License:          MPL-2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Optimal group-sequential designs minimise some function of the expected
+and maximum sample size whilst controlling the type I error rate and power
+at a specified level. 'OptGS' provides functions to quickly search for
+near-optimal group-sequential designs for normally distributed outcomes.
+The methods used are described in Wason, JMS (2015)
+<doi:10.18637/jss.v066.i02>.
 
 %prep
 %setup -q -c -n %{packname}

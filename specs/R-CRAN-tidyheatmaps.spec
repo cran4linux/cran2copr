@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  tidyheatmaps
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Heatmaps from Tidy Data
 
-License:          MPL-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+The goal of 'tidyheatmaps' is to simplify the generation of
+publication-ready heatmaps from tidy data. By offering an interface to the
+powerful 'pheatmap' package, it allows for the effortless creation of
+intricate heatmaps with minimal code.
 
 %prep
 %setup -q -c -n %{packname}

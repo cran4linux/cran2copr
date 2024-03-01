@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  COAP
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          High-Dimensional Covariate-Augmented Overdispersed Poisson Factor Model
 
-License:          MPL-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+A covariate-augmented overdispersed Poisson factor model is proposed to
+jointly perform a high-dimensional Poisson factor analysis and estimate a
+large coefficient matrix for overdispersed count data. More details can be
+referred to Liu et al. (2024) <doi:10.48550/arXiv.2402.15071>.
 
 %prep
 %setup -q -c -n %{packname}

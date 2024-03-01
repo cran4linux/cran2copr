@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VGAM
-%global packver   1.1-9
+%global packver   1.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vector Generalized Linear and Additive Models
 
@@ -37,12 +37,12 @@ details of the statistical framework and the package. Currently only
 fixed-effects models are implemented. Many (100+) models and distributions
 are estimated by maximum likelihood estimation (MLE) or penalized MLE. The
 other classes are RR-VGLMs (reduced-rank VGLMs), quadratic RR-VGLMs,
-reduced-rank VGAMs, RCIMs (row-column interaction models)---these classes
-perform constrained and unconstrained quadratic ordination (CQO/UQO)
-models in ecology, as well as constrained additive ordination (CAO).
-Hauck-Donner effect detection is implemented. Note that these functions
-are subject to change; see the NEWS and ChangeLog files for latest
-changes.
+doubly constrained RR-VGLMs, quadratic RR-VGLMs, reduced-rank VGAMs, RCIMs
+(row-column interaction models)---these classes perform constrained and
+unconstrained quadratic ordination (CQO/UQO) models in ecology, as well as
+constrained additive ordination (CAO). Hauck-Donner effect detection is
+implemented. Note that these functions are subject to change; see the NEWS
+and ChangeLog files for latest changes.
 
 %prep
 %setup -q -c -n %{packname}

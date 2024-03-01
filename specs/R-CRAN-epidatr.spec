@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epidatr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Delphi's 'Epidata' API
 
@@ -27,8 +27,10 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-MMWRweek 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-checkmate 
@@ -40,8 +42,10 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-MMWRweek 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-xml2 
 
 %description

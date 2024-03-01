@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QTLEMM
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          QTL Mapping and Hotspots Detection
 
@@ -31,34 +31,34 @@ Requires:         R-grDevices
 Requires:         R-CRAN-gtools 
 
 %description
-For QTL mapping, it consists of several functions to perform various
-tasks, including simulating or analyzing data, computing the significance
-thresholds and visualizing the QTL mapping results. The single-QTL or
-multiple-QTL method that allows a host of statistical models to be fitted
-and compared is applied to analyze the data for the estimation of QTL
-parameters. The models include the linear regression, permutation test,
-normal mixture model and truncated normal mixture model. The Gaussian
-stochastic process is implemented to compute the significance thresholds
-for QTL detection onto a genetic linkage map in the experimental
-populations. Two types of data, the complete genotyping or selective
-genotyping data, from various experimental populations, including
+For QTL mapping, this package comprises several functions designed to
+execute diverse tasks, such as simulating or analyzing data, calculating
+significance thresholds, and visualizing QTL mapping results. The
+single-QTL or multiple-QTL method, which enables the fitting and
+comparison of various statistical models, is employed to analyze the data
+for estimating QTL parameters. The models encompass linear regression,
+permutation tests, normal mixture models, and truncated normal mixture
+models. The Gaussian stochastic process is utilized to compute
+significance thresholds for QTL detection on a genetic linkage map within
+experimental populations. Two types of data, complete genotyping, and
+selective genotyping data from various experimental populations, including
 backcross, F2, recombinant inbred (RI) populations, and advanced
 intercrossed (AI) populations, are considered in the QTL mapping analysis.
-For QTL hotspot detection, the statistical methods can be developed based
-on either using the individual-level data or using the summarized data. We
-have proposed a statistical framework that can handle both the
-individual-level data and summarized QTL data for QTL hotspots detection.
-Our statistical framework can overcome the underestimation of threshold
-arising from ignoring the correlation structure among traits, and also
-identify the different types of hotspots with very low computational cost
-during the detection process. Here, we attempt to provide the R codes of
-our QTL mapping and hotspot detection methods for general use in genes,
-genomics, and genetics studies. The QTL mapping methods for the complete
-and selective genotyping designs are based on the multiple interval
-mapping (MIM) model proposed by Kao, C.-H. , Z.-B. Zeng and R. D. Teasdale
-(1999) <doi: 10.1534/genetics.103.021642> and H.-I Lee, H.-A. Ho and C.-H.
-Kao (2014) <doi: 10.1534/genetics.114.168385>, respectively. The QTL
-hotspot detection analysis is based on the method by Wu, P.-Y., M.-.H.
+For QTL hotspot detection, statistical methods can be developed based on
+either utilizing individual-level data or summarized data. We have
+proposed a statistical framework capable of handling both individual-level
+data and summarized QTL data for QTL hotspot detection. Our statistical
+framework can overcome the underestimation of thresholds resulting from
+ignoring the correlation structure among traits. Additionally, it can
+identify different types of hotspots with minimal computational cost
+during the detection process. Here, we endeavor to furnish the R codes for
+our QTL mapping and hotspot detection methods, intended for general use in
+genes, genomics, and genetics studies. The QTL mapping methods for the
+complete and selective genotyping designs are based on the multiple
+interval mapping (MIM) model proposed by Kao, C.-H. , Z.-B. Zeng and R. D.
+Teasdale (1999) <doi: 10.1534/genetics.103.021642> and H.-I Lee, H.-A. Ho
+and C.-H. Kao (2014) <doi: 10.1534/genetics.114.168385>, respectively. The
+QTL hotspot detection analysis is based on the method by Wu, P.-Y., M.-.H.
 Yang, and C.-H. Kao (2021) <doi: 10.1093/g3journal/jkab056>.
 
 %prep

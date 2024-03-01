@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atime
-%global packver   2024.1.31
+%global packname  chouca
+%global packver   0.0.999
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.31
+Version:          0.0.999
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asymptotic Timing
+Summary:          A Stochastic Cellular Automaton Engine
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-bench 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-bench 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-git2r 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-digest 
 Requires:         R-stats 
+Requires:         R-graphics 
 Requires:         R-grDevices 
 
 %description
-Computing and visualizing comparative asymptotic timings of different
-algorithms and code versions. Also includes functionality for comparing
-empirical timings with expected references such as linear or quadratic,
-<https://en.wikipedia.org/wiki/Asymptotic_computational_complexity> Also
-includes functionality for measuring asymptotic memory and other
-quantities.
+An engine for stochastic cellular automata. It provides a high-level
+interface to declare a model, which can then be simulated by various
+backends (Genin et al. (2023) <doi:10.1101/2023.11.08.566206>).
 
 %prep
 %setup -q -c -n %{packname}

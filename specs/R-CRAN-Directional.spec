@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Directional
-%global packver   6.4
+%global packver   6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4
+Version:          6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Directional Data Analysis
 
@@ -59,13 +59,13 @@ Applications 5(4):467--491. <doi:10.1080/23737484.2019.1684854>. c) P. J.
 Paine, S. P. Preston, M. Tsagris and Andrew T. A. Wood (2020). "Spherical
 regression models with general covariates and anisotropic errors".
 Statistics and Computing 30(1): 153--165.
-<doi:10.1007/s11222-019-09872-2>. d) Tsagris M. and Alenazi A. (2022). "An
+<doi:10.1007/s11222-019-09872-2>. d) Tsagris M. and Alenazi A. (2024). "An
 investigation of hypothesis testing procedures for circular and spherical
-mean vectors". Communications in Statistics-Simulation and Computation
-(Accepted for publication). <doi:10.1080/03610918.2022.2045499>. e)
-Tsagris M. and Alzeley O. (2023). "Circular and spherical projected Cauchy
-distributions: A Novel Framework for Circular and Directional Data
-Modeling". <doi:10.48550/arXiv.2302.02468>.
+mean vectors". Communications in Statistics-Simulation and Computation,
+53(3): 1387--1408. <doi:10.1080/03610918.2022.2045499>. e) Tsagris M. and
+Alzeley O. (2023). "Circular and spherical projected Cauchy distributions:
+A Novel Framework for Circular and Directional Data Modeling".
+<doi:10.48550/arXiv.2302.02468>.
 
 %prep
 %setup -q -c -n %{packname}

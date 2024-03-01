@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  paleobioDB
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Download and Process Data from the Paleobiology Database
 
-License:          MPL-2.0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-curl 
 Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-terra 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Includes functions to wrap most endpoints of the 'PaleobioDB' API and
+functions to visualize and process the fossil data. The API documentation
+for the Paleobiology Database can be found at
+<https://paleobiodb.org/data1.2/>.
 
 %prep
 %setup -q -c -n %{packname}

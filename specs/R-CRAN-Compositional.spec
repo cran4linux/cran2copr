@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   6.6
+%global packver   6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.6
+Version:          6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-Directional
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -32,7 +32,6 @@ BuildRequires:    R-CRAN-mda
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-CRAN-mvhtests 
 BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pchc 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-regda 
@@ -46,8 +45,8 @@ Requires:         R-CRAN-Directional
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-energy 
-Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -56,7 +55,6 @@ Requires:         R-CRAN-mda
 Requires:         R-CRAN-mixture 
 Requires:         R-CRAN-mvhtests 
 Requires:         R-CRAN-nnet 
-Requires:         R-parallel 
 Requires:         R-CRAN-pchc 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-regda 

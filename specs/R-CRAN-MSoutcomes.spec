@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSoutcomes
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          CORe Multiple Sclerosis Outcomes Toolkit
 
@@ -19,18 +19,18 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
 Enable operationalized evaluation of disease outcomes in multiple
 sclerosis.  ‘MSoutcomes’ requires longitudinally recorded clinical data
 structured in long format.  The package is based on the research developed
-at Clinical Outcomes Research unit (CORe), University of Melbourne.
-Lorscheider et al.  (2016) <doi:10.1093/brain/aww173>.  Kalincik et al.
-(2015) <doi:10.1093/brain/awv258>.
+at Clinical Outcomes Research unit (CORe), University of Melbourne and
+Neuroimmunology Centre, Royal Melbourne Hospital. Kalincik et al. (2015)
+<doi:10.1093/brain/awv258>. Lorscheider et al.  (2016)
+<doi:10.1093/brain/aww173>. Sharmin et al. (2022) <doi:10.1111/ene.15406>.
+Dzau et al. (2023) <doi:10.1136/jnnp-2023-331748>.
 
 %prep
 %setup -q -c -n %{packname}

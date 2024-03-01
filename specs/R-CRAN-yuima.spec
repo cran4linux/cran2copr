@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yuima
-%global packver   1.15.22
+%global packver   1.15.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.22
+Version:          1.15.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          The YUIMA Project Package for SDEs
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-cubature
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-glassoFast 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-boot >= 1.3.2
 Requires:         R-CRAN-calculus >= 0.2.0
@@ -41,6 +42,7 @@ Requires:         R-CRAN-cubature
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-glassoFast 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-statmod 
 
 %description
 Simulation and Inference for SDEs and Other Stochastic Processes.

@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  specs
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Single-Equation Penalized Error-Correction Selector (SPECS)
 
-License:          MPL-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Implementation of SPECS, your favourite Single-Equation Penalized
+Error-Correction Selector developed in Smeekes and Wijler (2021)
+<doi:10.1016/j.jeconom.2020.07.021>. SPECS provides a fully automated
+estimation procedure for large and potentially (co)integrated datasets.
+The dataset in levels is converted to a conditional error-correction
+model, either by the user or by means of the functions included in this
+package, and various specialised forms of penalized regression can be
+applied to the model. Automated options for initializing and selecting a
+sequence of penalties, as well as the construction of penalty weights via
+an initial estimator, are available. Moreover, the user may choose from a
+number of pre-specified deterministic configurations to further simplify
+the model building process.
 
 %prep
 %setup -q -c -n %{packname}

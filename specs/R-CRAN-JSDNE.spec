@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  JSDNE
+%global packver   4.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          4.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          Estimating the Age using Auricular Surface by DNE
 
-License:          MPL-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-molaR 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-Rvcg 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-molaR 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-Rvcg 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+The age is estimated by calculating the Dirichlet Normal Energy (DNE) on
+the whole auricular surface and the apex of the auricular surface. It
+involves three estimation methods: principal component discriminant
+analysis (PCQDA), principal component regression analysis (PCR), and
+principal component logistic regression analysis (PCLR) methods. The
+package is created with the data from the Louis Lopes Collection in
+Lisbon, the 21st Century Identified Human Remains Collection in Coimbra,
+and the CAL Milano Cemetery Skeletal Collection in Milan.
 
 %prep
 %setup -q -c -n %{packname}

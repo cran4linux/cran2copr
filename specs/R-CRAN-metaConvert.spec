@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  minimaxApprox
-%global packver   0.4.1
+%global packname  metaConvert
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Remez Algorithm for Polynomial and Rational Function Approximation
+Summary:          An Automatic Suite for Estimation of Various Effect Size Measures
 
-License:          MPL-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-compareDF 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-estimraw 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-compareDF 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-estimraw 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rio 
+Requires:         R-utils 
 
 %description
-Implements the algorithm of Remez (1962) for polynomial minimax
-approximation and of Cody et al. (1968) <doi:10.1007/BF02162506> for
-rational minimax approximation.
+Automatically estimate 11 effect size measures from a well-formatted
+dataset. Various other functions can help, for example, removing
+dependency between several effect sizes, or identifying differences
+between two datasets. This package is mainly designed to assist in
+conducting a systematic review with a meta-analysis but can be useful to
+any researcher interested in estimating an effect size.
 
 %prep
 %setup -q -c -n %{packname}

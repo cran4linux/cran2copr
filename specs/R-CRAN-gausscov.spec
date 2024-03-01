@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gausscov
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
@@ -20,27 +20,41 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Given the standard linear model the traditional way of deciding whether to
-include the jth covariate is to apply the F-test to decide whether the
-corresponding beta coefficient is zero. The Gaussian covariate method is
-completely different. The question as to whether the beta coefficient is
-or is not zero is replaced by the question as to whether the covariate is
-better or worse than i.i.d. Gaussian noise. The P-value for the covariate
-is the probability that Gaussian noise is better. Surprisingly this can be
-given exactly and it is the same a the P-value for the classical model
-based on the F-distribution. The Gaussian covariate P-value is model free,
-it is the same for any data set. Using the idea it is possible to do
-covariate selection for a small number of covariates 25 by considering all
-subsets.  Post selection inference causes no problems as the P-values hold
-whatever the data. The idea extends to stepwise regression again with
-exact probabilities. In the simplest version the only parameter is a
-specified cut-off P-value which can be interpreted as the probability of a
-false positive being included in the final selection. For more information
-see the web site below and the accompanying papers: L. Davies and L.
-Duembgen, "Covariate Selection Based on a Model-free Approach to Linear
-Regression with Exact Probabilities", 2022, <arxiv:2202.01553>. L. Davies,
-"Linear Regression, Covariate Selection and the Failure of Modelling",
-2022, <arXiv:2112.08738>.
+The standard linear regression theory whether frequentist or Bayesian is
+based on an 'assumed (revealed?) truth' (John Tukey) attitude to models.
+This is reflected in the language of statistical inference which involves
+a concept of truth, for example confidence intervals, hypothesis testing
+and consistency. The motivation behind this package was to remove the word
+true from the theory and practice of linear regression and to replace it
+by approximation. The approximations considered are the least squares
+approximations. An approximation is called valid if it contains no
+irrelevant covariates. This is operationalized using the concept of a
+Gaussian P-value which is the probability that pure Gaussian noise is
+better in term of least squares than the covariate. The precise definition
+given in the paper, it is intuitive and requires only four simple
+equations. Its overwhelming advantage compared with a standard F P-value
+is that is is exact and valid whatever the data. In contrast F P-values
+are only valid for specially designed simulations. Given this a valid
+approximation is one where all the Gaussian P-values are less than a
+threshold p0 specified by the statistician, in this package with the
+default value 0.01. This approximations approach is not only much simpler
+it is overwhelmingly better than the standard model based approach. The
+will be demonstrated using six real data sets, four from high dimensional
+regression and two from vector autoregression. The simplicity and
+superiority of Gaussian P-values derive from their universal exactness and
+validity. This is in complete contrast to standard F P-values which are
+valid only for carefully designed simulations. The function f1st is the
+most important function. It is a greedy forward selection procedure which
+results in either just one or no approximations which may however not be
+valid. If the size is less than than a threshold with default value 21
+then an all subset procedure is called which returns the best valid
+subset. A good default start is f1st(y,x,kmn=15) The best function for
+returning multiple approximations is f3st which repeatedly calls f1st.
+For more information see the web site below and the accompanying papers:
+L. Davies and L. Duembgen, "Covariate Selection Based on a Model-free
+Approach to Linear Regression with Exact Probabilities", 2022,
+<arxiv:2202.01553>. L. Davies, "An Approximation Based Theory of Linear
+Regression", 2024, <arxiv:2402.09858>.
 
 %prep
 %setup -q -c -n %{packname}
