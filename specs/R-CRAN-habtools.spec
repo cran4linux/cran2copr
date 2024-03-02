@@ -1,38 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fda
-%global packver   6.1.7
+%global packname  habtools
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.7
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Data Analysis
+Summary:          Tools and Metrics for 3D Surfaces and Objects
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-fds 
-BuildRequires:    R-CRAN-deSolve 
-Requires:         R-splines 
-Requires:         R-CRAN-fds 
-Requires:         R-CRAN-deSolve 
+BuildRequires:    R-CRAN-raster >= 3.5
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rvcg 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-raster >= 3.5
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
+Requires:         R-CRAN-Rvcg 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
 
 %description
-These functions were developed to support functional data analysis as
-described in Ramsay, J. O. and Silverman, B. W. (2005) Functional Data
-Analysis. New York: Springer and in Ramsay, J. O., Hooker, Giles, and
-Graves, Spencer (2009). Functional Data Analysis with R and Matlab
-(Springer). The package includes data sets and script files working many
-examples including all but one of the 76 figures in this latter book.
-Matlab versions are available by ftp from
-<https://www.psych.mcgill.ca/misc/fda/downloads/FDAfuns/>.
+A collection of functions for sampling and simulating 3D surfaces and
+objects and estimating metrics like rugosity, fractal dimension,
+convexity, sphericity, circularity, second moments of area and volume, and
+more.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  filibustr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Utilities for Congressional Research
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 

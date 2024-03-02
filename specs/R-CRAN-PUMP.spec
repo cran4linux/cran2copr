@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PUMP
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Under Multiplicity Project
 
@@ -63,7 +63,7 @@ multiple outcomes. The estimation takes into account the use of multiple
 testing procedures. Development of this package was supported by a grant
 from the Institute of Education Sciences (R305D170030). For a full package
 description, including a detailed technical appendix, see
-<arXiv:2112.15273>.
+<doi:10.18637/jss.v108.i06>.
 
 %prep
 %setup -q -c -n %{packname}

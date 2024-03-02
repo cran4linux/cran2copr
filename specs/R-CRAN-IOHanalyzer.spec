@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IOHanalyzer
-%global packver   0.1.8.6
+%global packver   0.1.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8.6
+Version:          0.1.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Part of 'IOHprofiler'
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-reshape2 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-reshape2 

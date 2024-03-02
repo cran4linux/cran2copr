@@ -1,26 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mixreg
-%global packver   2.0-10
+%global __requires_exclude ^libmpi
+%global packname  OmicsQC
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Fit Mixtures of Regressions
+Summary:          Nominating Quality Control Outliers in Genomic Profiling Studies
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-lsa 
+BuildRequires:    R-CRAN-BoutrosLab.plotting.general 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-lsa 
+Requires:         R-CRAN-BoutrosLab.plotting.general 
 
 %description
-Fits mixtures of (possibly multivariate) regressions (which has been
-described as doing ANCOVA when you don't know the levels). Turner (2000)
-<doi:10.1111/1467-9876.00198>.
+A method that analyzes quality control metrics from multi-sample genomic
+sequencing studies and nominates poor quality samples for exclusion. Per
+sample quality control data are transformed into z-scores and aggregated.
+The distribution of aggregated z-scores are modelled using parametric
+distributions. The parameters of the optimal model, selected either by
+goodness-of-fit statistics or user-designation, are used for outlier
+nomination. Two implementations of the Cosine Similarity Outlier Detection
+algorithm are provided with flexible parameters for dataset customization.
 
 %prep
 %setup -q -c -n %{packname}

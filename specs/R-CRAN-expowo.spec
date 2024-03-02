@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  expowo
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Mining of Plant Diversity and Distribution for R
+Summary:          Data Mining of Plant Diversity and Distribution
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,6 +26,14 @@ BuildRequires:    R-CRAN-rnaturalearth
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-flora 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-PupillometryR 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -35,13 +43,22 @@ Requires:         R-CRAN-rnaturalearth
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-utils 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-flora 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-PupillometryR 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Produces diversity estimates and species lists with associated global
-distribution for any angiosperm family and genus from 'Plants of the World
-Online' database <https://powo.science.kew.org/>, by interacting with the
-source code of each plant taxon page, and creates global maps of species
-richness.
+distribution for any vascular plant family and genus from 'Plants of the
+World Online' database <https://powo.science.kew.org/>, by interacting
+with the source code of each plant taxon page. It also creates global maps
+of species richness, graphics of species discoveries and nomenclatural
+changes over time.
 
 %prep
 %setup -q -c -n %{packname}

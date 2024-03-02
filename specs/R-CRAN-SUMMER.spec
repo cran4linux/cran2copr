@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SUMMER
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small-Area-Estimation Unit/Area Models and Methods for Estimation in R
 
@@ -27,12 +28,16 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shadowtext 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-haven 
 Requires:         R-CRAN-survey 
 Requires:         R-stats 
 Requires:         R-CRAN-spdep 
@@ -44,20 +49,24 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shadowtext 
 Requires:         R-CRAN-ggridges 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-grDevices 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-haven 
 
 %description
 Provides methods for spatial and spatio-temporal smoothing of demographic
 and health indicators using survey data, with particular focus on
 estimating and projecting under-five mortality rates, described in Mercer
 et al. (2015) <doi:10.1214/15-AOAS872>, Li et al. (2019)
-<doi:10.1371/journal.pone.0210645> and Li et al. (2020)
-<arXiv:2007.05117>.
+<doi:10.1371/journal.pone.0210645>, Wu et al. (DHS Spatial Analysis
+Reports No. 21, 2021), and Li et al. (2023) <arXiv:2007.05117>.
 
 %prep
 %setup -q -c -n %{packname}

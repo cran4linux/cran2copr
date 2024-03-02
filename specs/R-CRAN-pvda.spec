@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pvda
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disproportionality Functions for Pharmacovigilance
 
@@ -52,9 +52,8 @@ Requires:         R-CRAN-purrr >= 0.3.5
 Tools for performing disproportionality analysis using the information
 component, proportional reporting rate and the reporting odds ratio. The
 anticipated use is passing data to the da() function, which executes the
-disproportionality analysis. See Norén G.N., Hopstadius J. and Bate A.
-(2011) <doi:10.1177/0962280211403604> and Montastruc J.-L., Sommet A.,
-Bagheri H. and Lapeyre-Mestre, M. (2011)
+disproportionality analysis. See Norén et al (2011)
+<doi:10.1177/0962280211403604> and Montastruc et al (2011)
 <doi:10.1111/j.1365-2125.2011.04037.x> for further details.
 
 %prep

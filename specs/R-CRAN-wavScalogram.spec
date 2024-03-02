@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wavScalogram
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wavelet Scalogram Tools for Time Series Analysis
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-fields 
 Requires:         R-parallel 
 

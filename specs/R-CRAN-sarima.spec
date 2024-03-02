@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sarima
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Prediction with Seasonal ARIMA Models
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-PolynomF >= 1.0.0
 BuildRequires:    R-CRAN-lagged >= 0.2.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-stats4 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats4 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -32,8 +32,8 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-PolynomF >= 1.0.0
 Requires:         R-CRAN-lagged >= 0.2.1
 Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-stats4 
 Requires:         R-methods 
+Requires:         R-stats4 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 

@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fda
-%global packver   6.1.7
+%global packname  sccca
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functional Data Analysis
+Summary:          Single-Cell Correlation Based Cell Type Annotation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-fds 
-BuildRequires:    R-CRAN-deSolve 
-Requires:         R-splines 
-Requires:         R-CRAN-fds 
-Requires:         R-CRAN-deSolve 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
 
 %description
-These functions were developed to support functional data analysis as
-described in Ramsay, J. O. and Silverman, B. W. (2005) Functional Data
-Analysis. New York: Springer and in Ramsay, J. O., Hooker, Giles, and
-Graves, Spencer (2009). Functional Data Analysis with R and Matlab
-(Springer). The package includes data sets and script files working many
-examples including all but one of the 76 figures in this latter book.
-Matlab versions are available by ftp from
-<https://www.psych.mcgill.ca/misc/fda/downloads/FDAfuns/>.
+Performing cell type annotation based on cell markers from a unified
+database. The approach utilizes correlation-based approach combined with
+association analysis using Fisher-exact and phyper statistical tests
+(Upton, Graham JG. (1992) <DOI:10.2307/2982890>).
 
 %prep
 %setup -q -c -n %{packname}

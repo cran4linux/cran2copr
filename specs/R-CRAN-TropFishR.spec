@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nominatimlite
-%global packver   0.3.0
+%global packname  TropFishR
+%global packver   1.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface with 'Nominatim' API Service
+Summary:          Tropical Fisheries Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-propagate 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-GA 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-propagate 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-Lite interface for getting data from 'OSM' service 'Nominatim'
-<https://nominatim.org/release-docs/latest/>. Extract coordinates from
-addresses, find places near a set of coordinates and return spatial
-objects on 'sf' format.
+A compilation of fish stock assessment methods for the analysis of
+length-frequency data in the context of data-poor fisheries. Includes
+methods and examples included in the FAO Manual by P. Sparre and S.C.
+Venema (1998), "Introduction to tropical fish stock assessment"
+(<https://www.fao.org/documents/card/en/c/9bb12a06-2f05-5dcb-a6ca-2d6dd3080f65/>),
+as well as other more recent methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mclustAddons
-%global packver   0.7.2
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Addons for the 'mclust' Package
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-mclust >= 5.4
+BuildRequires:    R-CRAN-mclust >= 6.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.10
 BuildRequires:    R-stats 
@@ -26,7 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mclust >= 5.4
+Requires:         R-CRAN-mclust >= 6.1
 Requires:         R-CRAN-Rcpp >= 1.0
 Requires:         R-stats 
 Requires:         R-graphics 

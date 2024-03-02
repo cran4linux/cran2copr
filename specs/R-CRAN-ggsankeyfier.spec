@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  SCCS
-%global packver   1.6
+%global __requires_exclude ^libmpi
+%global packname  ggsankeyfier
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Self-Controlled Case Series Method
+Summary:          Create Sankey and Alluvial Diagrams Using 'ggplot2'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-R.methodsS3 
-BuildRequires:    R-CRAN-gnm 
-Requires:         R-CRAN-survival 
-Requires:         R-splines 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-R.methodsS3 
-Requires:         R-CRAN-gnm 
+BuildRequires:    R-grid >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gridBezier 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vwline 
+Requires:         R-grid >= 4.1.0
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gridBezier 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vwline 
 
 %description
-Various self-controlled case series models used to investigate
-associations between time-varying exposures such as vaccines or other
-drugs or non drug exposures and an adverse event can be fitted. Detailed
-information on the self-controlled case series method and its extensions
-with more examples can be found in Farrington, P., Whitaker, H., and
-Ghebremichael Weldeselassie, Y. (2018, ISBN: 978-1-4987-8159-6.
-Self-controlled Case Series studies: A modelling Guide with R. Boca Raton:
-Chapman & Hall/CRC Press) and <https://sccs-studies.info/index.html>.
+Sankey and alluvial diagrams visualise flows of quantities across stages
+in stacked bars. This package makes it easy to create such diagrams using
+'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

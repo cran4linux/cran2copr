@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  melt
-%global packver   1.11.0
+%global packver   1.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          1.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Empirical Likelihood Tests
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
@@ -24,6 +25,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-dqrng 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-checkmate 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
