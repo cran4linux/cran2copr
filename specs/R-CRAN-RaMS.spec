@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RaMS
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Access to Mass-Spec Data
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-data.table 
 Requires:         R-utils 
+Requires:         R-stats 
 
 %description
 R-based access to mass-spectrometry (MS) data. While many packages exist

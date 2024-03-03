@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EvalEst
-%global packver   2024.2-1
+%global packname  spnaf
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.2.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Systems Estimation - Extensions
+Summary:          Spatial Network Autocorrelation for Flow Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.0
-Requires:         R-core >= 2.5.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tframe >= 2007.5.3
-BuildRequires:    R-CRAN-dse >= 2007.10.1
-BuildRequires:    R-CRAN-tfplot 
-BuildRequires:    R-CRAN-setRNG 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-tframe >= 2007.5.3
-Requires:         R-CRAN-dse >= 2007.10.1
-Requires:         R-CRAN-tfplot 
-Requires:         R-CRAN-setRNG 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides functions for evaluating (time series) model estimation methods.
-These facilitate Monte Carlo experiments of repeated simulations and
-estimations. Also provides methods for looking at the distribution of the
-results from these experiments, including model roots (which are an
-equivalence class invariant).
+Identify statistically significant flow clusters using the local spatial
+network autocorrelation statistic G_ij* proposed by 'Berglund' and
+'Karlström' (1999) <doi:10.1007/s101090050013>. The metric, an extended
+statistic of 'Getis/Ord' G ('Getis' and 'Ord' 1992)
+<doi:10.1111/j.1538-4632.1992.tb00261.x>, detects a group of flows having
+similar traits in terms of directionality. You provide OD data and the
+associated polygon to get results with several parameters, some of which
+are defined by spdep package.
 
 %prep
 %setup -q -c -n %{packname}

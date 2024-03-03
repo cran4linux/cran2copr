@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  showtext
-%global packver   0.9-6
+%global packver   0.9-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using Fonts More Easily in R Graphs
 
@@ -14,9 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
-BuildRequires:    libpng-devel
 BuildRequires:    freetype-devel
+BuildRequires:    libpng-devel
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-showtextdb >= 2.0

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sdm
-%global packver   1.1-8
+%global packver   1.2-32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.8
+Version:          1.2.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modelling
 
@@ -13,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-raster 
 Requires:         R-methods 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-raster 
 

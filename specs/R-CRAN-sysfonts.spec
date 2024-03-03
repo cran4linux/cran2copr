@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sysfonts
-%global packver   0.8.8
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading Fonts into R
 
@@ -13,9 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zlib-devel
-BuildRequires:    libpng-devel
 BuildRequires:    freetype-devel
+BuildRequires:    libpng-devel
 BuildRequires:    R-devel
 Requires:         R-core
 

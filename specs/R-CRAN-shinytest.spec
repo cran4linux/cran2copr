@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinytest
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Shiny Apps
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-callr >= 2.0.3
 BuildRequires:    R-CRAN-shiny >= 1.3.2
 BuildRequires:    R-CRAN-webdriver >= 1.0.6
 BuildRequires:    R-CRAN-testthat >= 1.0.0
-BuildRequires:    R-CRAN-rstudioapi >= 0.8.9002
+BuildRequires:    R-CRAN-rstudioapi >= 0.8.0.9002
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-debugme 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-callr >= 2.0.3
 Requires:         R-CRAN-shiny >= 1.3.2
 Requires:         R-CRAN-webdriver >= 1.0.6
 Requires:         R-CRAN-testthat >= 1.0.0
-Requires:         R-CRAN-rstudioapi >= 0.8.9002
+Requires:         R-CRAN-rstudioapi >= 0.8.0.9002
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-debugme 
