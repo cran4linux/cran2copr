@@ -1,39 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cryptotrackr
-%global packver   1.2.0
+%global packname  geoAr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Crypto Data Sources
+Summary:          Argentina's Spatial Data Toolbox
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-openssl 
-Requires:         R-utils 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-purrr 
 
 %description
-Allows you to connect to data sources across the crypto ecosystem. This
-data can enable a range of activity such as portfolio tracking,
-programmatic trading, or industry analysis.
+Collection of tools that facilitates data access and workflow for spatial
+analysis of Argentina. Includes historical information from censuses,
+administrative limits at different levels of aggregation, location of
+human settlements, among others. Since it is expected that the majority of
+users will be Spanish-speaking, the documentation of the package
+prioritizes this language, although an effort is made to also offer
+annotations in English.
 
 %prep
 %setup -q -c -n %{packname}

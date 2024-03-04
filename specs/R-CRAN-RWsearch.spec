@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RWsearch
-%global packver   5.0.5
+%global packver   5.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.5
+Version:          5.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lazy Search in R Packages, Task Views, CRAN, the Web. All-in-One Download
 

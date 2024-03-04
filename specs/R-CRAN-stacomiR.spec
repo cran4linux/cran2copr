@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  stacomiR
-%global packver   0.6.0.7
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0.7
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fish Migration Monitoring
 
@@ -37,6 +38,7 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-Hmisc >= 4.1.1
@@ -60,6 +62,7 @@ Requires:         R-CRAN-xtable
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-pool 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-scales 
 

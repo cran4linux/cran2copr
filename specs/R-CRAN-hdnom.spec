@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdnom
-%global packver   6.0.2
+%global packver   6.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.2
+Version:          6.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Benchmarking and Visualization Toolkit for Penalized Cox Models
 
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-penalized 
-BuildRequires:    R-CRAN-ncvreg 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-penalized 
-Requires:         R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-penalized 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-penalized 
+Requires:         R-CRAN-survival 
 
 %description
 Creates nomogram visualizations for penalized Cox regression models, with

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wdnet
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Directed Networks
 
@@ -34,18 +34,10 @@ Requires:         R-stats
 Requires:         R-CRAN-wdm 
 
 %description
-Implementations of network analysis including (1) assortativity
-coefficient of weighted and directed networks, Yuan, Yan and Zhang (2021)
-<doi:10.1093/comnet/cnab017>, (2) centrality measures for weighted and
-directed networks, Opsahl, Agneessens and Skvoretz (2010)
-<doi:10.1016/j.socnet.2010.03.006>, Zhang, Wang and Yan (2022)
-<doi:10.1016/j.physa.2021.126438>, (3) clustering coefficient of weighted
-and directed networks, Fagiolo (2007) <doi:10.1103/PhysRevE.76.026107> and
-Clemente and Grassi (2018) <doi:10.1016/j.chaos.2017.12.007>, (4) rewiring
-networks with given assortativity coefficients, Wang, Yan, Yuan and Zhang
-(2022) <doi:10.1007/s11222-022-10161-8>, (5) preferential attachment
-network generation, Yuan, Wang, Yan and Zhang (2023)
-<doi:10.6339/23-JDS1110>.
+Assortativity coefficients, centrality measures, and clustering
+coefficients for weighted and directed networks. Rewiring unweighted
+networks with given assortativity coefficients. Generating general
+preferential attachment networks.
 
 %prep
 %setup -q -c -n %{packname}

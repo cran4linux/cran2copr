@@ -1,39 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cryptotrackr
-%global packver   1.2.0
+%global packname  basemaps
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Crypto Data Sources
+Summary:          Accessing Spatial Basemaps in R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-slippymath 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-magick 
 Requires:         R-utils 
-Requires:         R-CRAN-digest 
+Requires:         R-grDevices 
+Requires:         R-methods 
 
 %description
-Allows you to connect to data sources across the crypto ecosystem. This
-data can enable a range of activity such as portfolio tracking,
-programmatic trading, or industry analysis.
+A lightweight package to access spatial basemaps from open sources such as
+'OpenStreetMap', 'Carto', 'Mapbox' and others in R.
 
 %prep
 %setup -q -c -n %{packname}

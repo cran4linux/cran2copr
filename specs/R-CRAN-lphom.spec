@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lphom
-%global packver   0.3.5-4
+%global packver   0.3.5-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5.4
+Version:          0.3.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference by Linear Programming under Homogeneity
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lpSolve >= 5.6.18
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lpSolve 
+Requires:         R-CRAN-lpSolve >= 5.6.18
 Requires:         R-stats 
-Requires:         R-CRAN-lpSolve 
 
 %description
 Provides a bunch of algorithms based on linear programming for estimating,

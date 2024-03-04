@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IP
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classes and Methods for 'IP' Addresses
 
@@ -25,7 +25,8 @@ Requires:         R-CRAN-stringi
 Provides S4 classes for Internet Protocol (IP) versions 4 and 6 addresses
 and efficient methods for 'IP' addresses comparison, arithmetic, bit
 manipulation and lookup. Both 'IPv4' and 'IPv6' arbitrary ranges are also
-supported as well as domain lookup and 'whois' query.
+supported as well as internationalized (IDN) domain lookup with and
+'whois' query.
 
 %prep
 %setup -q -c -n %{packname}
