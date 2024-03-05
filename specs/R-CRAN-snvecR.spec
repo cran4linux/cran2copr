@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snvecR
-%global packver   3.9.0
+%global packver   3.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.9.0
+Version:          3.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Earth’s Obliquity and Precession in the Past
 
@@ -20,33 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-astrochron 
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-withr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-astrochron 
 
 %description
 Easily calculate precession and obliquity from an orbital solution

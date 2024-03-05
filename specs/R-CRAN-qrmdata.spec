@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qrmdata
-%global packver   2022-05-31-1
+%global packver   2024-03-04-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.05.31.1
+Version:          2024.03.04.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets for Quantitative Risk Management Practice
 

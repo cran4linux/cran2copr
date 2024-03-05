@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mangoTraining
-%global packver   1.1.1
+%global __requires_exclude ^libmpi
+%global packname  seguid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mango Solutions Training Datasets
+Summary:          Sequence Globally Unique Identifier (SEGUID) Checksums
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-digest 
 
 %description
-Datasets to be used primarily in conjunction with Mango Solutions training
-materials but also for the book 'SAMS Teach Yourself R in 24 Hours' (ISBN:
-978-0-672-33848-9). Version 1.0-7 is largely for use with the book;
-however, version 1.1 has a much greater focus on use with training
-materials, whilst retaining compatibility with the book.
+Implementation of the original Sequence Globally Unique Identifier
+(SEGUID) algorithm [Babnigg and Giometti (2006)
+<doi:10.1002/pmic.200600032>] and SEGUID v2 (<https://www.seguid.org>),
+which extends SEGUID v1 with support for linear, circular, single- and
+double-stranded biological sequences, e.g. DNA, RNA, and proteins.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

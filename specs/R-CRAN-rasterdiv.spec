@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterdiv
-%global packver   0.3.1
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity Indices for Numerical Matrices
 
@@ -17,26 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-svMisc 
 BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-raster 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-svMisc 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-viridis 
 
 %description
-Methods to calculate indices of diversity on numerical matrices based on
-information theory. The rationale behind the package is described in
-Rocchini, Marcantonio and Ricotta (2017)
-<doi:10.1016/j.ecolind.2016.07.039> and Rocchini, Marcantonio,..., Ricotta
+Provides methods to calculate diversity indices on numerical matrices
+based on information theory, as described in Rocchini, Marcantonio and
+Ricotta (2017) <doi:10.1016/j.ecolind.2016.07.039>, and Rocchini et al.
 (2021) <doi:10.1101/2021.01.23.427872>.
 
 %prep

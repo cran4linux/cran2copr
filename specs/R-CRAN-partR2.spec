@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  partR2
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning R2 in GLMMs
 
@@ -22,7 +23,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-pbapply >= 1.4.2
 BuildRequires:    R-CRAN-lme4 >= 1.1.21
 BuildRequires:    R-CRAN-tidyr >= 1.1
-BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.2
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-methods 
@@ -33,7 +34,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-pbapply >= 1.4.2
 Requires:         R-CRAN-lme4 >= 1.1.21
 Requires:         R-CRAN-tidyr >= 1.1
-Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-methods 
@@ -43,8 +44,7 @@ Requires:         R-stats
 Partitioning the R2 of GLMMs into variation explained by each predictor
 and combination of predictors using semi-partial (part) R2 and inclusive
 R2. Methods are based on the R2 for GLMMs described in Nakagawa &
-Schielzeth (2013) <doi:10.1111/j.2041-210x.2012.00261.x> and Nakagawa,
-Johnson & Schielzeth (2017) <doi:10.1098/rsif.2017.0213>.
+Schielzeth (2013) and Nakagawa, Johnson & Schielzeth (2017).
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,46 +1,26 @@
 %global __brp_check_rpaths %{nil}
-%global packname  docreview
-%global packver   0.0.1
+%global __requires_exclude ^libmpi
+%global packname  timeless
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Opinionated Documentation Checking
+Summary:          Fast General Purpose Date/Time Converter
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-parsermd 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-quanteda.textstats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-parsermd 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-quanteda.textstats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 
 %description
-High quality documentation can make for a great experience for your users.
-You can use 'docreview' to check that your R package documentation passes
-a number of configurable checks relating to documentation content.
+Fast general purpose date/time converter using 'Rust'. The package
+implements date time, date and epoch time parser for heterogeneous vectors
+of dates.
 
 %prep
 %setup -q -c -n %{packname}

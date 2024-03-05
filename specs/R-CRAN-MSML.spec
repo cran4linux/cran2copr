@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSML
-%global packver   1.0.0.0
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.0
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Selection Based on Machine Learning (ML)
 
@@ -23,7 +23,7 @@ Requires:         R-CRAN-r2redux
 Requires:         R-CRAN-R2ROC 
 
 %description
-Models evaluation based on a modified version of the recursive feature
+Model evaluation based on a modified version of the recursive feature
 elimination algorithm. This package is designed to determine the optimal
 model(s) by leveraging all available features.
 

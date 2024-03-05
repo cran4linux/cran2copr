@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crop
-%global packver   0.0-3
+%global packname  PMEvapotranspiration
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphics Cropping Tool
+Summary:          Calculation of the Penman-Monteith Evapotranspiration using Weather Variables
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-A device closing function which is able to crop graphics (e.g., PDF, PNG
-files) on Unix-like operating systems with the required underlying
-command-line tools installed.
+The Food and Agriculture Organization-56 Penman-Monteith is one of the
+important method for estimating evapotranspiration from vegetated land
+areas. This package helps to calculate reference evapotranspiration using
+the weather variables collected from weather station. Evapotranspiration
+is the process of water transfer from the land surface to the atmosphere
+through evaporation from soil and other surfaces and transpiration from
+plants. The package aims to support agricultural, hydrological, and
+environmental research by offering accurate and accessible reference
+evapotranspiration calculation. This package has been developed using
+concept of Córdova et al. (2015)<doi:10.1016/j.apm.2022.09.004> and
+Debnath et al. (2015) <doi:10.1007/s40710-015-0107-1>.
 
 %prep
 %setup -q -c -n %{packname}

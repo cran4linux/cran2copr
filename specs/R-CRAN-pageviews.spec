@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crop
-%global packver   0.0-3
+%global packname  pageviews
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphics Cropping Tool
+Summary:          An API Client for Wikimedia Traffic Data
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 
 %description
-A device closing function which is able to crop graphics (e.g., PDF, PNG
-files) on Unix-like operating systems with the required underlying
-command-line tools installed.
+Pageview data from the 'Wikimedia' sites, such as 'Wikipedia'
+<https://www.wikipedia.org/>, from entire projects to per-article levels
+of granularity, through the new RESTful API and data source
+<https://wikimedia.org/api/rest_v1/?doc>.
 
 %prep
 %setup -q -c -n %{packname}

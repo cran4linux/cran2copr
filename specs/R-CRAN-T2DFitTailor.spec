@@ -1,27 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crop
-%global packver   0.0-3
+%global packname  T2DFitTailor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphics Cropping Tool
+Summary:          'Tailor the Exercise Plans and Visualize the Outcome for T2D Patients'
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fmsb 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-A device closing function which is able to crop graphics (e.g., PDF, PNG
-files) on Unix-like operating systems with the required underlying
-command-line tools installed.
+A system for personalized exercise plan recommendations for T2D (Type 2
+Diabetes) patients based on the primary outcome of HbA1c (Glycated
+Hemoglobin). You provide the individual's information, and 'T2DFitTailor'
+details the exercise plan and predicts the intervention's effectiveness.
 
 %prep
 %setup -q -c -n %{packname}

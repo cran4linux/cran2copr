@@ -1,58 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parquetize
-%global packver   0.5.7
+%global packname  jlmerclusterperm
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Files to Parquet Format
+Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.0
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-backports >= 1.1.7
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-stats 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-haven >= 2.4.0
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-RSQLite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-backports >= 1.1.7
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-lme4 
+Requires:         R-stats 
 Requires:         R-tools 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-fst 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
 
 %description
-Collection of functions to get files in parquet format. Parquet is a
-columnar storage file format <https://parquet.apache.org/>. The files to
-convert can be of several formats ("csv", "RData", "rds", "RSQLite",
-"json", "ndjson", "SAS", "SPSS"...).
+An implementation of fast cluster-based permutation analysis (CPA) for
+densely-sampled time data developed in Maris & Oostenveld, 2007
+<doi:10.1016/j.jneumeth.2007.03.024>. Supports (generalized,
+mixed-effects) regression models for the calculation of timewise
+statistics. Provides both a wholesale and a piecemeal interface to the CPA
+procedure with an emphasis on interpretability and diagnostics. Integrates
+'Julia' libraries 'MixedModels.jl' and 'GLM.jl' for performance
+improvements, with additional functionalities for interfacing with 'Julia'
+from 'R' powered by the 'JuliaConnectoR' package.
 
 %prep
 %setup -q -c -n %{packname}

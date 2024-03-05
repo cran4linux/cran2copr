@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinythemes
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Repackaging of 'Themes' for 'ggplot2'
 
@@ -26,7 +26,7 @@ package contains a particularly nice one, but brings along a significant
 tail of dependencies. So this (currently experimental) package brings
 along just the 'theme_ipsum_rc' theme using the 'Roboto' 'Condensed' font.
 Should the font not be installed on your system, see the help in the
-package 'hrbrthemes' on how on install 'Roboto Condensed'.
+package 'hrbrthemes' on how to install 'Roboto Condensed'.
 
 %prep
 %setup -q -c -n %{packname}

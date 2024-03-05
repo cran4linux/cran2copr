@@ -1,27 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crop
-%global packver   0.0-3
+%global packname  proporz
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphics Cropping Tool
+Summary:          Proportional Apportionment
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 
 %description
-A device closing function which is able to crop graphics (e.g., PDF, PNG
-files) on Unix-like operating systems with the required underlying
-command-line tools installed.
+Calculate seat apportionment for legislative bodies with various methods.
+The algorithms include divisor or highest averages methods (e.g.
+Jefferson, Webster or Adams), largest remainder methods and biproportional
+apportionment. Gaffke, N. & Pukelsheim, F. (2008)
+<doi:10.1016/j.mathsocsci.2008.01.004> Oelbermann, K. F. (2016)
+<doi:10.1016/j.mathsocsci.2016.02.003>.
 
 %prep
 %setup -q -c -n %{packname}
