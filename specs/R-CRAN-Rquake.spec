@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mortAAR
-%global packver   1.1.6
+%global packname  Rquake
+%global packver   2.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Archaeological Mortality Data
+Summary:          Seismic Hypocenter Determination
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods >= 3.3.3
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-reshape2 >= 1.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-Rdpack >= 0.4
-Requires:         R-methods >= 3.3.3
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-reshape2 >= 1.4.2
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-Rdpack >= 0.4
+BuildRequires:    R-CRAN-RPMG 
+BuildRequires:    R-CRAN-RSEIS 
+BuildRequires:    R-CRAN-GEOmap 
+BuildRequires:    R-CRAN-MBA 
+BuildRequires:    R-CRAN-minpack.lm 
+Requires:         R-CRAN-RPMG 
+Requires:         R-CRAN-RSEIS 
+Requires:         R-CRAN-GEOmap 
+Requires:         R-CRAN-MBA 
+Requires:         R-CRAN-minpack.lm 
 
 %description
-A collection of functions for the analysis of archaeological mortality
-data (on the topic see e.g. Chamberlain 2006
-<https://books.google.de/books?id=nG5FoO_becAC&lpg=PA27&ots=LG0b_xrx6O&dq=life%%20table%%20archaeology&pg=PA27#v=onepage&q&f=false>).
-It takes demographic data in different formats and displays the result in
-a standard life table as well as plots the relevant indices (percentage of
-deaths, survivorship, probability of death, life expectancy, percentage of
-population).
+Non-linear inversion for hypocenter estimation and analysis of seismic
+data collected continuously, or in trigger mode. The functions organize
+other functions from 'RSEIS' and 'GEOmap' to help researchers pick,
+locate, and store hypocenters for detailed seismic investigation. Error
+ellipsoids and station influence are estimated via jackknife analysis.
+References include Iversen, E. S., and J. M. Lees
+(1996)<doi:10.1785/BSSA0860061853>.
 
 %prep
 %setup -q -c -n %{packname}

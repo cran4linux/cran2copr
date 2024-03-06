@@ -1,28 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmdu
-%global packver   0.1.0
+%global packname  heterometa
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          (Restricted) [external] Multidimensional Unfolding
+Summary:          Convert Various Meta-Analysis Heterogeneity Measures
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-smacof 
-Requires:         R-CRAN-smacof 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mathjaxr >= 0.8.3
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-mathjaxr >= 0.8.3
+Requires:         R-CRAN-Rdpack >= 0.7
 
 %description
-Functions for performing (external) multidimensional unfolding.
-Restrictions (fixed coordinates or model restrictions) are available for
-both row and column coordinates in all combinations.
+Published meta-analyses routinely present one of the measures of
+heterogeneity introduced in Higgins and Thompson (2002)
+<doi:10.1002/sim.1186>. For critiquing articles it is often better to
+convert to another measure. Some conversions are provided here and
+confidence intervals are also available.
 
 %prep
 %setup -q -c -n %{packname}

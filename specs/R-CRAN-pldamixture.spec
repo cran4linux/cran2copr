@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geomorph
-%global packver   4.0.7
+%global packname  pldamixture
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geometric Morphometric Analyses of 2D and 3D Landmark Data
+Summary:          Post-Linkage Data Analysis Based on Mixture Modelling
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRPP >= 2.0.0
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-RRPP >= 2.0.0
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-ape 
-Requires:         R-parallel 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 
 %description
-Read, manipulate, and digitize landmark data, generate shape variables via
-Procrustes analysis for points, curves and surfaces, perform shape
-analyses, and provide graphical depictions of shapes and patterns of shape
-variation.
+Perform inference in the secondary analysis setting with linked data
+potentially containing mismatch errors. Only the linked data file may be
+accessible and information about the record linkage process may be limited
+or unavailable. Implements the 'General Framework for Regression with
+Mismatched Data' developed by Slawski et al. (2023) <arXiv:2306.00909>.
+The framework uses a mixture model for pairs of linked records whose two
+components reflect distributions conditional on match status, i.e.,
+correct match or mismatch. Inference is based on composite likelihood and
+the Expectation-Maximization (EM) algorithm. The package currently
+supports Cox Proportional Hazards Regression (right-censored data only)
+and Generalized Linear Regression Models (Gaussian, Gamma, Poisson, and
+Logistic (binary models only)). Information about the underlying record
+linkage process can be incorporated into the method if available (e.g.,
+assumed overall mismatch rate, safe matches, predictors of match status,
+or predicted probabilities of correct matches).
 
 %prep
 %setup -q -c -n %{packname}

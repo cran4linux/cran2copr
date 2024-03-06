@@ -1,47 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atrrr
-%global packver   0.0.3
+%global packname  opinAr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'AT' Protocol Behind 'Bluesky'
+Summary:          Argentina's Public Opinion Toolbox
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sjPlot 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-glue 
-Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sjPlot 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-lubridate 
 
 %description
-Wraps the 'AT' Protocol (Authenticated Transfer Protocol) behind 'Bluesky'
-<https://bsky.social>. Functions can be used for, among others, retrieving
-posts and followers from the network or posting content.
+A toolbox for working with public opinion data from Argentina. It
+facilitates access to microdata and the calculation of indicators of the
+Trust in Government Index (ICG), prepared by the Torcuato Di Tella
+University. Although we will try to document everything possible in
+English, by its very nature Spanish will be the main language. El paquete
+fue pensado como una caja de herramientas para el trabajo con datos de
+opinión pública de Argentina. El mismo facilita el acceso a los microdatos
+y el cálculos de indicadores del Índice de Confianza en el Gobierno (ICG),
+elaborado por la Universidad Torcuato Di Tella.
 
 %prep
 %setup -q -c -n %{packname}

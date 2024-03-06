@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstan
-%global packver   2.32.5
+%global packver   2.32.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.32.5
+Version:          2.32.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to Stan
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-BH >= 1.75.0.0
 BuildRequires:    R-CRAN-pkgbuild >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.3
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
 BuildRequires:    R-CRAN-inline >= 0.3.19
 BuildRequires:    R-methods 
 BuildRequires:    R-stats4 

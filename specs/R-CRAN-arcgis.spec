@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mortAAR
-%global packver   1.1.6
+%global packname  arcgis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Archaeological Mortality Data
+Summary:          ArcGIS Location Services Meta-Package
 
-License:          GPL-3 | file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods >= 3.3.3
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-reshape2 >= 1.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-Rdpack >= 0.4
-Requires:         R-methods >= 3.3.3
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-reshape2 >= 1.4.2
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-Rdpack >= 0.4
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-arcgislayers >= 0.2.0
+BuildRequires:    R-CRAN-arcgisutils >= 0.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-arcgislayers >= 0.2.0
+Requires:         R-CRAN-arcgisutils >= 0.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-utils 
 
 %description
-A collection of functions for the analysis of archaeological mortality
-data (on the topic see e.g. Chamberlain 2006
-<https://books.google.de/books?id=nG5FoO_becAC&lpg=PA27&ots=LG0b_xrx6O&dq=life%%20table%%20archaeology&pg=PA27#v=onepage&q&f=false>).
-It takes demographic data in different formats and displays the result in
-a standard life table as well as plots the relevant indices (percentage of
-deaths, survivorship, probability of death, life expectancy, percentage of
-population).
+Provides easy installation and loading of core ArcGIS location services
+packages 'arcgislayers' and 'arcgisutils'. Enabling developers to interact
+with spatial data and services from 'ArcGIS Online', 'ArcGIS Enterprise',
+and 'ArcGIS Platform'. Learn more about the 'arcgis' meta-package at
+<https://r.esri.com/r-bridge-site/>.
 
 %prep
 %setup -q -c -n %{packname}

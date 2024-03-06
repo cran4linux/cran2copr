@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mortAAR
-%global packver   1.1.6
+%global packname  cheapr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Archaeological Mortality Data
+Summary:          Simple Functions to Save Time and Memory
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-methods >= 3.3.3
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-reshape2 >= 1.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-Rdpack >= 0.4
-Requires:         R-methods >= 3.3.3
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-reshape2 >= 1.4.2
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-Rdpack >= 0.4
+BuildRequires:    R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-collapse >= 2.0.0
 
 %description
-A collection of functions for the analysis of archaeological mortality
-data (on the topic see e.g. Chamberlain 2006
-<https://books.google.de/books?id=nG5FoO_becAC&lpg=PA27&ots=LG0b_xrx6O&dq=life%%20table%%20archaeology&pg=PA27#v=onepage&q&f=false>).
-It takes demographic data in different formats and displays the result in
-a standard life table as well as plots the relevant indices (percentage of
-deaths, survivorship, probability of death, life expectancy, percentage of
-population).
+Fast and memory-efficient (or 'cheap') tools to facilitate efficient
+programming, saving time and memory. It aims to provide 'cheaper'
+alternatives to common base R functions, as well as some additional
+functions.
 
 %prep
 %setup -q -c -n %{packname}

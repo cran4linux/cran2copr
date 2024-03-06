@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deeptime
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Tools for Anyone Working in Deep Time
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggforce 
@@ -34,7 +34,8 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-geomtextpath 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-utils 
 Requires:         R-CRAN-ggforce 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-geomtextpath 
 
 %description
 Extends the functionality of other plotting packages like 'ggplot2' and

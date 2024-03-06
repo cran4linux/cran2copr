@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qris
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression Model for Residual Lifetime Using an Induced Smoothing Approach
 
@@ -31,16 +31,18 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of functions to fit quantiles regression models for censored
-residual lifetimes. It provides various options for regression parameters
-estimation: the induced smoothing approach (smooth), and L1-minimization
-(non-smooth).  It also implements the estimation methods for standard
-errors of the regression parameters estimates based on an efficient
-partial multiplier bootstrap method and robust sandwich estimator.
-Furthermore, a simultaneous procedure of estimating regression parameters
-and their standard errors via an iterative updating procedure is
-implemented (iterative). See Kim, K. (2022) "Smoothed quantile regression
-for censored residual life", <arXiv:2205.00413>.
+A collection of functions is provided by this package to fit quantiles
+regression models for censored residual lifetimes. It provides various
+options for regression parameters estimation: the induced smoothing
+approach (smooth), and L1-minimization (non-smooth).  It also implements
+the estimation methods for standard errors of the regression parameters
+estimates based on an efficient partial multiplier bootstrap method and
+robust sandwich estimator. Furthermore, a simultaneous procedure of
+estimating regression parameters and their standard errors via an
+iterative updating procedure is implemented (iterative). For more details,
+see Kim, K. H., Caplan, D. J., & Kang, S. (2022), "Smoothed quantile
+regression for censored residual life", Computational Statistics, 1-22
+<doi:10.1007/s00180-022-01262-z>.
 
 %prep
 %setup -q -c -n %{packname}

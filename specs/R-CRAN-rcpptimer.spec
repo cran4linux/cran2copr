@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  miselect
-%global packver   0.9.2
+%global packname  rcpptimer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection for Multiply Imputed Data
+Summary:          'Rcpp' Tic-Toc Timer with 'OpenMP' Support
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Penalized regression methods, such as lasso and elastic net, are used in
-many biomedical applications when simultaneous regression coefficient
-estimation and variable selection is desired. However, missing data
-complicates the implementation of these methods, particularly when
-missingness is handled using multiple imputation. Applying a variable
-selection algorithm on each imputed dataset will likely lead to different
-sets of selected predictors, making it difficult to ascertain a final
-active set without resorting to ad hoc combination rules. 'miselect'
-presents Stacked Adaptive Elastic Net (saenet) and Grouped Adaptive LASSO
-(galasso) for continuous and binary outcomes, developed by Du et al (2022)
-<doi:10.1080/10618600.2022.2035739>. They, by construction, force
-selection of the same variables across multiply imputed data. 'miselect'
-also provides cross validated variants of these methods.
+Provides 'Rcpp' bindings for 'cpptimer', a simple tic-toc timer class for
+benchmarking 'C++' code <https://github.com/BerriJ/cpptimer>. It's not
+just simple, it's blazing fast! This sleek tic-toc timer class supports
+overlapping timers as well as 'OpenMP' parallelism
+<https://www.openmp.org/>. It boasts a microsecond-level time resolution.
+We did not find any overhead of the timer itself at this resolution.
+Results (with summary statistics) are automatically passed back to 'R' as
+a data frame.
 
 %prep
 %setup -q -c -n %{packname}

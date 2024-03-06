@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mortAAR
-%global packver   1.1.6
+%global packname  tidyfinance
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Archaeological Mortality Data
+Summary:          Tidy Finance Helper Functions
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-methods >= 3.3.3
-BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-reshape2 >= 1.4.2
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-Rdpack >= 0.4
-Requires:         R-methods >= 3.3.3
-Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-reshape2 >= 1.4.2
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-Rdpack >= 0.4
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-lifecycle 
 
 %description
-A collection of functions for the analysis of archaeological mortality
-data (on the topic see e.g. Chamberlain 2006
-<https://books.google.de/books?id=nG5FoO_becAC&lpg=PA27&ots=LG0b_xrx6O&dq=life%%20table%%20archaeology&pg=PA27#v=onepage&q&f=false>).
-It takes demographic data in different formats and displays the result in
-a standard life table as well as plots the relevant indices (percentage of
-deaths, survivorship, probability of death, life expectancy, percentage of
-population).
+Helper functions for empirical research in financial economics, addressing
+a variety of topics covered in Scheuch, Voigt, and Weiss (2023)
+<doi:10.1201/b23237>. The package is designed to provide shortcuts for
+issues extensively discussed in the book, facilitating easier application
+of its concepts. For more information and resources related to the book,
+visit <https://www.tidy-finance.org/r/index.html>.
 
 %prep
 %setup -q -c -n %{packname}
