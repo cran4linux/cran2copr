@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LPCM
-%global packver   0.47-3
+%global packver   0.47-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.47.3
+Version:          0.47.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Principal Curve Methods
 
@@ -22,8 +22,8 @@ BuildArch:        noarch
 Fitting multivariate data patterns with local principal curves, including
 tools for data compression (projection) and measuring goodness-of-fit;
 with some additional functions for mean shift clustering.  See Einbeck,
-Tutz and Evers (2005) <doi:10.1007/s11222-005-4073-8> and Einbeck (2011)
-<doi:10.13176/11.288>.
+Tutz and Evers (2005) <doi:10.1007/s11222-005-4073-8> and
+Ameijeiras-Alonso and Einbeck (2023) <doi:10.1007/s11634-023-00575-1>.
 
 %prep
 %setup -q -c -n %{packname}

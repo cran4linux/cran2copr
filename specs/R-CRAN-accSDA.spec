@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  accSDA
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Sparse Discriminant Analysis
 
@@ -19,12 +19,10 @@ Requires:         R-core >= 3.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.45
 BuildRequires:    R-grid >= 3.2.2
-BuildRequires:    R-CRAN-ggthemes >= 3.2.0
 BuildRequires:    R-CRAN-gridExtra >= 2.2
 BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
 Requires:         R-CRAN-MASS >= 7.3.45
 Requires:         R-grid >= 3.2.2
-Requires:         R-CRAN-ggthemes >= 3.2.0
 Requires:         R-CRAN-gridExtra >= 2.2
 Requires:         R-CRAN-ggplot2 >= 2.1.0
 

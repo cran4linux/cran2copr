@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lava
-%global packver   1.7.3
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Variable Models
 
@@ -14,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-progressr 
@@ -27,9 +28,10 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-future.apply 
-Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-progressr 

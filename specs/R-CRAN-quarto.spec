@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quarto
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Quarto' Markdown Publishing System
 
@@ -14,25 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rsconnect >= 0.8.26
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-later 
-Requires:         R-CRAN-rsconnect >= 0.8.26
-Requires:         R-utils 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-later 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
 Convert R Markdown documents and 'Jupyter' notebooks to a variety of

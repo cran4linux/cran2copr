@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gmodels
-%global packver   2.18.1.1
+%global packver   2.19.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.18.1.1
+Version:          2.19.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools for Model Fitting
 
@@ -13,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.9.0
-Requires:         R-core >= 1.9.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-gdata 
+Requires:         R-stats 
 
 %description
 Various R programming tools for model fitting.

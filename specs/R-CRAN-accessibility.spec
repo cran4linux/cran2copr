@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  accessibility
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transport Accessibility Measures
 
@@ -31,14 +31,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A set of fast and convenient functions to calculate multiple transport
-accessibility measures. Given a pre-computed travel cost matrix and a land
-use dataset (containing the location of jobs, healthcare and population,
-for example), the package allows one to calculate active and passive
-accessibility levels using multiple accessibility measures, such as:
-cumulative opportunities (using either travel cost cutoffs or intervals),
-minimum travel cost to closest N number of activities, gravity-based (with
-different decay functions) and different floating catchment area methods.
+A set of fast and convenient functions to help conducting accessibility
+analyses. Given a pre-computed travel cost matrix and a land use dataset
+(containing the location of jobs, healthcare and population, for example),
+the package allows one to calculate accessibility levels and accessibility
+poverty and inequality. The package covers the majority of the most
+commonly used accessibility measures (such as cumulative opportunities,
+gravity-based and floating catchment areas methods), as well as the most
+frequently used inequality and poverty metrics (such as the Palma ratio,
+the concentration and Theil indices and the FGT family of measures).
 
 %prep
 %setup -q -c -n %{packname}

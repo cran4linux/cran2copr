@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.BWS2
-%global packver   0.2-0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for Case 2 Best-Worst Scaling
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-Rcmdr
 Requires:         R-CRAN-DoE.base 
 
 %description
-Adds menu items for Case 2 (profile case) best-worst scaling (BWS2) to the
+Adds menu items for case 2 (profile case) best-worst scaling (BWS2) to the
 R Commander. BWS2 is a question-based survey method that constructs
 profiles (combinations of attribute levels) using an orthogonal array,
 asks respondents to select the best and worst levels in each profile, and

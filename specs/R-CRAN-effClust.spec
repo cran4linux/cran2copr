@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GENEAread
-%global packver   2.0.10
+%global packname  effClust
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Reading Binary Files
+Summary:          Calculate Effective Number of Clusters for a Linear Model
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-mmap 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-mmap 
+BuildRequires:    R-CRAN-fixest 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fixest 
+Requires:         R-stats 
 
 %description
-Functions and analytics for GENEA-compatible accelerometer data into R
-objects. See topic 'GENEAread' for an introduction to the package. See
-<https://activinsights.com/technology/geneactiv/> for more details on the
-GENEActiv device.
+Calculates the (approximate) effective number of clusters for a regression
+model, as described in Carter, Schnepel, and Steigerwald (2017)
+<doi:10.1162/REST_a_00639>.  The effective number of clusters is a
+statistic to assess the reliability of asymptotic inference when sampling
+or treatment assignment is clustered. Methods are implemented for
+stats::lm(), plm::plm(), and fixest::feols(). There is also a formula
+method.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aws.wrfsmn
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Processing of SMN Hi-Res Weather Forecast from 'AWS'
 
@@ -17,20 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-stats >= 4.1.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
 BuildRequires:    R-CRAN-terra >= 1.7.65
-BuildRequires:    R-CRAN-qpdf >= 1.3.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-hydroGOF >= 0.5.4
 BuildRequires:    R-CRAN-aws.s3 >= 0.3.21
+Requires:         R-stats >= 4.1.2
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-lubridate >= 1.9.3
 Requires:         R-CRAN-terra >= 1.7.65
-Requires:         R-CRAN-qpdf >= 1.3.2
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-hydroGOF >= 0.5.4
 Requires:         R-CRAN-aws.s3 >= 0.3.21
 
 %description
 Exploration of Weather Research & Forecasting ('WRF') Model data of
 Servicio Meteorologico Nacional (SMN) from Amazon Web Services
 (<https://registry.opendata.aws/smn-ar-wrf-dataset/>) cloud. The package
-provides the possibility of data downloading and processing. It also has
-map management and series exploration of available meteorological
-variables of 'WRF' forecast.
+provides the possibility of data downloading, processing and correction
+methods. It also has map management and series exploration of available
+meteorological variables of 'WRF' forecast.
 
 %prep
 %setup -q -c -n %{packname}

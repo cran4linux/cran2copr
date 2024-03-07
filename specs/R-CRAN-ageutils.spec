@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ageutils
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Functions for Working with Age Intervals
 
@@ -19,10 +19,10 @@ Requires:         R-core >= 3.5.0
 
 %description
 Provides a collection of efficient functions for working with individual
-ages and corresponding intervals. These include functions for efficient
-conversion from an age to an interval, aggregation of ages with associated
-counts in to intervals and the splitting of interval counts based on
-specified age distributions.
+ages and corresponding intervals. These include functions for conversion
+from an age to an interval, aggregation of ages with associated counts in
+to intervals and the splitting of interval counts based on specified age
+distributions.
 
 %prep
 %setup -q -c -n %{packname}

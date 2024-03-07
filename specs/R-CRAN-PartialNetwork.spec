@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PartialNetwork
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Peer Effects Using Partial Network Data
 
@@ -42,13 +42,13 @@ Requires:         R-CRAN-doRNG
 %description
 Implements IV-estimator and Bayesian estimator for linear-in-means Spatial
 Autoregressive (SAR) model (see LeSage, 1997
-<https://journals.sagepub.com/doi/10.1177/016001769702000107>; Lee, 2004
-<https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1468-0262.2004.00558.x>;
-Bramoullé et al., 2009 <doi:10.1016/j.jeconom.2008.12.021>), while
-assuming that only a partial information about the network structure is
-available. Examples are when the adjacency matrix is not fully observed or
-when only consistent estimation of the network formation model is
-available (see Boucher and Houndetoungan
+<doi:10.1177/016001769702000107>; Lee, 2004
+<doi:10.1111/j.1468-0262.2004.00558.x>; Bramoullé et al., 2009
+<doi:10.1016/j.jeconom.2008.12.021>), while assuming that only a partial
+information about the network structure is available. Examples are when
+the adjacency matrix is not fully observed or when only consistent
+estimation of the network formation model is available (see Boucher and
+Houndetoungan
 <https://ahoundetoungan.com/files/Papers/PartialNetwork.pdf>).
 
 %prep
