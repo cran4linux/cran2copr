@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chouca
-%global packver   0.0.999
+%global packver   0.1.99
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.999
+Version:          0.1.99
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stochastic Cellular Automaton Engine
 

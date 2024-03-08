@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dotwhisker
-%global packver   0.7.4
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dot-and-Whisker Plots of Regression Results
 
@@ -18,26 +19,32 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-margins 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-gtable 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-grid 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-stats 
 Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-margins 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-gtable 
 
 %description
 Quick and easy dot-and-whisker plots of regression results.

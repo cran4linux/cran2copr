@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QBMS
-%global packver   0.9.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query the Breeding Management System(s)
 
@@ -23,20 +23,30 @@ BuildRequires:    R-tcltk
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-tcltk 
 Requires:         R-utils 
 Requires:         R-CRAN-RNetCDF 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
 
 %description
-Linking data management systems to analytics is an important step in
-breeding digitization. Breeders can use this R package to Query the
-Breeding Management System(s) like 'BMS' <https://bmspro.io>, 'BreedBase'
-<https://breedbase.org>, and 'GIGWA' <https://southgreen.fr/content/gigwa>
-(using 'BrAPI' <https://brapi.org> calls) and help them to retrieve
-phenotypic and genotypic data directly into their analyzing pipelines.
+This R package assists breeders in linking data systems with their
+analytic pipelines, a crucial step in digitizing breeding processes. It
+supports querying and retrieving phenotypic and genotypic data from
+systems like 'EBS' <https://ebs.excellenceinbreeding.org/>, 'BMS'
+<https://bmspro.io>, 'BreedBase' <https://breedbase.org>, and 'GIGWA'
+<https://github.com/SouthGreenPlatform/Gigwa2> (using 'BrAPI'
+<https://brapi.org> calls). Extra helper functions support environmental
+data sources, including 'TerraClimate'
+<https://www.climatologylab.org/terraclimate.html> and 'FAO' 'HWSDv2'
+<https://gaez.fao.org/pages/hwsd> soil database.
 
 %prep
 %setup -q -c -n %{packname}

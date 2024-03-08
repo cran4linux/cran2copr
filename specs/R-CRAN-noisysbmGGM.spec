@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  descriptio
-%global packver   1.3
+%global packname  noisysbmGGM
+%global packver   0.1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistical Analysis
+Summary:          Noisy Stochastic Block Model for GGM Inference
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ppcor 
+BuildRequires:    R-CRAN-SILGGM 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-huge 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-parallel 
+Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-SILGGM 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-huge 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Description of statistical associations between two variables : measures
-of local and global association between variables (phi, Cramér V,
-correlations, eta-squared, Goodman and Kruskal tau, permutation tests,
-etc.), multiple graphical representations of the associations between two
-variables (using 'ggplot2') and weighted statistics.
+Greedy Bayesian algorithm to fit the noisy stochastic block model to an
+observed sparse graph. Moreover, a graph inference procedure to recover
+Gaussian Graphical Model (GGM) from real data. This procedure comes with a
+control of the false discovery rate. The method is described in the
+article "Enhancing the Power of Gaussian Graphical Model Inference by
+Modeling the Graph Structure" by Kilian, Rebafka, and Villers (2024)
+<arXiv:2402.19021>.
 
 %prep
 %setup -q -c -n %{packname}

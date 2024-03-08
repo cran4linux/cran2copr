@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PublicWorksFinanceIT
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil Defense Investments in Italy: Data Retrieval, Analysis, Visualization
 
@@ -14,14 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-scales 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-scales 

@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  descriptio
-%global packver   1.3
+%global packname  CBnetworkMA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistical Analysis
+Summary:          Contrast-Based Bayesian Network Meta Analysis
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Description of statistical associations between two variables : measures
-of local and global association between variables (phi, Cramér V,
-correlations, eta-squared, Goodman and Kruskal tau, permutation tests,
-etc.), multiple graphical representations of the associations between two
-variables (using 'ggplot2') and weighted statistics.
+A function that facilitates fitting three types of models for
+contrast-based Bayesian Network Meta Analysis.  The first model is that
+which is described in Lu and Ades (2006) <doi:10.1198/016214505000001302>.
+The other two models are based on a Bayesian nonparametric methods that
+permit ties when comparing treatment or for a treatment effect to be
+exactly equal to zero. In addition to the model fits, the package provides
+a summary of the interplay between treatment effects based on the
+procedure described in Barrientos, Page, and Lin (2023)
+<doi:10.48550/arXiv.2207.06561>.
 
 %prep
 %setup -q -c -n %{packname}

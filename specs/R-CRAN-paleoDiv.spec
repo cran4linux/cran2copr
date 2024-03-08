@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  descriptio
-%global packver   1.3
+%global packname  paleoDiv
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistical Analysis
+Summary:          Extracting and Visualizing Paleobiodiversity
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-stringr 
 
 %description
-Description of statistical associations between two variables : measures
-of local and global association between variables (phi, Cramér V,
-correlations, eta-squared, Goodman and Kruskal tau, permutation tests,
-etc.), multiple graphical representations of the associations between two
-variables (using 'ggplot2') and weighted statistics.
+Contains various tools for conveniently downloading and editing
+taxon-specific datasets from the Paleobiology Database
+<https://paleobiodb.org>, extracting information on abundance, temporal
+distribution of subtaxa and taxonomic diversity through deep time, and
+visualizing these data in relation to phylogeny and stratigraphy.
 
 %prep
 %setup -q -c -n %{packname}

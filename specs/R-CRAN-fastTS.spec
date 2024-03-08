@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastTS
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Time Series Modeling with the Sparsity Ranked Lasso
+Summary:          Fast Time Series Modeling for Seasonal Series with Exogenous Variables
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -40,12 +40,13 @@ sparsity is a philosophy with methods useful for variable selection in the
 presence of prior informational asymmetry. This situation exists for time
 series data with complex seasonality, as shown in Peterson and Cavanaugh
 (2023+) <doi:10.48550/arXiv.2211.01492>, which also describes this package
-in greater detail. The sparsity-ranked methods for Time Series implemented
-in 'fastTS' can fit large/complex/high-frequency time series quickly, even
-with a high-dimensional exogenous feature set. The method is considerably
-faster than its competitors, while often producing more accurate
-predictions. Also included is a long hourly series of arrivals into the
-University of Iowa Emergency Department with concurrent local temperature.
+in greater detail. The sparsity-ranked penalization methods for Time
+Series implemented in 'fastTS' can fit large/complex/high-frequency time
+series quickly, even with a high-dimensional exogenous feature set. The
+method is considerably faster than its competitors, while often producing
+more accurate predictions. Also included is a long hourly series of
+arrivals into the University of Iowa Emergency Department with concurrent
+local temperature.
 
 %prep
 %setup -q -c -n %{packname}

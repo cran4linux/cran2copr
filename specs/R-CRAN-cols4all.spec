@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cols4all
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colors for all
 
@@ -24,6 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-spacesXYZ 
 Requires:         R-CRAN-colorspace >= 2.1
 Requires:         R-methods 
 Requires:         R-grDevices 
@@ -31,6 +32,7 @@ Requires:         R-stats
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-spacesXYZ 
 
 %description
 Color palettes for all people, including those with color vision

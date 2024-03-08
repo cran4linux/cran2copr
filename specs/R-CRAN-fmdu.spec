@@ -1,35 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  descriptio
-%global packver   1.3
+%global packname  fmdu
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Statistical Analysis
+Summary:          (Restricted) [external] Multidimensional Unfolding
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-smacof 
+Requires:         R-CRAN-smacof 
 
 %description
-Description of statistical associations between two variables : measures
-of local and global association between variables (phi, Cramér V,
-correlations, eta-squared, Goodman and Kruskal tau, permutation tests,
-etc.), multiple graphical representations of the associations between two
-variables (using 'ggplot2') and weighted statistics.
+Functions for performing (external) multidimensional unfolding.
+Restrictions (fixed coordinates or model restrictions) are available for
+both row and column coordinates in all combinations.
 
 %prep
 %setup -q -c -n %{packname}
