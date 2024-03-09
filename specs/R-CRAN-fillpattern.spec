@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FastCUB
-%global packver   0.0.3
+%global packname  fillpattern
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Estimation of CUB Models via Louis' Identity
+Summary:          Patterned Fills for 'ggplot2' and 'grid' Graphics
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-grid >= 4.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.5
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-CUB 
+Requires:         R-grid >= 4.2
+Requires:         R-CRAN-ggplot2 >= 3.5
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-Formula 
 Requires:         R-utils 
-Requires:         R-CRAN-CUB 
 
 %description
-For ordinal rating data, consider the accelerated EM algorithm to estimate
-and test models within the family of CUB models (where CUB stands for
-Combination of a discrete Uniform and a shifted Binomial distributions).
-The procedure is built upon Louis' identity for the observed information
-matrix. Best-subset variable selection is then implemented since it
-becomes more feasible from the computational point of view.
+Adds distinctive yet unobtrusive geometric patterns where solid color
+fills are normally used. Patterned figures look just as professional when
+viewed by colorblind readers or when printed in black and white. The dozen
+included patterns can be customized in terms of scale, rotation, color,
+fill, line type, and line width. Compatible with the 'ggplot2' package as
+well as 'grid' graphics.
 
 %prep
 %setup -q -c -n %{packname}

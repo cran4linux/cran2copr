@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scipub
-%global packver   1.2.3
+%global packname  corrmeta
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarize Data for Scientific Publication
+Summary:          Correlated Meta-Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-polycor 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-polycor 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
 
 %description
-Create and format tables and APA statistics for scientific publication.
-This includes making a 'Table 1' to summarize demographics across groups,
-correlation tables with significance indicated by stars, and extracting
-formatted statistical summarizes from simple tests for in-text notation.
-The package also includes functions for Winsorizing data based on a
-Z-statistic cutoff.
+Performs Correlated Meta-Analysis ('corrmeta') across multiple OMIC scans,
+accounting for hidden non-independencies between elements of the scans due
+to overlapping samples, related samples, or other information. For more
+information about the method, refer to the paper Province MA. (2013)
+<doi:10.1142/9789814447973_0023>.
 
 %prep
 %setup -q -c -n %{packname}

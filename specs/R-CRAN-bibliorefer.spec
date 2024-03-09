@@ -1,50 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scipub
-%global packver   1.2.3
+%global packname  bibliorefer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarize Data for Scientific Publication
+Summary:          Generator of Main Scientific References
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-purrr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Create and format tables and APA statistics for scientific publication.
-This includes making a 'Table 1' to summarize demographics across groups,
-correlation tables with significance indicated by stars, and extracting
-formatted statistical summarizes from simple tests for in-text notation.
-The package also includes functions for Winsorizing data based on a
-Z-statistic cutoff.
+Generates a list, with a size defined by the user, containing the main
+scientific references and the frequency distribution of authors and
+journals in the list obtained. The database is a dataframe with academic
+production metadata made available by bibliographic collections such as
+Scopus, Web of Science, etc. The temporal evolution of scientific
+production on a given topic is presented and ordered lists of articles are
+constructed by number of citations and of authors and journals by level of
+productivity. Massimo Aria, Corrado Cuccurullo. (2017)
+<doi:10.1016/j.joi.2017.08.007>. Caibo Zhou, Wenyan Song. (2021)
+<doi:10.1016/j.jclepro.2021.126943>.
 
 %prep
 %setup -q -c -n %{packname}

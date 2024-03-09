@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FastCUB
-%global packver   0.0.3
+%global packname  detectR
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Estimation of CUB Models via Louis' Identity
+Summary:          Change Point Detection
 
-License:          GPL-2 | GPL-3
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-CUB 
-Requires:         R-methods 
-Requires:         R-CRAN-Formula 
-Requires:         R-utils 
-Requires:         R-CRAN-CUB 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-LogConcDEAD 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-LogConcDEAD 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
 
 %description
-For ordinal rating data, consider the accelerated EM algorithm to estimate
-and test models within the family of CUB models (where CUB stands for
-Combination of a discrete Uniform and a shifted Binomial distributions).
-The procedure is built upon Louis' identity for the observed information
-matrix. Best-subset variable selection is then implemented since it
-becomes more feasible from the computational point of view.
+Time series analysis of network connectivity. Detects and visualizes
+change points between networks. Methods included in the package are
+discussed in depth in Baek, C., Gates, K. M., Leinwand, B., Pipiras, V.
+(2021) "Two sample tests for high-dimensional auto-covariances"
+<doi:10.1016/j.csda.2020.107067> and Baek, C., Gampe, M., Leinwand B.,
+Lindquist K., Hopfinger J. and Gates K. (2023) “Detecting functional
+connectivity changes in fMRI data” <doi:10.1007/s11336-023-09908-7>.
 
 %prep
 %setup -q -c -n %{packname}

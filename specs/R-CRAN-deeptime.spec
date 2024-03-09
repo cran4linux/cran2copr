@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deeptime
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Tools for Anyone Working in Deep Time
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggforce 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-gtable
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggfittext 
 BuildRequires:    R-CRAN-curl 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-phytools
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-geomtextpath 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-utils 
 Requires:         R-CRAN-ggforce 
@@ -45,7 +46,6 @@ Requires:         R-CRAN-gtable
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggfittext 
 Requires:         R-CRAN-curl 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kdry
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          K's "Don't Repeat Yourself"-Collection
 
@@ -35,9 +35,8 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-A personal collection of helper functions and code snippets to avoid
-redundancy in the spirit of the "Don't repeat yourself" principle of
-software development
+A collection of personal helper functions to avoid redundancy in the
+spirit of the "Don't repeat yourself" principle of software development
 (<https://en.wikipedia.org/wiki/Don%%27t_repeat_yourself>).
 
 %prep

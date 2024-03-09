@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  handwriter
-%global packver   2.0.3
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handwriting Analysis in R
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lpSolve 
@@ -37,7 +36,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lpSolve 
@@ -54,7 +52,7 @@ Requires:         R-CRAN-tidyr
 
 %description
 Perform statistical writership analysis of scanned handwritten documents.
-Webpage provided at: <https://csafe-isu.github.io/handwriter/index.html>.
+Webpage provided at: <https://github.com/CSAFE-ISU/handwriter>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FastCUB
-%global packver   0.0.3
+%global packname  panelSUR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Estimation of CUB Models via Louis' Identity
+Summary:          Two-Way Error Component SUR Systems Estimation on Unbalanced Panel Data
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.2
-Requires:         R-core >= 2.15.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-CUB 
-Requires:         R-methods 
-Requires:         R-CRAN-Formula 
-Requires:         R-utils 
-Requires:         R-CRAN-CUB 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-CRAN-fastmatrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-plm 
+Requires:         R-CRAN-matlib 
+Requires:         R-CRAN-fastmatrix 
 
 %description
-For ordinal rating data, consider the accelerated EM algorithm to estimate
-and test models within the family of CUB models (where CUB stands for
-Combination of a discrete Uniform and a shifted Binomial distributions).
-The procedure is built upon Louis' identity for the observed information
-matrix. Best-subset variable selection is then implemented since it
-becomes more feasible from the computational point of view.
+Generalized Least Squares (GLS) estimation of Seemingly Unrelated
+Regression (SUR) systems on unbalanced panel in the one/two-way cases also
+taking into account the possibility of cross equation restrictions.
+Methodological details can be found in Biørn (2004)
+<doi:10.1016/j.jeconom.2003.10.023> and Platoni, Sckokai, Moro (2012)
+<doi:10.1080/07474938.2011.607098>.
 
 %prep
 %setup -q -c -n %{packname}

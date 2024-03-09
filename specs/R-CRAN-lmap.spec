@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scipub
-%global packver   1.2.3
+%global packname  lmap
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarize Data for Scientific Publication
+Summary:          Logistic Mapping
 
-License:          GPL-3
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-fmdu 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rfast 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-fmdu 
+Requires:         R-CRAN-nnet 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rfast 
 
 %description
-Create and format tables and APA statistics for scientific publication.
-This includes making a 'Table 1' to summarize demographics across groups,
-correlation tables with significance indicated by stars, and extracting
-formatted statistical summarizes from simple tests for in-text notation.
-The package also includes functions for Winsorizing data based on a
-Z-statistic cutoff.
+Set of tools for mapping of categorical response variables based on
+principal component analysis (pca) and multidimensional unfolding (mdu).
 
 %prep
 %setup -q -c -n %{packname}

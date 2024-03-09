@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MazamaTimeSeries
-%global packver   0.2.16
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.16
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Core Functionality for Environmental Time Series
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.15
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.5.2
 BuildRequires:    R-CRAN-MazamaRollUtils >= 0.1.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geodist 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-MazamaCoreUtils >= 0.4.15
+Requires:         R-CRAN-MazamaCoreUtils >= 0.5.2
 Requires:         R-CRAN-MazamaRollUtils >= 0.1.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geodist 

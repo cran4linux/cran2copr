@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usmapdata
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mapping Data for 'usmap' Package
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-sf
 Provides a container for data used by the 'usmap' package. The data used
 by 'usmap' has been extracted into this package so that the file size of
 the 'usmap' package can be reduced greatly. The data in this package will
-be updated roughly once per year (plus bug fixes) as new shapefiles are
-provided by the US Census bureau.
+be updated roughly once per year as new map data files are provided by the
+US Census Bureau.
 
 %prep
 %setup -q -c -n %{packname}

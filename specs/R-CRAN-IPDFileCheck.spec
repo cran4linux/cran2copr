@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IPDFileCheck
-%global packver   0.7.5
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Functions to Check Readability, Consistency, and Content of an Individual Participant Data File
 
@@ -26,11 +27,7 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-CRAN-gtsummary 
 BuildRequires:    R-CRAN-effsize 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-gmodels 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-lubridate 
@@ -41,11 +38,7 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-effsize 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-gmodels 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-zoo 
 
 %description
 Basic checks needed with an individual level participant data from
