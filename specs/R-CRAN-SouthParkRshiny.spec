@@ -1,47 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3spatial
-%global packver   0.5.0
+%global packname  SouthParkRshiny
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
+Summary:          Data and 'Shiny' Application for the Show 'SouthPark'
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-terra >= 1.6.3
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-lgr >= 0.4.2
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-terra >= 1.6.3
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-lgr >= 0.4.2
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-shiny >= 1.8.0
+BuildRequires:    R-CRAN-golem >= 0.4.1
+BuildRequires:    R-CRAN-config >= 0.3.2
+BuildRequires:    R-CRAN-box 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-shinydashboard 
+Requires:         R-CRAN-shiny >= 1.8.0
+Requires:         R-CRAN-golem >= 0.4.1
+Requires:         R-CRAN-config >= 0.3.2
+Requires:         R-CRAN-box 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-Extends the 'mlr3' ML framework with methods for spatial objects. Data
-storage and prediction are supported for packages 'terra', 'raster' and
-'stars'.
+Ratings, votes, swear words and sentiments are analysed for the show
+'SouthPark' through a 'Shiny' application after web scraping from 'IMDB'
+and the website <https://southpark.fandom.com/wiki/South_Park_Archives>.
 
 %prep
 %setup -q -c -n %{packname}

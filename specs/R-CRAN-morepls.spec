@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3spatial
-%global packver   0.5.0
+%global packname  morepls
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
+Summary:          Interpretation Tools for Partial Least Squares Regression
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-terra >= 1.6.3
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-lgr >= 0.4.2
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-terra >= 1.6.3
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-lgr >= 0.4.2
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
 
 %description
-Extends the 'mlr3' ML framework with methods for spatial objects. Data
-storage and prediction are supported for packages 'terra', 'raster' and
-'stars'.
+Various kinds of plots (observations, variables, correlations, weights,
+regression coefficients and Variable Importance in the Projection) and
+aids to interpretation (coefficients, Q2, correlations, redundancies) for
+partial least squares regressions computed with the 'pls' package,
+following Tenenhaus (1998, ISBN:2-7108-0735-1).
 
 %prep
 %setup -q -c -n %{packname}

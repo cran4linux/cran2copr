@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moodef
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Defining 'Moodle' Elements from R
 
@@ -22,18 +22,24 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-blastula 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
+Requires:         R-CRAN-xlsx 
 Requires:         R-CRAN-xml2 
 
 %description

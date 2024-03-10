@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggparallel
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variations of Parallel Coordinate Plots for Categorical Data
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-plyr >= 1.8.9
 BuildRequires:    R-CRAN-reshape2 >= 1.4.4
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-plyr >= 1.8.9
 Requires:         R-CRAN-reshape2 >= 1.4.4
 

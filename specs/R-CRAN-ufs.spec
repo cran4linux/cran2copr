@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ufs
-%global packver   0.5.10
+%global packver   0.5.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.10
+Version:          0.5.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Utilities
 

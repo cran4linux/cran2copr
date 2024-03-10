@@ -1,47 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3spatial
-%global packver   0.5.0
+%global packname  nycflights23
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
+Summary:          Flights and Other Useful Metadata for NYC Outbound Flights in 2023
 
-License:          LGPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-terra >= 1.6.3
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-lgr >= 0.4.2
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-terra >= 1.6.3
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-lgr >= 0.4.2
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
 
 %description
-Extends the 'mlr3' ML framework with methods for spatial objects. Data
-storage and prediction are supported for packages 'terra', 'raster' and
-'stars'.
+Updating the now 10-year-old 'nycflights13' data package. It contains
+information about all flights that departed from the three main New York
+City airports in 2023 and metadata on airlines, airports, weather, and
+planes.
 
 %prep
 %setup -q -c -n %{packname}

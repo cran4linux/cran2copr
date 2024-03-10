@@ -1,47 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3spatial
-%global packver   0.5.0
+%global packname  rsleep
+%global packver   1.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
+Summary:          Analysis of Sleep Data
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-terra >= 1.6.3
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-lgr >= 0.4.2
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-terra >= 1.6.3
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-lgr >= 0.4.2
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-edfReader 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-psd 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-edfReader 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-psd 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-xts 
 
 %description
-Extends the 'mlr3' ML framework with methods for spatial objects. Data
-storage and prediction are supported for packages 'terra', 'raster' and
-'stars'.
+A toolbox for sleep data processing, visualization and analysis. Tools for
+state of the art automatic sleep stages scoring.
 
 %prep
 %setup -q -c -n %{packname}

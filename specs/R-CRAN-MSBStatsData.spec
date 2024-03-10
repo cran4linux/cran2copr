@@ -1,47 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3spatial
-%global packver   0.5.0
+%global packname  MSBStatsData
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support for Spatial Objects Within the 'mlr3' Ecosystem
+Summary:          Data Sets for Courses at the Münster School of Business
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-terra >= 1.6.3
-BuildRequires:    R-CRAN-data.table >= 1.14.0
-BuildRequires:    R-CRAN-lgr >= 0.4.2
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-terra >= 1.6.3
-Requires:         R-CRAN-data.table >= 1.14.0
-Requires:         R-CRAN-lgr >= 0.4.2
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.11.0
-Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Extends the 'mlr3' ML framework with methods for spatial objects. Data
-storage and prediction are supported for packages 'terra', 'raster' and
-'stars'.
+Provides sample data sets that are used in statistics and data science
+courses at the Münster School of Business. The datasets refer to different
+business topics but also other domains, e.g. sports, traffic, etc.
 
 %prep
 %setup -q -c -n %{packname}

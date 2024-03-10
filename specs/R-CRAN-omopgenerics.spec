@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  omopgenerics
-%global packver   0.0.3
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Classes for the OMOP Common Data Model
 
@@ -21,20 +21,20 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Provides definitions of core classes and methods used by analytic

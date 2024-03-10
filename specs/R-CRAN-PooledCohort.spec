@@ -1,20 +1,21 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PooledCohort
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predict 10-Year Risk for Atherosclerotic Cardiovascular Disease
+Summary:          Predicted Risk for CVD using Pooled Cohort Equations, PREVENT Equations, and Other Contemporary CVD Risk Calculators
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-stats 
@@ -30,11 +31,7 @@ recommends using the Pooled Cohort risk prediction equations to predict
 10-year atherosclerotic cardiovascular disease risk. This package
 implements the original Pooled Cohort risk prediction equations and also
 incorporates updated versions based on more contemporary data and
-statistical methods. References: Goff DC, Lloyd-Jones DM, Bennett G, Coady
-S, D’Agostino RB, Gibbons R, Greenland P, Lackland DT, Levy D, O’Donnell
-CJ, and Robinson JG (2014) <doi:10.1016/j.jacc.2014.03.006> Yadlowsky S,
-Hayward RA, Sussman JB, McClelland RL, Min YI, and Basu S (2018)
-<doi:10.7326/m17-3011>.
+statistical methods.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

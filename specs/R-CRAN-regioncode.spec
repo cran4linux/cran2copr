@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  regioncode
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Region Names and Division Codes of China Over Years
 
@@ -17,17 +18,13 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-pinyin 
-BuildRequires:    R-CRAN-textshaping 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-pinyin 
-Requires:         R-CRAN-textshaping 
 
 %description
-A fast tool to conquer the difficulties to convert various region names
-and administration division codes of Chinese regions. The current version
+A tool to conquer the difficulties to convert various region names and
+administration division codes of Chinese regions. The current version
 enables seamlessly converting Chinese regions' formal names, common-used
 names, and codes between each other at the city level from 1986 to 2019.
 

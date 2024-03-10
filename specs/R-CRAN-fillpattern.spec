@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fillpattern
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Patterned Fills for 'ggplot2' and 'grid' Graphics
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-grid >= 4.2
+BuildRequires:    R-grid >= 4.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.5
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-grid >= 4.2
+Requires:         R-grid >= 4.1
 Requires:         R-CRAN-ggplot2 >= 3.5
 Requires:         R-grDevices 
 Requires:         R-methods 
