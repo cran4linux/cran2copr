@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rfast2
-%global packver   0.1.5.1
+%global packver   0.1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5.1
+Version:          0.1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Efficient and Extremely Fast R Functions II
 
@@ -19,18 +19,20 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-Rnanoflann 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-Rnanoflann 
 
 %description
 A collection of fast statistical and utility functions for data analysis.
 Functions for regression, maximum likelihood, column-wise statistics and
 many more have been included. C++ has been utilized to speed up the
-functions.
+functions. References: Tsagris M., Papadakis M. (2018). Taking R to its
+limits: 70+ tips. PeerJ Preprints 6:e26605v1
+<doi:10.7287/peerj.preprints.26605v1>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  runjags
-%global packver   2.2.2-1.1
+%global packver   2.2.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2.1.1
+Version:          2.2.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface Utilities, Model Templates, Parallel Computing Methods and Additional Distributions for MCMC Models in JAGS
 

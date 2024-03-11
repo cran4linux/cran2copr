@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckplyr
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'DuckDB'-Backed Version of 'dplyr'
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-collections 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-collections 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 

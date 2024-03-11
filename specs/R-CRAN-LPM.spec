@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LPM
-%global packver   2.9
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Parametric Models Applied to Hydrological Series
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -32,7 +33,8 @@ Requires:         R-CRAN-MASS
 %description
 Apply Univariate Long Memory Models, Apply Multivariate Short Memory
 Models To Hydrological Dataset, Estimate Intensity Duration Frequency
-curve to rainfall series.
+curve to rainfall series. NEW -- Calculate the monthly water requirement
+for herbaceous and arboreal plants.
 
 %prep
 %setup -q -c -n %{packname}
