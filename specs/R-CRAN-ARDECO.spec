@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARDECO
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'ARDECO' Dataset
+Summary:          Annual Regional Database of the European Commission (ARDECO)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-ghql
 BuildRequires:    R-CRAN-rjstat 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ghql 
 Requires:         R-CRAN-rjstat 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
 A set of functions to access the 'ARDECO' (Annual Regional Database of the

@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digest
-%global packver   0.6.35
+%global packname  LipinskiFilters
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.35
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Computes and Visualize Lipinski's Parameters
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rcdk >= 3.8.1
+BuildRequires:    R-CRAN-itertools >= 0.1.3
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-rcdk >= 3.8.1
+Requires:         R-CRAN-itertools >= 0.1.3
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-utils 
+Requires:         R-CRAN-knitr 
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and
-'xxh3_128' algorithms) permitting easy comparison of R language objects,
-as well as functions such as'hmac()' to create hash-based message
-authentication code. Please note that this package is not meant to be
-deployed for cryptographic purposes for which more comprehensive (and
-widely tested) libraries such as 'OpenSSL' should be used.
+This computes Lipinski Rule of Five parameters and offers visualization
+for drug discovery. It analyzes molecular properties like molecular
+weight, hydrogen bond donors, acceptors, and ALogP, providing histograms
+and pass/fail status plots for efficient compound evaluation, aiding in
+drug development.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nonmem2R
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading NONMEM Output Files with Functions for Visual Predictive Checks (VPC) and Goodness of Fit (GOF) Plots
 
@@ -35,10 +36,11 @@ Requires:         R-CRAN-reshape2
 
 %description
 Loading NONMEM (NONlinear Mixed-Effect Modeling,
-<https://www.iconplc.com/innovation/nonmem/>) and PSN (Perl-speaks-NONMEM,
-<https://uupharmacometrics.github.io/PsN/>) output files to extract
-parameter estimates, provide visual predictive check (VPC) and goodness of
-fit (GOF) plots, and simulate with parameter uncertainty.
+<https://www.iconplc.com/solutions/technologies/nonmem/>) and PSN
+(Perl-speaks-NONMEM, <https://uupharmacometrics.github.io/PsN/>) output
+files to extract parameter estimates, provide visual predictive check
+(VPC) and goodness of fit (GOF) plots, and simulate with parameter
+uncertainty.
 
 %prep
 %setup -q -c -n %{packname}

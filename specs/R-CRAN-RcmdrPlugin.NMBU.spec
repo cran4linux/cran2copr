@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.NMBU
-%global packver   1.8.14
+%global packver   1.8.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.14
+Version:          1.8.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for University Level Applied Statistics
 

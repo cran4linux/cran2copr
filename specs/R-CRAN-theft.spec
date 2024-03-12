@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  theft
-%global packver   0.5.4.1
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4.1
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Extraction of Features from Time Series
 
@@ -17,46 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-fabletools 
 BuildRequires:    R-CRAN-tsfeatures 
 BuildRequires:    R-CRAN-feasts 
 BuildRequires:    R-CRAN-Rcatch22 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-janitor 
+Requires:         R-utils 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-broom 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-fabletools 
 Requires:         R-CRAN-tsfeatures 
 Requires:         R-CRAN-feasts 
 Requires:         R-CRAN-Rcatch22 
 Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-janitor 
 
 %description
 Consolidates and calculates different sets of time-series features from
@@ -69,10 +55,7 @@ E., Yang, Y., and O'Hara-Wild, M. (2020)
 Braun, N., Neuffer, J., and Kempa-Liehr A.W. (2018)
 <doi:10.1016/j.neucom.2018.03.067>, 'TSFEL' Barandas, M., et al. (2020)
 <doi:10.1016/j.softx.2020.100456>, and 'Kats' Facebook Infrastructure Data
-Science (2021) <https://facebookresearch.github.io/Kats/>. Provides a
-standardised workflow from feature calculation to feature processing,
-machine learning classification procedures, and the production of
-statistical graphics.
+Science (2021) <https://facebookresearch.github.io/Kats/>.
 
 %prep
 %setup -q -c -n %{packname}

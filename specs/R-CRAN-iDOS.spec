@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digest
-%global packver   0.6.35
+%global packname  iDOS
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.35
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Integrated Discovery of Oncogenic Signatures
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-VennDiagram >= 1.6.5
+Requires:         R-CRAN-VennDiagram >= 1.6.5
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and
-'xxh3_128' algorithms) permitting easy comparison of R language objects,
-as well as functions such as'hmac()' to create hash-based message
-authentication code. Please note that this package is not meant to be
-deployed for cryptographic purposes for which more comprehensive (and
-widely tested) libraries such as 'OpenSSL' should be used.
+A method to integrate molecular profiles of cancer patients (gene copy
+number and mRNA abundance) to identify candidate gain of function
+alterations. These candidate alterations can be subsequently further
+tested to discover cancer driver alterations. Briefly, this method tests
+of genomic correlates of mRNA dysregulation and prioritise those where DNA
+gains/amplifications are associated with elevated mRNA expression of the
+same gene. For details see, Haider S et al. (2016) "Genomic alterations
+underlie a pan-cancer metabolic shift associated with tumour hypoxia",
+Genome Biology, <https://pubmed.ncbi.nlm.nih.gov/27358048/>.
 
 %prep
 %setup -q -c -n %{packname}

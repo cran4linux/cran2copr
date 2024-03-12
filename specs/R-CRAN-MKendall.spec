@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digest
-%global packver   0.6.35
+%global packname  MKendall
+%global packver   1.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.35
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Matrix Kendall's Tau and Matrix Elliptical Factor Model
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and
-'xxh3_128' algorithms) permitting easy comparison of R language objects,
-as well as functions such as'hmac()' to create hash-based message
-authentication code. Please note that this package is not meant to be
-deployed for cryptographic purposes for which more comprehensive (and
-widely tested) libraries such as 'OpenSSL' should be used.
+Large-scale matrix-variate data have been widely observed nowadays in
+various research areas such as finance, signal processing and medical
+imaging. Modelling matrix-valued data by matrix-elliptical family not only
+provides a flexible way to handle heavy-tail property and tail
+dependencies, but also maintains the intrinsic row and column structure of
+random matrices. We proposed a new tool named matrix Kendall's tau which
+is efficient for analyzing random elliptical matrices. By applying this
+new type of Kendell’s tau to the matrix elliptical factor model, we
+propose a Matrix-type Robust Two-Step (MRTS) method to estimate the
+loading and factor spaces. See the details in He at al. (2022)
+<arXiv:2207.09633>. In this package, we provide the algorithms for
+calculating sample matrix Kendall's tau, the MRTS method and the Matrix
+Kendall's tau Eigenvalue-Ratio (MKER) method which is used for determining
+the number of factors.
 
 %prep
 %setup -q -c -n %{packname}

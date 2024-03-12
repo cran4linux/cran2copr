@@ -1,33 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digest
-%global packver   0.6.35
+%global packname  rnames
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.35
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Compact Hash Digests of R Objects
+Summary:          Recursive Display of Items in Nested Lists
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Implementation of a function 'digest()' for the creation of hash digests
-of arbitrary R objects (using the 'md5', 'sha-1', 'sha-256', 'crc32',
-'xxhash', 'murmurhash', 'spookyhash', 'blake3', 'crc32c', 'xxh3_64', and
-'xxh3_128' algorithms) permitting easy comparison of R language objects,
-as well as functions such as'hmac()' to create hash-based message
-authentication code. Please note that this package is not meant to be
-deployed for cryptographic purposes for which more comprehensive (and
-widely tested) libraries such as 'OpenSSL' should be used.
+Recursive display of names and paths of all the items nested within
+sublists of a list object.
 
 %prep
 %setup -q -c -n %{packname}

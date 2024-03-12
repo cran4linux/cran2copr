@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyselect
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Select from a Set of Strings
 
@@ -21,13 +21,13 @@ BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.0.4
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.4.1
+BuildRequires:    R-CRAN-vctrs >= 0.5.2
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.0.4
 Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.4.1
+Requires:         R-CRAN-vctrs >= 0.5.2
 Requires:         R-CRAN-withr 
 
 %description

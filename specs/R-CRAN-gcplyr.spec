@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gcplyr
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate and Analyze Growth Curve Data
+Summary:          Wrangle and Analyze Growth Curve Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,24 +18,26 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Easy import, reshaping, and model-free analysis of microbial growth curve
-data, as commonly output by plate readers. Tools for reshaping common
-plate reader outputs into 'tidy' formats and merging them with design
-information, making data easy to work with using 'gcplyr' and other
-packages. Also streamlines common growth curve processing steps, like
-smoothing and calculating derivatives, and facilitates model-free
-characterization and analysis of growth data. See methods at
+Easy wrangling and model-free analysis of microbial growth curve data, as
+commonly output by plate readers. Tools for reshaping common plate reader
+outputs into 'tidy' formats and merging them with design information,
+making data easy to work with using 'gcplyr' and other packages. Also
+streamlines common growth curve processing steps, like smoothing and
+calculating derivatives, and facilitates model-free characterization and
+analysis of growth data. See methods at
 <https://mikeblazanin.github.io/gcplyr/>.
 
 %prep

@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  docxtools
-%global packver   0.3.0
+%global packname  httpgd
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for R Markdown to Docx Documents
+Summary:          A 'HTTP' Server Graphics Device
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    cairo-devel
+BuildRequires:    freetype-devel
+BuildRequires:    libpng-devel
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-AsioHeaders >= 1.22.1
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+BuildRequires:    R-CRAN-unigd 
+Requires:         R-CRAN-unigd 
 
 %description
-A set of helper functions for using R Markdown to create documents in docx
-format, especially documents for use in a classroom or workshop setting.
+A graphics device for R that is accessible via network protocols. This
+package was created to make it easier to embed live R graphics in
+integrated development environments and other applications. The included
+'HTML/JavaScript' client (plot viewer) aims to provide a better overall
+user experience when dealing with R graphics. The device asynchronously
+serves graphics via 'HTTP' and 'WebSockets'.
 
 %prep
 %setup -q -c -n %{packname}

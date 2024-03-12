@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  srt
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Subtitle Files as Tabular Data
 
@@ -19,7 +20,7 @@ BuildArch:        noarch
 
 %description
 Read 'SubRip' <https://sourceforge.net/projects/subrip/> subtitle files as
-data frames for easy text analysis or manipulation.  Easily shift numeric
+data frames for easy text analysis or manipulation. Easily shift numeric
 timings and export subtitles back into valid 'SubRip' timestamp format to
 sync subtitles and audio.
 
