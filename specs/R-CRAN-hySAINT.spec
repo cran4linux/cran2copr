@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  hySAINT
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          Hybrid Genetic and Simulated Annealing for Variable Selection
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-selectiveInference 
+BuildRequires:    R-CRAN-VariableScreening 
+BuildRequires:    R-CRAN-SIS 
+Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-selectiveInference 
+Requires:         R-CRAN-VariableScreening 
+Requires:         R-CRAN-SIS 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+We provide a stage-wise selection method using genetic algorithms,
+designed to efficiently identify main and two-way interactions within
+high-dimensional linear regression models. Additionally, it implements
+simulated annealing algorithms during the mutation process. The relevant
+paper can be found at: Ye, C.,and Yang,Y. (2019)
+<doi:10.1109/TIT.2019.2913417>.
 
 %prep
 %setup -q -c -n %{packname}

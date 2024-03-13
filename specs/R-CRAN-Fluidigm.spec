@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  Fluidigm
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          Handling Fluidigm Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
+BuildRequires:    R-CRAN-data.table >= 1.9.4
+BuildRequires:    R-CRAN-reshape >= 0.8.8
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.9.4
+Requires:         R-CRAN-reshape >= 0.8.8
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+Designed to streamline the process of analyzing genotyping data from
+Fluidigm machines, this package offers a suite of tools for data handling
+and analysis. It includes functions for converting Fluidigm data to format
+used by 'PLINK', estimating errors, calculating pairwise similarities,
+determining pairwise similarity loci, and generating a similarity matrix.
 
 %prep
 %setup -q -c -n %{packname}

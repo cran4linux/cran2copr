@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  glmmrOptim
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-glmmrBase >= 0.4.6
+BuildRequires:    R-CRAN-rminqa >= 0.2.2
+BuildRequires:    R-CRAN-SparseChol >= 0.2.1
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
+Requires:         R-CRAN-glmmrBase >= 0.4.6
+Requires:         R-methods 
+Requires:         R-CRAN-digest 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+Optimal design analysis algorithms for any study design that can be
+represented or modelled as a generalised linear mixed model including
+cluster randomised trials, cohort studies, spatial and temporal
+epidemiological studies, and split-plot designs. See
+<https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
+detailed manual on model specification. A detailed discussion of the
+methods in this package can be found in Watson and Pan (2022)
+<arXiv:2207.09183>.
 
 %prep
 %setup -q -c -n %{packname}

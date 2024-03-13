@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPvecchia
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Gaussian-Process Approximations
 
@@ -26,6 +26,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-GpGp 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Matrix >= 1.5.1
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-methods 

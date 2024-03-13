@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  CompGR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          Complete Annual Growth Rate Generator
 
-License:          GPL-3
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+It is designed to streamline the process of calculating complete annual
+growth rates with user-friendly functions and robust algorithms. It
+enables researchers and analysts to effortlessly generate precise growth
+rate estimates for their data. For method details see, Sharma, M.K.(2013)
+<https://www.indianjournals.com/ijor.aspx?target=ijor:jfl&volume=26&issue=1and2&article=018>.
+It offers a comprehensive suite of functions and customisable parameters.
+Equipped to handle varying complexities in data structures. It empowers
+users to uncover insightful growth dynamics and make informed decisions.
 
 %prep
 %setup -q -c -n %{packname}

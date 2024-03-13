@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  glmpermu
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          Permutation-Based Inference for Generalized Linear Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+In practical applications, the assumptions underlying generalized linear
+models frequently face violations, including incorrect specifications of
+the outcome variable's distribution or omitted predictors. These
+deviations can render the results of standard generalized linear models
+unreliable. As the sample size increases, what might initially appear as
+minor issues can escalate to critical concerns. To address these
+challenges, we adopt a permutation-based inference method tailored for
+generalized linear models. This approach offers robust estimations that
+effectively counteract the mentioned problems, and its effectiveness
+remains consistent regardless of the sample size.
 
 %prep
 %setup -q -c -n %{packname}

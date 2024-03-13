@@ -1,40 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  rgeoboundaries
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          geoBoundaries Client
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
+BuildRequires:    R-CRAN-crul >= 1.4.0
+BuildRequires:    R-CRAN-countrycode >= 1.2.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-hoardr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-crul >= 1.4.0
+Requires:         R-CRAN-countrycode >= 1.2.0
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-hoardr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+Provides access to the geoBoundaries international boundary database
+<https://www.geoboundaries.org>, a NSF and foundation supported dataset of
+subnational boundaries around the globe.  Methods allow you to access data
+directly from the API <https://www.geoboundaries.org/api/current/> to
+query for the geometric boundaries for any country, globally. For more
+details, refer to the publication by Runfola et al. (2020)
+<doi:10.1371/journal.pone.0231866>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  svydiags
-%global packver   0.5
+%global packname  sfcentral
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Regression Model Diagnostics for Survey Data
+Summary:          Spatial Centrality and Dispersion Statistics
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-survey 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-survey 
+BuildRequires:    R-CRAN-Hmisc >= 4.6.0
+BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-sf >= 1.0.8
+BuildRequires:    R-CRAN-lwgeom >= 0.2.0
+BuildRequires:    R-CRAN-geodist >= 0.0.7
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Hmisc >= 4.6.0
+Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-sf >= 1.0.8
+Requires:         R-CRAN-lwgeom >= 0.2.0
+Requires:         R-CRAN-geodist >= 0.0.7
+Requires:         R-stats 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (logistic and poisson) as described in Liao (U.
-Maryland thesis, 2010).
+Computing centrographic statistics (central points, standard distance,
+standard deviation ellipse, standard deviation box) for observations taken
+at point locations in 2D or 3D. The 'sfcentral' library was inspired in
+'aspace' package but conceived to be used in a spatial 'tidyverse'
+context.
 
 %prep
 %setup -q -c -n %{packname}

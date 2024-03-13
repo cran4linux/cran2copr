@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpsftm
-%global packver   1.2.8
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rank Preserving Structural Failure Time Models
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 
 %description
 Implements methods described by the paper Robins and Tsiatis (1991)

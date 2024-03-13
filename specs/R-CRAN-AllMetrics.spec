@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AllMetrics
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Multiple Performance Metrics of a Prediction Model
 
@@ -29,7 +29,8 @@ absolute percentage error (MAPE), Mean Absolute Scaled Error (MASE),
 Nash-Sutcliffe Efficiency (NSE), Willmott’s Index (WI), and Legates and
 McCabe Index (LME). Among them, first five are expected to be lesser
 whereas, the last three are greater the better. More details can be found
-from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202>.
+from Garai and Paul (2023) <doi:10.1016/j.iswa.2023.200202> and Garai et
+al. (2024) <doi:10.1007/s11063-024-11552-w>.
 
 %prep
 %setup -q -c -n %{packname}
