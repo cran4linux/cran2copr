@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  baskexact
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Calculation of Basket Trial Operating Characteristics
+Summary:          Analytical Calculation of Basket Trial Operating Characteristics
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Calculates the exact operating characteristics of a single-stage basket
-trial with the design of Fujikawa, K., Teramukai, S., Yokota, I., &
-Daimon, T. (2020). <doi:10.1002/bimj.201800404>.
+Analytically calculates the operating characteristics of single-stage and
+two-stage basket trials with equal sample sizes using the power prior
+design by Baumann et al. (2024) <doi:10.48550/arXiv.2309.06988> and the
+design by Fujikawa et al. (2020) <doi:10.1002/bimj.201800404>.
 
 %prep
 %setup -q -c -n %{packname}

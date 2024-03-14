@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PROreg
-%global packver   1.3
+%global packname  ciw
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Patient Reported Outcomes Regression Analysis
+Summary:          Watch the CRAN Incoming Directories
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-data.table >= 1.5.0
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-data.table >= 1.5.0
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-XML 
 
 %description
-It offers a wide variety of techniques, such as graphics, recoding, or
-regression models, for a comprehensive analysis of patient-reported
-outcomes (PRO). Especially novel is the broad range of regression models
-based on the beta-binomial distribution useful for analyzing binomial data
-with over-dispersion in cross-sectional, longitudinal, or multidimensional
-response studies (see Najera-Zuloaga J., Lee D.-J. and Arostegui I. (2019)
-<doi:10.1002/bimj.201700251>).
+Directory reads and summaries are provided for one or more of the
+subdirectories of the <https://cran.r-project.org/incoming/> directory,
+and a compact summary object is returned. The package name is a
+contraption of 'CRAN Incoming Watcher'.
 
 %prep
 %setup -q -c -n %{packname}

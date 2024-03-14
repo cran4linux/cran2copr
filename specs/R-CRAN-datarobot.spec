@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datarobot
-%global packver   2.18.5
+%global packver   2.18.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.18.5
+Version:          2.18.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataRobot' Predictive Modeling API
 

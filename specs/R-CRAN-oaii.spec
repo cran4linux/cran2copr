@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oaii
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'OpenAI' API R Interface
 
@@ -17,10 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 

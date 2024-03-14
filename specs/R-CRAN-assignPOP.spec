@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  assignPOP
-%global packver   1.2.4
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population Assignment using Genetic, Non-Genetic or Integrated Data in a Machine Learning Framework
 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tree 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-e1071 
@@ -38,6 +40,7 @@ Requires:         R-CRAN-randomForest
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tree 
+Requires:         R-CRAN-rlang 
 
 %description
 Use Monte-Carlo and K-fold cross-validation coupled with machine- learning

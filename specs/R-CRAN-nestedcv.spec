@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedcv
-%global packver   0.7.4
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross-Validation with 'glmnet' and 'caret'
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-matrixTests 
 BuildRequires:    R-methods 
@@ -32,13 +31,13 @@ BuildRequires:    R-CRAN-pROC
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ROCR 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-matrixTests 
 Requires:         R-methods 
@@ -47,6 +46,7 @@ Requires:         R-CRAN-pROC
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-RhpcBLASctl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ROCR 
 
 %description
 Implements nested k*l-fold cross-validation for lasso and elastic-net

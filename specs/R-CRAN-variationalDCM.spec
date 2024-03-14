@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  variationalDCM
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variational Bayesian Estimation for Diagnostic Classification Models
 
@@ -31,7 +31,7 @@ skills they possess. Recently, to meet the growing need of large-scale
 diagnostic measurement in the field of educational, psychological, and
 psychiatric measurements, variational Bayesian inference has been
 developed as a computationally efficient alternative to the Markov chain
-Monte Carlo methods e.g., Yamaguchi and Okada (2020a)
+Monte Carlo methods, e.g., Yamaguchi and Okada (2020a)
 <doi:10.1007/s11336-020-09739-w>, Yamaguchi and Okada (2020b)
 <doi:10.3102/1076998620911934>, Yamaguchi (2020)
 <doi:10.1007/s41237-020-00104-w>, Oka and Okada (2023)

@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zstdlite
-%global packver   0.2.6
+%global packname  r2stl
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Compression and Serialization with 'Zstandard' Algorithm
+Summary:          Visualizing Data using a 3D Printer
 
-License:          MIT + file LICENSE
+License:          CC BY-SA 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.7.0
+Requires:         R-core >= 2.7.0
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+Requires:         R-graphics 
 
 %description
-Fast, compressed serialization of R objects using the 'Zstandard'
-algorithm. R objects can be compressed and decompressed quickly using the
-standard serialization mechanism in R.  Raw byte vectors and strings are
-also handled directly for compatibility with compressed data created by
-other systems and programs supporting 'Zstandard' compression.
-Dictionaries are supported for more effective compression of small data,
-and functions are provided for training these dictionaries. This
-implementation is a wrapper around the 'Zstandard' 'C' library which is
-available from <https://github.com/facebook/zstd>.
+Converts data to STL (stereolithography) files that can be used to feed a
+3-dimensional printer.  The 3-dimensional output from a function can be
+materialized into a solid surface in a plastic material, therefore
+allowing more detailed examination. There are many possible uses for this
+new tool, such as to examine mathematical expressions with very irregular
+shapes, to aid teaching people with impaired vision, to create raised
+relief maps from digital elevation maps (DEMs), to bridge the gap between
+mathematical tools and rapid prototyping, and many more.  Ian Walker
+created the function r2stl() and Jose' Gama assembled the package.
 
 %prep
 %setup -q -c -n %{packname}

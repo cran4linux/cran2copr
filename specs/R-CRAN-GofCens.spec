@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GofCens
-%global packver   0.92
+%global packver   0.97
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.92
+Version:          0.97
 Release:          1%{?dist}%{?buildtag}
-Summary:          Goodness-of-Fit Methods for Right-Censored Data
+Summary:          Goodness-of-Fit Methods for Complete and Right-Censored Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,6 +24,8 @@ BuildRequires:    R-CRAN-survsim
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-fitdistrplus 
@@ -30,16 +33,18 @@ Requires:         R-CRAN-survsim
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-boot 
 
 %description
-Graphical tools and goodness-of-fit tests for right-censored data: 1.
-Kolmogorov-Smirnov, Crámer-von Mises, and Anderson-Darling tests based on
-the empirical distribution function for complete data and their extensions
-for right-censored data. 2. Generalized chi-squared-type tests based on
-the squared difference between observed and expected counts using random
-cells with right-censored data. 3. A series of graphical tools such as
-probability or cumulative hazard plots to guide the decision about the
-parametric model that best fits the data.
+Graphical tools and goodness-of-fit tests for complete and right-censored
+data: 1. Kolmogorov-Smirnov, Cramér-von Mises, and Anderson-Darling tests,
+which use the empirical distribution function for complete data and are
+extended for right-censored data. 2. Generalized chi-squared-type test,
+which is based on the squared differences between observed and expected
+counts using random cells with right-censored data. 3. A series of
+graphical tools such as probability or cumulative hazard plots to guide
+the decision about the most suitable parametric model for the data.
 
 %prep
 %setup -q -c -n %{packname}

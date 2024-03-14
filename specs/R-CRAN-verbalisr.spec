@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  verbalisr
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Describe Pedigree Relationships in Words
 
@@ -24,9 +24,11 @@ Requires:         R-CRAN-ribd >= 1.5.0
 
 %description
 Describe in words the genealogical relationship between two members of a
-given pedigree. 'verbalisr' is part of the 'ped suite' collection of
-packages for pedigree analysis. For a demonstration of 'verbalisr', see
-the online app 'QuickPed' at <https://magnusdv.shinyapps.io/quickped>.
+given pedigree, using the algorithm in Vigeland (2022)
+<doi:10.1186/s12859-022-04759-y>. 'verbalisr' is part of the 'pedsuite'
+collection of packages for pedigree analysis. For a demonstration of
+'verbalisr', see the online app 'QuickPed' at
+<https://magnusdv.shinyapps.io/quickped>.
 
 %prep
 %setup -q -c -n %{packname}
