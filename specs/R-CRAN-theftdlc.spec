@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evprof
-%global packver   1.1.2
+%global packname  theftdlc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Electric Vehicle Charging Sessions Profiling and Modelling
+Summary:          Analyse and Interpret Time Series Features
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-theft >= 0.6.1
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dbscan 
+BuildRequires:    R-CRAN-normaliseR 
+BuildRequires:    R-CRAN-correctR 
+Requires:         R-CRAN-theft >= 0.6.1
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-umap 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-normaliseR 
+Requires:         R-CRAN-correctR 
 
 %description
-Tools for modelling electric vehicle charging sessions into generic groups
-with similar connection patterns called "user profiles", using Gaussian
-Mixture Models clustering. The clustering and profiling methodology is
-described in Cañigueral and Meléndez (2021, ISBN:0142-0615)
-<doi:10.1016/j.ijepes.2021.107195>.
+Provides a suite of functions for analysing, interpreting, and visualising
+time-series features calculated from different feature sets from the
+'theft' package. Implements statistical learning methodologies described
+in Henderson, T., Bryant, A., and Fulcher, B. (2023) <arXiv:2303.17809>.
 
 %prep
 %setup -q -c -n %{packname}

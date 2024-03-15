@@ -1,49 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EnrichIntersect
-%global packver   0.7
+%global packname  cucumber
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enrichment Analysis and Intersecting Sankey Diagram
+Summary:          Behavior-Driven Development for R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-testthat >= 3.0.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-webshot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-testthat >= 3.0.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-webshot2 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-grDevices 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
 
 %description
-A flexible tool for enrichment analysis based on user-defined sets. It
-allows users to perform over-representation analysis of the custom sets
-among any specified ranked feature list, hence making enrichment analysis
-applicable to various types of data from different scientific fields.
-'EnrichIntersect' also enables an interactive means to visualize
-identified associations based on, for example, the mix-lasso model (Zhao
-et al., 2022 <doi:10.1016/j.isci.2022.104767>) or similar methods.
+Write executable specifications in a natural language that describes how
+your code should behave. Write specifications in feature files using
+'Gherkin' language and execute them using functions implemented in R. Use
+them as an extension to your 'testthat' tests to provide a high level
+description of how your code works.
 
 %prep
 %setup -q -c -n %{packname}

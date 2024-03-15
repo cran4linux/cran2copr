@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UCSCXenaShiny
-%global packver   1.1.10
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.10
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Analysis of UCSC Xena Data
 
@@ -23,8 +23,10 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-shiny >= 1.3.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-ggpubr >= 0.2
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-ezcox 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-ppcor 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-purrr 
@@ -39,8 +41,10 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-shiny >= 1.3.2
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-ggpubr >= 0.2
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-ezcox 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ppcor 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-purrr 

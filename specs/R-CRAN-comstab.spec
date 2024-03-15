@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comstab
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning the Drivers of Stability of Ecological Communities
 
@@ -26,10 +26,8 @@ Requires:         R-CRAN-Ternary
 
 %description
 Contains the basic functions to apply the unified framework for
-partitioning the drivers of stability of ecological communities. J.
-Segrestin, L. Götzenberger, E. Valencia, F. de Bello & J. Lepš (2024) "A
-unified framework for partitioning the drivers of stability of ecological
-communities" <minor revisions>.
+partitioning the drivers of stability of ecological communities. Segrestin
+et al. (2024) <doi:10.1111/geb.13828>.
 
 %prep
 %setup -q -c -n %{packname}

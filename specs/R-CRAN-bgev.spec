@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EnrichIntersect
-%global packver   0.7
+%global packname  bgev
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enrichment Analysis and Intersecting Sankey Diagram
+Summary:          Bimodal GEV Distribution with Location Parameter
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-DEoptim 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-webshot2 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-DEoptim 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 
 %description
-A flexible tool for enrichment analysis based on user-defined sets. It
-allows users to perform over-representation analysis of the custom sets
-among any specified ranked feature list, hence making enrichment analysis
-applicable to various types of data from different scientific fields.
-'EnrichIntersect' also enables an interactive means to visualize
-identified associations based on, for example, the mix-lasso model (Zhao
-et al., 2022 <doi:10.1016/j.isci.2022.104767>) or similar methods.
+Density, distribution function, quantile function random generation and
+estimation of bimodal GEV distribution given in Otiniano et al. (2023)
+<doi:10.1007/s10651-023-00566-7>. This new generalization of the
+well-known GEV (Generalized Extreme Value) distribution is useful for
+modeling heterogeneous bimodal data from different areas.
 
 %prep
 %setup -q -c -n %{packname}

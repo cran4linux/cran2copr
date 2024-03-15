@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDCPLACES
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'CDC PLACES' API
 
@@ -23,12 +23,18 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-usa 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-usa 
 
 %description
 Allows users to seamlessly query several 'CDC PLACES' APIs

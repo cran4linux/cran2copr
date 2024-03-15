@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rqPen
-%global packver   3.2.2
+%global packname  updateme
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Quantile Regression
+Summary:          Informative Messages About Outdated Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-hqreg 
-BuildRequires:    R-CRAN-hrqglas 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-methods 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-hqreg 
-Requires:         R-CRAN-hrqglas 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.0
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.6.0
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Performs penalized quantile regression with LASSO, elastic net, SCAD and
-MCP penalty functions including group penalties. Provides a function that
-automatically generates lambdas and evaluates different models with cross
-validation or BIC, including a large p version of BIC. Below URL provides
-a link to a work in progress vignette.
+When a package is loaded, the source repository is checked for new
+versions and a message is shown in the console indicating whether the
+package is out of date.
 
 %prep
 %setup -q -c -n %{packname}

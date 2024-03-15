@@ -1,49 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EnrichIntersect
-%global packver   0.7
+%global packname  calmr
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enrichment Analysis and Intersecting Sankey Diagram
+Summary:          Canonical Associative Learning Models and their Representations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-ggnetwork 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-webshot2 
-BuildRequires:    R-stats 
+BuildRequires:    R-grid 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-ggnetwork 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-webshot2 
-Requires:         R-stats 
+Requires:         R-grid 
 Requires:         R-methods 
-Requires:         R-grDevices 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-A flexible tool for enrichment analysis based on user-defined sets. It
-allows users to perform over-representation analysis of the custom sets
-among any specified ranked feature list, hence making enrichment analysis
-applicable to various types of data from different scientific fields.
-'EnrichIntersect' also enables an interactive means to visualize
-identified associations based on, for example, the mix-lasso model (Zhao
-et al., 2022 <doi:10.1016/j.isci.2022.104767>) or similar methods.
+Implementations of canonical associative learning models, with tools to
+run experiment simulations, estimate model parameters, and compare model
+representations. Experiments and results are represented using S4 classes
+and methods.
 
 %prep
 %setup -q -c -n %{packname}
