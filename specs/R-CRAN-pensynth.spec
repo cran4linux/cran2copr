@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  manynet
-%global packver   0.4.4
+%global packname  pensynth
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Many Ways to Make, Modify, Mark, and Map Myriad Networks
+Summary:          Penalized Synthetic Control Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph >= 1.6.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-network 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-tidygraph 
-Requires:         R-CRAN-igraph >= 1.6.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-network 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-clarabel 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-clarabel 
 
 %description
-A set of tools for making, modifying, marking, and mapping many different
-types of networks. All functions operate with matrices, edge lists, and
-'igraph', 'network', and 'tidygraph' objects, and on one-mode, two-mode
-(bipartite), and sometimes three-mode networks. The package includes
-functions for importing and exporting, creating and generating networks,
-modifying networks and node and tie attributes, and describing and
-visualizing networks with sensible defaults.
+Estimate penalized synthetic control models and perform hold-out
+validation to determine their penalty parameter. This method is based on
+the work by Abadie & L'Hour (2021) <doi:10.1080/01621459.2021.1971535>.
+Penalized synthetic controls smoothly interpolate between one-to-one
+matching and the synthetic control method.
 
 %prep
 %setup -q -c -n %{packname}

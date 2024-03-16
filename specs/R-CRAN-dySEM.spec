@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fable
-%global packver   0.3.4
+%global packname  dySEM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Forecasting Models for Tidy Time Series
+Summary:          Dyadic Structural Equation Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-tsibble >= 0.9.0
-BuildRequires:    R-CRAN-rlang >= 0.4.6
-BuildRequires:    R-CRAN-fabletools >= 0.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-semPlot 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-distributional 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-tsibble >= 0.9.0
-Requires:         R-CRAN-rlang >= 0.4.6
-Requires:         R-CRAN-fabletools >= 0.3.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-semPlot 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-distributional 
 
 %description
-Provides a collection of commonly used univariate and multivariate time
-series forecasting models including automatically selected exponential
-smoothing (ETS) and autoregressive integrated moving average (ARIMA)
-models. These models work within the 'fable' framework provided by the
-'fabletools' package, which provides the tools to evaluate, visualise, and
-combine models in a workflow consistent with the tidyverse.
+Scripting of structural equation models via 'lavaan' for Dyadic Data
+Analysis, and helper functions for supplemental calculations, tabling, and
+model visualization.  Current models supported include Dyadic Confirmatory
+Factor Analysis, the Actor–Partner Interdependence Model (observed and
+latent), the Common Fate Model (observed and latent), Mutual Influence
+Model (latent), and the Bifactor Dyadic Model (latent).
 
 %prep
 %setup -q -c -n %{packname}

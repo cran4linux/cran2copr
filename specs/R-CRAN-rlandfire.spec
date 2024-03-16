@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vcfppR
-%global packver   0.4.0
+%global packname  rlandfire
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rapid Manipulation of the Variant Call Format (VCF)
+Summary:          Interface to 'LANDFIRE Product Service' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
 
 %description
-The 'vcfpp.h' (<https://github.com/Zilong-Li/vcfpp>) provides an
-easy-to-use 'C++' 'API' of 'htslib', offering full functionality for
-manipulating Variant Call Format (VCF) files. The 'vcfppR' package serves
-as the R bindings of the 'vcfpp.h' library, enabling rapid processing of
-both compressed and uncompressed VCF/BCF files. Explore a range of
-powerful features for efficient VCF data manipulation.
+Provides access to a suite of geospatial data layers for wildfire
+management, fuel modeling, ecology, natural resource management, climate,
+conservation, etc., via the 'LANDFIRE'
+(<https://www.landfire.gov/index.php>) Product Service ('LFPS') API.
 
 %prep
 %setup -q -c -n %{packname}

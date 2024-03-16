@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PCMBase
-%global packver   1.2.13
+%global packver   1.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.13
+Version:          1.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Likelihood Calculation of Phylogenetic Comparative Models
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-xtable 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-data.table 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.reporter
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reporting Tools for 'shiny' Modules
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-shinybusy 
 Requires:         R-CRAN-rmarkdown >= 2.19
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-shiny >= 1.6.0
@@ -43,6 +44,7 @@ Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-bslib 
 Requires:         R-grid 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-shinybusy 
 
 %description
 Prebuilt 'shiny' modules containing tools for the generation of

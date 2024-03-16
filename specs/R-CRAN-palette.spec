@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  misha
-%global packver   4.2.9
+%global packname  palette
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.9
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Analysis of Genomic Data
+Summary:          Color Scheme Helpers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-vctrs 
 
 %description
-A toolkit for analysis of genomic data. The 'misha' package implements an
-efficient data structure for storing genomic data, and provides a set of
-functions for data extraction, manipulation and analysis. Some of the 2D
-genome algorithms were described in Yaffe and Tanay (2011)
-<doi:10.1038/ng.947>.
+Hexadecimal codes are typically used to represent colors in R. Connecting
+these codes to their colors requires practice or memorization. 'palette'
+provides a 'vctrs' class for working with color palettes, including
+printing and plotting functions. The goal of the class is to place visual
+representations of color palettes directly on or, at least, next to their
+corresponding character representations. Palette extensions also are
+provided for data frames using 'pillar'.
 
 %prep
 %setup -q -c -n %{packname}

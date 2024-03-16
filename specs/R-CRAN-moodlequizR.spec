@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moodlequizR
-%global packver   1.0.3
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create Fully Randomized 'Moodle' Test Questions
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-base64 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-base64 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-shiny 
+Requires:         R-stats 
 
 %description
 Routines to generate fully randomized 'moodle' quizzes. It also contains

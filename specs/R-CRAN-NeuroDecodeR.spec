@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NeuroDecodeR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decode Information from Neural Activity
 
@@ -59,7 +59,7 @@ Neural decoding is method of analyzing neural data that uses a pattern
 classifiers to predict experimental conditions based on neural activity.
 'NeuroDecodeR' is a system of objects that makes it easy to run neural
 decoding analyses. For more information on neural decoding see Meyers &
-Kreiman (2004) <doi:10.7551/mitpress/8404.003.0024>.
+Kreiman (2011) <doi:10.7551/mitpress/8404.003.0024>.
 
 %prep
 %setup -q -c -n %{packname}
