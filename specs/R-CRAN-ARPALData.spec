@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARPALData
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving and Analyzing Air Quality and Weather Data from ARPA Lombardia
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-dplyr 
 Requires:         R-utils 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
@@ -69,7 +67,11 @@ quality (e.g. missing values, exported values, graphical mapping) has been
 checked involving members of the ARPA Lombardia's office for air quality
 control. The package makes available observations since 1989 (for weather)
 and 1968 (for air quality) and are updated with daily frequency by the
-regional agency.
+regional agency. Full description of the package can be retrieved in the
+companion paper Maranzano & Algieri (2024), "ARPALData: an R package for
+retrieving and analyzing air quality and weather data from ARPA Lombardia
+(Italy)", Environmental and Ecological Statistics,
+<doi:10.1007/s10651-024-00599-6>.
 
 %prep
 %setup -q -c -n %{packname}

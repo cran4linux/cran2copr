@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FedData
-%global packver   4.0.0
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Automate Downloading Geospatial Data Available from Several Federated Data Sources
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.0
 BuildRequires:    R-CRAN-sf >= 1.0
+BuildRequires:    R-CRAN-arcgislayers >= 0.2.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-terra >= 1.0
 Requires:         R-CRAN-sf >= 1.0
+Requires:         R-CRAN-arcgislayers >= 0.2.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
@@ -53,17 +55,19 @@ Requires:         R-CRAN-readr
 %description
 Functions to automate downloading geospatial data available from several
 federated data sources (mainly sources maintained by the US Federal
-government). Currently, the package enables extraction from seven
-datasets: The National Elevation Dataset digital elevation models (1 and
-1/3 arc-second; USGS); The National Hydrography Dataset (USGS); The Soil
+government). Currently, the package enables extraction from nine datasets:
+The National Elevation Dataset digital elevation models (1 and 1/3
+arc-second; USGS); The National Hydrography Dataset (USGS); The Soil
 Survey Geographic (SSURGO) database from the National Cooperative Soil
 Survey (NCSS), which is led by the Natural Resources Conservation Service
 (NRCS) under the USDA; the Global Historical Climatology Network (GHCN),
 coordinated by National Climatic Data Center at NOAA; the Daymet gridded
-estimates of daily weather parameters for North America, version 3,
+estimates of daily weather parameters for North America, version 4,
 available from the Oak Ridge National Laboratory's Distributed Active
-Archive Center (DAAC); the International Tree Ring Data Bank; and the
-National Land Cover Database (NLCD).
+Archive Center (DAAC); the International Tree Ring Data Bank; the National
+Land Cover Database (NLCD); the Cropland Data Layer from the National
+Agricultural Statistics Service; and the PAD-US dataset of protected area
+boundaries from the USGS.
 
 %prep
 %setup -q -c -n %{packname}
