@@ -1,44 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgrass
-%global packver   0.4-2
+%global packname  tsdistributions
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface Between 'GRASS' Geographical Information System and 'R'
+Summary:          Location Scale Standardized Distributions
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       grass
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-TMB >= 1.7.20
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tsmethods 
+BuildRequires:    R-CRAN-GeneralizedHyperbolic 
+BuildRequires:    R-CRAN-SkewHyperbolic 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.7.20
+Requires:         R-methods 
+Requires:         R-CRAN-tsmethods 
+Requires:         R-CRAN-GeneralizedHyperbolic 
+Requires:         R-CRAN-SkewHyperbolic 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-progressr 
 
 %description
-An interface between the 'GRASS' geographical information system ('GIS')
-and 'R', based on starting 'R' from within the 'GRASS' 'GIS' environment,
-or running a free-standing 'R' session in a temporary 'GRASS' location;
-the package provides facilities for using all 'GRASS' commands from the
-'R' command line. The original interface package for 'GRASS 5' (2000-2010)
-is described in Bivand (2000) <doi:10.1016/S0098-3004(00)00057-1> and
-Bivand (2001)
-<https://www.r-project.org/conferences/DSC-2001/Proceedings/Bivand.pdf>.
-This was succeeded by 'spgrass6' for 'GRASS 6' (2006-2016) and 'rgrass7'
-for 'GRASS 7' (2015-present). The 'rgrass' package modernizes the
-interface for 'GRASS 8' while still permitting the use of 'GRASS 7'.
+Location-Scale based distributions parameterized in terms of mean,
+standard deviation, skew and shape parameters and estimation using
+automatic differentiation. Distributions include the Normal, Student and
+GED as well as their skewed variants ('Fernandez and Steel'), the 'Johnson
+SU', and the Generalized Hyperbolic.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcp
-%global packver   0.3.3
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression with Multiple Change Points
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-future.apply >= 1.4
 BuildRequires:    R-CRAN-future >= 1.16
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-patchwork >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.1
@@ -45,7 +45,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-future.apply >= 1.4
 Requires:         R-CRAN-future >= 1.16
-Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-patchwork >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.1

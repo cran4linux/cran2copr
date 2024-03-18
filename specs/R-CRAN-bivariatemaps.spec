@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bivariatemaps
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Bivariate Maps
 
@@ -29,12 +29,9 @@ Requires:         R-graphics
 Requires:         R-stats 
 
 %description
-Contains functions to plot bivariate maps and to generate grids from
-shapefiles based on area coverage. For more info, see: Hidasi-Neto, J
-(2015)
-<https://rfunctions.blogspot.com/2015/03/bivariate-maps-bivariatemap-function.html>,
-Hidasi-Neto, J (2014)
-<https://rfunctions.blogspot.com/2014/12/gridfilter-intersect-grid-with-shape.html>.
+Contains functions to plot bivariate maps. For more info, see:
+Hidasi-Neto, J (2015)
+<https://rfunctions.blogspot.com/2015/03/bivariate-maps-bivariatemap-function.html>.
 
 %prep
 %setup -q -c -n %{packname}

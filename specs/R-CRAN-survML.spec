@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survML
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Estimation of Conditional Survival Functions Using Machine Learning
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-Iso >= 0.0.18.1
 %description
 Tools for flexible estimation of conditional survival functions using
 off-the-shelf machine learning tools. Implements both global and local
-survival stacking. See Wolock CJ, Gilbert PB, Simon N, and Carone M
-(2022+) <arXiv:2211.03031>.
+survival stacking. See Wolock CJ, Gilbert PB, Simon N, and Carone M (2024)
+<doi:10.1080/10618600.2024.2304070>.
 
 %prep
 %setup -q -c -n %{packname}

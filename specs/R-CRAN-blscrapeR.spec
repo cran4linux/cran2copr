@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckplyr
-%global packver   0.3.2
+%global packname  blscrapeR
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'DuckDB'-Backed Version of 'dplyr'
+Summary:          An API Wrapper for the United States Bureau of Labor Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-rlang >= 1.0.6
-BuildRequires:    R-CRAN-duckdb >= 0.9.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-collections 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-rlang >= 1.0.6
-Requires:         R-CRAN-duckdb >= 0.9.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-collections 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 
 %description
-A drop-in replacement for 'dplyr', powered by 'DuckDB' for performance.
-Also defines a set of generics that provide a low-level implementer's
-interface for the high-level user interface of 'dplyr'.
+Scrapes various data from <https://www.bls.gov/>. The Bureau of Labor
+Statistics is the statistical branch of the United States Department of
+Labor. The package has additional functions to help parse, analyze and
+visualize the data.
 
 %prep
 %setup -q -c -n %{packname}

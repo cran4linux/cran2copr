@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dupNodes
-%global packver   0.2.0
+%global packname  zstdlite
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates an 'igraph' Object that Duplicates Nodes with Self-Loops
+Summary:          Fast Compression and Serialization with 'Zstandard' Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 
 %description
-Creates a new graph from an existing one, duplicating nodes with
-self-loops. This can be used for a computation of betweenness centrality
-that does not drop this essential information. Implements Merelo &
-Molinari (2024) <doi:10.1007/s42001-023-00245-4>.
+Fast, compressed serialization of R objects using the 'Zstandard'
+algorithm. R objects can be compressed and decompressed quickly using the
+standard serialization mechanism in R.  Raw byte vectors and strings are
+also handled directly for compatibility with compressed data created by
+other systems and programs supporting 'Zstandard' compression.
+Dictionaries are supported for more effective compression of small data,
+and functions are provided for training these dictionaries. This
+implementation provides an R interface to advanced features of the
+'Zstandard' 'C' library (available from
+<https://github.com/facebook/zstd>).
 
 %prep
 %setup -q -c -n %{packname}

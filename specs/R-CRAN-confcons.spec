@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dupNodes
-%global packver   0.2.0
+%global packname  confcons
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates an 'igraph' Object that Duplicates Nodes with Self-Loops
+Summary:          Confidence and Consistency of Predictive Distribution Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Creates a new graph from an existing one, duplicating nodes with
-self-loops. This can be used for a computation of betweenness centrality
-that does not drop this essential information. Implements Merelo &
-Molinari (2024) <doi:10.1007/s42001-023-00245-4>.
+Calculate confidence and consistency that measure the goodness-of-fit and
+transferability of predictive/potential distribution models (including
+species distribution models) as described by Somodi & Bede-Fazekas et al.
+(2024) <doi:10.1016/j.ecolmodel.2024.110667>.
 
 %prep
 %setup -q -c -n %{packname}

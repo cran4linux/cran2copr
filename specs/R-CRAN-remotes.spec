@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  remotes
-%global packver   2.4.2.1
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.2.1
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Package Installation from Remote Repositories, Including 'GitHub'
 
@@ -28,7 +28,7 @@ Requires:         R-utils
 
 %description
 Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket',
-'Bioconductor', or plain 'subversion' or 'git' repositories. This package
+'Bioconductor', or plain 'subversion' or 'git' repositories.  This package
 provides the 'install_*' functions in 'devtools'. Indeed most of the code
 was copied over from 'devtools'.
 
