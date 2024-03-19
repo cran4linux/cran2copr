@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PowerTOST
-%global packver   1.5-4
+%global packver   1.5-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size for (Bio)Equivalence Studies
 
@@ -22,14 +23,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-TeachingDemos 
 Requires:         R-CRAN-cubature >= 1.3.6
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-TeachingDemos 
 
 %description
 Contains functions to calculate power and sample size for various study

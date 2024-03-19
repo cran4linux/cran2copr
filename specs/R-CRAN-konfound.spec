@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  konfound
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantify the Robustness of Causal Inferences
 
@@ -16,26 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 >= 1.1.35.1
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-margins 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-pbkrtest 
+Requires:         R-CRAN-lme4 >= 1.1.35.1
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mice 
+Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-margins 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-pbkrtest 
 
 %description
 Statistical methods that quantify the conditions necessary to alter
@@ -64,6 +73,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

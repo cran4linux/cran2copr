@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rtapas
-%global packver   1.1
+%global packname  cepumd
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Tanglegram Partitions
+Summary:          Calculate Consumer Expenditure Survey (CE) Annual Estimates
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-distory 
-BuildRequires:    R-CRAN-GiniWegNeg 
-BuildRequires:    R-CRAN-paco 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-parallelly 
-Requires:         R-CRAN-phytools 
-Requires:         R-parallel 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-distory 
-Requires:         R-CRAN-GiniWegNeg 
-Requires:         R-CRAN-paco 
-Requires:         R-stats 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Applies a given global-fit method to random partial tanglegrams of a fixed
-size to identify the associations, terminals, and nodes that maximize
-phylogenetic (in)congruence. It also includes functions to compute more
-easily the confidence intervals of classification metrics and plot
-results, reducing computational time. See Llaberia-Robledillo et al.
-(2022, <doi:10.1101/2022.05.17.492291>).
+Provides functions and data files to help CE Public-Use Microdata (PUMD)
+users calculate annual estimated expenditure means, standard errors, and
+quantiles according to the methods used by the CE with PUMD. For more
+information on the CE please visit <https://www.bls.gov/cex>. For further
+reading on CE estimate calculations please see the CE Calculation section
+of the U.S. Bureau of Labor Statistics (BLS) Handbook of Methods at
+<https://www.bls.gov/opub/hom/cex/calculation.htm>. For further
+information about CE PUMD please visit <https://www.bls.gov/cex/pumd.htm>.
 
 %prep
 %setup -q -c -n %{packname}

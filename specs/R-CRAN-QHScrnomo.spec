@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QHScrnomo
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Nomograms for Competing Risks Regression Models
 
@@ -28,8 +28,7 @@ Nomograms are constructed to predict the cumulative incidence rate which
 is calculated after adjusting for competing causes to the event of
 interest. K-fold cross-validation is implemented to validate predictive
 accuracy using a competing-risk version of the concordance index. Methods
-are as described in: Kattan MW, Heller G, Brennan MF (2003)
-<doi:10.1002/sim.1574>.
+are as described in: Kattan MW, Heller G, Brennan MF (2003).
 
 %prep
 %setup -q -c -n %{packname}

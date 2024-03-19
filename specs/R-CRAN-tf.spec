@@ -1,47 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3cluster
-%global packver   0.1.9
+%global packname  tf
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster Extension for 'mlr3'
+Summary:          S3 Classes and Methods for Tidy Functional Data
 
-License:          LGPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-backports >= 1.1.10
-BuildRequires:    R-CRAN-mlr3 >= 0.14.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.10.0
-BuildRequires:    R-CRAN-paradox >= 0.10.0
+BuildRequires:    R-CRAN-vctrs >= 0.2.4
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-backports >= 1.1.10
-Requires:         R-CRAN-mlr3 >= 0.14.0
-Requires:         R-CRAN-mlr3misc >= 0.10.0
-Requires:         R-CRAN-paradox >= 0.10.0
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-vctrs >= 0.2.4
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-zoo 
 
 %description
-Extends the 'mlr3' package with cluster analysis.
+Defines S3 vector data types for vectors of functional data (grid-based,
+spline-based or functional principal components-based) with all arithmetic
+and summary methods, derivation, integration and smoothing, plotting, data
+import and export, and data wrangling, such as re-evaluating, subsetting,
+sub-assigning, zooming into sub-domains, or extracting functional features
+like minima/maxima and their locations. The implementation allows
+including such vectors in data frames for joint analysis of functional and
+scalar variables.
 
 %prep
 %setup -q -c -n %{packname}

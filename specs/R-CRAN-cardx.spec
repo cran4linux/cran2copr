@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zstdlite
-%global packver   0.2.7
+%global packname  cardx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Compression and Serialization with 'Zstandard' Algorithm
+Summary:          Extra Analysis Results Data Utilities
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-cards >= 0.1.0
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-cards >= 0.1.0
 
 %description
-Fast, compressed serialization of R objects using the 'Zstandard'
-algorithm. R objects can be compressed and decompressed quickly using the
-standard serialization mechanism in R.  Raw byte vectors and strings are
-also handled directly for compatibility with compressed data created by
-other systems and programs supporting 'Zstandard' compression.
-Dictionaries are supported for more effective compression of small data,
-and functions are provided for training these dictionaries. This
-implementation provides an R interface to advanced features of the
-'Zstandard' 'C' library (available from
-<https://github.com/facebook/zstd>).
+Create extra Analysis Results Data (ARD) summary objects. The package
+supplements the simple ARD functions from the 'cards' package, exporting
+functions to put statistical results in the ARD format. These objects are
+used and re-used to construct summary tables, visualizations, and written
+reports.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maraca
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Maraca Plot: Visualization of Hierarchical Composite Endpoints in Clinical Trials
 
@@ -20,13 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3
 BuildRequires:    R-CRAN-checkmate >= 2.1
 BuildRequires:    R-CRAN-tidyr >= 1.2
+BuildRequires:    R-CRAN-patchwork >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-CRAN-hce >= 0.5
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 3.3
 Requires:         R-CRAN-checkmate >= 2.1
 Requires:         R-CRAN-tidyr >= 1.2
+Requires:         R-CRAN-patchwork >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-CRAN-hce >= 0.5
+Requires:         R-CRAN-lifecycle 
 
 %description
 Library that supports visual interpretation of hierarchical composite

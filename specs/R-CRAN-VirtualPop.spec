@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  VirtualPop
-%global packver   1.0.2
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Populations by Sampling Waiting-Time Distributions
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-HMDHFDplus 
@@ -22,13 +23,12 @@ Requires:         R-CRAN-msm
 Requires:         R-CRAN-HMDHFDplus 
 
 %description
-Generates lifespans and fertility histories in continuous time using
-individual-level state transition (multi-state) models and data from the
-Human Mortality Database and the Human Fertility Database. To facilitate
-virtual population analysis, data on virtual individuals are stored in a
-data structure commonly used in sample surveys. Life histories are
-generated for multiple generations. The genealogies that result facilitate
-the study of family ties.
+Constructs a virtual population from fertility and mortality rates for any
+country, calendar year and birth cohort in the Human Mortality Database
+<https://www.mortality.org> and the Human Fertility Database
+<https://www.humanfertility.org>.  Fertility histories are simulated for
+every individual and their offspring, producing a multi-generation virtual
+population.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggsci
-%global packver   3.0.2
+%global packname  sgapi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scientific Journal and Sci-Fi Themed Color Palettes for 'ggplot2'
+Summary:          Aid Querying 'nomis' and 'Office for National Statistics Open Geography' APIs
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 2.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-xml2 
+Requires:         R-methods 
 
 %description
-A collection of 'ggplot2' color palettes inspired by plots in scientific
-journals, data visualization libraries, science fiction movies, and TV
-shows.
+Facilitates extraction of geospatial data from the 'Office for National
+Statistics Open Geography' and 'nomis' Application Programming Interfaces
+(APIs). Simplifies process of querying 'nomis' datasets
+<https://www.nomisweb.co.uk/> and extracting desired datasets in dataframe
+format. Extracts area shapefiles at chosen resolution from 'Office for
+National Statistics Open Geography'
+<https://geoportal.statistics.gov.uk/>.
 
 %prep
 %setup -q -c -n %{packname}

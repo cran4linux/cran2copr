@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rolog
-%global packver   0.9.14
+%global packver   0.9.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.14
+Version:          0.9.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'SWI'-'Prolog' from R
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-rswipl >= 9.1.9
+BuildRequires:    R-CRAN-rswipl >= 9.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -25,9 +25,9 @@ Requires:         R-methods
 Requires:         R-utils 
 
 %description
-This R package connects to 'SWI'-'Prolog', <https://www.swi-prolog.org/>,
-so that R can send deterministic and non-deterministic queries to 'prolog'
-('consult', 'query'/'submit', 'once', 'findall').
+This R package connects to SWI-Prolog, <https://www.swi-prolog.org/>, so
+that R can send deterministic and non-deterministic queries to prolog
+(consult, query/submit, once, findall).
 
 %prep
 %setup -q -c -n %{packname}
