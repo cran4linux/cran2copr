@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MixtureMissing
-%global packver   3.0.1
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust and Flexible Model-Based Clustering for Data Sets with Missing Values at Random
 
@@ -19,12 +19,16 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-numDeriv >= 8.1.1
 BuildRequires:    R-CRAN-MASS >= 7.3
+BuildRequires:    R-CRAN-mclust >= 5.0
+BuildRequires:    R-CRAN-mice >= 3.10.0
 BuildRequires:    R-CRAN-cluster >= 2.1.2
 BuildRequires:    R-CRAN-mnormt >= 2.0.2
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
 BuildRequires:    R-CRAN-Bessel >= 0.6.0
 Requires:         R-CRAN-numDeriv >= 8.1.1
 Requires:         R-CRAN-MASS >= 7.3
+Requires:         R-CRAN-mclust >= 5.0
+Requires:         R-CRAN-mice >= 3.10.0
 Requires:         R-CRAN-cluster >= 2.1.2
 Requires:         R-CRAN-mnormt >= 2.0.2
 Requires:         R-CRAN-mvtnorm >= 1.1.2

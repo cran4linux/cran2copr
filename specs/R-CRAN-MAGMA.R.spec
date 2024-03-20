@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAGMA.R
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          MAny-Group MAtching
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 4.4.0
-BuildRequires:    R-parallel >= 4.3.1
-BuildRequires:    R-stats >= 4.3.1
+BuildRequires:    R-parallel >= 4.2.0
+BuildRequires:    R-stats >= 4.2.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-psych >= 2.3.9
@@ -35,8 +35,8 @@ BuildRequires:    R-CRAN-doParallel >= 1.0.17
 BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-flextable >= 0.9.4
 Requires:         R-CRAN-metafor >= 4.4.0
-Requires:         R-parallel >= 4.3.1
-Requires:         R-stats >= 4.3.1
+Requires:         R-parallel >= 4.2.0
+Requires:         R-stats >= 4.2.0
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-psych >= 2.3.9

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjdqa
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Assessment for Seasonal Adjustment
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.1
 Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RJDemetra 
+BuildRequires:    R-CRAN-RJDemetra >= 0.2.5
+BuildRequires:    R-CRAN-ggdemetra >= 0.2.5
 BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-ggdemetra 
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-RJDemetra 
+Requires:         R-CRAN-RJDemetra >= 0.2.5
+Requires:         R-CRAN-ggdemetra >= 0.2.5
 Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-ggdemetra 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-stats 

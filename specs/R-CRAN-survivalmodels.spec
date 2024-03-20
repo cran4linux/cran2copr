@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  getspanel
-%global packver   0.2.0
+%global packname  survivalmodels
+%global packver   0.1.191
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.191
 Release:          1%{?dist}%{?buildtag}
-Summary:          General-to-Specific Modelling of Panel Data
+Summary:          Models for Survival Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-gets 
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-gets 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Uses several types of indicator saturation and automated
-General-to-Specific (GETS) modelling from the 'gets' package and applies
-it to panel data. This allows the detection of structural breaks in panel
-data, operationalising a reverse causal approach of causal inference, see
-Pretis and Schwarz (2022) <doi:10.2139/ssrn.4022745>.
+Implementations of classical and machine learning models for survival
+analysis, including deep neural networks via 'keras' and 'tensorflow'.
+Each model includes a separated fit and predict interface with consistent
+prediction types for predicting risk or survival probabilities. Models are
+either implemented from 'Python' via 'reticulate'
+<https://CRAN.R-project.org/package=reticulate>, from code in GitHub
+packages, or novel implementations using 'Rcpp'
+<https://CRAN.R-project.org/package=Rcpp>. Neural networks are implemented
+from the 'Python' package 'pycox' <https://github.com/havakv/pycox>.
 
 %prep
 %setup -q -c -n %{packname}

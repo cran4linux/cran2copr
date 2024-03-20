@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Surrogate
-%global packver   3.2.4
+%global packver   3.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Surrogate Endpoints in Clinical Trials
 
@@ -35,6 +35,10 @@ BuildRequires:    R-CRAN-maxLik
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
@@ -53,6 +57,10 @@ Requires:         R-CRAN-maxLik
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-MBESS 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-tibble 
 
 %description
 In a clinical trial, it frequently occurs that the most credible outcome

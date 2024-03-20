@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bioregion
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparison of Bioregionalisation Methods
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dynamicTreeCut 
 BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-CRAN-fastkmedoids 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dynamicTreeCut 
 Requires:         R-CRAN-fastcluster 
+Requires:         R-CRAN-fastkmedoids 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phyloraster
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evolutionary Diversity Metrics for Raster Data
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-phylobase 
 BuildRequires:    R-CRAN-SESraster 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-ape 
 Requires:         R-methods 
-Requires:         R-CRAN-phylobase 
 Requires:         R-CRAN-SESraster 
 Requires:         R-stats 
 Requires:         R-CRAN-terra 

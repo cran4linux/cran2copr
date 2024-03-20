@@ -1,48 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSCMT
-%global packver   1.4.0
+%global packname  TukeyGH77
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Synthetic Control Method Using Time Series
+Summary:          Tukey g-&-h Distribution
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lpSolveAPI 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-rstpm2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-parallel 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lpSolveAPI 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-Rdpack 
 
 %description
-Three generalizations of the synthetic control method (which has already
-an implementation in package 'Synth') are implemented: first, 'MSCMT'
-allows for using multiple outcome variables, second, time series can be
-supplied as economic predictors, and third, a well-defined
-cross-validation approach can be used. Much effort has been taken to make
-the implementation as stable as possible (including edge cases) without
-losing computational efficiency. A detailed description of the main
-algorithms is given in Becker and Klößner (2018)
-<doi:10.1016/j.ecosta.2017.08.002>.
+Functions for density, cumulative density, quantile and simulation of
+Tukey g-and-h (1977) distributions. The quantile-based transformation
+(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
+transformation are also provided.
 
 %prep
 %setup -q -c -n %{packname}

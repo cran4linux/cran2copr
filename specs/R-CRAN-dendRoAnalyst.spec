@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dendRoAnalyst
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Processing and Analyzing Dendrometer Data
 
@@ -14,23 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-pspline 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-base 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-pspline 
-Requires:         R-CRAN-zoo 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-pspline 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-base 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-pspline 
+Requires:         R-CRAN-stringr 
 
 %description
 There are various functions for managing and cleaning data before the

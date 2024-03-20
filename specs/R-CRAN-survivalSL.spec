@@ -1,34 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jagshelper
-%global packver   0.2.2
+%global packname  survivalSL
+%global packver   0.94
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.94
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracting and Visualizing Output from 'jagsUI'
+Summary:          Super Learner for Survival Prediction from Censored Data
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jagsUI 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-date 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-jagsUI 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-hdnom 
+BuildRequires:    R-CRAN-glmnetUtils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-methods 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-date 
+Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-hdnom 
+Requires:         R-CRAN-glmnetUtils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rpart 
+Requires:         R-methods 
 
 %description
-Tools are provided to streamline Bayesian analyses in 'JAGS' using the
-'jagsUI' package.  Included are functions for extracting output in simpler
-format, functions for streamlining assessment of convergence, and
-functions for producing summary plots of output.  Also included is a
-function that provides a simple template for running 'JAGS' from 'R'.
-Referenced materials can be found at <DOI:10.1214/ss/1177011136>.
+Several functions and S3 methods to construct a super learner in the
+presence of censored times-to-event and to evaluate its prognostic
+capacities.
 
 %prep
 %setup -q -c -n %{packname}

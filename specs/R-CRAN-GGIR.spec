@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   3.0-6
+%global packver   3.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.6
+Version:          3.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 
@@ -30,6 +30,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-GGIRread 
+BuildRequires:    R-CRAN-ActCR 
+BuildRequires:    R-CRAN-read.gt3x 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
@@ -43,20 +46,22 @@ Requires:         R-methods
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-GGIRread 
+Requires:         R-CRAN-ActCR 
+Requires:         R-CRAN-read.gt3x 
 
 %description
 A tool to process and analyse data collected with wearable raw
 acceleration sensors as described in Migueles and colleagues (JMPB 2019),
 and van Hees and colleagues (JApplPhysiol 2014; PLoSONE 2015). The package
 has been developed and tested for binary data from 'GENEActiv'
-<https://activinsights.com/> and GENEA devices (not for sale), .csv-export
-data from 'Actigraph' <https://theactigraph.com> devices, and .cwa and
-.wav-format data from 'Axivity' <https://axivity.com>. These devices are
+<https://activinsights.com/>, binary (.gt3x) and .csv-export data from
+'Actigraph' <https://theactigraph.com> devices, and binary (.cwa) and
+.csv-export data from 'Axivity' <https://axivity.com>. These devices are
 currently widely used in research on human daily physical activity.
 Further, the package can handle accelerometer data file from any other
-sensor brand providing that the data is stored in csv format and has
-either no header or a two column header. Also the package allows for
-external function embedding.
+sensor brand providing that the data is stored in csv format. Also the
+package allows for external function embedding.
 
 %prep
 %setup -q -c -n %{packname}

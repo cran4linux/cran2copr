@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbplyr
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'dplyr' Back End for Databases
 
@@ -24,8 +24,8 @@ BuildRequires:    R-CRAN-R6 >= 2.2.2
 BuildRequires:    R-CRAN-pillar >= 1.9.0
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
 BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-rlang >= 1.1.1
@@ -42,8 +42,8 @@ Requires:         R-CRAN-R6 >= 2.2.2
 Requires:         R-CRAN-pillar >= 1.9.0
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-tidyselect >= 1.2.1
 Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-rlang >= 1.1.1
