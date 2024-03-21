@@ -1,31 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NormExpression
-%global packver   0.1.1
+%global packname  FormulR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Normalize Gene Expression Data using Evaluated Methods
+Summary:          Comprehensive Tools for Drug Formulation Analysis and Visualization
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-CRAN-knitr 
 
 %description
-It provides a framework and a fast and simple way for researchers to
-evaluate methods (particularly some data-driven methods or their own
-methods) and then select a best one for data normalization in the gene
-expression analysis, based on the consistency of metrics and the
-consistency of datasets. Zhenfeng Wu, Weixiang Liu, Xiufeng Jin, Deshui
-Yu, Hua Wang, Gustavo Glusman, Max Robinson, Lin Liu, Jishou Ruan and Shan
-Gao (2018) <doi:10.1101/251140>.
+This presents a comprehensive set of tools for the analysis and
+visualization of drug formulation data. It includes functions for
+statistical analysis, regression modeling, hypothesis testing, and
+comparative analysis to assess the impact of formulation parameters on
+drug release and other critical attributes. Additionally, the package
+offers a variety of data visualization functions, such as scatterplots,
+histograms, and boxplots, to facilitate the interpretation of formulation
+data. With its focus on usability and efficiency, this package aims to
+streamline the drug formulation process and aid researchers in making
+informed decisions during formulation design and optimization.
 
 %prep
 %setup -q -c -n %{packname}

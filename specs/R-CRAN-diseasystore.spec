@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diseasystore
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Stores for the 'diseasy' Framework
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ISOweek 
 BuildRequires:    R-CRAN-lintr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ISOweek 
 Requires:         R-CRAN-lintr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tiledb
-%global packver   0.24.0
+%global packver   0.25.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.0
+Version:          0.25.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nanotime 
 BuildRequires:    R-CRAN-spdl 
+BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-RcppInt64 
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-methods 
 Requires:         R-CRAN-nanotime 
 Requires:         R-CRAN-spdl 
+Requires:         R-CRAN-nanoarrow 
 
 %description
 The modern database 'TileDB' introduces a powerful on-disk format for

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LifemapR
-%global packver   1.0.4
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualisation on 'Lifemap' Tree
 
@@ -21,18 +21,22 @@ BuildRequires:    R-CRAN-leaflet
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-leaflet.minicharts 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-fastmatch 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-leaflet.minicharts 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-fastmatch 
 
 %description
 Allow to visualise data on the NCBI phylogenetic tree as presented in

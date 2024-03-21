@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geonapi
-%global packver   0.7
+%global packver   0.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'GeoNetwork' API R Interface
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-geometa 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-XML 
+Requires:         R-CRAN-plyr 
 
 %description
 Provides an R interface to the 'GeoNetwork' API

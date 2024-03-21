@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EBMAforecast
-%global packver   1.0.31
+%global packver   1.0.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.31
+Version:          1.0.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Ensemble Bayesian Model Averaging Forecasts using Gibbs Sampling or EM-Algorithms
 

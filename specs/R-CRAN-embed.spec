@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  embed
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Recipes for Encoding Predictors
 
@@ -22,12 +22,10 @@ BuildRequires:    R-CRAN-recipes >= 1.0.7
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-generics >= 0.1.0
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-keras 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
@@ -39,12 +37,10 @@ Requires:         R-CRAN-recipes >= 1.0.7
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-generics >= 0.1.0
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-keras 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rsample 
 Requires:         R-stats 
-Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
