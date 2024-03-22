@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rollama
-%global packver   0.0.3
+%global packname  dupiR
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Communicate with 'Ollama'
+Summary:          Bayesian Inference from Count Data using Discrete Uniform Priors
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-graphics 
+Requires:         R-CRAN-plotrix 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Wraps the 'Ollama' <https://ollama.com> API, which can be used to
-communicate with generative large language models locally.
+We consider a set of sample counts obtained by sampling arbitrary
+fractions of a finite volume containing an homogeneously dispersed
+population of identical objects. This package implements a Bayesian
+derivation of the posterior probability distribution of the population
+size using a binomial likelihood and non-conjugate, discrete uniform
+priors under sampling with or without replacement. This can be used for a
+variety of statistical problems involving absolute quantification under
+uncertainty. See Comoglio et al. (2013)
+<doi:10.1371/journal.pone.0074388>.
 
 %prep
 %setup -q -c -n %{packname}

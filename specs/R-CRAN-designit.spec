@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fhircrackr
-%global packver   2.2.0
+%global packname  designit
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handling HL7 FHIR® Resources in R
+Summary:          Blocking and Randomization for Experimental Design
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-stats 
 
 %description
-Useful tools for conveniently downloading FHIR resources in xml format and
-converting them to R data.frames. The package uses FHIR-search to download
-bundles from a FHIR server, provides functions to save and read xml-files
-containing such bundles and allows flattening the bundles to data.frames
-using XPath expressions. FHIR® is the registered trademark of HL7 and is
-used with the permission of HL7. Use of the FHIR trademark does not
-constitute endorsement of this product by HL7.
+Intelligently assign samples to batches in order to reduce batch effects.
+Batch effects can have a significant impact on data analysis, especially
+when the assignment of samples to batches coincides with the contrast
+groups being studied. By defining a batch container and a scoring function
+that reflects the contrasts, this package allows users to assign samples
+in a way that minimizes the potential impact of batch effects on the
+comparison of interest. Among other functionality, we provide an
+implementation for OSAT score by Yan et al. (2012,
+<doi:10.1186/1471-2164-13-689>).
 
 %prep
 %setup -q -c -n %{packname}

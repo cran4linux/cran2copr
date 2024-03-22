@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rollama
-%global packver   0.0.3
+%global packname  geoperu
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Communicate with 'Ollama'
+Summary:          Download Spatial Datasets of Peru
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
 Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-sf 
 
 %description
-Wraps the 'Ollama' <https://ollama.com> API, which can be used to
-communicate with generative large language models locally.
+Provides convenient access to the official spatial datasets of Peru as
+'sf' objects in R. This package includes a wide range of geospatial data
+covering various aspects of Peruvian geography, such as administrative
+divisions (Source: INEI <https://ide.inei.gob.pe/>). All datasets are
+harmonized in terms of attributes, projection, and topology, ensuring
+consistency and ease of use for spatial analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgm
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Inference with Random Graphical Models
 
@@ -20,11 +20,19 @@ BuildRequires:    R-CRAN-truncnorm
 BuildRequires:    R-CRAN-BDgraph 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-huge 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-BDgraph 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-huge 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-reshape2 
 
 %description
 Implements state-of-the-art Random Graphical Models (RGMs) for

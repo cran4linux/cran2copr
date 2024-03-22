@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rollama
-%global packver   0.0.3
+%global packname  mpae
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Communicate with 'Ollama'
+Summary:          Metodos Predictivos de Aprendizaje Estadistico (Statistical Learning Predictive Methods)
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-RcmdrMisc 
+Requires:         R-graphics 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-RcmdrMisc 
 
 %description
-Wraps the 'Ollama' <https://ollama.com> API, which can be used to
-communicate with generative large language models locally.
+Functions and datasets used in the book: Fernandez-Casal, R., Costa, J.
+and Oviedo-de la Fuente, M. (2024) "Metodos predictivos de aprendizaje
+estadistico" <https://rubenfcasal.github.io/aprendizaje_estadistico/>.
 
 %prep
 %setup -q -c -n %{packname}

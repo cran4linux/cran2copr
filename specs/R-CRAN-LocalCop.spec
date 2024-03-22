@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rollama
-%global packver   0.0.3
+%global packname  LocalCop
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Communicate with 'Ollama'
+Summary:          Local Likelihood Inference for Conditional Copula Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-TMB >= 1.7.20
+BuildRequires:    R-CRAN-VineCopula 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.7.20
+Requires:         R-CRAN-VineCopula 
 
 %description
-Wraps the 'Ollama' <https://ollama.com> API, which can be used to
-communicate with generative large language models locally.
+Implements a local likelihood estimator for the dependence parameter in
+bivariate conditional copula models.  Copula family and local likelihood
+bandwidth parameters are selected by leave-one-out cross-validation.  The
+models are implemented in 'TMB', meaning that the local score function is
+efficiently calculated via automated differentiation (AD), such that
+quasi-Newton algorithms may be used for parameter estimation.
 
 %prep
 %setup -q -c -n %{packname}

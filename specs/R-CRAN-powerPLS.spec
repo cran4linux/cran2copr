@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rollama
-%global packver   0.0.3
+%global packname  powerPLS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Communicate with 'Ollama'
+Summary:          Power Analysis for PLS Classification
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-compositions 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-simukde 
+BuildRequires:    R-CRAN-nipals 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-compositions 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-simukde 
+Requires:         R-CRAN-nipals 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-foreach 
 
 %description
-Wraps the 'Ollama' <https://ollama.com> API, which can be used to
-communicate with generative large language models locally.
+It estimates power and sample size for Partial Least Squares-based methods
+described in Andreella, et al., (2024) <arXiv:2403.10289>.
 
 %prep
 %setup -q -c -n %{packname}

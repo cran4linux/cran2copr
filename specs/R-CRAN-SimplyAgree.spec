@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimplyAgree
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible and Robust Agreement and Reliability Analyses
 
@@ -33,6 +33,9 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-lme4 
@@ -49,6 +52,9 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Reliability and agreement analyses often have limited software support.
@@ -57,9 +63,7 @@ analyses easier for the average researcher. The functions within this
 package include simple tests of agreement, agreement analysis for nested
 and replicate data, and provide robust analyses of reliability. In
 addition, this package contains a set of functions to help when planning
-studies looking to assess measurement agreement. For robust analyses of
-agreement, limits of agreement through a bootstrap method can also be
-calculated.
+studies looking to assess measurement agreement.
 
 %prep
 %setup -q -c -n %{packname}

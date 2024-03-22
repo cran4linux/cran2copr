@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qMRI
-%global packver   1.2.7
+%global packname  sfislands
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Quantitative Magnetic Resonance Imaging ('qMRI')
+Summary:          Streamlines the Process of Fitting Areal Spatial Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-aws >= 2.4
-BuildRequires:    R-CRAN-awsMethods >= 1.0
-BuildRequires:    R-CRAN-oro.nifti >= 0.9
-BuildRequires:    R-CRAN-adimpro >= 0.9
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-aws >= 2.4
-Requires:         R-CRAN-awsMethods >= 1.0
-Requires:         R-CRAN-oro.nifti >= 0.9
-Requires:         R-CRAN-adimpro >= 0.9
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-broom.mixed 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
-Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-broom.mixed 
 
 %description
-Implementation of methods for estimation of quantitative maps from
-Multi-Parameter Mapping (MPM) acquisitions (Weiskopf et al. (2013)
-<doi:10.3389/fnins.2013.00095>) including adaptive smoothing methods in
-the framework of the ESTATICS model (Estimating the apparent transverse
-relaxation time (R2*) from images with different contrasts, Weiskopf et
-al. (2014) <doi:10.3389/fnins.2014.00278>). The smoothing method is
-described in Mohammadi et al. (2017). <doi:10.20347/WIAS.PREPRINT.2432>.
-Usage of the package is also described in Polzehl and Tabelow (2019),
-Magnetic Resonance Brain Imaging, Chapter 6, Springer, Use R! Series.
-<doi:10.1007/978-3-030-29184-6_6>.
+Helpers for addressing the issue of disconnected spatial units. It allows
+for convenient adding and removal of neighbourhood connectivity between
+areal units prior to modelling, with the visual aid of maps.
+Post-modelling, it reduces the human workload for extracting, tidying and
+mapping predictions from areal models.
 
 %prep
 %setup -q -c -n %{packname}

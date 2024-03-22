@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Families
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kinship Ties in Virtual Populations
+Summary:          Kinship Ties in (Virtual) Multi-Generation Populations
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Tools to study kinship networks, grandparenthood, and double burden
-(presence of children and oldest old parents) in virtual population
-produced by 'VirtualPop'.
+Tools to study lineages, grandparenthood, loss of close relatives, kinship
+networks and other topics in multi-generation populations.
 
 %prep
 %setup -q -c -n %{packname}

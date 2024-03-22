@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCDB
-%global packver   0.3
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Access and Maintain Time-Based Versioned Data (Slowly-Changing-Dimension)
 
@@ -22,34 +22,32 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dbplyr >= 2.4.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-utils 
 
 %description

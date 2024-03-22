@@ -1,63 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesMultiMode
-%global packver   0.7.1
+%global packname  SchoolDataIT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Mode Inference
+Summary:          Retrieve, Harmonise and Map Open Data Regarding the Italian School System
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-leafpop 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MCMCglmm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-bayesplot 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-gtools 
+Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-leafpop 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MCMCglmm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-sn 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-A two-step Bayesian approach for mode inference following Cross,
-Hoogerheide, Labonne and van Dijk (2024)
-<doi:10.1016/j.econlet.2024.111579>). First, a mixture distribution is
-fitted on the data using a sparse finite mixture (SFM) Markov chain Monte
-Carlo (MCMC) algorithm. The number of mixture components does not have to
-be known; the size of the mixture is estimated endogenously through the
-SFM approach. Second, the modes of the estimated mixture at each MCMC draw
-are retrieved using algorithms specifically tailored for mode detection.
-These estimates are then used to construct posterior probabilities for the
-number of modes, their locations and uncertainties, providing a powerful
-tool for mode inference.
+Compiles and displays the available data sets regarding the Italian school
+system, with a focus on the infrastructural aspects. Input datasets are
+downloaded from the web, with the aim of updating everything to real time.
+The functions are divided in four main modules, namely 'Get', to scrape
+raw data from the web 'Util', various utilities needed to process raw data
+'Group', to aggregate data at the municipality or province level 'Map', to
+visualize the output datasets.
 
 %prep
 %setup -q -c -n %{packname}
