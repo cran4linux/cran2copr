@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countrycode
-%global packver   1.6.0
+%global packname  RDHonest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Country Names and Country Codes
+Summary:          Honest Inference in Regression Discontinuity Designs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-stats 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-withr 
 
 %description
-Standardize country names, convert them into one of 40 different coding
-schemes, convert between coding schemes, and assign region descriptors.
+Honest and nearly-optimal confidence intervals in fuzzy and sharp
+regression discontinuity designs and for inference at a point based on
+local linear regression. The implementation is based on Armstrong and
+Kolesár (2018) <doi:10.3982/ECTA14434>, and Kolesár and Rothe (2018)
+<doi:10.1257/aer.20160945>. Supports covariates, clustering, and
+weighting.
 
 %prep
 %setup -q -c -n %{packname}

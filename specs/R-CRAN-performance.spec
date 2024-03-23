@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  performance
-%global packver   0.10.9
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.9
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessment of Regression Models Performance
 
@@ -18,15 +18,13 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-datawizard >= 0.9.1
-BuildRequires:    R-CRAN-insight >= 0.19.8
+BuildRequires:    R-CRAN-insight >= 0.19.9
 BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-datawizard >= 0.9.1
-Requires:         R-CRAN-insight >= 0.19.8
+Requires:         R-CRAN-insight >= 0.19.9
 Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 

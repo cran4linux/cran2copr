@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spant
-%global packver   2.18.0
+%global packver   2.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.18.0
+Version:          2.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-smoother 
 BuildRequires:    R-CRAN-ptw 
 BuildRequires:    R-CRAN-mmand 
 BuildRequires:    R-CRAN-RNifti 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-minpack.lm
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-smoother 
 Requires:         R-CRAN-ptw 
 Requires:         R-CRAN-mmand 
 Requires:         R-CRAN-RNifti 

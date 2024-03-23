@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wildlifeDI
-%global packver   0.5.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Indices of Dynamic Interaction for Wildlife Tracking Data
 
@@ -17,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-move2 
 BuildRequires:    R-CRAN-adehabitatLT 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-lwgeom 
+Requires:         R-CRAN-move2 
 Requires:         R-CRAN-adehabitatLT 
-Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-lwgeom 
 
 %description
 Dynamic interaction refers to spatial-temporal associations in the
@@ -37,8 +43,8 @@ calculating a suite of indices used for quantifying dynamic interaction
 with wildlife telemetry data. For more information on each of the methods
 employed see the references within. The package (as of version >= 0.3)
 also has new tools for automating contact analysis in large tracking
-datasets. The package draws heavily on the classes and methods developed
-in the 'adehabitat' packages.
+datasets. The package (as of version 1.0) uses the 'move2' class of
+objects for working with tracking dataset.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countrycode
-%global packver   1.6.0
+%global packname  TreeMineR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Country Names and Country Codes
+Summary:          Tree-Based Scan Statistics
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
-Standardize country names, convert them into one of 40 different coding
-schemes, convert between coding schemes, and assign region descriptors.
+Implementation of unconditional Bernoulli Scan Statistic developed by
+Kulldorff et al. (2003) <doi:10.1111/1541-0420.00039> for hierarchical
+tree structures. Tree-based Scan Statistics are an exploratory method to
+identify event clusters across the space of a hierarchical tree.
 
 %prep
 %setup -q -c -n %{packname}

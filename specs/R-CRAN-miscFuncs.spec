@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miscFuncs
-%global packver   1.5-7
+%global packver   1.5-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Useful Functions Including LaTeX Tables, Kalman Filtering, QQplots with Simulation-Based Confidence Intervals and Development Tools
 
@@ -19,15 +19,18 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-extraDistr 
 Requires:         R-stats 
 
 %description
 Implementing various things including functions for LaTeX tables, the
 Kalman filter, QQ-plots with simulation-based confidence intervals, web
-scraping, development tools, relative risk and odds ratio.
+scraping, development tools, relative risk and odds rati, GARCH(1,1)
+Forecasting.
 
 %prep
 %setup -q -c -n %{packname}

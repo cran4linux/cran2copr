@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FMAT
-%global packver   2023.8
+%global packver   2024.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.8
+Version:          2024.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Fill-Mask Association Test
 
@@ -18,12 +18,11 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PsychWordVec 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-text 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
@@ -31,12 +30,11 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-PsychWordVec 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-text 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
@@ -45,17 +43,15 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 
 %description
-The Fill-Mask Association Test ('FMAT') is an integrative, versatile, and
-probability-based method that uses Masked Language Models to measure
-conceptual associations or relations (e.g., attitudes, biases,
-stereotypes, social norms, cultural values) as propositional
-representations in natural language. The supported language models include
-'BERT' (Devlin et al., 2018) <arXiv:1810.04805> and its model variants
+The Fill-Mask Association Test ('FMAT') is an integrative and
+probability-based method using Masked Language Models to measure
+conceptual associations (e.g., attitudes, biases, stereotypes, social
+norms, cultural values) as propositions in natural language. Supported
+language models include 'BERT' <arXiv:1810.04805> and its variants
 available at 'Hugging Face'
-<https://huggingface.co/models?pipeline_tag=fill-mask>. 'Python' ('conda')
-environment and the 'transformers' module can be installed automatically
-using the FMAT_load() function. Methodological references and technical
-details are provided at <https://psychbruce.github.io/FMAT/>.
+<https://huggingface.co/models?pipeline_tag=fill-mask>. Methodological
+references and installation guidance are provided at
+<https://psychbruce.github.io/FMAT/>.
 
 %prep
 %setup -q -c -n %{packname}

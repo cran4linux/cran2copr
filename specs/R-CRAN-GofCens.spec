@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GofCens
-%global packver   0.97
+%global packver   0.98
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.97
+Version:          0.98
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Methods for Complete and Right-Censored Data
 

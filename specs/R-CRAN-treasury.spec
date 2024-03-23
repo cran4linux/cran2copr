@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countrycode
-%global packver   1.6.0
+%global packname  treasury
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Country Names and Country Codes
+Summary:          US Treasury XML Feed Wrapper
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-xml2 
 
 %description
-Standardize country names, convert them into one of 40 different coding
-schemes, convert between coding schemes, and assign region descriptors.
+Download daily interest rates from the US Treasury XML feed. Leveraging
+<https://home.treasury.gov/treasury-daily-interest-rate-xml-feed>, this
+package serves as a wrapper, facilitating the retrieval of daily treasury
+rates across various categories, including par yield curves, treasury
+bills, long-term rates, and real yield curves.
 
 %prep
 %setup -q -c -n %{packname}

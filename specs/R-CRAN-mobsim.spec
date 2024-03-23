@@ -1,26 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countrycode
-%global packver   1.6.0
+%global packname  mobsim
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Country Names and Country Codes
+Summary:          Spatial Simulation and Scale-Dependent Analysis of Biodiversity Changes
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-sads >= 0.4.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-sads >= 0.4.1
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-vegan 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Standardize country names, convert them into one of 40 different coding
-schemes, convert between coding schemes, and assign region descriptors.
+Simulation, analysis and sampling of spatial biodiversity data (May,
+Gerstner, McGlinn, Xiao & Chase 2017) <doi:10.1111/2041-210x.12986>. In
+the simulation tools user define the numbers of species and individuals,
+the species abundance distribution and species aggregation. Functions for
+analysis include species rarefaction and accumulation curves, species-area
+relationships and the distance decay of similarity.
 
 %prep
 %setup -q -c -n %{packname}

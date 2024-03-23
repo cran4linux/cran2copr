@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countrycode
-%global packver   1.6.0
+%global packname  nos
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Country Names and Country Codes
+Summary:          Compute Node Overlap and Segregation in Ecological Networks
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bipartite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gmp 
+Requires:         R-stats 
+Requires:         R-CRAN-bipartite 
 
 %description
-Standardize country names, convert them into one of 40 different coding
-schemes, convert between coding schemes, and assign region descriptors.
+Calculate NOS (node overlap and segregation) and the associated metrics
+described in Strona and Veech (2015) <doi:10.1111/2041-210X.12395> and
+Strona et al. (2018) <doi:10.1111/ecog.03447>. The functions provided in
+the package enable assessment of structural patterns ranging from complete
+node segregation to perfect nestedness in a variety of network types. In
+addition, they provide a measure of network modularity.
 
 %prep
 %setup -q -c -n %{packname}
