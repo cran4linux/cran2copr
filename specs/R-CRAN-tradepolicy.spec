@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  servr
-%global packver   0.30
+%global packname  tradepolicy
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Replication of 'An Advanced Guide To Trade Policy Analysis'
 
-License:          GPL
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-fixest >= 0.10.4
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Formula 
+Requires:         R-CRAN-fixest >= 0.10.4
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Formula 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Datasets from Yotov, et al. (2016, ISBN:978-92-870-4367-2) "An Advanced
+Guide to Trade Policy Analysis" and functions to report regression
+summaries with clustered robust standard errors.
 
 %prep
 %setup -q -c -n %{packname}

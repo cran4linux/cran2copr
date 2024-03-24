@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  servr
-%global packver   0.30
+%global packname  CoDaImpact
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Interpreting CoDa Regression Models
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-compositions 
+Requires:         R-methods 
+Requires:         R-CRAN-compositions 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Provides methods for interpreting CoDa (Compositional Data) regression
+models along the lines of "Pairwise share ratio interpretations of
+compositional regression models" (Dargel and Thomas-Agnan 2024)
+<doi:10.1016/j.csda.2024.107945>. The new methods include variation
+scenarios, elasticities, elasticity differences and share ratio
+elasticities. These tools are independent of log-ratio transformations and
+allow an interpretation in the original space of shares. 'CoDaImpact' is
+designed to be used with the 'compositions' package and its ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

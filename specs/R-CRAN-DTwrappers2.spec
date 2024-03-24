@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  servr
-%global packver   0.30
+%global packname  DTwrappers2
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Extensions of 'DTwrappers'
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DTwrappers 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DTwrappers 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Offers functionality which provides methods for data analyses and cleaning
+that can be flexibly applied across multiple variables and in groups.
+These include cleaning accidental text, contingent calculations, counting
+missing data, and building summarizations of the data.
 
 %prep
 %setup -q -c -n %{packname}

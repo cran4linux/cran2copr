@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  servr
-%global packver   0.30
+%global packname  vartest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Tests for Variance Homogeneity
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuppDists 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-stats 
+Requires:         R-CRAN-SuppDists 
+Requires:         R-CRAN-psych 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Performs 20 omnibus tests for testing the composite hypothesis of variance
+homogeneity.
 
 %prep
 %setup -q -c -n %{packname}

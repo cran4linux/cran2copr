@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  servr
-%global packver   0.30
+%global packname  tensorMiss
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Handle Missing Tensor Data with C++ Integration
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-rTensor 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-rTensor 
+Requires:         R-stats 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+To handle higher-order tensor data. See Kolda and Bader (2009)
+<doi:10.1137/07070111X> for details on tensor. While existing packages on
+tensor data extend the base 'array' class to some data classes, this
+package serves as an alternative resort to handle tensor only as 'array'
+class. Some functionalities related to missingness are also supported.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TukeyGH77
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tukey g-&-h Distribution
 
@@ -26,7 +26,8 @@ Requires:         R-stats
 Functions for density, cumulative density, quantile and simulation of
 Tukey g-and-h (1977) distributions. The quantile-based transformation
 (Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation are also provided.
+transformation, as well as the letter-value based estimates (Hoaglin
+1985), are also provided.
 
 %prep
 %setup -q -c -n %{packname}

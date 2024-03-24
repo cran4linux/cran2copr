@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  servr
-%global packver   0.30
+%global packname  stylest2
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.30
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
+Summary:          Estimating Speakers of Texts
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
-BuildRequires:    R-CRAN-mime >= 0.2
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
-Requires:         R-CRAN-mime >= 0.2
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-quanteda 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-quanteda 
 
 %description
-Start an HTTP server in R to serve static files, or dynamic documents that
-can be converted to HTML files (e.g., R Markdown) under a given directory.
+Estimates the authors or speakers of texts. Methods developed in Huang,
+Perry, and Spirling (2020) <doi:10.1017/pan.2019.49>. The model is built
+on a Bayesian framework in which the distinctiveness of each speaker is
+defined by how different, on average, the speaker's terms are to everyone
+else in the corpus of texts. An optional cross-validation method is
+implemented to select the subset of terms that generate the most accurate
+speaker predictions. Once a set of terms is selected, the model can be
+estimated. Speaker distinctiveness and term influence can be recovered
+from parameters in the model using package functions. Once fitted, the
+model can be used to predict authorship of new texts.
 
 %prep
 %setup -q -c -n %{packname}

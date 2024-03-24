@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  littler
-%global packver   0.3.19
+%global packver   0.3.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.19
+Version:          0.3.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          R at the Command-Line via 'r'
 
