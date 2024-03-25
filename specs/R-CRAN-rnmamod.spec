@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnmamod
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Meta-Analysis with Missing Participants
 
@@ -17,37 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-CRAN-gemtc 
 BuildRequires:    R-CRAN-ggfittext 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-heatmaply 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mcmcplots 
-BuildRequires:    R-CRAN-netmeta 
-BuildRequires:    R-CRAN-pcnetmeta 
 BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-fdrtool 
 Requires:         R-CRAN-gemtc 
 Requires:         R-CRAN-ggfittext 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-heatmaply 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mcmcplots 
-Requires:         R-CRAN-netmeta 
-Requires:         R-CRAN-pcnetmeta 
 Requires:         R-CRAN-R2jags 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-writexl 
 
 %description
@@ -59,16 +63,19 @@ including fixed-effect and random-effects network meta-analysis,
 meta-regression, evaluation of the consistency assumption via the
 node-splitting approach and the unrelated mean effects model, and
 sensitivity analysis. Missing participant outcome data are addressed in
-all models of the package. The package also offers a rich, user-friendly
-visualisation toolkit that aids in appraising and interpreting the results
-thoroughly and preparing the manuscript for journal submission. The
-visualisation tools comprise the network plot, forest plots, panel of
-diagnostic plots, heatmaps on the extent of missing participant outcome
-data in the network, league heatmaps on estimation and prediction,
-rankograms, Bland-Altman plot, leverage plot, deviance scatterplot,
-heatmap of robustness, and barplot of Kullback-Leibler divergence. The
-package also allows the user to export the results to an Excel file at the
-working directory.
+all models of the package. The robustness to primary analysis results can
+also be investigated using a novel intuitive index. Methods to evaluate
+the transitivity assumption quantitatively are provided. The package also
+offers a rich, user-friendly visualisation toolkit that aids in appraising
+and interpreting the results thoroughly and preparing the manuscript for
+journal submission. The visualisation tools comprise the network plot,
+forest plots, panel of diagnostic plots, heatmaps on the extent of missing
+participant outcome data in the network, league heatmaps on estimation and
+prediction, rankograms, Bland-Altman plot, leverage plot, deviance
+scatterplot, heatmap of robustness, barplot of Kullback-Leibler
+divergence, heatmap of comparison dissimilarities and dendrogram of
+comparison clustering. The package also allows the user to export the
+results to an Excel file at the working directory.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.logger
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logging Setup for the 'teal' Family of Packages
 
@@ -17,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-withr >= 2.1.0
+BuildRequires:    R-CRAN-shiny >= 1.6.0
+BuildRequires:    R-CRAN-glue >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-logger >= 0.2.0
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-withr >= 2.1.0
+Requires:         R-CRAN-shiny >= 1.6.0
+Requires:         R-CRAN-glue >= 1.0.0
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-logger >= 0.2.0
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-withr 
+Requires:         R-methods 
 
 %description
 Utilizing the 'logger' framework to record events within a package,
-specific to 'teal' family of packages. Supports logging namespaces,
+specific to 'teal' family of packages.  Supports logging namespaces,
 hierarchical logging, various log destinations, vectorization, and more.
 
 %prep

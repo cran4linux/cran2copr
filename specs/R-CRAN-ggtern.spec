@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtern
-%global packver   3.4.2
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Extension to 'ggplot2', for the Creation of Ternary Diagrams
 
@@ -17,14 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-compositions >= 2.0.2
 BuildRequires:    R-CRAN-plyr >= 1.8.3
+BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-hexbin >= 1.28.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-proto >= 1.0
 BuildRequires:    R-CRAN-latex2exp >= 0.5
-BuildRequires:    R-CRAN-scales >= 0.3.0
 BuildRequires:    R-CRAN-gtable >= 0.1.2
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-MASS 
@@ -32,14 +33,15 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-compositions >= 2.0.2
 Requires:         R-CRAN-plyr >= 1.8.3
+Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-hexbin >= 1.28.2
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-proto >= 1.0
 Requires:         R-CRAN-latex2exp >= 0.5
-Requires:         R-CRAN-scales >= 0.3.0
 Requires:         R-CRAN-gtable >= 0.1.2
 Requires:         R-grid 
 Requires:         R-CRAN-MASS 

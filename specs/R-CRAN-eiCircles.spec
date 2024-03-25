@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eiCircles
-%global packver   0.0.1-6
+%global packver   0.0.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.6
+Version:          0.0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Inference of RxC Tables by Overdispersed-Multinomial Models
 
@@ -17,7 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-NlcOptim >= 0.6
 BuildRequires:    R-stats 
+Requires:         R-CRAN-NlcOptim >= 0.6
 Requires:         R-stats 
 
 %description

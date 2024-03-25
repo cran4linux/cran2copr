@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  packDAMipd
-%global packver   0.2.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decision Analysis Modelling Package with Parameters Estimation Ability from Individual Patient Level Data
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
@@ -23,8 +24,6 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-SurvRegCensCov 
 BuildRequires:    R-CRAN-survival 
@@ -41,13 +40,15 @@ BuildRequires:    R-CRAN-effects
 BuildRequires:    R-CRAN-gvlma 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-relaimpo 
-BuildRequires:    R-CRAN-tm 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-hash 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ISLR 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
@@ -55,8 +56,6 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-SurvRegCensCov 
 Requires:         R-CRAN-survival 
@@ -73,13 +72,15 @@ Requires:         R-CRAN-effects
 Requires:         R-CRAN-gvlma 
 Requires:         R-methods 
 Requires:         R-CRAN-relaimpo 
-Requires:         R-CRAN-tm 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-hash 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ISLR 
 
 %description
 A collection of functions to construct Markov model for model-based
@@ -97,6 +98,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

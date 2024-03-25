@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeDS
-%global packver   0.1.4
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometrically Designed Spline Regression
 
@@ -23,6 +23,15 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-TH.data 
 Requires:         R-CRAN-Rcpp >= 0.12.1
 Requires:         R-splines 
 Requires:         R-stats 
@@ -30,16 +39,33 @@ Requires:         R-utils
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-TH.data 
 
 %description
-Geometrically Designed Spline ('GeDS') Regression is a non-parametric
-geometrically motivated method for fitting variable knots spline predictor
-models in one or two independent variables, in the context of generalized
-(non-)linear models. 'GeDS' estimates the number and position of the knots
-and the order of the spline, assuming the response variable has a
-distribution from the exponential family. A description of the method can
-be found in Kaishev et al. (2016) <doi:10.1007/s00180-015-0621-7> and
-Dimitrova et al. (2017) <https://openaccess.city.ac.uk/id/eprint/18460/>.
+Spline Regression, Generalized Additive Models, and Component-wise
+Gradient Boosting, utilizing Geometrically Designed (GeD) Splines. GeDS
+regression is a non-parametric method inspired by geometric principles,
+for fitting spline regression models with variable knots in one or two
+independent variables. It efficiently estimates the number of knots and
+their positions, as well as the spline order, assuming the response
+variable follows a distribution from the exponential family. GeDS models
+integrate the broader category of Generalized (Non-)Linear Models,
+offering a flexible approach to modeling complex relationships. A
+description of the method can be found in Kaishev et al. (2016)
+<doi:10.1007/s00180-015-0621-7> and Dimitrova et al. (2023)
+<doi:10.1016/j.amc.2022.127493>. Further extending its capabilities,
+GeDS's implementation includes Generalized Additive Models (GAM) and
+Functional Gradient Boosting (FGB), enabling versatile multivariate
+predictor modeling, as discussed in the forthcoming work of Dimitrova et
+al. (2024).
 
 %prep
 %setup -q -c -n %{packname}
