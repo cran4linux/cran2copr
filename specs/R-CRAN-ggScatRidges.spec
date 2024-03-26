@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggScatRidges
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scatter Plot Combined with Ridgelines in 'ggplot2'
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-hrbrthemes 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-hrbrthemes 
+Requires:         R-CRAN-ggrepel 
 
 %description
 The function combines a scatter plot with ridgelines to better visualise

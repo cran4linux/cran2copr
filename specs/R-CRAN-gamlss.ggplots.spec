@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisitorCounts
-%global packver   2.0.0
+%global packname  gamlss.ggplots
+%global packver   2.1-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modeling and Forecasting Visitor Counts Using Social Media
+Summary:          Plotting Functions for Generalized Additive Model for Location Scale and Shape
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rssa 
+BuildRequires:    R-CRAN-gamlss >= 4.3.3
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-gamlss.foreach 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-gamlss.inf 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Rssa 
+BuildRequires:    R-CRAN-yaImpute 
+Requires:         R-CRAN-gamlss >= 4.3.3
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-gamlss.foreach 
 Requires:         R-methods 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-gamlss.inf 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-yaImpute 
 
 %description
-Performs modeling and forecasting of park visitor counts using social
-media data and (partial) on-site visitor counts. Specifically, the model
-is built based on an automatic decomposition of the trend and seasonal
-components of the social media-based park visitor counts, from which
-short-term forecasts of the visitor counts and percent changes in the
-visitor counts can be made. A reference for the underlying model that
-'VisitorCounts' uses can be found at 'Russell Goebel', Austin Schmaltz,
-'Beth Ann Brackett', Spencer A. Wood, 'Kimihiro Noguchi' (2023)
-<doi:10.1002/for.2965> .
+Functions for plotting Generalized Additive Models for Location Scale and
+Shape from the 'gamlss' package, Stasinopoulos and Rigby (2007)
+<doi:10.18637/jss.v023.i07>, using the graphical methods from 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

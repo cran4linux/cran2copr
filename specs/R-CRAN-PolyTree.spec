@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmap
-%global packver   1.1.0
+%global packname  PolyTree
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps Using 'The National Map' Services
+Summary:          Estimate Causal Polytree from Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
+BuildRequires:    R-CRAN-FOCI 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-FOCI 
+Requires:         R-CRAN-igraph 
 
 %description
-Creates interactive web maps using the 'JavaScript' 'Leaflet' library with
-base layers of 'The National Map' ('TNM'). 'TNM' services provide access
-to base geospatial information that describes the landscape of the United
-States and its territories. This package is dependent on, and intended to
-be used with, the 'leaflet' package.
+Given a data matrix with rows representing data vectors and columns
+representing variables, produces a directed polytree for the underlying
+causal structure. Based on the algorithm developed in Chatterjee and
+Vidyasagar (2022) <arxiv:2209.07028>. The method is fully nonparametric,
+making no use of linearity assumptions, and especially useful when the
+number of variables is large.
 
 %prep
 %setup -q -c -n %{packname}

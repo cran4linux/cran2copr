@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncmeta
-%global packver   0.3.6
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Straightforward 'NetCDF' Metadata
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-RNetCDF
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-CFtime 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-tibble 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-CFtime 
 
 %description
 Extract metadata from 'NetCDF' data sources, these can be files, file

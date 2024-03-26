@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Crossover
-%global packver   0.1-21
+%global packver   0.1-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.21
+Version:          0.1.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Search of Crossover Designs
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-crossdes >= 1.1.1
-BuildRequires:    R-CRAN-CommonJavaJars >= 1.0.5
+BuildRequires:    R-CRAN-CommonJavaJars >= 1.1.0
 BuildRequires:    R-CRAN-rJava >= 0.8.3
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.10.3
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-multcomp
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-crossdes >= 1.1.1
-Requires:         R-CRAN-CommonJavaJars >= 1.0.5
+Requires:         R-CRAN-CommonJavaJars >= 1.1.0
 Requires:         R-CRAN-rJava >= 0.8.3
 Requires:         R-CRAN-RcppArmadillo >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.10.3

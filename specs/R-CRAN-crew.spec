@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Distributed Worker Launcher Framework
 
@@ -54,15 +54,15 @@ Requires:         R-utils
 In computationally demanding analysis projects, statisticians and data
 scientists asynchronously deploy long-running tasks to distributed
 systems, ranging from traditional clusters to cloud services. The
-'NNG'-powered 'mirai' R package by Gao (2023)
-<https://CRAN.R-project.org/package=mirai> is a sleek and sophisticated
-scheduler that efficiently processes these intense workloads. The 'crew'
-package extends 'mirai' with a unifying interface for third-party worker
-launchers. Inspiration also comes from packages. 'future' by Bengtsson
-(2021) <doi:10.32614/RJ-2021-048>, 'rrq' by FitzJohn and Ashton (2023)
-<https://github.com/mrc-ide/rrq>, 'clustermq' by Schubert (2019)
-<doi:10.1093/bioinformatics/btz284>), and 'batchtools' by Lang, Bischel,
-and Surmann (2017) <doi:10.21105/joss.00135>.
+'NNG'-powered 'mirai' R package by Gao (2023) <doi:10.5281/zenodo.7912722>
+is a sleek and sophisticated scheduler that efficiently processes these
+intense workloads. The 'crew' package extends 'mirai' with a unifying
+interface for third-party worker launchers. Inspiration also comes from
+packages. 'future' by Bengtsson (2021) <doi:10.32614/RJ-2021-048>, 'rrq'
+by FitzJohn and Ashton (2023) <https://github.com/mrc-ide/rrq>,
+'clustermq' by Schubert (2019) <doi:10.1093/bioinformatics/btz284>), and
+'batchtools' by Lang, Bischel, and Surmann (2017)
+<doi:10.21105/joss.00135>.
 
 %prep
 %setup -q -c -n %{packname}

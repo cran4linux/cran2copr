@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmap
-%global packver   1.1.0
+%global packname  biopixR
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps Using 'The National Map' Services
+Summary:          Extracting Insights from Biological Images
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-imager 
+Requires:         R-CRAN-magick 
+Requires:         R-tcltk 
+Requires:         R-CRAN-foreach 
 
 %description
-Creates interactive web maps using the 'JavaScript' 'Leaflet' library with
-base layers of 'The National Map' ('TNM'). 'TNM' services provide access
-to base geospatial information that describes the landscape of the United
-States and its territories. This package is dependent on, and intended to
-be used with, the 'leaflet' package.
+Combines the 'magick' and 'imager' packages to streamline image analysis,
+focusing on feature extraction and quantification from biological images,
+especially microparticles. By providing high throughput pipelines and
+clustering capabilities, 'biopixR' facilitates efficient insight
+generation for researchers (Schneider J. et al. (2019)
+<doi:10.21037/jlpm.2019.04.05>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FACT
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Attributions for ClusTering
 
@@ -21,14 +21,12 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-prediction 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-iml 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-prediction 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-iml 
 

@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmap
-%global packver   1.1.0
+%global packname  fmx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps Using 'The National Map' Services
+Summary:          Finite Mixture Parametrization
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-goftest 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-TukeyGH77 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-methods 
+Requires:         R-CRAN-goftest 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-TukeyGH77 
+Requires:         R-CRAN-VGAM 
 
 %description
-Creates interactive web maps using the 'JavaScript' 'Leaflet' library with
-base layers of 'The National Map' ('TNM'). 'TNM' services provide access
-to base geospatial information that describes the landscape of the United
-States and its territories. This package is dependent on, and intended to
-be used with, the 'leaflet' package.
+A parametrization framework for finite mixture distribution using S4
+objects. Density, cumulative density, quantile and simulation functions
+are defined. Currently normal, Tukey g-&-h, skew-normal and skew-t
+distributions are well tested. The gamma, negative binomial distributions
+are being tested.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rocbc
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Box-Cox Based Receiver Operating Characteristic Curves
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-clinfun
 BuildRequires:    R-CRAN-splancs 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-formattable 
+BuildRequires:    R-CRAN-MRMCaov 
+BuildRequires:    R-CRAN-pROC 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-clinfun 
 Requires:         R-CRAN-splancs 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-formattable 
+Requires:         R-CRAN-MRMCaov 
+Requires:         R-CRAN-pROC 
 
 %description
 Generation of Box-Cox based ROC curves and several aspects of inferences

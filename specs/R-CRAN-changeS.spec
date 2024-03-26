@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  surveygraph
-%global packver   0.1.0
+%global packname  changeS
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Network Representations of Attitudes
+Summary:          S-Curve Fit for Changepoint Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nls.multstart 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-nls.multstart 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
 
 %description
-A tool for computing network representations of attitudes, extracted from
-tabular data such as sociological surveys. By treating a survey as a
-bipartite network, we measure the similarity between respondents and
-survey items to produce network edges. We do this in both a respondent
-network, as well as a survey item network. Used in combination with graph
-visualisation libraries, this techniques helps practitioners in the social
-sciences identify network structure that may be present within a survey at
-a glance.
+Estimation of changepoints using an "S-curve" approximation. Formation of
+confidence intervals for changepoint locations and magnitudes. Both abrupt
+and gradual changes can be modeled.
 
 %prep
 %setup -q -c -n %{packname}

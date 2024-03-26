@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmap
-%global packver   1.1.0
+%global packname  ieugwasr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps Using 'The National Map' Services
+Summary:          Interface to the 'OpenGWAS' Database API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-googleAuthR 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-googleAuthR 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Creates interactive web maps using the 'JavaScript' 'Leaflet' library with
-base layers of 'The National Map' ('TNM'). 'TNM' services provide access
-to base geospatial information that describes the landscape of the United
-States and its territories. This package is dependent on, and intended to
-be used with, the 'leaflet' package.
+Interface to the 'OpenGWAS' database API <https://gwas-api.mrcieu.ac.uk/>.
+Includes a wrapper to make generic calls to the API, plus convenience
+functions for specific queries.
 
 %prep
 %setup -q -c -n %{packname}

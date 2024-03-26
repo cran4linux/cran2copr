@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmap
+%global packname  Dtableone
 %global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Web Maps Using 'The National Map' Services
+Summary:          Tabular Comparison of Paired Diagnostic Tests
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-leaflet 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-leaflet 
+BuildRequires:    R-CRAN-epiR >= 2.0.61
+BuildRequires:    R-CRAN-pROC >= 1.18.5
+BuildRequires:    R-CRAN-irr >= 0.84.1
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-epiR >= 2.0.61
+Requires:         R-CRAN-pROC >= 1.18.5
+Requires:         R-CRAN-irr >= 0.84.1
+Requires:         R-CRAN-dplyr 
 
 %description
-Creates interactive web maps using the 'JavaScript' 'Leaflet' library with
-base layers of 'The National Map' ('TNM'). 'TNM' services provide access
-to base geospatial information that describes the landscape of the United
-States and its territories. This package is dependent on, and intended to
-be used with, the 'leaflet' package.
+Offers statistical methods to compare diagnostic performance between two
+binary diagnostic tests on the same subject in clinical studies. Includes
+functions for generating formatted tables to display diagnostic outcomes,
+facilitating a clear and comprehensive comparison directly through the R
+console. Inspired by and extending the functionalities of the 'DTComPair',
+'tableone', and 'gtsummary' packages.
 
 %prep
 %setup -q -c -n %{packname}
