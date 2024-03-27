@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lomb
-%global packver   2.2.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lomb-Scargle Periodogram
 
@@ -14,21 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-knitr 
 
 %description
-Computes the Lomb-Scargle Periodogram for unevenly sampled time series.
-Includes a randomization procedure to obtain exact p-values.
+Computes the Lomb-Scargle Periodogram and actogram for evenly or unevenly
+sampled time series. Includes a randomization procedure to obtain exact
+p-values. Partially based on C original by Press et al. (Numerical
+Recipes) and the Python module Astropy. For more information see Ruf, T.
+(1999). The Lomb-Scargle periodogram in biological rhythm research:
+analysis of incomplete and unequally spaced time-series. Biological Rhythm
+Research, 30(2), 178-201.
 
 %prep
 %setup -q -c -n %{packname}

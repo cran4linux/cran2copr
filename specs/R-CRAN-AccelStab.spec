@@ -1,36 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datawizard
-%global packver   0.10.0
+%global packname  AccelStab
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Data Wrangling and Statistical Transformations
+Summary:          Accelerated Stability Kinetic Modelling
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.19.8
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.19.8
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-scales 
 
 %description
-A lightweight package to assist in key steps involved in any data analysis
-workflow: (1) wrangling the raw data to get it in the needed form, (2)
-applying preprocessing steps and statistical transformations, and (3)
-compute statistical summaries of data properties and distributions. It is
-also the data wrangling backend for packages in 'easystats' ecosystem.
-References: Patil et al. (2022) <doi:10.21105/joss.04684>.
+Estimate the Šesták–Berggren kinetic model (degradation model) from
+experimental data. A A closed-form (analytic) solution to the degradation
+model is implemented as a non-linear fit, allowing for the extrapolation
+of the degradation of a drug product - both in time and temperature.
+Parametric bootstrap, with kinetic parameters drawn from the multivariate
+t-distribution, and analytical formulae (the delta method) are available
+options to calculate the confidence and prediction intervals. The results
+(modelling, extrapolations and statistical intervals) can be visualised
+with multiple plots. The examples illustrate the accelerated stability
+modelling in drugs and vaccines development.
 
 %prep
 %setup -q -c -n %{packname}

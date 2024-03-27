@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BOSO
-%global packver   1.0.3
+%global __requires_exclude ^libmpi
+%global packname  vcPB
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bilevel Optimization Selector Operator
+Summary:          Longitudinal PB Varying-Coefficient Groupwise Disparity Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-lme4 
 Requires:         R-methods 
 
 %description
-A novel feature selection algorithm for linear regression called BOSO
-(Bilevel Optimization Selector Operator). The main contribution is the use
-a bilevel optimization problem to select the variables in the training
-problem that minimize the error in the validation set. Preprint available:
-[Valcarcel, L. V., San Jose-Eneriz, E., Cendoya, X., Rubio, A., Agirre,
-X., Prosper, F., & Planes, F. J. (2020). "BOSO: a novel feature selection
-algorithm for linear regression with high-dimensional data." bioRxiv.
-<doi:10.1101/2020.11.18.388579>]. In order to run the vignette, it is
-recommended to install the 'bestsubset' package, using the following
-command: devtools::install_github(repo="ryantibs/best-subset",
-subdir="bestsubset"). If you do not have gurobi, run
-devtools::install_github(repo="lvalcarcel/best-subset",
-subdir="bestsubset").
+Estimating the disparity between two groups based on the extended model of
+the Peters-Belson (PB) method. Our model is the first work on the
+longitudinal data, and also can set a varying variable to find the
+complicated association between other variables and the varying variable.
+Our work is an extension of the Peters-Belson method which was originally
+published in Peters (1941)<doi:10.1080/00220671.1941.10881036> and Belson
+(1956)<doi:10.2307/2985420>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

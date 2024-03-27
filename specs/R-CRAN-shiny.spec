@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny
-%global packver   1.8.0
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Web Application Framework for R
 
@@ -40,7 +40,6 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-cachem 
-BuildRequires:    R-CRAN-ellipsis 
 Requires:         R-CRAN-R6 >= 2.0
 Requires:         R-CRAN-commonmark >= 1.7
 Requires:         R-CRAN-httpuv >= 1.5.2
@@ -64,7 +63,6 @@ Requires:         R-tools
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-cachem 
-Requires:         R-CRAN-ellipsis 
 
 %description
 Makes it incredibly easy to build interactive web applications with R.

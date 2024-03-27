@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  harbinger
-%global packver   1.0.737
+%global packver   1.0.747
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.737
+Version:          1.0.747
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Unified Time Series Event Detection Framework
+Summary:          A Unified Time Series Event Detection Framework
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,7 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-daltoolbox 
-BuildRequires:    R-CRAN-TSPred 
 BuildRequires:    R-CRAN-tsmp 
 BuildRequires:    R-CRAN-dtwclust 
 BuildRequires:    R-CRAN-rugarch 
@@ -29,10 +28,8 @@ BuildRequires:    R-CRAN-changepoint
 BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-CRAN-daltoolbox 
-Requires:         R-CRAN-TSPred 
 Requires:         R-CRAN-tsmp 
 Requires:         R-CRAN-dtwclust 
 Requires:         R-CRAN-rugarch 
@@ -42,7 +39,6 @@ Requires:         R-CRAN-changepoint
 Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reticulate 
 
 %description
 By analyzing time series, it is possible to observe significant changes in

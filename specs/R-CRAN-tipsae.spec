@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tipsae
-%global packver   0.0.18
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.18
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Indices and Proportions in Small Area Estimation
 
@@ -52,7 +52,8 @@ One Inflated extensions (Janicki 2020
 Bayesian framework through Stan <https://mc-stan.org/>, come equipped with
 a set of diagnostics and complementary tools, visualizing and exporting
 functions. A Shiny application with a user-friendly interface can be
-launched to further simplify the process.
+launched to further simplify the process. For further details, refer to De
+Nicolò and Gardini (2024 <doi:10.18637/jss.v108.i01>).
 
 %prep
 %setup -q -c -n %{packname}

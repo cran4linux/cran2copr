@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SomaDataIO
-%global packver   6.0.0
+%global packver   6.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.0
+Version:          6.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Input/Output 'SomaScan' Data
 
@@ -40,7 +40,7 @@ Requires:         R-methods
 
 %description
 Load and export 'SomaScan' data via the 'SomaLogic Operating Co., Inc.'
-proprietary text file called an ADAT ('*.adat'). For file format see
+structured text file called an ADAT ('*.adat'). For file format see
 <https://github.com/SomaLogic/SomaLogic-Data/blob/master/README.md>. The
 package also exports auxiliary functions for manipulating, wrangling, and
 extracting relevant information from an ADAT object once in memory.

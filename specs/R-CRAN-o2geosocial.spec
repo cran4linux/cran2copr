@@ -1,28 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMT
-%global packver   1.3.1
+%global packname  o2geosocial
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Multinomial Test: Goodness-of-Fit Test for Discrete Multivariate Data
+Summary:          Reconstruction of Transmission Chains from Surveillance Data
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-outbreaker2 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-outbreaker2 
 
 %description
-Goodness-of-fit tests for discrete multivariate data. It is tested if a
-given observation is likely to have occurred under the assumption of an
-ab-initio model. Monte Carlo methods are provided to make the package
-capable of solving high-dimensional problems.
+Bayesian reconstruction of who infected whom during past outbreaks using
+routinely-collected surveillance data. Inference of transmission trees
+using genotype, age specific social contacts, distance between cases and
+onset dates of the reported cases. (Robert A, Kucharski AJ, Gastanaduy PA,
+Paul P, Funk S. (2020) <doi:10.1098/rsif.2020.0084>).
 
 %prep
 %setup -q -c -n %{packname}

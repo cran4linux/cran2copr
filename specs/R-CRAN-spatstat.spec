@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat
-%global packver   3.0-7
+%global packver   3.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.7
+Version:          3.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Point Pattern Analysis, Model-Fitting, Simulation, Tests
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.model >= 3.2.8
-BuildRequires:    R-CRAN-spatstat.geom >= 3.2.7
-BuildRequires:    R-CRAN-spatstat.explore >= 3.2.5
-BuildRequires:    R-CRAN-spatstat.random >= 3.2.1
-BuildRequires:    R-CRAN-spatstat.linnet >= 3.1.3
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.3
-BuildRequires:    R-CRAN-spatstat.data >= 3.0.1
+BuildRequires:    R-CRAN-spatstat.geom >= 3.2.9
+BuildRequires:    R-CRAN-spatstat.explore >= 3.2.7
+BuildRequires:    R-CRAN-spatstat.random >= 3.2.3
+BuildRequires:    R-CRAN-spatstat.model >= 3.2.11
+BuildRequires:    R-CRAN-spatstat.linnet >= 3.1.5
+BuildRequires:    R-CRAN-spatstat.data >= 3.0.4
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.4
 BuildRequires:    R-utils 
-Requires:         R-CRAN-spatstat.model >= 3.2.8
-Requires:         R-CRAN-spatstat.geom >= 3.2.7
-Requires:         R-CRAN-spatstat.explore >= 3.2.5
-Requires:         R-CRAN-spatstat.random >= 3.2.1
-Requires:         R-CRAN-spatstat.linnet >= 3.1.3
-Requires:         R-CRAN-spatstat.utils >= 3.0.3
-Requires:         R-CRAN-spatstat.data >= 3.0.1
+Requires:         R-CRAN-spatstat.geom >= 3.2.9
+Requires:         R-CRAN-spatstat.explore >= 3.2.7
+Requires:         R-CRAN-spatstat.random >= 3.2.3
+Requires:         R-CRAN-spatstat.model >= 3.2.11
+Requires:         R-CRAN-spatstat.linnet >= 3.1.5
+Requires:         R-CRAN-spatstat.data >= 3.0.4
+Requires:         R-CRAN-spatstat.utils >= 3.0.4
 Requires:         R-utils 
 
 %description

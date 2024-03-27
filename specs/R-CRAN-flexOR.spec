@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMT
-%global packver   1.3.1
+%global packname  flexOR
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Multinomial Test: Goodness-of-Fit Test for Discrete Multivariate Data
+Summary:          Flexible Odds Ratio Curves
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gam 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
 
 %description
-Goodness-of-fit tests for discrete multivariate data. It is tested if a
-given observation is likely to have occurred under the assumption of an
-ab-initio model. Monte Carlo methods are provided to make the package
-capable of solving high-dimensional problems.
+Provides flexible hazard ratio curves that enable modeling non-linear
+relationships between continuous predictors and survival outcomes. This
+package facilitates a deeper understanding of the impact of each
+continuous predictor on the outcome by presenting results in terms of odds
+ratio (OR) curves based on splines. These curves allow for comparison
+against a specified reference value, aiding in the interpretation of the
+predictor's effect.
 
 %prep
 %setup -q -c -n %{packname}

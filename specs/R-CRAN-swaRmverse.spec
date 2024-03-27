@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grafzahl
-%global packver   0.0.11
+%global packname  swaRmverse
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supervised Machine Learning for Textual Data Using Transformers and 'Quanteda'
+Summary:          Swarm Space Creation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lime 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lime 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-reticulate 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-trackdf 
+BuildRequires:    R-CRAN-swaRm 
+BuildRequires:    R-CRAN-geosphere 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-trackdf 
+Requires:         R-CRAN-swaRm 
+Requires:         R-CRAN-geosphere 
 
 %description
-Duct tape the 'quanteda' ecosystem (Benoit et al., 2018)
-<doi:10.21105/joss.00774> to modern Transformer-based text classification
-models (Wolf et al., 2020) <doi:10.18653/v1/2020.emnlp-demos.6>, in order
-to facilitate supervised machine learning for textual data. This package
-mimics the behaviors of 'quanteda.textmodels' and provides a function to
-setup the 'Python' environment to use the pretrained models from 'Hugging
-Face' <https://huggingface.co/>. More information:
-<doi:10.5117/CCR2023.1.003.CHAN>.
+Provides a pipeline for the comparative analysis of collective movement
+data (e.g. fish schools, bird flocks, baboon troops) by processing
+2-dimensional positional data (x,y,t) from GPS trackers or computer vision
+tracking systems, discretizing events of collective motion, calculating a
+set of established metrics that characterize each event, and placing the
+events in a multi-dimensional swarm space constructed from these metrics.
+The swarm space concept, the metrics and data sets included are described
+in: Papadopoulou Marina, Furtbauer Ines, O'Bryan Lisa R., Garnier Simon,
+Georgopoulou Dimitra G., Bracken Anna M., Christensen Charlotte and King
+Andrew J. (2023) <doi:10.1098/rstb.2022.0068>.
 
 %prep
 %setup -q -c -n %{packname}

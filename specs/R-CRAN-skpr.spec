@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skpr
-%global packver   1.6.2
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of Experiments Suite: Generate and Evaluate Optimal Designs
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-doRNG 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-methods 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-doRNG 

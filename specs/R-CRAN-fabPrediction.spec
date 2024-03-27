@@ -1,28 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EMT
-%global packver   1.3.1
+%global packname  fabPrediction
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exact Multinomial Test: Goodness-of-Fit Test for Discrete Multivariate Data
+Summary:          Compute FAB (Frequentist and Bayes) Conformal Prediction Intervals
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sae >= 1.3
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-sae >= 1.3
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Goodness-of-fit tests for discrete multivariate data. It is tested if a
-given observation is likely to have occurred under the assumption of an
-ab-initio model. Monte Carlo methods are provided to make the package
-capable of solving high-dimensional problems.
+Computes and plots prediction intervals for numerical data or prediction
+sets for categorical data using prior information. Empirical Bayes
+procedures to estimate the prior information from multi-group data are
+included. See, e.g.,Bersson and Hoff (2022) <arXiv:2204.08122> "Optimal
+Conformal Prediction for Small Areas".
 
 %prep
 %setup -q -c -n %{packname}

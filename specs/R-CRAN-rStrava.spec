@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rStrava
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Strava' API
 
@@ -24,11 +24,11 @@ BuildRequires:    R-CRAN-ggspatial
 BuildRequires:    R-CRAN-googleway 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-prettymapr 
+BuildRequires:    R-CRAN-maptiles 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyterra 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-purrr 
@@ -40,11 +40,11 @@ Requires:         R-CRAN-ggspatial
 Requires:         R-CRAN-googleway 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-prettymapr 
+Requires:         R-CRAN-maptiles 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyterra 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-purrr 

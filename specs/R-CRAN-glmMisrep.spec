@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fGarch
-%global packver   4033.92
+%global packname  glmMisrep
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4033.92
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
+Summary:          Generalized Linear Models Adjusting for Misrepresentation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
-BuildRequires:    R-CRAN-cvar >= 0.5
-BuildRequires:    R-CRAN-fBasics 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-timeSeries 
-BuildRequires:    R-CRAN-fastICA 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-poisson.glm.mix 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.5.0
-Requires:         R-CRAN-cvar >= 0.5
-Requires:         R-CRAN-fBasics 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-timeSeries 
-Requires:         R-CRAN-fastICA 
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-poisson.glm.mix 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Analyze and model heteroskedastic behavior in financial time series.
+Fit Generalized Linear Models to continuous and count outcomes, as well as
+estimate the prevalence of misrepresentation of an important binary
+predictor. Misrepresentation typically arises when there is an incentive
+for the binary factor to be misclassified in one direction (e.g., in
+insurance settings where policy holders may purposely deny a risk status
+in order to lower the insurance premium). This is accomplished by treating
+a subset of the response variable as resulting from a mixture
+distribution. Model parameters are estimated via the Expectation
+Maximization algorithm and standard errors of the estimates are obtained
+from closed forms of the Observed Fisher Information. For an introduction
+to the models and the misrepresentation framework, see Xia et. al., (2023)
+<https://variancejournal.org/article/73151-maximum-likelihood-approaches-to-misrepresentation-models-in-glm-ratemaking-model-comparisons>.
 
 %prep
 %setup -q -c -n %{packname}

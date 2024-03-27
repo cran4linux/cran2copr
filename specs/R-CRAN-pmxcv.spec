@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bioassays
-%global packver   1.0.1
+%global __requires_exclude ^libmpi
+%global packname  pmxcv
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarising Multi Well Plate Cellular Assay
+Summary:          Integration-Based Coefficients of Variance
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.00
-Requires:         R-core >= 4.00
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-nplr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-nplr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
 
 %description
-The goal is to help users to analyse data from multi wells with minimum
-effort. Using these functions several plates can be analyzed
-automatically.
+Estimate coefficient of variance percent (CV%%) for any arbitrary
+distribution, including some built-in estimates for commonly-used
+transformations in pharmacometrics. Methods are described in various
+sources, but applied here as summarized in: Prybylski, (2024)
+<doi:10.1007/s40262-023-01343-2>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mgwnbr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiscale Geographically Weighted Negative Binomial Regression
 
@@ -26,14 +26,15 @@ each covariate. Uses the negative binomial distribution as default, but
 also accepts the normal, Poisson, or logistic distributions. Can fit the
 global versions of each regression and also the geographically weighted
 alternatives with only one scale, since they are all particular cases of
-the multiscale approach. Hanchen Yu (2024). Exploring Multiscale
-Geographically Weighted Negative Binomial Regression, Annals of the
+the multiscale approach. Hanchen Yu (2024). "Exploring Multiscale
+Geographically Weighted Negative Binomial Regression", Annals of the
 American Association of Geographers <doi:10.1080/24694452.2023.2289986>.
-Fotheringham AS, Yang W, Kang W (2017). Multiscale Geographically Weighted
-Regression (MGWR), Annals of the American Association of Geographers
-<doi:10.1080/24694452.2017.1352480>. Da Silva AR, Rodrigues TCV (2014).
-Geographically Weighted Negative Binomial Regression - incorporating
-overdispersion, Statistics and Computing <doi:10.1007/s11222-013-9401-9>.
+Fotheringham AS, Yang W, Kang W (2017). "Multiscale Geographically
+Weighted Regression (MGWR)", Annals of the American Association of
+Geographers <doi:10.1080/24694452.2017.1352480>. Da Silva AR, Rodrigues
+TCV (2014). "Geographically Weighted Negative Binomial Regression -
+incorporating overdispersion", Statistics and Computing
+<doi:10.1007/s11222-013-9401-9>.
 
 %prep
 %setup -q -c -n %{packname}
