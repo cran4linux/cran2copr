@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  giscoR
-%global packver   0.4.2
+%global packname  daltoolboxdp
+%global packver   1.0.767
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.767
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Data Pre-Processing Extensions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-geojsonsf >= 2.0.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-daltoolbox 
+BuildRequires:    R-CRAN-leaps 
+BuildRequires:    R-CRAN-FSelector 
+BuildRequires:    R-CRAN-doBy 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-smotefamily 
+Requires:         R-CRAN-daltoolbox 
+Requires:         R-CRAN-leaps 
+Requires:         R-CRAN-FSelector 
+Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-smotefamily 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available.  This package is in no way officially related to or endorsed by
-Eurostat.
+An important aspect of data analytics is related to data management
+support for artificial intelligence. It is related to preparing data
+correctly. This package provides extensions to support data preparation in
+terms of both data sampling and data engineering. Overall, the package
+provides researchers with a comprehensive set of functionalities for data
+science based on experiment lines, promoting ease of use, extensibility,
+and integration with various tools and libraries. Information on
+Experiment Line is based on Ogasawara et al. (2009)
+<doi:10.1007/978-3-642-02279-1_20>.
 
 %prep
 %setup -q -c -n %{packname}

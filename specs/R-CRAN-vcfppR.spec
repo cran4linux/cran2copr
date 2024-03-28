@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  giscoR
-%global packver   0.4.2
+%global packname  vcfppR
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Rapid Manipulation of the Variant Call Format (VCF)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-geojsonsf >= 2.0.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available.  This package is in no way officially related to or endorsed by
-Eurostat.
+The 'vcfpp.h' (<https://github.com/Zilong-Li/vcfpp>) provides an
+easy-to-use 'C++' 'API' of 'htslib', offering full functionality for
+manipulating Variant Call Format (VCF) files. The 'vcfppR' package serves
+as the R bindings of the 'vcfpp.h' library, enabling rapid processing of
+both compressed and uncompressed VCF files. Explore a range of powerful
+features for efficient VCF data manipulation.
 
 %prep
 %setup -q -c -n %{packname}

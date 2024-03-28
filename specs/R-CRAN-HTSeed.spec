@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  giscoR
-%global packver   0.4.2
+%global packname  HTSeed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Fitting of Hydrotime Model for Seed Germination Time Course
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-geojsonsf >= 2.0.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available.  This package is in no way officially related to or endorsed by
-Eurostat.
+The seed germination process starts with water uptake by the seed and ends
+with the protrusion of radicle and plumule under varying temperatures and
+soil water potential. Hydrotime is a way to describe the relationship
+between water potential and seed germination rates at germination
+percentages. One important quantity before applying hydrotime modeling of
+germination percentages is to consider the proportion of viable seeds that
+could germinate under saturated conditions. This package can be used to
+apply correction factors at various water potentials before estimating
+parameters like stress tolerance, and uniformity of the hydrotime model.
+Three different distributions namely, Gaussian, Logistic, and Extreme
+value distributions have been considered to fit the model to the seed
+germination time course. Details can be found in Bradford (2002)
+<https://www.jstor.org/stable/4046371>, and Bradford and Still(2004)
+<https://www.jstor.org/stable/23433495>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqimpute
-%global packver   1.8
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation of Missing Data in Sequence Analysis
 
@@ -18,44 +18,50 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Amelia 
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-TraMineR 
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-swfscMisc 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dfidx 
-BuildRequires:    R-CRAN-mice 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mlr 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-TraMineR 
+BuildRequires:    R-CRAN-TraMineRextras 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-mice 
 Requires:         R-CRAN-Amelia 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-TraMineR 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-swfscMisc 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dfidx 
-Requires:         R-CRAN-mice 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
 Requires:         R-CRAN-mlr 
 Requires:         R-CRAN-nnet 
+Requires:         R-parallel 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-rms 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-TraMineR 
+Requires:         R-CRAN-TraMineRextras 
+Requires:         R-utils 
+Requires:         R-CRAN-mice 
 
 %description
 Multiple imputation of missing data present in a dataset through the
 prediction based on either a random forest or a multinomial regression
-model. Covariates and time-dependant covariates can be included in the
+model. Covariates and time-dependent covariates can be included in the
 model. The prediction of the missing values is based on the method of
 Halpin (2012)
 <https://researchrepository.ul.ie/articles/report/Multiple_imputation_for_life-course_sequence_data/19839736>.

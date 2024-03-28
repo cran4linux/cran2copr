@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jsmodule
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -51,6 +51,7 @@ BuildRequires:    R-CRAN-officer
 BuildRequires:    R-CRAN-rvg 
 BuildRequires:    R-CRAN-epiDisplay 
 BuildRequires:    R-CRAN-forestploter 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-MatchIt >= 3.0.0
 Requires:         R-CRAN-jskm >= 0.4.4
 Requires:         R-utils 
@@ -85,6 +86,7 @@ Requires:         R-CRAN-officer
 Requires:         R-CRAN-rvg 
 Requires:         R-CRAN-epiDisplay 
 Requires:         R-CRAN-forestploter 
+Requires:         R-CRAN-scales 
 
 %description
 'RStudio' addins and 'Shiny' modules for descriptive statistics,

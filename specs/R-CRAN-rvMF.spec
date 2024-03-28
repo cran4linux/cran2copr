@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvMF
-%global packver   0.0.8
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Generation of von Mises-Fisher Distributed Pseudo-Random Vectors
 
@@ -31,7 +31,8 @@ distribution on a sphere. This method is fast and efficient when
 generating a large number of pseudo-random vectors. Functions to generate
 random variates and compute density for the distribution of an inner
 product between von Mises-Fisher random vector and its mean direction are
-also provided.
+also provided. Details are in Kang and Oh (2024)
+<doi:10.1007/s11222-024-10419-3>.
 
 %prep
 %setup -q -c -n %{packname}

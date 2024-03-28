@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  giscoR
-%global packver   0.4.2
+%global packname  Oncofilterfast
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Map Data from GISCO API - Eurostat
+Summary:          Aids in the Analysis of Genes Influencing Cancer Survival
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geojsonsf >= 2.0.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-utils 
-Requires:         R-CRAN-geojsonsf >= 2.0.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-utils 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
 
 %description
-Tools to download data from the GISCO (Geographic Information System of
-the Commission) Eurostat database
-<https://ec.europa.eu/eurostat/web/gisco>. Global and European map data
-available.  This package is in no way officially related to or endorsed by
-Eurostat.
+Aids in the analysis of genes influencing cancer survival by including a
+principal function, calculator(), which calculates the P-value for each
+provided gene under the optimal cutoff in cancer survival studies.
+Grounded in methodologies from significant works, this package references
+Therneau's 'survival' package (Therneau, 2024;
+<https://CRAN.R-project.org/package=survival>) and the survival analysis
+extensions by Therneau and Grambsch (2000, ISBN 0-387-98784-3). It also
+integrates the 'survminer' package by Kassambara et al. (2021;
+<https://CRAN.R-project.org/package=survminer>), enhancing survival curve
+visualizations with 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

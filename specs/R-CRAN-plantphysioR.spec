@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LTASR
-%global packver   0.1.3
+%global packname  plantphysioR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Replicate the Center for Disease Control and Prevention's 'LTAS' Software in R
+Summary:          Fundamental Formulas for Plant Physiology
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-zoo 
 
 %description
-A suite of functions for reading in a rate file in XML format, stratify a
-cohort, and calculate 'SMRs' from the stratified cohort and rate file.
+Functions tailored for scientific and student communities involved in
+plant science research. Functionalities encompass estimation chlorophyll
+content according to Arnon (1949) <doi:10.1104/pp.24.1.1>, determination
+water potential of Polyethylene glycol(PEG)6000 as in Michel and Kaufmann
+(1973) <doi:10.1104/pp.51.5.914> and functions related to estimation of
+yield related indices like Abiotic tolerance index as given by Moosavi et
+al.(2008)<doi:10.22059/JDESERT.2008.27115>, Geometric mean productivity
+(GMP) by Fernandez (1992) <ISBN:92-9058-081-X>, Golden Mean by Moradi et
+al.(2012)<doi:10.14207/ejsd.2012.v1n3p543>, HAM by Schneider et
+al.(1997)<doi:10.2135/cropsci1997.0011183X003700010007x>,MPI and TOL by
+Hossain etal., (1990)<doi:10.2135/cropsci1990.0011183X003000030030x>, RDI
+by Fischer et al. (1979)<doi:10.1071/AR9791001>,SSI by Fisher et
+al.(1978)<doi:10.1071/AR9780897>, STI by Fernandez
+(1993)<doi:10.22001/wvc.72511>,YSI by Bouslama & Schapaugh
+(1984)<doi:10.2135/cropsci1984.0011183X002400050026x>, Yield index by
+Gavuzzi et al.(1997)<doi:10.4141/P96-130>.
 
 %prep
 %setup -q -c -n %{packname}

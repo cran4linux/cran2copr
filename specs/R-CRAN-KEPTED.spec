@@ -1,44 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  odpc
-%global packver   2.0.5
+%global __requires_exclude ^libmpi
+%global packname  KEPTED
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          One-Sided Dynamic Principal Components
+Summary:          Kernel-Embedding-of-Probability Test for Elliptical Distribution
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.500.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.7
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp >= 0.12.7
-Requires:         R-methods 
-Requires:         R-CRAN-forecast 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-cubature 
+Requires:         R-stats 
 
 %description
-Functions to compute the one-sided dynamic principal components ('odpc')
-introduced in Peña, Smucler and Yohai (2019)
-<DOI:10.1080/01621459.2018.1520117>. 'odpc' is a novel dimension reduction
-technique for multivariate time series, that is useful for forecasting.
-These dynamic principal components are defined as the linear combinations
-of the present and past values of the series that minimize the
-reconstruction mean squared error.
+Provides an implementation of a kernel-embedding of probability test for
+elliptical distribution. This is an asymptotic test for elliptical
+distribution under general alternatives, and the location and shape
+parameters are assumed to be unknown. Some side-products are posted,
+including the transformation between rectangular and polar coordinates and
+two product-type kernel functions. See Tang and Li (2024)
+<arXiv:2306.10594> for details.
 
 %prep
 %setup -q -c -n %{packname}
