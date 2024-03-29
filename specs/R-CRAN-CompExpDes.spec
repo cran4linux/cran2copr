@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcmodify
-%global packver   0.9.0
+%global packname  CompExpDes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modify Data Using Externally Defined Modification Rules
+Summary:          Computer Experiment Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lumberjack >= 1.3.1
-BuildRequires:    R-CRAN-validate >= 1.1.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lumberjack >= 1.3.1
-Requires:         R-CRAN-validate >= 1.1.3
-Requires:         R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-settings 
-Requires:         R-utils 
 
 %description
-Data cleaning scripts typically contain a lot of 'if this change that'
-type of statements. Such statements are typically condensed expert
-knowledge. With this package, such 'data modifying rules' are taken out of
-the code and become in stead parameters to the work flow. This allows one
-to maintain, document, and reason about data modification rules as
-separate entities.
+In computer experiments space-filling designs are having great impact.
+Most popularly used space-filling designs are Uniform designs (UDs), Latin
+hypercube designs (LHDs) etc. For further references one can see Mckay
+(1979) <DOI:10.1080/00401706.1979.10489755> and Fang (1980)
+<https://cir.nii.ac.jp/crid/1570291225616774784>. In this package, we have
+provided algorithms for generate efficient LHDs and UDs. Here, generated
+LHDs are efficient as they possess lower value of Maxpro measure, Phi_p
+value and Maximum Absolute Correlation (MAC) value. On the other hand, the
+produced UDs are having good space-filling property as they attained the
+lower bound of Discrete Discrepancy measure.
 
 %prep
 %setup -q -c -n %{packname}

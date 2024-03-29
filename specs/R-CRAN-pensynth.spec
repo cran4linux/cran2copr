@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pensynth
-%global packver   0.3.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalized Synthetic Control Estimation
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-clarabel 
-Requires:         R-CRAN-geometry 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-clarabel 
+Requires:         R-CRAN-Matrix 
 
 %description
 Estimate penalized synthetic control models and perform hold-out

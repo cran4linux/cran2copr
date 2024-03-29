@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcmodify
-%global packver   0.9.0
+%global packname  SurviMChd
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modify Data Using Externally Defined Modification Rules
+Summary:          High Dimensional Survival Data Analysis with Markov Chain Monte Carlo
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lumberjack >= 1.3.1
-BuildRequires:    R-CRAN-validate >= 1.1.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lumberjack >= 1.3.1
-Requires:         R-CRAN-validate >= 1.1.3
-Requires:         R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-settings 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-dplyr 
 
 %description
-Data cleaning scripts typically contain a lot of 'if this change that'
-type of statements. Such statements are typically condensed expert
-knowledge. With this package, such 'data modifying rules' are taken out of
-the code and become in stead parameters to the work flow. This allows one
-to maintain, document, and reason about data modification rules as
-separate entities.
+High dimensional survival data analysis with Markov Chain Monte
+Carlo(MCMC). Currently supports frailty data analysis. Allows for Weibull
+and Exponential distribution. Includes function for interval censored
+data.
 
 %prep
 %setup -q -c -n %{packname}

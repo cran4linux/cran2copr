@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidywikidatar
-%global packver   0.5.7
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore 'Wikidata' Through Tidy Data Frames
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-WikidataR 
 BuildRequires:    R-CRAN-stringr 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-WikidataQueryServiceR 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-progress 
@@ -36,9 +36,9 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-WikipediR 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-WikidataR 
 Requires:         R-CRAN-stringr 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-DBI
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-WikidataQueryServiceR 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-progress 

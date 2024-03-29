@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sspse
-%global packver   1.1.0
+%global packver   1.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Hidden Population Size using Respondent Driven Sampling Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RDS 
@@ -33,8 +33,10 @@ Requires:         R-CRAN-coda
 Estimate the size of a networked population based on respondent-driven
 sampling data. The package is part of the "RDS Analyst" suite of packages
 for the analysis of respondent-driven sampling data. See Handcock, Gile
-and Mar (2014) <doi:10.1214/14-EJS923> and Handcock, Gile and Mar (2015)
-<doi:10.1111/biom.12255>.
+and Mar (2014) <doi:10.1214/14-EJS923>, Handcock, Gile and Mar (2015)
+<doi:10.1111/biom.12255>, Kim and Handcock (2021)
+<doi:10.1093/jssam/smz055>, and McLaughlin, et. al. (2023)
+<doi:10.1214/23-AOAS1807>.
 
 %prep
 %setup -q -c -n %{packname}

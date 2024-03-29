@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bslib
-%global packver   0.6.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
 
@@ -18,7 +18,8 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-memoise >= 2.0.1
-BuildRequires:    R-CRAN-htmltools >= 0.5.7
+BuildRequires:    R-CRAN-fastmap >= 1.1.1
+BuildRequires:    R-CRAN-htmltools >= 0.5.8
 BuildRequires:    R-CRAN-sass >= 0.4.9
 BuildRequires:    R-CRAN-jquerylib >= 0.1.3
 BuildRequires:    R-CRAN-base64enc 
@@ -29,7 +30,8 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-memoise >= 2.0.1
-Requires:         R-CRAN-htmltools >= 0.5.7
+Requires:         R-CRAN-fastmap >= 1.1.1
+Requires:         R-CRAN-htmltools >= 0.5.8
 Requires:         R-CRAN-sass >= 0.4.9
 Requires:         R-CRAN-jquerylib >= 0.1.3
 Requires:         R-CRAN-base64enc 

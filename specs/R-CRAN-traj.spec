@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traj
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Functional Data Based on Measures of Change
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cluster 
@@ -25,12 +25,12 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-psych 
 
 %description
-Implements the three-step procedure proposed by Leffondree et al. (2004)
-to identify clusters of individual longitudinal trajectories. The
-procedure involves (1) calculating a number of measures of change
+Implements a three-step procedure in the spirit of Leffondree et al.
+(2004) to identify clusters of individual longitudinal trajectories. The
+procedure involves (1) computing a number of "measures of change""
 capturing various features of the trajectories; (2) using a Principal
 Component Analysis based dimension reduction algorithm to select a subset
-of measures and (3) using the K-means clustering algorithm to identify
+of measures and (3) using the k-means clustering algorithm to identify
 clusters of trajectories.
 
 %prep

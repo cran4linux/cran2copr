@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpcde
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boundary Adaptive Local Polynomial Conditional Density Estimator
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.8
@@ -32,12 +33,13 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-combinat 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 
 %description
 Tools for estimation and inference of conditional densities, derivatives
 and functions. This is the companion software for Cattaneo, Chandak,
-Jansson and Ma (2024).
+Jansson and Ma (2024) <arXiv:2204.10359>.
 
 %prep
 %setup -q -c -n %{packname}

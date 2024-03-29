@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  canprot
-%global packver   1.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chemical Metrics of Differentially Expressed Proteins
+Summary:          Chemical Analysis of Proteins
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,27 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CHNOSZ >= 1.3.2
-BuildRequires:    R-CRAN-xtable 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-CHNOSZ >= 1.3.2
-Requires:         R-CRAN-xtable 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-multcompView 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-multcompView 
 
 %description
-Chemical metrics of differentially expressed proteins in cancer and cell
-culture proteomics experiments. Data files in the package have amino acid
-compositions of proteins obtained from UniProt and >250 published lists of
-up- and down-regulated proteins in different cancer types and laboratory
-experiments. Functions are provided to calculate chemical metrics
-including protein length, grand average of hydropathicity (GRAVY),
-isoelectric point (pI), carbon oxidation state, and stoichiometric
-hydration state; the latter two are described in Dick et al. (2020)
-<doi:10.5194/bg-17-6145-2020>. The vignettes visualize differences of
-chemical metrics between up- and down-regulated proteins and list
-literature references for all datasets.
+Chemical analysis of proteins based on their amino acid compositions.
+Amino acid compositions can be read from FASTA files and used to calculate
+chemical metrics including carbon oxidation state and stoichiometric
+hydration state, as described in Dick et al. (2020)
+<doi:10.5194/bg-17-6145-2020>. Other properties that can be calculated
+include protein length, grand average of hydropathy (GRAVY), isoelectric
+point (pI), molecular weight (MW), standard molal volume (V0), and
+metabolic costs (Akashi and Gojobori, 2002 <doi:10.1073/pnas.062526999>;
+Wagner, 2005 <doi:10.1093/molbev/msi126>; Zhang et al., 2018
+<doi:10.1038/s41467-018-06461-1>). A database of amino acid compositions
+of human proteins derived from UniProt is provided.
 
 %prep
 %setup -q -c -n %{packname}

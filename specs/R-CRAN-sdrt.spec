@@ -1,42 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcmodify
-%global packver   0.9.0
+%global packname  sdrt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modify Data Using Externally Defined Modification Rules
+Summary:          Estimating the Sufficient Dimension Reduction Subspaces in Time Series
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lumberjack >= 1.3.1
-BuildRequires:    R-CRAN-validate >= 1.1.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lumberjack >= 1.3.1
-Requires:         R-CRAN-validate >= 1.1.3
-Requires:         R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-settings 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-pracma 
 
 %description
-Data cleaning scripts typically contain a lot of 'if this change that'
-type of statements. Such statements are typically condensed expert
-knowledge. With this package, such 'data modifying rules' are taken out of
-the code and become in stead parameters to the work flow. This allows one
-to maintain, document, and reason about data modification rules as
-separate entities.
+The sdrt() function is designed for estimating subspaces for Sufficient
+Dimension Reduction (SDR) in time series, with a specific focus on the
+Time Series Central Mean subspace (TS-CMS). The package employs the
+Fourier transformation method proposed by Samadi and De Alwis (2023)
+<doi:10.48550/arXiv.2312.02110> and the Nadaraya-Watson kernel smoother
+method proposed by Park et al. (2009) <doi:10.1198/jcgs.2009.08076> for
+estimating the TS-CMS. The package provides tools for estimating distances
+between subspaces and includes functions for selecting model parameters
+using the Fourier transformation method.
 
 %prep
 %setup -q -c -n %{packname}

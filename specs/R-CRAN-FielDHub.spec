@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FielDHub
-%global packver   1.3.4
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny App for Design of Experiments in Life Sciences
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.0
 BuildRequires:    R-CRAN-config 
@@ -23,13 +23,10 @@ BuildRequires:    R-CRAN-golem
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-turner 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-shinyjqui 
 BuildRequires:    R-CRAN-numbers 
 BuildRequires:    R-CRAN-blocksdesign 
 BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-viridis 
@@ -42,13 +39,10 @@ Requires:         R-CRAN-golem
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-turner 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-shinyjqui 
 Requires:         R-CRAN-numbers 
 Requires:         R-CRAN-blocksdesign 
 Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-viridis 

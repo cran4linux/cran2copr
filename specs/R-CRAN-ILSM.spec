@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dcmodify
-%global packver   0.9.0
+%global packname  ILSM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modify Data Using Externally Defined Modification Rules
+Summary:          Analyze Inter-Layer Structure of Multilayer Ecological Network
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lumberjack >= 1.3.1
-BuildRequires:    R-CRAN-validate >= 1.1.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-settings 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-lumberjack >= 1.3.1
-Requires:         R-CRAN-validate >= 1.1.3
-Requires:         R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-settings 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-igraph 
 
 %description
-Data cleaning scripts typically contain a lot of 'if this change that'
-type of statements. Such statements are typically condensed expert
-knowledge. With this package, such 'data modifying rules' are taken out of
-the code and become in stead parameters to the work flow. This allows one
-to maintain, document, and reason about data modification rules as
-separate entities.
+In view of the analysis of the structural characteristics of the
+multilayer network has been complete, however, there is still a lack of a
+unified operation that can quickly obtain the corresponding
+characteristics of the multilayer network. To solve this insufficiency,
+'ILSM' was designed for supporting calculating such metrics of multilayer
+network by functions of this R package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggblanket
-%global packver   7.0.0
+%global packname  multivarious
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplify 'ggplot2' Visualisation
+Summary:          Extensible Data Structures for Multivariate Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,41 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.8
-BuildRequires:    R-CRAN-scales >= 1.3.0
-BuildRequires:    R-CRAN-stringr >= 1.3.0
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-hms >= 0.5.0
-BuildRequires:    R-CRAN-viridisLite >= 0.4.0
-BuildRequires:    R-CRAN-farver 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-snakecase 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-lubridate >= 1.7.8
-Requires:         R-CRAN-scales >= 1.3.0
-Requires:         R-CRAN-stringr >= 1.3.0
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-hms >= 0.5.0
-Requires:         R-CRAN-viridisLite >= 0.4.0
-Requires:         R-CRAN-farver 
-Requires:         R-CRAN-forcats 
-Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rsvd 
+BuildRequires:    R-CRAN-svd 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-fitdistrplus 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-rsvd 
+Requires:         R-CRAN-svd 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-fitdistrplus 
 
 %description
-Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.
+Provides a set of basic and extensible data structures and functions for
+multivariate analysis, including dimensionality reduction techniques,
+projection methods, and preprocessing functions. The aim of this package
+is to offer a flexible and user-friendly framework for multivariate
+analysis that can be easily extended for custom requirements and specific
+data analysis tasks.
 
 %prep
 %setup -q -c -n %{packname}

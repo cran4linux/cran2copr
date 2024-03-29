@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allelematch
-%global packver   2.5.3
+%global packver   2.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identifying Unique Multilocus Genotypes where Genotyping Error and Missing Data may be Present
 

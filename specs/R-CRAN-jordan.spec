@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jordan
-%global packver   1.0-1
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Suite of Routines for Working with Jordan Algebras
 
@@ -17,10 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-onion >= 1.4.0
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-emulator 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-onion >= 1.4.0
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-emulator 
 Requires:         R-methods 
 Requires:         R-CRAN-mathjaxr 
@@ -30,7 +33,8 @@ A Jordan algebra is an algebraic object originally designed to study
 observables in quantum mechanics.  Jordan algebras are commutative but
 non-associative; they satisfy the Jordan identity.  The package follows
 the ideas and notation of K. McCrimmon (2004, ISBN:0-387-95447-3) "A Taste
-of Jordan Algebras".
+of Jordan Algebras".  To cite in publications please use Hankin (2023)
+<arXiv:2303.06062v1>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

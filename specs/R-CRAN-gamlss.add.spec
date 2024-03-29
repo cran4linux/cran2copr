@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gamlss.add
-%global packver   5.1-12
+%global packver   5.1-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1.12
+Version:          5.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Additive Terms for Generalized Additive Models for Location Scale and Shape
 

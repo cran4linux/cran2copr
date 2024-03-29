@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eDITH
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Transport of Environmental DNA in River Networks
 
@@ -42,8 +42,9 @@ eDNA concentration (e.g., obtained via quantitative polymerase chain
 reaction) or metabarcoding (read count) data. Parameter estimation can be
 performed via Bayesian techniques (via the 'BayesianTools' package) or
 optimization algorithms. An interface to the 'DHARMa' package for
-posterior predictive checks is provided. See Carraro et al. (2018)
-<doi:10.1073/pnas.1813843115> and Carraro et al. (2020)
+posterior predictive checks is provided. See Carraro and Altermatt (2024)
+<doi:10.1111/2041-210X.14317> for a package introduction; Carraro et al.
+(2018) <doi:10.1073/pnas.1813843115> and Carraro et al. (2020)
 <doi:10.1038/s41467-020-17337-8> for methodological details.
 
 %prep

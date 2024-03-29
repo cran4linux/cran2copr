@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nphPower
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Size Calculation under Non-Proportional Hazards
 
@@ -34,15 +35,17 @@ hazards or non-proportional hazards. The combination tests include maximum
 weighted log-rank test and projection test. The sample size calculation
 procedure is very flexible, allowing for user-defined hazard ratio
 function and considering various trial conditions like staggered entry,
-drop-out etc. Trial simulation function is also provided to facilitate the
-empirical power calculation. The references for projection test and
-maximum weighted logrank test include Brendel et al. (2014)
+drop-out etc. The sample size calculation also applies to various cure
+models such as proportional hazards cure model, cure model with (random)
+delayed treatments effects. Trial simulation function is also provided to
+facilitate the empirical power calculation. The references for projection
+test and maximum weighted logrank test include Brendel et al. (2014)
 <doi:10.1111/sjos.12059> and Cheng and He (2021) <arXiv:2110.03833>. The
 references for sample size calculation under proportional hazard include
 Schoenfeld (1981) <doi:10.1093/biomet/68.1.316> and Freedman (1982)
 <doi:10.1002/sim.4780010204>. The references for calculation under
 non-proportional hazards include Lakatos (1988) <doi:10.2307/2531910> and
-Cheng and He (2021) (under review).
+Cheng and He (2023) <doi:10.1002/bimj.202100403>.
 
 %prep
 %setup -q -c -n %{packname}
