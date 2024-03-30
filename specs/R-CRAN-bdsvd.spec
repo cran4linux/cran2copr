@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smd
-%global packver   0.6.7
+%global packname  bdsvd
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Standardized Mean Differences
+Summary:          Block Structure Detection Using Singular Vectors
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.50
-BuildRequires:    R-methods >= 3.5.1
-Requires:         R-CRAN-MASS >= 7.3.50
-Requires:         R-methods >= 3.5.1
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-irlba 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Computes standardized mean differences and confidence intervals for
-multiple data types based on Yang, D., & Dalton, J. E. (2012)
-<http://www.lerner.ccf.org/qhs/software/lib/stddiff.pdf>.
+Performs block diagonal covariance matrix detection using singular vectors
+(BD-SVD), which can be extended to hierarchical variable clustering
+(HC-SVD). The methods are described in Bauer (202Xa) <arXiv:2211.16155>
+and Bauer (202Xb) <arXiv:2308.06820>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bgw
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bunch-Gay-Welsch Statistical Estimation
 
@@ -34,21 +34,19 @@ developed for general optimization. The 'bgw' package bundles 'R' wrapper
 be compiled and linked in the 'R' environment for fast execution. This
 version implements a function ('bgw_mle.R') that performs maximum
 likelihood estimation (MLE) for a user-provided model object that computes
-probabilities (a.k.a. probability densities). The motivation for producing
-this initial version is to provide fast, efficient, and reliable MLE for
-discrete choice models that can be called from the 'Apollo' choice
-modelling 'R' package: see <http://www.apollochoicemodelling.com>.
-However, estimation can also be performed in a stand-alone fashion without
-using 'Apollo' (as shown in simple examples). After this initial version
-is available on CRAN, an updated version of 'Apollo' (0.2.9) will be made
-available that automatically loads 'bgw'. Additional development can then
-occur, including more detailed examples in 'bgw' that refer to 'Apollo.'
-Note also that BGW capabilities are not limited to MLE, and future
-extension to other estimators (e.g., nonlinear least squares, generalized
-method of moments, etc.) is possible. The 'Fortran' code included in 'bgw'
-was modified by one of the original BGW authors (Bunch) under his rights
-as confirmed by direct consultation with the ACM Intellectual Property and
-Rights Manager.  See
+probabilities (a.k.a. probability densities). The original motivation for
+producing this package was to provide fast, efficient, and reliable MLE
+for discrete choice models that can be called from the 'Apollo' choice
+modelling 'R' package ( see <http://www.apollochoicemodelling.com>).
+Starting with the release of Apollo 3.0, BGW is the default estimation
+package. However, estimation can also be performed using BGW in a
+stand-alone fashion without using 'Apollo' (as shown in simple examples
+included in the package). Note also that BGW capabilities are not limited
+to MLE, and future extension to other estimators (e.g., nonlinear least
+squares, generalized method of moments, etc.) is possible. The 'Fortran'
+code included in 'bgw' was modified by one of the original BGW authors
+(Bunch) under his rights as confirmed by direct consultation with the ACM
+Intellectual Property and Rights Manager.  See
 <https://authors.acm.org/author-resources/author-rights>. The main
 requirement is clear citation of the original publication (see above).
 

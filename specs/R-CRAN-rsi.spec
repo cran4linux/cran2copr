@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsi
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficiently Retrieve and Process Satellite Imagery
 
@@ -19,7 +19,9 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-proceduralnames 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstac 
@@ -28,7 +30,9 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-proceduralnames 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstac 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smd
-%global packver   0.6.7
+%global packname  trainsplit
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Standardized Mean Differences
+Summary:          Split a Dataframe, Tibble, or Data.table into Training and Test Sets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.50
-BuildRequires:    R-methods >= 3.5.1
-Requires:         R-CRAN-MASS >= 7.3.50
-Requires:         R-methods >= 3.5.1
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-Computes standardized mean differences and confidence intervals for
-multiple data types based on Yang, D., & Dalton, J. E. (2012)
-<http://www.lerner.ccf.org/qhs/software/lib/stddiff.pdf>.
+Split a dataframe, tibble, or data.table into a list containing training
+and test sets. Can specify either number or percentage of observations to
+go into the training set.
 
 %prep
 %setup -q -c -n %{packname}

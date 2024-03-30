@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rTensor2
-%global packver   0.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MultiLinear Algebra
 
@@ -18,12 +18,16 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-CRAN-wavethresh 
 BuildRequires:    R-CRAN-gsignal 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-png 
 Requires:         R-CRAN-rTensor 
 Requires:         R-CRAN-wavethresh 
 Requires:         R-CRAN-gsignal 

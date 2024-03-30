@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NO.PING.PONG
-%global packver   0.1.6
+%global packver   0.1.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Incorporating Previous Findings When Evaluating New Data
 
@@ -38,7 +38,7 @@ findings along with new data is more likely to result in correct
 conclusions than does the traditional practice of not incorporating
 previous findings, which often results in a back and forth ping-pong of
 conclusions when evaluating a sequence of studies. O'Connor & Ermacora
-(2021, <doi:10.3758/bf03200807>).
+(2021, <doi:10.1037/cbs0000259>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iml
-%global packver   0.11.1
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-prediction 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-prediction 
 Requires:         R-CRAN-R6 
 
 %description

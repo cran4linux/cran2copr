@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  felp
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Help for Functions, Objects, and Packages
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-prettycode 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-prettycode 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 

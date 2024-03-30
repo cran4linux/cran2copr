@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  joyn
-%global packver   0.2.0
+%global packname  ccdR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool for Diagnosis of Tables Joins and Complementary Join Features
+Summary:          Utilities for Interacting with the 'CCTE' APIs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-collapse >= 2.0.9
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-collapse >= 2.0.9
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-urltools 
 Requires:         R-CRAN-cli 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-urltools 
 
 %description
-Tool for diagnosing table joins. It combines the speed of `collapse` and
-`data.table`, the flexibility of `dplyr`, and the diagnosis and features
-of the `merge` command in `Stata`.
+Access chemical, hazard, and bioactivity data from the Center for
+Computational Toxicology and Exposure ('CCTE') APIs
+<https://api-ccte.epa.gov/docs/>. 'ccdR' was developed to streamline the
+process of accessing the information available through the 'CCTE' APIs
+without requiring prior knowledge of how to use APIs. All data is also
+available on the CompTox Chemical Dashboard ('CCD')
+<https://comptox.epa.gov/dashboard/>.
 
 %prep
 %setup -q -c -n %{packname}
