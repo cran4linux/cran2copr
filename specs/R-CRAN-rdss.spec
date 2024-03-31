@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdss
-%global packver   1.0.8
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dataverse 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-marginaleffects 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-estimatr 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dataverse 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-marginaleffects 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-estimatr 

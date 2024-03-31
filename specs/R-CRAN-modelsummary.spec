@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelsummary
-%global packver   1.4.5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-kableExtra >= 1.3.4
+BuildRequires:    R-CRAN-checkmate >= 2.3.1
+BuildRequires:    R-CRAN-data.table >= 1.15.2
 BuildRequires:    R-CRAN-tables >= 0.9.17
-BuildRequires:    R-CRAN-parameters >= 0.21.2
-BuildRequires:    R-CRAN-insight >= 0.19.6
-BuildRequires:    R-CRAN-performance >= 0.10.5
-BuildRequires:    R-CRAN-tinytable >= 0.0.4
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-parameters >= 0.21.6
+BuildRequires:    R-CRAN-tinytable >= 0.2.1
+BuildRequires:    R-CRAN-insight >= 0.19.9
+BuildRequires:    R-CRAN-performance >= 0.10.9
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-kableExtra >= 1.3.4
+BuildRequires:    R-methods 
+Requires:         R-CRAN-checkmate >= 2.3.1
+Requires:         R-CRAN-data.table >= 1.15.2
 Requires:         R-CRAN-tables >= 0.9.17
-Requires:         R-CRAN-parameters >= 0.21.2
-Requires:         R-CRAN-insight >= 0.19.6
-Requires:         R-CRAN-performance >= 0.10.5
-Requires:         R-CRAN-tinytable >= 0.0.4
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-parameters >= 0.21.6
+Requires:         R-CRAN-tinytable >= 0.2.1
+Requires:         R-CRAN-insight >= 0.19.9
+Requires:         R-CRAN-performance >= 0.10.9
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
 Create beautiful and customizable tables to summarize several statistical

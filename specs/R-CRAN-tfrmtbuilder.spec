@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tfrmtbuilder
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' App Companion to the 'tfrmt' Package
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib >= 0.6.0
 BuildRequires:    R-CRAN-tfrmt >= 0.1.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sortable 
-BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-shinycssloaders 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-webshot2
 BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-shinyFeedback 
 BuildRequires:    R-CRAN-fontawesome 
+Requires:         R-CRAN-bslib >= 0.6.0
 Requires:         R-CRAN-tfrmt >= 0.1.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
@@ -49,7 +50,6 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sortable 
-Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-shinycssloaders 
