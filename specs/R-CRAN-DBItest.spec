@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DBItest
-%global packver   1.8.0
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing DBI Backends
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-testthat >= 2.0.0
+BuildRequires:    R-CRAN-DBI >= 1.2.1
 BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-hms >= 0.5.0
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-callr 
@@ -30,11 +30,10 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-palmerpenguins 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-testthat >= 2.0.0
+Requires:         R-CRAN-DBI >= 1.2.1
 Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-hms >= 0.5.0
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-callr 
@@ -45,7 +44,6 @@ Requires:         R-methods
 Requires:         R-CRAN-nanoarrow 
 Requires:         R-CRAN-palmerpenguins 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 
 
 %description

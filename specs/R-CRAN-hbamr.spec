@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hbamr
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Bayesian Aldrich-McKelvey Scaling via 'Stan'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rstantools >= 2.2.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.1
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-rstan >= 2.26.1
 Requires:         R-CRAN-rstantools >= 2.2.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
