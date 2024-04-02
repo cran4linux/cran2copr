@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mHMMbayes
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Hidden Markov Models Using Bayesian Estimation
 
@@ -38,8 +38,8 @@ e.g., de Haan-Rietdijk et al. <doi:10.1080/00273171.2017.1370364>. Using a
 multilevel framework, we allow for heterogeneity in the model parameters
 (transition probability matrix and conditional distribution), while
 estimating one overall HMM. The model can be fitted on multivariate data
-with either a categorical or Normal distribution, and include individual
-level covariates (allowing for e.g., group comparisons on model
+with either a categorical, normal, or Poisson distribution, and include
+individual level covariates (allowing for e.g., group comparisons on model
 parameters). Parameters are estimated using Bayesian estimation utilizing
 the forward-backward recursion within a hybrid Metropolis within Gibbs
 sampler. Missing data (NA) in the dependent variables is accommodated

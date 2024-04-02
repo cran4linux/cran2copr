@@ -1,58 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loon.ggplot
-%global packver   1.3.4
+%global packname  funModeling
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.9.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Grammar of Interactive Graphics
+Summary:          Exploratory Data Analysis and Data Preparation Tool-Box
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-loon >= 1.3.2
-BuildRequires:    R-tcltk 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Hmisc >= 3.17.1
+BuildRequires:    R-CRAN-ROCR 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggmulti 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-entropy 
 BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-loon >= 1.3.2
-Requires:         R-tcltk 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-Hmisc >= 3.17.1
+Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggmulti 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-pander 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lazyeval 
+Requires:         R-utils 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-entropy 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides a bridge between the 'loon' and 'ggplot2' packages.  Extends the
-grammar of ggplot to add clauses to create interactive 'loon' plots.
-Existing ggplot(s) can be turned into interactive 'loon' plots and 'loon'
-plots into static ggplot(s); the function 'loon.ggplot()' is the bridge
-from one plot structure to the other.
+Around 10%% of almost any predictive modeling project is spent in
+predictive modeling, 'funModeling' and the book Data Science Live Book
+(<https://livebook.datascienceheroes.com/>) are intended to cover
+remaining 90%%: data preparation, profiling, selecting best variables
+'dataViz', assessing model performance and other functions.
 
 %prep
 %setup -q -c -n %{packname}
@@ -72,7 +73,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

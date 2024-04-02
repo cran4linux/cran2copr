@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geoperu
-%global packver   0.0.0.1
+%global packver   0.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.1
+Version:          0.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Spatial Datasets of Peru
 
@@ -31,10 +31,12 @@ Requires:         R-CRAN-sf
 %description
 Provides convenient access to the official spatial datasets of Peru as
 'sf' objects in R. This package includes a wide range of geospatial data
-covering various aspects of Peruvian geography, such as administrative
-divisions (Source: INEI <https://ide.inei.gob.pe/>). All datasets are
-harmonized in terms of attributes, projection, and topology, ensuring
-consistency and ease of use for spatial analysis and visualization.
+covering various aspects of Peruvian geography, such as: administrative
+divisions (Source: INEI <https://ide.inei.gob.pe/>), protected natural
+areas (Source: GEO ANP - SERNANP
+<https://geo.sernanp.gob.pe/visorsernanp/>). All datasets are harmonized
+in terms of attributes, projection, and topology, ensuring consistency and
+ease of use for spatial analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

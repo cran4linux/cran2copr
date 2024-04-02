@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stringx
-%global packver   0.2.6
+%global packname  ERDbuilder
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Replacements for Base String Functions Powered by 'stringi'
+Summary:          Entity Relationship Diagrams Builder
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringi >= 1.7.2
-Requires:         R-CRAN-stringi >= 1.7.2
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-dplyr 
 
 %description
-English is the native language for only 5%% of the World population. Also,
-only 17%% of us can understand this text. Moreover, the Latin alphabet is
-the main one for merely 36%% of the total. The early computer era, now a
-very long time ago, was dominated by the US. Due to the proliferation of
-the internet, smartphones, social media, and other technologies and
-communication platforms, this is no longer the case. This package replaces
-base R string functions (such as grep(), tolower(), sprintf(), and
-strptime()) with ones that fully support the Unicode standards related to
-natural language and date-time processing. It also fixes some
-long-standing inconsistencies, and introduces some new, useful features.
-Thanks to 'ICU' (International Components for Unicode) and 'stringi', they
-are fast, reliable, and portable across different platforms.
+Build entity relationship diagrams (ERD) to specify the nature of the
+relationship between tables in a database.
 
 %prep
 %setup -q -c -n %{packname}

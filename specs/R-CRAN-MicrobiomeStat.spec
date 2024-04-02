@@ -1,32 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  textutils
-%global packver   0.4-1
+%global packname  MicrobiomeStat
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Handling Strings and Text
+Summary:          Statistical Methods for Microbiome Compositional Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-modeest 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-parallel 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-modeest 
 
 %description
-Utilities for handling character vectors that store human-readable text
-(either plain or with markup, such as HTML or LaTeX). The package
-provides, in particular, functions that help with the preparation of
-plain-text reports, e.g. for expanding and aligning strings that form the
-lines of such reports. The package also provides generic functions for
-transforming R objects to HTML and to plain text.
+A suite of methods for powerful and robust microbiome data analysis
+addressing zero-inflation, phylogenetic structure and compositional
+effects (Zhou et al. (2022)<doi:10.1186/s13059-022-02655-5>).  The methods
+can be applied to the analysis of other (high-dimensional) compositional
+data arising from sequencing experiments.
 
 %prep
 %setup -q -c -n %{packname}

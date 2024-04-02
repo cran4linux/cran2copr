@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scoringTools
-%global packver   0.1.3
+%global packname  mefdind
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Credit Scoring Tools
+Summary:          Imports Data from MoE Spain
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-discretization 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-discretization 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Grouping essential tools for credit scoring. These statistical tools may
-be useful for other use-cases as well but were primarily designed for it.
-First, there are Reject Inference methods (Ehrhardt et al. (2017)
-<arXiv:1903.10855>). Second, we build upon the already CRAN-available
-package 'discretization' to automate discretization of continuous
-features.
+Imports indicator data provided by the Ministry of Education (MoE),Spain.
+The data is stored at
+<https://www.educacionyfp.gob.es/servicios-al-ciudadano/estadisticas/no-universitaria.html>
+Includes functions for reading, downloading, and selecting data for main
+series. This package is not sponsored or supported by the MoE Spain.
+Importa datos con indicadores del Ministerio de Educación y Formación
+Profesional (MEFD) de Españá. Los datos están en
+<https://www.educacionyfp.gob.es/servicios-al-ciudadano/estadisticas/no-universitaria.html>
+Contiene funciones para leer, descargar, y seleccionar bases de datos de
+series principales. Este paquete no es patrocinado o respaldado por el
+MEFD.
 
 %prep
 %setup -q -c -n %{packname}
