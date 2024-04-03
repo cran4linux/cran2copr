@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   0.10.1
+%global packname  knnmi
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          k-Nearest Neighbor Mutual Information Estimator
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+This is a 'C++' mutual information (MI) library based on the k-nearest
+neighbor (KNN) algorithm. There are three functions provided for computing
+MI for continuous values, mixed continuous and discrete values, and
+conditional MI for continuous values. They are based on algorithms by A.
+Kraskov, et. al. (2004) <doi:10.1103/PhysRevE.69.066138>, BC Ross
+(2014)<doi:10.1371/journal.pone.0087357>, and A. Tsimpiris (2012)
+<doi:10.1016/j.eswa.2012.05.014>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

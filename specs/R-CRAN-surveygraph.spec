@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   0.10.1
+%global packname  surveygraph
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Network Representations of Attitudes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+A tool for computing network representations of attitudes, extracted from
+tabular data such as sociological surveys. By treating a survey as a
+bipartite network, we measure the similarity between respondents and
+survey items to produce network edges. We do this in both a respondent
+network, as well as a survey item network. Used in combination with graph
+visualisation libraries, this technique helps practitioners in the social
+sciences identify network structure that may be present within a survey.
 
 %prep
 %setup -q -c -n %{packname}

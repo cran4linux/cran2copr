@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FRK
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fixed Rank Kriging
 
@@ -71,11 +71,12 @@ and it provides helper functions to model, fit, predict, and plot with
 relative ease. Version 2.0.0 and above also supports the modelling of
 non-Gaussian data (e.g., Poisson, binomial, negative-binomial, gamma, and
 inverse-Gaussian) by employing a generalised linear mixed model (GLMM)
-framework.  Zammit-Mangion and Cressie <doi:10.18637/jss.v098.i04>
-describe `FRK` in a Gaussian setting, and detail its use of basis
-functions and BAUs, while Sainsbury-Dale et al. <arXiv:2110.02507>
-describe `FRK` in a non-Gaussian setting; two vignettes are available that
-summarise these papers and provide additional examples.
+framework. Zammit-Mangion and Cressie <doi:10.18637/jss.v098.i04> describe
+`FRK` in a Gaussian setting, and detail its use of basis functions and
+BAUs, while Sainsbury-Dale, Zammit-Mangion, and Cressie
+<doi:10.18637/jss.v108.i10> describe `FRK` in a non-Gaussian setting; two
+vignettes are available that summarise these papers and provide additional
+examples.
 
 %prep
 %setup -q -c -n %{packname}

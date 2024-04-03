@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cobalt
-%global packver   4.5.4
+%global packver   4.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.4
+Version:          4.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Balance Tables and Plots
 
@@ -43,13 +43,13 @@ Requires:         R-CRAN-crayon
 %description
 Generate balance tables and plots for covariates of groups preprocessed
 through matching, weighting or subclassification, for example, using
-propensity scores. Includes integration with 'MatchIt', 'twang',
-'Matching', 'optmatch', 'CBPS', 'ebal', 'WeightIt', 'cem', 'sbw', and
-'designmatch' for assessing balance on the output of their preprocessing
-functions. Users can also specify data for balance assessment not
-generated through the above packages. Also included are methods for
-assessing balance in clustered or multiply imputed data sets or data sets
-with multi-category, continuous, or longitudinal treatments.
+propensity scores. Includes integration with 'MatchIt', 'WeightIt',
+'MatchThem', 'twang', 'Matching', 'optmatch', 'CBPS', 'ebal', 'cem',
+'sbw', and 'designmatch' for assessing balance on the output of their
+preprocessing functions. Users can also specify data for balance
+assessment not generated through the above packages. Also included are
+methods for assessing balance in clustered or multiply imputed data sets
+or data sets with multi-category, continuous, or longitudinal treatments.
 
 %prep
 %setup -q -c -n %{packname}

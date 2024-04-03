@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSurvival
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Survival from Common Data Model Cohorts
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-CDMConnector 
 BuildRequires:    R-CRAN-omopgenerics 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -29,13 +29,14 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-PatientProfiles 
+BuildRequires:    R-CRAN-visOmopResults 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-CDMConnector >= 1.3.0
 Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-CDMConnector 
 Requires:         R-CRAN-omopgenerics 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-PatientProfiles 
+Requires:         R-CRAN-visOmopResults 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 

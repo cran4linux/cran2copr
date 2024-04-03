@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   0.10.1
+%global packname  rQSAR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          QSAR Modeling with Multiple Algorithms: MLR, PLS, and Random Forest
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rcdk >= 3.8.1
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-leaps 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-rcdk >= 3.8.1
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-leaps 
+Requires:         R-stats 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Quantitative Structure-Activity Relationship (QSAR) modeling is a valuable
+tool in computational chemistry and drug design, where it aims to predict
+the activity or property of chemical compounds based on their molecular
+structure. In this vignette, we present the 'rQSAR' package, which
+provides functions for variable selection and QSAR modeling using Multiple
+Linear Regression (MLR), Partial Least Squares (PLS), and Random Forest
+algorithms.
 
 %prep
 %setup -q -c -n %{packname}

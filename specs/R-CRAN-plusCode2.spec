@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdb
-%global packver   0.10.1
+%global packname  plusCode2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DBI Package for the DuckDB Database Management System
+Summary:          Coordinates to 'Plus Code' Conversion Tool
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DBI 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-The DuckDB project is an embedded analytical data management system with
-support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+Generates 'Plus Code' of geometric objects or data frames that contain
+them, giving the possibility to specify the precision of the area. The
+main feature of the package comes from the open-source code developed by
+'Google Inc.' present in the repository
+<https://github.com/google/open-location-code/blob/main/java/src/main/java/com/google/openlocationcode/OpenLocationCode.java>.
+For details about 'Plus Code', visit <https://maps.google.com/pluscodes/>
+or <https://github.com/google/open-location-code>.
 
 %prep
 %setup -q -c -n %{packname}

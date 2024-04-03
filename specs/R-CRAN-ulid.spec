@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.11.0
+%global packname  ulid
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Generate Universally Unique 'Lexicographically' 'Sortable' Identifiers
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Universally unique identifiers ('UUIDs') can be sub-optimal for many
+uses-cases because they are not the most character efficient way of
+encoding 128 bits of randomness; v1/v2 versions are impractical in many
+environments, as they require access to a unique, stable MAC address;
+v3/v5 versions require a unique seed and produce randomly distributed IDs,
+which can cause fragmentation in many data structures; v4 provides no
+other information than randomness which can cause fragmentation in many
+data structures. Providing an alternative, 'ULIDs'
+(<https://github.com/ulid/spec>) have 128-bit compatibility with 'UUID',
+1.21e+24 unique 'ULIDs' per millisecond, support standard (text) sorting,
+canonically encoded as a 26 character string, as opposed to the 36
+character 'UUID', use 'base32' encoding for better efficiency and
+readability (5 bits per character), are case insensitive, have no special
+characters (i.e. are 'URL' safe) and have a monotonic sort order
+(correctly detects and handles the same millisecond).
 
 %prep
 %setup -q -c -n %{packname}

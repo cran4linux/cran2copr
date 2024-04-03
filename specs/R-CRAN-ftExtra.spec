@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ftExtra
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions for 'Flextable'
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-flextable >= 0.8.3
+BuildRequires:    R-CRAN-flextable >= 0.9.5
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-vctrs
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-flextable >= 0.8.3
+Requires:         R-CRAN-flextable >= 0.9.5
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 

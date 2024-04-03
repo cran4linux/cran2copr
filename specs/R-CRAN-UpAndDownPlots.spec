@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BGLR
-%global packver   1.1.2
+%global packname  UpAndDownPlots
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Linear Regression
+Summary:          Displays Percentage and Absolute Changes
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggthemes 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggthemes 
 
 %description
-Bayesian Generalized Linear Regression.
+Displays percentage changes by height and absolute changes by area for up
+to three nested or non-nested levels. The plots visualise changes in
+indices and markets, showing how the changes for sectors or for individual
+components contribute to the overall change. Data can be classified by up
+to three levels of grouping variables in a layered, hierarchical plot.
+Each level can be ordered in several ways including by baseline, by
+percentage change, and by absolute change. The vignettes give examples.
 
 %prep
 %setup -q -c -n %{packname}
