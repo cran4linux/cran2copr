@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  assessor
-%global packver   1.1.0
+%global packname  EngrEcon
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment Tools for Regression Models with Discrete and Semicontinuous Outcomes
+Summary:          Engineering Economics Analysis for Engineering Projects Cost Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-np 
-Requires:         R-CRAN-tweedie 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-np 
 
 %description
-Provides assessment tools for regression models with discrete and
-semicontinuous outcomes proposed in Yang (2023)
-<doi:10.48550/arXiv.2308.15596>. It calculates the double probability
-integral transform (DPIT) residuals, constructs QQ plots of residuals and
-the ordered curve for assessing mean structures.
+Computing economic analysis in civil infrastructure and ecosystem
+restoration projects is a typical activity. This package contains Standard
+cost engineering and engineering economics methods that are applied to
+convert between present, future, and annualized costs. Newnan D. (2020)
+<ISBN 9780190931919> “Engineering Economic Analysis”.
 
 %prep
 %setup -q -c -n %{packname}

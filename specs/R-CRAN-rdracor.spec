@@ -1,37 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  assessor
-%global packver   1.1.0
+%global packname  rdracor
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment Tools for Regression Models with Discrete and Semicontinuous Outcomes
+Summary:          Access to the 'DraCor' API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-np 
-Requires:         R-CRAN-tweedie 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-np 
+BuildRequires:    R-CRAN-tibble >= 3.1.8
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-stringr >= 1.4.1
+BuildRequires:    R-CRAN-igraph >= 1.2.4.1
+BuildRequires:    R-CRAN-xml2 >= 1.2.2
+BuildRequires:    R-CRAN-tidyr >= 1.2.1
+BuildRequires:    R-CRAN-data.table >= 1.12.2
+BuildRequires:    R-CRAN-purrr >= 0.3.5
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tibble >= 3.1.8
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-stringr >= 1.4.1
+Requires:         R-CRAN-igraph >= 1.2.4.1
+Requires:         R-CRAN-xml2 >= 1.2.2
+Requires:         R-CRAN-tidyr >= 1.2.1
+Requires:         R-CRAN-data.table >= 1.12.2
+Requires:         R-CRAN-purrr >= 0.3.5
+Requires:         R-utils 
 
 %description
-Provides assessment tools for regression models with discrete and
-semicontinuous outcomes proposed in Yang (2023)
-<doi:10.48550/arXiv.2308.15596>. It calculates the double probability
-integral transform (DPIT) residuals, constructs QQ plots of residuals and
-the ordered curve for assessing mean structures.
+Provide an interface for 'Drama Corpora Project' ('DraCor') API:
+<https://dracor.org/documentation/api>.
 
 %prep
 %setup -q -c -n %{packname}

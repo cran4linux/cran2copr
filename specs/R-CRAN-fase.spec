@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  assessor
-%global packver   1.1.0
+%global packname  fase
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment Tools for Regression Models with Discrete and Semicontinuous Outcomes
+Summary:          Functional Adjacency Spectral Embedding
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-np 
-Requires:         R-CRAN-tweedie 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-np 
+BuildRequires:    R-CRAN-rTensor >= 1.4.8
+BuildRequires:    R-CRAN-splines2 >= 0.4.7
+BuildRequires:    R-CRAN-RSpectra >= 0.16.1
+Requires:         R-CRAN-rTensor >= 1.4.8
+Requires:         R-CRAN-splines2 >= 0.4.7
+Requires:         R-CRAN-RSpectra >= 0.16.1
 
 %description
-Provides assessment tools for regression models with discrete and
-semicontinuous outcomes proposed in Yang (2023)
-<doi:10.48550/arXiv.2308.15596>. It calculates the double probability
-integral transform (DPIT) residuals, constructs QQ plots of residuals and
-the ordered curve for assessing mean structures.
+Latent process embedding for functional network data with the Functional
+Adjacency Spectral Embedding. Fits smooth latent processes based on cubic
+spline bases. Also generates functional network data from three models,
+and evaluates a network generalized cross-validation criterion for
+dimension selection. For more information, see MacDonald, Zhu and Levina
+(2022+) <arXiv:2210.07491>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  czso
-%global packver   0.3.10
+%global packver   0.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.10
+Version:          0.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Open Data from the Czech Statistical Office in R
 

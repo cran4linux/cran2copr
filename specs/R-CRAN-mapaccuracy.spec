@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapaccuracy
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unbiased Thematic Map Accuracy and Area
 
@@ -18,9 +18,7 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-assertthat 
 Requires:         R-stats 
-Requires:         R-CRAN-assertthat 
 
 %description
 Unbiased estimators of overall and per-class thematic map accuracy and

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  assessor
-%global packver   1.1.0
+%global packname  scimo
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessment Tools for Regression Models with Discrete and Semicontinuous Outcomes
+Summary:          Extra Recipes Steps for Dealing with Omics Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tweedie 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-np 
-Requires:         R-CRAN-tweedie 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-np 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides assessment tools for regression models with discrete and
-semicontinuous outcomes proposed in Yang (2023)
-<doi:10.48550/arXiv.2308.15596>. It calculates the double probability
-integral transform (DPIT) residuals, constructs QQ plots of residuals and
-the ordered curve for assessing mean structures.
+Omics data (e.g. transcriptomics, proteomics, metagenomics...)  offer a
+detailed and multi-dimensional perspective on the molecular components and
+interactions within complex biological (eco)systems.  Analyzing these data
+requires adapted procedures, which are implemented as steps according to
+the 'recipes' package.
 
 %prep
 %setup -q -c -n %{packname}
