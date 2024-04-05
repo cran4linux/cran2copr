@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lbfgsb3c
-%global packver   2024-3.4
+%global packname  pipenostics
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.3.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters with optim() 'C' Interface
+Summary:          Diagnostics, Reliability and Predictive Maintenance of Pipeline Systems
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-numDeriv 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-iapws 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-iapws 
 
 %description
-Interfacing to Nocedal et al. L-BFGS-B.3.0 (See
-<http://users.iems.northwestern.edu/~nocedal/lbfgsb.html>) limited memory
-BFGS minimizer with bounds on parameters. This is a fork of 'lbfgsb3'.
-This registers a 'R' compatible 'C' interface to L-BFGS-B.3.0 that uses
-the same function types and optimization as the optim() function (see
-writing 'R' extensions and source for details).  This package also adds
-more stopping criteria as well as allowing the adjustment of more
-tolerances.
+Functions representing some useful empirical and data-driven models of
+heat loss, corrosion diagnostics, reliability and predictive maintenance
+of pipeline systems. The package is an option for technical engineering
+departments of heat generating and heat transfer companies that use or
+plan to use regulatory calculations in their activities. Methods are
+described in Timashev et al. (2016) <doi:10.1007/978-3-319-25307-7>,
+A.C.Reddy (2017) <doi:10.1016/j.matpr.2017.07.081>, Minenergo (2008)
+<https://docs.cntd.ru/document/902148459>, Minenergo (2005)
+<https://docs.cntd.ru/document/1200035568>, Xing LU. (2014)
+<doi:10.1080/23744731.2016.1258371>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +50,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

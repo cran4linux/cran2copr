@@ -1,52 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digiRhythm
-%global packver   1.2
+%global packname  plsmmLasso
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing Animal's Rhythmicity
+Summary:          Variable Selection and Inference for Partial Semiparametric Linear Mixed-Effects Model
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 2.0.1
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-hdi 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scalreg 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-readr >= 2.0.1
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-hdi 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scalreg 
 Requires:         R-stats 
 
 %description
-Analyze and visualize the rhythmic behavior of animals using the degree of
-functional coupling (See Scheibe (1999) <doi:10.1076/brhm.30.2.216.1420>),
-compute and visualize harmonic power, actograms, average activity and
-diurnality index.
+Implements a partial linear semiparametric mixed-effects model (PLSMM)
+featuring a random intercept and applies a lasso penalty to both the fixed
+effects and the coefficients associated with the nonlinear function. The
+model also accommodates interactions between the nonlinear function and a
+grouping variable, allowing for the capture of group-specific
+nonlinearities. Nonlinear functions are modeled using a set of bases
+functions. Estimation is conducted using a penalized
+Expectation-Maximization algorithm, and the package offers flexibility in
+choosing between various information criteria for model selection.
+Post-selection inference is carried out using a debiasing method, while
+inference on the nonlinear functions employs a bootstrap approach.
 
 %prep
 %setup -q -c -n %{packname}

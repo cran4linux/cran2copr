@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tvgarch
-%global packver   2.4.1
+%global packver   2.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          2.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Varying GARCH Modelling
 
@@ -28,11 +28,12 @@ Requires:         R-CRAN-numDeriv
 Simulation, estimation and inference for univariate and multivariate
 TV(s)-GARCH(p,q,r)-X models, where s indicates the number and shape of the
 transition functions, p is the ARCH order, q is the GARCH order, r is the
-asymmetry order, and 'X' indicates that covariates can be included. In the
+asymmetry order, and 'X' indicates that covariates can be included; see
+Campos-Martins and Sucarrat (2024) <doi:10.18637/jss.v108.i09>. In the
 multivariate case, variances are estimated equation by equation and
 dynamic conditional correlations are allowed. The TV long-term component
 of the variance as in the multiplicative TV-GARCH model of Amado and
-Ter{"a}svirta (2013) <doi:10.1016/j.jeconom.2013.03.006> introduces
+Terasvirta (2013) <doi:10.1016/j.jeconom.2013.03.006> introduces
 non-stationarity whereas the GARCH-X short-term component describes
 conditional heteroscedasticity. Maximisation by parts leads to consistent
 and asymptotically normal estimates.

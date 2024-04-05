@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trainsplit
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split a Dataframe, Tibble, or Data.table into Training and Test Sets
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-data.table
 Requires:         R-CRAN-data.table 
 
 %description
-Split a dataframe, tibble, or data.table into a list containing training
-and test sets. Can specify either number or percentage of observations to
-go into the training set.
+Split a dataframe, tibble, or data.table into training and test sets.
+Return either a list, an index, or directly assign training and test sets
+into memory.
 
 %prep
 %setup -q -c -n %{packname}

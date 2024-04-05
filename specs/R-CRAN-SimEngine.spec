@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimEngine
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Framework for Statistical Simulations in R
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.50
 BuildRequires:    R-parallel >= 4.2.2
 BuildRequires:    R-methods >= 4.2.2
 BuildRequires:    R-utils >= 4.2.2
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-pbapply >= 1.6.0
 BuildRequires:    R-CRAN-data.table >= 1.14.6
 BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-MASS >= 7.3.50
 Requires:         R-parallel >= 4.2.2
 Requires:         R-methods >= 4.2.2
 Requires:         R-utils >= 4.2.2

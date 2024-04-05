@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GPvam
-%global packver   3.0-9
+%global packname  InsuSensCalc
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation of Multiple Membership Mixed Models Used in Value-Added Modeling
+Summary:          Insulin Sensitivity Indices Calculator
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-An EM algorithm, Karl et al. (2013) <doi:10.1016/j.csda.2012.10.004>, is
-used to estimate the generalized, variable, and complete persistence
-models, Mariano et al. (2010) <doi:10.3102/1076998609346967>. These are
-multiple-membership linear mixed models with teachers modeled as "G-side"
-effects and students modeled with either "G-side" or "R-side" effects.
+It facilitates the calculation of 40 different insulin sensitivity indices
+based on fasting, oral glucose tolerance test (OGTT), lipid (adipose), and
+tracer (palmitate and glycerol rate) and dxa (fat mass) measurement
+values. It enables easy and accurate assessment of insulin sensitivity,
+critical for understanding and managing metabolic disorders like diabetes
+and obesity. Indices calculated are described in Gastaldelli (2022).
+<doi:10.1002/oby.23503> and Lorenzo (2010). <doi:10.1210/jc.2010-1144>.
 
 %prep
 %setup -q -c -n %{packname}

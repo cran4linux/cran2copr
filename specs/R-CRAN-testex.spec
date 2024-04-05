@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lbfgsb3c
-%global packver   2024-3.4
+%global packname  testex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters with optim() 'C' Interface
+Summary:          Add Tests to Examples
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-numDeriv 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Interfacing to Nocedal et al. L-BFGS-B.3.0 (See
-<http://users.iems.northwestern.edu/~nocedal/lbfgsb.html>) limited memory
-BFGS minimizer with bounds on parameters. This is a fork of 'lbfgsb3'.
-This registers a 'R' compatible 'C' interface to L-BFGS-B.3.0 that uses
-the same function types and optimization as the optim() function (see
-writing 'R' extensions and source for details).  This package also adds
-more stopping criteria as well as allowing the adjustment of more
-tolerances.
+Add tests in-line in examples. Provides standalone functions for
+facilitating easier test writing in Rd files. However, a more familiar
+interface is provided using 'roxygen2' tags. Tools are also provided for
+facilitating package configuration and use with 'testthat'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +42,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

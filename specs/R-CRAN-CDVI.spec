@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lbfgsb3c
-%global packver   2024-3.4
+%global packname  CDVI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters with optim() 'C' Interface
+Summary:          Cuddy-Della Valle Index for Capturing the Instability in Time Series Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-numDeriv 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-base 
+Requires:         R-stats 
+Requires:         R-base 
 
 %description
-Interfacing to Nocedal et al. L-BFGS-B.3.0 (See
-<http://users.iems.northwestern.edu/~nocedal/lbfgsb.html>) limited memory
-BFGS minimizer with bounds on parameters. This is a fork of 'lbfgsb3'.
-This registers a 'R' compatible 'C' interface to L-BFGS-B.3.0 that uses
-the same function types and optimization as the optim() function (see
-writing 'R' extensions and source for details).  This package also adds
-more stopping criteria as well as allowing the adjustment of more
-tolerances.
+Cuddy-Della valle index gives the degree of instability present in the
+data by accommodating the effect of a trend. The adjusted R squared value
+of the best fitted model is chosen. The index is obtained by multiplying
+the coefficient of variation with square root of one minus the adjusted
+R-squared value. This package has been developed using concept of Shankar
+et al. (2022)<doi:10.3389/fsufs.2023.1208898>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +46,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

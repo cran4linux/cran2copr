@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secretbase
-%global packver   0.3.0.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cryptographic Hash and Extendable-Output Functions
 
@@ -18,15 +18,16 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 
 %description
-SHA-256, SHA-3 cryptographic hash and SHAKE256 extendable-output functions
-(XOF). The SHA-3 Secure Hash Standard was published by the National
-Institute of Standards and Technology (NIST) in 2015 at
-<doi:10.6028/NIST.FIPS.202>. The SHA-256 Secure Hash Standard was
-published by NIST in 2002 at
-<https://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf>. Fast
-and memory-efficient implementation using the core algorithms from 'Mbed
-TLS' under the Trusted Firmware Project
-<https://www.trustedfirmware.org/projects/mbed-tls/>.
+Fast and memory-efficient streaming hash functions. Performs direct
+hashing of strings, raw bytes, and files potentially larger than memory,
+as well as hashing in-memory objects through R's serialization mechanism,
+without requiring allocation of the serialized object. Implementations
+include the SHA-256 and SHA-3 cryptographic hash functions, SHAKE256
+extendable-output function (XOF), and 'SipHash' pseudo-random function.
+The SHA-3 Secure Hash Standard was published by the National Institute of
+Standards and Technology (NIST) in 2015 at <doi:10.6028/NIST.FIPS.202>.
+The SHA-256 Secure Hash Standard was published by NIST in 2002 at
+<https://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

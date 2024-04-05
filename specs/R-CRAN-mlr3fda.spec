@@ -1,54 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DQAstats
-%global packver   0.3.4
+%global packname  mlr3fda
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Functions for Data Quality Assessment
+Summary:          Extending 'mlr3' to Functional Data Analysis
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DIZutils >= 0.1.2
-BuildRequires:    R-CRAN-DIZtools >= 0.0.8
+BuildRequires:    R-CRAN-mlr3 >= 0.14.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.14.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tinytex 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DIZutils >= 0.1.2
-Requires:         R-CRAN-DIZtools >= 0.0.8
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-mlr3pipelines 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tf 
+Requires:         R-CRAN-mlr3 >= 0.14.0
+Requires:         R-CRAN-mlr3misc >= 0.14.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
-Requires:         R-CRAN-tinytex 
-Requires:         R-utils 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3pipelines 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tf 
 
 %description
-Perform data quality assessment ('DQA') of electronic health records
-('EHR'). Publication: Kapsner et al. (2021) <doi:10.1055/s-0041-1733847>.
+Extends the 'mlr3' ecosystem to functional analysis by adding support for
+irregular and regular functional data as defined in the 'tf' package. The
+package provides 'PipeOps' for preprocessing functional columns and for
+extracting scalar features, thereby allowing standard machine learning
+algorithms to be applied afterwards. Available operations include simple
+functional features such as the mean or maximum, smoothing, interpolation,
+flattening, and functional 'PCA'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brclimr
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetch Zonal Statistics of Weather Indicators for Brazilian Municipalities
 
@@ -19,16 +19,18 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-lobstr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-glue 
 
 %description
 Fetches zonal statistics from weather indicators that were calculated for

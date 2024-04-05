@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  riem
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accesses Weather Data from the Iowa Environment Mesonet
 
@@ -16,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.5.6
+BuildRequires:    R-CRAN-lubridate >= 1.9.0.9000
 BuildRequires:    R-CRAN-jsonlite >= 0.9.19
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-lubridate >= 1.5.6
+Requires:         R-CRAN-lubridate >= 1.9.0.9000
 Requires:         R-CRAN-jsonlite >= 0.9.19
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 

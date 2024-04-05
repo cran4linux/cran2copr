@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hySAINT
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hybrid Genetic and Simulated Annealing for Variable Selection
+Summary:          Hybrid Genetic and Simulated Annealing Algorithm for High Dimensional Linear Models with Interaction Effects
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,7 +38,7 @@ Requires:         R-CRAN-SIS
 We provide a stage-wise selection method using genetic algorithms,
 designed to efficiently identify main and two-way interactions within
 high-dimensional linear regression models. Additionally, it implements
-simulated annealing algorithms during the mutation process. The relevant
+simulated annealing algorithm during the mutation process. The relevant
 paper can be found at: Ye, C.,and Yang,Y. (2019)
 <doi:10.1109/TIT.2019.2913417>.
 

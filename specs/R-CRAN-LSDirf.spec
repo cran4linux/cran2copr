@@ -1,51 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RealVAMS
-%global packver   0.4-5
+%global packname  LSDirf
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate VAM Fitting
+Summary:          Impulse-Response Function Analysis for Agent-Based Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.2
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-randomForest 
 
 %description
-Fits a multivariate value-added model (VAM), see Broatch, Green, and Karl
-(2018) <doi:10.32614/RJ-2018-033> and Broatch and Lohr (2012)
-<doi:10.3102/1076998610396900>, with normally distributed test scores and
-a binary outcome indicator. A pseudo-likelihood approach, Wolfinger (1993)
-<doi:10.1080/00949659308811554>, is used for the estimation of this joint
-generalized linear mixed model.  The inner loop of the pseudo-likelihood
-routine (estimation of a linear mixed model) occurs in the framework of
-the EM algorithm presented by Karl, Yang, and Lohr (2013)
-<DOI:10.1016/j.csda.2012.10.004>. This material is based upon work
-supported by the National Science Foundation under grants DRL-1336027 and
-DRL-1336265.
+Performing impulse-response function (IRF) analysis of relevant variables
+of agent-based simulation models, in particular for models described in
+'LSD' format. Based on the data produced by the simulation model, it
+performs both linear and state-dependent IRF analysis, providing the tools
+required by the Counterfactual Monte Carlo (CMC) methodology (Amendola and
+Pereira (2024) <doi:10.2139/ssrn.4740360>), including state identification
+and sensitivity. CMC proposes retrieving the causal effect of shocks by
+exploiting the opportunity to directly observe the counterfactual in a
+fully controlled experimental setup. 'LSD' (Laboratory for Simulation
+Development) is free software available at <https://www.labsimdev.org/>).
 
 %prep
 %setup -q -c -n %{packname}

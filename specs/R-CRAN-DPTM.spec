@@ -1,38 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lbfgsb3c
-%global packver   2024-3.4
+%global packname  DPTM
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.3.4
+Version:          1.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Limited Memory BFGS Minimizer with Bounds on Parameters with optim() 'C' Interface
+Summary:          Dynamic Panel Multiple Threshold Model with Fixed Effects
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-numDeriv 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-BayesianTools 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-parabar 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-BayesianTools 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-parabar 
 
 %description
-Interfacing to Nocedal et al. L-BFGS-B.3.0 (See
-<http://users.iems.northwestern.edu/~nocedal/lbfgsb.html>) limited memory
-BFGS minimizer with bounds on parameters. This is a fork of 'lbfgsb3'.
-This registers a 'R' compatible 'C' interface to L-BFGS-B.3.0 that uses
-the same function types and optimization as the optim() function (see
-writing 'R' extensions and source for details).  This package also adds
-more stopping criteria as well as allowing the adjustment of more
-tolerances.
+Compute the fixed effects dynamic panel threshold model suggested by
+Ramírez-Rondán (2020) <doi:10.1080/07474938.2019.1624401>, and dynamic
+panel linear model suggested by Hsiao et al. (2002)
+<doi:10.1016/S0304-4076(01)00143-9>, where maximum likelihood type
+estimators are used. Multiple threshold estimation based on Markov Chain
+Monte Carlo (MCMC) is allowed, and model selection of linear model,
+threshold model and multiple threshold model is also allowed.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,7 +57,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

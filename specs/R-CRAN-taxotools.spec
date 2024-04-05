@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  taxotools
-%global packver   0.0.132
+%global packver   0.0.139
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.132
+Version:          0.0.139
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxonomic List Processing
 

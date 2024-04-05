@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  allofus
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for 'All of Us' Researcher Workbench
 
@@ -17,30 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-dbplyr >= 2.5.0
+BuildRequires:    R-CRAN-bigrquery >= 1.5.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-bigrquery 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-dbplyr >= 2.5.0
+Requires:         R-CRAN-bigrquery >= 1.5.1
+Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-bigrquery 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-bit64 
 
 %description
 Streamline use of the 'All of Us' Researcher Workbench
