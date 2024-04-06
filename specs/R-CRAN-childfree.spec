@@ -1,24 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ars
-%global packver   0.7
+%global packname  childfree
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Rejection Sampling
+Summary:          Access and Harmonize Childfree Demographic Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rio 
+Requires:         R-utils 
 
 %description
-Adaptive Rejection Sampling, Original version.
+Reads demographic data from a variety of public data sources, extracting
+and harmonizing variables useful for the study of childfree individuals.
+The identification of childfree individuals and those with other family
+statuses uses Neal & Neal's (2024) "A Framework for Studying Adults who
+Neither have Nor Want Children" <doi:10.1177/10664807231198869>; A
+pre-print is available at <doi:10.31234/osf.io/fa89m>.
 
 %prep
 %setup -q -c -n %{packname}

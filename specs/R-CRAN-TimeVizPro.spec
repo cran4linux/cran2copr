@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TimeVizPro
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Data Explorer: Visualize and Forecast with 'TimeVizPro'
 
@@ -31,18 +31,18 @@ Requires:         R-CRAN-ggiraph
 Requires:         R-CRAN-dplyr 
 
 %description
-Unless the power of time-series data visualization with ease using our
+Unleash the power of time-series data visualization with ease using our
 package. Designed with simplicity in mind, it offers three key features
-through the 'shiny' package. The first output shows time-series charts
-with forecast, allowing users to visualize trends and changes
-effortlessly. The second one presents averages per country presented in
+through the 'shiny' package output. The first tab shows time- series
+charts with forecasts, allowing users to visualize trends and changes
+effortlessly. The second one displays Averages per country presented in
 tables with accompanying sparklines, providing a quick and attractive
-overview of the data. The last one displayed a customizable world map
+overview of the data. The last tab presents A customizable world map
 colored based on user-defined variables for any chosen number of
 countries, offering an advanced visual approach to understanding
-geographical data distribution. This package operates with just a few
+geographical data distributions. This package operates with just a few
 simple arguments, enabling users to conduct sophisticated analyses without
-the need for complex programming skills. Transform your time- series data
+the need for complex programming skills. Transform your time-series data
 analysis experience with our user-friendly tool.
 
 %prep

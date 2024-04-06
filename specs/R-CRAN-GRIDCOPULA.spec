@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GRIDCOPULA
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bivariate Copula Functions Based on Regular Grid
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-limSolve
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-evmix 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-limSolve 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-evmix 
 
 %description
 Estimates grid type bivariate copula functions, calculates some

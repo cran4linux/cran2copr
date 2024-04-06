@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  readysignal
-%global packver   0.0.9
+%global packname  fastdigest
+%global packver   0.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Ready Signal' API Wrapper
+Summary:          Fast, Low Memory Footprint Digests of R Objects
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-progress 
 
 %description
-A simple way to interact with the 'Ready Signal' API without leaving your
-'R' environment. Discover features, manage signals, and retrieve data
-easily. View the full API documentation at
-<https://readysignal.com/ready-signal-api-documentation/>.
+Provides an R interface to Bob Jenkin's streaming, non-cryptographic
+'SpookyHash' hash algorithm for use in digest-based comparisons of R
+objects. 'fastdigest' plugs directly into R's internal serialization
+machinery, allowing digests of all R objects the serialize() function
+supports, including reference-style objects via custom hooks. Speed is
+high and scales linearly by object size; memory usage is constant and
+negligible.
 
 %prep
 %setup -q -c -n %{packname}

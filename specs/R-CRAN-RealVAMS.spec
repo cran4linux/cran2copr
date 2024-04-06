@@ -1,43 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MonteCarloSEM
-%global packver   0.0.8
+%global packname  RealVAMS
+%global packver   0.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monte Carlo Data Simulation Package
+Summary:          Multivariate VAM Fitting
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.2
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-lavaan 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Monte Carlo simulation allows testing different conditions given to the
-correct structural equation models. This package runs Monte Carlo
-simulations under different conditions (such as sample size or normality
-of data). Within the package data sets can be simulated and run based on
-the given model. First, continuous and normal data sets are generated
-based on the given model. Later Fleishman's power method (1978)
-<DOI:10.1007/BF02293811> is used to add non-normality if exists. When data
-generation is completed (or when generated data sets are given) model test
-can also be run. Please cite as "Orçan, F. (2021). MonteCarloSEM: An R
-Package to Simulate Data for SEM. International Journal of Assessment
-Tools in Education, 8 (3), 704-713."
+Fits a multivariate value-added model (VAM), see Broatch, Green, and Karl
+(2018) <doi:10.32614/RJ-2018-033> and Broatch and Lohr (2012)
+<doi:10.3102/1076998610396900>, with normally distributed test scores and
+a binary outcome indicator. A pseudo-likelihood approach, Wolfinger (1993)
+<doi:10.1080/00949659308811554>, is used for the estimation of this joint
+generalized linear mixed model.  The inner loop of the pseudo-likelihood
+routine (estimation of a linear mixed model) occurs in the framework of
+the EM algorithm presented by Karl, Yang, and Lohr (2013)
+<DOI:10.1016/j.csda.2012.10.004>. This material is based upon work
+supported by the National Science Foundation under grants DRL-1336027 and
+DRL-1336265.
 
 %prep
 %setup -q -c -n %{packname}

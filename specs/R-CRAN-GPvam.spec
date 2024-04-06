@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  outerbase
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  GPvam
+%global packver   3.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Outer Product Regression
+Summary:          Maximum Likelihood Estimation of Multiple Membership Mixed Models Used in Value-Added Modeling
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-utils 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-High-dimensional regression using outer product models.  Research on the
-methods is currently under investigation and published resources will be
-posted as they are available.  As the method is new, the website is the
-best resource for understanding the principals. Some of the core ideas are
-based on Plumlee and coauthors' work on analysis of grid-structured
-experiments described in Plumlee (2014) <doi:10.1080/01621459.2014.900250>
-and Plumlee, Erickson, Ankenman, Lawrence (2021)
-<doi:10.1093/biomet/asaa084>.  Some additional textbooks for additional
-information on Gaussian processes are Rasmussen and Williams (2005)
-<doi:10.7551/mitpress/3206.001.0001> and Gramacy (2022)
-<doi:10.1201/9780367815493>.
+An EM algorithm, Karl et al. (2013) <doi:10.1016/j.csda.2012.10.004>, is
+used to estimate the generalized, variable, and complete persistence
+models, Mariano et al. (2010) <doi:10.3102/1076998609346967>. These are
+multiple-membership linear mixed models with teachers modeled as "G-side"
+effects and students modeled with either "G-side" or "R-side" effects.
 
 %prep
 %setup -q -c -n %{packname}

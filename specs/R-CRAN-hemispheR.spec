@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hemispheR
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing Hemispherical Canopy Images
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.7.55
+BuildRequires:    R-CRAN-terra >= 1.7.65
 BuildRequires:    R-CRAN-autothresholdr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-dismo
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-terra >= 1.7.55
+Requires:         R-CRAN-terra >= 1.7.65
 Requires:         R-CRAN-autothresholdr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 

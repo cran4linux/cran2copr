@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psychonetrics
-%global packver   0.11.5
+%global packver   0.11.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.5
+Version:          0.11.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Confirmatory Network Analysis
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.5
 BuildRequires:    R-CRAN-Rcpp >= 0.11.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-glasso 
@@ -41,12 +41,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-pbv 
 BuildRequires:    R-CRAN-roptim 
+Requires:         R-CRAN-Matrix >= 1.6.5
 Requires:         R-methods 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-glasso 

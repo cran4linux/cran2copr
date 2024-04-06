@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eatTools
-%global packver   0.7.5
+%global packver   0.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          0.7.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for the Analysis of Educational Assessments
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-checkmate 
 
 %description
 Miscellaneous functions for data cleaning and data analysis of educational
