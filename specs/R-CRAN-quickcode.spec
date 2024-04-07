@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickcode
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Compilation of Some Frequently Used R Functions
+Summary:          Quick and Essential 'R' Tricks for Better Scripts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel > 3.6
+Requires:         R-core > 3.6
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
@@ -23,16 +23,19 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-Polychrome 
+BuildRequires:    R-CRAN-fitdistrplus 
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-tools 
 Requires:         R-CRAN-Polychrome 
+Requires:         R-CRAN-fitdistrplus 
 
 %description
-The NOT functions and a simple compilation of various functions for easy
-usage. Shorthand code to save memory usage.
+The NOT functions, 'R' tricks and a compilation of some simple quick plus
+often used 'R' codes to improve your scripts. Improve the quality and
+reproducibilty of 'R' scripts.
 
 %prep
 %setup -q -c -n %{packname}
