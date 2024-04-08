@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FunWithNumbers
-%global packver   1.1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fun with Fractions and Number Sequences
 
@@ -19,14 +19,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-CRAN-bigBits 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-CRAN-gmp 
+Requires:         R-CRAN-bigBits 
+Requires:         R-methods 
 
 %description
-A collection of toys to do things like generate Collatz sequences, convert
-a fraction to "continued fraction" form, calculate a fraction which is a
-close approximation to some value (e.g., 22/7 or 355/113 for pi), and so
-on.
+A collection of toys to do things like generate Collatz and other
+interesting sequences, calculate a fraction which is a close approximation
+to some value (e.g., 22/7 or 355/113 for pi), and so on.
 
 %prep
 %setup -q -c -n %{packname}

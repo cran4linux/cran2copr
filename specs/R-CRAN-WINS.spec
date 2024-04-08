@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WINS
-%global packver   1.3.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          The R WINS Package
 
@@ -38,8 +38,9 @@ prioritized multiple endpoints, plot the win statistics and win
 proportions over study time if at least one time-to-event endpoint is
 analyzed, and simulate datasets with dependent endpoints. The package can
 handle any type of outcomes (continuous, ordinal, binary, time-to-event)
-and allow users to perform stratified analysis and inverse probability of
-censoring weighting (IPCW) analysis.
+and allow users to perform stratified analysis, inverse probability of
+censoring weighting (IPCW) and inverse probability of treatment weighting
+(IPTW) analysis.
 
 %prep
 %setup -q -c -n %{packname}

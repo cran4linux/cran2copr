@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  synMicrodata
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Microdata Generator
 
@@ -17,20 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-CRAN-Rcpp 
 
 %description
-This tool fits a non-parametric Bayesian model called "hierarchically
-coupled mixture model (HCMM)" to the original microdata in order to
-generate synthetic microdata for privacy protection. The non-parametric
-feature of the adopted model is useful for catching the joint distribution
-of the original data in a highly flexible manner, leading to the
-generation of synthetic data very similar to the original data. Important
-reference papers on this method include Murray & Reiter (2016)
-<doi:10.1080/01621459.2016.1174132>.
+This tool fits a non-parametric Bayesian model called a "hierarchically
+coupled mixture model with local dependence (HCMM-LD)" to the original
+microdata in order to generate synthetic microdata for privacy protection.
+The non-parametric feature of the adopted model is useful for capturing
+the joint distribution of the original input data in a highly flexible
+manner, leading to the generation of synthetic data whose distributional
+features are similar to that of the input data. The package allows the
+original input data to have missing values and impute them with the
+posterior predictive distribution, so no missing values exist in the
+synthetic data output. The method builds on the work of Murray and Reiter
+(2016) <doi:10.1080/01621459.2016.1174132>.
 
 %prep
 %setup -q -c -n %{packname}

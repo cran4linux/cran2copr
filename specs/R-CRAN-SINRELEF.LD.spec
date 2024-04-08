@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SINRELEF.LD
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reliability and Relative Efficiency in Locally-Dependent Measures
 
@@ -32,7 +32,8 @@ those that would be obtained if all the items had been locally
 independent. All the implemented procedures can be obtained from: (a)
 linear factor-analytic solutions in which the item scores are treated as
 approximately continuous, and (b) non-linear solutions in which the item
-scores are treated as ordered-categorical.
+scores are treated as ordered-categorical. A detailed guide can be
+obtained at the following url.
 
 %prep
 %setup -q -c -n %{packname}

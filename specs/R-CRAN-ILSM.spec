@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ILSM
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Inter-Layer Structure of Multilayer Ecological Network
 
@@ -30,7 +30,7 @@ multilayer network has been complete, however, there is still a lack of a
 unified operation that can quickly obtain the corresponding
 characteristics of the multilayer network. To solve this insufficiency,
 'ILSM' was designed for supporting calculating such metrics of multilayer
-network by functions of this R package.
+networks by functions of this R package.
 
 %prep
 %setup -q -c -n %{packname}

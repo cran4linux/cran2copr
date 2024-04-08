@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MKpower
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis and Sample Size Calculation
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-MKdescr 
 BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-MKinfer >= 0.4
 Requires:         R-CRAN-matrixTests >= 0.2
 Requires:         R-stats 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-MKdescr 
 Requires:         R-CRAN-qqplotr 
 Requires:         R-CRAN-coin 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Power analysis and sample size calculation for Welch and Hsu (Hedderich
@@ -45,8 +47,9 @@ diagnostic test(-system) (Flahault et al. (2005),
 <doi:10.1016/j.csda.2003.10.002>; Thulin (2014), <doi:10.1214/14-ejs909>),
 comparing two negative binomial rates (Zhu and Lakkis (2014),
 <doi:10.1002/sim.5947>), ANCOVA (Shieh (2020),
-<doi:10.1007/s11336-019-09692-3>), and reference ranges (Jennen-Steinmetz
-and Wellek (2005), <doi:10.1002/sim.2177>).
+<doi:10.1007/s11336-019-09692-3>), reference ranges (Jennen-Steinmetz and
+Wellek (2005), <doi:10.1002/sim.2177>), and multiple primary endpoints
+(Sozu et al. (2015), ISBN:978-3-319-22005-5).
 
 %prep
 %setup -q -c -n %{packname}

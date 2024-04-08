@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HeckmanEM
-%global packver   0.2-0
+%global packver   0.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Normal or Student-t Heckman Selection Models
+Summary:          Fit Normal, Student-t or Contaminated Normal Heckman Selection Models
 
-License:          GPL (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -32,7 +32,7 @@ Requires:         R-methods
 
 %description
 It performs maximum likelihood estimation for the Heckman selection model
-(Normal or Student-t) using an EM-algorithm
+(Normal, Student-t or Contaminated normal) using an EM-algorithm
 <doi:10.1016/j.jmva.2021.104737>. It also performs influence diagnostic
 through global and local influence for four possible perturbation schema.
 
