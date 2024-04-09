@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   1.2.0
+%global packname  MatchGATE
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Estimate Group Average Treatment Effects with Matching
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-Rfast 
+Requires:         R-CRAN-locpol 
 Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-Rfast 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>. It is a SMOTE-based
-resampling technique which creates synthetic data on the links between
-nearest neighbors. SMOTEWB uses boosting weights to determine where to
-generate new samples and automatically decides the number of neighbors for
-eacg sample. It is robust to noise and outperforms most of the
-alternatives according to Matthew Correlation Coefficient metric.
-Alternative resampling methods are also available in the package.
+Two novel matching-based methods for estimating group average treatment
+effects (GATEs). The match_y1y0() and match_y1y0_bc() functions are used
+for imputing the potential outcomes based on matching and bias-corrected
+matching techniques, respectively. The EstGATE() function is employed to
+estimate the GATE after imputing the potential outcomes.
 
 %prep
 %setup -q -c -n %{packname}

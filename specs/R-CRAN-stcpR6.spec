@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robcp
-%global packver   0.3.7
+%global packname  stcpR6
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Change-Point Tests
+Summary:          Sequential Test and Change-Point Detection Algorithms Based on E-Values / E-Detectors
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
 
 %description
-Provides robust methods to detect change-points in uni- or multivariate
-time series. They can cope with corrupted data and heavy tails. Focus is
-on the detection of abrupt changes in location, but changes scale or
-dependence structure can be detected as well. This package provides tests
-for change detection in uni- and multivariate time series based on
-Huberized versions of CUSUM tests proposed in Duerre and Fried (2019)
-<arXiv:1905.06201>, and tests for change detection in univariate time
-series based on 2-sample U-statistics or 2-sample U-quantiles as proposed
-by Dehling et al. (2015) <DOI:10.1007/978-1-4939-3076-0_12> and Dehling,
-Fried and Wendler (2020) <DOI:10.1093/biomet/asaa004>. Furthermore, the
-packages provides tests on changes in the scale or the correlation as
-proposed in Gerstenberger, Vogel and Wendler (2020)
-<DOI:10.1080/01621459.2019.1629938>, Dehling et al. (2017)
-<DOI:10.1017/S026646661600044X>, and Wied et al. (2014)
-<DOI:10.1016/j.csda.2013.03.005>.
+Algorithms of nonparametric sequential test and online change-point
+detection for streams of univariate (sub-)Gaussian, binary, and bounded
+random variables, introduced in following publications - Shin et al.
+(2024) <doi:10.48550/arXiv.2203.03532>, Shin et al. (2021)
+<doi:10.48550/arXiv.2010.08082>.
 
 %prep
 %setup -q -c -n %{packname}

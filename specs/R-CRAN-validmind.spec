@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   1.2.0
+%global packname  validmind
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Interface to the 'ValidMind' Platform
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-base64enc 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>. It is a SMOTE-based
-resampling technique which creates synthetic data on the links between
-nearest neighbors. SMOTEWB uses boosting weights to determine where to
-generate new samples and automatically decides the number of neighbors for
-eacg sample. It is robust to noise and outperforms most of the
-alternatives according to Matthew Correlation Coefficient metric.
-Alternative resampling methods are also available in the package.
+Deploy, execute, and analyze the results of models hosted on the
+'ValidMind' platform <https://validmind.com>. This package interfaces with
+the 'Python' client library in order to allow advanced diagnostics and
+insight into trained models all from an 'R' environment.
 
 %prep
 %setup -q -c -n %{packname}

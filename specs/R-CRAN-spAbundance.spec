@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spAbundance
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate and Multivariate Spatial Modeling of Species Abundance
 
@@ -40,8 +40,8 @@ Markov Chain Monte Carlo (MCMC). Spatial models are fit using Nearest
 Neighbor Gaussian Processes (NNGPs). Details on NNGP models are given in
 Datta, Banerjee, Finley, and Gelfand (2016)
 <doi:10.1080/01621459.2015.1044091> and Finley, Datta, and Banerjee (2020)
-<arXiv:2001.09111>. Fits single-species and multi-species spatial and
-non-spatial versions of generalized linear mixed models (Gaussian,
+<doi:10.18637/jss.v103.i05>. Fits single-species and multi-species spatial
+and non-spatial versions of generalized linear mixed models (Gaussian,
 Poisson, Negative Binomial), N-mixture models (Royle 2004
 <doi:10.1111/j.0006-341X.2004.00142.x>) and hierarchical distance sampling
 models (Royle, Dawson, Bates (2004) <doi:10.1890/03-3127>). Multi-species

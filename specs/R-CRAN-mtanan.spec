@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   1.2.0
+%global packname  mtanan
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Single Valued Neutrosophic Kruskal-Wallis and Mann Whitney Tests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-Rfast 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>. It is a SMOTE-based
-resampling technique which creates synthetic data on the links between
-nearest neighbors. SMOTEWB uses boosting weights to determine where to
-generate new samples and automatically decides the number of neighbors for
-eacg sample. It is robust to noise and outperforms most of the
-alternatives according to Matthew Correlation Coefficient metric.
-Alternative resampling methods are also available in the package.
+Dealing with neutrosophic data in single valued form using score, accuracy
+and certainty functions to calculate ranks of Single Valued Neutrosophic
+Set (SVNS), also to calculate the Mann-Whitney test, and making a post-hoc
+test after rejecting the null hypothesis using the Neutrosophic Statistics
+Kruskal-Wallis test. For more information see Miari, Mahmoud; Anan,
+Mohamad Taher; Zeina, Mohamed Bisher(2022)
+<https://digitalrepository.unm.edu/nss_journal/vol51/iss1/60/>.
 
 %prep
 %setup -q -c -n %{packname}

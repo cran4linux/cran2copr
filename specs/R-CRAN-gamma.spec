@@ -1,42 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SMOTEWB
-%global packver   1.2.0
+%global packname  gamma
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imbalanced Resampling using SMOTE with Boosting (SMOTEWB)
+Summary:          Dose Rate Estimation from in-Situ Gamma-Ray Spectrometry Measurements
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-IsoplotR 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rxylib 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-IsoplotR 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rxylib 
 Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-Rfast 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Provides the SMOTE with Boosting (SMOTEWB) algorithm. See F. Sağlam, M. A.
-Cengiz (2022) <doi:10.1016/j.eswa.2022.117023>. It is a SMOTE-based
-resampling technique which creates synthetic data on the links between
-nearest neighbors. SMOTEWB uses boosting weights to determine where to
-generate new samples and automatically decides the number of neighbors for
-eacg sample. It is robust to noise and outperforms most of the
-alternatives according to Matthew Correlation Coefficient metric.
-Alternative resampling methods are also available in the package.
+Process in-situ Gamma-Ray Spectrometry for Luminescence Dating. This
+package allows to import, inspect and correct the energy shifts of
+Gamma-ray spectra. It provides methods for estimating the gamma dose rate
+by the use of a calibration curve as described in Mercier and Falguères
+(2007).  The package only supports Canberra CNF and TKA files.
 
 %prep
 %setup -q -c -n %{packname}

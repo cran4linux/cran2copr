@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopulaREMADA
-%global packver   1.5.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula Mixed Models for Multivariate Meta-Analysis of Diagnostic Test Accuracy Studies
 
-License:          GPL (>= 2.10)
+License:          GPL (>= 3.5.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-matlab 
@@ -28,9 +28,10 @@ Requires:         R-CRAN-mc2d
 
 %description
 The bivariate copula mixed model for meta-analysis of diagnostic test
-accuracy studies in Nikoloulopoulos (2015) <doi:10.1002/sim.6595>. The
-vine copula mixed model for meta-analysis of diagnostic test accuracy
-studies accounting for disease prevalence in Nikoloulopoulos (2017)
+accuracy studies in Nikoloulopoulos (2015) <doi:10.1002/sim.6595> and
+Nikoloulopoulos (2018) <doi:10.1007/s10182-017-0299-y>. The vine copula
+mixed model for meta-analysis of diagnostic test accuracy studies
+accounting for disease prevalence in Nikoloulopoulos (2017)
 <doi:10.1177/0962280215596769> and also accounting for non-evaluable
 subjects in Nikoloulopoulos (2020) <doi:10.1515/ijb-2019-0107>. The hybrid
 vine copula mixed model for meta-analysis of diagnostic test accuracy
@@ -41,8 +42,10 @@ meta-analysis and comparison of two diagnostic tests in Nikoloulopoulos
 D-vine copula mixed model for meta-analysis of diagnostic tests with
 non-evaluable subjects in Nikoloulopoulos (2020)
 <doi:10.1177/0962280220913898>. The one-factor copula mixed model for
-joint meta-analysis of multiple diagnostic tests (2022)
-<doi:10.1111/rssa.12838>.
+joint meta-analysis of multiple diagnostic tests in Nikoloulopoulos (2022)
+<doi:10.1111/rssa.12838>. The multinomial six-variate 1-truncated vine
+copula mixed model for meta-analysis of two diagnostic tests accounting
+for within and between studies dependence in Nikoloulopoulos (2024).
 
 %prep
 %setup -q -c -n %{packname}

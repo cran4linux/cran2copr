@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MultivariateAnalysis
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pacote Para Analise Multivariada
 
@@ -17,17 +18,35 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-PCAmixdata 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-NbClust 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-candisc 
 BuildRequires:    R-CRAN-biotools 
 BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-ecodist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-PCAmixdata 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-NbClust 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-candisc 
 Requires:         R-CRAN-biotools 
 Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ape 
+Requires:         R-CRAN-ecodist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
 Package with multivariate analysis methodologies for experiment
@@ -35,7 +54,7 @@ evaluation. The package estimates dissimilarity measures, builds
 dendrograms, obtains MANOVA, principal components, canonical variables,
 etc. (Pacote com metodologias de analise multivariada para avaliação de
 experimentos. O pacote estima medidas de dissimilaridade, construi de
-dendogramas, obtem a MANOVA, componentes principais, variáveis canônicas,
+dendogramas, obtem a MANOVA, componentes principais, variaveis canonicas,
 etc.)
 
 %prep

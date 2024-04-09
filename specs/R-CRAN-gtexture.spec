@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CPC
-%global packver   2.6.0
+%global packname  gtexture
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Cluster-Polarization Coefficient
+Summary:          Generalized Application of Co-Occurrence Matrices and Haralick Texture
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-stats 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-CRAN-magrittr >= 2.0
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-fitscape >= 0.1
+BuildRequires:    R-CRAN-dlookr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr >= 2.0
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-fitscape >= 0.1
+Requires:         R-CRAN-dlookr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements cluster-polarization coefficient for measuring distributional
-polarization in single or multiple dimensions, as well as associated
-functions. Contains support for hierarchical clustering, k-means,
-partitioning around medoids, density-based spatial clustering with noise,
-and manually imposed cluster membership. Mehlhaff (forthcoming)
-<doi:10.1017/S0003055423001041>.
+Generalizes application of gray-level co-occurrence matrix (GLCM) metrics
+to objects outside of images. The current focus is to apply GLCM metrics
+to the study of biological networks and fitness landscapes that are used
+in studying evolutionary medicine and biology, particularly the evolution
+of cancer resistance. The package was developed as part of the author's
+publication in Physics in Medicine and Biology Barker-Clarke et al. (2023)
+<doi:10.1088/1361-6560/ace305>. A general reference to learn more about
+mathematical oncology can be found at Rockne et al. (2019)
+<doi:10.1088/1478-3975/ab1a09>.
 
 %prep
 %setup -q -c -n %{packname}

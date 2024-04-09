@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  logr
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Log Files
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-common >= 1.1.3
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-common 
+Requires:         R-CRAN-common >= 1.1.3
 Requires:         R-CRAN-withr 
 Requires:         R-utils 
-Requires:         R-CRAN-common 
 
 %description
 Contains functions to help create log files.  The package aims to overcome

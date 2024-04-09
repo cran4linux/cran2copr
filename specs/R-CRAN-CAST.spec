@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CAST
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'caret' Applications for Spatial-Temporal Models
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-caret 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-zoo
 Requires:         R-methods 
 Requires:         R-grDevices 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-forcats 
 

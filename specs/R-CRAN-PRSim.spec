@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PRSim
-%global packver   1.4-4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Simulation of Streamflow Time Series using Phase Randomization
 
@@ -51,7 +51,9 @@ description and evaluation of the wavelet-based multi-site approach can be
 found in Brunner and Gilleland (2020) <doi:10.5194/hess-24-3967-2020>. A
 detailed description and evaluation of the multi-variable and multi-site
 weather generator can be found in Brunner et al. (2021)
-<doi:10.5194/esd-12-621-2021>.
+<doi:10.5194/esd-12-621-2021>. A detailed description and evaluation of
+the non-stationary streamflow generator can be found in Brunner and
+Gilleland (2024) <doi:10.1029/2023EF004238>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semtree
-%global packver   0.9.19
+%global packver   0.9.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.19
+Version:          0.9.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning for Structural Equation Models
 
@@ -19,11 +19,9 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rpart.plot >= 3.0.6
 BuildRequires:    R-CRAN-OpenMx >= 2.6.9
-BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
@@ -34,16 +32,13 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-clisymbols 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ctsemOMX 
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-gridBase 
 Requires:         R-CRAN-rpart.plot >= 3.0.6
 Requires:         R-CRAN-OpenMx >= 2.6.9
-Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
@@ -54,7 +49,6 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-clisymbols 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ctsemOMX 
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-gridBase 
 
