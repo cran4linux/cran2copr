@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baskexact
-%global packver   1.0.1
+%global packname  leakyIV
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytical Calculation of Basket Trial Operating Characteristics
+Summary:          Leaky Instrumental Variables
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-extraDistr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Analytically calculates the operating characteristics of single-stage and
-two-stage basket trials with equal sample sizes using the power prior
-design by Baumann et al. (2024) <doi:10.48550/arXiv.2309.06988> and the
-design by Fujikawa et al. (2020) <doi:10.1002/bimj.201800404>.
+Instrumental variables (IVs) are a popular and powerful tool for
+estimating causal effects in the presence of unobserved confounding.
+However, classical methods rely on strong assumptions such as the
+exclusion criterion, which states that instrumental effects must be
+entirely mediated by treatments. In the so-called "leaky" IV setting,
+candidate instruments are allowed to have some direct influence on
+outcomes, rendering the average treatment effect (ATE) unidentifiable. But
+with limits on the amount of information leakage, we may still recover
+sharp bounds on the ATE, providing partial identification. This package
+implements methods for ATE bounding in the leaky IV setting with linear
+structural equations. For details, see Watson et al. (2024)
+<doi:10.48550/arXiv.2404.04446>.
 
 %prep
 %setup -q -c -n %{packname}

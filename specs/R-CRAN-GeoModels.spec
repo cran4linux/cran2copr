@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   1.1.9
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-spam
 BuildRequires:    R-CRAN-scatterplot3d 
 BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-dotCall64 
+BuildRequires:    R-CRAN-FastGP 
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotrix 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-spam
 Requires:         R-CRAN-scatterplot3d 
 Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-dotCall64 
+Requires:         R-CRAN-FastGP 
 Requires:         R-CRAN-optimParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotrix 
@@ -69,23 +71,23 @@ Requires:         R-CRAN-data.table
 
 %description
 Functions for Gaussian and Non Gaussian (bivariate) spatial and
-spatio-temporal data analysis are provided for a) simulation and inference
-for random fields using standard likelihood and a likelihood approximation
-method called weighted composite likelihood based on pairs and b)
-prediction using (local) best linear unbiased prediction. Weighted
-composite likelihood can be very efficient for estimating massive
-datasets. Both regression and spatial (temporal) dependence analysis can
-be jointly performed. Covariance functions for spatial and
-spatial-temporal data on Euclidean domains and spheres are provided. There
-are also many useful functions for plotting and performing diagnostic
-analysis. Different non Gaussian random fields can be considered in the
-analysis. Among them, random fields with marginal distributions such as
-Skew-Gaussian, Student-t, Tukey-h, Sin-Arcsin, Two-piece, Weibull, Gamma,
-Log-Gaussian, Binomial, Negative Binomial and Poisson. See the URL for the
-papers associated with this package, as for instance, Bevilacqua and
-Gaetan (2015) <doi:10.1007/s11222-014-9460-6>, Bevilacqua et al. (2016)
-<doi:10.1007/s13253-016-0256-3>, Vallejos et al. (2020)
-<doi:10.1007/978-3-030-56681-4>, Bevilacqua et. al (2020)
+spatio-temporal data analysis are provided for a) (fast) simulation of
+random fields, b) inference for random fields using standard likelihood
+and a likelihood approximation method called weighted composite likelihood
+based on pairs and b) prediction using (local) best linear unbiased
+prediction. Weighted composite likelihood can be very efficient for
+estimating massive datasets. Both regression and spatial (temporal)
+dependence analysis can be jointly performed. Flexible covariance models
+for spatial and spatial-temporal data on Euclidean domains and spheres are
+provided. There are also many useful functions for plotting and performing
+diagnostic analysis. Different non Gaussian random fields can be
+considered in the analysis. Among them, random fields with marginal
+distributions such as Skew-Gaussian, Student-t, Tukey-h, Sin-Arcsin,
+Two-piece, Weibull, Gamma, Log-Gaussian, Binomial, Negative Binomial and
+Poisson. See the URL for the papers associated with this package, as for
+instance, Bevilacqua and Gaetan (2015) <doi:10.1007/s11222-014-9460-6>,
+Bevilacqua et al. (2016) <doi:10.1007/s13253-016-0256-3>, Vallejos et al.
+(2020) <doi:10.1007/978-3-030-56681-4>, Bevilacqua et. al (2020)
 <doi:10.1002/env.2632>, Bevilacqua et. al (2021) <doi:10.1111/sjos.12447>,
 Bevilacqua et al. (2022) <doi:10.1016/j.jmva.2022.104949>,
 Morales-Navarrete et al. (2023) <doi:10.1080/01621459.2022.2140053>, and a

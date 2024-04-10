@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isocountry
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ISO 3166-1 Country Codes
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-tibble
 Requires:         R-CRAN-tibble 
 
 %description
-ISO 3166-1 country codes provided by the International Organization for
-Standardization.
+ISO 3166-1 country codes and ISO 4217 currency codes provided by the
+International Organization for Standardization.
 
 %prep
 %setup -q -c -n %{packname}

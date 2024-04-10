@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dimensio
-%global packver   0.7.0
+%global packname  micronutr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis
+Summary:          Determining Vitamin and Mineral Status of Populations
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.6.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-arkhe >= 1.6.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
 
 %description
-Simple Principal Components Analysis (PCA) and (Multiple) Correspondence
-Analysis (CA) based on the Singular Value Decomposition (SVD). This
-package provides S4 classes and methods to compute, extract, summarize and
-visualize results of multivariate data analysis. It also includes methods
-for partial bootstrap validation described in Greenacre (1984, ISBN:
-978-0-12-299050-2) and Lebart et al. (2006, ISBN: 978-2-10-049616-7).
+Vitamin and mineral deficiencies continue to be a significant public
+health problem. This is particularly critical in developing countries
+where deficiencies to vitamin A, iron, iodine, and other micronutrients
+lead to adverse health consequences. Cross-sectional surveys are helpful
+in answering questions related to the magnitude and distribution of
+deficiencies of selected vitamins and minerals. This package provides
+tools for calculating and determining select vitamin and mineral
+deficiencies based on World Health Organization (WHO) guidelines found at
+<https://www.who.int/teams/nutrition-and-food-safety/databases/vitamin-and-mineral-nutrition-information-system>.
 
 %prep
 %setup -q -c -n %{packname}

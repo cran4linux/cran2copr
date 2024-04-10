@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flippant
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dithionite Scramblase Assay Analysis
 
@@ -25,9 +25,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringi >= 1.2.3
 BuildRequires:    R-CRAN-minpack.lm >= 1.2.1
 BuildRequires:    R-CRAN-data.table >= 1.11.4
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-CRAN-assertive.files >= 0.0.2
-BuildRequires:    R-CRAN-assertive.numbers >= 0.0.2
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-pracma >= 2.3.3
 Requires:         R-CRAN-ggplot2 >= 2.2.1
@@ -37,9 +35,7 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringi >= 1.2.3
 Requires:         R-CRAN-minpack.lm >= 1.2.1
 Requires:         R-CRAN-data.table >= 1.11.4
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-CRAN-assertive.files >= 0.0.2
-Requires:         R-CRAN-assertive.numbers >= 0.0.2
+Requires:         R-methods 
 Requires:         R-utils 
 
 %description

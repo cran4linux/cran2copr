@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  smile
-%global packver   1.0.4.1
+%global __requires_exclude ^libmpi
+%global packname  spaths
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Misalignment: Interpolation, Linkage, and Estimation
+Summary:          Shortest Paths Between Points in Grids
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-base >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-utils 
+Requires:         R-base >= 4.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-data.table 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
+Requires:         R-utils 
 
 %description
-Provides functions to estimate, predict and interpolate areal data. For
-estimation and prediction we assume areal data is an average of an
-underlying continuous spatial process as in Moraga et al. (2017)
-<doi:10.1016/j.spasta.2017.04.006>, Johnson et al. (2020)
-<doi:10.1186/s12942-020-00200-w>, and Wilson and Wakefield (2020)
-<doi:10.1093/biostatistics/kxy041>. The interpolation methodology is
-(mostly) based on Goodchild and Lam (1980, ISSN:01652273).
+Shortest paths between points in grids. Optional barriers and custom
+transition functions. Applications regarding planet Earth, as well as
+generally spheres and planes. Optimized for computational performance,
+customizability, and user friendliness. Graph-theoretical implementation
+tailored to gridded data. Currently focused on Dijkstra's (1959)
+<doi:10.1007/BF01386390> algorithm. Future updates broaden the scope to
+other least cost path algorithms and to centrality measures.
 
 %prep
 %setup -q -c -n %{packname}

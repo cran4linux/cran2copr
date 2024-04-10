@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dimensio
-%global packver   0.7.0
+%global packname  complex
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Data Analysis
+Summary:          Time Series Analysis and Forecasting Using Complex Variables
 
-License:          GPL (>= 3)
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-greybox >= 0.5.0
+BuildRequires:    R-CRAN-legion 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-arkhe >= 1.6.0
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-greybox >= 0.5.0
+Requires:         R-CRAN-legion 
+Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
 
 %description
-Simple Principal Components Analysis (PCA) and (Multiple) Correspondence
-Analysis (CA) based on the Singular Value Decomposition (SVD). This
-package provides S4 classes and methods to compute, extract, summarize and
-visualize results of multivariate data analysis. It also includes methods
-for partial bootstrap validation described in Greenacre (1984, ISBN:
-978-0-12-299050-2) and Lebart et al. (2006, ISBN: 978-2-10-049616-7).
+Set of function implementing the instruments for complex-valued modelling,
+including time series analysis and forecasting. This is based on the
+monograph by Svetunkov Sergey and Svetunkov Ivan "Complex-valued
+Econometrics with Examples in R" which is in press by Springer (expected
+to be published in 2024).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesPPDSurv
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Power Prior Design for Survival Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -28,11 +28,13 @@ Requires:         R-CRAN-tidyr
 %description
 Bayesian power/type I error calculation and model fitting using the power
 prior and the normalized power prior for proportional hazards models with
-piecewise constant hazard. The Bayesian clinical trial design methodology
-is described in Chen et al. (2011) <doi:10.1111/j.1541-0420.2011.01561.x>,
-and Psioda and Ibrahim (2019) <doi:10.1093/biostatistics/kxy009>. The
-proportional hazards model with piecewise constant hazard is detailed in
-Ibrahim et al. (2001) <doi:10.1007/978-1-4757-3447-8>.
+piecewise constant hazard. The methodology and examples of applying the
+package are detailed in <doi:10.48550/arXiv.2404.05118>. The Bayesian
+clinical trial design methodology is described in Chen et al. (2011)
+<doi:10.1111/j.1541-0420.2011.01561.x>, and Psioda and Ibrahim (2019)
+<doi:10.1093/biostatistics/kxy009>. The proportional hazards model with
+piecewise constant hazard is detailed in Ibrahim et al. (2001)
+<doi:10.1007/978-1-4757-3447-8>.
 
 %prep
 %setup -q -c -n %{packname}

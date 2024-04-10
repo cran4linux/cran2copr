@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSmix
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Mixtures of Mallows Models with Spearman Distance for Full and Partial Rankings
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-factoextra >= 1.0.7
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-Rankcluster >= 0.98.0
 BuildRequires:    R-CRAN-reshape >= 0.8.9
+BuildRequires:    R-CRAN-gmp >= 0.7.4
 BuildRequires:    R-CRAN-spsUtil >= 0.2.2
 BuildRequires:    R-CRAN-ggbump >= 0.1.0
 Requires:         R-methods >= 4.3.1
@@ -52,6 +53,7 @@ Requires:         R-CRAN-factoextra >= 1.0.7
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-Rankcluster >= 0.98.0
 Requires:         R-CRAN-reshape >= 0.8.9
+Requires:         R-CRAN-gmp >= 0.7.4
 Requires:         R-CRAN-spsUtil >= 0.2.2
 Requires:         R-CRAN-ggbump >= 0.1.0
 

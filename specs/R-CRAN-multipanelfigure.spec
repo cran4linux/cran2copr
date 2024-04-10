@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multipanelfigure
-%global packver   2.1.5
+%global packver   2.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.5
+Version:          2.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure to Assemble Multi-Panel Figures (from Grobs)
 
@@ -23,11 +23,8 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringi >= 1.2.3
 BuildRequires:    R-CRAN-gridGraphics >= 0.3.0
 BuildRequires:    R-CRAN-gtable >= 0.2.0
-BuildRequires:    R-CRAN-assertive.base >= 0.0.7
-BuildRequires:    R-CRAN-assertive.files >= 0.0.2
-BuildRequires:    R-CRAN-assertive.numbers >= 0.0.2
 BuildRequires:    R-grid 
-BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-magick >= 1.9
@@ -35,11 +32,8 @@ Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringi >= 1.2.3
 Requires:         R-CRAN-gridGraphics >= 0.3.0
 Requires:         R-CRAN-gtable >= 0.2.0
-Requires:         R-CRAN-assertive.base >= 0.0.7
-Requires:         R-CRAN-assertive.files >= 0.0.2
-Requires:         R-CRAN-assertive.numbers >= 0.0.2
 Requires:         R-grid 
-Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-utils 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gsDesign2
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Sequential Design with Non-Constant Effect
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-npsurvSS 
 BuildRequires:    R-CRAN-r2rtf 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-npsurvSS 
 Requires:         R-CRAN-r2rtf 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
