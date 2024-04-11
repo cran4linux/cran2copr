@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yyjsonr
-%global packver   0.1.18
+%global packver   0.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          0.1.20
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast JSON Parser and Generator
+Summary:          Fast 'JSON', 'NDJSON' and 'GeoJSON' Parser and Generator
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,13 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 
 %description
-A fast JSON parser, generator and validator which converts JSON data
+A fast 'JSON' parser, generator and validator which converts 'JSON',
+'NDJSON' (Newline Delimited 'JSON') and 'GeoJSON' (Geographic 'JSON') data
 to/from R objects.  The standard R data types are supported (e.g. logical,
 numeric, integer) with configurable handling of NULL and NA values. Data
 frames, atomic vectors and lists are all supported as data containers
-translated to/from JSON. This implementation is a wrapper around the
-'yyjson' 'C' library which is available from
-<https://github.com/ibireme/yyjson>.
+translated to/from 'JSON'.  'GeoJSON' data is read in as 'simple features'
+objects. This implementation wraps the 'yyjson' 'C' library which is
+available from <https://github.com/ibireme/yyjson>.
 
 %prep
 %setup -q -c -n %{packname}

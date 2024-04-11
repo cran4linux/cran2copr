@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adjustedCurves
-%global packver   0.11.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Confounder-Adjusted Survival Curves and Cumulative Incidence Functions
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival >= 3.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-survival >= 3.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-doParallel 

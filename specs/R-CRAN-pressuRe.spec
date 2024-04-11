@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pressuRe
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imports, Processes, and Visualizes Biomechanical Pressure Data
 
@@ -54,8 +54,9 @@ includes functions for visualizing and animating pressure data. Example
 methods are described in Shi et al., (2022)
 <doi:10.1038/s41598-022-19814-0>, Lee et al., (2014)
 <doi:10.1186/1757-1146-7-18>, van der Zward et al., (2014)
-<doi:10.1186/1757-1146-7-20>, and Najafi et al., (2010)
-<doi:10.1016/j.gaitpost.2009.09.003>.
+<doi:10.1186/1757-1146-7-20>, Najafi et al., (2010)
+<doi:10.1016/j.gaitpost.2009.09.003>, Cavanagh and Rodgers (1987)
+<doi:10.1016/0021-9290(87)90255-7>.
 
 %prep
 %setup -q -c -n %{packname}

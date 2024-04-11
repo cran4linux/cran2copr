@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3misc
-%global packver   0.15.0
+%global packname  WayFindR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for 'mlr3'
+Summary:          Computing Graph Structures on WikiPathways
 
-License:          LGPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 0.1.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports >= 0.1.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-igraph 
 
 %description
-Frequently used helper functions and assertions used in 'mlr3' and its
-companion packages. Comes with helper functions for functional
-programming, for printing, to work with 'data.table', as well as some
-generally useful 'R6' classes. This package also supersedes the package
-'BBmisc'.
+Converts pathways from 'WikiPathways' GPML format into 'igraph' objects.
+Includes tools to find all cycles in the resulting graphs and determine
+which ones involve negative feedback (inhibition).
 
 %prep
 %setup -q -c -n %{packname}

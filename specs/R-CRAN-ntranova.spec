@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3misc
-%global packver   0.15.0
+%global packname  ntranova
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for 'mlr3'
+Summary:          Two Way Neutrosophic ANOVA
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 0.1.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports >= 0.1.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Frequently used helper functions and assertions used in 'mlr3' and its
-companion packages. Comes with helper functions for functional
-programming, for printing, to work with 'data.table', as well as some
-generally useful 'R6' classes. This package also supersedes the package
-'BBmisc'.
+Dealing with neutrosophic data of the form N=D+I(where N is a Neutrosophic
+number ,D is the determinant part of the number and I is the indeterminacy
+part) using the neutrosophic two way anova test keeps the type I error
+low. This algorithm calculates the fisher statistics when we have a
+neutrosophic data, also tests two hypothesizes, first is to test
+differences between treatments, and second is to test differences between
+sectors. For more information see Miari, Mahmoud; Anan, Mohamad Taher;
+Zeina, Mohamed Bisher(2022)
+<https://www.americaspg.com/articleinfo/21/show/1058>.
 
 %prep
 %setup -q -c -n %{packname}

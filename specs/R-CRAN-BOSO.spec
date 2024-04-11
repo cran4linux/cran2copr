@@ -1,38 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipsRdbs
-%global packver   1.0.0
+%global packname  BOSO
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Introduction to Probability, Statistics and R for Data-Based Sciences
+Summary:          Bilevel Optimization Selector Operator
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-extraDistr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-extraDistr 
 
 %description
-Contains data sets, programmes and illustrations discussed in the book,
-"Introduction to Probability, Statistics and R: Foundations for Data-Based
-Sciences."  Sahu (2024, isbn:9783031378645) describes the methods in
-detail.
+A novel feature selection algorithm for linear regression called BOSO
+(Bilevel Optimization Selector Operator). The main contribution is the use
+a bilevel optimization problem to select the variables in the training
+problem that minimize the error in the validation set. Preprint available:
+[Valcarcel, L. V., San Jose-Eneriz, E., Cendoya, X., Rubio, A., Agirre,
+X., Prosper, F., & Planes, F. J. (2020). "BOSO: a novel feature selection
+algorithm for linear regression with high-dimensional data." bioRxiv.
+<doi:10.1101/2020.11.18.388579>]. In order to run the vignette, it is
+recommended to install the 'bestsubset' package, using the following
+command: devtools::install_github(repo="ryantibs/best-subset",
+subdir="bestsubset"). If you do not have gurobi, run
+devtools::install_github(repo="lvalcarcel/best-subset",
+subdir="bestsubset"). Moreover, to install cplexAPI you can check
+<https://github.com/lvalcarcel/cplexAPI>.
 
 %prep
 %setup -q -c -n %{packname}

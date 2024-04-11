@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dupNodes
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creates an 'igraph' Object that Duplicates Nodes with Self-Loops
+Summary:          Computes DNSLbetweenness, a Betweenness Measure that Includes Self-Loops
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,9 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-Rdpack 
 
 %description
-Creates a new graph from an existing one, duplicating nodes with
-self-loops. This can be used for a computation of betweenness centrality
-that does not drop this essential information. Implements Merelo &
+Computes a new measure, DNSL betweenness, via the creation of a new graph
+from an existing one, duplicating nodes with self-loops. This betweenness
+centrality does not drop this essential information. Implements Merelo &
 Molinari (2024) <doi:10.1007/s42001-023-00245-4>.
 
 %prep

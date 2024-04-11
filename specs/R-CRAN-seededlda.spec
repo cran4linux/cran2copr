@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seededlda
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seeded Sequential LDA for Topic Modeling
 
@@ -16,15 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-quanteda >= 3.3.0
+BuildRequires:    R-CRAN-quanteda >= 4.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-proxyC >= 0.3.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-quanteda >= 3.3.0
+Requires:         R-CRAN-quanteda >= 4.0.0
 Requires:         R-CRAN-proxyC >= 0.3.1
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 

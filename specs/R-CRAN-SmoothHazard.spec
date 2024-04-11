@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3misc
-%global packver   0.15.0
+%global packname  SmoothHazard
+%global packver   2024.04.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.0
+Version:          2024.04.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Functions for 'mlr3'
+Summary:          Estimation of Smooth Hazard Models for Interval-Censored Data
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-backports >= 0.1.5
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-backports >= 0.1.5
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-digest 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 1.9.1
+Requires:         R-core >= 1.9.1
+BuildRequires:    R-CRAN-prodlim >= 1.4.9
+BuildRequires:    R-CRAN-lava >= 1.4.1
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.3
+Requires:         R-CRAN-prodlim >= 1.4.9
+Requires:         R-CRAN-lava >= 1.4.1
+Requires:         R-CRAN-mvtnorm >= 1.0.3
 
 %description
-Frequently used helper functions and assertions used in 'mlr3' and its
-companion packages. Comes with helper functions for functional
-programming, for printing, to work with 'data.table', as well as some
-generally useful 'R6' classes. This package also supersedes the package
-'BBmisc'.
+Estimation of two-state (survival) models and irreversible illness- death
+models with possibly interval-censored, left-truncated and right-censored
+data. Proportional intensities regression models can be specified to allow
+for covariates effects separately for each transition. We use either a
+parametric approach with Weibull baseline intensities or a semi-parametric
+approach with M-splines approximation of baseline intensities in order to
+obtain smooth estimates of the hazard functions. Parameter estimates are
+obtained by maximum likelihood in the parametric approach and by penalized
+maximum likelihood in the semi-parametric approach.
 
 %prep
 %setup -q -c -n %{packname}
