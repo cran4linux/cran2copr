@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KEPTED
-%global packver   0.1.1
+%global packname  sgboost
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Embedding-of-Probability Test for Elliptical Distribution
+Summary:          Sparse-Group Boosting
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-cubature 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggforce 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggforce 
 
 %description
-Provides an implementation of a kernel-embedding of probability test for
-elliptical distribution. This is an asymptotic test for elliptical
-distribution under general alternatives, and the location and shape
-parameters are assumed to be unknown. Some side-products are posted,
-including the transformation between rectangular and polar coordinates and
-two product-type kernel functions. See Tang and Li (2024)
-<arXiv:2306.10594> for details.
+Sparse-group boosting to be used in conjunction with the 'mboost' for
+modeling grouped data. Applicable to all sparse-group lasso type problems
+where within-group and between-group sparsity is desired. Interprets and
+visualizes individual variables and groups.
 
 %prep
 %setup -q -c -n %{packname}

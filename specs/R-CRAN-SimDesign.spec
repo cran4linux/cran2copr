@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimDesign
-%global packver   2.14
+%global packver   2.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14
+Version:          2.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structure for Organizing Monte Carlo Simulation Designs
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-RPushbullet
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-pbapply >= 1.3.0
 Requires:         R-CRAN-foreach 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-RPushbullet
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
 
 %description
@@ -49,11 +51,14 @@ back-end of Monte Carlo simulation experiments by utilizing a
 generate-analyse-summarise workflow. The workflow safeguards against
 common simulation coding issues, such as automatically re-simulating
 non-convergent results, prevents inadvertently overwriting simulation
-files, catches error and warning messages during execution, and implicitly
-supports parallel processing. For a pedagogical introduction to the
-package see Sigal and Chalmers (2016) <doi:10.1080/10691898.2016.1246953>.
-For a more in-depth overview of the package and its design philosophy see
-Chalmers and Adkins (2020) <doi:10.20982/tqmp.16.4.p248>.
+files, catches error and warning messages during execution, implicitly
+supports parallel processing with high-quality random number generation,
+and provides tools for managing high-performance computing (HPC) array
+jobs submitted to schedulers such as SLURM. For a pedagogical introduction
+to the package see Sigal and Chalmers (2016)
+<doi:10.1080/10691898.2016.1246953>. For a more in-depth overview of the
+package and its design philosophy see Chalmers and Adkins (2020)
+<doi:10.20982/tqmp.16.4.p248>.
 
 %prep
 %setup -q -c -n %{packname}

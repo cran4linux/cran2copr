@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KEPTED
-%global packver   0.1.1
+%global packname  SBI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Embedding-of-Probability Test for Elliptical Distribution
+Summary:          Simple Blinding Index for Randomized Controlled Trials
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-cubature 
-Requires:         R-stats 
 
 %description
-Provides an implementation of a kernel-embedding of probability test for
-elliptical distribution. This is an asymptotic test for elliptical
-distribution under general alternatives, and the location and shape
-parameters are assumed to be unknown. Some side-products are posted,
-including the transformation between rectangular and polar coordinates and
-two product-type kernel functions. See Tang and Li (2024)
-<arXiv:2306.10594> for details.
+Computes a simple blinding index for randomized controlled trials
+introduced in the paper "A simple blinding index for randomized controlled
+trials" by Petroff, Bacak, Dagres, Dilk and Wachter, which has been
+submitted for publication.
 
 %prep
 %setup -q -c -n %{packname}

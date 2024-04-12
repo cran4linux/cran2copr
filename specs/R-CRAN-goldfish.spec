@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goldfish
-%global packver   1.6.4
+%global packver   1.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Network Models for Dynamic Network Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.1
@@ -32,6 +33,7 @@ Requires:         R-utils
 Requires:         R-stats 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 
 %description

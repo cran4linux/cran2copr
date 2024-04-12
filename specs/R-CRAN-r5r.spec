@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r5r
-%global packver   1.1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Realistic Routing with 'R5'
 
@@ -20,22 +20,22 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 1.0.12
 BuildRequires:    R-CRAN-rJava >= 0.9.10
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-concaveman 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-sf >= 1.0.12
 Requires:         R-CRAN-rJava >= 0.9.10
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-concaveman 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sfheaders 
 Requires:         R-utils 
 Requires:         R-CRAN-zip 
@@ -55,7 +55,8 @@ find additional information on R5 documentation at
 in synchrony with R5, the development of R5 follows Conveyal's independent
 update process. Hence, users should confirm the R5 version implied by the
 Conveyal user manual (see <https://docs.conveyal.com/changelog>)
-corresponds with the R5 version that r5r depends on.
+corresponds with the R5 version that r5r depends on. This version of r5r
+depends on R5 v7.1.
 
 %prep
 %setup -q -c -n %{packname}

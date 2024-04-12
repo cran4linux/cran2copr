@@ -1,69 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rhub
-%global packver   1.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connect to 'R-hub'
+Summary:          Tools for R Package Developers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcmdcheck >= 1.2.1
-BuildRequires:    R-CRAN-cli >= 1.1.0
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-gert 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gitcreds 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-prettyunits 
+BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rematch 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-whoami 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-rcmdcheck >= 1.2.1
-Requires:         R-CRAN-cli >= 1.1.0
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-callr 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-gert 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gitcreds 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-prettyunits 
+Requires:         R-CRAN-pkgbuild 
 Requires:         R-CRAN-processx 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rematch 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rprojroot 
 Requires:         R-utils 
-Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-whoami 
-Requires:         R-CRAN-withr 
 
 %description
-Run 'R CMD check' on any of the 'R-hub' (<https://builder.r-hub.io/>)
-architectures, from the command line. The current architectures include
-'Windows', 'macOS', 'Solaris' and various 'Linux' distributions.
+R-hub v2 uses GitHub Actions to run 'R CMD check' and similar package
+checks. The 'rhub' package helps you set up R-hub v2 for your R package,
+and start running checks.
 
 %prep
 %setup -q -c -n %{packname}

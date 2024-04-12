@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SticsRFiles
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Modify 'STICS' Input/Output Files
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-rstudioapi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-XML 
@@ -48,6 +49,7 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-XML 

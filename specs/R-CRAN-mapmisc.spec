@@ -1,39 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KEPTED
-%global packver   0.1.1
+%global packname  mapmisc
+%global packver   2.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Embedding-of-Probability Test for Elliptical Distribution
+Summary:          Utilities for Producing Maps
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-cubature 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-geosphere 
+Requires:         R-CRAN-terra 
+Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-geosphere 
 
 %description
-Provides an implementation of a kernel-embedding of probability test for
-elliptical distribution. This is an asymptotic test for elliptical
-distribution under general alternatives, and the location and shape
-parameters are assumed to be unknown. Some side-products are posted,
-including the transformation between rectangular and polar coordinates and
-two product-type kernel functions. See Tang and Li (2024)
-<arXiv:2306.10594> for details.
+Provides a minimal, light-weight set of tools for producing nice looking
+maps in R, with support for map projections.  See Brown (2016)
+<doi:10.32614/RJ-2016-005>.
 
 %prep
 %setup -q -c -n %{packname}

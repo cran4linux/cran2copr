@@ -1,39 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KEPTED
-%global packver   0.1.1
+%global packname  alien
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel-Embedding-of-Probability Test for Elliptical Distribution
+Summary:          Estimate Invasive and Alien Species (IAS) Introduction Rates
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-expm 
-BuildRequires:    R-CRAN-CompQuadForm 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-HelpersMG 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-expm 
-Requires:         R-CRAN-CompQuadForm 
-Requires:         R-CRAN-cubature 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-HelpersMG 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides an implementation of a kernel-embedding of probability test for
-elliptical distribution. This is an asymptotic test for elliptical
-distribution under general alternatives, and the location and shape
-parameters are assumed to be unknown. Some side-products are posted,
-including the transformation between rectangular and polar coordinates and
-two product-type kernel functions. See Tang and Li (2024)
-<arXiv:2306.10594> for details.
+Easily estimate the introduction rates of alien species given first
+records data. It specializes in addressing the role of sampling on the
+pattern of discoveries, thus providing better estimates than using
+Generalized Linear Models which assume perfect immediate detection of
+newly introduced species.
 
 %prep
 %setup -q -c -n %{packname}

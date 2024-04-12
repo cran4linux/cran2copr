@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  asremlPlus
-%global packver   4.4.27
+%global packver   4.4.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.27
+Version:          4.4.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augments 'ASReml-R' in Fitting Mixed Models and Packages Generally in Exploring Prediction Differences
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sticky 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tryCatchLog 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dae 
 Requires:         R-CRAN-devtools 
@@ -54,6 +55,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-CRAN-sticky 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tryCatchLog 
 Requires:         R-utils 
 
 %description

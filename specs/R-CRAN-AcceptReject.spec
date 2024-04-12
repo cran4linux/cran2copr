@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastai
-%global packver   2.2.2
+%global packname  AcceptReject
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'fastai'
+Summary:          Acceptance-Rejection Method for Generating Pseudo-Random Observations
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-png 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lbfgs 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-The 'fastai' <https://docs.fast.ai/index.html> library simplifies training
-fast and accurate neural networks using modern best practices. It is based
-on research in to deep learning best practices undertaken at 'fast.ai',
-including 'out of the box' support for vision, text, tabular, audio, time
-series, and collaborative filtering models.
+Provides a function that implements the acceptance-rejection method in an
+optimized manner to generate pseudo-random observations for discrete or
+continuous random variables. The function is optimized to work in parallel
+on Unix-based operating systems and performs well on Windows systems. The
+acceptance-rejection method implemented optimizes the probability of
+generating observations from the desired random variable, by simply
+providing the probability function or probability density function, in the
+discrete and continuous cases, respectively. Implementation is based on
+references CASELLA, George at al. (2004)
+<https://www.jstor.org/stable/4356322>, NEAL, Radford M. (2003)
+<https://www.jstor.org/stable/3448413> and Bishop, Christopher M. (2006,
+ISBN: 978-0387310732).
 
 %prep
 %setup -q -c -n %{packname}

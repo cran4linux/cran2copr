@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quanteda.textmodels
-%global packver   0.9.6
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scaling Models and Classifiers for Textual Data
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-quanteda >= 2.0
+BuildRequires:    R-CRAN-quanteda >= 4.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.2
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.600.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
@@ -24,17 +24,15 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-LiblineaR 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-quanteda >= 2.0
+Requires:         R-CRAN-quanteda >= 4.0.0
 Requires:         R-CRAN-Matrix >= 1.2
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-LiblineaR 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-SparseM 
 Requires:         R-CRAN-stringi 
 
@@ -43,11 +41,11 @@ Scaling models and classifiers for sparse matrix objects representing
 textual data in the form of a document-feature matrix.  Includes original
 implementations of 'Laver', 'Benoit', and Garry's (2003)
 <doi:10.1017/S0003055403000698>, 'Wordscores' model, the Perry and
-'Benoit' (2017) <arXiv:1710.08963> class affinity scaling model, and the
-'Slapin' and 'Proksch' (2008) <doi:10.1111/j.1540-5907.2008.00338.x>
-'wordfish' model, as well as methods for correspondence analysis, latent
-semantic analysis, and fast Naive Bayes and linear 'SVMs' specially
-designed for sparse textual data.
+'Benoit' (2017) <doi:10.48550/arXiv.1710.08963> class affinity scaling
+model, and the 'Slapin' and 'Proksch' (2008)
+<doi:10.1111/j.1540-5907.2008.00338.x> 'wordfish' model, as well as
+methods for correspondence analysis, latent semantic analysis, and fast
+Naive Bayes and linear 'SVMs' specially designed for sparse textual data.
 
 %prep
 %setup -q -c -n %{packname}
