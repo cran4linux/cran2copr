@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAMS
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Designing Multi-Arm Multi-Stage Studies
 
@@ -20,10 +20,12 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-methods 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-knitr 
 
 %description
 Designing multi-arm multi-stage studies with (asymptotically) normal

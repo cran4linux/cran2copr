@@ -1,44 +1,27 @@
 %global __brp_check_rpaths %{nil}
-%global packname  mhurdle
-%global packver   1.3-0
+%global __requires_exclude ^libmpi
+%global packname  relcircle
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Hurdle Tobit Models
+Summary:          Draw Regulatory Relationships Between Genes
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-truncreg 
-BuildRequires:    R-CRAN-maxLik 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-prediction 
-BuildRequires:    R-CRAN-margins 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-truncreg 
-Requires:         R-CRAN-maxLik 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-prediction 
-Requires:         R-CRAN-margins 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Estimation of models with zero left-censored variables. Null values may be
-caused by a selection process Cragg (1971) <doi:10.2307/1909582>,
-insufficient resources Tobin (1958) <doi:10.2307/1907382> or infrequency
-of purchase Deaton and Irish (1984) <doi:10.1016/0047-2727(84)90067-7>.
+According to the order of the loci on the chromosome, the loci can be
+connected according to the interrelationship between them and classified
+according to different locus types.
 
 %prep
 %setup -q -c -n %{packname}

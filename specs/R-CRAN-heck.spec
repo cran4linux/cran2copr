@@ -1,41 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NonlinearRDD
-%global packver   0.0.4
+%global packname  heck
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonlinear Regression Discontinuity Design
+Summary:          Highly Performant String Case Converter
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-rdrobust 
-BuildRequires:    R-CRAN-rddensity 
-BuildRequires:    R-CRAN-lpdensity 
-BuildRequires:    R-CRAN-lpcde 
-BuildRequires:    R-CRAN-copula 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-rdrobust 
-Requires:         R-CRAN-rddensity 
-Requires:         R-CRAN-lpdensity 
-Requires:         R-CRAN-lpcde 
-Requires:         R-CRAN-copula 
 
 %description
-Estimation of the possibly nonlinear and non separable structural function
-in regression discontinuity designs with a continuous treatment variable.
-The method is based on Xie (2022) <arXiv:2204.08168>.
+Provides a case conversion between common cases like CamelCase and
+snake_case. Using the 'rust crate heck'
+<https://github.com/withoutboats/heck> as the backend for a highly
+performant case conversion for 'R'.
 
 %prep
 %setup -q -c -n %{packname}

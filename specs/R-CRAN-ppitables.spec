@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ppitables
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lookup Tables to Generate Poverty Likelihoods and Rates using the Poverty Probability Index (PPI)
 
@@ -32,7 +33,7 @@ lookup data tables used as reference to determine the poverty likelihood
 of a household based on their score from the country-specific PPI
 questionnaire. These lookup tables have been extracted from documentation
 of the PPI found at <https://www.povertyindex.org> and managed by
-Innovations for Poverty Action <https://www.poverty-action.org>.
+Innovations for Poverty Action <https://poverty-action.org/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -42,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

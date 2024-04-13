@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmstat4
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Teaching Materials from a ZIP File or GitHub
 
@@ -17,28 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-tools 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
 Requires:         R-tcltk 
 Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringdist 
 Requires:         R-tools 
 
 %description
 Provides access to teaching materials for various statistics courses,
-including R programs, Shiny apps, data, and PDF/HTML documents. These
-materials are stored on the Internet as a ZIP file (e.g., in a GitHub
-repository) and can be downloaded and displayed or run locally. The
+including R and Python programs, Shiny apps, data, and PDF/HTML documents.
+These materials are stored on the Internet as a ZIP file (e.g., in a
+GitHub repository) and can be downloaded and displayed or run locally. The
 content of the ZIP file is temporarily or permanently stored. By default,
 the package uses the GitHub repository 'sigbertklinke/mmstat4.data.'
 Additionally, the package includes 'association_measures.R' from the

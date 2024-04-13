@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterpic
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create a Spatial Raster from Plain Images
+Summary:          Convert Digital Images into 'SpatRaster' Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,8 +25,9 @@ Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-png >= 0.1.5
 
 %description
-Create a spatial raster, as the ones provided by 'terra', from regular
-pictures.
+Generate 'SpatRaster' objects, as defined by the 'terra' package, from
+digital images, using a specified spatial object as a geographical
+reference.
 
 %prep
 %setup -q -c -n %{packname}

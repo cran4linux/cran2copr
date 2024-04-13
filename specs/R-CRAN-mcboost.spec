@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcboost
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Calibration Boosting
 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-glmnet
 %description
 Implements 'Multi-Calibration Boosting' (2018)
 <https://proceedings.mlr.press/v80/hebert-johnson18a.html> and
-'Multi-Accuracy Boosting' (2019) <arXiv:1805.12317> for the
+'Multi-Accuracy Boosting' (2019) <doi:10.48550/arXiv.1805.12317> for the
 multi-calibration of a machine learning model's prediction. 'MCBoost'
 updates predictions for sub-groups in an iterative fashion in order to
 mitigate biases like poor calibration or large accuracy differences across

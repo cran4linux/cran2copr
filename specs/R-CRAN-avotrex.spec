@@ -1,53 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dotwhisker
-%global packver   0.8.1
+%global packname  avotrex
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dot-and-Whisker Plots of Regression Results
+Summary:          A Global Dataset of Anthropogenic Extinct Birds and their Traits: Phylogeny Builder
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-parameters 
-BuildRequires:    R-CRAN-performance 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-margins 
+BuildRequires:    R-CRAN-tidytree >= 0.4.6
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggstance 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-stats 
-Requires:         R-CRAN-parameters 
-Requires:         R-CRAN-performance 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-margins 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-tidytree >= 0.4.6
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-snow 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggstance 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
+Requires:         R-utils 
 
 %description
-Quick and easy dot-and-whisker plots of regression results.
+Grafts the extinct bird species from the 'Avotrex' database (Sayol et al.,
+in review) on to the 'BirdTree' phylogenies <https://birdtree.org>, using
+a set of different commands.
 
 %prep
 %setup -q -c -n %{packname}
