@@ -16,6 +16,8 @@ copr_call <- function(...) {
   if (Sys.which(copr.cmd) == "")
     stop("command '", copr.cmd, "' not found", call.=FALSE)
   args <- paste(..., collapse=" ")
+  if (getOption("verbose", FALSE))
+    message(paste("DEBUG:", copr.cmd, args))
   out <- suppressWarnings(system2(copr.cmd, args, stdout=TRUE, stderr=TRUE))
   if (!is.null(attr(out, "status")))
     stop(paste(out, collapse="\n"), "\n", paste(copr.cmd, args), "' failed", call.=FALSE)
