@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KEPTED
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel-Embedding-of-Probability Test for Elliptical Distribution
 
@@ -33,7 +33,7 @@ distribution under general alternatives, and the location and shape
 parameters are assumed to be unknown. Some side-products are posted,
 including the transformation between rectangular and polar coordinates and
 two product-type kernel functions. See Tang and Li (2024)
-<arXiv:2306.10594> for details.
+<doi:10.48550/arXiv.2306.10594> for details.
 
 %prep
 %setup -q -c -n %{packname}

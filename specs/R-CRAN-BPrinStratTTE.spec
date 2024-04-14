@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BPrinStratTTE
-%global packver   0.0.2
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Effects in Principal Strata Defined by Antidrug Antibodies
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
@@ -31,6 +32,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.4.0
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-dplyr 
@@ -48,8 +51,8 @@ Bayesian models to estimate causal effects of biological treatments on
 time-to-event endpoints in clinical trials with principal strata defined
 by the occurrence of antidrug antibodies. The methodology is based on
 Frangakis and Rubin (2002) <doi:10.1111/j.0006-341x.2002.00021.x> and
-Imbens and Rubin (1997) <doi:10.1214/aos/1034276631>, and intended to be
-applied to a specific time-to-event setting.
+Imbens and Rubin (1997) <doi:10.1214/aos/1034276631>, and here adapted to
+a specific time-to-event setting.
 
 %prep
 %setup -q -c -n %{packname}

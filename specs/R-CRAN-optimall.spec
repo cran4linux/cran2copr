@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapmisc
-%global packver   2.0.9
+%global packname  optimall
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Producing Maps
+Summary:          Allocate Samples Among Strata
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-geosphere 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-geosphere 
+BuildRequires:    R-stats >= 4.0.2
+BuildRequires:    R-methods >= 4.0.0
+BuildRequires:    R-utils >= 3.5.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-tibble >= 1.4.2
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
+BuildRequires:    R-CRAN-rlang >= 0.2.2
+Requires:         R-stats >= 4.0.2
+Requires:         R-methods >= 4.0.0
+Requires:         R-utils >= 3.5.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-tibble >= 1.4.2
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.5
+Requires:         R-CRAN-rlang >= 0.2.2
 
 %description
-Provides a minimal, light-weight set of tools for producing nice looking
-maps in R, with support for map projections.  See Brown (2016)
-<doi:10.32614/RJ-2016-005>.
+Functions for the design process of survey sampling, with specific tools
+for multi-wave and multi-phase designs. Perform optimum allocation using
+Neyman (1934) <doi:10.2307/2342192> or Wright (2012)
+<doi:10.1080/00031305.2012.733679> allocation, split strata based on
+quantiles or values of known variables, randomly select samples from
+strata, allocate sampling waves iteratively, and organize a complex survey
+design. Also includes a Shiny application for observing the effects of
+different strata splits.
 
 %prep
 %setup -q -c -n %{packname}

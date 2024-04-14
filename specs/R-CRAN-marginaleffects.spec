@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marginaleffects
-%global packver   0.18.0
+%global packver   0.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.0
+Version:          0.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictions, Comparisons, Slopes, Marginal Means, and Hypothesis Tests
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-insight >= 0.19.7
@@ -31,6 +32,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-generics 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
 Compute and plot predictions, slopes, marginal means, and comparisons

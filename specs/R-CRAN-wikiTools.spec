@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wikiTools
-%global packver   0.0.6
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Wikidata and Wikipedia
 
@@ -16,13 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WikidataR >= 1.4.0
-BuildRequires:    R-CRAN-WikidataQueryServiceR >= 1.0.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ratelimitr 
-Requires:         R-CRAN-WikidataR >= 1.4.0
-Requires:         R-CRAN-WikidataQueryServiceR >= 1.0.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ratelimitr 
