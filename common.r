@@ -547,7 +547,9 @@ subset_vmism <- function(x, chroots=seq_len(ncol(x)-1), cran=available_packages(
   })
   x.mism <- cbind(x.mism, Version=x$Version)
   x.mism <- apply(x.mism, 1, function(x) {
-    !all(sapply(seq_along(x)[-1], function(i) x[1] == x[i]), na.rm=TRUE)
+    n <- length(x)
+    !all(sapply(seq_along(x)[-n], function(i)
+      x[n] == x[i] || x[i] == "None"), na.rm=TRUE)
   })
   subset(x, x.mism)
 }
