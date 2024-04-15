@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fanyi
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate Words or Sentences via Online Translators
 
@@ -14,26 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggfun >= 0.1.3
 BuildRequires:    R-CRAN-yulab.utils >= 0.1.3
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ggfun 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rentrez 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-SSEparser 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-ggfun >= 0.1.3
 Requires:         R-CRAN-yulab.utils >= 0.1.3
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ggfun 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rentrez 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-SSEparser 
@@ -48,6 +50,9 @@ understanding of the information, thereby reducing the barriers caused by
 language. It offers several helper functions to query gene information to
 help interpretation of interested genes (e.g., marker genes, differential
 expression genes), and provides utilities to translate 'ggplot' graphics.
+This package is not affiliated with any of the online translators. The
+developers do not take responsibility for the invoice it incurs when using
+this package, especially for exceeding the free quota.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zendown
-%global packver   0.0.1
+%global packname  ElevDistr
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Files from 'Zenodo' Deposits
+Summary:          Calculate the Distance to the Nearest Local Treeline
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-terra 
 
 %description
-Access, download and locally cache files deposited on 'Zenodo'
-<https://zenodo.org>.
+A method to calculate the distance to the climatic tree line for large
+data sets of coordinates (World Geodetic System 1984) with geographical
+uncertainty. The default thresholds and the treeline definition is based
+on Paulsen and Körner (2014) <doi:10.1007/s00035-014-0124-0>, users are
+free to decide what climate layers they would like to use.
 
 %prep
 %setup -q -c -n %{packname}

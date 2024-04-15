@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opdisDownsampling
-%global packver   0.8.3
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Distribution Preserving Down-Sampling of Bio-Medical Data
 
@@ -24,10 +24,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-caTools 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-twosamples 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-benchmarkme 
-BuildRequires:    R-CRAN-memuse 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-graphics 
@@ -36,10 +34,8 @@ Requires:         R-stats
 Requires:         R-CRAN-caTools 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-twosamples 
-Requires:         R-utils 
-Requires:         R-CRAN-benchmarkme 
-Requires:         R-CRAN-memuse 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-pbmcapply 
 Requires:         R-CRAN-foreach 
 
 %description
