@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modsem
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Interaction (and Moderation) Analysis in Structural Equation Models (SEM)
 
@@ -22,18 +22,29 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-MplusAutomation 
-BuildRequires:    R-CRAN-nlsem 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gaussquad 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-MplusAutomation 
-Requires:         R-CRAN-nlsem 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-matlib 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-stats 
+Requires:         R-CRAN-gaussquad 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Estimation of interaction (i.e., moderation) effects between latent
@@ -42,12 +53,12 @@ The constrained approach (Algina & Moulder, 2001). The unconstrained
 approach (Marsh et al., 2004). The residual centering approach (Little et
 al., 2006). The double centering approach (Lin et al., 2010). The latent
 moderated structural equations (LMS) approach (Klein & Moosbrugger, 2000).
-The quasi-maximum likelihood (QML) approach (Klein & Muthén, 2007) The
-constrained- unconstrained, residual- and double centering- approaches are
-estimated via 'lavaan' (Rosseel, 2012), whilst the LMS- and QML-
-approaches are estimated via 'nlsem' (Umbach et al., 2017). Alternatively
-model can be estimated via 'Mplus' (Muthén & Muthén, 1998-2017).
-References: Algina, J., & Moulder, B. C. (2001).
+The quasi-maximum likelihood (QML) approach (Klein & Muthén, 2007)
+(temporarily unavailable) The constrained- unconstrained, residual- and
+double centering- approaches are estimated via 'lavaan' (Rosseel, 2012),
+whilst the LMS- and QML- approaches are estimated via by ModSEM it self.
+Alternatively model can be estimated via 'Mplus' (Muthén & Muthén,
+1998-2017). References: Algina, J., & Moulder, B. C. (2001).
 <doi:10.1207/S15328007SEM0801_3>. "A note on estimating the Jöreskog-Yang
 model for latent variable interaction using 'LISREL' 8.3." Klein, A., &
 Moosbrugger, H. (2000). <doi:10.1007/BF02296338>. "Maximum likelihood
@@ -65,9 +76,7 @@ for modeling interactions among latent variables." Marsh, H. W., Wen, Z.,
 models of latent interactions: evaluation of alternative estimation
 strategies and indicator construction." Muthén, L.K. and Muthén, B.O.
 (1998-2017). "'Mplus' User’s Guide.  Eighth Edition."
-<https://www.statmodel.com/>. Umbach N, Naumann K, Brandt H, Kelava A
-(2017). "Fitting Nonlinear Structural Equation Models in R with Package
-'nlsem'." <doi:10.18637/jss.v077.i07>. Rosseel Y (2012).
+<https://www.statmodel.com/>. Rosseel Y (2012).
 <doi:10.18637/jss.v048.i02>. "'lavaan': An R Package for Structural
 Equation Modeling."
 

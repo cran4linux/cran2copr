@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPCERF
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Processes for Estimating Causal Exposure Response Curves
 
@@ -52,7 +52,7 @@ detecting change points in the causal exposure response curves using
 observational data. Ren, B., Wu, X., Braun, D., Pillai, N., & Dominici,
 F.(2021). "Bayesian modeling for exposure response curve via gaussian
 processes: Causal effects of exposure to air pollution on health
-outcomes." arXiv preprint <arXiv:2105.03454>.
+outcomes." arXiv preprint <doi:10.48550/arXiv.2105.03454>.
 
 %prep
 %setup -q -c -n %{packname}

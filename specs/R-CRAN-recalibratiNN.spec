@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eia
-%global packver   0.4.2
+%global packname  recalibratiNN
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Wrapper for U.S. Energy Information Administration ('EIA') Open Data
+Summary:          Quantile Recalibration for Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-Hmisc >= 5.0.0
+BuildRequires:    R-stats >= 4.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-RANN >= 2.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-glue >= 1.0.0
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Hmisc >= 5.0.0
+Requires:         R-stats >= 4.3.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-RANN >= 2.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-glue >= 1.0.0
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides API access to data from the U.S. Energy Information
-Administration ('EIA') <https://www.eia.gov/>. Use of the EIA's API and
-this package requires a free API key obtainable at
-<https://www.eia.gov/opendata/register.php>. This package includes
-functions for searching the EIA data directory and returning time series
-and geoset time series datasets. Datasets returned by these functions are
-provided by default in a tidy format, or alternatively, in more raw
-formats. It also offers helper functions for working with EIA date strings
-and time formats and for inspecting different summaries of series
-metadata. The package also provides control over API key storage and
-caching of API request results.
+Enables the diagnostics and enhancement of calibration of regression
+models. It offers both global and local visualization tools to calibration
+diagnostics and provides one recalibration method : Torres R, Nott DJ,
+Sisson SA, Rodrigues T, Reis JG, Rodrigues GS (2024)
+<doi:10.48550/arXiv.2403.05756>.
 
 %prep
 %setup -q -c -n %{packname}

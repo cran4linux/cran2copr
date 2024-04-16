@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  formatters
-%global packver   0.5.6
+%global packname  zendown
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          ASCII Formatting for Values and Tables
+Summary:          Access Files from 'Zenodo' Deposits
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.3
-BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-htmltools >= 0.5.3
-Requires:         R-methods 
-Requires:         R-grid 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-We provide a framework for rendering complex tables to ASCII, and a set of
-formatters for transforming values or sets of values into ASCII-ready
-display strings.
+Access, download and locally cache files deposited on 'Zenodo'
+<https://zenodo.org>.
 
 %prep
 %setup -q -c -n %{packname}

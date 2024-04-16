@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  formatters
-%global packver   0.5.6
+%global packname  qtlDesign
+%global packver   0.953
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.953
 Release:          1%{?dist}%{?buildtag}
-Summary:          ASCII Formatting for Values and Tables
+Summary:          Design of QTL (Quantitative Trait Locus) Experiments
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-htmltools >= 0.5.3
-BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-htmltools >= 0.5.3
-Requires:         R-methods 
-Requires:         R-grid 
 
 %description
-We provide a framework for rendering complex tables to ASCII, and a set of
-formatters for transforming values or sets of values into ASCII-ready
-display strings.
+Design of QTL (quantitative trait locus) experiments involves choosing
+which strains to cross, the type of cross, genotyping strategies,
+phenotyping strategies, and the number of progeny to raise and phenotype.
+This package provides tools to help make such choices. Sen and others
+(2007) <doi:10.1007/s00335-006-0090-y>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  explore
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplifies Exploratory Data Analysis
 
@@ -27,6 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-palmerpenguins 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
@@ -44,6 +45,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-palmerpenguins 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rpart.plot 

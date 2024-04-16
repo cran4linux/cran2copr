@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeczi
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation for Continuous Zero Inflated Data
 
@@ -42,9 +42,9 @@ modeling approach. The estimator's mean squared error is estimated via a
 parametric bootstrap method. Chandra and others (2012,
 <doi:10.1080/03610918.2011.598991>) introduce and describe this estimator
 and mean squared error estimator. White and others (2024+,
-<arXiv:2402.03263>) describe the applicability of this estimator to
-estimation of forest attributes and further assess the estimator's
-properties.
+<doi:10.48550/arXiv.2402.03263>) describe the applicability of this
+estimator to estimation of forest attributes and further assess the
+estimator's properties.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IDEAFilter
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Agnostic, Idiomatic Data Filter Module for Shiny
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pillar >= 1.5.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-shinyTime 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyTime 
 Requires:         R-CRAN-pillar >= 1.5.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-shinyTime 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyTime 
 
 %description
 When added to an existing shiny app, users may subset any developer-chosen

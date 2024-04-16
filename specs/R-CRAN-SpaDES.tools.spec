@@ -1,46 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opdisDownsampling
-%global packver   1.0.1
+%global packname  SpaDES.tools
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Distribution Preserving Down-Sampling of Bio-Medical Data
+Summary:          Additional Tools for Developing Spatially Explicit Discrete Event Simulation (SpaDES) Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-reproducible >= 2.0.9
+BuildRequires:    R-CRAN-checkmate >= 1.8.2
+BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-fpCompare >= 0.2.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-caTools 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-twosamples 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-pbmcapply 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-reproducible >= 2.0.9
+Requires:         R-CRAN-checkmate >= 1.8.2
+Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-fpCompare >= 0.2.1
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-backports 
 Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-caTools 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-twosamples 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-pbmcapply 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-terra 
 
 %description
-An optimized method for distribution-preserving class-proportional
-down-sampling of bio-medical data.
+Provides GIS and map utilities, plus additional modeling tools for
+developing cellular automata, dynamic raster models, and agent based
+models in 'SpaDES'. Included are various methods for spatial spreading,
+spatial agents, GIS operations, random map generation, and others. See
+'?SpaDES.tools' for an categorized overview of these additional tools. The
+suggested package 'NLMR' can be installed from the following repository:
+(<https://PredictiveEcology.r-universe.dev>).
 
 %prep
 %setup -q -c -n %{packname}

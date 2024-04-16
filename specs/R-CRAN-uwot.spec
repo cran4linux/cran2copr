@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uwot
-%global packver   0.1.16
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.16
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Uniform Manifold Approximation and Projection (UMAP) Method for Dimensionality Reduction
 
@@ -18,27 +18,28 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-RcppAnnoy >= 0.0.17
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-dqrng 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-RcppAnnoy >= 0.0.17
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-irlba 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
 An implementation of the Uniform Manifold Approximation and Projection
-dimensionality reduction by McInnes et al. (2018) <arXiv:1802.03426>. It
-also provides means to transform new data and to carry out supervised
-dimensionality reduction. An implementation of the related LargeVis method
-of Tang et al. (2016) <arXiv:1602.00370> is also provided. This is a
-complete re-implementation in R (and C++, via the 'Rcpp' package): no
-Python installation is required. See the uwot website
+dimensionality reduction by McInnes et al. (2018)
+<doi:10.48550/arXiv.1802.03426>. It also provides means to transform new
+data and to carry out supervised dimensionality reduction. An
+implementation of the related LargeVis method of Tang et al. (2016)
+<doi:10.48550/arXiv.1602.00370> is also provided. This is a complete
+re-implementation in R (and C++, via the 'Rcpp' package): no Python
+installation is required. See the uwot website
 (<https://github.com/jlmelville/uwot>) for more documentation and
 examples.
 

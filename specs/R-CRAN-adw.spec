@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adw
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Angular Distance Weighting Interpolation
 
@@ -20,14 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-cnmap 
 Requires:         R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-cnmap 
 
 %description
 The irregularly-spaced data are interpolated onto regular
 latitude-longitude grids by weighting each station according to its
-distance and angle from the center of a search radius.
+distance and angle from the center of a search radius. In addition to
+this, we also provide a simple way (Jones and Hulme, 1996) to grid the
+irregularly-spaced data points onto regular latitude-longitude grids by
+averaging all stations in grid-boxes.
 
 %prep
 %setup -q -c -n %{packname}
