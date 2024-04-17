@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codep
-%global packver   1.2-3
+%global packname  norMmix
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Codependence Analysis
+Summary:          Direct MLE for Multivariate Normal Mixture Distributions
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-sfsmisc 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-sfsmisc 
 
 %description
-Computation of Multiscale Codependence Analysis and spatial eigenvector
-maps.
+Multivariate Normal (i.e. Gaussian) Mixture Models (S3) Classes. Fitting
+models to data using MLE (maximum likelihood estimation) for multivariate
+normal mixtures via smart parametrization using the LDLt (Cholesky)
+decomposition. McLachlan, G. and Peel, D. (2000, ISBN:9780471006268)
+"Finite Mixture Models". Celeux, G. and Govaert, G. (1995)
+<doi:10.1016/0031-3203(94)00125-6> "Gaussian parsimonious clustering
+models". Marron, S. and Wand, M. (1992) <doi:10.1214/aos/1176348653>
+"Exact Mean Integrated Squared Error".
 
 %prep
 %setup -q -c -n %{packname}

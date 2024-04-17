@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clubpro
-%global packver   0.6.1
+%global packname  fastcpd
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classification Using Binary Procrustes Rotation
+Summary:          Fast Change Point Detection via Sequential Gradient Descent
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,21 +16,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-fastglm 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-CRAN-RcppClock 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-fastglm 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-tseries 
 
 %description
-Implements a classification method described by Grice (2011,
-ISBN:978-0-12-385194-9) using binary procrustes rotation; a simplified
-version of procrustes rotation.
+Implements fast change point detection algorithm based on the paper
+"Sequential Gradient Descent and Quasi-Newton's Method for Change-Point
+Analysis" by Xianyang Zhang, Trisha Dawn
+<https://proceedings.mlr.press/v206/zhang23b.html>. The algorithm is based
+on dynamic programming with pruning and sequential gradient descent. It is
+able to detect change points a magnitude faster than the vanilla Pruned
+Exact Linear Time(PELT). The package includes examples of linear
+regression, logistic regression, Poisson regression, penalized linear
+regression data, and whole lot more examples with custom cost function in
+case the user wants to use their own cost function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,51 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libr
-%global packver   1.3.2
+%global packname  T2DFitTailor
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Libraries, Data Dictionaries, and a Data Step for R
+Summary:          Tailor the Exercise Plans and Visualize the Outcome for T2D Patients
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-common >= 1.1.0
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-common >= 1.1.0
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fmsb 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Contains a set of functions to create data libraries, generate data
-dictionaries, and simulate a data step. The libname() function will load a
-directory of data into a library in one line of code.  The dictionary()
-function will generate data dictionaries for individual data frames or an
-entire library.  And the datestep() function will perform row-by-row data
-processing.
+A system for personalized exercise plan recommendations for T2D (Type 2
+Diabetes) patients based on the primary outcome of HbA1c (Glycated
+Hemoglobin). You provide the individual's information, and 'T2DFitTailor'
+details the exercise plan and predicts the intervention's effectiveness.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codep
-%global packver   1.2-3
+%global packname  yodel
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Codependence Analysis
+Summary:          A General Bayesian Model Averaging Helper
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-rlang >= 0.4
+BuildRequires:    R-CRAN-purrr >= 0.3
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-rlang >= 0.4
+Requires:         R-CRAN-purrr >= 0.3
 
 %description
-Computation of Multiscale Codependence Analysis and spatial eigenvector
-maps.
+Provides helper functions to perform Bayesian model averaging using Markov
+chain Monte Carlo samples from separate models. Calculates weights and
+obtains draws from the model-averaged posterior for quantities of interest
+specified by the user. Weight calculations can be done using marginal
+likelihoods or log-predictive likelihoods as in Ando, T., & Tsay, R.
+(2010) <doi:10.1016/j.ijforecast.2009.08.001>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codep
-%global packver   1.2-3
+%global packname  spatstat.univar
+%global packver   2.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Codependence Analysis
+Summary:          One-Dimensional Probability Distribution Support for the 'spatstat' Family
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.2
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-spatstat.utils >= 3.0.2
 Requires:         R-stats 
-Requires:         R-parallel 
 
 %description
-Computation of Multiscale Codependence Analysis and spatial eigenvector
-maps.
+Estimation of one-dimensional probability distributions including kernel
+density estimation, weighted empirical cumulative distribution functions,
+Kaplan-Meier and reduced-sample estimators for right-censored data, heat
+kernels, kernel properties, quantiles and integration.
 
 %prep
 %setup -q -c -n %{packname}

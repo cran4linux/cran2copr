@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sassy
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Makes 'R' Easier for Everyone
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fmtr >= 1.6.2
-BuildRequires:    R-CRAN-reporter >= 1.4.3
-BuildRequires:    R-CRAN-logr >= 1.3.4
-BuildRequires:    R-CRAN-libr >= 1.2.8
-BuildRequires:    R-CRAN-common >= 1.1.0
-BuildRequires:    R-CRAN-procs >= 1.0.4
+BuildRequires:    R-CRAN-fmtr >= 1.6.3
+BuildRequires:    R-CRAN-reporter >= 1.4.4
+BuildRequires:    R-CRAN-logr >= 1.3.7
+BuildRequires:    R-CRAN-libr >= 1.3.2
+BuildRequires:    R-CRAN-common >= 1.1.3
+BuildRequires:    R-CRAN-procs >= 1.0.6
 BuildRequires:    R-datasets 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-fmtr >= 1.6.2
-Requires:         R-CRAN-reporter >= 1.4.3
-Requires:         R-CRAN-logr >= 1.3.4
-Requires:         R-CRAN-libr >= 1.2.8
-Requires:         R-CRAN-common >= 1.1.0
-Requires:         R-CRAN-procs >= 1.0.4
+Requires:         R-CRAN-fmtr >= 1.6.3
+Requires:         R-CRAN-reporter >= 1.4.4
+Requires:         R-CRAN-logr >= 1.3.7
+Requires:         R-CRAN-libr >= 1.3.2
+Requires:         R-CRAN-common >= 1.1.3
+Requires:         R-CRAN-procs >= 1.0.6
 Requires:         R-datasets 
 Requires:         R-tools 
 Requires:         R-utils 

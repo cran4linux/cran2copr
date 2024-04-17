@@ -1,62 +1,71 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  REDCapTidieR
-%global packver   1.1.1
+%global packname  ready4
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract 'REDCap' Databases into Tidy 'Tibble's
+Summary:          Implement Modular and Open-Source Health Economic Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-REDCapR >= 1.1.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dataverse 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lobstr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-piggyback 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyRSS 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-formattable 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-REDCapR >= 1.1.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dataverse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lobstr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-piggyback 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyRSS 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-formattable 
-Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Convert 'REDCap' exports into tidy tables for easy handling of 'REDCap'
-repeat instruments and event arms.
+Programming syntax, a template model module and tools to help maintain a
+modular and open-source health economic model's project documentation
+website.  These elements are the foundation for a prototype software
+framework to support replicable and transferable health economic models.
+The software framework is extended by other R libraries.  For detailed
+documentation about the framework and how to use it visit
+<https://www.ready4-dev.com/>. For a background to the methodological
+issues that the framework is attempting to help solve, see Hamilton et al.
+(2024) <doi:10.48550/arXiv.2310.14138>.
 
 %prep
 %setup -q -c -n %{packname}

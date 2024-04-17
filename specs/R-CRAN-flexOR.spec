@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexOR
-%global packver   0.9.6
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Odds Ratio Curves
 
@@ -29,8 +29,8 @@ Requires:         R-CRAN-mgcv
 Requires:         R-stats 
 
 %description
-Provides flexible hazard ratio curves that enable modeling non-linear
-relationships between continuous predictors and survival outcomes. This
+Provides flexible odds ratio curves that enable modeling non-linear
+relationships between continuous predictors and binary outcomes. This
 package facilitates a deeper understanding of the impact of each
 continuous predictor on the outcome by presenting results in terms of odds
 ratio (OR) curves based on splines. These curves allow for comparison

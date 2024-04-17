@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  symptomcheckR
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing and Visualizing Symptom Checker Performance
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-irr >= 0.84.1
 BuildRequires:    R-CRAN-ggpubr >= 0.6.0
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-irr >= 0.84.1
 Requires:         R-CRAN-ggpubr >= 0.6.0
 
 %description

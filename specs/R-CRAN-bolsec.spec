@@ -1,51 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libr
-%global packver   1.3.2
+%global packname  bolsec
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Libraries, Data Dictionaries, and a Data Step for R
+Summary:          Bolivian Securities
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-common >= 1.1.0
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-common >= 1.1.0
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-formattable 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-formattable 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Contains a set of functions to create data libraries, generate data
-dictionaries, and simulate a data step. The libname() function will load a
-directory of data into a library in one line of code.  The dictionary()
-function will generate data dictionaries for individual data frames or an
-entire library.  And the datestep() function will perform row-by-row data
-processing.
+Provides data import and offers 3 daily snapshot functions from securities
+of varying prices traded on the Bolivian Securities Exchange, website
+<https://www.bbv.com.bo/>. The snapshots include a detailed list, scatter
+plot correlation, and descriptive statistics table for the securities.
 
 %prep
 %setup -q -c -n %{packname}

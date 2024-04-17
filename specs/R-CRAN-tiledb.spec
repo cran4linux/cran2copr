@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tiledb
-%global packver   0.25.0
+%global packver   0.26.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.25.0
+Version:          0.26.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modern Database Engine for Multi-Modal Data via Sparse and Dense Multidimensional Arrays
+Summary:          Modern Database Engine for Complex Data Based on Multi-Dimensional Arrays
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,13 +31,14 @@ Requires:         R-CRAN-nanoarrow
 
 %description
 The modern database 'TileDB' introduces a powerful on-disk format for
-multi-modal data based on dimensional arrays. It supports dense and sparse
-arrays, dataframes and key-values stores, cloud storage ('S3', 'GCS',
-'Azure'), chunked arrays, multiple compression, encryption and checksum
-filters, uses a fully multi-threaded implementation, supports parallel
-I/O, data versioning ('time travel'), metadata and groups. It is
-implemented as an embeddable cross-platform C++ library with APIs from
-several languages, and integrations.
+storing and accessing any complex data based on multi-dimensional arrays.
+It supports dense and sparse arrays, dataframes and key-values stores,
+cloud storage ('S3', 'GCS', 'Azure'), chunked arrays, multiple
+compression, encryption and checksum filters, uses a fully multi-threaded
+implementation, supports parallel I/O, data versioning ('time travel'),
+metadata and groups. It is implemented as an embeddable cross-platform C++
+library with APIs from several languages, and integrations. This package
+provides the R support.
 
 %prep
 %setup -q -c -n %{packname}

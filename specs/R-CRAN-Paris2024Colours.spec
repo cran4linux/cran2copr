@@ -1,33 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codep
-%global packver   1.2-3
+%global packname  Paris2024Colours
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Codependence Analysis
+Summary:          Color Palettes Inspired by Paris 2024 Olympic and Paralympic Games
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Computation of Multiscale Codependence Analysis and spatial eigenvector
-maps.
+Palettes inspired by Paris 2024 Olympic and Paralympic Games for data
+visualizations. Length of color palettes is configurable.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pysparklyr
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.8.4
+BuildRequires:    R-CRAN-sparklyr >= 1.8.5
 BuildRequires:    R-CRAN-reticulate >= 1.33
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-processx
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-rsconnect 
-Requires:         R-CRAN-sparklyr >= 1.8.4
+Requires:         R-CRAN-sparklyr >= 1.8.5
 Requires:         R-CRAN-reticulate >= 1.33
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 

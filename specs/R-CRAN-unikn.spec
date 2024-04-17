@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unikn
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Elements of the University of Konstanz's Corporate Design
 
@@ -17,10 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 

@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libr
-%global packver   1.3.2
+%global packname  vectorsurvR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Libraries, Data Dictionaries, and a Data Step for R
+Summary:          Data Access and Analytical Tools for 'VectorSurv' Users
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-common >= 1.1.0
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-common >= 1.1.0
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-DT 
 
 %description
-Contains a set of functions to create data libraries, generate data
-dictionaries, and simulate a data step. The libname() function will load a
-directory of data into a library in one line of code.  The dictionary()
-function will generate data dictionaries for individual data frames or an
-entire library.  And the datestep() function will perform row-by-row data
-processing.
+Allows registered 'VectorSurv' <https://vectorsurv.org/> users access to
+data through the 'VectorSurv API' <https://api.vectorsurv.org/>.
+Additionally provides functions for analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}
