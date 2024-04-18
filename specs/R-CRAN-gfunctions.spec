@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ntsDists
-%global packver   2.1.1
+%global packname  gfunctions
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neutrosophic Distributions
+Summary:          G-Functions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-sandwich 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Computes the pdf, cdf, quantile function and generating random numbers for
-neutrosophic distributions. This family have been developed by different
-authors in the recent years. See Patro and Smarandache (2016)
-<doi:10.5281/zenodo.571153> and Rao et al (2023)
-<doi:10.5281/zenodo.7832786>.
+Modified versions of the lag() and summary() functions: glag() and
+gsummary(). The prefix 'g' is a reminder of who to blame if things do not
+work as they should.
 
 %prep
 %setup -q -c -n %{packname}

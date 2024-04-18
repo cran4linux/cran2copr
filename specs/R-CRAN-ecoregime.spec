@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecoregime
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Ecological Dynamic Regimes
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ecotraj 
-BuildRequires:    R-CRAN-GDAtools 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shape 
@@ -30,7 +29,6 @@ BuildRequires:    R-CRAN-stringr
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ecotraj 
-Requires:         R-CRAN-GDAtools 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-shape 
@@ -47,7 +45,9 @@ to identify representative trajectories, functions to generate, summarize,
 and visualize representative trajectories, and several metrics to quantify
 the distribution and heterogeneity of trajectories in an ecological
 dynamic regime and quantify the dissimilarity between two or more
-ecological dynamic regimes.
+ecological dynamic regimes. The package also includes a set of functions
+to assess ecological resilience based on ecological dynamic regimes
+(Sánchez-Pinillos et al., 2024 <doi:10.1016/j.biocon.2023.110409>).
 
 %prep
 %setup -q -c -n %{packname}

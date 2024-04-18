@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ntsDists
-%global packver   2.1.1
+%global packname  filters
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neutrosophic Distributions
+Summary:          A "Snake_case" Filter System for R
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-yaml 
 
 %description
-Computes the pdf, cdf, quantile function and generating random numbers for
-neutrosophic distributions. This family have been developed by different
-authors in the recent years. See Patro and Smarandache (2016)
-<doi:10.5281/zenodo.571153> and Rao et al (2023)
-<doi:10.5281/zenodo.7832786>.
+Enables filtering datasets by a prior specified identifiers which
+correspond to saved filter expressions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesSUR
-%global packver   2.1-6
+%global packver   2.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Seemingly Unrelated Regression
 
@@ -41,7 +41,7 @@ Bayesian seemingly unrelated regression with general variable selection
 and dense/sparse covariance matrix. The sparse seemingly unrelated
 regression is described in Bottolo et al. (2021) <doi:10.1111/rssc.12490>,
 the software paper is in Zhao et al. (2021) <doi:10.18637/jss.v100.i11>,
-and the model with random effects is described in Zhao et al. (2023)
+and the model with random effects is described in Zhao et al. (2024)
 <doi:10.1093/jrsssc/qlad102>.
 
 %prep

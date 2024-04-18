@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ntsDists
-%global packver   2.1.1
+%global packname  TestIndVars
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neutrosophic Distributions
+Summary:          Testing the Independence of Variables for Specific Covariance Structures
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-MASS 
 
 %description
-Computes the pdf, cdf, quantile function and generating random numbers for
-neutrosophic distributions. This family have been developed by different
-authors in the recent years. See Patro and Smarandache (2016)
-<doi:10.5281/zenodo.571153> and Rao et al (2023)
-<doi:10.5281/zenodo.7832786>.
+Test the nullity of covariances, in a set of variables, using a simple
+univariate procedure. See Marques, Diago, Norouzirad, Bispo (2023)
+<doi:10.1002/mma.9130>.
 
 %prep
 %setup -q -c -n %{packname}
