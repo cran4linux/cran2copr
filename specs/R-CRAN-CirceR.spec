@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climetrics
-%global packver   1.0-15
+%global packname  CirceR
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          Construct Cohort Inclusion and Restriction Criteria Expressions
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-RJSONIO 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-RJSONIO 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+Wraps the 'CIRCE' (<https://github.com/ohdsi/circe-be>) 'Java' library
+allowing cohort definition expressions to be edited and converted to
+'Markdown' or 'SQL'.
 
 %prep
 %setup -q -c -n %{packname}

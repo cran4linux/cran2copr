@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climetrics
-%global packver   1.0-15
+%global packname  ipeaplot
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.2
+Requires:         R-core >= 3.3.2
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-showtext 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-showtext 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+Convenient functions to create 'ggplot2' graphics following the editorial
+guidelines of the Institute for Applied Economic Research (Ipea).
 
 %prep
 %setup -q -c -n %{packname}

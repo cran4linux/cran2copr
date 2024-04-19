@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   4.1.4
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.4
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-bibliometrixData
 BuildRequires:    R-CRAN-dimensionsR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-ca 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -48,7 +48,7 @@ Requires:         R-CRAN-bibliometrixData
 Requires:         R-CRAN-dimensionsR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-ca 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -72,11 +72,12 @@ Requires:         R-CRAN-tidytext
 Tool for quantitative research in scientometrics and bibliometrics. It
 provides various routines for importing bibliographic data from 'SCOPUS',
 'Clarivate Analytics Web of Science' (<https://www.webofknowledge.com/>),
-'Digital Science Dimensions' (<https://www.dimensions.ai/>), 'Cochrane
-Library' (<https://www.cochranelibrary.com/>), 'Lens'
-(<https://lens.org>), and 'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>)
-databases, performing bibliometric analysis and building networks for
-co-citation, coupling, scientific collaboration and co-word analysis.
+'Digital Science Dimensions' (<https://www.dimensions.ai/>), 'OpenAlex'
+(<https://openalex.org/>), 'Cochrane Library'
+(<https://www.cochranelibrary.com/>), 'Lens' (<https://lens.org>), and
+'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>) databases, performing
+bibliometric analysis and building networks for co-citation, coupling,
+scientific collaboration and co-word analysis.
 
 %prep
 %setup -q -c -n %{packname}

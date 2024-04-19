@@ -1,47 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dst
-%global packver   1.6.0
+%global packname  latentFactoR
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using the Theory of Belief Functions
+Summary:          Data Simulation Based on Latent Factors
 
-License:          GPL (>= 2)
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-EGAnet 
+BuildRequires:    R-CRAN-fspe 
+BuildRequires:    R-CRAN-googledrive 
+BuildRequires:    R-CRAN-ineq 
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mlr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-EGAnet 
+Requires:         R-CRAN-fspe 
+Requires:         R-CRAN-googledrive 
+Requires:         R-CRAN-ineq 
+Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-mlr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-xgboost 
 
 %description
-Using the Theory of Belief Functions for evidence calculus. Basic
-probability assignments, or mass functions, can be defined on the subsets
-of a set of possible values and combined. A mass function can be extended
-to a larger frame. Marginalization, i.e. reduction to a smaller frame can
-also be done. These features can be combined to analyze small belief
-networks and take into account situations where information cannot be
-satisfactorily described by probability distributions.
+Generates data based on latent factor models. Data can be continuous,
+polytomous, dichotomous, or mixed. Skews, cross-loadings, wording effects,
+population errors, and local dependencies can be added. All parameters can
+be manipulated. Data categorization is based on Garrido, Abad, and Ponsoda
+(2011) <doi:10.1177/0013164410389489>.
 
 %prep
 %setup -q -c -n %{packname}

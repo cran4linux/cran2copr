@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climetrics
-%global packver   1.0-15
+%global packname  CropWaterBalance
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          Climate Water Balance for Irrigation Purposes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-PowerSDI 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-PowerSDI 
+Requires:         R-CRAN-lubridate 
+Requires:         R-stats 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+Calculates daily climate water balance for irrigation purposes and also
+calculates the reference evapotranspiration (ET) using three methods,
+Penman and Monteith (Allen et al. 1998, ISBN:92-5-104219-5); Priestley and
+Taylor (1972) <doi:10/cr3qwn>; or Hargreaves and Samani (1985)
+<doi:10.13031/2013.26773>.  Users may specify a management allowed
+depletion (MAD), which is used to suggest when to irrigate.  The
+functionality allows for the use of crop and water stress coefficients as
+well.
 
 %prep
 %setup -q -c -n %{packname}

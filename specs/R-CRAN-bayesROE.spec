@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesROE
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regions of Evidence
 
@@ -40,8 +40,8 @@ Requires:         R-stats
 Computation and visualization of Bayesian Regions of Evidence to
 systematically evaluate the sensitivity of a superiority or
 non-inferiority claim against any prior assumption of its assessors.
-Methodological details are elaborated by Hoefler and Miller (2023)
-<https://osf.io/jxnsv>. Besides generic functions, the package also
+Methodological details are elaborated by Hoefler and Miller
+(<https://osf.io/jxnsv>).  Besides generic functions, the package also
 provides an intuitive 'Shiny' application, that can be run in local R
 environments.
 

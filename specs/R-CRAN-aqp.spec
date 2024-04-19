@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aqp
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithms for Quantitative Pedology
 
@@ -56,7 +56,7 @@ focus on ideas rather than boilerplate data processing tasks
 have been extensively tested and documented, applied to projects involving
 hundreds of thousands of soil profiles, and deeply integrated into widely
 used tools such as SoilWeb
-<https://casoilresource.lawr.ucdavis.edu/soilweb-apps/>. Components of the
+<https://casoilresource.lawr.ucdavis.edu/soilweb-apps>. Components of the
 AQP project (aqp, soilDB, sharpshootR, soilReports packages) serve an
 important role in routine data analysis within the USDA-NRCS Soil Science
 Division. The AQP suite of R packages offer a convenient platform for

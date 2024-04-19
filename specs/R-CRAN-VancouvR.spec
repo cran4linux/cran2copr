@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  VancouvR
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'City of Vancouver' Open Data API
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-urltools
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
@@ -32,6 +34,7 @@ Requires:         R-CRAN-urltools
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
 

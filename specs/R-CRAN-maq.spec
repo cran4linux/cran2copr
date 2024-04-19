@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maq
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Armed Qini
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-Rcpp
 %description
 Evaluate treatment rules for costly and mutually exclusive treatment arms
 with Qini curves as proposed in Sverdrup, Wu, Athey, and Wager (2023)
-<arXiv:2306.11979>.
+<doi:10.48550/arXiv.2306.11979>.
 
 %prep
 %setup -q -c -n %{packname}

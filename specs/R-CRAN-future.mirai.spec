@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climetrics
-%global packver   1.0-15
+%global packname  future.mirai
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          A 'Future' API for Parallel Processing using 'mirai'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-mirai >= 0.12.1
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-mirai >= 0.12.1
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
+Requires:         R-utils 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+Implementation of the 'Future' API <doi:10.32614/RJ-2021-048> on top of
+the 'mirai' package. This allows you to process futures, as defined by the
+'future' package, in parallel out of the box, on your local machine or
+across remote machines. Contrary to back-ends relying on the 'parallel'
+package (e.g. 'multisession') and socket connections, 'mirai_cluster' and
+'mirai_multisession', provided here, can run more than 125 parallel R
+processes.
 
 %prep
 %setup -q -c -n %{packname}

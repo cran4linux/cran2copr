@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  climetrics
-%global packver   1.0-15
+%global packname  bagyo
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.15
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Climate Change Metrics
+Summary:          Philippine Tropical Cyclones Data
 
-License:          GPL (>= 3)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rts 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-yaImpute 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-methods 
-Requires:         R-CRAN-rts 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-yaImpute 
-Requires:         R-CRAN-xts 
 
 %description
-A framework that facilitates spatio-temporal analysis of climate dynamics
-through exploring and measuring different dimensions of climate change in
-space and time.
+The Philippines frequently experiences tropical cyclones (called 'bagyo'
+in the Filipino language) because of its geographical position. These
+cyclones typically bring heavy rainfall, leading to widespread flooding,
+as well as strong winds that cause significant damage to human life,
+crops, and property. Data on cyclones are collected and curated by the
+Philippine Atmospheric, Geophysical, and Astronomical Services
+Administration or 'PAGASA' and made available through its website
+<https://bagong.pagasa.dost.gov.ph/tropical-cyclone/publications/annual-report>.
+This package contains Philippine tropical cyclones data in a
+machine-readable format. It is hoped that this data package provides an
+interesting and unique dataset for data exploration and visualisation.
 
 %prep
 %setup -q -c -n %{packname}

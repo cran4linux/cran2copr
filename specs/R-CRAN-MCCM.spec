@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BioTIMEr
-%global packver   0.2.2
+%global packname  MCCM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Use and Explore the 'BioTIME' Database
+Summary:          Mixed Correlation Coefficient Matrix
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-dggridR 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-dggridR 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-polycor 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-polycor 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-The 'BioTIME' database was first published in 2018 and inspired ideas,
-questions, project and research article. To make it even more accessible,
-an R package was created. The 'BioTIMEr' package provides tools designed
-to interact with the 'BioTIME' database. The functions provided include
-the 'BioTIME' recommended methods for preparing (gridding and rarefaction)
-time series data, a selection of standard biodiversity metrics (including
-species richness, numerical abundance and exponential Shannon) alongside
-examples on how to display change over time. It also includes a sample
-subset of both the query and meta data, the full versions of which are
-freely available on the 'BioTIME' website
-<https://biotime.st-andrews.ac.uk/home.php>.
+The IRLS (Iteratively Reweighted Least Squares) and GMM (Generalized
+Method of Moments) methods are applied to estimate mixed correlation
+coefficient matrix (Pearson, Polyseries, Polychoric), which can be
+estimated in pairs or simultaneously. For more information see Peng Zhang
+and Ben Liu (2024) <doi:10.1080/10618600.2023.2257251>; Ben Liu and Peng
+Zhang (2024) <doi:10.48550/arXiv.2404.06781>.
 
 %prep
 %setup -q -c -n %{packname}
