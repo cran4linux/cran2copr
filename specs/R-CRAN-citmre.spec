@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WINS
-%global packver   1.4.1
+%global packname  citmre
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The R WINS Package
+Summary:          Colombian Index Tool Market Rate Exchange
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xts 
 
 %description
-Calculate the win statistics (win ratio, net benefit and win odds) for
-prioritized multiple endpoints, plot the win statistics and win
-proportions over study time if at least one time-to-event endpoint is
-analyzed, and simulate datasets with dependent endpoints. The package can
-handle any type of outcomes (continuous, ordinal, binary, time-to-event)
-and allow users to perform stratified analysis, inverse probability of
-censoring weighting (IPCW) and inverse probability of treatment weighting
-(IPTW) analysis.
+Downloads the Representative Market Rate Exchange (RMRE) from the
+<www.datos.gov.co> source. Allows setting the data series in time
+frequencies, splitting the time series through start and end functions,
+transforming the data set in log returns or levels, and making a Dynamic
+graph.
 
 %prep
 %setup -q -c -n %{packname}

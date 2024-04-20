@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fabR
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions Collection Used in Data Pipelines
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-usethis 
@@ -31,11 +31,10 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-usethis 
@@ -49,7 +48,6 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-digest 
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-lifecycle 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NNS
-%global packver   10.7
+%global packver   10.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.7
+Version:          10.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -17,29 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-meboot 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-quantmod 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-meboot 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-quantmod 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 

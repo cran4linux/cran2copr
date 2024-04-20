@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  censored
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'parsnip' Engines for Survival Models
 
@@ -31,7 +31,6 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-mboost 
-BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-survival >= 3.3.1
@@ -48,7 +47,6 @@ Requires:         R-CRAN-generics
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-mboost 
-Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmnetr
-%global packver   0.4-4
+%global packver   0.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross Validation for the Relaxed Lasso and Other Machine Learning Models
 
@@ -43,7 +43,9 @@ Cross validation informed Relaxed LASSO, Artificial Neural Network (ANN),
 gradient boosting machine ('xgboost'), Random Forest ('RandomForestSRC'),
 Recursive Partitioning ('RPART') or step wise regression models are fit.
 Nested cross validation (or analogous for the random forest) is used to
-estimate and compare performances between these models. For some datasets,
+estimate and compare performances between these models with results
+presented in tabular or graphical means.  Calibration plots can also be
+generated, again based upon (nested) cross validation. For some datasets,
 for example when the design matrix is not of full rank, 'glmnet' may have
 very long run times when fitting the relaxed lasso model, from our
 experience when fitting Cox models on data with many predictors and many
@@ -54,12 +56,9 @@ of path=TRUE is taken by default. When fitting not a relaxed lasso model
 but an elastic-net model, then the R-packages 'nestedcv'
 <https://cran.r-project.org/package=nestedcv>, 'glmnetSE'
 <https://cran.r-project.org/package=glmnetSE> or others may provide
-greater functionality when performing a nested CV. As with the 'glmnet'
-package, this package passes most relevant output to the output object and
-tabular and graphical summaries can be generated using the summary and
-plot functions.  Use of the 'glmnetr' has many similarities to the
-'glmnet' package and it is recommended that the user of 'glmnetr' also
-become familiar with the 'glmnet' package
+greater functionality when performing a nested CV. Use of the 'glmnetr'
+has many similarities to the 'glmnet' package and it is recommended that
+the user of 'glmnetr' also become familiar with the 'glmnet' package
 <https://cran.r-project.org/package=glmnet>, with the "An Introduction to
 'glmnet'" and "The Relaxed Lasso" being especially helpful in this regard.
 

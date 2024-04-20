@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oHMMed
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          HMMs with Ordered Hidden States and Emission Densities
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-vcd
 %description
 Inference using a class of Hidden Markov models (HMMs) called
 'oHMMed'(ordered HMM with emission densities
-<doi:10.1101/2023.06.26.546495>): The 'oHMMed' algorithms identify the
+<doi:10.1186/s12859-024-05751-4>): The 'oHMMed' algorithms identify the
 number of comparably homogeneous regions within observed sequences with
 autocorrelation patterns. These are modelled as discrete hidden states;
 the observed data points are then realisations of continuous probability

@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WINS
-%global packver   1.4.1
+%global packname  CreditRisk
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          The R WINS Package
+Summary:          Evaluation of Credit Risk with Structural and Reduced Form Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Calculate the win statistics (win ratio, net benefit and win odds) for
-prioritized multiple endpoints, plot the win statistics and win
-proportions over study time if at least one time-to-event endpoint is
-analyzed, and simulate datasets with dependent endpoints. The package can
-handle any type of outcomes (continuous, ordinal, binary, time-to-event)
-and allow users to perform stratified analysis, inverse probability of
-censoring weighting (IPCW) and inverse probability of treatment weighting
-(IPTW) analysis.
+Evaluation of default probability of sovereign and corporate entities
+based on structural or intensity based models and calibration on market
+Credit Default Swap quotes. References: Damiano Brigo, Massimo Morini,
+Andrea Pallavicini (2013) <doi:10.1002/9781118818589>. Print ISBN:
+9780470748466, Online ISBN: 9781118818589. © 2013 John Wiley & Sons Ltd.
 
 %prep
 %setup -q -c -n %{packname}

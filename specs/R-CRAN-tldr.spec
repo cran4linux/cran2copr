@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tldr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          T Loux Doing R: Functions to Simplify Data Analysis and Reporting
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tableone 
 BuildRequires:    R-CRAN-ggplot2 
@@ -32,8 +32,8 @@ bivariate relationships into a single, easy to use function. Reporting
 functions will return character strings to report p-values, confidence
 intervals, and hypothesis test and regression results. Strings will be
 LaTeX-formatted as necessary and will knit pretty in an 'RMarkdown'
-document. The package also provides a wrapper for the CreateTableOne()
-function in the 'tableone' package to make the results knit-able.
+document. The package also provides wrappers function in the 'tableone'
+package to make the results knit-able.
 
 %prep
 %setup -q -c -n %{packname}
