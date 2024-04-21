@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  streamMOA
-%global packver   1.3-0
+%global packver   1.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for MOA Stream Clustering Algorithms
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-rJava >= 1.0.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-proxy 
 Requires:         R-CRAN-stream >= 2.0.0
 Requires:         R-CRAN-rJava >= 1.0.1
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-proxy 
 
 %description
 Interface for data stream clustering algorithms implemented in the MOA

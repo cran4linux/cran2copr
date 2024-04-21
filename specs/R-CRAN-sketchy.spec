@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sketchy
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom Research Compendiums
 
@@ -22,12 +23,20 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-packrat 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-xaringanExtra 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-packrat 
 Requires:         R-utils 
 Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-xaringanExtra 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-cli 
 
 %description
 Provides functions to create and manage research compendiums for data
