@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flps
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fully-Latent Principal Stratification
 
@@ -42,9 +42,10 @@ Requires:         R-CRAN-rstantools
 
 %description
 Simulation and analysis of Fully-Latent Principal Stratification (FLPS)
-with measurement models. Sales & Pane (2019). <doi:10.1214/18-AOAS1196>.
-This package is supported by the Institute of Education Sciences, U.S.
-Department of Education, through Grant R305D210036.
+with measurement models. Lee, Adam, Kang, & Whittaker (2023).
+<doi:10.1007/978-3-031-27781-8_25>. This package is supported by the
+Institute of Education Sciences, U.S. Department of Education, through
+Grant R305D210036.
 
 %prep
 %setup -q -c -n %{packname}

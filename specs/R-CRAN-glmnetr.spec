@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmnetr
-%global packver   0.4-5
+%global packver   0.4-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.4.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross Validation for the Relaxed Lasso and Other Machine Learning Models
 

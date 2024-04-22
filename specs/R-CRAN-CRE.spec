@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CRE
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Discovery and Inference of Heterogeneous Treatment Effects
 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-inTrees 
+BuildRequires:    R-CRAN-arules 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-logger 
@@ -52,7 +52,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-inTrees 
+Requires:         R-CRAN-arules 
 
 %description
 Provides a new method for interpretable heterogeneous treatment effects
@@ -62,7 +62,7 @@ stability in the discovery. It relies on a two-stage pseudo-outcome
 regression, and it is supported by theoretical convergence guarantees.
 Bargagli-Stoffi, F. J., Cadei, R., Lee, K., & Dominici, F. (2023) Causal
 rule ensemble: Interpretable Discovery and Inference of Heterogeneous
-Treatment Effects. arXiv preprint <arXiv:2009.09036>.
+Treatment Effects. arXiv preprint <doi:10.48550/arXiv.2009.09036>.
 
 %prep
 %setup -q -c -n %{packname}

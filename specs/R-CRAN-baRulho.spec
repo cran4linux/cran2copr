@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  baRulho
-%global packver   1.0.6
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantifying Habitat-Induced Acoustic Signal Degradation
+Summary:          Quantifying (Animal) Sound Degradation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,22 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.1
 Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-warbleR >= 1.1.27
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-warbleR >= 1.1.30
+BuildRequires:    R-CRAN-ohun >= 1.0.1
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-fftw 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-warbleR >= 1.1.27
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-Sim.DiffProc 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-warbleR >= 1.1.30
+Requires:         R-CRAN-ohun >= 1.0.1
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-fftw 
 Requires:         R-methods 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-Sim.DiffProc 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 Intended to facilitate acoustic analysis of (animal) sound transmission

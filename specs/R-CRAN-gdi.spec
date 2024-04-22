@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdi
-%global packver   1.5.4
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Volumetric Analysis using Graphic Double Integration
 
@@ -36,7 +36,7 @@ double integration with simple elliptical, superelliptical (following
 Motani 2001 <doi:10.1666/0094-8373(2001)027%%3C0735:EBMFST%%3E2.0.CO;2>) or
 complex cross-sectional models. Additionally, the package provides
 functions for estimating the center of mass position (COM), the moment of
-inertia (I) for 3D shapes and the second moment of area (Ix) of 2D
+inertia (I) for 3D shapes and the second moment of area (Ix, Iy, Iz) of 2D
 cross-sections, as well as for visualization of results.
 
 %prep

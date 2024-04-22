@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INLAspacetime
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatio-Temporal Models using 'INLA'
 
@@ -14,26 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-fmesher 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-fmesher 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-fmesher 
+Requires:         R-CRAN-terra 
 
 %description
 Prepare objects to implement models over spatial and spacetime domains
@@ -41,8 +43,8 @@ with the 'INLA' package (<https://www.r-inla.org>). These objects contain
 data to for the 'cgeneric' interface in 'INLA', enabling fast parallel
 computations. We implemented the spatial barrier model, see Bakka et. al.
 (2019) <doi:10.1016/j.spasta.2019.01.002>, and some of the spatio-temporal
-models in Lindgren et. al. (2023) <arXiv:2006.04917>. Details are provided
-in the available vignettes and from the URL bellow.
+models in Lindgren et. al. (2023) <doi:10.48550/arXiv.2006.04917>. Details
+are provided in the available vignettes and from the URL bellow.
 
 %prep
 %setup -q -c -n %{packname}
