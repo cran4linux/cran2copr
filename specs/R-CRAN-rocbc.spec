@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rocbc
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Box-Cox Based Receiver Operating Characteristic Curves
 
@@ -35,9 +35,9 @@ Requires:         R-CRAN-pROC
 %description
 Generation of Box-Cox based ROC curves and several aspects of inferences
 and hypothesis testing. Can be used when inferences for one biomarker
-(Bantis LE, Nakas CT, Reiser B. (2018) <doi:10.1002/bimj.201700107>) are
-of interest or when comparisons of two correlated biomarkers (Bantis LE,
-Nakas CT, Reiser B. (2021) <doi:10.1002/bimj.202000128>) are of interest.
+(Bantis LE, Nakas CT, Reiser B. (2018)<doi:10.1002/bimj.201700107>) are of
+interest or when comparisons of two correlated biomarkers (Bantis LE,
+Nakas CT, Reiser B. (2021)<doi:10.1002/bimj.202000128>) are of interest.
 Provides inferences and comparisons around the AUC, the Youden index, the
 sensitivity at a given specificity level (and vice versa), the optimal
 operating point of the ROC curve (in the Youden sense), and the Youden

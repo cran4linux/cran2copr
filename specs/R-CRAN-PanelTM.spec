@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  PanelTM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Two- And Three-Way Dynamic Panel Threshold Regression Model for Change Point Detection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-pracma 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Estimation of two- and three-way dynamic panel threshold regression models
+(Di Lascio and Perazzini (2024) <https://repec.unibz.it/bemps104.pdf>; Di
+Lascio and Perazzini (2022, ISBN:978-88-9193-231-0); Seo and Shin (2016)
+<doi:10.1016/j.jeconom.2016.03.005>) through the generalized method of
+moments based on the first difference transformation and the use of
+instrumental variables. The models can be used to find a change point
+detection in the time series. In addition, random number generation is
+also implemented.
 
 %prep
 %setup -q -c -n %{packname}

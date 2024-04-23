@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  guescini
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Real-Time PCR Data Sets by Guescini et al. (2008)
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Real-time quantitative polymerase chain reaction (qPCR) data by Guescini
+et al. (2008) <doi:10.1186/1471-2105-9-326> in tidy format. This package
+provides two data sets where the amplification efficiency has been
+modulated: either by changing the amplification mix concentration, or by
+increasing the concentration of IgG, a PCR inhibitor. Original raw data
+files:
+<https://static-content.springer.com/esm/art%%3A10.1186%%2F1471-2105-9-326/MediaObjects/12859_2008_2311_MOESM1_ESM.xls>
+and
+<https://static-content.springer.com/esm/art%%3A10.1186%%2F1471-2105-9-326/MediaObjects/12859_2008_2311_MOESM5_ESM.xls>.
 
 %prep
 %setup -q -c -n %{packname}

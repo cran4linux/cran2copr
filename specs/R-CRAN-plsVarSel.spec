@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plsVarSel
-%global packver   0.9.10
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.10
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variable Selection in Partial Least Squares
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MSQC 
 BuildRequires:    R-CRAN-praznik 
 Requires:         R-CRAN-pls 
 Requires:         R-grDevices 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-progress 
 Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-MSQC 
 Requires:         R-CRAN-praznik 
 
 %description

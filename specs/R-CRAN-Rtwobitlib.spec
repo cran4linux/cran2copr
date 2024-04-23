@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  Rtwobitlib
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          '2bit' 'C' Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-tools 
+Requires:         R-tools 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+A trimmed down copy of the "kent-core source tree" turned into a 'C'
+library for manipulation of '.2bit' files. See
+<https://genome.ucsc.edu/FAQ/FAQformat.html#format7> for a quick overview
+of the '2bit' format. The "kent-core source tree" can be found here:
+<https://github.com/ucscGenomeBrowser/kent-core/>. Only the '.c' and '.h'
+files from the source tree that are related to manipulation of '.2bit'
+files were kept. Note that the package is primarily useful to developers
+of other R packages who wish to use the '2bit' 'C' library in their own
+'C'/'C++' code.
 
 %prep
 %setup -q -c -n %{packname}

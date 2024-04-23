@@ -1,30 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  sim.BA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Simulation-Based Bias Analysis for Observational Studies
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cobalt >= 4.5.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-pbapply >= 1.7.2
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-chk >= 0.9.1
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cobalt >= 4.5.3
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-pbapply >= 1.7.2
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-chk >= 0.9.1
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-utils 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Allows user to conduct a simulation based quantitative bias analysis using
+covariate structures generated with individual-level data to characterize
+the bias arising from unmeasured confounding. Users can specify their
+desired data generating mechanisms to simulate data and quantitatively
+summarize findings in an end-to-end application using this package.
 
 %prep
 %setup -q -c -n %{packname}

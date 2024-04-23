@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  basecamb
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Utilities for Streamlined Data Import, Imputation and Modelling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sae 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sae 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Provides functions streamlining the data analysis workflow: Outsourcing
+data import, renaming and type casting to a *.csv. Manipulating imputed
+datasets and fitting models on them. Summarizing models.
 
 %prep
 %setup -q -c -n %{packname}

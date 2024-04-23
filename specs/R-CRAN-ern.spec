@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ern
-%global packver   1.3.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effective Reproduction Number Estimation
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-EpiEstim 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,10 +27,12 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-EpiEstim 
 Requires:         R-CRAN-ggplot2 
@@ -38,6 +41,7 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-runjags 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-zoo 

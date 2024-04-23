@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LipidomicsR
-%global packver   0.1.6
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elegant Tools for Processing and Visualization of Lipidomics Data
 
@@ -35,6 +35,8 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggsci 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
@@ -53,6 +55,8 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggsci 
 
 %description
 An elegant tool for processing and visualizing lipidomics data generated

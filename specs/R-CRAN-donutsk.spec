@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  donutsk
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Construct Advanced Donut Charts
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-glue >= 1.6.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-glue >= 1.6.2
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.1
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Build donut/pie charts with 'ggplot2' layer by layer, exploiting the
+advantages of polar symmetry. Leverage layouts to distribute labels
+effectively. Connect labels to donut segments using pins. Streamline
+annotation and highlighting.
 
 %prep
 %setup -q -c -n %{packname}

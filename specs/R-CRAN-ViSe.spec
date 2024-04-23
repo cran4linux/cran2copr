@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  ViSe
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Visualizing Sensitivity
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-shiny 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Designed to help the user to determine the sensitivity of an proposed
+causal effect to unconsidered common causes. Users can create
+visualizations of sensitivity, effect sizes, and determine which pattern
+of effects would support a causal claim for between group differences.
+Number needed to treat formula from Kraemer H.C. & Kupfer D.J. (2006)
+<doi:10.1016/j.biopsych.2005.09.014>.
 
 %prep
 %setup -q -c -n %{packname}

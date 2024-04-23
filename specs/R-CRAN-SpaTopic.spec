@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaTopic
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Topic Inference to Identify Tissue Architecture in Multiplexed Images
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 A novel spatial topic model to integrate both cell type and spatial
 information to identify the complex spatial tissue architecture on
 multiplexed tissue images without human intervention. The Package
-implements a Collapsed Gibbs sampling algorithm for inference. 'SpaTopic'
+implements a collapsed Gibbs sampling algorithm for inference. 'SpaTopic'
 is scalable to large-scale image datasets without extracting neighborhood
 information for every single cell. For more details on the methodology,
 see <https://xiyupeng.github.io/SpaTopic/>.

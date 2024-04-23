@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  slca
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Structural Modeling for Multiple Latent Class Variables
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Provides comprehensive tools for the implementation of Structural Latent
+Class Models (SLCM), including Latent Transition Analysis (LTA; Linda M.
+Collins and Stephanie T. Lanza, 2009) <doi:10.1002/9780470567333>, Latent
+Class Profile Analysis (LCPA; Hwan Chung et al., 2010)
+<doi:10.1111/j.1467-985x.2010.00674.x>, and Joint Latent Class Analysis
+(JLCA; Saebom Jeon et al., 2017) <doi:10.1080/10705511.2017.1340844>, and
+any other extended models involving multiple latent class variables.
 
 %prep
 %setup -q -c -n %{packname}

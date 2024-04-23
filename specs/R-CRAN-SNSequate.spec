@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SNSequate
-%global packver   1.3-4
+%global packver   1.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standard and Nonstandard Statistical Models and Methods for Test Equating
 
@@ -19,6 +19,9 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Ake 
+BuildRequires:    R-CRAN-equate 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-emdbook 
 BuildRequires:    R-CRAN-plyr 
@@ -27,6 +30,9 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-magic 
 Requires:         R-stats 
+Requires:         R-CRAN-Ake 
+Requires:         R-CRAN-equate 
+Requires:         R-CRAN-moments 
 Requires:         R-methods 
 Requires:         R-CRAN-emdbook 
 Requires:         R-CRAN-plyr 
@@ -35,17 +41,20 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-progress 
 
 %description
-Contains functions to perform various models and methods for test
-equating. It currently implements the traditional mean, linear and
-equipercentile equating methods. Both IRT observed-score and true-score
-equating are also supported, as well as the mean-mean, mean-sigma, Haebara
-and Stocking-Lord IRT linking methods. It also supports newest methods
-such that local equating, kernel equating (using Gaussian, logistic,
-Epanechnikov, uniform and adaptive kernels) with presmoothing, and IRT
-parameter linking methods based on asymmetric item characteristic
-functions. Functions to obtain both standard error of equating (SEE) and
-standard error of equating differences between two equating functions
-(SEED) are also implemented for the kernel method of equating.
+Contains functions to perform various models and methods for test equating
+(Kolen and Brennan, 2014 <doi:10.1007/978-1-4939-0317-7> ; Gonzalez and
+Wiberg, 2017 <doi:10.1007/978-3-319-51824-4> ; von Davier et. al, 2004
+<doi:10.1007/b97446>). It currently implements the traditional mean,
+linear and equipercentile equating methods. Both IRT observed-score and
+true-score equating are also supported, as well as the mean-mean,
+mean-sigma, Haebara and Stocking-Lord IRT linking methods. It also
+supports newest methods such that local equating, kernel equating (using
+Gaussian, logistic, Epanechnikov, uniform and adaptive kernels) with
+presmoothing, and IRT parameter linking methods based on asymmetric item
+characteristic functions. Functions to obtain both standard error of
+equating (SEE) and standard error of equating differences between two
+equating functions (SEED) are also implemented for the kernel method of
+equating.
 
 %prep
 %setup -q -c -n %{packname}

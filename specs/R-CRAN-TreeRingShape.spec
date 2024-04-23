@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   0.9.0
+%global packname  TreeRingShape
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Recording Tree-Ring Shapes of Tree Disks with Manual Digitizing and Interpolating Model
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-methods 
+Requires:         R-CRAN-sf 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+Record all tree-ring Shapefile of tree disk with GIS soft
+('Qgis'<https://www.qgis.org/en/site/>) and interpolating model from high
+resolution tree disk image.
 
 %prep
 %setup -q -c -n %{packname}

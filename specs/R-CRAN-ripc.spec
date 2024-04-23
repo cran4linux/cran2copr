@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ripc
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Tidy IPC and CH Data
 
@@ -20,21 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-countrycode 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-countrycode 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
