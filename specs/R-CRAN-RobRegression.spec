@@ -1,31 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisualizeSimon2Stage
-%global packver   0.1.4
+%global packname  RobRegression
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Simon's Two-Stage Design
+Summary:          Robust Multivariate Regression
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-capushe 
+BuildRequires:    R-CRAN-KneeArrower 
+BuildRequires:    R-CRAN-fastmatrix 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-parallel 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-capushe 
+Requires:         R-CRAN-KneeArrower 
+Requires:         R-CRAN-fastmatrix 
+Requires:         R-CRAN-DescTools 
 
 %description
-To visualize the probabilities of early termination, fail and success of
-Simon's two-stage design.  To evaluate and visualize the operating
-characteristics of Simon's two-stage design.
+Robust methods for estimating the parameters of multivariate Gaussian
+linear models.
 
 %prep
 %setup -q -c -n %{packname}

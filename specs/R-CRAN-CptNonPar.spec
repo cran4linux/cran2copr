@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CptNonPar
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Change Point Detection for Multivariate Time Series
 
@@ -37,7 +37,8 @@ Requires:         R-stats
 Implements the nonparametric moving sum procedure for detecting changes in
 the joint characteristic function (NP-MOJO) for multiple change point
 detection in multivariate time series. See McGonigle, E. T., Cho, H.
-(2023) <arXiv:2305.07581> for description of the NP-MOJO methodology.
+(2023) <doi:10.48550/arXiv.2305.07581> for description of the NP-MOJO
+methodology.
 
 %prep
 %setup -q -c -n %{packname}

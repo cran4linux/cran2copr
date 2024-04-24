@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegtDYN
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
 
@@ -30,6 +30,8 @@ BuildRequires:    R-CRAN-car
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rnames 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -43,6 +45,8 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-lmtest 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rnames 
 
 %description
 Estimation of event-study Difference-in-Difference (DID) estimators in

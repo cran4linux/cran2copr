@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  syt
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard Young Tableaux
+Summary:          Young Tableaux
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,10 +25,12 @@ Requires:         R-CRAN-partitions
 Requires:         R-utils 
 
 %description
-Deals with standard Young tableaux (field of combinatorics). Performs
-enumeration, counting, random generation, the Robinson-Schensted
-correspondence, and conversion to and from paths on the Young lattice.
-Also performs enumeration and counting of semistandard Young tableaux.
+Deals with Young tableaux (field of combinatorics). For standard Young
+tabeaux, performs enumeration, counting, random generation, the
+Robinson-Schensted correspondence, and conversion to and from paths on the
+Young lattice. Also performs enumeration and counting of semistandard
+Young tableaux, enumeration of skew semistandard Young tableaux, and
+computation of Kostka numbers.
 
 %prep
 %setup -q -c -n %{packname}

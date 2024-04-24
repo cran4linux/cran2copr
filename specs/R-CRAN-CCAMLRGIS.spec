@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CCAMLRGIS
-%global packver   4.0.7
+%global packver   4.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.7
+Version:          4.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antarctic Spatial Data Manipulation
 

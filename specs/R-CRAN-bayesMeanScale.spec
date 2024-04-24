@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  estimators
-%global packver   0.7.3
+%global packname  bayesMeanScale
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parameter Estimation
+Summary:          Bayesian Post-Estimation on the Mean Scale
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-distr 
-BuildRequires:    R-CRAN-ggh4x 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-distr 
-Requires:         R-CRAN-ggh4x 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-progress 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
 
 %description
-Implements estimation methods for parameters of common distribution
-families. The common d, p, q, r function family for each distribution is
-enriched with the ll, e, and v counterparts, computing the log-likelihood,
-performing estimation, and calculating the asymptotic variance -
-covariance matrix, respectively. Parameter estimation is performed
-analytically whenever possible.
+Computes Bayesian posterior distributions of predictions, marginal
+effects, and differences of marginal effects for various generalized
+linear models. Importantly, the posteriors are on the mean (response)
+scale, allowing for more natural interpretation than summaries on the link
+scale. Also, predictions and marginal effects of the count probabilities
+for Poisson and negative binomial models can be computed.
 
 %prep
 %setup -q -c -n %{packname}

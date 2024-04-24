@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  labelled
-%global packver   2.12.0
+%global packver   2.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.12.0
+Version:          2.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulating Labelled Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-haven >= 2.4.1
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-lifecycle 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Work with labelled data imported from 'SPSS' or 'Stata' with 'haven' or

@@ -1,31 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisualizeSimon2Stage
-%global packver   0.1.4
+%global packname  GregoryQuadrature
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Simon's Two-Stage Design
+Summary:          Gregory Weights for Function Integration
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-To visualize the probabilities of early termination, fail and success of
-Simon's two-stage design.  To evaluate and visualize the operating
-characteristics of Simon's two-stage design.
+Computes Gregory weights for a given number nodes and function order.
+Anthony Ralston and Philip Rabinowitz (2001) <ISBN:9780486414546>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisualizeSimon2Stage
-%global packver   0.1.4
+%global packname  textrar
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Simon's Two-Stage Design
+Summary:          Interface to 'TexTra' from R
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
 
 %description
-To visualize the probabilities of early termination, fail and success of
-Simon's two-stage design.  To evaluate and visualize the operating
-characteristics of Simon's two-stage design.
+A wrapper for the 'TexTra' API
+<https://mt-auto-minhon-mlt.ucri.jgn-x.jp/>, a web service for translating
+texts between different languages. 'TexTra' API account is required to use
+the service.
 
 %prep
 %setup -q -c -n %{packname}

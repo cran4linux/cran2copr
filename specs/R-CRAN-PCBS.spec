@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisualizeSimon2Stage
-%global packver   0.1.4
+%global packname  PCBS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Simon's Two-Stage Design
+Summary:          Principle Component BiSulfite
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 
 %description
-To visualize the probabilities of early termination, fail and success of
-Simon's two-stage design.  To evaluate and visualize the operating
-characteristics of Simon's two-stage design.
+A system for fast, accurate, and flexible whole genome bisulfite
+sequencing (WGBS) data analysis of two-condition comparisons. Principle
+Component BiSulfite, 'PCBS', assigns methylated loci eigenvector values
+from the treatment-delineating principal component in lieu of running
+millions of pairwise statistical tests, which dramatically increases
+analysis flexibility and reduces computational requirements. Methods:
+<https://katlande.github.io/PCBS/articles/Differential_Methylation.html>.
 
 %prep
 %setup -q -c -n %{packname}

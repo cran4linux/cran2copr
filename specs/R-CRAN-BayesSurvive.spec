@@ -1,31 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisualizeSimon2Stage
-%global packver   0.1.4
+%global packname  BayesSurvive
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Simon's Two-Stage Design
+Summary:          Bayesian Survival Models for High-Dimensional Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.000
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-riskRegression 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-riskRegression 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-To visualize the probabilities of early termination, fail and success of
-Simon's two-stage design.  To evaluate and visualize the operating
-characteristics of Simon's two-stage design.
+An implementation of Bayesian survival models with graph-structured
+selection priors for sparse identification of omics features predictive of
+survival (Madjar et al., 2021 <doi:10.1186/s12859-021-04483-z>) and its
+extension to use a fixed graph via a Markov Random Field (MRF) prior for
+capturing known structure of omics features, e.g. disease-specific
+pathways from the Kyoto Encyclopedia of Genes and Genomes database.
 
 %prep
 %setup -q -c -n %{packname}

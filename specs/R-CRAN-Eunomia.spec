@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VisualizeSimon2Stage
-%global packver   0.1.4
+%global packname  Eunomia
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Simon's Two-Stage Design
+Summary:          Standard Dataset Manager for Observational Medical Outcomes Partnership Common Data Model Sample Datasets
 
-License:          GPL-2
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-CommonDataModel 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-CommonDataModel 
 
 %description
-To visualize the probabilities of early termination, fail and success of
-Simon's two-stage design.  To evaluate and visualize the operating
-characteristics of Simon's two-stage design.
+Facilitates access to sample datasets from the 'EunomiaDatasets'
+repository (<https://github.com/ohdsi/EunomiaDatasets>).
 
 %prep
 %setup -q -c -n %{packname}
