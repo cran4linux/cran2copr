@@ -1,32 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleAPT
-%global packver   1.0.6
+%global packname  CalcThemAll.PRM
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Parallel Tempering for 'NIMBLE'
+Summary:          Calculate Pesticide Risk Metric (PRM) Values from Multiple Pesticides...Calc Them All
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-DT 
 
 %description
-Functions for adaptive parallel tempering (APT) with NIMBLE models.
-Adapted from 'Lacki' & 'Miasojedow' (2016) <DOI:10.1007/s11222-015-9579-0>
-and 'Miasojedow, Moulines and Vihola' (2013)
-<DOI:10.1080/10618600.2013.778779>.
+Contains functions which can be used to calculate Pesticide Risk Metric
+values in aquatic environments from concentrations of multiple pesticides
+with known species sensitive distributions (SSDs). Pesticides provided by
+this package have all be validated however if the user has their own
+pesticides with SSD values they can append them to the pesticide_info
+table to include them in estimates.
 
 %prep
 %setup -q -c -n %{packname}

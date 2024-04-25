@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survival
-%global packver   3.5-8
+%global packver   3.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.8
+Version:          3.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keyATM
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Keyword Assisted Topic Models
 
@@ -64,7 +64,7 @@ samplers. The keyATM combines the latent dirichlet allocation (LDA) models
 with a small number of keywords selected by researchers in order to
 improve the interpretability and topic classification of the LDA. The
 keyATM can also incorporate covariates and directly model time trends. The
-keyATM is proposed in Eshima, Imai, and Sasaki (2023)
+keyATM is proposed in Eshima, Imai, and Sasaki (2024)
 <doi:10.1111/ajps.12779>.
 
 %prep

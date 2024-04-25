@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anticlust
-%global packver   0.8.1
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subset Partitioning via Anticlustering
 
@@ -34,7 +34,7 @@ k-means clustering) or the sum of pairwise distances within clusters. The
 main function anticlustering() gives access to exact and heuristic
 anticlustering methods described in Papenberg and Klau (2021;
 <doi:10.1037/met0000301>), Brusco et al. (2020; <doi:10.1111/bmsp.12186>),
-and Papenberg (2023; <doi:10.1111/bmsp.12315>). The exact algorithms
+and Papenberg (2024; <doi:10.1111/bmsp.12315>). The exact algorithms
 require that an integer linear programming solver is installed, either the
 GNU linear programming kit (<https://www.gnu.org/software/glpk/glpk.html>)
 together with the interface package 'Rglpk'
@@ -44,7 +44,7 @@ package 'Rsymphony' (<https://cran.r-project.org/package=Rsymphony>). Full
 access to the bicriterion anticlustering method proposed by Brusco et al.
 (2020) is given via the function bicriterion_anticlustering(), while
 kplus_anticlustering() implements the full functionality of the k-plus
-anticlustering approach proposed by Papenberg (2023). Some other functions
+anticlustering approach proposed by Papenberg (2024). Some other functions
 are available to solve classical clustering problems. The function
 balanced_clustering() applies a cluster analysis under size constraints,
 i.e., creates equal-sized clusters. The function matching() can be used

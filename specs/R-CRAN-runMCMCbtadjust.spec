@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rtwobitlib
-%global packver   0.3.6
+%global packname  runMCMCbtadjust
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          '2bit' 'C' Library
+Summary:          Runs Monte Carlo Markov Chain - With Either 'JAGS', 'nimble' or 'greta' - While Adjusting Burn-in and Thinning Parameters
 
-License:          MIT + file LICENSE
+License:          CECILL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-tools 
-Requires:         R-tools 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-coda 
 
 %description
-A trimmed down copy of the "kent-core source tree" turned into a 'C'
-library for manipulation of '.2bit' files. See
-<https://genome.ucsc.edu/FAQ/FAQformat.html#format7> for a quick overview
-of the '2bit' format. The "kent-core source tree" can be found here:
-<https://github.com/ucscGenomeBrowser/kent-core/>. Only the '.c' and '.h'
-files from the source tree that are related to manipulation of '.2bit'
-files were kept. Note that the package is primarily useful to developers
-of other R packages who wish to use the '2bit' 'C' library in their own
-'C'/'C++' code.
+The function runMCMC_btadjust() returns a mcmc.list object which is the
+output of a Markov Chain Monte Carlo obtained - from either 'JAGS',
+'nimble' or 'greta' - after adjusting burn-in and thinning parameters to
+meet pre-specified criteria in terms of convergence & effective sample
+size.
 
 %prep
 %setup -q -c -n %{packname}

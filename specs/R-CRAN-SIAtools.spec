@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  filibustr
-%global packver   0.2.0
+%global packname  SIAtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Utilities for Congressional Research
+Summary:          'ShinyItemAnalysis' Modules Development Toolkit
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides easy-to-understand and consistent interfaces for accessing data
-on the U.S. Congress. The functions in 'filibustr' streamline the process
-for importing data on Congress into R, removing the need to download and
-work from CSV files and the like. Data sources include 'Voteview'
-(<https://voteview.com/>), the U.S. Senate website
-(<https://www.senate.gov/>), and more.
+A comprehensive suite of functions designed for constructing and managing
+'ShinyItemAnalysis' modules, supplemented with detailed guides,
+ready-to-use templates, linters, and tests. This package allows developers
+to seamlessly create and integrate one or more modules into their existing
+packages or to start a new module project from scratch.
 
 %prep
 %setup -q -c -n %{packname}

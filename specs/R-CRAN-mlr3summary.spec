@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eummd
-%global packver   0.1.4
+%global packname  mlr3summary
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Univariate Maximum Mean Discrepancy
+Summary:          Model and Learner Summaries for 'mlr3'
 
-License:          GPL-2 | GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-future.apply >= 1.5.0
+BuildRequires:    R-CRAN-mlr3 >= 0.12.0
+BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-future.apply >= 1.5.0
+Requires:         R-CRAN-mlr3 >= 0.12.0
+Requires:         R-CRAN-backports 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-cli 
 
 %description
-Computes maximum mean discrepancy two-sample test for univariate data
-using the Laplacian kernel, as described in Bodenham and Kawahara (2023)
-<doi:10.1007/s11222-023-10271-x>. The p-value is computed using
-permutations. Also includes implementation for computing the robust median
-difference statistic 'Q_n' from Croux and Rousseeuw (1992)
-<doi:10.1007/978-3-662-26811-7_58> based on Johnson and Mizoguchi (1978)
-<doi:10.1137/0207013>.
+Concise and interpretable summaries for machine learning models and
+learners of the 'mlr3' ecosystem. The package takes inspiration from the
+summary function for (generalized) linear models but extends it to
+non-parametric machine learning models, based on generalization
+performance, model complexity, feature importances and effects, and
+fairness metrics.
 
 %prep
 %setup -q -c -n %{packname}

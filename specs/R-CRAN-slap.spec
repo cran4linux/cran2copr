@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rtwobitlib
-%global packver   0.3.6
+%global packname  slap
+%global packver   2024.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          2024.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          '2bit' 'C' Library
+Summary:          Simplified Error Handling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,19 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-tools 
-Requires:         R-tools 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-A trimmed down copy of the "kent-core source tree" turned into a 'C'
-library for manipulation of '.2bit' files. See
-<https://genome.ucsc.edu/FAQ/FAQformat.html#format7> for a quick overview
-of the '2bit' format. The "kent-core source tree" can be found here:
-<https://github.com/ucscGenomeBrowser/kent-core/>. Only the '.c' and '.h'
-files from the source tree that are related to manipulation of '.2bit'
-files were kept. Note that the package is primarily useful to developers
-of other R packages who wish to use the '2bit' 'C' library in their own
-'C'/'C++' code.
+Alternative to using withCallingHandlers() in the simple case of catch and
+rethrow. The `%%!%%` operator evaluates the expression on its left hand
+side, and if an error occurs, the right hand side is used to construct a
+new error that embeds the original error.
 
 %prep
 %setup -q -c -n %{packname}

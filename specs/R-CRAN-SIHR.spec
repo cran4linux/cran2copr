@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIHR
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference in High Dimensional Regression
 
@@ -26,13 +26,11 @@ Requires:         R-stats
 
 %description
 The goal of SIHR is to provide inference procedures in the
-high-dimensional setting for (1) linear functionals in generalized linear
-regression ('Cai et al.' (2019) <arXiv:1904.12891>, 'Guo et al.' (2020)
-<arXiv:2012.07133>, 'Cai et al.' (2021)), (2) conditional average
-treatment effects in generalized linear regression, (3) quadratic
-functionals in generalized linear regression ('Guo et al.' (2019)
-<arXiv:1909.01503>). (4) inner product in generalized linear regression
-(5) distance in generalized linear regression.
+high-dimensional generalized linear regression setting for: (1) linear
+functionals <doi:10.48550/arXiv.1904.12891>
+<doi:10.48550/arXiv.2012.07133>, (2) conditional average treatment
+effects, (3) quadratic functionals <doi:10.48550/arXiv.1909.01503>, (4)
+inner product, (5) distance.
 
 %prep
 %setup -q -c -n %{packname}

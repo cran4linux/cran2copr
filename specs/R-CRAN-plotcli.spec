@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rtwobitlib
-%global packver   0.3.6
+%global packname  plotcli
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          '2bit' 'C' Library
+Summary:          Command Line Interface Plotting
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-tools 
-Requires:         R-tools 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
-A trimmed down copy of the "kent-core source tree" turned into a 'C'
-library for manipulation of '.2bit' files. See
-<https://genome.ucsc.edu/FAQ/FAQformat.html#format7> for a quick overview
-of the '2bit' format. The "kent-core source tree" can be found here:
-<https://github.com/ucscGenomeBrowser/kent-core/>. Only the '.c' and '.h'
-files from the source tree that are related to manipulation of '.2bit'
-files were kept. Note that the package is primarily useful to developers
-of other R packages who wish to use the '2bit' 'C' library in their own
-'C'/'C++' code.
+The 'plotcli' package provides terminal-based plotting in R. It supports
+colored scatter plots, line plots, bar plots, and box plots. The package
+allows users to customize plot appearance, add titles, labels, ticks, and
+legends, and output the plot as a text-based visualization.
 
 %prep
 %setup -q -c -n %{packname}
