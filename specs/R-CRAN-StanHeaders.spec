@@ -2,11 +2,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StanHeaders
-%global packver   2.32.6
+%global packver   2.32.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.32.6
+Version:          2.32.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          C++ Header Files for Stan
 
@@ -15,10 +15,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.3
 Requires:         R-CRAN-RcppParallel >= 5.1.4
 
 %description

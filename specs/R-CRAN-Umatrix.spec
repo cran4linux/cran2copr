@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Umatrix
-%global packver   3.4.1
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Structures in High-Dimensional Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-shiny 
@@ -57,7 +57,9 @@ visualised as a three dimensional landscape in form of the Umatrix.
 Further details can be found in the referenced publications (see url).
 This package offers tools for calculating and visualising the ESOM as well
 as Umatrix, Pmatrix and UStarMatrix. All the functionality is also
-available through graphical user interfaces implemented in 'shiny'.
+available through graphical user interfaces implemented in 'shiny'. Based
+on the recognized data structures, the method can be used to generate new
+data.
 
 %prep
 %setup -q -c -n %{packname}

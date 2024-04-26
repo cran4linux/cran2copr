@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chevron
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standard TLGs for Clinical Trials Reporting
 
@@ -26,11 +26,11 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-glue >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-tern >= 0.9.3
-BuildRequires:    R-CRAN-rtables >= 0.6.6
-BuildRequires:    R-CRAN-formatters >= 0.5.5
+BuildRequires:    R-CRAN-tern >= 0.9.4
+BuildRequires:    R-CRAN-rtables >= 0.6.7
+BuildRequires:    R-CRAN-formatters >= 0.5.6
 BuildRequires:    R-CRAN-purrr >= 0.3.0
-BuildRequires:    R-CRAN-rlistings >= 0.2.7
+BuildRequires:    R-CRAN-rlistings >= 0.2.8
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-dunlin >= 0.1.7
 BuildRequires:    R-CRAN-nestcolor >= 0.1.1
@@ -46,11 +46,11 @@ Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-glue >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-tern >= 0.9.3
-Requires:         R-CRAN-rtables >= 0.6.6
-Requires:         R-CRAN-formatters >= 0.5.5
+Requires:         R-CRAN-tern >= 0.9.4
+Requires:         R-CRAN-rtables >= 0.6.7
+Requires:         R-CRAN-formatters >= 0.5.6
 Requires:         R-CRAN-purrr >= 0.3.0
-Requires:         R-CRAN-rlistings >= 0.2.7
+Requires:         R-CRAN-rlistings >= 0.2.8
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-dunlin >= 0.1.7
 Requires:         R-CRAN-nestcolor >= 0.1.1
@@ -63,7 +63,7 @@ Provide standard tables, listings, and graphs (TLGs) libraries used in
 clinical trials. This package implements a structure to reformat the data
 with 'dunlin', create reporting tables using 'rtables' and 'tern' with
 standardized input arguments to enable quick generation of standard
-outputs. In addition, it also provides comprehensive data checks and
+outputs.  In addition, it also provides comprehensive data checks and
 script generation functionality.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RStoolbox
-%global packver   0.4.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Remote Sensing Data Analysis
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-caret >= 6.0.79
+BuildRequires:    R-CRAN-terra >= 1.6.41
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,8 +31,8 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-caret >= 6.0.79
+Requires:         R-CRAN-terra >= 1.6.41
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 

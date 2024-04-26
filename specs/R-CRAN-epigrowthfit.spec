@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RepeatedHighDim
-%global packver   2.3.0
+%global packname  epigrowthfit
+%global packver   0.15.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.15.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for High-Dimensional Repeated Measures Data
+Summary:          Nonlinear Mixed Effects Models of Epidemic Growth
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ddalpha 
-BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.2
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
+BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-netmeta 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ddalpha 
-Requires:         R-CRAN-geometry 
-Requires:         R-graphics 
+Requires:         R-CRAN-Matrix >= 1.6.2
+Requires:         R-CRAN-TMB 
 Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-netmeta 
+Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rgl 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-A toolkit for the analysis of high-dimensional repeated measurements,
-providing functions for outlier detection, differential expression
-analysis, gene-set tests, and binary random data generation.
+Maximum likelihood estimation of nonlinear mixed effects models of
+epidemic growth using Template Model Builder ('TMB').  Enables joint
+estimation for collections of disease incidence time series, including
+time series that describe multiple epidemic waves. Supports a set of
+widely used phenomenological models: exponential, logistic, Richards
+(generalized logistic), subexponential, and Gompertz.  Provides methods
+for interrogating model objects and several auxiliary functions, including
+one for computing basic reproduction numbers from fitted values of the
+initial exponential growth rate. Preliminary versions of this software
+were applied in Ma et al. (2014) <doi:10.1007/s11538-013-9918-2> and in
+Earn et al. (2020) <doi:10.1073/pnas.2004904117>.
 
 %prep
 %setup -q -c -n %{packname}

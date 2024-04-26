@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.1.1
+%global packname  quickPWCR
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Quickly construct and rating large binary pairwiesd comparisons
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-dplyr 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global and local L1 centrality/prestige and L1
-centrality/prestige-based neighborhoods of vertices are provided. Routines
-for visual inspection of a graph/network are also provided. Details are in
-Kang and Oh (2024) <doi:10.48550/arXiv.2404.13233>.
+A collection of functions for constructing large pairwised comparisons and
+rating them using Elo rating system with supporting parallel processing.
+The method of random sample pairs is based on Reservoir Sampling proposed
+by JVitter (1985) <doi:10.1145/3147.3165>.
 
 %prep
 %setup -q -c -n %{packname}

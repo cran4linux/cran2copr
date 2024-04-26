@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.1.1
+%global packname  SpatGC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Bayesian Modeling of Spatial Count Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-sf 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global and local L1 centrality/prestige and L1
-centrality/prestige-based neighborhoods of vertices are provided. Routines
-for visual inspection of a graph/network are also provided. Details are in
-Kang and Oh (2024) <doi:10.48550/arXiv.2404.13233>.
+Provides a collection of functions for preparing data and fitting Bayesian
+count spatial regression models, with a specific focus on the Gamma-Count
+(GC) model. The GC model is well-suited for modeling dispersed count data,
+including under-dispersed or over-dispersed counts, or counts with
+equivalent dispersion, using Integrated Nested Laplace Approximations
+(INLA). The package includes functions for generating data from the GC
+model, as well as spatially correlated versions of the model. See Nadifar,
+Baghishani, Fallah (2023) <doi:10.1007/s13253-023-00550-5>.
 
 %prep
 %setup -q -c -n %{packname}

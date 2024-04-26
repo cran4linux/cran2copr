@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statConfR
-%global packver   0.0.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models of Decision Confidence and Metacognition
 
@@ -18,16 +18,20 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-stats 
 Requires:         R-parallel 
+Requires:         R-CRAN-plyr 
+Requires:         R-stats 
 
 %description
 Provides fitting functions and other tools for decision confidence and
-metacognition researchers, including meta-d´/d´, often considered to be
+metacognition researchers, including meta-d'/d', often considered to be
 the gold standard to measure metacognitive efficiency. Also allows to fit
 several static models of decision making and confidence to test the
-assumptions underlying meta-d´/d´ and which may serve as an alternative
-when the assumptions of meta-d´/d´ do not hold. See also Rausch et al.
-(2023) <doi:10.31234/osf.io/kdz34>.
+assumptions underlying meta-d'/d' and which may serve as an alternative
+when the assumptions of meta-d'/d' do not hold. See also Rausch et al.
+(2023) <doi:10.1037/met0000634>.
 
 %prep
 %setup -q -c -n %{packname}

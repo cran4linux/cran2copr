@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polle
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Policy Learning
 
@@ -20,30 +20,30 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lava >= 1.7.0
 BuildRequires:    R-CRAN-policytree >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.5
+BuildRequires:    R-CRAN-targeted >= 0.4
 BuildRequires:    R-CRAN-SuperLearner 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-targeted 
 BuildRequires:    R-CRAN-DynTxRegime 
 Requires:         R-CRAN-lava >= 1.7.0
 Requires:         R-CRAN-policytree >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.5
+Requires:         R-CRAN-targeted >= 0.4
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-progressr 
 Requires:         R-methods 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-targeted 
 Requires:         R-CRAN-DynTxRegime 
 
 %description
 Framework for evaluating user-specified finite stage policies and learning
 realistic policies via doubly robust loss functions. Policy learning
-methods include doubly robust restricted Q-learning, sequential policy
-tree learning and outcome weighted learning. See Nordland and Holst (2022)
-<arXiv:2212.02335> for documentation and references.
+methods include doubly robust Q-learning, sequential policy tree learning,
+and outcome weighted learning. See Nordland and Holst (2022)
+<doi:10.48550/arXiv.2212.02335> for documentation and references.
 
 %prep
 %setup -q -c -n %{packname}

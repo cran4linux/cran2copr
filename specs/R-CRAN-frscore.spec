@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  frscore
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Calculating Fit-Robustness of CNA-Solutions
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cna >= 3.5.1
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-withr 
 
 %description
 Functions for automatically performing a reanalysis series on a data set

@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.1.1
+%global packname  disastr.api
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Wrapper for the UN OCHA ReliefWeb Disaster Events API
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global and local L1 centrality/prestige and L1
-centrality/prestige-based neighborhoods of vertices are provided. Routines
-for visual inspection of a graph/network are also provided. Details are in
-Kang and Oh (2024) <doi:10.48550/arXiv.2404.13233>.
+Access and manage the application programming interface (API) of the
+United Nations Office for the Coordination of Humanitarian Affairs' (OCHA)
+ReliefWeb disaster events at <https://reliefweb.int/disasters>. The
+package requires a minimal number of dependencies. It offers functionality
+to retrieve a user-defined sample of disaster events from ReliefWeb,
+providing an easy alternative to scraping the ReliefWeb website. It
+enables a seamless integration of regular data updates into the research
+work flow.
 
 %prep
 %setup -q -c -n %{packname}
