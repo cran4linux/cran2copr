@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  YatchewTest
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Yatchew (1997), De Chaisemartin, D'Haultfoeuille & Gurgand (2024) Linearity Test
+Summary:          Yatchew (1997), De Chaisemartin & D'Haultfoeuille (2024) Linearity Test
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,9 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Test of linearity originally proposed by Yatchew (1997)
-<doi:10.1016/S0165-1765(97)00218-8> and improved by de Chaisemartin,
-D'Haultfoeuille and Gurgand (2024) <doi:10.2139/ssrn.4284811> to be robust
-under heteroskedasticity.
+<doi:10.1016/S0165-1765(97)00218-8> and improved by de Chaisemartin &
+D'Haultfoeuille (2024) <doi:10.2139/ssrn.4284811> to be robust under
+heteroskedasticity.
 
 %prep
 %setup -q -c -n %{packname}

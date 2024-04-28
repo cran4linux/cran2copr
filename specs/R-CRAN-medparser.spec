@@ -1,34 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  breakfast
-%global packver   2.4
+%global packname  medparser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Fast Multiple Change-Point/Break-Point Detection and Estimation
+Summary:          MedPC Text Parser
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-splines 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-splines 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A developing software suite for multiple change-point and
-change-point-type feature detection/estimation (data segmentation) in data
-sequences.
+Parses information from text files with specific utility aimed at pulling
+information from Med Associate's (MPC) files. These functions allow for
+further analysis of MPC files.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  UBCRM
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Simulate and Conduct Dose-Escalation Phase I Studies
+Summary:          Simulate and Conduct Dose-Escalation Phase I Studies
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,9 +20,9 @@ BuildArch:        noarch
 
 %description
 Two Phase I designs are implemented in the package: the classical 3+3 and
-the Continual Reassessment Method. Simulations tools are also available to
-estimate the operating characteristics of the methods with several
-user-dependent options.
+the Continual Reassessment Method (<doi:10.2307/2531628>). Simulations
+tools are also available to estimate the operating characteristics of the
+methods with several user-dependent options.
 
 %prep
 %setup -q -c -n %{packname}

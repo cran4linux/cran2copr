@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LearnPCA
-%global packver   0.2.0
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions, Data Sets and Vignettes to Aid in Learning Principal Components Analysis (PCA)
 
@@ -16,10 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-shiny 
 Requires:         R-stats 

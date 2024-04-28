@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iml
-%global packver   0.11.2
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning
 
@@ -37,16 +37,16 @@ Requires:         R-CRAN-R6
 %description
 Interpretability methods to analyze the behavior and predictions of any
 machine learning model.  Implemented methods are: Feature importance
-described by Fisher et al. (2018) <arXiv:1801.01489>, accumulated local
-effects plots described by Apley (2018) <arXiv:1612.08468>, partial
-dependence plots described by Friedman (2001)
-<www.jstor.org/stable/2699986>, individual conditional expectation ('ice')
-plots described by Goldstein et al.  (2013)
+described by Fisher et al. (2018) <doi:10.48550/arxiv.1801.01489>,
+accumulated local effects plots described by Apley (2018)
+<doi:10.48550/arxiv.1612.08468>, partial dependence plots described by
+Friedman (2001) <www.jstor.org/stable/2699986>, individual conditional
+expectation ('ice') plots described by Goldstein et al.  (2013)
 <doi:10.1080/10618600.2014.907095>, local models (variant of 'lime')
-described by Ribeiro et. al (2016) <arXiv:1602.04938>, the Shapley Value
-described by Strumbelj et. al (2014) <doi:10.1007/s10115-013-0679-x>,
-feature interactions described by Friedman et. al <doi:10.1214/07-AOAS148>
-and tree surrogate models.
+described by Ribeiro et. al (2016) <doi:10.48550/arXiv.1602.04938>, the
+Shapley Value described by Strumbelj et. al (2014)
+<doi:10.1007/s10115-013-0679-x>, feature interactions described by
+Friedman et. al <doi:10.1214/07-AOAS148> and tree surrogate models.
 
 %prep
 %setup -q -c -n %{packname}

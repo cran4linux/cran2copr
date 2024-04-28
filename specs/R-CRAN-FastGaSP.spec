@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FastGaSP
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Exact Computation of Gaussian Stochastic Process
 
@@ -17,17 +18,16 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RobustGaSP 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RobustGaSP 
 
 %description
 Implements fast and exact computation of Gaussian stochastic process with
 the Matern kernel using forward filtering and backward smoothing
 algorithm. It allows for the cases with or without a noise.  See the
-reference: Mengyang Gu and Yanxun Xu (2017), <arXiv:1711.11501>.
+reference: Mengyang Gu and Yanxun Xu, 2020, Journal of Computational and
+Graphical Statistics.
 
 %prep
 %setup -q -c -n %{packname}

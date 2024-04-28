@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imager
-%global packver   0.45.8
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.45.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Image Processing Library Based on 'CImg'
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    fftw-devel
 BuildRequires:    libtiff-devel
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-stringr 
@@ -29,7 +29,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-stringr 

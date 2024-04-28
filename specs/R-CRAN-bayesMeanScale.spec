@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesMeanScale
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Post-Estimation on the Mean Scale
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-posterior >= 1.5.0
+BuildRequires:    R-CRAN-data.table >= 1.15.2
+BuildRequires:    R-CRAN-bayestestR >= 0.13.2
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-posterior >= 1.5.0
+Requires:         R-CRAN-data.table >= 1.15.2
+Requires:         R-CRAN-bayestestR >= 0.13.2
 
 %description
 Computes Bayesian posterior distributions of predictions, marginal

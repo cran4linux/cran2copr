@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fsemipar
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation, Variable Selection and Prediction for Functional Semiparametric Models
 
@@ -17,28 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-grpreg 
 BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-graphics 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-stats 
-Requires:         R-splines 
-Requires:         R-CRAN-gtools 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-grpreg 
 Requires:         R-CRAN-DiceKriging 
-Requires:         R-graphics 
+Requires:         R-splines 
+Requires:         R-CRAN-gtools 
 Requires:         R-stats 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-tidyr 
 
 %description
-Routines for estimation or simultaneous estimation and variable selection
-of several functional semiparametric models with scalar response, such as
-the functional single-index model, the semi-functional partial linear
-model or the semi-functional partial linear single-index model. In
-addition, it includes algorithms for dealing with scalar covariates with
-linear effect coming from the discretization of a curve in the cases of
-the linear model, the multi-functional partial linear model and the
-multi-functional partial linear single-index model.
+Routines for the estimation or simultaneous estimation and variable
+selection in several functional semiparametric models with scalar
+responses are provided. These models include the functional single-index
+model, the semi-functional partial linear model, and the semi-functional
+partial linear single-index model. Additionally, the package offers
+algorithms for handling scalar covariates with linear effects that
+originate from the discretization of a curve. This functionality is
+applicable in the context of the linear model, the multi-functional
+partial linear model, and the multi-functional partial linear single-index
+model.
 
 %prep
 %setup -q -c -n %{packname}

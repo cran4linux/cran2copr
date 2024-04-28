@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  breakfast
-%global packver   2.4
+%global packname  bulkQC
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Fast Multiple Change-Point/Break-Point Detection and Estimation
+Summary:          Quality Control and Outlier Identification in Bulk for Multicenter Trials
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-splines 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-splines 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-isotree 
+BuildRequires:    R-CRAN-stddiff 
+Requires:         R-CRAN-isotree 
+Requires:         R-CRAN-stddiff 
 
 %description
-A developing software suite for multiple change-point and
-change-point-type feature detection/estimation (data segmentation) in data
-sequences.
+Multicenter randomized trials involve the collection and analysis of data
+from numerous study participants across multiple sites. Outliers may be
+present. To identify outliers, this package examines data at the
+individual level (univariate and multivariate) and site-level (with and
+without covariate adjustment). Methods are outlined in further detail in
+Rigdon et al (to appear).
 
 %prep
 %setup -q -c -n %{packname}

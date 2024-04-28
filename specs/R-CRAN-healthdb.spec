@@ -1,61 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  respR
-%global packver   2.3.2
+%global packname  healthdb
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
+Summary:          Working with Healthcare Database
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-marelac 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-roll 
-BuildRequires:    R-CRAN-segmented 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-marelac 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-roll 
-Requires:         R-CRAN-segmented 
-Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides a structural, reproducible workflow for the processing and
-analysis of respirometry data. It contains analytical functions and
-utilities for working with oxygen time-series to determine respiration or
-oxygen production rates, and to make it easier to report and share
-analyses. See Harianto et al. 2019 <doi:10.1111/2041-210X.13162>.
+A system for identifying diseases or events from healthcare databases and
+preparing data for epidemiological studies. It includes capabilities not
+supported by 'SQL', such as matching strings by 'stringr' style regular
+expressions, and can compute comorbidity scores (Quan et al. (2005)
+<doi:10.1097/01.mlr.0000182534.19832.83>) directly on a database server.
+The implementation is based on 'dbplyr' with full 'tidyverse'
+compatibility.
 
 %prep
 %setup -q -c -n %{packname}
