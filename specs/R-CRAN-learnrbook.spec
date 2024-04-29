@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  learnrbook
-%global packver   1.0.2-1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets and Code Examples from P. J. Aphalo's "Learn R" Book
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description
 Data, scripts and code from chunks used as examples in the book "Learn R:
-As a Language" by Pedro J. Aphalo. ISBN 9780367182533 (pbk); ISBN
-9780367182557 (hbk); ISBN 9780429060342 (ebk).
+As a Language" 1ed and 2ed by Pedro J. Aphalo. ISBN 9780367182533 (pbk
+1ed); ISBN 9780367182557 (hbk 1ed); ISBN 9780429060342 (ebk 1ed).
 
 %prep
 %setup -q -c -n %{packname}

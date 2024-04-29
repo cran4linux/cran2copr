@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diemr
-%global packver   1.2.3
+%global packname  cryptorng
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          Access System Cryptographic Pseudorandom Number Generators
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-vcfR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-vcfR 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
-described in Baird et al. (2023) <doi:10.1111/2041-210X.14010>.
+Generate random bytes from the Cryptographically Secure Pseudorandom
+Number Generator (CSPRNG) provided by the underlying operating system.
+These system CSPRNGs are seeded internally by the OS with entropy it
+gathers and use random number generation algorithms which are considered
+cryptographically secure.  The following system functions are used:
+arc4random_buf() on macOS and BSD; BCryptgenRandom() on Windows;
+Sys_getrandom() on Linux.
 
 %prep
 %setup -q -c -n %{packname}

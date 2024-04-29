@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  findInFiles
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Pattern in Files
 
@@ -13,30 +14,36 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       grep
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Creates a HTML widget which displays the results of searching for a
 pattern in files in a given folder. The results can be viewed in the
 'RStudio' viewer pane, included in a 'R Markdown' document or in a 'Shiny'
-app. Also provides a 'Shiny' application allowing to run the widget and to
-navigate in the results.
+application. Also provides a 'Shiny' application allowing to run this
+widget and to navigate in the files found by the search. Instead of
+creating a HTML widget, it is also possible to get the results of the
+search in a 'tibble'. The search is performed by the 'grep' command-line
+utility.
 
 %prep
 %setup -q -c -n %{packname}

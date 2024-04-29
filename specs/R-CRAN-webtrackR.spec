@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webtrackR
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing and Analyzing Web Tracking Data
 
@@ -17,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-adaR 
 BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-utils 
-Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-adaR 
 Requires:         R-CRAN-httr 
 
 %description

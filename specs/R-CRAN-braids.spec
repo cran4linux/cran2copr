@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diemr
-%global packver   1.2.3
+%global packname  braids
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Index Expectation Maximisation in R
+Summary:          The Braid Groups
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-vcfR 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-vcfR 
+BuildRequires:    R-CRAN-maybe 
+Requires:         R-CRAN-maybe 
 
 %description
-Likelihood-based genome polarisation finds which alleles of genomic
-markers belong to which side of the barrier. Co-estimates which
-individuals belong to either side of the barrier and barrier strength.
-Uses expectation maximisation in likelihood framework. The method is
-described in Baird et al. (2023) <doi:10.1111/2041-210X.14010>.
+Deals with the braid groups. Includes creation of some specific braids,
+group operations, free reduction, and Bronfman polynomials. Braid theory
+has applications in fluid mechanics and quantum physics. The code is
+adapted from the 'Haskell' library 'combinat', and is based on Birman and
+Brendle (2005) <doi:10.48550/arXiv.math/0409205>.
 
 %prep
 %setup -q -c -n %{packname}

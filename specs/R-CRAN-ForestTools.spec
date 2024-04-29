@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForestTools
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Remote Sensing Forest Data
 
@@ -16,18 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
+BuildArch:        noarch
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-imager 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-GLCMTextures 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-imager 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-GLCMTextures 
 
 %description
 Tools for analyzing remote sensing forest data, including functions for

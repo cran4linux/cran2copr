@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlive
-%global packver   0.4.0
+%global packname  sisti
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Estimation of Sigmoidal and Piecewise Linear Mixed Models
+Summary:          Real-Time PCR Data Sets by Sisti et al. (2010)
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlraa 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lcmm 
-BuildRequires:    R-CRAN-saemix 
-BuildRequires:    R-CRAN-Rmisc 
-BuildRequires:    R-CRAN-sitar 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-fastDummies 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlraa 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-lcmm 
-Requires:         R-CRAN-saemix 
-Requires:         R-CRAN-Rmisc 
-Requires:         R-CRAN-sitar 
-Requires:         R-stats 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Estimation of relatively complex nonlinear mixed-effects models, including
-the Sigmoidal Mixed Model and the Piecewise Linear Mixed Model with abrupt
-or smooth transition, through a single intuitive line of code and with
-automated generation of starting values.
+This data package contains four datasets of quantitative PCR (qPCR)
+amplification curves that were used as supplementary data in the research
+article by Sisti et al. (2010), <doi:10.1186/1471-2105-11-186>. The
+primary dataset comprises a ten-fold dilution series spanning copy numbers
+from 3.14 × 10^7 to 3.14 × 10^2, with twelve replicates per concentration.
+These samples are based on a pGEM-T Promega plasmid containing a 104 bp
+fragment of the mitochondrial gene NADH dehydrogenase 1 (MT-ND1),
+amplified using the ND1/ND2 primer pair. The remaining three datasets
+contain qPCR results in the presence of specific PCR inhibitors: tannic
+acid, immunoglobulin G (IgG), and quercetin, respectively, to assess their
+effects on the amplification process. These datasets are useful for
+researchers interested in PCR kinetics. The original raw data file is
+available as Additional File 1:
+<https://static-content.springer.com/esm/art%%3A10.1186%%2F1471-2105-11-186/MediaObjects/12859_2009_3643_MOESM1_ESM.XLS>.
 
 %prep
 %setup -q -c -n %{packname}

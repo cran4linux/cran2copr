@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinytest2
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Testing for Shiny Applications
 
@@ -19,12 +19,11 @@ Requires:         R-core
 BuildRequires:    R-CRAN-testthat >= 3.1.2
 BuildRequires:    R-CRAN-R6 >= 2.4.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-globals >= 0.14.0
 BuildRequires:    R-CRAN-chromote >= 0.1.2
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -36,12 +35,11 @@ BuildRequires:    R-CRAN-cpp11
 Requires:         R-CRAN-testthat >= 3.1.2
 Requires:         R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-rlang >= 0.3.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-globals >= 0.14.0
 Requires:         R-CRAN-chromote >= 0.1.2
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 

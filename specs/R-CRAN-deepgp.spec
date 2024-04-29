@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepgp
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Deep Gaussian Processes using MCMC
 
@@ -42,18 +42,20 @@ Requires:         R-CRAN-FNN
 
 %description
 Performs Bayesian posterior inference for deep Gaussian processes
-following Sauer, Gramacy, and Higdon (2023, <arXiv:2012.08015>).  See
-Sauer (2023, <http://hdl.handle.net/10919/114845>) for comprehensive
-methodological details and <https://bitbucket.org/gramacylab/deepgp-ex/>
-for a variety of coding examples. Models are trained through MCMC
-including elliptical slice sampling of latent Gaussian layers and
-Metropolis-Hastings sampling of kernel hyperparameters.
-Vecchia-approximation for faster computation is implemented following
-Sauer, Cooper, and Gramacy (2022, <arXiv:2204.02904>).  Downstream tasks
-include sequential design through active learning Cohn/integrated mean
-squared error (ALC/IMSE; Sauer, Gramacy, and Higdon, 2023), optimization
-through expected improvement (EI; Gramacy, Sauer, and Wycoff, 2021
-<arXiv:2112.07457>), and contour location through entropy (Sauer, 2023).
+following Sauer, Gramacy, and Higdon (2023,
+<doi:10.48550/arXiv.2012.08015>).  See Sauer (2023,
+<http://hdl.handle.net/10919/114845>) for comprehensive methodological
+details and <https://bitbucket.org/gramacylab/deepgp-ex/> for a variety of
+coding examples. Models are trained through MCMC including elliptical
+slice sampling of latent Gaussian layers and Metropolis-Hastings sampling
+of kernel hyperparameters.  Vecchia-approximation for faster computation
+is implemented following Sauer, Cooper, and Gramacy (2023,
+<doi:10.48550/arXiv.2204.02904>).  Downstream tasks include sequential
+design through active learning Cohn/integrated mean squared error
+(ALC/IMSE; Sauer, Gramacy, and Higdon, 2023), optimization through
+expected improvement (EI; Gramacy, Sauer, and Wycoff, 2022
+<doi:10.48550/arXiv.2112.07457>), and contour location through entropy
+(Booth, Renganathan, and Gramacy, 2024 <doi:10.48550/arXiv.2308.04420>).
 Models extend up to three layers deep; a one layer model is equivalent to
 typical Gaussian process regression.  Incorporates OpenMP and SNOW
 parallelization and utilizes C/C++ under the hood.

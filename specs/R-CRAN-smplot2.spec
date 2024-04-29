@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smplot2
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Annotating a Composite Plot in 'ggplot2'
 
@@ -23,13 +23,11 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-pwr 
 BuildRequires:    R-CRAN-sdamr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-ggplot2 
@@ -38,13 +36,11 @@ Requires:         R-CRAN-cowplot
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
 Requires:         R-CRAN-pwr 
 Requires:         R-CRAN-sdamr 
 Requires:         R-stats 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-patchwork 
 
