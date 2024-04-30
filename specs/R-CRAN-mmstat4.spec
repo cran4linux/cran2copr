@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmstat4
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Teaching Materials from a ZIP File or GitHub
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-reticulate 
@@ -31,6 +32,7 @@ BuildRequires:    R-tools
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-knitr 
 Requires:         R-tcltk 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-reticulate 

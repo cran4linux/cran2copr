@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggblanket
-%global packver   7.0.0
+%global packver   8.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.0
+Version:          8.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify 'ggplot2' Visualisation
 
@@ -26,13 +26,13 @@ BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-hms >= 0.5.0
-BuildRequires:    R-CRAN-viridisLite >= 0.4.0
 BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-scales >= 1.3.0
@@ -42,13 +42,13 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-hms >= 0.5.0
-Requires:         R-CRAN-viridisLite >= 0.4.0
 Requires:         R-CRAN-farver 
 Requires:         R-CRAN-forcats 
 Requires:         R-grid 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Simplify 'ggplot2' visualisation with 'ggblanket' wrapper functions.

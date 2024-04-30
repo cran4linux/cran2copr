@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FossilSimShiny
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shiny Application for 'FossilSim'
 
@@ -18,9 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.1
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-FossilSim 
+BuildRequires:    R-CRAN-TreeSim 
 Requires:         R-CRAN-shiny >= 1.7.1
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-FossilSim 
+Requires:         R-CRAN-TreeSim 
 
 %description
 A shiny application based on 'FossilSim'. Used for simulating tree,

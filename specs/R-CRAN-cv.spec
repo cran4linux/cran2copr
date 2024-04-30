@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cv
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validation of Regression Models
+Summary:          Cross-Validating Regression Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,6 +20,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
@@ -28,6 +30,8 @@ BuildRequires:    R-CRAN-nlme
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 

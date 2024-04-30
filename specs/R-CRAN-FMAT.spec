@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FMAT
-%global packver   2024.3
+%global packver   2024.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.3
+Version:          2024.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Fill-Mask Association Test
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-irr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
@@ -47,8 +49,8 @@ The Fill-Mask Association Test ('FMAT') is an integrative and
 probability-based method using Masked Language Models to measure
 conceptual associations (e.g., attitudes, biases, stereotypes, social
 norms, cultural values) as propositions in natural language. Supported
-language models include 'BERT' <arXiv:1810.04805> and its variants
-available at 'Hugging Face'
+language models include 'BERT' <doi:10.48550/arXiv.1810.04805> and its
+variants available at 'Hugging Face'
 <https://huggingface.co/models?pipeline_tag=fill-mask>. Methodological
 references and installation guidance are provided at
 <https://psychbruce.github.io/FMAT/>.

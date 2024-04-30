@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -19,7 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-agricolae 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-lmerTest 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,7 +28,8 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-emmeans 
 Requires:         R-CRAN-agricolae 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-lmerTest 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -44,17 +46,18 @@ reference genes. By accounting for amplification efficiency values,
 Ganger et al. (2017) <doi:10.1186/s12859-017-1949-5> and Taylor et al.
 (2019) <doi:10.1016/j.tibtech.2018.12.002>, covering both the Livak and
 Pfaffl methods. Based on the experimental conditions, the functions of the
-'rtpcr' package use t-test (for experiments with a two-level factor) or
-analysis of variance (for cases where more than two levels or factors
-exist) to calculate the fold change or relative expression. The functions
-also provide standard deviations and confidence limits for means and apply
-statistical mean comparisons. To facilitate using 'rtpcr', different
-datasets have been employed in the examples and the outputs are explained.
-An outstanding feature of 'rtpcr' package is providing publication-ready
-bar plots with various controlling arguments for experiments with up to
-three different factors. The 'rtpcr' package is user-friendly and easy to
-work with and provides an applicable resource for analyzing real-time PCR
-data.
+'rtpcr' package use t-test (for experiments with a two-level factor),
+analysis of variance (ANOVA), analysis of covariance (ANCOVA) or analysis
+of repeated measure data to calculate the fold change (FC, ${DeltaDelta
+C_t}$ method) or relative expression (RE, ${Delta C_t}$ method). The
+functions further provide standard errors and confidence intervals for
+means, apply statistical mean comparisons and present significance. To
+facilitate function application, different data sets were used as examples
+and the outputs were explained. An outstanding feature of ‘rtpcr’ package
+is providing publication-ready bar plots with various controlling
+arguments which are further editable by ggplot2 functions. The 'rtpcr'
+package is user-friendly and easy to work with and provides an applicable
+resource for analyzing real-time PCR data.
 
 %prep
 %setup -q -c -n %{packname}

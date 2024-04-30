@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doBy
-%global packver   4.6.20
+%global packver   4.6.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.20
+Version:          4.6.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
 
@@ -14,31 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-modelr 
 BuildRequires:    R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-pbkrtest >= 0.4.8.1
 Requires:         R-methods 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-modelr 
 Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 Utility package containing: 1) Facilities for working with grouped data:
