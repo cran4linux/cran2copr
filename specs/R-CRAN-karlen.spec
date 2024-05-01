@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdss
-%global packver   1.0.10
+%global packname  karlen
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
+Summary:          Real-Time PCR Data Sets by Karlen et al. (2007)
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dataverse 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-marginaleffects 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-randomizr 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dataverse 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-marginaleffects 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-randomizr 
 
 %description
-Helper functions to accompany the Blair, Coppock, and Humphreys (2022)
-"Research Design in the Social Sciences: Declaration, Diagnosis, and
-Redesign" <https://book.declaredesign.org>. 'rdss' includes datasets,
-helper functions, and plotting components to enable use and replication of
-the book.
+Real-time quantitative polymerase chain reaction (qPCR) data sets by
+Karlen et al. (2007) <doi:10.1186/1471-2105-8-131>. Provides one single
+tabular tidy data set in long format, encompassing 32 dilution series, for
+seven PCR targets and four biological samples. The targeted amplicons are
+within the murine genes: Cav1, Ccn2, Eln, Fn1, Rpl27, Hspg2, and Serpine1,
+respectively. Dilution series: scheme 1 (Cav1, Eln, Hspg2, Serpine1):
+1-fold, 10-fold, 50-fold, and 100-fold; scheme 2 (Ccn2, Rpl27, Fn1):
+1-fold, 10-fold, 50-fold, 100-fold and 1000-fold. For each concentration
+there are five replicates, except for the 1000-fold concentration, where
+only two replicates were performed. Each amplification curve is 40 cycles
+long. Original raw data file is Additional file 2 from "Statistical
+significance of quantitative PCR" by Y. Karlen, A. McNair, S. Perseguers,
+C. Mazza, and N. Mermod (2007)
+<https://static-content.springer.com/esm/art%%3A10.1186%%2F1471-2105-8-131/MediaObjects/12859_2006_1503_MOESM2_ESM.ZIP>.
 
 %prep
 %setup -q -c -n %{packname}

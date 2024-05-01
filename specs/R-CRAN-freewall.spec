@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  freewall
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          A Wrapper of the JavaScript Library 'Freewall'
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jquerylib 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jquerylib 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+Creates dynamic grid layouts of images that can be included in 'Shiny'
+applications and R markdown documents.
 
 %prep
 %setup -q -c -n %{packname}

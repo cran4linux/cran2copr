@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  BioCro
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          Modular Crop Growth Simulations
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
 Requires:         R-stats 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+A cross-platform representation of models as sets of equations that
+facilitates modularity in model building and allows users to harness
+modern techniques for numerical integration and data visualization.
+Documentation is provided by several vignettes included in this package;
+also see Lochocki et al. (2022) <doi:10.1093/insilicoplants/diac003>.
 
 %prep
 %setup -q -c -n %{packname}

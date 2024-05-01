@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  KMLtoSHAPE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          Preserving Attribute Values: Converting KML to Shapefile
 
-License:          GPL-2
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+The developed function is designed to facilitate the seamless conversion
+of KML (Keyhole Markup Language) files to Shapefiles while preserving
+attribute values. It provides a straightforward interface for users to
+effortlessly import KML data, extract relevant attributes, and export them
+into the widely compatible Shapefile format. The package ensures accurate
+representation of spatial data while maintaining the integrity of
+associated attribute information. For details see, Flores, G. (2021).
+<DOI:10.1007/978-3-030-63665-4_15>. Whether for spatial analysis,
+visualization, or data interoperability, it simplifies the conversion
+process and empowers users to seamlessly work with geospatial datasets.
 
 %prep
 %setup -q -c -n %{packname}

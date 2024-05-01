@@ -1,40 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  teal.data
-%global packver   0.6.0
+%global packname  ratioOfQsprays
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Model for 'teal' Applications
+Summary:          Fractions of Multivariate Polynomials with Rational Coefficients
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-teal.code >= 0.5.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-qspray >= 3.0.0
+BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-teal.code >= 0.5.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppCGAL 
+Requires:         R-CRAN-qspray >= 3.0.0
+Requires:         R-CRAN-gmp 
 Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Ryacas 
 Requires:         R-utils 
 
 %description
-Provides a 'teal_data' class as a unified data model for 'teal'
-applications focusing on reproducibility and relational data.
+Based on the 'qspray' package, this package introduces the new type
+'ratioOfQsprays'. An object of type 'qspray' represents a multivariate
+polynomial with rational coefficients while an object of type
+'ratioOfQsprays', defined by two 'qspray' objects, represents a fraction
+of two multivariate polynomials with rational coefficients. Arithmetic
+operations for these objects are available, and they always return
+irreducible fractions. Other features include: differentiation,
+evaluation, conversion to a function, and fine control of the way to print
+a 'ratioOfQsprays' object. The 'C++' library 'CGAL' is used to make the
+fractions irreducible.
 
 %prep
 %setup -q -c -n %{packname}

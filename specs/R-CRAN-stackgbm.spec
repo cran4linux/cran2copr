@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  stackgbm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          Stacked Gradient Boosting Machines
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+A minimalist implementation of model stacking by Wolpert (1992)
+<doi:10.1016/S0893-6080(05)80023-1> for boosted tree models. A classic,
+two-layer stacking model is implemented, where the first layer generates
+features using gradient boosting trees, and the second layer employs a
+logistic regression model that uses these features as inputs. Utilities
+for training the base models and parameters tuning are provided, allowing
+users to experiment with different ensemble configurations easily. It aims
+to provide a simple and efficient way to combine multiple gradient
+boosting models to improve predictive model performance and robustness.
 
 %prep
 %setup -q -c -n %{packname}

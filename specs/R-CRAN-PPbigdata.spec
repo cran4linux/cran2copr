@@ -1,33 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  PPbigdata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          Projection Pursuit for Big Data Based on Data Nuggets
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
+BuildRequires:    R-CRAN-datanugget >= 1.2.4
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-weights 
+BuildRequires:    R-CRAN-rstiefel 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-tourr 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-datanugget >= 1.2.4
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-weights 
+Requires:         R-CRAN-rstiefel 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-tourr 
+Requires:         R-CRAN-mclust 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+Perform 1-dim/2-dim projection pursuit, grand tour and guided tour for big
+data based on data nuggets. Reference papers: [1] Beavers et al., (2024)
+<doi:10.1080/10618600.2024.2341896>. [2] Duan, Y., Cabrera, J., & Emir, B.
+(2023). "A New Projection Pursuit Index for Big Data."
+<doi:10.48550/arXiv.2312.06465>.
 
 %prep
 %setup -q -c -n %{packname}

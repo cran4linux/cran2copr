@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  comorbidPGS
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          Assessing Predisposition Between Phenotypes using Polygenic Scores
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-nnet 
+Requires:         R-parallel 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+Using polygenic scores (PGS, or PRS/GRS for binary outcomes), this package
+allows to investigate shared predisposition between different conditions,
+and do fast association analysis, export plots and views of the PGS
+distribution using 'ggplot2' object.
 
 %prep
 %setup -q -c -n %{packname}

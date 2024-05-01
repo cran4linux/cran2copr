@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.slice
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Filter Module for 'teal' Applications
 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-teal.data >= 0.4.0
 BuildRequires:    R-CRAN-teal.widgets >= 0.4.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-logger >= 0.2.0
-BuildRequires:    R-CRAN-teal.logger >= 0.1.1
+BuildRequires:    R-CRAN-teal.logger >= 0.1.3.9013
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
@@ -49,7 +49,7 @@ Requires:         R-CRAN-teal.data >= 0.4.0
 Requires:         R-CRAN-teal.widgets >= 0.4.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-logger >= 0.2.0
-Requires:         R-CRAN-teal.logger >= 0.1.1
+Requires:         R-CRAN-teal.logger >= 0.1.3.9013
 Requires:         R-grDevices 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 

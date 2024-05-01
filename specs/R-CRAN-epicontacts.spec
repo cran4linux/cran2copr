@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epicontacts
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handling, Visualisation and Analysis of Epidemiological Contacts
 
@@ -14,22 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-threejs 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-methods 
 Requires:         R-grDevices 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-threejs 
-Requires:         R-CRAN-colorspace 
 Requires:         R-methods 
 
 %description

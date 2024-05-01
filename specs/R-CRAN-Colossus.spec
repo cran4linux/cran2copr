@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Colossus
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Risk Model Regression and Analysis with Complex Non-Linear Models"
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-stringr 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-data.table
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-stringr 

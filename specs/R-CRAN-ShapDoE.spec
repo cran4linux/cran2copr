@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexFinder
-%global packver   0.8.2
+%global packname  ShapDoE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Hex Logos for CRAN Packages
+Summary:          Approximation of the Shapley Values Based on Experimental Designs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hexSticker 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hexSticker 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-gtools 
 
 %description
-Scavenge the web for possible hex logos for CRAN packages.
+Estimating the Shapley values using the algorithm in the paper Liuqing
+Yang, Yongdao Zhou, Haoda Fu, Min-Qian Liu and Wei Zheng (2024)
+<doi:10.1080/01621459.2023.2257364> "Fast Approximation of the Shapley
+Values Based on Order-of-Addition Experimental Designs". You provide the
+data and define the value function, it retures the estimated Shapley
+values based on sampling methods or experimental designs.
 
 %prep
 %setup -q -c -n %{packname}

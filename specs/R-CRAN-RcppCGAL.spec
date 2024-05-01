@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCGAL
-%global packver   5.6.2
+%global packver   5.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.6.2
+Version:          5.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for 'CGAL'
 
@@ -28,8 +28,8 @@ Geometry Algorithms Library) header files in 'Rcpp'. There are a variety
 of potential uses for the software such as Hilbert sorting, K-D Tree
 nearest neighbors, and convex hull algorithms. For more information about
 how to use the header files, see the 'CGAL' documentation at
-<https://www.cgal.org>. Currently downloads the 'CGAL' version 5.6 stable
-release.
+<https://www.cgal.org>. Currently downloads version 5.6.1 of the 'CGAL'
+header files.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDSE
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Copernicus Data Space Ecosystem' API Wrapper
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
@@ -27,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-geojsonsf 
+Requires:         R-grDevices 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 

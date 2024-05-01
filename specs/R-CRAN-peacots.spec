@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyGH77
-%global packver   0.1.2
+%global packname  peacots
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey g-&-h Distribution
+Summary:          Periodogram Peaks in Correlated Time Series
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstpm2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-rstpm2 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Functions for density, cumulative density, quantile and simulation of
-Tukey g-and-h (1977) distributions. The quantile-based transformation
-(Hoaglin 1985 <doi:10.1002/9781118150702.ch11>) and its reverse
-transformation, as well as the letter-value based estimates (Hoaglin
-1985), are also provided.
+Calculates the periodogram of a time series, maximum-likelihood fits an
+Ornstein-Uhlenbeck state space (OUSS) null model and evaluates the
+statistical significance of periodogram peaks against the OUSS null
+hypothesis. The OUSS is a parsimonious model for stochastically
+fluctuating variables with linear stabilizing forces, subject to
+uncorrelated measurement errors. Contrary to the classical white noise
+null model for detecting cyclicity, the OUSS model can account for
+temporal correlations typically occurring in ecological and geological
+time series. Citation: Louca, Stilianos and Doebeli, Michael (2015)
+<doi:10.1890/14-0126.1>.
 
 %prep
 %setup -q -c -n %{packname}
