@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rspm
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Package Manager
 
@@ -25,7 +25,7 @@ access to 'RStudio' public repositories at
 requirements without administrative privileges. Currently supported
 distributions are 'CentOS' / 'RHEL' 7-9, and several 'RHEL' derivatives
 ('Rocky Linux', 'AlmaLinux', 'Oracle Linux', and 'Amazon Linux' 2),
-'openSUSE' / 'SLES' 15.3-4, 'Debian' 11-12, and 'Ubuntu' LTS 18-22.
+'openSUSE' / 'SLES' 15.4-5, 'Debian' 11-12, and 'Ubuntu' LTS 20-22.
 
 %prep
 %setup -q -c -n %{packname}

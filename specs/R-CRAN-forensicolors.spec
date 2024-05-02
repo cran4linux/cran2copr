@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GAD
-%global packver   2.0
+%global packname  forensicolors
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Variance from General Principles
+Summary:          Forensic Colors
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-forrel 
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-forrel 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Analysis of complex ANOVA models with any combination of orthogonal/nested
-and fixed/random factors, as described by Underwood (1997). There are two
-restrictions: (i) data must be balanced; (ii) fixed nested factors are not
-allowed. Homogeneity of variances is checked using Cochran's C test and 'a
-posteriori' comparisons of means are done using Student-Newman-Keuls (SNK)
-procedure. For those terms with no denominator in the F-ratio calculation,
-pooled mean squares and quasi F-ratios are provided. Magnitute of effects
-are assessed by components of variation.
+Computes likelihood ratios based on pigmentation traits. Also, it allows
+computing conditional probabilities for unidentified individuals based on
+missing person characteristics. A set of tailored plots are incorporated
+to analyze likelihood ratio distributions.
 
 %prep
 %setup -q -c -n %{packname}

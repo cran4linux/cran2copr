@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pomp
-%global packver   5.8
+%global packname  SCtools
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.8
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Partially Observed Markov Processes
+Summary:          Extensions for Synthetic Controls Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-future >= 1.6.2
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Synth 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cvTools 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-future >= 1.6.2
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Synth 
+Requires:         R-CRAN-stringr 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-cvTools 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Tools for data analysis with partially observed Markov process (POMP)
-models (also known as stochastic dynamical systems, hidden Markov models,
-and nonlinear, non-Gaussian, state-space models).  The package provides
-facilities for implementing POMP models, simulating them, and fitting them
-to time series data by a variety of frequentist and Bayesian methods.  It
-is also a versatile platform for implementation of inference methods for
-general POMP models.
+Extends the functionality of the package 'Synth' as detailed in Abadie,
+Diamond, and Hainmueller (2011) <doi:10.18637/jss.v042.i13>. Includes
+generating and plotting placebos, post/pre-MSPE (Mean Squared Prediction
+Error) significance tests and plots, and calculating average treatment
+effects for multiple treated units.
 
 %prep
 %setup -q -c -n %{packname}

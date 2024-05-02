@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ycevo
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Estimation of the Yield Curve Evolution
 
@@ -15,25 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.18
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Nonparametric estimation of the discount rate and yield curve. Koo, B., La
-Vecchia, D., & Linton, O. B. (2021) <doi:10.1016/j.jeconom.2020.04.014>
-describe the application with the Center for Research in Security Prices
-(CRSP) Bond Data and document the methods of this package.
+Nonparametric estimation of discount functions and yield curves from
+transaction data of coupon paying bonds. Koo, B., La Vecchia, D., &
+Linton, O. B. (2021) <doi:10.1016/j.jeconom.2020.04.014> describe an
+application of this package using the Center for Research in Security
+Prices (CRSP) Bond Data and document its implementation.
 
 %prep
 %setup -q -c -n %{packname}

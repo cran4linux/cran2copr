@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GAD
-%global packver   2.0
+%global packname  mtarm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Variance from General Principles
+Summary:          Bayesian Estimation of Multivariate Threshold Autoregressive Models
 
-License:          GPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-Formula 
+Requires:         R-grDevices 
+Requires:         R-CRAN-GIGrvg 
+Requires:         R-CRAN-coda 
 
 %description
-Analysis of complex ANOVA models with any combination of orthogonal/nested
-and fixed/random factors, as described by Underwood (1997). There are two
-restrictions: (i) data must be balanced; (ii) fixed nested factors are not
-allowed. Homogeneity of variances is checked using Cochran's C test and 'a
-posteriori' comparisons of means are done using Student-Newman-Keuls (SNK)
-procedure. For those terms with no denominator in the F-ratio calculation,
-pooled mean squares and quasi F-ratios are provided. Magnitute of effects
-are assessed by components of variation.
+Estimation, inference and forecasting using the Bayesian approach for
+multivariate threshold autoregressive (TAR) models in which the
+distribution used to describe the noise process belongs to the class of
+Gaussian variance mixtures.
 
 %prep
 %setup -q -c -n %{packname}

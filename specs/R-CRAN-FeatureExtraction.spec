@@ -1,53 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hyperSpec
-%global packver   0.100.2
+%global packname  FeatureExtraction
+%global packver   3.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.100.2
+Version:          3.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Work with Hyperspectral Data, i.e. Spectra + Meta Information (Spatial, Time, Concentration, ...)
+Summary:          Generating Features for a Cohort
 
-License:          GPL (>= 3)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-DatabaseConnector >= 3.0.0
+BuildRequires:    R-CRAN-ParallelLogger >= 2.0.2
+BuildRequires:    R-CRAN-SqlRender >= 1.6.0
+BuildRequires:    R-CRAN-Andromeda 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-CRAN-lazyeval 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 2.2.0
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-DatabaseConnector >= 3.0.0
+Requires:         R-CRAN-ParallelLogger >= 2.0.2
+Requires:         R-CRAN-SqlRender >= 1.6.0
+Requires:         R-CRAN-Andromeda 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-latticeExtra 
-Requires:         R-CRAN-lazyeval 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-checkmate 
 
 %description
-Comfortable ways to work with hyperspectral data sets. I.e. spatially or
-time-resolved spectra, or spectra with any other kind of information
-associated with each of the spectra. The spectra can be data as obtained
-in XRF, UV/VIS, Fluorescence, AES, NIR, IR, Raman, NMR, MS, etc. More
-generally, any data that is recorded over a discretized variable, e.g.
-absorbance = f(wavelength), stored as a vector of absorbance values for
-discrete wavelengths is suitable.
+An R interface for generating features for a cohort using data in the
+Common Data Model. Features can be constructed using default or custom
+made feature definitions. Furthermore it's possible to aggregate features
+and get the summary statistics.
 
 %prep
 %setup -q -c -n %{packname}

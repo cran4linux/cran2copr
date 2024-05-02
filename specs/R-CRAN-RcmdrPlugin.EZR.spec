@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.EZR
-%global packver   1.65
+%global packver   1.66
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.65
+Version:          1.66
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for the EZR (Easy R) Package
 

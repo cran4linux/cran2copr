@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rmonize
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support Retrospective Harmonization of Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-madshapR 
 Requires:         R-CRAN-fabR >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.1.0
@@ -36,6 +37,7 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-haven 
 Requires:         R-utils 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-madshapR 
 
 %description

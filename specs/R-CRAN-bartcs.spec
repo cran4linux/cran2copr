@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartcs
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees for Confounder Selection
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-coda >= 0.4.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-ggcharts 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-invgamma 
 BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-coda >= 0.4.0
-Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-CRAN-ggcharts 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-invgamma 
 Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 

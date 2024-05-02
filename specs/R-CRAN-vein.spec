@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pomp
-%global packver   5.8
+%global packname  vein
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.8
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Inference for Partially Observed Markov Processes
+Summary:          Vehicular Emissions Inventories
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-sf >= 1.0.1
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dotCall64 
+BuildRequires:    R-CRAN-cptcity 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-sf >= 1.0.1
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-units 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-dotCall64 
+Requires:         R-CRAN-cptcity 
+Requires:         R-grDevices 
 
 %description
-Tools for data analysis with partially observed Markov process (POMP)
-models (also known as stochastic dynamical systems, hidden Markov models,
-and nonlinear, non-Gaussian, state-space models).  The package provides
-facilities for implementing POMP models, simulating them, and fitting them
-to time series data by a variety of frequentist and Bayesian methods.  It
-is also a versatile platform for implementation of inference methods for
-general POMP models.
+Elaboration of vehicular emissions inventories, consisting in four stages,
+pre-processing activity data, preparing emissions factors, estimating the
+emissions and post-processing of emissions in maps and databases. More
+details in Ibarra-Espinosa et al (2018) <doi:10.5194/gmd-11-2209-2018>.
+Before using VEIN you need to know the vehicular composition of your study
+area, in other words, the combination of of type of vehicles, size and
+fuel of the fleet. Then, it is recommended to start with the project to
+download a template to create a structure of directories and scripts.
 
 %prep
 %setup -q -c -n %{packname}

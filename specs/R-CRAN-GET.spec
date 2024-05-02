@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GET
-%global packver   1.0
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -50,17 +50,17 @@ test of correspondence of distribution functions), for central regions of
 functional or multivariate data (e.g. outlier detection, functional
 boxplot) and for global confidence and prediction bands (e.g. confidence
 band in polynomial regression, Bayesian posterior prediction). See
-Myllymäki and Mrkvička (2023) <arXiv:1911.06583>, Myllymäki et al. (2017)
-<doi: 10.1111/rssb.12172>, Mrkvička and Myllymäki (2023) <doi:
-10.1007/s11222-023-10275-7>, Mrkvička et al. (2017) <doi:
-10.1007/s11222-016-9683-9>, Mrkvička et al. (2020) <doi:
-10.14736/kyb-2020-3-0432>, Mrkvička et al. (2021) <doi:
-10.1007/s11009-019-09756-y>, Mrkvička et al. (2022) <doi:
-10.1002/sim.9236>, Mrkvička et al. (2016) <doi:
-10.1016/j.spasta.2016.04.005>, Myllymäki et al. (2021) <doi:
-10.1016/j.spasta.2020.100436>, Dai et al. (2022) <doi:
-10.5772/intechopen.100124>, and Dvořák and Mrkvička (2022) <doi:
-10.1007/s00180-021-01134-y>.
+Myllymäki and Mrkvička (2023) <doi:10.48550/arXiv.1911.06583>, Myllymäki
+et al. (2017) <doi:10.1111/rssb.12172>, Mrkvička and Myllymäki (2023)
+<doi:10.1007/s11222-023-10275-7>, Mrkvička et al. (2016)
+<doi:10.1016/j.spasta.2016.04.005>, Mrkvička et al. (2017)
+<doi:10.1007/s11222-016-9683-9>, Mrkvička et al. (2020)
+<doi:10.14736/kyb-2020-3-0432>, Mrkvička et al. (2021)
+<doi:10.1007/s11009-019-09756-y>, Myllymäki et al. (2021)
+<doi:10.1016/j.spasta.2020.100436>, Mrkvička et al. (2022)
+<doi:10.1002/sim.9236>, Dai et al. (2022) <doi:10.5772/intechopen.100124>,
+Dvořák and Mrkvička (2022) <doi:10.1007/s00180-021-01134-y>, and Mrkvička
+et al. (2023) <doi:10.48550/arXiv.2309.04746>.
 
 %prep
 %setup -q -c -n %{packname}

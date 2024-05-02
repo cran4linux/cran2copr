@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hhsmm
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-CMAPSS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
@@ -46,7 +46,7 @@ auto-regressive hidden hybrid Markov/semi-Markov model, spline-based
 nonparametric estimation of additive state-switching models (Langrock et
 al., 2018 <doi:10.1111/stan.12133>) and many other useful tools (read for
 more description: Amini et al., 2022 <doi:10.1007/s00180-022-01248-x> and
-its arxiv version: <arXiv:2109.12489>).
+its arxiv version: <doi:10.48550/arXiv.2109.12489>).
 
 %prep
 %setup -q -c -n %{packname}
