@@ -1,51 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.2
+%global packname  BMconcor
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          CONCOR for Structural- And Regular-Equivalence Blockmodeling
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+The four functions svdcp() ('cp' for column partitioned), svdbip() or
+svdbip2() ('bip' for bipartitioned), and svdbips() ('s' for a simultaneous
+optimization of a set of 'r' solutions), correspond to a singular value
+decomposition (SVD) by blocks notion, by supposing each block depending on
+relative subspaces, rather than on two whole spaces as usual SVD does. The
+other functions, based on this notion, are relative to two column
+partitioned data matrices x and y defining two sets of subsets x_i and y_j
+of variables and amount to estimate a link between x_i and y_j for the
+pair (x_i, y_j) relatively to the links associated to all the other pairs.
+These methods were first presented in: Lafosse R. & Hanafi M.,(1997)
+<https://eudml.org/doc/106424> and Hanafi M. & Lafosse, R. (2001)
+<https://eudml.org/doc/106494>.
 
 %prep
 %setup -q -c -n %{packname}

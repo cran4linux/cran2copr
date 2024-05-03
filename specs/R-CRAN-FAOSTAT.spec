@@ -1,51 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.2
+%global packname  FAOSTAT
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Download Data from the FAOSTAT Database
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-MASS >= 7.3.22
+BuildRequires:    R-CRAN-data.table >= 1.8.2
+BuildRequires:    R-CRAN-plyr >= 1.7.1
+BuildRequires:    R-CRAN-httr >= 1.0
+BuildRequires:    R-CRAN-RJSONIO >= 0.96.0
+BuildRequires:    R-CRAN-classInt >= 0.1.19
+BuildRequires:    R-CRAN-labeling >= 0.1
+Requires:         R-CRAN-MASS >= 7.3.22
+Requires:         R-CRAN-data.table >= 1.8.2
+Requires:         R-CRAN-plyr >= 1.7.1
+Requires:         R-CRAN-httr >= 1.0
+Requires:         R-CRAN-RJSONIO >= 0.96.0
+Requires:         R-CRAN-classInt >= 0.1.19
+Requires:         R-CRAN-labeling >= 0.1
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+Download Data from the FAOSTAT Database of the Food and Agricultural
+Organization (FAO) of the United Nations. A list of functions to download
+statistics from FAOSTAT (database of the FAO
+<https://www.fao.org/faostat/>) and WDI (database of the World Bank
+<https://data.worldbank.org/>), and to perform some harmonization
+operations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tabledown
-%global packver   1.0.0
+%global packname  RobinCar
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Publication Quality Tables and Plots
+Summary:          Robust Estimation and Inference in Covariate-Adaptive Randomization
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-MOTE 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-mirt 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-kutils 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-MOTE 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-emulator 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-AIPW 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-mirt 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-kutils 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-emulator 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-AIPW 
+Requires:         R-CRAN-MASS 
 
 %description
-Create publication quality plots and tables for Item Response Theory and
-Classical Test theory based item analysis, exploratory and confirmatory
-factor analysis.
+Performs robust estimation and inference when using covariate adjustment
+and/or covariate-adaptive randomization in randomized controlled trials.
+Ting Ye, Jun Shao, Yanyao Yi, Qinyuan Zhao (2023)
+<doi:10.1080/01621459.2022.2049278>. Ting Ye, Marlena Bannick, Yanyao Yi,
+Jun Shao (2023) <doi:10.1080/24754269.2023.2205802>. Ting Ye, Jun Shao,
+Yanyao Yi (2023) <doi:10.1093/biomet/asad045>. Marlena Bannick, Jun Shao,
+Jingyi Liu, Yu Du, Yanyao Yi, Ting Ye (2024)
+<doi:10.48550/arXiv.2306.10213>.
 
 %prep
 %setup -q -c -n %{packname}

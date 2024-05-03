@@ -1,51 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.2
+%global packname  panstarrs
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Interface to the Pan-STARRS API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+An interface to the API for 'Pan-STARRS1', a data archive of the PS1
+wide-field astronomical survey.  The package allows access to the PS1
+catalog and to the PS1 images.  (see
+<https://outerspace.stsci.edu/display/PANSTARRS/> for more information).
+You can use it to plan astronomical observations, make guidance pictures,
+find magnitudes in five broadband filters (g, r, i, z, y) and more.
 
 %prep
 %setup -q -c -n %{packname}

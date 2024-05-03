@@ -1,51 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.2
+%global packname  RAZIAD
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Regression Analysis of Zero-Inflated and Zero-Altered(Hurdle) Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.3.1.0
+Requires:         R-core >= 4.3.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-stats 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+It performs regression analysis for zero-inflated and zero-altered data,
+enabling modeling of sparse response variable distributions and assessing
+their association with covariates. It computes Maximum Likelihood
+Estimates (MLE) and conducts model selection using AIC and BIC criteria.
+Additionally, it calculates Fisher Information, confidence intervals,
+standard errors, and z-scores for all model parameters.
 
 %prep
 %setup -q -c -n %{packname}

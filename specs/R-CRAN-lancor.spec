@@ -1,51 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nser
-%global packver   1.5.2
+%global packname  lancor
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bhavcopy and Live Market Data from National Stock Exchange (NSE) & Bombay Stock Exchange (BSE) India
+Summary:          Statistical Inference via Lancaster Correlation
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-googleVis 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-utils 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-googleVis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-acepack 
+BuildRequires:    R-CRAN-arrangements 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-acepack 
+Requires:         R-CRAN-arrangements 
+Requires:         R-CRAN-boot 
+Requires:         R-graphics 
+Requires:         R-CRAN-sn 
+Requires:         R-stats 
 
 %description
-Download Current & Historical Bhavcopy. Get Live Market data from NSE
-India of Equities and Derivatives (F&O) segment. Data source
-<https://www.nseindia.com/>.
+Implementation of the methods described in Holzmann, Klar (2024)
+<doi:10.48550/arXiv.2303.17872>. Lancaster correlation is a correlation
+coefficient which equals the absolute value of the Pearson correlation for
+the bivariate normal distribution, and is equal to or slightly less than
+the maximum correlation coefficient for a variety of bivariate
+distributions. Rank and moment-based estimators and corresponding
+confidence intervals are implemented, as well as independence tests based
+on these statistics.
 
 %prep
 %setup -q -c -n %{packname}

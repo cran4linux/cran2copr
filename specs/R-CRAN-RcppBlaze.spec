@@ -1,41 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  labelr
-%global packver   0.1.5
+%global packname  RcppBlaze
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Label Data Frames, Variables, and Values
+Summary:          'Rcpp' Integration for the 'Blaze' High-Performance 'C++' Math Library
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Create and use data frame labels for data frame objects (frame labels),
-their columns (name labels), and individual values of a column (value
-labels). Value labels include one-to-one and many-to-one labels for
-nominal and ordinal variables, as well as numerical range-based value
-labels for continuous variables. Convert value-labeled variables so each
-value is replaced by its corresponding value label. Add
-values-converted-to-labels columns to a value-labeled data frame while
-preserving parent columns. Filter and subset a value-labeled data frame
-using labels, while returning results in terms of values. Overlay labels
-in place of values in common R commands to increase interpretability.
-Generate tables of value frequencies, with categories expressed as raw
-values or as labels. Access data frames that show value-to-label mappings
-for easy reference.
+Blaze is an open-source, high-performance 'C++' math library for dense and
+sparse arithmetic. With its state-of-the-art Smart Expression Template
+implementation Blaze combines the elegance and ease of use of a
+domain-specific language with HPC-grade performance, making it one of the
+most intuitive and fastest 'C++' math libraries available. The 'RcppBlaze'
+package includes the header files from the 'Blaze' library with disabling
+some functionalities related to link to the thread and system libraries
+which make 'RcppBlaze' be a header-only library. Therefore, users do not
+need to install 'Blaze'.
 
 %prep
 %setup -q -c -n %{packname}

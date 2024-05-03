@@ -1,45 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  visOmopResults
-%global packver   0.3.0
+%global packname  cvasi
+%global packver   0.10.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.10.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphs and Tables for OMOP Results
+Summary:          Calibration, Validation, and Simulation of TKTD Models
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-omopgenerics >= 0.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-omopgenerics >= 0.2.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-attempt 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-attempt 
+Requires:         R-CRAN-units 
 
 %description
-Provides methods to transform omop_result objects into formatted tables
-and figures, facilitating the visualization of study results working with
-the Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+Eases the use of ecotoxicological effect models. Can simulate common
+toxicokinetic-toxicodynamic (TK/TD) models such as General Unified
+Threshold models of Survival (GUTS) and Lemna. It can derive effects and
+effect profiles (EPx) from scenarios. It supports the use of 'tidyr'
+workflows employing the pipe symbol. Time-consuming tasks can be
+parallelized.
 
 %prep
 %setup -q -c -n %{packname}

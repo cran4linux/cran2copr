@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  COAP
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Covariate-Augmented Overdispersed Poisson Factor Model
 
@@ -30,7 +30,7 @@ Requires:         R-stats
 A covariate-augmented overdispersed Poisson factor model is proposed to
 jointly perform a high-dimensional Poisson factor analysis and estimate a
 large coefficient matrix for overdispersed count data. More details can be
-referred to Liu et al. (2024) <doi:10.48550/arXiv.2402.15071>.
+referred to Liu et al. (2024) <doi:10.1093/biomtc/ujae031>.
 
 %prep
 %setup -q -c -n %{packname}

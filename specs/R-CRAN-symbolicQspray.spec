@@ -1,45 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landscapemetrics
-%global packver   2.1.2
+%global packname  symbolicQspray
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Metrics for Categorical Map Patterns
+Summary:          Multivariate Polynomials with Symbolic Parameters in their Coefficients
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-qspray >= 3.0.0
+BuildRequires:    R-CRAN-ratioOfQsprays 
+BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppCGAL 
+Requires:         R-CRAN-qspray >= 3.0.0
+Requires:         R-CRAN-ratioOfQsprays 
+Requires:         R-CRAN-gmp 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Calculates landscape metrics for categorical landscape patterns in a tidy
-workflow. 'landscapemetrics' reimplements the most common metrics from
-'FRAGSTATS' (<https://www.fragstats.org/>) and new ones from the current
-literature on landscape metrics. This package supports 'terra' SpatRaster
-objects as input arguments. It further provides utility functions to
-visualize patches, select metrics and building blocks to develop new
-metrics.
+Introduces the 'symbolicQspray' objects. Such an object represents a
+multivariate polynomial whose coefficients are fractions of multivariate
+polynomials with rational coefficients. The package allows arithmetic on
+such polynomials. It is based on the 'qspray' and 'ratioOfQsprays'
+packages. Some functions for 'qspray' polynomials have their counterpart
+for 'symbolicQspray' polynomials. A 'symbolicQspray' polynomial should not
+be seen as a polynomial on the field of fractions of rational polynomials,
+but should rather be seen as a polynomial with rational coefficients
+depending on some parameters, symbolically represented, with a dependence
+given by fractions of rational polynomials.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openscoring
-%global packver   1.0.1
+%global packname  ollamar
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Open Scoring' API Client
+Summary:          'Ollama' Language Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,28 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Creativity research involves the need to score open-ended problems.
-Usually done by humans, automatic scoring using AI becomes more and more
-accurate. This package provides a simple interface to the 'Open Scoring'
-API <https://openscoring.du.edu/docs>, leading creativity scoring
-technology by Organiscak et al. (2023) <doi:10.1016/j.tsc.2023.101356>.
-With it, you can score your own data directly from an R script.
+An interface to easily run local language models with 'Ollama'
+<https://ollama.com> server and API endpoints (see
+<https://github.com/ollama/ollama/blob/main/docs/api.md> for details). It
+lets you run open-source large language models locally on your machine.
 
 %prep
 %setup -q -c -n %{packname}

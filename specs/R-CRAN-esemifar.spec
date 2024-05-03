@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esemifar
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smoothing Long-Memory Time Series
 
@@ -16,17 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-fracdiff 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-smoots 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-fracdiff 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-smoots 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 The nonparametric trend and its derivatives in equidistant time series

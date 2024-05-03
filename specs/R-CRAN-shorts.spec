@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shorts
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Short Sprints
 
@@ -42,8 +42,9 @@ Parkinson JL (1927) <doi: 10.1098/rspb.1927.0035>, Greene PR. (1986) <doi:
 DJ. (2017) <doi: 10.1519/JSC.0000000000002081>, Samozino P. (2018) <doi:
 10.1007/978-3-319-05633-3_11>, Samozino P. and Peyrot N., et al (2022)
 <doi: 10.1111/sms.14097>, Clavel, P., et al (2023) <doi:
-10.1016/j.jbiomech.2023.111602>, and Jovanovic M. (2023) <doi:
-10.1080/10255842.2023.2170713>.
+10.1016/j.jbiomech.2023.111602>, Jovanovic M. (2023) <doi:
+10.1080/10255842.2023.2170713>, and Jovanovic M., et al (2024) <doi:
+10.3390/s24092894>.
 
 %prep
 %setup -q -c -n %{packname}
