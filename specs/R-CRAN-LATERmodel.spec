@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lingmatch
-%global packver   1.0.7
+%global packname  LATERmodel
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linguistic Matching and Accommodation
+Summary:          Linear Approach to Threshold with Ergodic Rate for Reaction Times
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-moments 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-parallel 
+Requires:         R-CRAN-moments 
 
 %description
-Measure similarity between texts. Offers a variety of processing tools and
-similarity metrics to facilitate flexible representation of texts and
-matching. Implements forms of Language Style Matching (Ireland &
-Pennebaker, 2010) <doi:10.1037/a0020386> and Latent Semantic Analysis
-(Landauer & Dumais, 1997) <doi:10.1037/0033-295X.104.2.211>.
+Implements the Linear Approach to Threshold with Ergodic Rate (LATER)
+model, which predicts distributions of reaction times and summarises them
+with as little as two free parameters. Allows for easy visualisation and
+comparison of datasets, along with fitting of datasets using the LATER
+model.
 
 %prep
 %setup -q -c -n %{packname}

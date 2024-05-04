@@ -1,31 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TMTI
-%global packver   1.0.1
+%global packname  ExpImage
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Too Many, Too Improbable' (TMTI) Test Procedures
+Summary:          Analysis of Images in Experiments
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-schemr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-schemr 
 
 %description
-Methods for computing joint tests, controlling the Familywise Error Rate
-(FWER) and getting lower bounds on the number of false hypotheses in a
-set. The methods implemented here are described in Mogensen and Markussen
-(2021) <arXiv:2108.04731>.
+Tools created for image analysis in researches. There are functions
+associated with image editing, segmentation, and obtaining biometric
+measurements (Este pacote foi idealizado para para a analise de imagens em
+pesquisas. Ha funcoes associadas a edicao de imagens, segmentacao, e
+obtencao de medidas biometricas)
+<https://www.expstat.com/pacotes-do-r/expimage>.
 
 %prep
 %setup -q -c -n %{packname}

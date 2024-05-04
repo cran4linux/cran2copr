@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lingmatch
-%global packver   1.0.7
+%global packname  SoilConservation
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linguistic Matching and Accommodation
+Summary:          Soil and Water Conservation
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
+BuildRequires:    R-devel >= 3.5.1
+Requires:         R-core >= 3.5.1
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Measure similarity between texts. Offers a variety of processing tools and
-similarity metrics to facilitate flexible representation of texts and
-matching. Implements forms of Language Style Matching (Ireland &
-Pennebaker, 2010) <doi:10.1037/a0020386> and Latent Semantic Analysis
-(Landauer & Dumais, 1997) <doi:10.1037/0033-295X.104.2.211>.
+Includes four functions: RFactor_calc(), RFactor_est(), KFactor() and
+SoilLoss(). The rainfall erosivity factors can be calculated or estimated,
+and soil erodibility will be estimated by the equation extracted from the
+monograph. Soil loss will be estimated by the product of five factors
+(rainfall erosivity, soil erodibility, length and steepness slope,
+cover-management factor and support practice factor. In the future,
+additional functions can be included. This efforts to advance research in
+soil and water conservation, with fast and accurate results.
 
 %prep
 %setup -q -c -n %{packname}

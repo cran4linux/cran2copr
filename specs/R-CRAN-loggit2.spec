@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lingmatch
-%global packver   1.0.7
+%global packname  loggit2
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linguistic Matching and Accommodation
+Summary:          Easy-to-Use, Dependencyless Logger
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
 
 %description
-Measure similarity between texts. Offers a variety of processing tools and
-similarity metrics to facilitate flexible representation of texts and
-matching. Implements forms of Language Style Matching (Ireland &
-Pennebaker, 2010) <doi:10.1037/a0020386> and Latent Semantic Analysis
-(Landauer & Dumais, 1997) <doi:10.1037/0033-295X.104.2.211>.
+An easy-to-use 'ndjson' (newline-delimited 'JSON') logger. It provides a
+set of wrappings for base R's message(), warning(), and stop() functions
+that maintain identical functionality, but also log the handler message to
+an 'ndjson' log file. No change in existing code is necessary to use this
+package, and should only require additions to fully leverage the power of
+the logging system.
 
 %prep
 %setup -q -c -n %{packname}

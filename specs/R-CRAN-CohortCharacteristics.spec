@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortCharacteristics
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
+BuildRequires:    R-CRAN-CDMConnector >= 1.3.2
 BuildRequires:    R-CRAN-PatientProfiles >= 0.8.0
-BuildRequires:    R-CRAN-visOmopResults >= 0.2.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.1.2
+BuildRequires:    R-CRAN-visOmopResults >= 0.3.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.2.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-checkmate 
@@ -30,10 +30,13 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-CDMConnector >= 1.3.1
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-CDMConnector >= 1.3.2
 Requires:         R-CRAN-PatientProfiles >= 0.8.0
-Requires:         R-CRAN-visOmopResults >= 0.2.0
-Requires:         R-CRAN-omopgenerics >= 0.1.2
+Requires:         R-CRAN-visOmopResults >= 0.3.0
+Requires:         R-CRAN-omopgenerics >= 0.2.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-checkmate 
@@ -43,6 +46,9 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Summarise and visualise the characteristics of patients in data mapped to

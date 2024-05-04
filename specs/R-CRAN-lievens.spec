@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lingmatch
-%global packver   1.0.7
+%global packname  lievens
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linguistic Matching and Accommodation
+Summary:          Real-Time PCR Data Sets by Lievens et al. (2012)
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-tibble 
 
 %description
-Measure similarity between texts. Offers a variety of processing tools and
-similarity metrics to facilitate flexible representation of texts and
-matching. Implements forms of Language Style Matching (Ireland &
-Pennebaker, 2010) <doi:10.1037/a0020386> and Latent Semantic Analysis
-(Landauer & Dumais, 1997) <doi:10.1037/0033-295X.104.2.211>.
+Real-time quantitative polymerase chain reaction (qPCR) data sets by
+Lievens et al. (2012) <doi:10.1093/nar/gkr775>. Provides one single
+tabular tidy data set in long format, encompassing three dilution series,
+targeted against the soybean Lectin endogene. Each dilution series was
+assayed in one of the following PCR-efficiency-modifying conditions: no
+PCR inhibition, inhibition by isopropanol and inhibition by tannic acid.
+The inhibitors were co-diluted along with the dilution series. The
+co-dilution series consists of a five-point, five-fold serial dilution.
+For each concentration there are 18 replicates. Each amplification curve
+is 60 cycles long. Original raw data file is available at the
+Supplementary Data section at Nucleic Acids Research Online
+<doi:10.1093/nar/gkr775>.
 
 %prep
 %setup -q -c -n %{packname}

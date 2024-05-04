@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fflr
-%global packver   2.2.4
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve ESPN Fantasy Football Data
 
@@ -28,8 +28,8 @@ Requires:         R-stats
 
 %description
 Format the raw data from the ESPN fantasy football API
-<https://fantasy.espn.com/apis/v3/games/ffl/> as data frames. Retrieve
-data on public leagues, rosters, athletes, and matches.
+<https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl> as data frames.
+Retrieve data on public leagues, rosters, athletes, and matches.
 
 %prep
 %setup -q -c -n %{packname}

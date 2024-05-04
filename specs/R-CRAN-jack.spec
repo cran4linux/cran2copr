@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jack
-%global packver   5.3.0
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.0
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Jack, Zonal, and Schur Polynomials
 
@@ -16,23 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-qspray >= 3.0.0
+BuildRequires:    R-CRAN-symbolicQspray 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-multicool 
 BuildRequires:    R-CRAN-mvp 
 BuildRequires:    R-CRAN-partitions 
-BuildRequires:    R-CRAN-qspray 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-spray 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-ratioOfQsprays 
+BuildRequires:    R-CRAN-RcppCGAL 
+Requires:         R-CRAN-qspray >= 3.0.0
+Requires:         R-CRAN-symbolicQspray 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-multicool 
 Requires:         R-CRAN-mvp 
 Requires:         R-CRAN-partitions 
-Requires:         R-CRAN-qspray 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-spray 
+Requires:         R-utils 
 
 %description
 Symbolic calculation and evaluation of the Jack polynomials, zonal
@@ -40,7 +47,7 @@ polynomials, and Schur polynomials. Mainly based on Demmel & Koev's paper
 (2006) <doi:10.1090/S0025-5718-05-01780-1>. Zonal polynomials and Schur
 polynomials are particular cases of Jack polynomials. Zonal polynomials
 appear in random matrix theory. Schur polynomials appear in the field of
-combinatorics.
+combinatorics. The package can also compute the skew Schur polynomials.
 
 %prep
 %setup -q -c -n %{packname}

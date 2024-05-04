@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pkgnet
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Network Representation of an R Package
 
@@ -17,13 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 1.9
+BuildRequires:    R-CRAN-igraph >= 1.3
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-covr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
@@ -32,13 +33,13 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-rmarkdown >= 1.9
+Requires:         R-CRAN-igraph >= 1.3
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-covr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 

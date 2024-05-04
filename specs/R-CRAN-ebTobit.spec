@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebTobit
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Bayesian Tobit Matrix Estimation
 
@@ -29,11 +29,11 @@ Estimation tools for multidimensional Gaussian means using empirical
 Bayesian g-modeling. Methods are able to handle fully observed data as
 well as left-, right-, and interval-censored observations (Tobit
 likelihood); descriptions of these methods can be found in Barbehenn and
-Zhao (2023) <arXiv:2306.07239>. Additional, lower-level functionality
-based on Kiefer and Wolfowitz (1956) <doi:10.1214/aoms/1177728066> and
-Jiang and Zhang (2009) <doi:10.1214/08-AOS638> is provided that can be
-used to accelerate many empirical Bayes and nonparametric maximum
-likelihood problems.
+Zhao (2023) <doi:10.48550/arXiv.2306.07239>. Additional, lower-level
+functionality based on Kiefer and Wolfowitz (1956)
+<doi:10.1214/aoms/1177728066> and Jiang and Zhang (2009)
+<doi:10.1214/08-AOS638> is provided that can be used to accelerate many
+empirical Bayes and nonparametric maximum likelihood problems.
 
 %prep
 %setup -q -c -n %{packname}
