@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  provenance
-%global packver   4.2
+%global packver   4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2
+Version:          4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Toolbox for Sedimentary Provenance Analysis
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 5.2
+BuildRequires:    R-CRAN-IsoplotR >= 6.2
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-IsoplotR >= 5.2
+Requires:         R-CRAN-IsoplotR >= 6.2
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 

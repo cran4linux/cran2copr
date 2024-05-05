@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GetLattesData
-%global packver   1.4.3
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading Bibliometric Data from Lattes Platform
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-dplyr 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-curl 
 Requires:         R-tools 
+Requires:         R-CRAN-lubridate 
 
 %description
 A simple API for downloading and reading xml data directly from Lattes

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2jags
-%global packver   0.7-1.1
+%global packver   0.8-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1.1
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using R to Run 'JAGS'
 
@@ -26,6 +26,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-R2WinBUGS 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rjags >= 3.3
 Requires:         R-CRAN-coda >= 0.13
@@ -36,6 +37,7 @@ Requires:         R-methods
 Requires:         R-CRAN-R2WinBUGS 
 Requires:         R-parallel 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
