@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  officer
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulation of Microsoft Word and PowerPoint Documents
 
@@ -19,31 +19,31 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-zip >= 2.1.0
 BuildRequires:    R-CRAN-xml2 >= 1.1.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-zip >= 2.1.0
 Requires:         R-CRAN-xml2 >= 1.1.0
-Requires:         R-grDevices 
-Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-grDevices 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-ragg 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
 Access and manipulate 'Microsoft Word', 'RTF' and 'Microsoft PowerPoint'
-documents from R. The package focuses on tabular and graphical reporting
+documents from R.  The package focuses on tabular and graphical reporting
 from R; it also provides two functions that let users get document content
 into data objects. A set of functions lets add and remove images, tables
-and paragraphs of text in new or existing documents. The package does not
+and paragraphs of text in new or existing documents.  The package does not
 require any installation of Microsoft products to be able to write
 Microsoft files.
 

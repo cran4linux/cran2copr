@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  conf
-%global packver   1.8.3
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.3
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization and Analysis of Statistical Measures of Confidence
 
@@ -35,9 +35,11 @@ Requires:         R-utils
 %description
 Enables: (1) plotting two-dimensional confidence regions, (2) coverage
 analysis of confidence region simulations, (3) calculating confidence
-intervals and the associated actual coverage for binomial proportions, and
-(4) calculating the support values and the probability mass function of
-the Kaplan-Meier product-limit estimator. Each is given in greater detail
+intervals and the associated actual coverage for binomial proportions, (4)
+calculating the support values and the probability mass function of the
+Kaplan-Meier product-limit estimator, and (5) plotting the actual coverage
+function associated with a confidence interval for the survivor function
+from a randomly right-censored data set. Each is given in greater detail
 next. (1) Plots the two-dimensional confidence region for probability
 distribution parameters (supported distribution suffixes: cauchy, gamma,
 invgauss, logis, llogis, lnorm, norm, unif, weibull) corresponding to a
@@ -76,7 +78,15 @@ the cumulative probability percentile associated with X = min(T, C), where
 T is the failure time and C is the censoring time under a random-censoring
 scheme. The km.surv() function generates multiple probability mass
 functions of the Kaplan-Meier product-limit estimator for the same
-arguments as those given for km.pmf().
+arguments as those given for km.pmf(). (5) The km.coverage() function
+plots the actual coverage function associated with a confidence interval
+for the survivor function from a randomly right-censored data set for one
+or more of the following confidence intervals: Greenwood, log-minus-log,
+Peto, arcsine, and exponential Greenwood.  The actual coverage function is
+plotted for a small number of items on test, stated coverage, failure
+rate, and censoring rate. The km.coverage() function can print an optional
+table containing all possible failure/censoring orderings, along with
+their contribution to the actual coverage function.
 
 %prep
 %setup -q -c -n %{packname}

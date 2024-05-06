@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  magi
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          MAnifold-Constrained Gaussian Process Inference
 
@@ -37,7 +37,9 @@ Provides fast and accurate inference for the parameter estimation problem
 in Ordinary Differential Equations, including the case when there are
 unobserved system components. Implements the MAGI method
 (MAnifold-constrained Gaussian process Inference) of Yang, Wong, and Kou
-(2021) <doi:10.1073/pnas.2020397118>.
+(2021) <doi:10.1073/pnas.2020397118>. A user guide is provided by the
+accompanying software paper Wong, Yang, and Kou (2024)
+<doi:10.18637/jss.v109.i04>.
 
 %prep
 %setup -q -c -n %{packname}

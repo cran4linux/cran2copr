@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  test2norm
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Normative Standards for Cognitive Tests
 
@@ -13,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mfp 
-Requires:         R-CRAN-mfp 
+BuildRequires:    R-CRAN-mfp2 
+Requires:         R-CRAN-mfp2 
 
 %description
 Package test2norm contains functions to generate formulas for normative
@@ -30,8 +31,8 @@ raw test scores, scaled to have the mean of 10 and standard deviation of
 3, such that higher values always correspond to better performance on the
 test. The demographically adjusted scores are calculated from the
 residuals of a model that regresses scaled scores on demographic
-predictors (e.g., age). The norming procedure makes use of the mfp()
-function from the 'mfp' package to explore nonlinear associations between
+predictors (e.g., age). The norming procedure makes use of the mfp2()
+function from the 'mfp2' package to explore nonlinear associations between
 cognition and demographic variables.
 
 %prep

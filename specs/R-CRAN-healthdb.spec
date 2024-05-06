@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthdb
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Working with Healthcare Database
+Summary:          Working with Healthcare Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dbplyr >= 2.5.0
+BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dbplyr >= 2.5.0
+Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-clock 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description

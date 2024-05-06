@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  broman
-%global packver   0.82
+%global packname  systemicrisk
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.82
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Karl Broman's R Code
+Summary:          Systemic Risk and Network Reconstruction
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-lpSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+Requires:         R-utils 
 
 %description
-Miscellaneous R functions, including functions related to graphics (mostly
-for base graphics), permutation tests, running mean/median, and general
-utilities.
+Analysis of risk through liability matrices. Contains a Gibbs sampler for
+network reconstruction, where only row and column sums of the liabilities
+matrix as well as some other fixed entries are observed, following the
+methodology of Gandy&Veraart (2016) <doi:10.1287/mnsc.2016.2546>. It also
+incorporates models that use a power law distribution on the degree
+distribution.
 
 %prep
 %setup -q -c -n %{packname}

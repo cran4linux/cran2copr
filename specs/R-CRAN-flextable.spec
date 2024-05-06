@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flextable
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Tabular Reporting
 
@@ -17,41 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmarkdown >= 2.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
 BuildRequires:    R-CRAN-officer >= 0.6.5
 BuildRequires:    R-CRAN-gdtools >= 0.3.6
 BuildRequires:    R-CRAN-uuid >= 0.1.4
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ragg 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-rmarkdown >= 2.0
 Requires:         R-CRAN-data.table >= 1.13.0
 Requires:         R-CRAN-officer >= 0.6.5
 Requires:         R-CRAN-gdtools >= 0.3.6
 Requires:         R-CRAN-uuid >= 0.1.4
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ragg 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ragg 
 Requires:         R-CRAN-xml2 
 
 %description
 Use a grammar for creating and customizing pretty tables. The following
 formats are supported: 'HTML', 'PDF', 'RTF', 'Microsoft Word', 'Microsoft
-PowerPoint' and R 'Grid Graphics'. 'R Markdown', 'Quarto' and the package
+PowerPoint' and R 'Grid Graphics'.  'R Markdown', 'Quarto' and the package
 'officer' can be used to produce the result files. The syntax is the same
 for the user regardless of the type of output to be produced. A set of
 functions allows the creation, definition of cell arrangement, addition of

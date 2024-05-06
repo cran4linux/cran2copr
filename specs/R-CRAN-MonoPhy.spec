@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  broman
-%global packver   0.82
+%global packname  MonoPhy
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.82
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Karl Broman's R Code
+Summary:          Explore Monophyly of Taxonomic Groups in a Phylogeny
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-taxize 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-taxize 
 
 %description
-Miscellaneous R functions, including functions related to graphics (mostly
-for base graphics), permutation tests, running mean/median, and general
-utilities.
+Requires rooted phylogeny as input and creates a table of genera, their
+monophyly-status, which taxa cause problems in monophyly etc. Different
+information can be extracted from the output and a plot function allows
+visualization of the results in a number of ways. "MonoPhy: a simple R
+package to find and visualize monophyly issues." Schwery, O. & O'Meara,
+B.C. (2016) <doi:10.7717/peerj-cs.56>.
 
 %prep
 %setup -q -c -n %{packname}
