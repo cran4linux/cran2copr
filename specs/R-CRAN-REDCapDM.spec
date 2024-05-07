@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapDM
-%global packver   0.9.8
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REDCap' Data Management
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-janitor 
@@ -51,16 +51,17 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-forcats 
 
 %description
-REDCap Data Management - REDCapDM is a comprehensive package that enables
-users to seamlessly handle data exported directly from REDCap or through
-API connections. This tool facilitates various functions, including data
-preprocessing, report generation for queries such as outliers or missing
-values, and tracking of identified queries. 'REDCap' (Research Electronic
-Data CAPture; <https://projectredcap.org>) is a web application developed
-at Vanderbilt University, designed for creating and managing online
-surveys and databases. The API connection provides users with the
-capability to programmatically access both data and project metadata,
-including the data dictionary, from the web.
+REDCap Data Management - REDCapDM is an R package that allows users to
+manage data exported directly from REDCap or using an API connection. This
+package includes several functions designed for pre-processing data,
+generating reports of queries such as outliers or missing values, and
+following up on the identified queries. 'REDCap' (Research Electronic Data
+CAPture; <https://projectredcap.org>) is a web application developed at
+Vanderbilt University, designed for creating and managing online surveys
+and databases and the REDCap API is an interface that allows external
+applications to connect to REDCap remotely, and is used to
+programmatically retrieve or modify project data or settings within
+REDCap, such as importing or exporting data.
 
 %prep
 %setup -q -c -n %{packname}

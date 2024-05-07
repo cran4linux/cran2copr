@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kyotil
-%global packver   2024.1-30
+%global packver   2024.5-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.30
+Version:          2024.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Statistical Analysis Report Generation and Monte Carlo Studies
 

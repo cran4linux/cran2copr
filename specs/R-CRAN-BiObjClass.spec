@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VIGoR
-%global packver   1.1.3
+%global packname  BiObjClass
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Bayesian Inference for Genome-Wide Regression
+Summary:          Classification of Algorithms
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 
 %description
-Conducts linear regression using variational Bayesian inference,
-particularly optimized for genome-wide association mapping and
-whole-genome prediction which use a number of DNA markers as the
-explanatory variables. Provides seven regression models which select the
-important variables (i.e., the variables related to response variables)
-among the given explanatory variables in different ways (i.e., model
-structures).
+Implements the Bi-objective Lexicographical Classification method and
+Performance Assessment Ratio at 10%% metric for algorithm classification.
+Constructs matrices representing algorithm performance under multiple
+criteria, facilitating decision-making in algorithm selection and
+evaluation. Analyzes and compares algorithm performance based on various
+metrics to identify the most suitable algorithms for specific tasks. This
+package includes methods for algorithm classification and evaluation, with
+examples provided in the documentation. Carvalho (2019) presents a
+statistical evaluation of algorithmic computational experimentation with
+infeasible solutions <doi:10.48550/arXiv.1902.00101>. Moreira and Carvalho
+(2023) analyze power in preprocessing methodologies for datasets with
+missing values <doi:10.1080/03610918.2023.2234683>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smd
-%global packver   0.6.7
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Standardized Mean Differences
 
@@ -25,7 +25,7 @@ Requires:         R-methods >= 3.5.1
 %description
 Computes standardized mean differences and confidence intervals for
 multiple data types based on Yang, D., & Dalton, J. E. (2012)
-<http://www.lerner.ccf.org/qhs/software/lib/stddiff.pdf>.
+<https://support.sas.com/resources/papers/proceedings12/335-2012.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

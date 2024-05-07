@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edibble
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Encapsulating Elements of Experimental Design
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-AlgDesign
 BuildRequires:    R-CRAN-dae 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
@@ -43,14 +44,16 @@ Requires:         R-CRAN-AlgDesign
 Requires:         R-CRAN-dae 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
 
 %description
-A system to facilitate designing comparative experiments using the grammar
-of experimental designs <https://emitanaka.org/edibble-book/>. An
-experimental design is treated as an intermediate, mutable object that is
-built progressively by fundamental experimental components like units,
-treatments, and their relation. The system aids in experimental planning,
-management and workflow.
+A system to facilitate designing comparative (and non-comparative)
+experiments using the grammar of experimental designs
+<https://emitanaka.org/edibble-book/>. An experimental design is treated
+as an intermediate, mutable object that is built progressively by
+fundamental experimental components like units, treatments, and their
+relation. The system aids in experimental planning, management and
+workflow.
 
 %prep
 %setup -q -c -n %{packname}

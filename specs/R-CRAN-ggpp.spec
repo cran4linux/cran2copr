@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpp
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grammar Extensions to 'ggplot2'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.58
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
@@ -30,12 +30,13 @@ BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-scales >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.6
+BuildRequires:    R-CRAN-vctrs >= 0.6.0
 BuildRequires:    R-CRAN-xts >= 0.13.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-MASS >= 7.3.58
-Requires:         R-CRAN-ggplot2 >= 3.3.6
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-gridExtra >= 2.3
 Requires:         R-CRAN-magrittr >= 2.0.1
@@ -47,6 +48,7 @@ Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-scales >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.6
+Requires:         R-CRAN-vctrs >= 0.6.0
 Requires:         R-CRAN-xts >= 0.13.0
 Requires:         R-stats 
 Requires:         R-grid 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manydata
-%global packver   0.9.2
+%global packver   0.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Portal for Global Governance Data
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-messydates >= 0.4.1
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-messydates 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-usethis 
@@ -31,8 +31,8 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-messydates >= 0.4.1
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-messydates 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-usethis 

@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCMCglmm
-%global packver   2.36
+%global packname  limexhub
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.36
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Generalised Linear Mixed Models
+Summary:          Quantitative Trade Signals
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-cubature 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
 
 %description
-Fits Multivariate Generalised Linear Mixed Models (and related models)
-using Markov chain Monte Carlo techniques (Hadfield 2010 J. Stat. Soft.).
+Provides an interface to the financial data platform
+<https://datahub.limex.com/>., enabling users to retrieve real-time and
+historical financial data. Functions within the package allow access to
+instruments, candlestick charts, fundamentals, news, events, models, and
+trading signals. Authentication is managed through user-specific API
+tokens, which are securely handled via environment variables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCMCglmm
-%global packver   2.36
+%global packname  gptr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.36
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Generalised Linear Mixed Models
+Summary:          A Convenient R Interface with the OpenAI 'ChatGPT' API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-tensorA 
-BuildRequires:    R-CRAN-cubature 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-tensorA 
-Requires:         R-CRAN-cubature 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-RCurl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-RCurl 
 
 %description
-Fits Multivariate Generalised Linear Mixed Models (and related models)
-using Markov chain Monte Carlo techniques (Hadfield 2010 J. Stat. Soft.).
+A convenient interface with the OpenAI 'ChatGPT' API
+<https://api.openai.com>. 'gptr' allows you to interact with 'ChatGPT', a
+powerful language model, for various natural language processing tasks.
+The 'gptr' R package makes talking to 'ChatGPT' in R super easy. It helps
+researchers and data folks by simplifying the complicated stuff, like
+asking questions and getting answers. With 'gptr', you can use 'ChatGPT'
+in R without any hassle, making it simpler for everyone to do cool things
+with language!
 
 %prep
 %setup -q -c -n %{packname}
