@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cloudfs
-%global packver   0.1.3
+%global packname  psm3mkv
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Streamlined Interface to Interact with Cloud Storage Platforms
+Summary:          Evaluate Partitioned Survival and State Transition Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-aws.s3 
-BuildRequires:    R-CRAN-googledrive 
-BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-aws.s3 
-Requires:         R-CRAN-googledrive 
-Requires:         R-CRAN-desc 
+BuildRequires:    R-CRAN-SimplicialCubature 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cli 
-Requires:         R-utils 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-SimplicialCubature 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A unified interface for simplifying cloud storage interactions, including
-uploading, downloading, reading, and writing files, with functions for
-both 'Google Drive' (<https://www.google.com/drive/>) and 'Amazon S3'
-(<https://aws.amazon.com/s3/>).
+Fits and evaluates three-state partitioned survival analyses (PartSAs) and
+Markov models (clock forward or clock reset) to progression and overall
+survival data typically collected in oncology clinical trials. These model
+structures are typically considered in cost-effectiveness modeling in
+advanced/metastatic cancer indications. Muston (2024). "Informing
+structural assumptions for three state oncology cost-effectiveness models
+through model efficiency and fit". Applied Health Economics and Health
+Policy. In press.
 
 %prep
 %setup -q -c -n %{packname}

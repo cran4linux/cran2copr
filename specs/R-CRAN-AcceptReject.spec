@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AcceptReject
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acceptance-Rejection Method for Generating Pseudo-Random Observations
 
@@ -20,34 +20,35 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lbfgs 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-scattermore 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lbfgs 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-scattermore 
 
 %description
 Provides a function that implements the acceptance-rejection method in an
 optimized manner to generate pseudo-random observations for discrete or
-continuous random variables. The function is optimized to work in parallel
-on Unix-based operating systems and performs well on Windows systems. The
-acceptance-rejection method implemented optimizes the probability of
-generating observations from the desired random variable, by simply
-providing the probability function or probability density function, in the
-discrete and continuous cases, respectively. Implementation is based on
-references CASELLA, George at al. (2004)
+continuous random variables. Proposed by von Neumann J. (1951),
+<https://mcnp.lanl.gov/pdf_files/>, the function is optimized to work in
+parallel on Unix-based operating systems and performs well on Windows
+systems. The acceptance-rejection method implemented optimizes the
+probability of generating observations from the desired random variable,
+by simply providing the probability function or probability density
+function, in the discrete and continuous cases, respectively.
+Implementation is based on references CASELLA, George at al. (2004)
 <https://www.jstor.org/stable/4356322>, NEAL, Radford M. (2003)
 <https://www.jstor.org/stable/3448413> and Bishop, Christopher M. (2006,
 ISBN: 978-0387310732).

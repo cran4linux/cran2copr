@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gptr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Convenient R Interface with the OpenAI 'ChatGPT' API
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-RCurl
 
 %description
 A convenient interface with the OpenAI 'ChatGPT' API
-<https://api.openai.com>. 'gptr' allows you to interact with 'ChatGPT', a
+<https://openai.com/api>. 'gptr' allows you to interact with 'ChatGPT', a
 powerful language model, for various natural language processing tasks.
 The 'gptr' R package makes talking to 'ChatGPT' in R super easy. It helps
 researchers and data folks by simplifying the complicated stuff, like

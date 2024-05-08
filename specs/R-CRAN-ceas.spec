@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  editbl
-%global packver   1.0.4
+%global packname  ceas
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
+Summary:          Cellular Energetics Analysis Software
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome >= 0.4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-fontawesome >= 0.4.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-uuid 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readxl 
+Requires:         R-stats 
 
 %description
-The core of this package is a function eDT() which enhances
-DT::datatable() such that it can be used to interactively modify data in
-'shiny'. By the use of generic 'dplyr' methods it supports many types of
-data storage, with relational databases ('dbplyr') being the main use
-case.
+Analysis and visualization of cellular energetics data from Agilent
+Seahorse XF96. Cellular energetics is how cells make, use, and distribute
+units of energy (primarily ATP). Measuring real-time cellular energetics
+is essential to understanding a tissue or cell’s bioenergetic state and
+fuel dependencies. The Seahorse machine measures a cell’s or matrix’s
+oxygen consumption rate (OCR) – a proxy of oxidative phosphorylation – and
+extracellular acidification rate – a proxy of glycolysis. This package
+offers flexible and fast analysis and plotting capabilities for such data
+using the methods described by Mookerjee et al. (2017)
+<doi:10.1074/jbc.m116.774471>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  editbl
-%global packver   1.0.4
+%global packname  cmstatrExt
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
+Summary:          More Statistical Methods for Composite Material Data
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome >= 0.4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-fontawesome >= 0.4.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-The core of this package is a function eDT() which enhances
-DT::datatable() such that it can be used to interactively modify data in
-'shiny'. By the use of generic 'dplyr' methods it supports many types of
-data storage, with relational databases ('dbplyr') being the main use
-case.
+A companion package to 'cmstatr'
+<https://cran.r-project.org/package=cmstatr>. 'cmstatr' contains
+statistical methods that are published in the Composite Materials
+Handbook, Volume 1 (2012, ISBN: 978-0-7680-7811-4), while 'cmstatrExt'
+contains statistical methods that are not included in that handbook.
 
 %prep
 %setup -q -c -n %{packname}

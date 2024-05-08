@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  editbl
-%global packver   1.0.4
+%global packname  callback
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
+Summary:          Computes Statistics from Discrimination Experimental Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome >= 0.4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-fontawesome >= 0.4.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-uuid 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-The core of this package is a function eDT() which enhances
-DT::datatable() such that it can be used to interactively modify data in
-'shiny'. By the use of generic 'dplyr' methods it supports many types of
-data storage, with relational databases ('dbplyr') being the main use
-case.
+In discrimination experiments candidates are sent on the same test (e.g.
+job, house rental) and one examines whether they receive the same outcome.
+The number of non negative answers are first examined in details looking
+for outcome differences. Then various answering rates and their exacts
+confidence intervals are computed. Last, exact and asymptotic
+discrimination tests are performed (Student, binomial).
 
 %prep
 %setup -q -c -n %{packname}

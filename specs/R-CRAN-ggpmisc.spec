@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpmisc
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -17,42 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-CRAN-quantreg >= 5.93
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-tibble >= 3.1.5
-BuildRequires:    R-CRAN-plyr >= 1.8.6
+BuildRequires:    R-CRAN-MASS >= 7.3.60.0.1
+BuildRequires:    R-CRAN-quantreg >= 5.97
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-plyr >= 1.8.9
 BuildRequires:    R-CRAN-lmodel2 >= 1.7.3
-BuildRequires:    R-CRAN-lubridate >= 1.7.10
 BuildRequires:    R-CRAN-multcomp >= 1.4.25
-BuildRequires:    R-CRAN-polynom >= 1.4.0
-BuildRequires:    R-CRAN-splus2R >= 1.3.3
-BuildRequires:    R-CRAN-scales >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.6
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-ggpp >= 0.5.5
-BuildRequires:    R-CRAN-multcompView >= 0.1.9
-BuildRequires:    R-CRAN-generics >= 0.1.2
-BuildRequires:    R-CRAN-confintr >= 0.1.2
+BuildRequires:    R-CRAN-polynom >= 1.4.1
+BuildRequires:    R-CRAN-splus2R >= 1.3.5
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-confintr >= 1.0.2
+BuildRequires:    R-CRAN-ggpp >= 0.5.7
+BuildRequires:    R-CRAN-generics >= 0.1.3
+BuildRequires:    R-CRAN-multcompView >= 0.1.10
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-CRAN-quantreg >= 5.93
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-tibble >= 3.1.5
-Requires:         R-CRAN-plyr >= 1.8.6
+Requires:         R-CRAN-MASS >= 7.3.60.0.1
+Requires:         R-CRAN-quantreg >= 5.97
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-plyr >= 1.8.9
 Requires:         R-CRAN-lmodel2 >= 1.7.3
-Requires:         R-CRAN-lubridate >= 1.7.10
 Requires:         R-CRAN-multcomp >= 1.4.25
-Requires:         R-CRAN-polynom >= 1.4.0
-Requires:         R-CRAN-splus2R >= 1.3.3
-Requires:         R-CRAN-scales >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.0.6
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-ggpp >= 0.5.5
-Requires:         R-CRAN-multcompView >= 0.1.9
-Requires:         R-CRAN-generics >= 0.1.2
-Requires:         R-CRAN-confintr >= 0.1.2
+Requires:         R-CRAN-polynom >= 1.4.1
+Requires:         R-CRAN-splus2R >= 1.3.5
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-confintr >= 1.0.2
+Requires:         R-CRAN-ggpp >= 0.5.7
+Requires:         R-CRAN-generics >= 0.1.3
+Requires:         R-CRAN-multcompView >= 0.1.10
 Requires:         R-grid 
 Requires:         R-stats 
 

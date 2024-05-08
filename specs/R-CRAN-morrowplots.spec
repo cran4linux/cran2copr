@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  editbl
-%global packver   1.0.4
+%global packname  morrowplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
+Summary:          Historical Agricultural Data from the University of Illinois
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome >= 0.4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-fontawesome >= 0.4.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-uuid 
 
 %description
-The core of this package is a function eDT() which enhances
-DT::datatable() such that it can be used to interactively modify data in
-'shiny'. By the use of generic 'dplyr' methods it supports many types of
-data storage, with relational databases ('dbplyr') being the main use
-case.
+Agricultural data for 1888-2021 from the Morrow Plots at the University of
+Illinois. The world's second oldest ongoing agricultural experiment, the
+Morrow Plots measure the impact of crop rotation and fertility treatments
+on corn yields. The data includes planting information and annual yield
+measures for corn grown continuously and in rotation with other crops, in
+treated and untreated soil.
 
 %prep
 %setup -q -c -n %{packname}

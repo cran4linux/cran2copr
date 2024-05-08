@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  editbl
-%global packver   1.0.4
+%global packname  modelgrid
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
+Summary:          A Framework for Creating, Managing and Training Multiple 'caret' Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome >= 0.4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-fontawesome >= 0.4.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-magrittr 
 
 %description
-The core of this package is a function eDT() which enhances
-DT::datatable() such that it can be used to interactively modify data in
-'shiny'. By the use of generic 'dplyr' methods it supports many types of
-data storage, with relational databases ('dbplyr') being the main use
-case.
+A minimalistic but flexible framework that facilitates the creation,
+management and training of multiple 'caret' models. A model grid consists
+of two components, (1) a set of settings that is shared by all models by
+default, and (2) specifications that apply only to the individual models.
+When the model grid is trained, model and training specifications are
+first consolidated from the shared and the model specific settings into
+complete 'caret' model configurations. These models are then trained with
+the 'train()' function from the 'caret' package.
 
 %prep
 %setup -q -c -n %{packname}

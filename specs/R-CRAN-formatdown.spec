@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  formatdown
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Formatting Tools for 'rmarkdown' Documents
+Summary:          Formatting Numbers in 'rmarkdown' Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,23 +19,23 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-settings 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-wrapr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-settings 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-wrapr 
 
 %description
-Provides a small set of tools for formatting tasks when creating documents
-in R Markdown or Quarto Markdown. Convert the elements of a numerical
-vector to character strings in one of several forms: powers-of-ten
-notation in engineering or scientific form delimited for rendering as
-inline equations; integer or decimal notation delimited for equation
-rendering; numbers with measurement units (non-delimited) where units are
-selected to eliminate the need for powers-of-ten or scientific notation.
-Useful for rendering a numerical scalar in an inline R code chunk as well
-as formatting columns of data frames displayed in a table.
+Provides a small set of tools for formatting numbers in R-markdown
+documents. Convert a numerical vector to character strings in power-of-ten
+form, decimal form, or measurement-units form; all are math-delimited for
+rendering as inline equations. Can also convert text into math-delimited
+text to match the font face and size of math-delimited numbers. Useful for
+rendering single numbers in inline R code chunks and for rendering columns
+in tables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esemifar
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smoothing Long-Memory Time Series
 
@@ -44,8 +44,7 @@ The nonparametric trend and its derivatives in equidistant time series
 via local polynomial regression using an automatically selected bandwidth
 obtained by a built-in iterative plug-in algorithm or a bandwidth fixed by
 the user. The smoothing methods of the package are described in Letmathe,
-S., Beran, J. and Feng, Y., (2021)
-<https://ideas.repec.org/p/pdn/ciepap/145.html>.
+S., Beran, J. and Feng, Y., (2023) <doi:10.1080/03610926.2023.2276049>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  editbl
-%global packver   1.0.4
+%global packname  lotterybr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
+Summary:          Lottery Datasets from Caixa Economica Federal
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fontawesome >= 0.4.0
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-fontawesome >= 0.4.0
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-uuid 
 
 %description
-The core of this package is a function eDT() which enhances
-DT::datatable() such that it can be used to interactively modify data in
-'shiny'. By the use of generic 'dplyr' methods it supports many types of
-data storage, with relational databases ('dbplyr') being the main use
-case.
+A collection of functions designed to streamline the retrieval of data
+from Brazilian lottery games operated by Caixa Econômica Federal,
+accessible through the official website at
+<https://loterias.caixa.gov.br/Paginas/default.aspx/>. Datasets for each
+game are conveniently stored on the GitHub page at
+<https://github.com/tomasbp2/LotteryBrasilDATA/>. Each game within this
+repository consists of two primary datasets: the winners dataset and the
+numbers dataset. The winners dataset includes crucial information such as
+the draw date, game type, potential matches, winners for each match, and
+corresponding prize amounts. Meanwhile, the numbers dataset provides
+essential details including the draw date, game type, and the numbers
+drawn during the respective lottery event. By offering easy access to
+these datasets, the package facilitates efficient data retrieval and
+analysis for researchers, analysts, and enthusiasts interested in
+exploring the dynamics and outcomes of Brazilian lottery games.
 
 %prep
 %setup -q -c -n %{packname}

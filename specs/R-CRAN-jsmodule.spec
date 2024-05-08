@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jsmodule
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -19,74 +19,74 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MatchIt >= 3.0.0
 BuildRequires:    R-CRAN-jskm >= 0.4.4
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-jstable 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shinycustomloader 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-maxstat 
-BuildRequires:    R-CRAN-survIDINRI 
-BuildRequires:    R-CRAN-timeROC 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-see 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-rvg 
 BuildRequires:    R-CRAN-epiDisplay 
 BuildRequires:    R-CRAN-forestploter 
+BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-jstable 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-maxstat 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rvg 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-see 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycustomloader 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-survIDINRI 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-timeROC 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-MatchIt >= 3.0.0
 Requires:         R-CRAN-jskm >= 0.4.4
-Requires:         R-utils 
-Requires:         R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-jstable 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shinycustomloader 
-Requires:         R-CRAN-survey 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-maxstat 
-Requires:         R-CRAN-survIDINRI 
-Requires:         R-CRAN-timeROC 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-see 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-officer 
-Requires:         R-CRAN-rvg 
 Requires:         R-CRAN-epiDisplay 
 Requires:         R-CRAN-forestploter 
+Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-jstable 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-maxstat 
+Requires:         R-methods 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-rvg 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-see 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycustomloader 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-survIDINRI 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-timeROC 
+Requires:         R-utils 
 
 %description
 'RStudio' addins and 'Shiny' modules for descriptive statistics,

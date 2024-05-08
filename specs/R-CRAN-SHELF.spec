@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SHELF
-%global packver   1.9.0
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Support the Sheffield Elicitation Framework
 
@@ -23,12 +23,12 @@ BuildRequires:    R-CRAN-ggridges
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyMatrix 
+BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
@@ -38,12 +38,12 @@ Requires:         R-CRAN-ggridges
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyMatrix 
+Requires:         R-CRAN-sn 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
