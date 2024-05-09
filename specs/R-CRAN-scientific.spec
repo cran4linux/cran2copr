@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scientific
-%global packver   2024.1
+%global packver   2024.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1
+Version:          2024.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Elegant Scientific Themed Reporting for 'Markdown'
+Summary:          Highly Customizable 'rmarkdown' Theme for Scientific Reporting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

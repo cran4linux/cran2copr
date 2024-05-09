@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsurvfit
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Time-to-Event Figures
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-survival >= 3.4.0
+BuildRequires:    R-CRAN-survival >= 3.6.4
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-patchwork >= 1.1.0
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-broom >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-gtable 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-survival >= 3.4.0
+Requires:         R-CRAN-survival >= 3.6.4
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-patchwork >= 1.1.0

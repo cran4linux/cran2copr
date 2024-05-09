@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evreg
-%global packver   1.1.0
+%global packname  read.dbc
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evidential Regression
+Summary:          Read Data Stored in DBC (Compressed DBF) Files
 
-License:          GPL-3
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-evclust 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-evclust 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-foreign 
+Requires:         R-CRAN-foreign 
 
 %description
-An implementation of the 'Evidential Neural Network for Regression' model
-recently introduced in Denoeux (2023) <doi:10.1109/TFUZZ.2023.3268200>. In
-this model, prediction uncertainty is quantified by Gaussian random fuzzy
-numbers as introduced in Denoeux (2023) <doi:10.1016/j.fss.2022.06.004>.
-The package contains functions for training the network, tuning
-hyperparameters by cross-validation or the hold-out method, and making
-predictions. It also contains utilities for making calculations with
-Gaussian random fuzzy numbers (such as, e.g., computing the degrees of
-belief and plausibility of an interval, or combining Gaussian random fuzzy
-numbers).
+Functions for reading and decompressing the DBC (compressed DBF) files.
+Please note that this is the file format used by the Brazilian Ministry of
+Health (DATASUS) to publish healthcare datasets. It is not related to the
+FoxPro or CANdb DBC file formats.
 
 %prep
 %setup -q -c -n %{packname}

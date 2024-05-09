@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prediction
-%global packver   0.3.17
+%global packname  MBCbook
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.17
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy, Type-Safe 'prediction()' Methods
+Summary:          Companion Package for the Book "Model-Based Clustering and Classification for Data Science"
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-Rmixmod 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-Rmixmod 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-A one-function package containing 'prediction()', a type-safe alternative
-to 'predict()' that always returns a data frame. The 'summary()' method
-provides a data frame with average predictions, possibly over
-counterfactual versions of the data (a la the 'margins' command in
-'Stata'). Marginal effect estimation is provided by the related package,
-'margins' <https://cran.r-project.org/package=margins>. The package
-currently supports common model types (e.g., "lm", "glm") from the 'stats'
-package, as well as numerous other model classes from other add-on
-packages. See the README or main package documentation page for a complete
-listing.
+The companion package provides all original data sets and functions that
+are used in the book "Model-Based Clustering and Classification for Data
+Science" by Charles Bouveyron, Gilles Celeux, T. Brendan Murphy and Adrian
+E. Raftery (2019, ISBN:9781108644181).
 
 %prep
 %setup -q -c -n %{packname}

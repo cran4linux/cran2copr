@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snowquery
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'Snowflake' Databases with 'SQL'
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-reticulate
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-RSQLite 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-RSQLite 
 
 %description
 A wrapper allowing 'SQL' queries to be run on a 'Snowflake' instance

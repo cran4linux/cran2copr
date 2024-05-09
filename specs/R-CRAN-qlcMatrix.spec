@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evreg
-%global packver   1.1.0
+%global packname  qlcMatrix
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evidential Regression
+Summary:          Utility Sparse Matrix Functions for Quantitative Language Comparison
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-evclust 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-evclust 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Matrix >= 1.2
+BuildRequires:    R-CRAN-slam >= 0.1.32
+BuildRequires:    R-CRAN-sparsesvd 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-docopt 
+Requires:         R-CRAN-Matrix >= 1.2
+Requires:         R-CRAN-slam >= 0.1.32
+Requires:         R-CRAN-sparsesvd 
+Requires:         R-methods 
+Requires:         R-CRAN-docopt 
 
 %description
-An implementation of the 'Evidential Neural Network for Regression' model
-recently introduced in Denoeux (2023) <doi:10.1109/TFUZZ.2023.3268200>. In
-this model, prediction uncertainty is quantified by Gaussian random fuzzy
-numbers as introduced in Denoeux (2023) <doi:10.1016/j.fss.2022.06.004>.
-The package contains functions for training the network, tuning
-hyperparameters by cross-validation or the hold-out method, and making
-predictions. It also contains utilities for making calculations with
-Gaussian random fuzzy numbers (such as, e.g., computing the degrees of
-belief and plausibility of an interval, or combining Gaussian random fuzzy
-numbers).
+Extension of the functionality of the 'Matrix' package for using sparse
+matrices. Some of the functions are very general, while other are highly
+specific for special data format as used for quantitative language
+comparison.
 
 %prep
 %setup -q -c -n %{packname}

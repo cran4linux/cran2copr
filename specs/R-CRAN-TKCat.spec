@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TKCat
-%global packver   1.0.7
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tailored Knowledge Catalog
 
@@ -21,11 +21,11 @@ BuildRequires:    R-CRAN-jsonvalidate >= 1.3.2
 BuildRequires:    R-CRAN-ReDaMoR >= 0.7.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ClickHouseHTTP 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
@@ -40,15 +40,17 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-roxygen2 
 Requires:         R-CRAN-jsonvalidate >= 1.3.2
 Requires:         R-CRAN-ReDaMoR >= 0.7.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ClickHouseHTTP 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-visNetwork 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
@@ -63,6 +65,8 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-roxygen2 
 
 %description
 Facilitate the management of data from knowledge resources that are

@@ -1,47 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DImodelsMulti
-%global packver   1.1.1
+%global packname  MIMER
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Multivariate Diversity-Interactions Models with Repeated Measures
+Summary:          Data Wrangling for Antimicrobial Resistance Studies
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DImodels 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-AMR 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-DImodels 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-AMR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlme 
-Requires:         R-stats 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-Matrix 
 
 %description
-An add-on package to 'DImodels' for the fitting of biodiversity and
-ecosystem function relationship study data with multiple ecosystem
-function responses and/or time points. This package uses the multivariate
-and repeated measures Diversity-Interactions (DI) methods developed by
-Kirwan et al. (2009) <doi:10.1890/08-1684.1>, Finn et al. (2013)
-<doi:10.1111/1365-2664.12041>, and Dooley et al. (2015)
-<doi:10.1111/ele.12504>.
+Designed for analyzing the Medical Information Mart for Intensive
+Care(MIMIC) dataset, a repository of freely accessible electronic health
+records. MIMER(MIMIC-enabled Research) package, offers a suite of data
+wrangling functions tailored specifically for preparing the dataset for
+research purposes, particularly in antimicrobial resistance(AMR) studies.
+It simplifies complex data manipulation tasks, allowing researchers to
+focus on their primary inquiries without being bogged down by wrangling
+complexities.
 
 %prep
 %setup -q -c -n %{packname}

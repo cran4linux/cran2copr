@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hhsmm
-%global packver   0.3.7
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hidden Hybrid Markov/Semi-Markov Model Fitting
 
@@ -37,16 +37,24 @@ Requires:         R-CRAN-splines2
 
 %description
 Develops algorithms for fitting, prediction, simulation and initialization
-of the hidden hybrid Markov/semi-Markov model, introduced by Guedon (2005)
-<doi:10.1016/j.csda.2004.05.033>, which also includes several tools for
-handling missing data, nonparametric mixture of B-splines emissions
-(Langrock et al., 2015 <doi:10.1111/biom.12282>), fitting regime switching
-regression (Kim et al., 2008 <doi:10.1016/j.jeconom.2007.10.002>) and
-auto-regressive hidden hybrid Markov/semi-Markov model, spline-based
-nonparametric estimation of additive state-switching models (Langrock et
-al., 2018 <doi:10.1111/stan.12133>) and many other useful tools (read for
-more description: Amini et al., 2022 <doi:10.1007/s00180-022-01248-x> and
-its arxiv version: <doi:10.48550/arXiv.2109.12489>).
+of the following models (1)- hidden hybrid Markov/semi-Markov model,
+introduced by Guedon (2005) <doi:10.1016/j.csda.2004.05.033>, (2)-
+nonparametric mixture of B-splines emissions (Langrock et al., 2015
+<doi:10.1111/biom.12282>), (3)- regime switching regression model (Kim et
+al., 2008 <doi:10.1016/j.jeconom.2007.10.002>) and auto-regressive hidden
+hybrid Markov/semi-Markov model, (4)- spline-based nonparametric
+estimation of additive state-switching models (Langrock et al., 2018
+<doi:10.1111/stan.12133>) (5)- robust emission model proposed by Qin et
+al, 2024 <doi:10.1007/s10479-024-05989-4> (6)- several emission
+distributions, including mixture of multivariate normal (which can also
+handle missing data using EM algorithm) and multi-nomial emission (for
+modeling polymer or DNA sequences) (7)- tools for prediction of future
+state sequence, computing the score of a new sequence, splitting the
+samples and sequences to train and test sets, computing the information
+measures of the models, computing the residual useful lifetime
+(reliability) and many other useful tools ... (read for more description:
+Amini et al., 2022 <doi:10.1007/s00180-022-01248-x> and its arxiv version:
+<doi:10.48550/arXiv.2109.12489>).
 
 %prep
 %setup -q -c -n %{packname}
