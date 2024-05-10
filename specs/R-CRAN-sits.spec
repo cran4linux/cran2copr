@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sits
-%global packver   1.4.2-1
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2.1
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Satellite Image Time Series Analysis for Earth Observation Data Cubes
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-parallel >= 4.0.5
 BuildRequires:    R-CRAN-tibble >= 3.1
-BuildRequires:    R-CRAN-terra >= 1.5.17
+BuildRequires:    R-CRAN-terra >= 1.7.71
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-sf >= 1.0.12
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-rstac >= 0.9.2.5
+BuildRequires:    R-CRAN-rstac >= 1.0.0
 BuildRequires:    R-CRAN-slider >= 0.2.0
 BuildRequires:    R-CRAN-torch >= 0.11.0
 BuildRequires:    R-CRAN-yaml 
@@ -39,12 +39,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-parallel >= 4.0.5
 Requires:         R-CRAN-tibble >= 3.1
-Requires:         R-CRAN-terra >= 1.5.17
+Requires:         R-CRAN-terra >= 1.7.71
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-sf >= 1.0.12
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-rstac >= 0.9.2.5
+Requires:         R-CRAN-rstac >= 1.0.0
 Requires:         R-CRAN-slider >= 0.2.0
 Requires:         R-CRAN-torch >= 0.11.0
 Requires:         R-CRAN-yaml 
@@ -76,11 +76,11 @@ boosting, multi-layer perceptrons, temporal convolutional neural networks
 proposed by Pelletier et al (2019) <doi:10.3390/rs11050523>, residual
 networks by Fawaz et al (2019) <doi:10.1007/s10618-019-00619-1>, and
 temporal attention encoders by Garnot and Landrieu (2020)
-<arXiv:2007.00586>. Performs efficient classification of big Earth
-observation data cubes and includes functions for post-classification
-smoothing based on Bayesian inference, and methods for uncertainty
-assessment. Enables best practices for estimating area and assessing
-accuracy of land change as recommended by Olofsson et al (2014)
+<doi:10.48550/arXiv.2007.00586>. Performs efficient classification of big
+Earth observation data cubes and includes functions for
+post-classification smoothing based on Bayesian inference, and methods for
+uncertainty assessment. Enables best practices for estimating area and
+assessing accuracy of land change as recommended by Olofsson et al (2014)
 <doi:10.1016/j.rse.2014.02.015>. Minimum recommended requirements: 16 GB
 RAM and 4 CPU dual-core.
 

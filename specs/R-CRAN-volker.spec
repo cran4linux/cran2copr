@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  volker
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Functions for Tabulating, Charting and Reporting Survey Data
 
@@ -21,44 +21,42 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-skimr 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-effectsize 
+BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-skimr 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-psych 
+Requires:         R-CRAN-effectsize 
+Requires:         R-CRAN-car 
 
 %description
 Craft polished tables and plots in Markdown reports. Simply choose whether
