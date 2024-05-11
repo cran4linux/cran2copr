@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funGp
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Process Models for Scalar and Functional Inputs
 
@@ -43,11 +43,12 @@ that are regularly sampled. This package offers: (i) flexible modeling of
 functional-input regression problems through the fairly general Gaussian
 process model; (ii) built-in dimension reduction for functional inputs;
 (iii) heuristic optimization of the structural parameters of the model
-(e.g., active inputs, kernel function, type of distance). Metamodeling
-background is provided in Betancourt et al. (2020)
-<doi:10.1016/j.ress.2020.106870>. The algorithm for structural parameter
-optimization is described in
-<https://hal.archives-ouvertes.fr/hal-02532713>.
+(e.g., active inputs, kernel function, type of distance). An in-depth
+tutorial in the use of funGp is provided in Betancourt et al. (2024)
+<doi:10.18637/jss.v109.i05> and Metamodeling background is provided in
+Betancourt et al. (2020) <doi:10.1016/j.ress.2020.106870>. The algorithm
+for structural parameter optimization is described in
+<https://hal.science/hal-02532713>.
 
 %prep
 %setup -q -c -n %{packname}

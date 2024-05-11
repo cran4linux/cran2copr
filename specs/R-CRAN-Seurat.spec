@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Seurat
-%global packver   5.0.3
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.3
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Single Cell Genomics
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-SeuratObject >= 5.0.0
+BuildRequires:    R-CRAN-SeuratObject >= 5.0.2
 BuildRequires:    R-CRAN-plotly >= 4.9.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-Matrix >= 1.5.0
@@ -73,7 +73,7 @@ BuildRequires:    R-tools
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-SeuratObject >= 5.0.0
+Requires:         R-CRAN-SeuratObject >= 5.0.2
 Requires:         R-CRAN-plotly >= 4.9.0
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-Matrix >= 1.5.0

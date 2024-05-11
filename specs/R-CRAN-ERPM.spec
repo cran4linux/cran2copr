@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fslr
-%global packver   2.25.3
+%global packname  ERPM
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.25.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper Functions for 'FSL' ('FMRIB' Software Library) from Functional MRI of the Brain ('FMRIB')
+Summary:          Exponential Random Partition Models
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-neurobase >= 1.32.0
-BuildRequires:    R-CRAN-oro.nifti >= 0.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-numbers 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-neurobase >= 1.32.0
-Requires:         R-CRAN-oro.nifti >= 0.5.0
-Requires:         R-methods 
-Requires:         R-CRAN-R.utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-snowfall 
+Requires:         R-CRAN-numbers 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-snowfall 
 
 %description
-Wrapper functions that interface with 'FSL'
-<http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/>, a powerful and commonly-used
-'neuroimaging' software, using system commands. The goal is to be able to
-interface with 'FSL' completely in R, where you pass R objects of class
-'nifti', implemented by package 'oro.nifti', and the function executes an
-'FSL' command and returns an R object of class 'nifti' if desired.
+Simulates and estimates the Exponential Random Partition Model presented
+in the paper Hoffman, Block, and Snijders (2023)
+<doi:10.1177/00811750221145166>. It can also be used to estimate
+longitudinal partitions, following the model proposed in Hoffman and
+Chabot (2023) <doi:10.1016/j.socnet.2023.04.002>. The model is an
+exponential family distribution on the space of partitions (sets of
+non-overlapping groups) and is called in reference to the Exponential
+Random Graph Models (ERGM) for networks.
 
 %prep
 %setup -q -c -n %{packname}

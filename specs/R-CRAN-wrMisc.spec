@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wrMisc
-%global packver   1.14.2
+%global packver   1.15.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.14.2
+Version:          1.15.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Experimental High-Throughput (Omics) Data
 
@@ -37,19 +37,21 @@ arrays or into separate vectors, merging of multiple entries, etc. Another
 set of functions provides speed-optimized calculation of standard
 deviation (sd), coefficient of variance (CV) or standard error of the mean
 (SEM) for data in matrixes or means per line with respect to additional
-grouping (eg n groups of replicates). Other functions facilitate dealing
-with non-redundant information, by indexing unique, adding counters to
-redundant or eliminating lines with respect redundancy in a given
-reference-column, etc. Help is provided to identify very closely matching
-numeric values to generate (partial) distance matrixes for very big data
-in a memory efficient manner or to reduce the complexity of large
-data-sets by combining very close values. Many times large experimental
-datasets need some additional filtering, adequate functions are provided.
-Batch reading (or writing) of sets of files and combining data to arrays
-is supported, too. Convenient data normalization is supported in various
-different modes, parameter estimation via permutations or boot-strap as
-well as flexible testing of multiple pair-wise combinations using the
-framework of 'limma' is provided, too.
+grouping (eg n groups of replicates). A group of functions facilitate
+dealing with non-redundant information, by indexing unique, adding
+counters to redundant or eliminating lines with respect redundancy in a
+given reference-column, etc. Help is provided to identify very closely
+matching numeric values to generate (partial) distance matrixes for very
+big data in a memory efficient manner or to reduce the complexity of large
+data-sets by combining very close values. Other functions help aligning a
+matrix or data.frame to a reference using partial matching or to mine an
+experimental setup to extract patterns of replicate samples. Many times
+large experimental datasets need some additional filtering, adequate
+functions are provided. Convenient data normalization is supported in
+various different modes, parameter estimation via permutations or
+boot-strap as well as flexible testing of multiple pair-wise combinations
+using the framework of 'limma' is provided, too. Batch reading (or
+writing) of sets of files and combining data to arrays is supported, too.
 
 %prep
 %setup -q -c -n %{packname}

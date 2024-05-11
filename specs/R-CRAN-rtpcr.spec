@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -48,16 +48,16 @@ Ganger et al. (2017) <doi:10.1186/s12859-017-1949-5> and Taylor et al.
 Pfaffl methods. Based on the experimental conditions, the functions of the
 'rtpcr' package use t-test (for experiments with a two-level factor),
 analysis of variance (ANOVA), analysis of covariance (ANCOVA) or analysis
-of repeated measure data to calculate the fold change (FC, ${DeltaDelta
-C_t}$ method) or relative expression (RE, ${Delta C_t}$ method). The
-functions further provide standard errors and confidence intervals for
-means, apply statistical mean comparisons and present significance. To
-facilitate function application, different data sets were used as examples
-and the outputs were explained. An outstanding feature of ‘rtpcr’ package
-is providing publication-ready bar plots with various controlling
-arguments which are further editable by ggplot2 functions. The 'rtpcr'
-package is user-friendly and easy to work with and provides an applicable
-resource for analyzing real-time PCR data.
+of repeated measure data to calculate the fold change (FC, Delta Delta Ct
+method) or relative expression (RE, Delta Ct method). The functions
+further provide standard errors and confidence intervals for means, apply
+statistical mean comparisons and present significance. To facilitate
+function application, different data sets were used as examples and the
+outputs were explained. An outstanding feature of ‘rtpcr’ package is
+providing publication-ready bar plots with various controlling arguments
+which are further editable by ggplot2 functions. The 'rtpcr' package is
+user-friendly and easy to work with and provides an applicable resource
+for analyzing real-time PCR data.
 
 %prep
 %setup -q -c -n %{packname}

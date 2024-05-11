@@ -1,55 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ftExtra
-%global packver   0.6.4
+%global packname  heiscore
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensions for 'Flextable'
+Summary:          Score and Plot the Healthy Eating Index from NHANES Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-flextable >= 0.9.5
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-flextable >= 0.9.5
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Build display tables easily by extending the functionality of the
-'flextable' package. Features include spanning header, grouping rows,
-parsing markdown and so on.
+Calculate and visualize Healthy Eating Index (HEI) scores from National
+Health and Nutrition Examination Survey 24-hour dietary recall data
+utilizing three methods recommended by the National Cancer Institute
+(2024)
+<https://epi.grants.cancer.gov/hei/hei-methods-and-calculations.html#:~:text=To%%20use%%20the%%20simple%%20HEI,the%%20total%%20scores%%20across%%20individuals.>.
+Effortlessly analyze HEI scores across different demographic groups and
+years.
 
 %prep
 %setup -q -c -n %{packname}

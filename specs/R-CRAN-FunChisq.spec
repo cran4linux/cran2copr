@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FunChisq
-%global packver   2.5.3
+%global packver   2.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.3
+Version:          2.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Free Functional Chi-Squared and Exact Tests
 
@@ -33,13 +33,13 @@ test statistics are asymmetric and functionally optimal, unique from other
 related statistics. Tests in this package reveal evidence for causality
 based on the causality-by- functionality principle. They include
 asymptotic functional chi-squared tests (Zhang & Song 2013)
-<arXiv:1311.2707>, an adapted functional chi-squared test (Kumar & Song
-2022) <doi:10.1093/bioinformatics/btac206>, and an exact functional test
-(Zhong & Song 2019) <doi:10.1109/TCBB.2018.2809743> (Nguyen et al. 2020)
-<doi:10.24963/ijcai.2020/372>. The normalized functional chi-squared test
-was used by Best Performer 'NMSUSongLab' in HPN-DREAM (DREAM8) Breast
-Cancer Network Inference Challenges (Hill et al. 2016)
-<doi:10.1038/nmeth.3773>. A function index (Zhong & Song 2019)
+<doi:10.48550/arXiv.1311.2707>, an adapted functional chi-squared test
+(Kumar & Song 2022) <doi:10.1093/bioinformatics/btac206>, and an exact
+functional test (Zhong & Song 2019) <doi:10.1109/TCBB.2018.2809743>
+(Nguyen et al. 2020) <doi:10.24963/ijcai.2020/372>. The normalized
+functional chi-squared test was used by Best Performer 'NMSUSongLab' in
+HPN-DREAM (DREAM8) Breast Cancer Network Inference Challenges (Hill et al.
+2016) <doi:10.1038/nmeth.3773>. A function index (Zhong & Song 2019)
 <doi:10.1186/s12920-019-0565-9> (Kumar et al. 2018)
 <doi:10.1109/BIBM.2018.8621502> derived from the functional test statistic
 offers a new effect size measure for the strength of functional

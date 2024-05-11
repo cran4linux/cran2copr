@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gwavr
-%global packver   0.2.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Water Attributes Visually in R
 
@@ -13,49 +14,49 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-nhdplusTools 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-promises 
 BuildRequires:    R-CRAN-elevatr 
 BuildRequires:    R-CRAN-whitebox 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-nhdplusTools 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-units 
 Requires:         R-utils 
-Requires:         R-CRAN-promises 
 Requires:         R-CRAN-elevatr 
 Requires:         R-CRAN-whitebox 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Provides methods to Get Water Attributes Visually in R ('gwavr'). This

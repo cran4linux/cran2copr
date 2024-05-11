@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  bucky
-%global packver   1.0.7
+%global __requires_exclude ^libmpi
+%global packname  EXPAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bucky's Archive for Data Analysis in the Social Sciences
+Summary:          Fitting of Exponential Autoregressive (EXPAR) Model
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-lmtest 
-Requires:         R-methods 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-lmtest 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-forecast 
+Requires:         R-stats 
 
 %description
-Provides functions for various statistical techniques commonly used in the
-social sciences, including functions to compute clustered robust standard
-errors, combine results across multiply-imputed data sets, and simplify
-the addition of robust and clustered robust standard errors.
+The amplitude-dependent exponential autoregressive (EXPAR) time series
+model, initially proposed by Haggan and Ozaki (1981) <doi:10.2307/2335819>
+has been implemented in this package. Throughout various studies, the
+model has been found to adequately capture the cyclical nature of
+datasets. Parameter estimation of such family of models has been tackled
+by the approach of minimizing the residual sum of squares (RSS). Model
+selection among various candidate orders has been implemented using
+various information criteria, viz., Akaike information criteria (AIC),
+corrected Akaike information criteria (AICc) and Bayesian information
+criteria (BIC). An illustration utilizing data of egg price indices has
+also been provided.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fslr
-%global packver   2.25.3
+%global packname  respR
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.25.3
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper Functions for 'FSL' ('FMRIB' Software Library) from Functional MRI of the Brain ('FMRIB')
+Summary:          Import, Process, Analyse, and Calculate Rates from Respirometry Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-neurobase >= 1.32.0
-BuildRequires:    R-CRAN-oro.nifti >= 0.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-marelac 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-roll 
+BuildRequires:    R-CRAN-segmented 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-neurobase >= 1.32.0
-Requires:         R-CRAN-oro.nifti >= 0.5.0
-Requires:         R-methods 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-marelac 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-roll 
+Requires:         R-CRAN-segmented 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Wrapper functions that interface with 'FSL'
-<http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/>, a powerful and commonly-used
-'neuroimaging' software, using system commands. The goal is to be able to
-interface with 'FSL' completely in R, where you pass R objects of class
-'nifti', implemented by package 'oro.nifti', and the function executes an
-'FSL' command and returns an R object of class 'nifti' if desired.
+Provides a structural, reproducible workflow for the processing and
+analysis of respirometry data. It contains analytical functions and
+utilities for working with oxygen time-series to determine respiration or
+oxygen production rates, and to make it easier to report and share
+analyses. See Harianto et al. 2019 <doi:10.1111/2041-210X.13162>.
 
 %prep
 %setup -q -c -n %{packname}

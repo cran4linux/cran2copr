@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapboxapi
-%global packver   0.5.3
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Mapbox' Web Services
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-httr 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-htmltools 
 
 %description
 Includes support for 'Mapbox' Navigation APIs, including directions,
