@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phytoclass
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Chla Biomass of Phytoplankton Groups
+Summary:          Estimate Chla Concentrations of Phytoplankton Groups
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.8
+Requires:         R-core >= 3.8
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bestNormalize 
 BuildRequires:    R-CRAN-dplyr 
@@ -35,14 +35,15 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 
 %description
-Determine the chlorophyll a (Chl a) biomass of different phytoplankton
-groups based on their pigment biomarkers. The method uses non-negative
-matrix factorisation and simulated annealing to minimise error between the
-observed and estimated values of pigment concentrations (Hayward et al.
-(2023) <doi:10.1002/lom3.10541>). The approach is similar to the widely
-used 'CHEMTAX' program (Mackey et al. 1996) <doi:10.3354/meps144265>, but
-is more straightforward, accurate, and not reliant on initial guesses for
-the pigment to Chl a ratios for each phytoplankton group.
+Determine the chlorophyll a (Chl a) concentrations of different
+phytoplankton groups based on their pigment biomarkers. The method uses
+non-negative matrix factorisation and simulated annealing to minimise
+error between the observed and estimated values of pigment concentrations
+(Hayward et al. (2023) <doi:10.1002/lom3.10541>). The approach is similar
+to the widely used 'CHEMTAX' program (Mackey et al. 1996)
+<doi:10.3354/meps144265>, but is more straightforward, accurate, and not
+reliant on initial guesses for the pigment to Chl a ratios for
+phytoplankton groups.
 
 %prep
 %setup -q -c -n %{packname}

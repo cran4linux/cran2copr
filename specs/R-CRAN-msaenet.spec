@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  msaenet
-%global packver   3.1.1
+%global packver   3.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Step Adaptive Estimation Methods for Sparse Regressions
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ncvreg >= 3.8.0
-BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-ncvreg >= 3.8.0
-Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
 
 %description
 Multi-step adaptive elastic-net (MSAENet) algorithm for feature selection

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REMLA
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Expectation-Maximization Estimation for Latent Variable Models
 
@@ -14,15 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-geex 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-GPArotation 
-Requires:         R-stats 
 Requires:         R-CRAN-geex 
+Requires:         R-stats 
 
 %description
 Traditional latent variable models assume that the population is
