@@ -11,7 +11,8 @@ RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf \
     && dnf -y clean all
 
 # enable copr
-RUN dnf -y install 'dnf-command(copr)' \
+RUN VER=$([ $(dnf --version | head -n1 | cut -d" " -f1) = "dnf5" ] && echo 5) \
+    && dnf -y install "dnf$VER-command(copr)" \
     && dnf -y copr enable iucar/cran \
     && dnf -y clean all \
     && echo "options(repos='https://cloud.r-project.org')" > \
