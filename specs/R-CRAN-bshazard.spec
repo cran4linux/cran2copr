@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  options
-%global packver   0.2.0
+%global packname  bshazard
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple, Consistent Package Options
+Summary:          Nonparametric Smoothing of the Hazard Function
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.3
+Requires:         R-core >= 3.3.3
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Epi 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Epi 
 
 %description
-Simple mechanisms for defining and interpreting package options. Provides
-helpers for interpreting environment variables, global options, defining
-default values and more.
+The function estimates the hazard function non parametrically from a
+survival object (possibly adjusted for covariates). The smoothed estimate
+is based on B-splines from the perspective of generalized linear mixed
+models. Left truncated and right censoring data are allowed. The package
+is based on the work in Rebora P (2014) <doi:10.32614/RJ-2014-028>.
 
 %prep
 %setup -q -c -n %{packname}

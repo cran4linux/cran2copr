@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DRIP
-%global packver   1.9
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discontinuous Regression and Image Processing
 
@@ -26,7 +26,15 @@ Requires:         R-stats
 
 %description
 A collection of functions that perform jump regression and image analysis
-such as denoising, deblurring and jump detection.
+such as denoising, deblurring and jump detection. The implemented methods
+are based on the following research: Qiu, P. (1998)
+<doi:10.1214/aos/1024691468>, Qiu, P. and Yandell, B. (1997) <doi:
+10.1080/10618600.1997.10474746>, Qiu, P. (2009) <doi:
+10.1007/s10463-007-0166-9>, Kang, Y. and Qiu, P. (2014) <doi:
+10.1080/00401706.2013.844732>, Qiu, P. and Kang, Y. (2015) <doi:
+10.5705/ss.2014.054>, Kang, Y., Mukherjee, P.S. and Qiu, P. (2018) <doi:
+10.1080/00401706.2017.1415975>, Kang, Y. (2020) <doi:
+10.1080/10618600.2019.1665536>.
 
 %prep
 %setup -q -c -n %{packname}

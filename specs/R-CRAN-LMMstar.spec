@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LMMstar
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repeated Measurement Models for Discrete Times
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
@@ -29,13 +28,9 @@ BuildRequires:    R-CRAN-multcomp
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
@@ -45,10 +40,7 @@ Requires:         R-CRAN-multcomp
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sandwich 
 
 %description
 Companion R package for the course "Statistical analysis of correlated and
