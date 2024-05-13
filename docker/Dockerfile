@@ -11,7 +11,7 @@ RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf \
     && dnf -y clean all
 
 # enable copr
-RUN VER=$([ $(dnf --version | head -n1 | cut -d" " -f1) = "dnf5" ] && echo 5) \
+RUN VER=$([ $(dnf --version | head -n1 | cut -d" " -f1) = "dnf5" ] && echo 5 || true) \
     && dnf -y install "dnf$VER-command(copr)" \
     && dnf -y copr enable iucar/cran \
     && dnf -y clean all \
