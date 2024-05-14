@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ympes
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Helper Functions
 
@@ -25,8 +25,9 @@ Requires:         R-utils
 %description
 Provides a collection of lightweight helper functions (imps) both for
 interactive use and for inclusion within other packages. These include
-functions for visualising colour palettes, quoting user input, searching
-rows of a data frame and capturing string tokens.
+functions for minimal input assertions, visualising colour palettes,
+quoting user input, searching rows of a data frame and capturing string
+tokens.
 
 %prep
 %setup -q -c -n %{packname}

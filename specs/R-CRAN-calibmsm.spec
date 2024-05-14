@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calibmsm
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration Plots for the Transition Probabilities from Multistate Models
 
@@ -21,8 +21,9 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggExtra 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mstate 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-stats 
@@ -33,8 +34,9 @@ Requires:         R-CRAN-boot
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggExtra 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mstate 
 Requires:         R-CRAN-rms 
 Requires:         R-stats 
@@ -58,10 +60,9 @@ from an existing multistate model. While package development has focused
 on multistate models, calibration plots can be produced for any model
 which utilises information post baseline to update predictions (e.g.
 dynamic models); competing risks models; or standard single outcome
-survival models, where predictions can be made at any landmark time. The
-underpinning methodology is currently undergoing peer review; see Pate et
-al. (2023) <arXiv:2308.13394> and Pate et al. (2023)
-<https://alexpate30.github.io/calibmsm/articles/Overview.html>.
+survival models, where predictions can be made at any landmark time.
+Please see Pate et al. (2024) <doi:10.1002/sim.10094> and Pate et al.
+(2024) <https://alexpate30.github.io/calibmsm/articles/Overview.html>.
 
 %prep
 %setup -q -c -n %{packname}

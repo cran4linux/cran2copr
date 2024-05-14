@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robusTest
-%global packver   1.0.1
+%global packname  hmmm
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calibrated Correlation and Two-Sample Tests
+Summary:          Hierarchical Multinomial Marginal Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-methods 
 
 %description
-Implementation of corrected two-sample tests. A corrected version of the
-Pearson and Kendall correlation tests, the Mann-Whitney (Wilcoxon) rank
-sum test, the Wilcoxon signed rank test and a variance test are
-implemented. The package also proposes a test for the median and an
-independence test between two continuous variables of Kolmogorov-Smirnov's
-type. All these corrected tests are asymptotically calibrated in the sense
-that the probability of rejection under the null hypothesis is
-asymptotically equal to the level of the test. See <arXiv:2211.08784> for
-more details on the statistical tests.
+Functions for specifying and fitting marginal models for contingency
+tables proposed by Bergsma and Rudas (2002) <doi:10.1214/aos/1015362188>
+here called hierarchical multinomial marginal models (hmmm) and their
+extensions presented by Bartolucci, Colombi and Forcina (2007)
+<https://www.jstor.org/stable/24307737>; multinomial Poisson homogeneous
+(mph) models and homogeneous linear predictor (hlp) models for contingency
+tables proposed by Lang (2004) <doi:10.1214/aos/1079120140> and Lang
+(2005) <doi:10.1198/016214504000001042>. Inequality constraints on the
+parameters are allowed and can be tested.
 
 %prep
 %setup -q -c -n %{packname}

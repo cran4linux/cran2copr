@@ -1,47 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  puremoe
-%global packver   1.0.1
+%global packname  ggspark
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pubmed Unified REtrieval for Multi-Output Exploration
+Summary:          'ggplot2' Functions to Create Tufte Style Sparklines
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rentrez 
-BuildRequires:    R-CRAN-textshape 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-rentrez 
-Requires:         R-CRAN-textshape 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Access a variety of 'PubMed' data through a single, user-friendly
-interface, including abstracts <https://pubmed.ncbi.nlm.nih.gov/>,
-bibliometrics from 'iCite' <https://icite.od.nih.gov/>, pubtations from
-'PubTator3' <https://www.ncbi.nlm.nih.gov/research/pubtator3/>, and
-full-text records from 'PMC' <https://www.ncbi.nlm.nih.gov/pmc/>.
+Functions to help with creating sparklines in the style of Edward Tufte
+<https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR&topic_id=1>
+in 'ggplot2'. It computes ribbon geoms with the interquartile ranges and
+points and/or labels at the beginning, end, max, and min points.
 
 %prep
 %setup -q -c -n %{packname}

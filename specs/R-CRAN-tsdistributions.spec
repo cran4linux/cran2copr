@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsdistributions
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Location Scale Standardized Distributions
 
@@ -19,8 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-TMB >= 1.7.20
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tsmethods 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-GeneralizedHyperbolic 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-SkewHyperbolic 
+BuildRequires:    R-CRAN-mev 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
@@ -34,8 +37,11 @@ BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-TMB >= 1.7.20
 Requires:         R-methods 
 Requires:         R-CRAN-tsmethods 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-GeneralizedHyperbolic 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-SkewHyperbolic 
+Requires:         R-CRAN-mev 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
@@ -51,7 +57,8 @@ Location-Scale based distributions parameterized in terms of mean,
 standard deviation, skew and shape parameters and estimation using
 automatic differentiation. Distributions include the Normal, Student and
 GED as well as their skewed variants ('Fernandez and Steel'), the 'Johnson
-SU', and the Generalized Hyperbolic.
+SU', and the Generalized Hyperbolic. Also included is the semi-parametric
+piece wise distribution ('spd') with Pareto tails and kernel interior.
 
 %prep
 %setup -q -c -n %{packname}

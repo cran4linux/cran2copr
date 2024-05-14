@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  StatMatch
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Matching or Data Fusion
 
@@ -20,10 +21,12 @@ BuildRequires:    R-CRAN-proxy
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
 
 %description
 Integration of two data sources referred to the same target population

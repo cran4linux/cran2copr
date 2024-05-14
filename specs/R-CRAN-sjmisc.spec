@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sjmisc
-%global packver   2.8.9
+%global packver   2.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.9
+Version:          2.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Variable Transformation Functions
 
@@ -19,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-sjlabelled >= 1.1.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-datawizard 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
@@ -29,6 +31,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-sjlabelled >= 1.1.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-insight 
+Requires:         R-CRAN-datawizard 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 

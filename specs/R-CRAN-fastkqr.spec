@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsleep
-%global packver   1.0.12
+%global packname  fastkqr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Sleep Data
+Summary:          A Fast Algorithm for Kernel Quantile Regression
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-edfReader 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-psd 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-edfReader 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-psd 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dotCall64 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-dotCall64 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-A toolbox for sleep data processing, visualization and analysis. Tools for
-state of the art automatic sleep stages scoring.
+An efficient algorithm to fit and tune kernel quantile regression models
+based on the majorization-minimization (MM) method. It can also fit
+multiple quantile curves simultaneously without crossing.
 
 %prep
 %setup -q -c -n %{packname}
