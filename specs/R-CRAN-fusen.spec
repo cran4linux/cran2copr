@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fusen
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Package from Rmarkdown Files
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-usethis >= 2.0.0
 BuildRequires:    R-CRAN-here >= 1.0.0
-BuildRequires:    R-CRAN-parsermd >= 0.1.0
 BuildRequires:    R-CRAN-attachment 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lightparser 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-roxygen2 
@@ -37,12 +37,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-usethis >= 2.0.0
 Requires:         R-CRAN-here >= 1.0.0
-Requires:         R-CRAN-parsermd >= 0.1.0
 Requires:         R-CRAN-attachment 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lightparser 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-roxygen2 

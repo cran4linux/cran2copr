@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DrugUtilisation
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarise Patient-Level Drug Utilisation in Data Mapped to the OMOP Common Data Model
 
@@ -17,9 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
-BuildRequires:    R-CRAN-PatientProfiles >= 0.7.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.0.2
+BuildRequires:    R-CRAN-CDMConnector >= 1.4.0
+BuildRequires:    R-CRAN-PatientProfiles >= 0.8.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.2.0
+BuildRequires:    R-CRAN-CohortCharacteristics >= 0.2.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
@@ -35,9 +36,10 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-visOmopResults 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-CDMConnector >= 1.3.0
-Requires:         R-CRAN-PatientProfiles >= 0.7.0
-Requires:         R-CRAN-omopgenerics >= 0.0.2
+Requires:         R-CRAN-CDMConnector >= 1.4.0
+Requires:         R-CRAN-PatientProfiles >= 0.8.0
+Requires:         R-CRAN-omopgenerics >= 0.2.0
+Requires:         R-CRAN-CohortCharacteristics >= 0.2.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 

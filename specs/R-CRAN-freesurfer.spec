@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseries
-%global packver   0.10-56
+%global packname  freesurfer
+%global packver   1.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.56
+Version:          1.6.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          Wrapper Functions for 'Freesurfer'
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-neurobase 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-neurobase 
+Requires:         R-tools 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-reshape2 
 Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Time series analysis and computational finance.
+Wrapper functions that interface with 'Freesurfer'
+<https://surfer.nmr.mgh.harvard.edu/>, a powerful and commonly-used
+'neuroimaging' software, using system commands. The goal is to be able to
+interface with 'Freesurfer' completely in R, where you pass R objects of
+class 'nifti', implemented by package 'oro.nifti', and the function
+executes an 'Freesurfer' command and returns an R object of class 'nifti'
+or necessary output.
 
 %prep
 %setup -q -c -n %{packname}

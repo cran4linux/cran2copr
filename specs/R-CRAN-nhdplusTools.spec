@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhdplusTools
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NHDPlus Tools
 
@@ -37,6 +37,8 @@ BuildRequires:    R-CRAN-arrow
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-hydroloom 
 Requires:         R-CRAN-dataRetrieval 
 Requires:         R-CRAN-dplyr 
@@ -57,6 +59,8 @@ Requires:         R-CRAN-arrow
 Requires:         R-tools 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-digest 
 
 %description
 Tools for traversing and working with National Hydrography Dataset Plus

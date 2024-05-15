@@ -1,44 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ELCIC
-%global packver   0.2.1
+%global packname  rvisidata
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Empirical Likelihood-Based Consistent Information Criterion
+Summary:          Wrapper for 'Visidata', an Interactive Multitool for Tabular Data
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-PoisNor 
-BuildRequires:    R-CRAN-bindata 
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-wgeesel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-PoisNor 
-Requires:         R-CRAN-bindata 
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-wgeesel 
 
 %description
-We developed a consistent and robust information criterion to conduct
-model selection for semiparametric models. It is free of distribution
-specification and powerful to locate the true model given large sample
-size. This package provides several usage of ELCIC with applications in
-generalized linear model (GLM), generalized estimating equation (GEE) for
-longitudinal data, and weighted GEE (WGEE) for missing longitudinal data
-under the mechanism of missing at random and drop-out. Chixaing Chen, Ming
-Wang, Rongling Wu, Runze Li (2020) <doi:10.5705/ss.202020.0254>.
+Open any data frame with 'visidata', a terminal-based spreadsheet
+application <https://www.visidata.org>.
 
 %prep
 %setup -q -c -n %{packname}

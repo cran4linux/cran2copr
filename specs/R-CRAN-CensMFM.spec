@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  esaBcv
-%global packver   1.2.1.1
+%global __requires_exclude ^libmpi
+%global packname  CensMFM
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1.1
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Number of Latent Factors and Factor Matrix for Factor Analysis
+Summary:          Finite Mixture of Multivariate Censored/Missing Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-svd 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-svd 
+BuildRequires:    R-CRAN-MomTrunc >= 5.87
+BuildRequires:    R-CRAN-tlrmvnmvt >= 1.1.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.0.11
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-MomTrunc >= 5.87
+Requires:         R-CRAN-tlrmvnmvt >= 1.1.0
+Requires:         R-CRAN-mvtnorm >= 1.0.11
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplot2 
 
 %description
-These functions estimate the latent factors of a given matrix, no matter
-it is high-dimensional or not. It tries to first estimate the number of
-factors using bi-cross-validation and then estimate the latent factor
-matrix and the noise variances. For more information about the method, see
-Art B. Owen and Jingshu Wang 2015 archived article on factor model
-(<arXiv:1503.03515>).
+It fits finite mixture models for censored or/and missing data using
+several multivariate distributions. Point estimation and asymptotic
+inference (via empirical information matrix) are offered as well as
+censored data generation. Pairwise scatter and contour plots can be
+generated. Possible multivariate distributions are the well-known normal,
+Student-t and skew-normal distributions. This package is an complement of
+Lachos, V. H., Moreno, E. J. L., Chen, K. & Cabral, C. R. B. (2017)
+<doi:10.1016/j.jmva.2017.05.005> for the multivariate skew-normal case.
 
 %prep
 %setup -q -c -n %{packname}

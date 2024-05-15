@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDatanet
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modeling Count Data with Peer Effects
+Summary:          Econometrics of Network Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,6 +22,10 @@ BuildRequires:    R-CRAN-formula.tools
 BuildRequires:    R-CRAN-ddpcr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-RcppDist 
@@ -33,15 +37,20 @@ Requires:         R-CRAN-formula.tools
 Requires:         R-CRAN-ddpcr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 
 %description
-Likelihood-based estimation and data generation from a class of models
-used to estimate peer effects on count data by controlling for the network
-endogeneity. This class includes count data models with social
-interactions (Houndetoungan 2023; <doi:10.2139/ssrn.3721250>), spatial
-tobit models (Xu and Lee 2015; <doi:10.1016/j.jeconom.2015.05.004>), and
-spatial linear-in-means models (Lee 2004;
-<doi:10.1111/j.1468-0262.2004.00558.x>).
+Simulating and estimating peer effect models and network formation models.
+The class of peer effect models includes linear-in-means models (Lee,
+2004; <doi:10.1111/j.1468-0262.2004.00558.x>), Tobit models (Xu and Lee,
+2015; <doi:10.1016/j.jeconom.2015.05.004>), and discrete numerical data
+models (Houndetoungan, 2024; <doi:10.2139/ssrn.3721250>). The network
+formation models include pair-wise regressions with degree heterogeneity
+(Graham, 2017; <doi:10.3982/ECTA12679>) and exponential random graph
+models (Mele, 2017; <doi:10.3982/ECTA10400>).
 
 %prep
 %setup -q -c -n %{packname}

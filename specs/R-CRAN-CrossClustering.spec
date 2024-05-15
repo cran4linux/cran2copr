@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseries
-%global packver   0.10-56
+%global packname  CrossClustering
+%global packver   4.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.56
+Version:          4.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          A Partial Clustering Algorithm
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flip 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flip 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-purrr 
 Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Time series analysis and computational finance.
+Provide the 'CrossClustering' algorithm (Tellaroli et al. (2016)
+<doi:10.1371/journal.pone.0152333>), which is a partial clustering
+algorithm that combines the Ward's minimum variance and Complete Linkage
+algorithms, providing automatic estimation of a suitable number of
+clusters and identification of outlier elements.
 
 %prep
 %setup -q -c -n %{packname}

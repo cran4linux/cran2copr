@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseries
-%global packver   0.10-56
+%global packname  mddmaps
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.56
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          Download World Mammal Maps
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Time series analysis and computational finance.
+Lightweight maps of mammals of the world. These maps are a comprehensive
+collection of maps aligned with the Mammal Diversity Database taxonomy of
+the American Society of Mammalogists. They are generated at low resolution
+for easy access, consultation and manipulation in shapefile format. The
+package connects to a binary backup hosted in the Digital Ocean cloud
+service and allows individual or batch download of any mammal species in
+the mdd taxonomy by providing the scientific species name.
 
 %prep
 %setup -q -c -n %{packname}

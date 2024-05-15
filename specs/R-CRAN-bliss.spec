@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bliss
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Functional Linear Regression with Sparse Step Functions
 
@@ -14,13 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
 
 %description
 A method for the Bayesian functional linear regression model

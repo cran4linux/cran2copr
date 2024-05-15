@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FSAtools
-%global packver   2.0.5
+%global packname  doofa
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fragment Analysis and Capillary Sequencing Tool Kit
+Summary:          Designs for Order-of-Addition Experiments
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-combinat 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-combinat 
 
 %description
-A flexible and interfaced framework for importing, processing and ploting
-Applied Biosystems data files. Application to Reverse-Transcriptase
-Multiplex Ligation-dependent Probe Amplification (RT-MLPA) gene-expression
-profiling and classification is illustrated in Mareschal, Ruminy et al
-(2015) <doi:10.1016/j.jmoldx.2015.01.007>. Gene-fusion detection and
-Sanger sequencing are illustrated in Mareschal, Palau et al (2021)
-<doi:10.1182/bloodadvances.2020002517>. Examples are provided for
-genotyping applications as well.
+A facility to generate efficient designs for order-of-additions
+experiments under pair-wise-order model, see Dennis K. J. Lin and Jiayu
+Peng (2019)."Order-of-addition experiments: A review and some new
+thoughts".  Quality Engineering, 31:1, 49-59,
+<doi:10.1080/08982112.2018.1548021>. It also provides a facility to
+generate component orthogonal arrays under component position model, see
+Jian-Feng Yang, Fasheng Sun & Hongquan Xu (2020): "A Component Position
+Model, Analysis and Design for Order-of-Addition Experiments".
+Technometrics, <doi:10.1080/00401706.2020.1764394>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MSQC
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  LMoFit
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Statistical Quality Control
+Summary:          Advanced L-Moment Fitting of Distributions
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lmom 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rgl 
-Requires:         R-graphics 
+Requires:         R-CRAN-lmom 
+Requires:         R-CRAN-pracma 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
 Requires:         R-utils 
-Requires:         R-CRAN-rgl 
 
 %description
-This is a toolkit for multivariate process monitoring. It computes several
-multivariate control charts e.g. Hotelling, Chi-squared, MEWMA, MCUSUM and
-Generalized Variance. Ten didactic datasets are included. It also contains
-some tools for assessing multivariate normality e.g. Mardia's, Royston's
-and Henze-Zirkler's tests. Please, see the NEWS file for the latest
-changes in the package.
+A complete framework for frequency analysis is provided by 'LMoFit'. It
+has functions related to the determination of sample L-moments as in
+Hosking, J.R.M. (1990) <doi:10.1111/j.2517-6161.1990.tb01775.x>, the
+fitting of various distributions as in Zaghloul et al. (2020)
+<doi:10.1016/j.advwatres.2020.103720> and Hosking, J.R.M. (2019)
+<https://CRAN.R-project.org/package=lmom>, besides plotting and
+manipulating L-space diagrams as in Papalexiou, S.M. & Koutsoyiannis, D.
+(2016) <doi:10.1016/j.advwatres.2016.05.005> for two-shape parametric
+distributions on the L-moment ratio diagram. Additionally, the quantile,
+probability density, and cumulative probability functions of various
+distributions are provided in a user-friendly manner.
 
 %prep
 %setup -q -c -n %{packname}

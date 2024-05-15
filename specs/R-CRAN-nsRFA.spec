@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nsRFA
-%global packver   0.7-16
+%global packver   0.7-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.16
+Version:          0.7.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Supervised Regional Frequency Analysis
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 

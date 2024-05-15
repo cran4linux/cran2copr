@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tseries
-%global packver   0.10-56
+%global packname  clickableImageMap
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.56
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis and Computational Finance
+Summary:          Implement 'tableGrob' Object as a Clickable Image Map
 
-License:          GPL-2 | GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-quantmod >= 0.4.9
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-quantmod >= 0.4.9
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggplotify 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-gtable 
+Requires:         R-grDevices 
 
 %description
-Time series analysis and computational finance.
+Implement 'tableGrob' object as a clickable image map. The
+'clickableImageMap' package is designed to be more convenient and more
+configurable than the edit() function. Limitations that I have encountered
+with edit() are cannot control (1) positioning (2) size (3) appearance and
+formatting of fonts In contrast, when the table is implemented as a
+'tableGrob', all of these features are controllable. In particular, the
+'ggplot2' grid system allows exact positioning of the table relative to
+other graphics etc.
 
 %prep
 %setup -q -c -n %{packname}

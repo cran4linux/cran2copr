@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgoogleads
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loading Data from 'Google Ads API'
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-gargle >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.0
@@ -53,6 +54,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Interface for loading data from 'Google Ads API', see

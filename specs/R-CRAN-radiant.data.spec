@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  radiant.data
-%global packver   1.6.3
+%global packver   1.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Menu for Radiant: Business Analytics using R and Shiny
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotly >= 4.7.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-curl >= 2.5
 BuildRequires:    R-CRAN-rmarkdown >= 2.22
 BuildRequires:    R-CRAN-arrow >= 12.0.1
 BuildRequires:    R-CRAN-psych >= 1.8.4
-BuildRequires:    R-CRAN-shiny >= 1.8.0
+BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-markdown >= 1.7
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -59,7 +59,7 @@ Requires:         R-CRAN-curl >= 2.5
 Requires:         R-CRAN-rmarkdown >= 2.22
 Requires:         R-CRAN-arrow >= 12.0.1
 Requires:         R-CRAN-psych >= 1.8.4
-Requires:         R-CRAN-shiny >= 1.8.0
+Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-markdown >= 1.7
 Requires:         R-CRAN-magrittr >= 1.5

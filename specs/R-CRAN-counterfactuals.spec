@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  counterfactuals
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Counterfactual Explanations
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-bbotk
 %description
 Modular and unified R6-based interface for counterfactual explanation
 methods. The following methods are currently implemented: Burghmans et al.
-(2022) <arXiv:2104.07411>, Dandl et al. (2020)
+(2022) <doi:10.48550/arXiv.2104.07411>, Dandl et al. (2020)
 <doi:10.1007/978-3-030-58112-1_31> and Wexler et al. (2019)
 <doi:10.1109/TVCG.2019.2934619>. Optional extensions allow these methods
 to be applied to a variety of models and use cases. Once generated, the

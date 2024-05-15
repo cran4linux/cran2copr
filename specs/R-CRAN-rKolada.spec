@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNAsmc
-%global packver   0.8.0
+%global packname  rKolada
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          RNA Secondary Structure Module Mining, Comparison and Plotting
+Summary:          Access Data from the 'Kolada' Database
 
-License:          GPL-2
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RRNA 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-circlize 
-Requires:         R-CRAN-RRNA 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-circlize 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-urltools 
 
 %description
-Provides function for RNA secondary structure plotting, comparison and
-module mining. Given a RNA secondary structure, you can obtain stem
-regions, hairpin loops, internal loops, bulge loops and multibranch loops
-of this RNA structure using this program. They are the basic modules of
-RNA secondary structure. For each module you get, you can use this program
-to label the RNA structure with a specific color. You can also use this
-program to compare two RNA secondary structures to get a score that
-represents similarity. Reference: Reuter JS, Mathews DH (2010)
-<doi:10.1186/1471-2105-11-129>.
+Methods for downloading and processing data and metadata from 'Kolada',
+the official Swedish regions and municipalities database
+<https://www.kolada.se/>.
 
 %prep
 %setup -q -c -n %{packname}

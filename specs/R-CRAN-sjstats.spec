@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sjstats
-%global packver   0.18.2
+%global packver   0.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.2
+Version:          0.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Convenient Functions for Common Statistical Computations
 
@@ -17,46 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-effectsize >= 0.8.8
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-datawizard 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-effectsize 
-BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-modelr 
 BuildRequires:    R-CRAN-parameters 
 BuildRequires:    R-CRAN-performance 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sjlabelled 
-BuildRequires:    R-CRAN-sjmisc 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-effectsize >= 0.8.8
 Requires:         R-utils 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-broom 
 Requires:         R-CRAN-datawizard 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-effectsize 
-Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-insight 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-modelr 
 Requires:         R-CRAN-parameters 
 Requires:         R-CRAN-performance 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sjlabelled 
-Requires:         R-CRAN-sjmisc 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
 
 %description
 Collection of convenient functions for common statistical computations,
