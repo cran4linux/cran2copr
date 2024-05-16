@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isotracer
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Isotopic Tracer Analysis Using MCMC
 
@@ -16,41 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-methods >= 3.6.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-rstan >= 2.26.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.72.0
-BuildRequires:    R-CRAN-pillar >= 1.4.3
 BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-tidyr >= 1.0.2
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.5
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-latex2exp >= 0.4.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
-BuildRequires:    R-CRAN-purrr >= 0.3.3
-BuildRequires:    R-CRAN-coda >= 0.19.3
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstantools 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-methods >= 3.6.0
-Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-rstan >= 2.26.0
-Requires:         R-CRAN-pillar >= 1.4.3
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-tidyr >= 1.0.2
-Requires:         R-CRAN-tidyselect >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.5
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-latex2exp >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.3
-Requires:         R-CRAN-coda >= 0.19.3
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstantools 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rstantools
 
 %description

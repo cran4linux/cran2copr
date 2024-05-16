@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  burgle
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          'Burgle': Stealing the Necessary Parts of Model Objects
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-riskRegression 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-riskRegression 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+Provides a way to reduce model objects to necessary parts, making them
+easier to work with, store, share and simulate multiple values for new
+responses while allowing for parameter uncertainty.
 
 %prep
 %setup -q -c -n %{packname}

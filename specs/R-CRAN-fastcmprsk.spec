@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  fastcmprsk
+%global packver   1.24.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.24.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Fine-Gray Regression via Forward-Backward Scan
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-dynpred 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-dynpred 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+In competing risks regression, the proportional subdistribution hazards
+(PSH) model is popular for its direct assessment of covariate effects on
+the cumulative incidence function. This package allows for both penalized
+and unpenalized PSH regression in linear time using a novel
+forward-backward scan. Penalties include Ridge, Lease Absolute Shrinkage
+and Selection Operator (LASSO), Smoothly Clipped Absolute Deviation
+(SCAD), Minimax Concave Plus (MCP), and elastic net <doi:
+10.32614/RJ-2021-010>.
 
 %prep
 %setup -q -c -n %{packname}

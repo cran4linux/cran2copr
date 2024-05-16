@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  MBBEFDLite
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Statistical Functions for the Maxwell-Boltzmann-Bose-Einstein-Fermi-Dirac (MBBEFD) Family of Distributions
 
-License:          GPL (>= 2)
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+Provides probability mass, distribution, quantile, random variate
+generation, and method-of-moments parameter fitting for the MBBEFD family
+of distributions used in insurance modeling as described in Bernegger
+(1997) <doi:10.2143/AST.27.1.563208> without any external dependencies.
 
 %prep
 %setup -q -c -n %{packname}

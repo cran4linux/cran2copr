@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  arcgisplaces
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Search for POIs using ArcGIS 'Places Service'
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-arcgisutils >= 0.3.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-wk 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-arcgisutils >= 0.3.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-wk 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+The ArcGIS 'Places service' is a ready-to-use location service that can
+search for businesses and geographic locations around the world. It allows
+you to find, locate, and discover detailed information about each place.
+Query for places near a point, within a bounding box, filter based on
+categories, or provide search text. 'arcgisplaces' integrates with 'sf'
+for out of the box compatibility with other spatial libraries. Learn more
+in the 'Places service' API reference
+<https://developers.arcgis.com/rest/places/>.
 
 %prep
 %setup -q -c -n %{packname}

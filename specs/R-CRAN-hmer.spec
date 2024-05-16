@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmer
-%global packver   1.5.6
+%global packver   1.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          1.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          History Matching and Emulation Package
 
@@ -18,8 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lhs 
@@ -33,9 +31,8 @@ BuildRequires:    R-CRAN-isoband
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-pdist 
 BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lhs 
@@ -49,6 +46,7 @@ Requires:         R-CRAN-isoband
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-pdist 
 Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-stringr 
 
 %description
 A set of objects and functions for Bayes Linear emulation and history
@@ -56,8 +54,11 @@ matching. Core functionality includes automated training of emulators to
 data, diagnostic functions to ensure suitability, and a variety of
 proposal methods for generating 'waves' of points. For details on the
 mathematical background, there are many papers available on the topic (see
-references attached to function help files); for details of the functions
-in this package, consult the manual or help files.
+references attached to function help files or the below references); for
+details of the functions in this package, consult the manual or help
+files. Bower, R.G., Goldstein, M., and Vernon, I. (2010)
+<doi:10.1214/10-BA524>. Craig, P.S., Goldstein, M., Seheult, A.H., and
+Smith, J.A. (1997) <doi:10.1007/978-1-4612-2290-3_2>.
 
 %prep
 %setup -q -c -n %{packname}

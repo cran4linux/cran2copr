@@ -1,31 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xfun
-%global packver   0.44
+%global packname  tricolore
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.44
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Supporting Functions for Packages Maintained by 'Yihui Xie'
+Summary:          A Flexible Color Scale for Ternary Compositions
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggtern >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggtern >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-tools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-assertthat 
 
 %description
-Miscellaneous functions commonly used in other packages maintained by
-'Yihui Xie'.
+Compositional data consisting of three-parts can be color mapped with a
+ternary color scale. Such a scale is provided by the tricolore packages
+with options for discrete and continuous colors, mean-centering and
+scaling. See Jonas Schöley (2021) "The centered ternary balance scheme. A
+technique to visualize surfaces of unbalanced three-part compositions"
+<doi:10.4054/DemRes.2021.44.19>, Jonas Schöley, Frans Willekens (2017)
+"Visualizing compositional data on the Lexis surface"
+<doi:10.4054/DemRes.2017.36.21>, and Ilya Kashnitsky, Jonas Schöley (2018)
+"Regional population structures at a glance"
+<doi:10.1016/S0140-6736(18)31194-2>.
 
 %prep
 %setup -q -c -n %{packname}

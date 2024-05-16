@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sleeperapi
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Functions Around 'Sleeper' (Fantasy Sports) API
 
@@ -19,15 +19,41 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 
 %description
 For those wishing to interact with the 'Sleeper' (Fantasy Sports) API
-(<https://api.sleeper.app/>) without looking too much into its
-documentation (found at <https://docs.sleeper.app/>), this package offers
+(<https://docs.sleeper.com/>) without looking too much into its
+documentation (found at <https://docs.sleeper.com/>), this package offers
 wrapper functions around the available API calls to make it easier.
 
 %prep

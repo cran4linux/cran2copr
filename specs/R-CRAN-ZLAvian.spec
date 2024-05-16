@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ZLAvian
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Zipf's Law of Abbreviation in Animal Vocalisations
 
@@ -26,9 +26,8 @@ Requires:         R-CRAN-performance >= 0.10.4
 
 %description
 Assesses evidence for Zipf's Law of Abbreviation in animal vocalisation
-using IDs, note class and note duration. The package also provides a
-webplot function for visualisation. Davis, M. K., and Chen, G. (2007)
-<doi:10.2307/2346786>.
+using IDs, note class and note duration. The package also provides a web
+plot function for visualisation.
 
 %prep
 %setup -q -c -n %{packname}

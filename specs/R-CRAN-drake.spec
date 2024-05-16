@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drake
-%global packver   7.13.9
+%global packver   7.13.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.13.9
+Version:          7.13.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Pipeline Toolkit for Reproducible Computation at Scale
 
@@ -16,6 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-storr >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-digest >= 0.6.21
@@ -23,10 +25,10 @@ BuildRequires:    R-CRAN-txtq >= 0.2.3
 BuildRequires:    R-CRAN-rlang >= 0.2.0
 BuildRequires:    R-CRAN-vctrs >= 0.2.0
 BuildRequires:    R-CRAN-base64url 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-storr >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-digest >= 0.6.21
@@ -34,7 +36,6 @@ Requires:         R-CRAN-txtq >= 0.2.3
 Requires:         R-CRAN-rlang >= 0.2.0
 Requires:         R-CRAN-vctrs >= 0.2.0
 Requires:         R-CRAN-base64url 
-Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-utils 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggblanket
-%global packver   8.0.0
+%global packver   9.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          9.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify 'ggplot2' Visualisation
 
@@ -26,9 +26,11 @@ BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-hms >= 0.5.0
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-snakecase 
@@ -42,9 +44,11 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-hms >= 0.5.0
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-farver 
 Requires:         R-CRAN-forcats 
 Requires:         R-grid 
+Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-snakecase 

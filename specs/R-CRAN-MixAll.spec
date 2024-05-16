@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  MixAll
+%global packver   1.5.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.5.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Clustering and Classification using Model-Based Mixture Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-rtkore >= 1.6.10
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-rtkore >= 1.6.10
+Requires:         R-methods 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+Algorithms and methods for model-based clustering and classification. It
+supports various types of data: continuous, categorical and counting and
+can handle mixed data of these types. It can fit Gaussian (with diagonal
+covariance structure), gamma, categorical and Poisson models. The
+algorithms also support missing values.
 
 %prep
 %setup -q -c -n %{packname}

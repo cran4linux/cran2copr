@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ofpetrial
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design on-Farm Precision Field Agronomic Trials
 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-tmap
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-leaflet 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sf 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-tmap
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-leaflet 
 
 %description
 A comprehensive system for designing and implementing on-farm precision

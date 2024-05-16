@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reflectR
-%global packver   2.0.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Scoring of the Cognitive Reflection Test
 
@@ -46,9 +46,14 @@ authors. The development of this package benefited significantly from the
 kind insight and suggestion provided by Dr. Keela Thomson, whose
 contribution is gratefully acknowledged. Additional gratitude is extended
 to Dr. Paolo Giovanni Cicirelli, Prof. Marinella Paciello, Dr. Carmela
-Sportelli, and Prof. Francesca D'Errico, whose contributions highlighted
-the significant importance and practical relevance of this construct in
-personality, social, and cognitive research.
+Sportelli, and Prof. Francesca D'Errico, who not only contributed to the
+manual multi-rater coding of CRT-2 items but also profoundly influenced
+the understanding of the importance and practical relevance of cognitive
+reflection within personality, social, and cognitive psychology research.
+Acknowledgment is also due to the European project STERHEOTYPES (STudying
+European Racial Hoaxes and sterEOTYPES) for funding the data collection
+that produced the datasets initially used for manual multi-rater coding of
+CRT-2 items.
 
 %prep
 %setup -q -c -n %{packname}

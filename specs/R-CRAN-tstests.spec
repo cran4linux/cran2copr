@@ -1,57 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DIDmultiplegtDYN
-%global packver   1.0.10
+%global packname  tstests
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
+Summary:          Time Series Goodness of Fit and Forecast Evaluation Tests
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tsmethods 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matlib 
-BuildRequires:    R-CRAN-plm 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xlsx 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rnames 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-methods 
+Requires:         R-CRAN-tsmethods 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matlib 
-Requires:         R-CRAN-plm 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xlsx 
-Requires:         R-stats 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rnames 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-xts 
 
 %description
-Estimation of event-study Difference-in-Difference (DID) estimators in
-designs with multiple groups and periods, and with a potentially
-non-binary treatment that may increase or decrease multiple times.
+Goodness of Fit and Forecast Evaluation Tests for timeseries models.
+Includes, among others, the Generalized Method of Moments (GMM)
+Orthogonality Test of Hansen (1982), the Nyblom (1989) parameter constancy
+test, the sign-bias test of Engle and Ng (1993), and a range of tests for
+value at risk and expected shortfall evaluation.
 
 %prep
 %setup -q -c -n %{packname}

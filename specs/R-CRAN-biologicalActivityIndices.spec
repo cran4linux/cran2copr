@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  biologicalActivityIndices
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Biological Activity Indices
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-reshape2 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+Ecological alteration of degraded lands can improve their sustainability
+by addition of large amount of biomass to soil resulting in improved soil
+health. Soil biological parameters (such as carbon, nitrogen and
+phosphorus cycling enzyme activity) are reactive to minute variations in
+soils [Ghosh et al. (2021) <doi:10.1016/j.ecoleng.2021.106176> ]. Hence,
+biological activity index combining Urease, Alkaline Phosphatase,
+Dehydrogenase (DHA) & Beta-Glucosidase activity will assist in detecting
+early changes in restored land use systems [Patidar et al. (2023)
+<doi:10.3389/fsufs.2023.1230156>]. This package helps to calculate
+Biological Activity Index (BAI) based on vectors of Land Use
+System/treatment and control/reference Land Use System containing four
+values of Urease, Alkaline Phosphatase, DHA & Beta-Glucosidase. (DHA),
+urease (URE), fluorescein diacetate hydrolysis (FDA) and alkaline
+phosphatase (ALP) activities are measured in soil samples using triphenyl
+tetrazolium chloride, urea, fluorescein diacetate and p-nitro
+phenyl-phosphate as substrates, respectively.
 
 %prep
 %setup -q -c -n %{packname}

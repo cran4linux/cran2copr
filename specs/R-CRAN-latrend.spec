@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latrend
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Framework for Clustering Longitudinal Data
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-data.table >= 1.12.0
+BuildRequires:    R-CRAN-data.table >= 1.15.4
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-data.table >= 1.12.0
+Requires:         R-CRAN-data.table >= 1.15.4
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-stats 
 Requires:         R-methods 
