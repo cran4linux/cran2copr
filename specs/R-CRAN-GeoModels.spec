@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-GPvecchia 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-shape 
@@ -24,25 +23,23 @@ BuildRequires:    R-CRAN-codetools
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-dotCall64 
 BuildRequires:    R-CRAN-FastGP 
-BuildRequires:    R-CRAN-optimParallel 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-CRAN-zipfR 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-nabor 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-lamW 
-BuildRequires:    R-CRAN-GpGp 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-GPvecchia 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-progressr 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-shape 
@@ -50,24 +47,23 @@ Requires:         R-CRAN-codetools
 Requires:         R-methods 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-dotCall64 
 Requires:         R-CRAN-FastGP 
-Requires:         R-CRAN-optimParallel 
-Requires:         R-parallel 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-pbivnorm 
 Requires:         R-CRAN-zipfR 
 Requires:         R-CRAN-sn 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-nabor 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-lamW 
-Requires:         R-CRAN-GpGp 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-progressr 
 
 %description
 Functions for Gaussian and Non Gaussian (bivariate) spatial and

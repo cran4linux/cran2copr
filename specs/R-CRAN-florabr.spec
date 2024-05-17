@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  florabr
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Explore Brazilian Flora 2020 Database
+Summary:          Explore Flora e Funga do Brasil Database
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -34,7 +34,7 @@ Requires:         R-CRAN-data.table >= 1.14.8
 
 %description
 A collection of functions designed to retrieve, filter and spatialize data
-from the Brazilian Flora 2020 dataset. For more information about the
+from the Flora e Funga do Brasil dataset. For more information about the
 dataset, please visit <https://floradobrasil.jbrj.gov.br/consulta/>.
 
 %prep

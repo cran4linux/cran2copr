@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cachem
-%global packver   1.0.8
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cache R Objects with Automatic Pruning
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-fastmap >= 1.1.1
+BuildRequires:    R-CRAN-fastmap >= 1.2.0
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-fastmap >= 1.1.1
+Requires:         R-CRAN-fastmap >= 1.2.0
 Requires:         R-CRAN-rlang 
 
 %description

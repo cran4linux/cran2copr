@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tectonicr
-%global packver   0.2.95
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.95
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing the Orientation of Maximum Horizontal Stress
 

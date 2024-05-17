@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  SGPR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Sparse Group Penalized Regression for Bi-Level Variable Selection
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+Fits the regularization path of regression models (linear and logistic)
+with additively combined penalty terms. All possible combinations with
+Least Absolute Shrinkage and Selection Operator (LASSO), Smoothly Clipped
+Absolute Deviation (SCAD), Minimax Concave Penalty (MCP) and Exponential
+Penalty (EP) are supported. This includes Sparse Group LASSO (SGL), Sparse
+Group SCAD (SGS), Sparse Group MCP (SGM) and Sparse Group EP (SGE). For
+more information, see Buch, G., Schulz, A., Schmidtmann, I., Strauch, K.,
+& Wild, P. S. (2024) <doi:10.1002/bimj.202200334>.
 
 %prep
 %setup -q -c -n %{packname}

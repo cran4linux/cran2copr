@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PatientProfiles
-%global packver   0.8.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
 
@@ -18,30 +18,26 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
+BuildRequires:    R-CRAN-omopgenerics >= 0.2.0
 BuildRequires:    R-CRAN-visOmopResults >= 0.2.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.1.2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-CDMConnector >= 1.3.1
+Requires:         R-CRAN-omopgenerics >= 0.2.0
 Requires:         R-CRAN-visOmopResults >= 0.2.0
-Requires:         R-CRAN-omopgenerics >= 0.1.2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
 
 %description

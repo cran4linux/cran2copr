@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  GIMMEgVAR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Group Iterative Multiple Model Estimation with 'graphicalVAR'
 
-License:          Apache License (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
+BuildRequires:    R-CRAN-graphicalVAR 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-png 
+Requires:         R-CRAN-graphicalVAR 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-png 
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+Data-driven approach for arriving at person-specific time series models
+from within a Graphical Vector Autoregression (VAR) framework. The method
+first identifies which relations replicate across the majority of
+individuals to detect signal from noise. These group-level relations are
+then used as a foundation for starting the search for person-specific (or
+individual-level) relations. All estimates are obtained uniquely for each
+individual in the final models. The method for the 'graphicalVAR' approach
+is found in Epskamp, Waldorp, Mottus & Borsboom (2018)
+<doi:10.1080/00273171.2018.1454823>.
 
 %prep
 %setup -q -c -n %{packname}

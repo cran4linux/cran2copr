@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  SplitSplitPlot
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Analysis of Split-Split-Plot Experiments (Analise De Experimentos Em Parcela Subsubdividida)
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+Performs analysis of split-split plot experiments in both completely
+randomized and randomized complete block designs. With the results, you
+can obtain ANOVA, mean tests, and regression analysis (Este pacote faz a
+analise de experimentos em parcela subsubdivididas no delineamento
+inteiramente casualizado e delineamento em blocos casualizados. Com
+resultados e possível obter a ANOVA, testes de medias e análise de
+regressao) <https://www.expstat.com/pacotes-do-r>.
 
 %prep
 %setup -q -c -n %{packname}

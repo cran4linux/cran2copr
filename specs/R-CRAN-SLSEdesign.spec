@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  SLSEdesign
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Optimal Regression Design under the Second-Order Least Squares Estimator
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-pracma 
+Requires:         R-graphics 
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+With given inputs that includes number of points, design space, measure
+skewness, models and parameter value, this package calculates the
+objective value, optimal designs and plot the equivalence theory under A-
+and D-optimal criteria under the second-order Least squares estimator.
+This package is based on the paper "Properties of optimal regression
+designs under the second-order least squares estimator" by Chi-Kuang Yeh
+and Julie Zhou (2021) <doi:10.1007/s00362-018-01076-6>.
 
 %prep
 %setup -q -c -n %{packname}

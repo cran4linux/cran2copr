@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSBtools
-%global packver   1.5.0
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistics Norway's Miscellaneous Tools
 
@@ -28,10 +28,9 @@ Requires:         R-CRAN-MASS
 
 %description
 Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, and functions for hierarchical
-computations are included (Langsrud, 2020)
-<doi:10.13140/RG.2.2.27313.61283>. The hierarchy specification functions
-are useful within statistical disclosure control.
+General data manipulation functions, algorithms for statistical disclosure
+control and functions for hierarchical computations by sparse model
+matrices are included (Langsrud, 2023) <doi:10.32614/RJ-2023-088>.
 
 %prep
 %setup -q -c -n %{packname}

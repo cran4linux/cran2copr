@@ -1,29 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  estimators
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Parameter Estimation
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-progress 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+Implements estimation methods for parameters of common distribution
+families. The common d, p, q, r function family for each distribution is
+enriched with the ll, e, and v counterparts, computing the log-likelihood,
+performing estimation, and calculating the asymptotic variance -
+covariance matrix, respectively. Parameter estimation is performed
+analytically whenever possible.
 
 %prep
 %setup -q -c -n %{packname}

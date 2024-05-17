@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  optiscale
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Optimal Scaling
 
-License:          Apache License (>= 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-lattice 
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+Optimal scaling of a data vector, relative to a set of targets, is
+obtained through a least-squares transformation subject to appropriate
+measurement constraints. The targets are usually predicted values from a
+statistical model. If the data are nominal level, then the transformation
+must be identity-preserving. If the data are ordinal level, then the
+transformation must be monotonic. If the data are discrete, then tied data
+values must remain tied in the optimal transformation. If the data are
+continuous, then tied data values can be untied in the optimal
+transformation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gitlabr
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the 'Gitlab' API
+Summary:          Access to the 'GitLab' API
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,21 +21,21 @@ BuildRequires:    R-CRAN-httr >= 1.1.0
 BuildRequires:    R-CRAN-tibble >= 1.1
 BuildRequires:    R-CRAN-dplyr >= 0.4.3
 BuildRequires:    R-CRAN-purrr >= 0.2.2
-BuildRequires:    R-CRAN-shiny >= 0.13.0
 BuildRequires:    R-CRAN-arpr 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-httr >= 1.1.0
 Requires:         R-CRAN-tibble >= 1.1
 Requires:         R-CRAN-dplyr >= 0.4.3
 Requires:         R-CRAN-purrr >= 0.2.2
-Requires:         R-CRAN-shiny >= 0.13.0
 Requires:         R-CRAN-arpr 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description

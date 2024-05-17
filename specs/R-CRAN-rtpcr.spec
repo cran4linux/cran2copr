@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -17,7 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-purrr 
@@ -26,7 +27,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-emmeans 
-Requires:         R-CRAN-agricolae 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-purrr 

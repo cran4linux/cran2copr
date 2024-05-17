@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.compute
-%global packver   0.6.1
+%global packname  CDGHMM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Compute Services
+Summary:          Hidden Markov Models for Multivariate Panel Data
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.6.0
-Requires:         R-CRAN-paws.common >= 0.6.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ramify 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ramify 
+Requires:         R-CRAN-cluster 
 
 %description
-Interface to 'Amazon Web Services' compute services, including 'Elastic
-Compute Cloud' ('EC2'), 'Lambda' functions-as-a-service, containers, batch
-processing, and more <https://aws.amazon.com/>.
+Estimates hidden Markov models from the family of Cholesky-decomposed
+Gaussian hidden Markov models (CDGHMM) under various missingness schemes.
+This family improves upon estimation of traditional Gaussian HMMs by
+directly modelling the distinct correlation structures that arise from
+longitudinal data, as well as, controlling for dropped out observations
+and non-random missingness. See Neal, Sochaniwsky and McNicholas (2024)
+<DOI:10.48550/arXiv.2404.04122>.
 
 %prep
 %setup -q -c -n %{packname}

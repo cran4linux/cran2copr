@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  midfieldr
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Methods for Working with MIDFIELD Data in 'R'
 
@@ -33,10 +33,11 @@ include filters for program codes, data sufficiency, and timely
 completion. Methods include gathering blocs of records, computing
 quantitative metrics such as graduation rate, and creating charts to
 visualize comparisons. 'midfieldr' interacts with practice data provided
-in 'midfielddata', a data package with an installed size of about 24 Mb
-available via a 'drat' repository. Instructions at
-<https://midfieldr.github.io/midfielddata/>. This work is supported by the
-US National Science Foundation through grant numbers 1545667 and 2142087.
+in 'midfielddata', an R data package available at
+<https://midfieldr.github.io/midfielddata/>. 'midfieldr' also interacts
+with the full MIDFIELD database for users who have access. This work is
+supported by the US National Science Foundation through grant numbers
+1545667 and 2142087.
 
 %prep
 %setup -q -c -n %{packname}

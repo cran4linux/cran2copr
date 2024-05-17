@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enmSdmX
-%global packver   1.1.2
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling and Ecological Niche Modeling
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dismo 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-foreach 
@@ -32,18 +31,19 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-omnibus 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-predicts 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-statisfactory 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dismo 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-foreach 
@@ -56,11 +56,13 @@ Requires:         R-CRAN-mgcv
 Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-omnibus 
 Requires:         R-parallel 
+Requires:         R-CRAN-predicts 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-statisfactory 
 Requires:         R-stats 
 Requires:         R-CRAN-terra 
