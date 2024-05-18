@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggiraph
-%global packver   0.8.9
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'ggplot2' Graphics Interactive
 
@@ -20,27 +20,27 @@ Requires:         R-core
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-htmlwidgets >= 1.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grid 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-uuid 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-htmlwidgets >= 1.5
 Requires:         R-CRAN-Rcpp >= 1.0
+Requires:         R-CRAN-cli 
 Requires:         R-grid 
-Requires:         R-stats 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-cli 
 
 %description
 Create interactive 'ggplot2' graphics using 'htmlwidgets'.

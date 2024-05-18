@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broom
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Statistical Objects into Tidy Tibbles
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-generics >= 0.0.2
 BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-generics >= 0.0.2
 Requires:         R-CRAN-backports 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 

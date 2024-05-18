@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iGraphMatch
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Graph Matching
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
-BuildRequires:    R-CRAN-igraph >= 1.1.2
+BuildRequires:    R-CRAN-igraph >= 2.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.2
 BuildRequires:    R-CRAN-clue >= 0.3.54
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Matrix >= 1.5.0
-Requires:         R-CRAN-igraph >= 1.1.2
+Requires:         R-CRAN-igraph >= 2.0.0
+Requires:         R-CRAN-Matrix >= 1.6.2
 Requires:         R-CRAN-clue >= 0.3.54
 Requires:         R-CRAN-irlba 
 Requires:         R-methods 

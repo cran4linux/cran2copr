@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TCIU
-%global packver   1.2.5
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spacekime Analytics, Time Complexity and Inferential Uncertainty
 
@@ -43,6 +43,7 @@ BuildRequires:    R-CRAN-cubature
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-MultiwayRegression 
+BuildRequires:    R-CRAN-interp 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
@@ -70,6 +71,7 @@ Requires:         R-CRAN-cubature
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-MultiwayRegression 
+Requires:         R-CRAN-interp 
 
 %description
 Provide the core functionality to transform longitudinal data to

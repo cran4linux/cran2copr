@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastbeta
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Estimation of Time-Varying Infectious Disease Transmission Rates
+Summary:          Fast Approximation of Time-Varying Infectious Disease Transmission Rates
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-adaptivetau 
-BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-adaptivetau 
-Requires:         R-CRAN-deSolve 
+Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Methods for estimating time-varying infectious disease transmission rates
-from disease incidence time series, based on discretizations of an SIR
-model, as analyzed in Jagan et al. (2020)
-<doi:10.1371/journal.pcbi.1008124>.
+A fast method for approximating time-varying infectious disease
+transmission rates from disease incidence time series and other data,
+based on a discrete time approximation of an SEIR model, as analyzed in
+Jagan et al. (2020) <doi:10.1371/journal.pcbi.1008124>.
 
 %prep
 %setup -q -c -n %{packname}

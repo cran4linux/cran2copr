@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggseqplot
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Sequence Plots using 'ggplot2'
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-TraMineR >= 2.2.5
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rdpack 
@@ -36,11 +38,13 @@ Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-TraMineR >= 2.2.5
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rdpack 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HypergeoMat
-%global packver   4.0.2
+%global packname  MajMinKmeans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hypergeometric Function of a Matrix Argument
+Summary:          k-Means Algorithm with a Majorization-Minimization Method
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-EigenR 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-JuliaConnectoR 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-EigenR 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-JuliaConnectoR 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Evaluates the hypergeometric functions of a matrix argument, which appear
-in random matrix theory. This is an implementation of Koev & Edelman's
-algorithm (2006) <doi:10.1090/S0025-5718-06-01824-2>.
+A hybrid of the K-means algorithm and a Majorization-Minimization method
+to introduce a robust clustering. The reference paper is: Julien Mairal,
+(2015) <doi:10.1137/140957639>. The two most important functions in
+package 'MajMinKmeans' are cluster_km() and cluster_MajKm(). Cluster_km()
+clusters data without Majorization-Minimization and cluster_MajKm()
+clusters data with Majorization-Minimization method. Both of these
+functions calculate the sum of squares (SS) of clustering. Another useful
+function is MajMinOptim(), which helps to find the optimum values of the
+Majorization-Minimization estimator.
 
 %prep
 %setup -q -c -n %{packname}

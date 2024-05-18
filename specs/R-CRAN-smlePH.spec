@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gatoRs
-%global packver   1.0.2
+%global packname  smlePH
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
+Summary:          Sieve Maximum Full Likelihood Estimation for the Right-Censored Proportional Hazards Model
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-spThin 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-spThin 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-splines2 
+Requires:         R-stats 
 
 %description
-Streamlines downloading and cleaning biodiversity data from Integrated
-Digitized Biocollections (iDigBio) and the Global Biodiversity Information
-Facility (GBIF).
+Fitting the full likelihood proportional hazards model and extracting the
+residuals.
 
 %prep
 %setup -q -c -n %{packname}

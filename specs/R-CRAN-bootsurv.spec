@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gatoRs
-%global packver   1.0.2
+%global packname  bootsurv
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
+Summary:          Bootstrap Methods for Complete Survey Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,33 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-spThin 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-spThin 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Streamlines downloading and cleaning biodiversity data from Integrated
-Digitized Biocollections (iDigBio) and the Global Biodiversity Information
-Facility (GBIF).
+Bootstrap resampling methods have been widely studied in the context of
+survey data. This package implements various bootstrap resampling
+techniques tailored for survey data, with a focus on stratified simple
+random sampling and stratified two-stage cluster sampling. It provides
+tools for precise and consistent bootstrap variance estimation for
+population totals, means, and quartiles. Additionally, it enables easy
+generation of bootstrap samples for in-depth analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gatoRs
-%global packver   1.0.2
+%global packname  streamConnect
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
+Summary:          Connecting Stream Mining Components Using Sockets and Web Services
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-spThin 
+BuildRequires:    R-CRAN-stream >= 2.0.0
+BuildRequires:    R-CRAN-plumber 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-spThin 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-stream >= 2.0.0
+Requires:         R-CRAN-plumber 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Streamlines downloading and cleaning biodiversity data from Integrated
-Digitized Biocollections (iDigBio) and the Global Biodiversity Information
-Facility (GBIF).
+Adds functionality to connect stream mining components from package stream
+using sockets and Web services. The package can be used create distributed
+workflows and create plumber-based Web services which can be deployed on
+most common cloud services.
 
 %prep
 %setup -q -c -n %{packname}

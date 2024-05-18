@@ -1,49 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gatoRs
-%global packver   1.0.2
+%global packname  HydroMe
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
+Summary:          Estimating Water Retention and Infiltration Model Parameters using Experimental Data
 
-License:          GPL-3
+License:          GPL (>= 3.5.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-spThin 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-spThin 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Streamlines downloading and cleaning biodiversity data from Integrated
-Digitized Biocollections (iDigBio) and the Global Biodiversity Information
-Facility (GBIF).
+Contains functions for estimating the parameters of infiltration and water
+retention models using the curve-fitting methods as discussed in Omuto and
+Gumbe (2009) ("Estimating water infiltration and retention characteristics
+using a computer program in R"<doi:10.1016/j.cageo.2008.08.011>). The
+models considered are those that are commonly used in soil science.
+Version 2 of the package has new models for water retention characteristic
+curves.
 
 %prep
 %setup -q -c -n %{packname}

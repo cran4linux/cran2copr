@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fflr
-%global packver   2.3.0
+%global packname  KMEANS.KNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve ESPN Fantasy Football Data
+Summary:          KMeans and KNN Clustering Package
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-jsonlite >= 1.8.7
-BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-jsonlite >= 1.8.7
-Requires:         R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-caret 
+Requires:         R-grDevices 
 
 %description
-Format the raw data from the ESPN fantasy football API
-<https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl> as data frames.
-Retrieve data on public leagues, rosters, athletes, and matches.
+Implementation of Kmeans clustering algorithm and a supervised KNN (K
+Nearest Neighbors) learning method. It allows users to perform
+unsupervised clustering and supervised classification on their datasets.
+Additional features include data normalization, imputation of missing
+values, and the choice of distance metric. The package also provides
+functions to determine the optimal number of clusters for Kmeans and the
+best k-value for KNN: knn_Function(), find_Knn_best_k(),
+KMEANS_FUNCTION(), and find_Kmeans_best_k().
 
 %prep
 %setup -q -c -n %{packname}

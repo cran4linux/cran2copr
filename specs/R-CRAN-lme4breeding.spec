@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gatoRs
-%global packver   1.0.2
+%global packname  lme4breeding
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographic and Taxonomic Occurrence R-Based Scrubbing
+Summary:          Relationship-Based Mixed-Effects Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CoordinateCleaner >= 3.0.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ridigbio 
-BuildRequires:    R-CRAN-rgbif 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-spThin 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-CoordinateCleaner >= 3.0.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ridigbio 
-Requires:         R-CRAN-rgbif 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-spThin 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-parsedate 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-lme4 >= 1.0
+BuildRequires:    R-CRAN-Matrix >= 1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-lme4 >= 1.0
+Requires:         R-CRAN-Matrix >= 1.0
+Requires:         R-methods 
+Requires:         R-CRAN-crayon 
 
 %description
-Streamlines downloading and cleaning biodiversity data from Integrated
-Digitized Biocollections (iDigBio) and the Global Biodiversity Information
-Facility (GBIF).
+Fit relationship-based and customized mixed-effects models with complex
+variance-covariance structures using the 'lme4' machinery. The core
+computational algorithms are implemented using the 'Eigen' 'C++' library
+for numerical linear algebra and 'RcppEigen' 'glue'.
 
 %prep
 %setup -q -c -n %{packname}

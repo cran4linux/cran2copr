@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inldata
-%global packver   1.1.5
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Datasets for the USGS-INL Monitoring Networks
 
@@ -42,7 +42,7 @@ surrounding areas have been used to describe the effects of waste disposal
 on water contained in the eastern Snake River Plain aquifer, located in
 the southeastern part of Idaho, and the availability of water for
 long-term consumptive and industrial use. The package includes long-term
-monitoring records dating back to measurements from 1949. Geospatial data
+monitoring records dating back to measurements from 1922. Geospatial data
 describing the areas from which samples were collected or observations
 were made are also included in the package. Bundling this data into a
 single package significantly reduces the magnitude of data processing for

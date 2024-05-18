@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RAZIAD
-%global packver   0.0.1
+%global packname  bbnet
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Analysis of Zero-Inflated and Zero-Altered(Hurdle) Data
+Summary:          Create Simple Predictive Models on Bayesian Belief Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.1.0
-Requires:         R-core >= 4.3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tibble 
 
 %description
-It performs regression analysis for zero-inflated and zero-altered data,
-enabling modeling of sparse response variable distributions and assessing
-their association with covariates. It computes Maximum Likelihood
-Estimates (MLE) and conducts model selection using AIC and BIC criteria.
-Additionally, it calculates Fisher Information, confidence intervals,
-standard errors, and z-scores for all model parameters.
+A system to build, visualise and evaluate Bayesian belief networks. The
+methods are described in Stafford et al. (2015)
+<doi:10.12688/f1000research.5981.1>.
 
 %prep
 %setup -q -c -n %{packname}
