@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nasapower
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          NASA POWER API Client
 
@@ -20,15 +20,15 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tibble >= 3.0.2
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crul 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 
@@ -37,8 +37,8 @@ An API client for NASA POWER global meteorology, surface solar energy and
 climatology data API.  POWER (Prediction Of Worldwide Energy Resources)
 data are freely available for download with varying spatial resolutions
 dependent on the original data and with several temporal resolutions
-depending on the POWER parameter and community.  This work is funded
-through the NASA Earth Science Directorate Applied Science Program. For
+depending on the POWER parameter and community. This work is funded
+through the NASA Earth Science Directorate Applied Science Program.  For
 more on the data themselves, the methodologies used in creating, a web-
 based data viewer and web access, please see
 <https://power.larc.nasa.gov/>.

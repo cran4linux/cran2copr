@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestAnaAPP
-%global packver   0.1.8
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'shiny' App for Test Analysis and Visualization
+Summary:          A 'shiny' App for Test Analysis and Visualization
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-difR >= 5.1
 BuildRequires:    R-CRAN-openxlsx >= 4.2.5.2
 BuildRequires:    R-CRAN-plotrix >= 3.8.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.3
@@ -32,11 +33,13 @@ BuildRequires:    R-CRAN-cowplot >= 1.1.1
 BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
 BuildRequires:    R-CRAN-flextable >= 0.9.2
 BuildRequires:    R-CRAN-shinydashboard >= 0.7.2
+BuildRequires:    R-CRAN-latticeExtra >= 0.6.30
 BuildRequires:    R-CRAN-officer >= 0.6.2
 BuildRequires:    R-CRAN-golem >= 0.4.1
 BuildRequires:    R-CRAN-officedown >= 0.3.0
 BuildRequires:    R-CRAN-DT >= 0.29
 BuildRequires:    R-CRAN-tidySEM >= 0.2.4
+Requires:         R-CRAN-difR >= 5.1
 Requires:         R-CRAN-openxlsx >= 4.2.5.2
 Requires:         R-CRAN-plotrix >= 3.8.2
 Requires:         R-CRAN-ggplot2 >= 3.4.3
@@ -52,6 +55,7 @@ Requires:         R-CRAN-cowplot >= 1.1.1
 Requires:         R-CRAN-shinycssloaders >= 1.0.0
 Requires:         R-CRAN-flextable >= 0.9.2
 Requires:         R-CRAN-shinydashboard >= 0.7.2
+Requires:         R-CRAN-latticeExtra >= 0.6.30
 Requires:         R-CRAN-officer >= 0.6.2
 Requires:         R-CRAN-golem >= 0.4.1
 Requires:         R-CRAN-officedown >= 0.3.0
@@ -59,14 +63,12 @@ Requires:         R-CRAN-DT >= 0.29
 Requires:         R-CRAN-tidySEM >= 0.2.4
 
 %description
-This application enables exploratory factor analysis, confirmatory factor
-analysis, classical measurement theory analysis, unidimensional item
-response theory, multidimensional item response theory, and continuous
-item response model analysis, through the 'shiny' interactive interface.
-It also facilitates the visualization of the results. Users can easily
-download the analysis results from the interactive interface.
-Additionally, users can download a concise report about items and test
-quality on the interactive interface.
+This application provides exploratory and confirmatory factor analysis,
+classical test theory, unidimensional and multidimensional item response
+theory, and continuous item response model analysis, through the 'shiny'
+interactive interface. In addition, it offers rich functionalities for
+visualizing and downloading results. Users can download figures, tables,
+and analysis reports via the interactive interface.
 
 %prep
 %setup -q -c -n %{packname}

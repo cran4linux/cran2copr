@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fude
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Fude Polygon
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-units 
 Requires:         R-CRAN-glue 
 
 %description
