@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  omock
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creation of Mock Observational Medical Outcomes Partnership Common Data Model
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-omopgenerics >= 0.0.3
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-snakecase 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 
 %description
 Creates mock data for testing and package development for the

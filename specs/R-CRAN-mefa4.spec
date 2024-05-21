@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mefa4
-%global packver   0.3-9
+%global packver   0.3-11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Data Handling with S4 Classes and Sparse Matrices
 

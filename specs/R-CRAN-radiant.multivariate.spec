@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  radiant.multivariate
-%global packver   1.6.1
+%global packver   1.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Menu for Radiant: Business Analytics using R and Shiny
 
@@ -14,18 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-GPArotation >= 2014.11.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-car >= 2.1.1
 BuildRequires:    R-CRAN-psych >= 1.8.4
+BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
-BuildRequires:    R-CRAN-shiny >= 1.7.1
-BuildRequires:    R-CRAN-radiant.data >= 1.5.0
-BuildRequires:    R-CRAN-radiant.model >= 1.5.0
+BuildRequires:    R-CRAN-radiant.data >= 1.6.6
+BuildRequires:    R-CRAN-radiant.model >= 1.6.6
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-import >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
@@ -41,10 +41,10 @@ Requires:         R-CRAN-GPArotation >= 2014.11.1
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-car >= 2.1.1
 Requires:         R-CRAN-psych >= 1.8.4
+Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-lubridate >= 1.7.4
-Requires:         R-CRAN-shiny >= 1.7.1
-Requires:         R-CRAN-radiant.data >= 1.5.0
-Requires:         R-CRAN-radiant.model >= 1.5.0
+Requires:         R-CRAN-radiant.data >= 1.6.6
+Requires:         R-CRAN-radiant.model >= 1.6.6
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-import >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.7

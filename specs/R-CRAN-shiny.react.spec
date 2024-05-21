@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny.react
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Using React in Shiny
 
@@ -21,16 +21,20 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-logger 
+Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringi 
 
 %description
 A toolbox for defining React component wrappers which can be used

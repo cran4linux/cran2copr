@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggscidca
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Decision Curve Analysis with Coloured Bars
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-randomForest 

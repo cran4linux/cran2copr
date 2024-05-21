@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cleanNLP
-%global packver   3.0.7
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.7
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Data Model for Natural Language Processing
 
@@ -33,10 +33,9 @@ Requires:         R-methods
 %description
 Provides a set of fast tools for converting a textual corpus into a set of
 normalized tables. Users may make use of the 'udpipe' back end with no
-external dependencies, or two Python back ends with 'spaCy'
-<https://spacy.io> or 'CoreNLP' <https://stanfordnlp.github.io/CoreNLP/>.
-Exposed annotation tasks include tokenization, part of speech tagging,
-named entity recognition, and dependency parsing.
+external dependencies, or a Python back ends with 'spaCy'
+<https://spacy.io>. Exposed annotation tasks include tokenization, part of
+speech tagging, named entity recognition, and dependency parsing.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  insurancerating
-%global packver   0.7.3
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytic Insurance Rating Techniques
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-fitdistrplus
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-insight 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-scales 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-fitdistrplus
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-insight 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-scales 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmahalanobis
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the Mahalanobis Distance for a Given List of Data Frames with Factors
+Summary:          Calculate Distance Measures for a Given List of Data Frames with Factors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,14 +25,14 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-reshape2 
 
 %description
-It provides a function that calculates the Mahalanobis distance between
-each pair of species in a list of data frames. Each data frame contains
-the observations of a species with some factors. Mahalanobis distance is a
-measure of dissimilarity between two vectors of multivariate random
-variables, based on the covariance matrix. This distance is useful for
-statistical matching or fusion of data, that is the integration of two
-data sources that refer to the same target population and that share some
-variables.
+It provides functions that calculate Mahalanobis distance, Euclidean
+distance, Manhattan distance and Chebyshev distance between each pair of
+species in a list of data frames. These metrics are fundamental in various
+fields, such as cluster analysis, classification, and other applications
+of machine learning and data mining, where assessing similarity or
+dissimilarity between data is crucial. The package is designed to be
+flexible and easily integrated into data analysis workflows, providing
+reliable tools for evaluating distances in multidimensional contexts.
 
 %prep
 %setup -q -c -n %{packname}

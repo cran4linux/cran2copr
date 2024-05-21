@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emmeans
-%global packver   1.10.1
+%global packver   1.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          1.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimated Marginal Means, aka Least-Squares Means
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-estimability >= 1.4
+BuildRequires:    R-CRAN-estimability >= 1.4.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-estimability >= 1.4
+Requires:         R-CRAN-estimability >= 1.4.1
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 

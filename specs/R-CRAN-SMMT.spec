@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SMMT
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Swiss Municipal Data Merger Tool Maps Municipalities Over Time
 
@@ -36,7 +37,7 @@ these mutations and maps municipalities over time, i.e. municipalities of
 an old state to municipalities of a new state. This functionality is
 helpful when working with datasets that are based on different spatial
 references. The package's idea and use case is discussed in the following
-article: <https://onlinelibrary.wiley.com/doi/full/10.1111/spsr.12487>.
+article: <doi:10.1111/spsr.12487>.
 
 %prep
 %setup -q -c -n %{packname}
