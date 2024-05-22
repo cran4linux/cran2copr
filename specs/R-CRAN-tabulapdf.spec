@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyCub
-%global packver   0.9.1
+%global packname  tabulapdf
+%global packver   1.0.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubature over Polygonal Domains
+Summary:          Extract Tables from PDF Documents
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-sp >= 1.0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp >= 1.0.11
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rJava 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Numerical integration of continuously differentiable functions f(x,y) over
-simple closed polygonal domains. The following cubature methods are
-implemented: product Gauss cubature (Sommariva and Vianello, 2007,
-<doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
-symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
-integration along the axes, the 'cubature' package is more appropriate.
+Bindings for the 'Tabula' <https://tabula.technology/> 'Java' library,
+which can extract tables from PDF files. This tool can reduce time and
+effort in data extraction processes in fields like investigative
+journalism. It allows for automatic and manual table extraction, the
+latter facilitated through a 'Shiny' interface, enabling manual areas
+selection with a computer mouse for data retrieval.
 
 %prep
 %setup -q -c -n %{packname}

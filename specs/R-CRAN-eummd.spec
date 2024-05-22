@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyCub
-%global packver   0.9.1
+%global packname  eummd
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubature over Polygonal Domains
+Summary:          Efficient Univariate Maximum Mean Discrepancy
 
-License:          GPL-2
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-sp >= 1.0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp >= 1.0.11
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
 
 %description
-Numerical integration of continuously differentiable functions f(x,y) over
-simple closed polygonal domains. The following cubature methods are
-implemented: product Gauss cubature (Sommariva and Vianello, 2007,
-<doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
-symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
-integration along the axes, the 'cubature' package is more appropriate.
+Computes maximum mean discrepancy two-sample test for univariate data
+using the Laplacian kernel, as described in Bodenham and Kawahara (2023)
+<doi:10.1007/s11222-023-10271-x>. The p-value is computed using
+permutations. Also includes implementation for computing the robust median
+difference statistic 'Q_n' from Croux and Rousseeuw (1992)
+<doi:10.1007/978-3-662-26811-7_58> based on Johnson and Mizoguchi (1978)
+<doi:10.1137/0207013>.
 
 %prep
 %setup -q -c -n %{packname}

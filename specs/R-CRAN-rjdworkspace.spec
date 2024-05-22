@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mark
-%global packver   0.7.0
+%global packname  rjdworkspace
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Miscellaneous, Analytic R Kernels
+Summary:          Manipulate 'JDemetra+' Workspaces
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.6
-BuildRequires:    R-tools >= 3.6
-BuildRequires:    R-utils >= 3.6
-BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-fs >= 1.6.2
-BuildRequires:    R-CRAN-fuj >= 0.1.4
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-stats >= 3.6
-Requires:         R-tools >= 3.6
-Requires:         R-utils >= 3.6
-Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-fs >= 1.6.2
-Requires:         R-CRAN-fuj >= 0.1.4
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-rJava >= 0.9.8
+BuildRequires:    R-CRAN-RJDemetra 
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-rJava >= 0.9.8
+Requires:         R-CRAN-RJDemetra 
+Requires:         R-CRAN-XML 
 
 %description
-Miscellaneous functions and wrappers for development in other packages
-created, maintained by Jordan Mark Barbone.
+Set of tools to manipulate the 'JDemetra+' workspaces. Based on the
+'RJDemetra' package (which interfaces with version 2 of the 'JDemetra+'
+(<https://github.com/jdemetra/jdemetra-app>), the seasonal adjustment
+software officially recommended to the members of the European Statistical
+System (ESS) and the European System of Central Banks). This package
+provides access to additional workspace manipulation functions such as
+metadata manipulation, raw paths and wrangling of several workspaces
+simultaneously. These additional functionalities are useful as part of a
+CVS data production chain.
 
 %prep
 %setup -q -c -n %{packname}

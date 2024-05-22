@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyCub
-%global packver   0.9.1
+%global packname  EloOptimized
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubature over Polygonal Domains
+Summary:          Optimized Elo Rating Method for Obtaining Dominance Ranks
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-sp >= 1.0.11
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-BAMMtools 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp >= 1.0.11
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-BAMMtools 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
 
 %description
-Numerical integration of continuously differentiable functions f(x,y) over
-simple closed polygonal domains. The following cubature methods are
-implemented: product Gauss cubature (Sommariva and Vianello, 2007,
-<doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
-symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
-integration along the axes, the 'cubature' package is more appropriate.
+Provides an implementation of the maximum likelihood methods for deriving
+Elo scores as published in Foerster, Franz et al. (2016)
+<DOI:10.1038/srep35404>.
 
 %prep
 %setup -q -c -n %{packname}

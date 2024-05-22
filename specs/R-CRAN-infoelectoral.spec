@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyCub
-%global packver   0.9.1
+%global packname  infoelectoral
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubature over Polygonal Domains
+Summary:          Download Spanish Election Results
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-sp >= 1.0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp >= 1.0.11
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-stringr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-stringr >= 1.0.0
 
 %description
-Numerical integration of continuously differentiable functions f(x,y) over
-simple closed polygonal domains. The following cubature methods are
-implemented: product Gauss cubature (Sommariva and Vianello, 2007,
-<doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
-symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
-integration along the axes, the 'cubature' package is more appropriate.
+Download official election results for Spain at polling station,
+municipality and province level from the Ministry of Interior
+(<https://infoelectoral.interior.gob.es/es/elecciones-celebradas/area-de-descargas/>),
+format them and import them to the R environment.
 
 %prep
 %setup -q -c -n %{packname}

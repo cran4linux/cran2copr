@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zendown
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Files from 'Zenodo' Deposits
 
@@ -24,10 +24,10 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
@@ -35,10 +35,10 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-RCurl 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 
-Requires:         R-utils 
 
 %description
 Access, download and locally cache files deposited on 'Zenodo'

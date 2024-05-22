@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torch
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 
@@ -55,9 +55,9 @@ Requires:         R-CRAN-jsonlite
 
 %description
 Provides functionality to define and train neural networks similar to
-'PyTorch' by Paszke et al (2019) <arXiv:1912.01703> but written entirely
-in R using the 'libtorch' library. Also supports low-level tensor
-operations and 'GPU' acceleration.
+'PyTorch' by Paszke et al (2019) <doi:10.48550/arXiv.1912.01703> but
+written entirely in R using the 'libtorch' library. Also supports
+low-level tensor operations and 'GPU' acceleration.
 
 %prep
 %setup -q -c -n %{packname}

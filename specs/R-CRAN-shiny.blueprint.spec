@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny.blueprint
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Palantir's 'Blueprint' for 'Shiny' Apps
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny.react >= 0.2.2
+BuildRequires:    R-CRAN-shiny.react >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-shiny.react >= 0.2.2
+Requires:         R-CRAN-shiny.react >= 0.4.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 

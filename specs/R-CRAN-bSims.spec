@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bSims
-%global packver   0.3-0
+%global packver   0.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bird Point Count Simulator
+Summary:          Agent-Based Bird Point Count Simulator
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,9 +33,10 @@ Requires:         R-CRAN-pbapply
 %description
 A highly scientific and utterly addictive bird point count simulator to
 test statistical assumptions, aid survey design, and have fun while doing
-it. The simulations follow time-removal and distance sampling models based
-on Matsuoka et al. (2012) <doi:10.1525/auk.2012.11190>, Solymos et al.
-(2013) <doi:10.1111/2041-210X.12106>, and Solymos et al. (2018)
+it (Solymos 2024 <doi:10.1007/s42977-023-00183-2>). The simulations follow
+time-removal and distance sampling models based on Matsuoka et al. (2012)
+<doi:10.1525/auk.2012.11190>, Solymos et al. (2013)
+<doi:10.1111/2041-210X.12106>, and Solymos et al. (2018)
 <doi:10.1650/CONDOR-18-32.1>, and sound attenuation experiments by Yip et
 al. (2017) <doi:10.1650/CONDOR-16-93.1>.
 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KSgeneral
-%global packver   1.1.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computing P-Values of the K-S Test for (Dis)Continuous Null Distribution
+Summary:          Computing P-Values of the One-Sample K-S Test and the Two-Sample K-S and Kuiper Tests for (Dis)Continuous Null Distribution
 
 License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,24 +25,27 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-dgof 
 
 %description
-Computes a p-value of the one-sample two-sided (or one-sided, as a special
-case) Kolmogorov-Smirnov (KS) statistic, for any fixed critical level, and
-an arbitrary, possibly large sample size for a pre-specified purely
-discrete, mixed or continuous cumulative distribution function (cdf) under
-the null hypothesis. If a data sample is supplied, 'KSgeneral' computes
-the p-value corresponding to the value of the KS test statistic computed
-based on the user provided data sample. The package 'KSgeneral' implements
-a novel, accurate and efficient method named Exact-KS-FFT, expressing the
-p-value as a double-boundary non-crossing probability for a homogeneous
-Poisson process, which is then efficiently computed using Fast Fourier
-Transform (FFT). The package can also be used to compute and plot the
-complementary cdf of the KS statistic which is known to depend on the
-hypothesized distribution when the latter is discontinuous (i.e. purely
-discrete or mixed). To cite this package in publication use: Dimitrina S.
+Contains functions to compute p-values for the one-sample and two-sample
+Kolmogorov-Smirnov (KS) tests and the two-sample Kuiper test for any fixed
+critical level and arbitrary (possibly very large) sample sizes. For the
+one-sample KS test, this package implements a novel, accurate and
+efficient method named Exact-KS-FFT, which allows the pre-specified
+cumulative distribution function under the null hypothesis to be
+continuous, purely discrete or mixed. In the two-sample case, it is
+assumed that both samples come from an unspecified (unknown) continuous,
+purely discrete or mixed distribution, i.e. ties (repeated observations)
+are allowed, and exact p-values of the KS and the Kuiper tests are
+computed. Note, the two-sample Kuiper test is often used when data samples
+are on the line or on the circle (circular data). To cite this package in
+publication: (for the use of the one-sample KS test) Dimitrina S.
 Dimitrova, Vladimir K. Kaishev, and Senren Tan. Computing the
 Kolmogorov-Smirnov Distribution When the Underlying CDF is Purely
 Discrete, Mixed, or Continuous. Journal of Statistical Software. 2020;
-95(10): 1--42. <doi:10.18637/jss.v095.i10>.
+95(10): 1--42.  <doi:10.18637/jss.v095.i10>. (for the use of the
+two-sample KS and Kuiper tests) Dimitrina S. Dimitrova, Yun Jia and
+Vladimir K. Kaishev (2024). The R functions KS2sample and Kuiper2sample:
+Efficient Exact Calculation of P-values of the Two-sample
+Kolmogorov-Smirnov and Kuiper Tests. submitted.
 
 %prep
 %setup -q -c -n %{packname}

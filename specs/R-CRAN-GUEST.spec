@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyCub
-%global packver   0.9.1
+%global packname  GUEST
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubature over Polygonal Domains
+Summary:          Graphical Models in Ultrahigh-Dimensional and Error-Prone Data via Boosting Algorithm
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-sp >= 1.0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp >= 1.0.11
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XICOR 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-GGally 
+Requires:         R-CRAN-XICOR 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-GGally 
 
 %description
-Numerical integration of continuously differentiable functions f(x,y) over
-simple closed polygonal domains. The following cubature methods are
-implemented: product Gauss cubature (Sommariva and Vianello, 2007,
-<doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
-symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
-integration along the axes, the 'cubature' package is more appropriate.
+We consider the ultrahigh-dimensional and error-prone data. Our goal aims
+to estimate the precision matrix and identify the graphical structure of
+the random variables with measurement error corrected. We further adopt
+the estimated precision matrix to the linear discriminant function to do
+classification for multi-label classes.
 
 %prep
 %setup -q -c -n %{packname}

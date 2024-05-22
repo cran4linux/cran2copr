@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EdSurvey
-%global packver   4.0.4
+%global packver   4.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.4
+Version:          4.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-WeMix >= 4.0.0
+BuildRequires:    R-CRAN-WeMix >= 4.0.2
 BuildRequires:    R-CRAN-car >= 3.1.2
 BuildRequires:    R-CRAN-Dire >= 2.2.0
 BuildRequires:    R-CRAN-haven >= 2.2.0
 BuildRequires:    R-CRAN-wCorr >= 1.9.8
-BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
+BuildRequires:    R-CRAN-Matrix >= 1.5.4.1
 BuildRequires:    R-CRAN-data.table >= 1.11.4
 BuildRequires:    R-CRAN-lfactors >= 1.0.3
 BuildRequires:    R-CRAN-NAEPprimer >= 1.0.1
@@ -39,12 +39,12 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-WeMix >= 4.0.0
+Requires:         R-CRAN-WeMix >= 4.0.2
 Requires:         R-CRAN-car >= 3.1.2
 Requires:         R-CRAN-Dire >= 2.2.0
 Requires:         R-CRAN-haven >= 2.2.0
 Requires:         R-CRAN-wCorr >= 1.9.8
-Requires:         R-CRAN-Matrix >= 1.6.1.1
+Requires:         R-CRAN-Matrix >= 1.5.4.1
 Requires:         R-CRAN-data.table >= 1.11.4
 Requires:         R-CRAN-lfactors >= 1.0.3
 Requires:         R-CRAN-NAEPprimer >= 1.0.1

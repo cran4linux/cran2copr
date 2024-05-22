@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyCub
-%global packver   0.9.1
+%global packname  Rnest
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cubature over Polygonal Domains
+Summary:          Next Eigenvalue Sufficiency Test
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-sp >= 1.0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-sp >= 1.0.11
-Requires:         R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS >= 7.3.58.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-fungible >= 2.3
+BuildRequires:    R-CRAN-crayon >= 1.4.0
+BuildRequires:    R-CRAN-EFA.MRFA >= 1.1.2
+BuildRequires:    R-CRAN-scales >= 1.0.0
+Requires:         R-CRAN-MASS >= 7.3.58.1
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-fungible >= 2.3
+Requires:         R-CRAN-crayon >= 1.4.0
+Requires:         R-CRAN-EFA.MRFA >= 1.1.2
+Requires:         R-CRAN-scales >= 1.0.0
 
 %description
-Numerical integration of continuously differentiable functions f(x,y) over
-simple closed polygonal domains. The following cubature methods are
-implemented: product Gauss cubature (Sommariva and Vianello, 2007,
-<doi:10.1007/s10543-007-0131-2>), the simple two-dimensional midpoint rule
-(wrapping 'spatstat.geom' functions), and adaptive cubature for radially
-symmetric functions via line integrate() along the polygon boundary (Meyer
-and Held, 2014, <doi:10.1214/14-AOAS743>, Supplement B). For simple
-integration along the axes, the 'cubature' package is more appropriate.
+Determine the number of dimensions to retain in exploratory factor
+analysis. The main function, nest(), returns the solution and the
+plot(nest()) returns a plot.
 
 %prep
 %setup -q -c -n %{packname}

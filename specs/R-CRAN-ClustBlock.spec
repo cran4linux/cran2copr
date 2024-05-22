@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ClustBlock
-%global packver   3.2.0
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Datasets
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-FactoMineR
 Requires:         R-CRAN-FactoMineR 
 
 %description
-Hierarchical and partitioning algorithms of blocks of variables. The
-partitioning algorithm includes an option called noise cluster to set
+Hierarchical and partitioning algorithms to cluster blocks of variables.
+The partitioning algorithm includes an option called noise cluster to set
 aside atypical blocks of variables. The CLUSTATIS method (for quantitative
 blocks) (Llobell, Cariou, Vigneau, Labenne & Qannari (2020)
 <doi:10.1016/j.foodqual.2018.05.013>, Llobell, Vigneau & Qannari (2019)
@@ -33,7 +33,8 @@ Qannari (2019) <doi:10.1016/j.foodqual.2019.05.017>) are the core of this
 package. The CATATIS methods allows to compute some indices and tests to
 control the quality of CATA data. Multivariate analysis and clustering of
 subjects for quantitative multiblock data, CATA, RATA, Free Sorting and
-JAR experiments are available.
+JAR experiments are available. Clustering of rows in multi-block context
+(notably with ClusMB strategy) is also included.
 
 %prep
 %setup -q -c -n %{packname}

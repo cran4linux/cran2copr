@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StepReg
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Regression Analysis
 
@@ -20,15 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-xlsx 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-ggcorrplot 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-summarytools 
@@ -40,15 +38,13 @@ BuildRequires:    R-CRAN-shinyjs
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-xlsx 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggcorrplot 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-summarytools 
@@ -63,16 +59,18 @@ The stepwise regression analysis is a statistical technique used to
 identify a subset of predictor variables essential for constructing
 predictive models. This package performs stepwise regression analysis
 across various regression models such as linear, logistic, Cox
-proportional hazards, Poisson, and gamma regression. It incorporates
-diverse stepwise regression algorithms like forward selection, backward
-elimination, and bidirectional elimination alongside the best subset
-method. Additionally, it offers a wide range of selection criteria,
-including Akaike Information Criterion (AIC), corrected AIC (AICc), Sawa
-Bayesian Information Criterion (BIC), Schwarz Bayesian Information
-Criterion (SBC), Significant Levels (SL), among others. Moreover, it
-facilitates the concurrent selection of multiple methods and criteria for
-variable selection. For user-friendly exploration and analysis, StepReg
-provides an intuitive R Shiny app.
+proportional hazards, Poisson, Gamma, and negative binomial regression. It
+incorporates diverse stepwise regression algorithms like forward
+selection, backward elimination, and bidirectional elimination alongside
+the best subset method. Additionally, it offers a wide range of selection
+criteria, including Akaike Information Criterion (AIC), Sawa Bayesian
+Information Criterion (BIC), and Significance Levels (SL). We validated
+the output accuracy of StepReg using public datasets within the SAS
+software environment. To facilitate efficient model comparison and
+selection, StepReg allows for multiple strategies and selection metrics to
+be executed in a single function call. Moreover, StepReg integrates a
+Shiny application for interactive regression analysis, broadening its
+accessibility.
 
 %prep
 %setup -q -c -n %{packname}
