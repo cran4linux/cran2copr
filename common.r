@@ -380,9 +380,7 @@ pkg_exceptions <- function(tpl, pkg, path) {
       "test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R &&",
       "echo \"FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch\" > ~/.R/Makevars"),
     rPython = "export RPYTHON_PYTHON_VERSION=3",
-    RcppParallel = paste0(
-      "export TBB_INC=%{_includedir}/tbb\n",
-      "export TBB_LIB=%{_libdir}"),
+    RcppParallel = "export TBB_AUTODETECT=TRUE\n",
     Rmpi=,pbdMPI=,pbdSLAP=,bigGP =
       "%{_openmpi_load}\nexport MPI_LIB_PATH=$MPI_LIB\nexport MPI_TYPE=OPENMPI"
   ))
