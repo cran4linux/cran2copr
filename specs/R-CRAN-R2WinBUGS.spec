@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       openbugs glibc-devel(x86-32)
+Requires:         openbugs glibc-devel(x86-32)
 BuildRequires:    R-devel >= 2.13.0
 Requires:         R-core >= 2.13.0
 BuildArch:        noarch

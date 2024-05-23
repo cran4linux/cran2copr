@@ -269,8 +269,11 @@ need_update <- function(pkgs, cran=available_packages()) {
   x <- character(0)
   if (length(dname <- na.omit(strsplit(deps$build, " ")[[1]])))
     x <- c(x, paste0("BuildRequires:    ", resolve_deps(sreq, dname)))
-  if (length(dname <- na.omit(strsplit(deps$run, " ")[[1]])))
-    x <- c(x, paste0("Recommends:       ", resolve_deps(sreq, dname)))
+  if (length(dname <- na.omit(strsplit(deps$run, " ")[[1]]))) {
+    res <- resolve_deps(sreq, dname)
+    kword <- if (grepl("devel|_isa", res)) "Requires:  " else "Recommends:"
+    x <- c(x, paste0(kword, "       ", res))
+  }
   x
 }
 

@@ -15,7 +15,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    openmpi-devel
-Recommends:       openmpi-devel
+Requires:         openmpi-devel
 BuildRequires:    R-devel >= 2.15.1
 Requires:         R-core >= 2.15.1
 BuildRequires:    R-parallel 
