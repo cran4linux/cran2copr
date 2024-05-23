@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jewel
-%global packver   2.0.2
+%global packname  bdlim
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Models Estimation from Multiple Sources
+Summary:          Bayesian Distributed Lag Interaction Models
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-SMUT 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-SMUT 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-BayesLogit 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-BayesLogit 
 
 %description
-Estimates networks of conditional dependencies (Gaussian graphical models)
-from multiple classes of data (similar but not exactly, i.e. measurements
-on different equipment, in different locations or for various sub-types).
-Package also allows to generate simulation data and evaluate the
-performance. Implementation of the method described in Angelini, De
-Canditiis and Plaksienko (2022) <doi:10.3390/math10213983>.
+Estimation and interpretation of Bayesian distributed lag interaction
+models (BDLIMs). A BDLIM regresses a scalar outcome on repeated measures
+of exposure and allows for modification by a categorical variable under
+four specific patterns of modification. The main function is bdlim().
+There are also summary and plotting files. Details on methodology are
+described in Wilson et al. (2017) <doi:10.1093/biostatistics/kxx002>.
 
 %prep
 %setup -q -c -n %{packname}

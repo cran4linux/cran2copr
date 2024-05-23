@@ -1,0 +1,76 @@
+%global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
+%global packname  beaver
+%global packver   1.0.0
+%global rlibdir   /usr/local/lib/R/library
+
+Name:             R-CRAN-%{packname}
+Version:          1.0.0
+Release:          1%{?dist}%{?buildtag}
+Summary:          Bayesian Model Averaging of Covariate Adjusted Negative-Binomial Dose-Response
+
+License:          MIT + file LICENSE
+URL:              https://cran.r-project.org/package=%{packname}
+Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
+
+
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjags >= 4.12
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-tibble >= 3.1
+BuildRequires:    R-CRAN-checkmate >= 2.1
+BuildRequires:    R-CRAN-fs >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.5
+BuildRequires:    R-CRAN-tidyr >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-rlang >= 1.0
+BuildRequires:    R-CRAN-yodel >= 1.0
+BuildRequires:    R-CRAN-ellipsis >= 0.3
+BuildRequires:    R-CRAN-purrr >= 0.3
+Requires:         R-CRAN-rjags >= 4.12
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-tibble >= 3.1
+Requires:         R-CRAN-checkmate >= 2.1
+Requires:         R-CRAN-fs >= 1.5
+Requires:         R-CRAN-stringr >= 1.5
+Requires:         R-CRAN-tidyr >= 1.1
+Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-rlang >= 1.0
+Requires:         R-CRAN-yodel >= 1.0
+Requires:         R-CRAN-ellipsis >= 0.3
+Requires:         R-CRAN-purrr >= 0.3
+
+%description
+Dose-response modeling for negative-binomial distributed data with a
+variety of dose-response models. Covariate adjustment and Bayesian model
+averaging is supported. Functions are provided to easily obtain inference
+on the dose-response relationship and plot the dose-response curve.
+
+%prep
+%setup -q -c -n %{packname}
+
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
+
+%build
+
+%install
+
+mkdir -p %{buildroot}%{rlibdir}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
+
+%files
+%{rlibdir}/%{packname}

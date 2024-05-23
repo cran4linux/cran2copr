@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pathling
-%global packver   6.4.2
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4.2
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Library for using 'Pathling'
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.8.4
+BuildRequires:    R-CRAN-sparklyr >= 1.8.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-sparklyr >= 1.8.4
+Requires:         R-CRAN-sparklyr >= 1.8.1
 Requires:         R-CRAN-rlang >= 1.0.0
 
 %description

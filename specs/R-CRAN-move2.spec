@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  move2
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing and Analysing Animal Trajectories
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vroom >= 1.6.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-sf >= 1.0.12
+BuildRequires:    R-CRAN-sf >= 1.0.16
 BuildRequires:    R-CRAN-vctrs >= 0.5.2
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-assertthat 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-bit64 
 Requires:         R-CRAN-vroom >= 1.6.1
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-sf >= 1.0.12
+Requires:         R-CRAN-sf >= 1.0.16
 Requires:         R-CRAN-vctrs >= 0.5.2
 Requires:         R-methods 
 Requires:         R-CRAN-assertthat 

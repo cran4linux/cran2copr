@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PH1XBAR
-%global packver   0.11.1
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phase I Shewhart X-Bar Chart
 
@@ -28,8 +28,9 @@ Requires:         R-CRAN-pracma
 The purpose of 'PH1XBAR' is to build a Phase I Shewhart control chart for
 the basic Shewhart, the variance components and the ARMA models in R for
 subgrouped and individual data. More details can be found: Yao and
-Chakraborti (2020) <doi: 10.1002/qre.2793>, and Yao and Chakraborti (2021)
-<doi: 10.1080/08982112.2021.1878220>.
+Chakraborti (2020) <doi: 10.1002/qre.2793>, Yao and Chakraborti (2021)
+<doi: 10.1080/08982112.2021.1878220>, and Yao et al. (2023) <doi:
+10.1080/00224065.2022.2139783>.
 
 %prep
 %setup -q -c -n %{packname}

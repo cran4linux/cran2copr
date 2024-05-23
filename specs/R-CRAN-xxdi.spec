@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xxdi
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Expertise Indices
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel >= 4.3.3.0
 Requires:         R-core >= 4.3.3.0
 BuildArch:        noarch
 BuildRequires:    R-stats >= 4.3.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
 BuildRequires:    R-CRAN-agop >= 0.2.4
 Requires:         R-stats >= 4.3.3
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-Matrix >= 1.6.1.1
 Requires:         R-CRAN-tidyr >= 1.3.1
 Requires:         R-CRAN-agop >= 0.2.4
@@ -31,16 +33,16 @@ Institutional performance assessment remains a key challenge to a
 multitude of stakeholders. Existing indicators such as h-type indicators,
 g-type indicators, and many others do not reflect expertise of
 institutions that defines their research portfolio. The package offers
-functionality to compute two novel indices: the x-index and the xd-index.
-The x-index evaluates an institution's scholarly expertise within a
-specific discipline or field, while the xd-index provides a broader
-assessment of overall scholarly expertise considering an institution's
-publication pattern and strengths across coarse thematic areas. These
-indices offer a nuanced understanding of institutional research
-capabilities, aiding stakeholders in research management and resource
-allocation decisions. Lathabai, H.H., Nandy, A., and Singh, V.K. (2021)
-<doi:10.1007/s11192-021-04188-3>. Nandy, A., Lathabai, H.H., and Singh,
-V.K. (2023) <doi:10.5281/zenodo.8305585>.
+functionality to compute and visualise two novel indices: the x-index and
+the xd-index. The x-index evaluates an institution's scholarly expertise
+within a specific discipline or field, while the xd-index provides a
+broader assessment of overall scholarly expertise considering an
+institution's publication pattern and strengths across coarse thematic
+areas. These indices offer a nuanced understanding of institutional
+research capabilities, aiding stakeholders in research management and
+resource allocation decisions. Lathabai, H.H., Nandy, A., and Singh, V.K.
+(2021) <doi:10.1007/s11192-021-04188-3>. Nandy, A., Lathabai, H.H., and
+Singh, V.K. (2023) <doi:10.5281/zenodo.8305585>.
 
 %prep
 %setup -q -c -n %{packname}

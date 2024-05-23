@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jewel
-%global packver   2.0.2
+%global packname  phoenics
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Models Estimation from Multiple Sources
+Summary:          Pathways Longitudinal and Differential Analysis in Metabolomics
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-SMUT 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-SMUT 
-Requires:         R-CRAN-igraph 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-blme 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-blme 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
 
 %description
-Estimates networks of conditional dependencies (Gaussian graphical models)
-from multiple classes of data (similar but not exactly, i.e. measurements
-on different equipment, in different locations or for various sub-types).
-Package also allows to generate simulation data and evaluate the
-performance. Implementation of the method described in Angelini, De
-Canditiis and Plaksienko (2022) <doi:10.3390/math10213983>.
+Perform a differential analysis at pathway level based on metabolite
+quantifications and information on pathway metabolite composition. The
+method is based on a Principal Component Analysis step and on a linear
+mixed model. Automatic query of metabolic pathways is also implemented.
 
 %prep
 %setup -q -c -n %{packname}

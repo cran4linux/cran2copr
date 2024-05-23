@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mwcsr
-%global packver   0.1.8
+%global packname  qMRI
+%global packver   1.2.7.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.2.7.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solvers for Maximum Weight Connected Subgraph Problem and Its Variants
+Summary:          Methods for Quantitative Magnetic Resonance Imaging ('qMRI')
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       R-java
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-aws >= 2.4
+BuildRequires:    R-CRAN-awsMethods >= 1.0
+BuildRequires:    R-CRAN-oro.nifti >= 0.9
+BuildRequires:    R-CRAN-adimpro >= 0.9
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-aws >= 2.4
+Requires:         R-CRAN-awsMethods >= 1.0
+Requires:         R-CRAN-oro.nifti >= 0.9
+Requires:         R-CRAN-adimpro >= 0.9
 Requires:         R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-CRAN-stringr 
 
 %description
-Algorithms for solving various Maximum Weight Connected Subgraph Problems,
-including variants with budget constraints, cardinality constraints,
-weighted edges and signals. The package represents an R interface to
-high-efficient solvers based on relax-and-cut approach (Álvarez-Miranda
-E., Sinnl M. (2017) <doi:10.1016/j.cor.2017.05.015>) mixed-integer
-programming (Loboda A., Artyomov M., and Sergushichev A. (2016)
-<doi:10.1007/978-3-319-43681-4_17>) and simulated annealing.
+Implementation of methods for estimation of quantitative maps from
+Multi-Parameter Mapping (MPM) acquisitions (Weiskopf et al. (2013)
+<doi:10.3389/fnins.2013.00095>) and analysis of Inversion Recovery MRI
+data. Usage of the package is described in Polzehl and Tabelow (2023),
+"Magnetic Resonance Brain Imaging", 2nd Edition, Chapter 6 and 7,
+Springer, Use R! Series. <doi:10.1007/978-3-031-38949-8>. J. Polzehl and
+K. Tabelow (2023), "Magnetic Resonance Brain Imaging - Modeling and Data
+Analysis Using R: Code and Data." <doi:10.20347/WIAS.DATA.6> provides
+extensive example code and data.
 
 %prep
 %setup -q -c -n %{packname}

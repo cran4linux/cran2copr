@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boiwsa
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal Adjustment of Weekly Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-MuMIn 
@@ -25,6 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-MuMIn 
@@ -38,7 +40,7 @@ user-friendly interface for computing seasonally adjusted estimates of
 weekly data and also includes diagnostic tools to assess the quality of
 the adjustments. Furthermore, it incorporates tools uniquely tailored to
 the specific characteristics of Israeli data. The method is described in
-more detail in Ginker (2023) <DOI:10.13140/RG.2.2.12221.44000>.
+more detail in Ginker (2023) <doi:10.13140/RG.2.2.12221.44000>.
 
 %prep
 %setup -q -c -n %{packname}

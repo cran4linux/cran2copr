@@ -1,44 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jewel
-%global packver   2.0.2
+%global packname  MN
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graphical Models Estimation from Multiple Sources
+Summary:          Matrix Normal Distribution
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-SMUT 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-SMUT 
-Requires:         R-CRAN-igraph 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast 
 
 %description
-Estimates networks of conditional dependencies (Gaussian graphical models)
-from multiple classes of data (similar but not exactly, i.e. measurements
-on different equipment, in different locations or for various sub-types).
-Package also allows to generate simulation data and evaluate the
-performance. Implementation of the method described in Angelini, De
-Canditiis and Plaksienko (2022) <doi:10.3390/math10213983>.
+Density computation, random matrix generation and maximum likelihood
+estimation of the matrix normal distribution. References: Pocuca N.,
+Gallaugher M. P., Clark K. M. & McNicholas P. D. (2019). Assessing and
+Visualizing Matrix Variate Normality. <doi:10.48550/arXiv.1910.02859> and
+the relevant wikipedia page.
 
 %prep
 %setup -q -c -n %{packname}

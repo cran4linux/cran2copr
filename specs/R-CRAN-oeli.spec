@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          My Utilities for Developing Data Science Software
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-showtext
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sysfonts 
 BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-benchmarkme 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-showtext
 Requires:         R-stats 
 Requires:         R-CRAN-sysfonts 
 Requires:         R-CRAN-usethis 
+Requires:         R-utils 
 
 %description
 Some general helper functions that I and maybe others find useful when
