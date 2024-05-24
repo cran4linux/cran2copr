@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snotelr
-%global packver   1.4
+%global packname  gpuR
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate and Visualize 'SNOTEL' Snow Data and Seasonality
+Summary:          GPU Functions for R Objects
 
-License:          AGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-RViennaCL >= 1.7.1.7
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.15
+Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-RViennaCL >= 1.7.1.7
+Requires:         R-CRAN-BH 
+Requires:         R-CRAN-RcppEigen >= 0.3.3.4.0
 
 %description
-Programmatic interface to the 'SNOTEL' snow data
-(<https://www.nrcs.usda.gov/programs-initiatives/sswsf-snow-survey-and-water-supply-forecasting-program>).
-Provides easy downloads of snow data into your R work space or a local
-directory. Additional post-processing routines to extract snow season
-indexes are provided.
+Provides GPU enabled functions for 'R' objects in a simple and
+approachable manner.  New 'gpu*' and 'vcl*' classes have been provided to
+wrap typical 'R' objects (e.g. vector, matrix), in both host and device
+spaces, to mirror typical 'R' syntax without the need to know 'OpenCL'.
 
 %prep
 %setup -q -c -n %{packname}

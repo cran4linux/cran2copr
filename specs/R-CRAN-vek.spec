@@ -1,43 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snotelr
-%global packver   1.4
+%global packname  vek
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate and Visualize 'SNOTEL' Snow Data and Seasonality
+Summary:          Predicate Helper Functions for Testing Simple Atomic Vectors
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-memoise 
 
 %description
-Programmatic interface to the 'SNOTEL' snow data
-(<https://www.nrcs.usda.gov/programs-initiatives/sswsf-snow-survey-and-water-supply-forecasting-program>).
-Provides easy downloads of snow data into your R work space or a local
-directory. Additional post-processing routines to extract snow season
-indexes are provided.
+Predicate helper functions for testing atomic vectors in R. All functions
+take a single argument 'x' and check whether it's of the target type of
+base-R atomic vector (i.e. no class extensions nor attributes other than
+'names'), returning TRUE or FALSE. Some additionally check for value (e.g.
+absence of missing values, infinities, blank characters, or 'names'
+attribute; or having length 1).
 
 %prep
 %setup -q -c -n %{packname}

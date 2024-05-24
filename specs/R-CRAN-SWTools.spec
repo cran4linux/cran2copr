@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SWTools
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Tools for Australian Hydrologists
 
@@ -29,12 +29,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggmap 
+BuildRequires:    R-CRAN-ggspatial 
+BuildRequires:    R-CRAN-prettymapr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-hydroTSM 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-segmented 
 Requires:         R-CRAN-httr 
@@ -49,12 +49,12 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggmap 
+Requires:         R-CRAN-ggspatial 
+Requires:         R-CRAN-prettymapr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-hydroTSM 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-segmented 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GofCens
-%global packver   0.98
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.98
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Methods for Complete and Right-Censored Data
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-actuar 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-CRAN-survsim 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
@@ -29,7 +28,6 @@ BuildRequires:    R-CRAN-boot
 Requires:         R-CRAN-actuar 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-fitdistrplus 
-Requires:         R-CRAN-survsim 
 Requires:         R-grid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 

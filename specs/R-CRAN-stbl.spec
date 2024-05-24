@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snotelr
-%global packver   1.4
+%global packname  stbl
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate and Visualize 'SNOTEL' Snow Data and Seasonality
+Summary:          Stabilize Function Arguments
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-memoise 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-vctrs 
 
 %description
-Programmatic interface to the 'SNOTEL' snow data
-(<https://www.nrcs.usda.gov/programs-initiatives/sswsf-snow-survey-and-water-supply-forecasting-program>).
-Provides easy downloads of snow data into your R work space or a local
-directory. Additional post-processing routines to extract snow season
-indexes are provided.
+A set of consistent, opinionated functions to quickly check function
+arguments, coerce them to the desired configuration, or deliver
+informative error messages when that is not possible.
 
 %prep
 %setup -q -c -n %{packname}

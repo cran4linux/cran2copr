@@ -1,41 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  healthyR.data
-%global packver   1.1.0
+%global packname  EGM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Only Package to 'healthyR'
+Summary:          Evaluating Cardiac Electrophysiology Signals
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-stats 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 
 %description
-Provides data for functions typically used in the 'healthyR' package.
+A system for importing electrophysiological signal, based on the 'Waveform
+Database (WFDB)' software package, written by Moody et al 2022
+<doi:10.13026/gjvw-1m31>. A wrapper for utilizing 'WFDB' functions for
+reading and writing signal data, as well as functions for visualization
+and analysis are provided. A stable and broadly compatible class for
+working with signal data, supporting the reading in of cardiac
+electrophysiogical files such as intracardiac electrograms, is introduced.
 
 %prep
 %setup -q -c -n %{packname}

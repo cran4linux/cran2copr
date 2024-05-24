@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snotelr
-%global packver   1.4
+%global packname  mark
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate and Visualize 'SNOTEL' Snow Data and Seasonality
+Summary:          Miscellaneous, Analytic R Kernels
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-memoise 
+BuildRequires:    R-stats >= 3.6
+BuildRequires:    R-tools >= 3.6
+BuildRequires:    R-utils >= 3.6
+BuildRequires:    R-CRAN-magrittr >= 2.0.1
+BuildRequires:    R-CRAN-fs >= 1.6.2
+BuildRequires:    R-CRAN-fuj >= 0.2.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-stats >= 3.6
+Requires:         R-tools >= 3.6
+Requires:         R-utils >= 3.6
+Requires:         R-CRAN-magrittr >= 2.0.1
+Requires:         R-CRAN-fs >= 1.6.2
+Requires:         R-CRAN-fuj >= 0.2.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Programmatic interface to the 'SNOTEL' snow data
-(<https://www.nrcs.usda.gov/programs-initiatives/sswsf-snow-survey-and-water-supply-forecasting-program>).
-Provides easy downloads of snow data into your R work space or a local
-directory. Additional post-processing routines to extract snow season
-indexes are provided.
+Miscellaneous functions and wrappers for development in other packages
+created, maintained by Jordan Mark Barbone.
 
 %prep
 %setup -q -c -n %{packname}

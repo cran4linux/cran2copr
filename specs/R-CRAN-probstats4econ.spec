@@ -1,43 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  snotelr
-%global packver   1.4
+%global packname  probstats4econ
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate and Visualize 'SNOTEL' Snow Data and Seasonality
+Summary:          Companion Package to Probability and Statistics for Economics and Business
 
-License:          AGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-memoise 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-httr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-memoise 
 
 %description
-Programmatic interface to the 'SNOTEL' snow data
-(<https://www.nrcs.usda.gov/programs-initiatives/sswsf-snow-survey-and-water-supply-forecasting-program>).
-Provides easy downloads of snow data into your R work space or a local
-directory. Additional post-processing routines to extract snow season
-indexes are provided.
+Utilities for multiple hypothesis testing, companion datasets from
+"Probability and Statistics for Economics and Business: An Introduction
+Using R" by Jason Abrevaya (MIT Press, under contract).
 
 %prep
 %setup -q -c -n %{packname}

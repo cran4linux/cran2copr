@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rio
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Swiss-Army Knife for Data I/O
 
@@ -26,10 +26,10 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-data.table >= 1.11.2
 Requires:         R-CRAN-haven >= 1.1.2
 Requires:         R-CRAN-curl >= 0.6
@@ -39,20 +39,19 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-readr 
 
 %description
 Streamlined data import and export by making assumptions that the user is
 probably willing to make: 'import()' and 'export()' determine the data
-structure from the file extension, reasonable defaults are used for data
-import and export (e.g., 'stringsAsFactors=FALSE'), web-based import is
-natively supported (including from SSL/HTTPS), compressed files can be
-read directly without explicit decompression, and fast import packages are
-used where appropriate. An additional convenience function, 'convert()',
-provides a simple method for converting between file types.
+format from the file extension, reasonable defaults are used for data
+import and export, web-based import is natively supported (including from
+SSL/HTTPS), compressed files can be read directly, and fast import
+packages are used where appropriate. An additional convenience function,
+'convert()', provides a simple method for converting between file types.
 
 %prep
 %setup -q -c -n %{packname}

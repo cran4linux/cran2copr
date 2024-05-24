@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ARDECO
-%global packver   1.0.0
+%global packname  nadiv
+%global packver   2.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.18.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Annual Regional Database of the European Commission (ARDECO)
+Summary:          (Non)Additive Genetic Relatedness Matrices
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-ghql 
-BuildRequires:    R-CRAN-rjstat 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-ghql 
-Requires:         R-CRAN-rjstat 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-A set of functions to access the 'ARDECO' (Annual Regional Database of the
-European Commission) data directly from the official ARDECO public
-repository through the exploitation of the 'ARDECO' APIs. The APIs are
-completely transparent to the user and the provided functions provide a
-direct access to the 'ARDECO' data. The 'ARDECO' database is a collection
-of variables related to demography, employment, labour market, domestic
-product, capital formation. Each variable can be exposed in one or more
-units of measure as well as refers to total values plus economic sectors.
-The description of the 'ARDECO' database can be found at the following URL
-<https://urban.jrc.ec.europa.eu/ardeco>.
+Constructs (non)additive genetic relationship matrices, and their
+inverses, from a pedigree to be used in linear mixed effect models (A.K.A.
+the 'animal model'). Also includes other functions to facilitate the use
+of animal models. Some functions have been created to be used in
+conjunction with the R package 'asreml' for the 'ASReml' software, which
+can be obtained upon purchase from 'VSN' international
+(<https://vsni.co.uk/software/asreml>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  newsmap
-%global packver   0.8.3
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Supervised Model for Geographical Document Classification
 
@@ -34,7 +34,8 @@ Requires:         R-CRAN-stringi
 Semissupervised model for geographical document classification (Watanabe
 2018) <doi:10.1080/21670811.2017.1293487>. This package currently contains
 seed dictionaries in English, German, French, Spanish, Italian, Russian,
-Hebrew, Arabic Japanese and Chinese (Simplified and Traditional).
+Hebrew, Arabic, Turkish, Japanese and Chinese (Simplified and
+Traditional).
 
 %prep
 %setup -q -c -n %{packname}

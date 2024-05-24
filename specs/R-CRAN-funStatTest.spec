@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  funStatTest
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Testing for Functional Data
 
@@ -47,7 +47,7 @@ Requires:         R-utils
 %description
 Implementation of two sample comparison procedures based on median-based
 statistical tests for functional data, introduced in Smida et al (2022)
-<doi:10.1080/10485252.2022.2064997>. Other competitive state-of-the-art
+<doi:10.1080/10485252.2022.2064997>.  Other competitive state-of-the-art
 approaches proposed by Chakraborty and Chaudhuri (2015)
 <doi:10.1093/biomet/asu072>, Horvath et al (2013)
 <doi:10.1111/j.1467-9868.2012.01032.x> or Cuevas et al (2004)

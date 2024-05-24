@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   4.2.1
+%global packver   4.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
+Version:          4.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -70,9 +70,12 @@ Requires:         R-CRAN-tidytext
 
 %description
 Tool for quantitative research in scientometrics and bibliometrics. It
-provides various routines for importing bibliographic data from 'SCOPUS',
-'Clarivate Analytics Web of Science' (<https://www.webofknowledge.com/>),
-'Digital Science Dimensions' (<https://www.dimensions.ai/>), 'OpenAlex'
+implements the comprehensive workflow for science mapping analysis
+proposed in Aria M. and Cuccurullo C. (2017)
+<doi:10.1016/j.joi.2017.08.007>. 'bibliometrix' provides various routines
+for importing bibliographic data from 'SCOPUS', 'Clarivate Analytics Web
+of Science' (<https://www.webofknowledge.com/>), 'Digital Science
+Dimensions' (<https://www.dimensions.ai/>), 'OpenAlex'
 (<https://openalex.org/>), 'Cochrane Library'
 (<https://www.cochranelibrary.com/>), 'Lens' (<https://lens.org>), and
 'PubMed' (<https://pubmed.ncbi.nlm.nih.gov/>) databases, performing

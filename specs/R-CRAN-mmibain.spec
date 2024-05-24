@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmibain
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Informative Hypotheses Evaluation Web Applications
 
@@ -20,7 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-bain 
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-mmcards 
@@ -30,7 +32,9 @@ BuildRequires:    R-CRAN-shinythemes
 Requires:         R-CRAN-bain 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-mmcards 
