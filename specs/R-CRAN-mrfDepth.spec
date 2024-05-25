@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrfDepth
-%global packver   1.0.16
+%global packver   1.0.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Depth Measures in Multivariate, Regression and Functional Settings
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecospat
-%global packver   4.0.0
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.0
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Ecology Miscellaneous Methods
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 4.4.2
-BuildRequires:    R-CRAN-biomod2 >= 4.2.3
+BuildRequires:    R-CRAN-biomod2 >= 4.2.5
 BuildRequires:    R-CRAN-gtools >= 3.4.1
 BuildRequires:    R-methods >= 3.1.1
 BuildRequires:    R-CRAN-vegan >= 2.4.1
@@ -38,7 +38,7 @@ BuildRequires:    R-CRAN-adehabitatMA >= 0.3.8
 BuildRequires:    R-CRAN-classInt >= 0.1.23
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-Hmisc >= 4.4.2
-Requires:         R-CRAN-biomod2 >= 4.2.3
+Requires:         R-CRAN-biomod2 >= 4.2.5
 Requires:         R-CRAN-gtools >= 3.4.1
 Requires:         R-methods >= 3.1.1
 Requires:         R-CRAN-vegan >= 2.4.1

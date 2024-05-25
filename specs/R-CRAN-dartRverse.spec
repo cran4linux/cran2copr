@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restriktor
-%global packver   0.5-60
+%global packname  dartRverse
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.60
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Restricted Statistical Estimation and Inference for Linear Models
+Summary:          Install and Load the 'dartRverse' Suits of Packages
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.10
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-ic.infer 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-norm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-lavaan >= 0.6.10
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-ic.infer 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-tmvtnorm 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-norm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-devtools 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-devtools 
 
 %description
-Allow for easy-to-use testing or evaluating of linear equality and
-inequality restrictions about parameters and effects in (generalized)
-linear statistical models.
+Provides a single function that supports the installation of all packages
+belonging to the 'dartRverse'. The 'dartRverse' is a set of packages that
+work together to analyse SNP (single nuclear polymorphism) data. All
+packages aim to have a similar 'look and feel' and are based on the same
+type of data structure ('genlight'), with additional metadata for loci and
+individuals (samples). For more information visit the 'GitHub' pages
+<https://github.com/green-striped-gecko/dartRverse>.
 
 %prep
 %setup -q -c -n %{packname}

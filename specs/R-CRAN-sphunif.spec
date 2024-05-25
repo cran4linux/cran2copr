@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sphunif
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Uniformity Tests on the Circle, Sphere, and Hypersphere
 
@@ -35,17 +35,20 @@ Requires:         R-CRAN-rotasym
 %description
 Implementation of uniformity tests on the circle and (hyper)sphere. The
 main function of the package is unif_test(), which conveniently collects
-more than 30 tests for assessing uniformity on S^{p-1}={x in R^p :
-||x||=1}, p >= 2. The test statistics are implemented in the unif_stat()
-function, which allows computing several statistics to several samples
+more than 35 tests for assessing uniformity on S^{p-1} = {x in R^p : ||x||
+= 1}, p >= 2. The test statistics are implemented in the unif_stat()
+function, which allows computing several statistics for different samples
 within a single call, thus facilitating Monte Carlo experiments.
 Furthermore, the unif_stat_MC() function allows parallelizing them in a
 simple way. The asymptotic null distributions of the statistics are
 available through the function unif_stat_distr(). The core of 'sphunif' is
 coded in C++ by relying on the 'Rcpp' package. The package also provides
 several novel datasets and gives the replicability for the data
-application in García-Portugués, Navarro-Esteban and Cuesta-Albertos
-(2023) <arXiv:2008.09897>.
+applications/simulations in García-Portugués et al. (2021)
+<doi:10.1007/978-3-030-69944-4_12>, García-Portugués et al. (2023)
+<doi:10.3150/21-BEJ1454>, García-Portugués et al. (2024)
+<doi:10.48550/arXiv.2108.09874>, and Fernández-de-Marcos and
+García-Portugués (2024) <doi:10.48550/arXiv.2405.13531>.
 
 %prep
 %setup -q -c -n %{packname}

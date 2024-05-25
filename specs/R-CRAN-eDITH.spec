@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eDITH
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Transport of Environmental DNA in River Networks
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-OCNet >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-rivnet >= 0.3.1
+BuildRequires:    R-CRAN-rivnet >= 0.4.2
 BuildRequires:    R-CRAN-BayesianTools 
 BuildRequires:    R-CRAN-LaplacesDemon 
 BuildRequires:    R-CRAN-DHARMa 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-fields 
 Requires:         R-CRAN-OCNet >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-rivnet >= 0.3.1
+Requires:         R-CRAN-rivnet >= 0.4.2
 Requires:         R-CRAN-BayesianTools 
 Requires:         R-CRAN-LaplacesDemon 
 Requires:         R-CRAN-DHARMa 

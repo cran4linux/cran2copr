@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  samadb
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          South Africa Macroeconomic Database API
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-collapse >= 1.8.0
+BuildRequires:    R-CRAN-collapse >= 2.0.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RMySQL 
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-collapse >= 1.8.0
+Requires:         R-CRAN-collapse >= 2.0.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RMySQL 
 Requires:         R-CRAN-writexl 

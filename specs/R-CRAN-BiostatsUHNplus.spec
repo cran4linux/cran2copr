@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BiostatsUHNplus
-%global packver   0.0.9
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nested Data Summary and Adverse Events
+Summary:          Nested Data Summary, Adverse Events and REDCap
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-MCMCglmm 
 BuildRequires:    R-CRAN-modeest 
@@ -35,6 +34,7 @@ BuildRequires:    R-CRAN-reportRmd
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstatix 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
@@ -45,7 +45,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-MCMCglmm 
 Requires:         R-CRAN-modeest 
@@ -56,13 +55,14 @@ Requires:         R-CRAN-reportRmd
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstatix 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-Miscellaneous code snippets and functions with pipes and multiple package
-dependencies used for summarizing nested data and adverse events.
+Tools and code snippets for summarizing nested data, adverse events and
+REDCap study information.
 
 %prep
 %setup -q -c -n %{packname}

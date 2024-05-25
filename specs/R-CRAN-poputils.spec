@@ -1,49 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  restriktor
-%global packver   0.5-60
+%global packname  poputils
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.60
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Restricted Statistical Estimation and Inference for Linear Models
+Summary:          Demographic Analysis and Data Manipulation
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.10
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-ic.infer 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-norm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-lavaan >= 0.6.10
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-ic.infer 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-tmvtnorm 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-norm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvec 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvec 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-Allow for easy-to-use testing or evaluating of linear equality and
-inequality restrictions about parameters and effects in (generalized)
-linear statistical models.
+Perform tasks commonly encountered when preparing and analysing
+demographic data. Some functions are intended for end users, and others
+for developers. Includes functions for working with life tables.
 
 %prep
 %setup -q -c -n %{packname}

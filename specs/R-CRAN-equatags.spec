@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  equatags
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equations to 'XML'
 
@@ -18,11 +19,9 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-katex 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
-Requires:         R-tools 
 Requires:         R-CRAN-katex 
 
 %description

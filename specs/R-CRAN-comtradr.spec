@@ -1,53 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsconnect
-%global packver   1.3.0
+%global packname  comtradr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deploy Docs, Apps, and APIs to 'Posit Connect', 'shinyapps.io', and 'RPubs'
+Summary:          Interface with the United Nations Comtrade API
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.1.5
-BuildRequires:    R-CRAN-openssl >= 2.0.0
-BuildRequires:    R-CRAN-renv >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-packrat >= 0.6
-BuildRequires:    R-CRAN-rstudioapi >= 0.5
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-PKI 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-poorman 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-tools 
-Requires:         R-CRAN-yaml >= 2.1.5
-Requires:         R-CRAN-openssl >= 2.0.0
-Requires:         R-CRAN-renv >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-packrat >= 0.6
-Requires:         R-CRAN-rstudioapi >= 0.5
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-PKI 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-poorman 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
 Requires:         R-tools 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
 
 %description
-Programmatic deployment interface for 'RPubs', 'shinyapps.io', and 'Posit
-Connect'. Supported content types include R Markdown documents, Shiny
-applications, Plumber APIs, plots, and static web content.
+Interface with and extract data from the United Nations 'Comtrade' API
+<https://comtradeplus.un.org/>. 'Comtrade' provides country level shipping
+data for a variety of commodities, these functions allow for easy API
+query and data returned as a tidy data frame.
 
 %prep
 %setup -q -c -n %{packname}

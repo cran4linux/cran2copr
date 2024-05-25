@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collapse
-%global packver   2.0.13
+%global packver   2.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.13
+Version:          2.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -34,8 +34,8 @@ detailed (grouped, weighted) summary statistics, powerful tools to work
 with nested data, fast data object conversions, functions for memory
 efficient R programming, and helpers to effectively deal with variable
 labels, attributes, and missing data. It is well integrated with base R
-classes, 'dplyr'/'tibble', 'data.table', 'sf', 'plm' (panel-series and
-data frames), and 'xts'/'zoo'.
+classes, 'dplyr'/'tibble', 'data.table', 'sf', 'units', 'plm'
+(panel-series and data frames), and 'xts'/'zoo'.
 
 %prep
 %setup -q -c -n %{packname}
