@@ -1,36 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moodlequizR
-%global packver   2.1.1
+%global packname  vsmi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Fully Randomized 'Moodle' Test Questions
+Summary:          Variable Selection for Multiple Imputed Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-NMcalc 
-Requires:         R-CRAN-base64 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-CRAN-NMcalc 
+BuildRequires:    R-CRAN-MASS >= 7.3.60
+BuildRequires:    R-CRAN-mice >= 3.16.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
+BuildRequires:    R-CRAN-qif >= 1.5
+Requires:         R-CRAN-MASS >= 7.3.60
+Requires:         R-CRAN-mice >= 3.16.0
+Requires:         R-CRAN-Matrix >= 1.6.1.1
+Requires:         R-CRAN-qif >= 1.5
 
 %description
-Routines to generate fully randomized 'moodle' quizzes. It also contains
-15 examples and a 'shiny' app.
+Penalized weighted least-squares estimate for variable selection on
+correlated multiply imputed data and penalized estimating equations for
+generalized linear models with multiple imputation. Reference: Li, Y.,
+Yang, H., Yu, H., Huang, H., Shen, Y*. (2023) "Penalized estimating
+equations for generalized linear models with multiple imputation",
+<doi:10.1214/22-AOAS1721>. Li, Y., Yang, H., Yu, H., Huang, H., Shen, Y*.
+(2023) "Penalized weighted least-squares estimate for variable selection
+on correlated multiply imputed data", <doi:10.1093/jrsssc/qlad028>.
 
 %prep
 %setup -q -c -n %{packname}

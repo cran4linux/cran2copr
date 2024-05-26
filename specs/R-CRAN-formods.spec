@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  formods
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' Modules for General Tasks
 
@@ -59,8 +59,9 @@ Requires:         R-CRAN-zip
 %description
 'Shiny' apps can often make use of the same key elements, this package
 provides modules for common tasks (data upload, wrangling data, figure
-generation and saving the app state). These modules can react and interact
-as well as generate code to create reproducible analyses.
+generation and saving the app state), and also a framework for developing.
+These modules can react and interact as well as generate code to create
+reproducible analyses.
 
 %prep
 %setup -q -c -n %{packname}

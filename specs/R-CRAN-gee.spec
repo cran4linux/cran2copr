@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gee
-%global packver   4.13-26
+%global packver   4.13-27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.13.26
+Version:          4.13.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Estimation Equation Solver
 

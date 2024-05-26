@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rfit
-%global packver   0.27.0
+%global packname  activegp
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rank-Based Estimation for Linear Models
+Summary:          Gaussian Process Based Design and Analysis for the Active Subspace Method
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildRequires:    R-CRAN-hetGP >= 1.1.1
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-hetGP >= 1.1.1
+Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-methods 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-RcppProgress 
 
 %description
-Rank-based (R) estimation and inference for linear models.  Estimation is
-for general scores and a library of commonly used score functions is
-included.
+The active subspace method is a sensitivity analysis technique that finds
+important linear combinations of input variables for a simulator. This
+package provides functions allowing estimation of the active subspace
+without gradient information using Gaussian processes as well as
+sequential experimental design tools to minimize the amount of data
+required to do so. Implements Wycoff et al. (JCGS, 2021)
+<doi:10.48550/arXiv.1907.11572>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moodlequizR
-%global packver   2.1.1
+%global packname  neonSoilFlux
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Fully Randomized 'Moodle' Test Questions
+Summary:          Compute Soil Carbon Fluxes for the National Ecological Observatory Network Sites
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-neonUtilities 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-NMcalc 
-Requires:         R-CRAN-base64 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-neonUtilities 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
-Requires:         R-CRAN-NMcalc 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Routines to generate fully randomized 'moodle' quizzes. It also contains
-15 examples and a 'shiny' app.
+Acquires and synthesizes soil carbon fluxes at sites located in the
+National Ecological Observatory Network (NEON). Provides flux estimates
+and associated uncertainty as well as key environmental measurements (soil
+water, temperature, CO2 concentration) that are used to compute soil
+fluxes.
 
 %prep
 %setup -q -c -n %{packname}

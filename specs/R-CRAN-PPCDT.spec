@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moodlequizR
-%global packver   2.1.1
+%global packname  PPCDT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Fully Randomized 'Moodle' Test Questions
+Summary:          An Optimal Subset Selection for Distributed Hypothesis Testing
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-NMcalc 
-Requires:         R-CRAN-base64 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-NMcalc 
 
 %description
-Routines to generate fully randomized 'moodle' quizzes. It also contains
-15 examples and a 'shiny' app.
+In the era of big data, data redundancy and distributed characteristics
+pose new challenges to data analysis. This article proposes a method of
+optimal subset estimation for redundant distributed data based on PPC.
+Through PPC technology, this method can effectively extract useful
+information from redundant distributed data and estimate the optimal
+subset. Experimental results show that this method can improve data
+quality and utilization efficiency and evaluate its performance.The
+philosophy of the package is described in Guo G. (2020)
+<doi:10.1007/s00180-020-00974-4>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moodlequizR
-%global packver   2.1.1
+%global packname  kDGLM
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Fully Randomized 'Moodle' Test Questions
+Summary:          Bayesian Analysis of Dynamic Generalized Linear Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-NMcalc 
-Requires:         R-CRAN-base64 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-CRAN-NMcalc 
+BuildRequires:    R-CRAN-Rfast >= 2.0.8
+BuildRequires:    R-CRAN-extraDistr >= 1.9.1
+BuildRequires:    R-CRAN-generics >= 0.1.3
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rfast >= 2.0.8
+Requires:         R-CRAN-extraDistr >= 1.9.1
+Requires:         R-CRAN-generics >= 0.1.3
+Requires:         R-CRAN-Rdpack 
 
 %description
-Routines to generate fully randomized 'moodle' quizzes. It also contains
-15 examples and a 'shiny' app.
+Provide routines for filtering and smoothing, forecasting, sampling and
+Bayesian analysis of Dynamic Generalized Linear Models using the
+methodology described in Alves et al.
+(2024)<doi:10.48550/arXiv.2201.05387> and dos Santos Jr. et al.
+(2024)<doi:10.48550/arXiv.2403.13069>.
 
 %prep
 %setup -q -c -n %{packname}

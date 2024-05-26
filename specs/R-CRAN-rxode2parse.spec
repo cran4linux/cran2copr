@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2parse
-%global packver   2.0.18
+%global packver   2.0.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.18
+Version:          2.0.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsing and Code Generation Functions for 'rxode2'
 
@@ -48,7 +48,7 @@ Requires:         R-CRAN-symengine
 Provides the parsing needed for 'rxode2' (Wang, Hallow and James (2016)
 <doi:10.1002/psp4.12052>). It also provides the 'stan' based advan linear
 compartment model solutions with gradients (Carpenter et al (2015),
-<arXiv:1509.07164>) needed in 'nlmixr2' (Fidler et al (2019)
+<doi:10.48550/arXiv.1509.07164>) needed in 'nlmixr2' (Fidler et al (2019)
 <doi:10.1002/psp4.12445>). This split will reduce computational burden of
 recompiling 'rxode2'.
 

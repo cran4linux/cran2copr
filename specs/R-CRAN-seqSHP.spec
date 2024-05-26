@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moodlequizR
-%global packver   2.1.1
+%global packname  seqSHP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Fully Randomized 'Moodle' Test Questions
+Summary:          Building Sequences from SHP Waves
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-base64 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-NMcalc 
-Requires:         R-CRAN-base64 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-shiny 
-Requires:         R-stats 
-Requires:         R-CRAN-NMcalc 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-dplyr 
 
 %description
-Routines to generate fully randomized 'moodle' quizzes. It also contains
-15 examples and a 'shiny' app.
+Based on the structure of the SPSS version of the Swiss Household Panel
+(SHP) data, provides a function seqFromWaves() that seeks the data of
+variables specified by the user in each of the wave files and collects
+them as sequences. The function also matches the sequences with variables
+from other files such as the master files of persons (MP) and households
+(MH), and social origins (SO). It can also match with activity calendar
+data (CA).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dodgr
-%global packver   0.2.21
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distances on Directed Graphs
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-callr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-osmdata 
 BuildRequires:    R-CRAN-RcppParallel 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-callr
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
 Requires:         R-methods 
 Requires:         R-CRAN-osmdata 
 Requires:         R-CRAN-RcppParallel 
