@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highr
-%global packver   0.11
+%global packname  equatiomatic
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Syntax Highlighting for R Source Code
+Summary:          Transform Models into 'LaTeX' Equations
 
-License:          GPL
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.18
-Requires:         R-CRAN-xfun >= 0.18
+BuildRequires:    R-CRAN-broom >= 0.7.0
+BuildRequires:    R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-broom >= 0.7.0
+Requires:         R-CRAN-broom.mixed 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-knitr 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides syntax highlighting for R source code. Currently it supports
-LaTeX and HTML output. Source code of other languages is supported via
-Andre Simon's highlight package (<https://gitlab.com/saalen/highlight>).
+The goal of 'equatiomatic' is to reduce the pain associated with writing
+'LaTeX' formulas from fitted models. The primary function of the package,
+extract_eq(), takes a fitted model object as its input and returns the
+corresponding 'LaTeX' code for the model.
 
 %prep
 %setup -q -c -n %{packname}

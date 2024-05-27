@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DAAG
-%global packver   1.25.4
+%global packver   1.25.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.25.4
+Version:          1.25.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis and Graphics Data and Functions
 
@@ -28,8 +29,8 @@ Requires:         R-CRAN-Rdpack
 %description
 Functions and data sets used in examples and exercises in the text
 Maindonald, J.H. and Braun, W.J. (2003, 2007, 2010) "Data Analysis and
-Graphics Using R", and in an upcoming Maindonald, Braun, Andrews, and
-Narayan text that builds on this earlier text.
+Graphics Using R", and in an upcoming Maindonald, Braun, and Andrews text
+that builds on this earlier text.
 
 %prep
 %setup -q -c -n %{packname}

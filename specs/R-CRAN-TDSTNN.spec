@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highr
-%global packver   0.11
+%global packname  TDSTNN
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Syntax Highlighting for R Source Code
+Summary:          Time Delay Spatio Temporal Neural Network
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.2.3
+Requires:         R-core >= 4.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.18
-Requires:         R-CRAN-xfun >= 0.18
+BuildRequires:    R-CRAN-nnet 
+Requires:         R-CRAN-nnet 
 
 %description
-Provides syntax highlighting for R source code. Currently it supports
-LaTeX and HTML output. Source code of other languages is supported via
-Andre Simon's highlight package (<https://gitlab.com/saalen/highlight>).
+STARMA (Space-Time Autoregressive Moving Average) models are commonly
+utilized in modeling and forecasting spatiotemporal time series data.
+However, the intricate nonlinear dynamics observed in many space-time
+rainfall patterns often exceed the capabilities of conventional STARMA
+models. This R package enables the fitting of Time Delay Spatio-Temporal
+Neural Networks, which are adept at handling such complex nonlinear
+dynamics efficiently. For detailed methodology, please refer to Saha et
+al. (2020) <doi:10.1007/s00704-020-03374-2>.
 
 %prep
 %setup -q -c -n %{packname}

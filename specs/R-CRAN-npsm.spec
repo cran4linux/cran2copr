@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npsm
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Statistical Methods
 
@@ -27,13 +27,14 @@ Requires:         R-CRAN-class
 Requires:         R-CRAN-plyr 
 
 %description
-Accompanies the book "Nonparametric Statistical Methods Using R" by Kloke
-and McKean (2014, ISBN:9781439873434).  Includes methods, datasets, and
-random number generation useful for the study of robust and/or
-nonparametric statistics.  Emphasizes classical nonparametric methods for
-a variety of designs --- especially one-sample and two-sample problems.
-Includes methods for general scores, including estimation and testing for
-the two-sample location problem as well as Hogg's adaptive method.
+Accompanies the book "Nonparametric Statistical Methods Using R, 2nd
+Edition" by Kloke and McKean (2024, ISBN:9780367651350).  Includes
+methods, datasets, and random number generation useful for the study of
+robust and/or nonparametric statistics.  Emphasizes classical
+nonparametric methods for a variety of designs --- especially one-sample
+and two-sample problems.  Includes methods for general scores, including
+estimation and testing for the two-sample location problem as well as
+Hogg's adaptive method.
 
 %prep
 %setup -q -c -n %{packname}

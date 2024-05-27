@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ddml
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double/Debiased Machine Learning
 
@@ -42,8 +42,8 @@ Requires:         R-CRAN-xgboost
 Estimate common causal parameters using double/debiased machine learning
 as proposed by Chernozhukov et al. (2018) <doi:10.1111/ectj.12097>. 'ddml'
 simplifies estimation based on (short-)stacking as discussed in Ahrens et
-al. (2024) <arXiv:2401.01645>, which leverages multiple base learners to
-increase robustness to the underlying data generating process.
+al. (2024) <doi:10.48550/arXiv.2401.01645>, which leverages multiple base
+learners to increase robustness to the underlying data generating process.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highr
-%global packver   0.11
+%global packname  PRNG
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Syntax Highlighting for R Source Code
+Summary:          A Pseudo-Random Number Generator
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.18
-Requires:         R-CRAN-xfun >= 0.18
 
 %description
-Provides syntax highlighting for R source code. Currently it supports
-LaTeX and HTML output. Source code of other languages is supported via
-Andre Simon's highlight package (<https://gitlab.com/saalen/highlight>).
+Provides functions for generating pseudo-random numbers that follow a
+uniform distribution [0,1]. Randomness tests were conducted using the
+National Institute of Standards and Technology test
+suite<https://csrc.nist.gov/pubs/sp/800/22/r1/upd1/final>, along with
+additional tests. The sequence generated depends on the initial values and
+parameters. The package includes a linear congruence map as the decision
+map and three chaotic maps to generate the pseudo-random sequence, which
+follow a uniform distribution. Other distributions can be generated from
+the uniform distribution using the Inversion Principle Method and
+BOX-Muller transformation. Small perturbations in seed values result in
+entirely different sequences of numbers due to the sensitive nature of the
+maps being used. The chaotic nature of the maps helps achieve randomness
+in the generator. Additionally, the generator is capable of producing
+random bits.
 
 %prep
 %setup -q -c -n %{packname}

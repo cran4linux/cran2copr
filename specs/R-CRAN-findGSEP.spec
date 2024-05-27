@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highr
-%global packver   0.11
+%global packname  findGSEP
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Syntax Highlighting for R Source Code
+Summary:          Estimate Genome Size of Polyploid Species Using k-Mer Frequencies
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xfun >= 0.18
-Requires:         R-CRAN-xfun >= 0.18
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
 
 %description
-Provides syntax highlighting for R source code. Currently it supports
-LaTeX and HTML output. Source code of other languages is supported via
-Andre Simon's highlight package (<https://gitlab.com/saalen/highlight>).
+Provides tools to estimate the genome size of polyploid species using
+k-mer frequencies. This package includes functions to process k-mer
+frequency data and perform genome size estimation by fitting k-mer
+frequencies with a normal distribution model. It supports handling of
+complex polyploid genomes and offers various options for customizing the
+estimation process. The basic method 'findGSE' is detailed in Sun, Hequan,
+et al. (2018) <doi:10.1093/bioinformatics/btx637>.
 
 %prep
 %setup -q -c -n %{packname}
