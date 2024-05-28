@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crqa
-%global packver   2.0.5
+%global packname  msdrought
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unidimensional and Multidimensional Methods for Recurrence Quantification Analysis
+Summary:          Seasonal Mid-Summer Drought Characteristics
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-tseriesChaos 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-CRAN-rdist 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-tseriesChaos 
-Requires:         R-CRAN-gplots 
-Requires:         R-CRAN-plot3D 
-Requires:         R-CRAN-rdist 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-signal 
+Requires:         R-stats 
+Requires:         R-CRAN-xts 
 
 %description
-Auto, Cross and Multi-dimensional recurrence quantification analysis.
-Different methods for computing recurrence, cross vs. multidimensional or
-profile iti.e., only looking at the diagonal recurrent points, as well as
-functions for optimization and plotting are proposed. in-depth measures of
-the whole cross-recurrence plot, Please refer to Coco and others (2021)
-<doi:10.32614/RJ-2021-062>, Coco and Dale (2014)
-<doi:10.3389/fpsyg.2014.00510> and Wallot (2018) <doi:
-10.1080/00273171.2018.1512846> for further details about the method.
+Characterization of a mid-summer drought (MSD) with precipitation based
+statistics. The MSD is a phenomenon of decreased rainfall during a typical
+rainy season. It is a feature of rainfall in much of Central America and
+is also found in other locations, typically those with a Mediterranean
+climate. Details on the metrics are in Maurer et al. (2022)
+<doi:10.5194/hess-26-1425-2022>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predhy.GUI
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genomic Prediction of Hybrid Performance with Graphical User Interface
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-predhy >= 1.2.1
+BuildRequires:    R-CRAN-predhy >= 2.1
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-BGLR 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-lightgbm 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-predhy >= 1.2.1
+Requires:         R-CRAN-predhy >= 2.1
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-BGLR 
 Requires:         R-CRAN-pls 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-lightgbm 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
@@ -46,13 +46,14 @@ Requires:         R-CRAN-htmltools
 
 %description
 Performs genomic prediction of hybrid performance using eight GS methods
-including GBLUP, BayesB, RKHS, PLS, LASSO, Elastic net, Random forest and
-XGBoost. GBLUP: genomic best liner unbiased prediction, RKHS: reproducing
+including GBLUP, BayesB, RKHS, PLS, LASSO, Elastic net, XGBoost and
+LightGBM. GBLUP: genomic best liner unbiased prediction, RKHS: reproducing
 kernel Hilbert space, PLS: partial least squares regression, LASSO: least
 absolute shrinkage and selection operator, XGBoost: extreme gradient
-boosting. It also provides fast cross-validation and mating design scheme
-for training population (Xu S et al (2016) <doi:10.1111/tpj.13242>; Xu S
-(2017) <doi:10.1534/g3.116.038059>).
+boosting, LightGBM: light gradient boosting machine. It also provides fast
+cross-validation and mating design scheme for training population (Xu S et
+al (2016) <doi:10.1111/tpj.13242>; Xu S (2017)
+<doi:10.1534/g3.116.038059>).
 
 %prep
 %setup -q -c -n %{packname}

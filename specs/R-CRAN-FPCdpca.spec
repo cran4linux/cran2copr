@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geodata
-%global packver   0.5-9
+%global packname  FPCdpca
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Geographic Data
+Summary:          The FPCdpca Criterion on Distributed Principal Component Analysis
 
-License:          GPL (>= 3)
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.6.41
-Requires:         R-CRAN-terra >= 1.6.41
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-Rdimtools 
+BuildRequires:    R-CRAN-rsvd 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-Rdimtools 
+Requires:         R-CRAN-rsvd 
+Requires:         R-stats 
 
 %description
-Functions for downloading of geographic data for use in spatial analysis
-and mapping. The package facilitates access to climate, crops, elevation,
-land use, soil, species occurrence, accessibility, administrative
-boundaries and other data.
+We consider optimal subset selection in the setting that one needs to use
+only one data subset to represent the whole data set with minimum
+information loss, and devise a novel intersection-based criterion on
+selecting optimal subset, called as the FPC criterion, to handle with the
+optimal sub-estimator in distributed principal component analysis; That
+is, the FPCdpca. The philosophy of the package is described in Guo G.
+(2020) <doi:10.1007/s00180-020-00974-4>.
 
 %prep
 %setup -q -c -n %{packname}

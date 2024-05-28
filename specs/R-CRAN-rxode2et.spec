@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2et
-%global packver   2.0.12
+%global packver   2.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.12
+Version:          2.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event Table Functions for 'rxode2'
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-rxode2parse >= 2.0.18
-BuildRequires:    R-CRAN-rxode2random >= 2.0.13
+BuildRequires:    R-CRAN-rxode2random >= 2.1.1
+BuildRequires:    R-CRAN-rxode2parse >= 2.0.19
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-lotri 
-Requires:         R-CRAN-rxode2parse >= 2.0.18
-Requires:         R-CRAN-rxode2random >= 2.0.13
+Requires:         R-CRAN-rxode2random >= 2.1.1
+Requires:         R-CRAN-rxode2parse >= 2.0.19
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-methods 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pgenlibr
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          PLINK 2 Binary (.pgen) Reader
 
@@ -22,7 +22,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.1
 %description
 A thin wrapper over PLINK 2's core libraries which provides an R interface
 for reading .pgen files.  A minimal .pvar loader is also included.  Chang
-et al. (2015) <doi:10.1186/s13742-015-0047-8>.
+et al. (2015) doi{10.1186/s13742-015-0047-8}.
 
 %prep
 %setup -q -c -n %{packname}

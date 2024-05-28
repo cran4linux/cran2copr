@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robcbi
-%global packver   1.1-4
+%global packname  PlayerChart
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditionally Unbiased Bounded Influence Estimates
+Summary:          Generate Pizza Chart: Player Stats 0-100
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-robeth 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-robeth 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Conditionally unbiased bounded influence estimates as described in Kuensch
-et al. (1989) <doi:10.1080/01621459.1989.10478791> in three special cases
-of the generalized linear model: Bernoulli, Binomial, and Poisson
-distributed responses.
+Create an interactive pizza chart visualizing a specific player's
+statistics across various attributes in a sports dataset. The chart is
+constructed based on input parameters: 'data', a dataframe containing
+player data for any sports; 'player_stats_col', a vector specifying the
+names of the columns from the dataframe that will be used to create slices
+in the pizza chart, with statistics ranging between 0 and 100; 'name_col',
+specifying the name of the column in the dataframe that contains the
+player names; and 'player_name', representing the specific player whose
+statistics will be visualized in the chart, serving as the chart title.
 
 %prep
 %setup -q -c -n %{packname}

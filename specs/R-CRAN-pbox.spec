@@ -1,34 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SparseM
-%global packver   1.82
+%global packname  pbox
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.82
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Linear Algebra
+Summary:          Exploring Multivariate Spaces with Probability Boxes
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-gamlss 
 Requires:         R-methods 
-Requires:         R-graphics 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
-Some basic linear algebra functionality for sparse matrices is provided:
-including Cholesky decomposition and backsolving as well as standard R
-subsetting and Kronecker products.
+Advanced statistical library offering a method to encapsulate and query
+the probability space of a dataset effortlessly using Probability Boxes
+(p-boxes). Its distinctive feature lies in the ease with which users can
+navigate and analyze marginal, joint, and conditional probabilities while
+taking into account the underlying correlation structure inherent in the
+data using copula theory and models. A comprehensive explanation is
+available in the paper "pbox: Exploring Multivariate Spaces with
+Probability Boxes" to be published in the Journal of Statistical Software.
 
 %prep
 %setup -q -c -n %{packname}

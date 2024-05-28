@@ -1,57 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DIDmultiplegtDYN
-%global packver   1.0.11
+%global packname  bmm
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
+Summary:          Easy and Accessible Bayesian Measurement Models Using 'brms'
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-brms >= 2.21.0
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-matlib 
-BuildRequires:    R-CRAN-plm 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rnames 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-brms >= 2.21.0
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-matlib 
-Requires:         R-CRAN-plm 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rnames 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-Estimation of event-study Difference-in-Difference (DID) estimators in
-designs with multiple groups and periods, and with a potentially
-non-binary treatment that may increase or decrease multiple times.
+Fit computational and measurement models using full Bayesian inference.
+The package provides a simple and accessible interface by translating
+complex domain-specific models into 'brms' syntax, a powerful and flexible
+framework for fitting Bayesian regression models using 'Stan'. The package
+is designed so that users can easily apply state-of-the-art models in
+various research fields, and so that researchers can use it as a new model
+development framework. References: Frischkorn and Popov (2023)
+<doi:10.31234/osf.io/umt57>.
 
 %prep
 %setup -q -c -n %{packname}

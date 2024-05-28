@@ -1,45 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinyMobile
-%global packver   2.0.0
+%global packname  telraamStats
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mobile Ready 'shiny' Apps with Standalone Capabilities
+Summary:          Retrieval and Visualization of Mobility Data from 'Telraam' Sensors
 
-License:          GPL-2
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-gplots 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-yaml 
 
 %description
-Develop outstanding 'shiny' apps for 'iOS' and 'Android' as well as
-beautiful 'shiny' gadgets. 'shinyMobile' is built on top of the latest
-'Framework7' template <https://framework7.io>. Discover 14 new input
-widgets (sliders, vertical sliders, stepper, grouped action buttons,
-toggles, picker, smart select, ...), 2 themes (light and dark), 12 new
-widgets (expandable cards, badges, chips, timelines, gauges, progress
-bars, ...) combined with the power of server-side notifications such as
-alerts, modals, toasts, action sheets, sheets (and more) as well as 3
-layouts (single, tabs and split).
+Streamline the processing of 'Telraam' data, sourced from open data
+mobility sensors. These tools range from data retrieval (without the need
+for API knowledge) to data visualization, including data preprocessing.
 
 %prep
 %setup -q -c -n %{packname}

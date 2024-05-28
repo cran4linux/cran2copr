@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPostgres
-%global packver   1.4.6
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          C++ Interface to PostgreSQL
 
@@ -18,7 +18,7 @@ BuildRequires:    libpq-devel
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-blob >= 1.2.0
-BuildRequires:    R-CRAN-DBI >= 1.1.0
+BuildRequires:    R-CRAN-DBI >= 1.2.0
 BuildRequires:    R-CRAN-hms >= 1.0.0
 BuildRequires:    R-CRAN-plogr >= 0.2.0
 BuildRequires:    R-CRAN-bit64 
@@ -27,7 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-blob >= 1.2.0
-Requires:         R-CRAN-DBI >= 1.1.0
+Requires:         R-CRAN-DBI >= 1.2.0
 Requires:         R-CRAN-hms >= 1.0.0
 Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-lubridate 
@@ -35,7 +35,7 @@ Requires:         R-methods
 Requires:         R-CRAN-withr 
 
 %description
-Fully DBI-compliant Rcpp-backed interface to PostgreSQL
+Fully DBI-compliant C++-backed interface to PostgreSQL
 <https://www.postgresql.org/>, an open-source relational database.
 
 %prep

@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  optimizeR
-%global packver   1.1.0
+%global packname  sstvars
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unified Framework for Numerical Optimizers
+Summary:          Toolkit for Reduced Form and Structural Smooth Transition Vector Autoregressive Models
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-oeli >= 0.4.1
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lbfgsb3c 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TestFunctions 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-oeli >= 0.4.1
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lbfgsb3c 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
-Requires:         R-CRAN-TestFunctions 
-Requires:         R-CRAN-ucminf 
-Requires:         R-utils 
+BuildRequires:    R-parallel >= 4.0.0
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-graphics >= 4.0.0
+BuildRequires:    R-CRAN-pbapply >= 1.7.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.0.0.0
+Requires:         R-parallel >= 4.0.0
+Requires:         R-stats >= 4.0.0
+Requires:         R-graphics >= 4.0.0
+Requires:         R-CRAN-pbapply >= 1.7.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-RcppArmadillo >= 0.12.0.0.0
 
 %description
-Provides a unified object-oriented framework for numerical optimizers in
-R. Allows for both minimization and maximization with any optimizer,
-optimization over more than one function argument, measuring of
-computation time, setting a time limit for long optimization tasks.
+Maximum likelihood estimation of models with various types of transition
+weight functions, conditional distributions, and identification methods.
+Constrained estimation with various types of constraints is available. See
+Heather Anderson, Farshid Vahid (1998)
+<doi:10.1016/S0304-4076(97)00076-6>, Helmut Lütkepohl, Aleksei Netšunajev
+(2017) <doi:10.1016/j.jedc.2017.09.001>, Markku Lanne, Savi Virolainen
+(2024) <doi:10.48550/arXiv.2403.14216>, Savi Virolainen (2024)
+<doi:10.48550/arXiv.2404.19707>.
 
 %prep
 %setup -q -c -n %{packname}

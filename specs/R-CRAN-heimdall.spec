@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  robeth
-%global packver   2.7-8
+%global packname  heimdall
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.8
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Functions for Robust Statistics
+Summary:          Drift Adaptable Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-daltoolbox 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-caret 
+Requires:         R-stats 
+Requires:         R-CRAN-daltoolbox 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Locations problems, M-estimates of coefficients and scale in linear
-regression, Weights for bounded influence regression, Covariance matrix of
-the coefficient estimates, Asymptotic relative efficiency of regression
-M-estimates, Robust testing in linear models, High breakdown point
-regression, M-estimates of covariance matrices, M-estimates for discrete
-generalized linear models.
+By analyzing streaming datasets, it is possible to observe significant
+changes in the data distribution or models' accuracy during their
+prediction (concept drift). The goal of 'heimdall' is to measure when
+concept drift occurs. The package makes available several state-of-the-art
+methods. It also tackles how to adapt models in a nonstationary context.
+Some concept drifts methods are described in Tavares (2022)
+<doi:10.1007/s12530-021-09415-z>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,7 +51,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

@@ -1,28 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2social
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          App Inclusion of Social Sharing and Connect Buttons
+Summary:          Seamless Integration of Sharing and Connect Buttons in Markdown and Apps
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel > 3.6
+Requires:         R-core > 3.6
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-quickcode 
 Requires:         R-utils 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-quickcode 
 
 %description
 Implementation of 'JQuery' <https://jquery.com> and 'CSS' styles to allow

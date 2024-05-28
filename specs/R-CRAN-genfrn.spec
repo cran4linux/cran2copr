@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SparseM
-%global packver   1.82
+%global packname  genfrn
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.82
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Linear Algebra
+Summary:          Generating Triangular and Trapezoidal Fuzzy Random Numbers via Uniform Distribution
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Some basic linear algebra functionality for sparse matrices is provided:
-including Cholesky decomposition and backsolving as well as standard R
-subsetting and Kronecker products.
+Triangular and trapezoidal fuzzy numbers are used to study fuzzy logic,
+fuzzy reasoning and approximating, fuzzy regression models, etc. This
+package builds the generating function for triangular and trapezoidal
+fuzzy numbers based on Souliotis et al. (2022)<doi:10.3390/math10183350>.
+They proposed a method for the construction of fuzzy numbers via a
+cumulative distribution function based on the possibility theory.
 
 %prep
 %setup -q -c -n %{packname}

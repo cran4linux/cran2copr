@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SparseM
-%global packver   1.82
+%global packname  SoilFDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.82
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Linear Algebra
+Summary:          Fractal Dimension Analysis of Soil Particle Size Distribution
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15
-Requires:         R-core >= 2.15
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Some basic linear algebra functionality for sparse matrices is provided:
-including Cholesky decomposition and backsolving as well as standard R
-subsetting and Kronecker products.
+Function for the computation of fractal dimension based on mass of soil
+particle size distribution by Tyler & Wheatcraft (1992)
+<doi:10.2136/sssaj1992.03615995005600020005x>. It also provides functions
+for calculation of mean weight and geometric mean diameter of particle
+size distribution by Perfect et al. (1992)
+<doi:10.2136/sssaj1992.03615995005600050012x>.
 
 %prep
 %setup -q -c -n %{packname}

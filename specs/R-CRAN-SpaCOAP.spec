@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  qlcVisualize
-%global packver   0.2.1
+%global packname  SpaCOAP
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization for Quantitative Language Comparison
+Summary:          High-Dimensional Spatial Covariate-Augmented Overdispersed Poisson Factor Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,43 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mapdata 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-qlcMatrix 
-BuildRequires:    R-CRAN-seriation 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-geodata 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-mapplots 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-alphahull 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-polyCub 
-Requires:         R-CRAN-mapdata 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-qlcMatrix 
-Requires:         R-CRAN-seriation 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-geodata 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-mapplots 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-alphahull 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-polyCub 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 
 %description
-Collection of visualizations as used in quantitative language comparison.
-Currently implemented are visualisations dealing nominal data with
-multiple levels ("level-map" and "level-image"), and assistance for making
-dialectal Voronoi maps.
+A spatial covariate-augmented overdispersed Poisson factor model is
+proposed to perform efficient latent representation learning method for
+high-dimensional large-scale spatial count data with additional
+covariates.
 
 %prep
 %setup -q -c -n %{packname}
