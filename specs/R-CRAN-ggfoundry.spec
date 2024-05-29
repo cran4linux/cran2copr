@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sequoia
-%global packver   2.11.2
+%global packname  ggfoundry
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree Inference from SNPs
+Summary:          Shape Foundry & Geom for 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-plyr >= 1.8.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-plyr >= 1.8.0
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-grImport2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-grid 
+Requires:         R-CRAN-grImport2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 
 %description
-Multi-generational pedigree inference from incomplete data on hundreds of
-SNPs, including parentage assignment and sibship clustering. See Huisman
-(2017) (<DOI:10.1111/1755-0998.12665>) for more information.
+A 'ggplot2' extension that supports arbitrary hand-crafted colourable &
+fillable shapes. New shapes may be feature requested via a Github issue.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,7 +48,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

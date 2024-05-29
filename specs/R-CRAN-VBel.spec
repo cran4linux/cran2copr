@@ -1,49 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdaPDE
-%global packver   1.1-17
+%global packname  VBel
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.17
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Physics-Informed Spatial and Functional Data Analysis
+Summary:          Variational Bayes for Fast and Accurate Empirical Likelihood Inference
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-plot3D 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-plot3D 
-Requires:         R-methods 
 
 %description
-An implementation of regression models with partial differential
-regularizations, making use of the Finite Element Method. The models
-efficiently handle data distributed over irregularly shaped domains and
-can comply with various conditions at the boundaries of the domain. A
-priori information about the spatial structure of the phenomenon under
-study can be incorporated in the model via the differential
-regularization. See Sangalli, L. M. (2021) <doi:10.1111/insr.12444>
-"Spatial Regression With Partial Differential Equation Regularisation" for
-an overview. The release 1.1-9 requires R (>= 4.2.0) to be installed on
-windows machines.
+Computes the Gaussian variational approximation of the Bayesian empirical
+likelihood posterior. This is an implementation of the function found in
+Yu, W., & Bondell, H. D. (2023) <doi:10.1080/01621459.2023.2169701>.
 
 %prep
 %setup -q -c -n %{packname}

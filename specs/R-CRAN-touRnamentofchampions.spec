@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sequoia
-%global packver   2.11.2
+%global packname  touRnamentofchampions
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree Inference from SNPs
+Summary:          Tournament of Champions Data
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-plyr >= 1.8.0
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-plyr >= 1.8.0
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyverse >= 2.0.0
+Requires:         R-CRAN-tidyverse >= 2.0.0
 
 %description
-Multi-generational pedigree inference from incomplete data on hundreds of
-SNPs, including parentage assignment and sibship clustering. See Huisman
-(2017) (<DOI:10.1111/1755-0998.12665>) for more information.
+Several datasets which describe the challenges and results of competitions
+in Tournament of Champions.  This data is useful for practicing data
+wrangling, graphing, and analyzing how each season of Tournament of
+Champions played out.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,7 +42,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

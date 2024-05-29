@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CCAMLRGIS
-%global packver   4.1.1
+%global packname  outliers.ts.oga
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Antarctic Spatial Data Manipulation
+Summary:          Efficient Outlier Detection in Heterogeneous Time Series Databases
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-bezier 
-BuildRequires:    R-CRAN-lwgeom 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-terra 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-bezier 
-Requires:         R-CRAN-lwgeom 
+BuildRequires:    R-CRAN-forecast >= 8.22.0
+BuildRequires:    R-CRAN-caret >= 6.0.94
+BuildRequires:    R-parallel >= 3.6.2
+BuildRequires:    R-CRAN-parallelly >= 1.37.1
+BuildRequires:    R-CRAN-robust >= 0.7.4
+BuildRequires:    R-CRAN-gsarima >= 0.1.5
+BuildRequires:    R-CRAN-SLBDD >= 0.0.4
+Requires:         R-CRAN-forecast >= 8.22.0
+Requires:         R-CRAN-caret >= 6.0.94
+Requires:         R-parallel >= 3.6.2
+Requires:         R-CRAN-parallelly >= 1.37.1
+Requires:         R-CRAN-robust >= 0.7.4
+Requires:         R-CRAN-gsarima >= 0.1.5
+Requires:         R-CRAN-SLBDD >= 0.0.4
 
 %description
-Loads and creates spatial data, including layers and tools that are
-relevant to the activities of the Commission for the Conservation of
-Antarctic Marine Living Resources. Provides two categories of functions:
-load functions and create functions. Load functions are used to import
-existing spatial layers from the online CCAMLR GIS such as the ASD
-boundaries. Create functions are used to create layers from user data such
-as polygons and grids.
+Programs for detecting and cleaning outliers in single time series and in
+time series from homogeneous and heterogeneous databases using an
+Orthogonal Greedy Algorithm (OGA) for saturated linear regression models.
+The programs implement the procedures presented in the paper entitled
+"Efficient outlier detection in heterogeneous time series databases" by
+Pedro Galeano, Daniel Peña and Ruey S. Tsay (2024), working paper,
+Universidad Carlos III de Madrid.
 
 %prep
 %setup -q -c -n %{packname}

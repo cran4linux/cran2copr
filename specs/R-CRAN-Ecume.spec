@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Ecume
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Equality of 2 (or k) Continuous Univariate and Multivariate Distributions
 
@@ -16,27 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-spatstat.univar 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-transport 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-stats 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-spatstat.univar 
+Requires:         R-stats 
 Requires:         R-CRAN-transport 
 
 %description
@@ -53,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

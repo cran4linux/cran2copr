@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dqrng
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Pseudo Random Number Generators
 
@@ -32,8 +32,8 @@ use the Ziggurat algorithm originally proposed by Marsaglia and Tsang
 (2000, <doi:10.18637/jss.v005.i08>). The fast sampling methods support
 unweighted sampling both with and without replacement. These functions are
 exported to R and as a C++ interface and are enabled for use with the
-default 64 bit generator from the PCG family, Xoroshiro128+/++ and
-Xoshiro256+/++ as well as the 64 bit version of the 20 rounds Threefry
+default 64 bit generator from the PCG family, Xoroshiro128+/++/** and
+Xoshiro256+/++/** as well as the 64 bit version of the 20 rounds Threefry
 engine (Salmon et al., 2011, <doi:10.1145/2063384.2063405>) as provided by
 the package 'sitmo'.
 

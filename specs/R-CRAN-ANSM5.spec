@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sequoia
-%global packver   2.11.2
+%global packname  ANSM5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree Inference from SNPs
+Summary:          Functions and Data for the Book "Applied Nonparametric Statistical Methods", 5th Edition
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-plyr >= 1.8.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-plyr >= 1.8.0
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-cli 
 
 %description
-Multi-generational pedigree inference from incomplete data on hundreds of
-SNPs, including parentage assignment and sibship clustering. See Huisman
-(2017) (<DOI:10.1111/1755-0998.12665>) for more information.
+Functions and data to accompany the 5th edition of the book "Applied
+Nonparametric Statistical Methods" (4th edition: Sprent & Smeeton, 2024,
+ISBN:158488701X), the revisions from the 4th edition including a move from
+describing the output from a miscellany of statistical software packages
+to using R. While the output from many of the functions can also be
+obtained using a range of other R functions, this package provides
+functions in a unified setting and give output using both p-values and
+confidence intervals, exemplifying the book's approach of treating
+p-values as a guide to statistical importance and not an end product in
+their own right.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,7 +48,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-test $(gcc -dumpversion) -ge 10 && mkdir -p ~/.R && echo "FFLAGS=$(R CMD config FFLAGS) -fallow-argument-mismatch" > ~/.R/Makevars
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)

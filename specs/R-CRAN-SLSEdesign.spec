@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SLSEdesign
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Regression Design under the Second-Order Least Squares Estimator
 
@@ -19,18 +19,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CVXR 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-CVXR 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-pracma 
 Requires:         R-graphics 
 
 %description
-With given inputs that includes number of points, design space, measure
-skewness, models and parameter value, this package calculates the
-objective value, optimal designs and plot the equivalence theory under A-
-and D-optimal criteria under the second-order Least squares estimator.
+With given inputs that include number of points, discrete design space, a
+measure of skewness, models and parameter value, this package calculates
+the objective value, optimal designs and plot the equivalence theory under
+A- and D-optimal criteria under the second-order Least squares estimator.
 This package is based on the paper "Properties of optimal regression
 designs under the second-order least squares estimator" by Chi-Kuang Yeh
 and Julie Zhou (2021) <doi:10.1007/s00362-018-01076-6>.
