@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iemisctext
+%global packname  CurricularAnalytics
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Irucka Embry's Miscellaneous Text Collection
+Summary:          Exploring and Analyzing Academic Curricula
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats >= 4.4.0
+BuildRequires:    R-tools >= 4.4.0
+BuildRequires:    R-utils >= 4.4.0
+BuildRequires:    R-CRAN-visNetwork >= 2.1.2
+BuildRequires:    R-CRAN-igraph >= 2.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+Requires:         R-stats >= 4.4.0
+Requires:         R-tools >= 4.4.0
+Requires:         R-utils >= 4.4.0
+Requires:         R-CRAN-visNetwork >= 2.1.2
+Requires:         R-CRAN-igraph >= 2.0.3
+Requires:         R-CRAN-dplyr >= 1.1.4
 
 %description
-The eclectic collection includes the following written pieces: "Appeal to
-Womanhood Throughout the World" By Julia Ward Howe, "The War Prayer" By
-Mark Twain, "War Is A Racket" By Major General Smedley Butler, "The Mask
-of Anarchy: Written on the Occasion of the Massacre at Manchester" By
-Percy Bysshe Shelley, "Connect the D.O.T.S." By Obiora Embry, "Untitled:
-Climate Strange" By Irucka Ajani Embry, and "Untitled: Us versus Them or
-People Screwing over Other People (as we all live on one Earth and there
-is no 'us versus them' in the actual Ultimate Reality}" By Irucka Ajani
-Embry.
+Provides an implementation of ‘Curricular Analytics’, a framework for
+analyzing and quantifying the complexity of academic curricula. Curricula
+are modelled as directed acyclic graphs and analytics are provided based
+on path lengths and edge density. This work directly comes from Heileman
+et al. (2018) <doi:10.48550/arXiv.1811.09676>.
 
 %prep
 %setup -q -c -n %{packname}

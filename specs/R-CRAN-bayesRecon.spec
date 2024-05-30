@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesRecon
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Reconciliation via Conditioning
 
@@ -29,8 +29,11 @@ Provides methods for probabilistic reconciliation of hierarchical
 forecasts of time series. The available methods include analytical
 Gaussian reconciliation (Corani et al., 2021)
 <doi:10.1007/978-3-030-67664-3_13>, MCMC reconciliation of count time
-series (Corani et al., 2022) <doi:10.48550/arXiv.2207.09322>, Bottom-Up
-Importance Sampling (Zambon et al., 2022) <doi:10.48550/arXiv.2210.02286>.
+series (Corani et al., 2024) <doi:10.1016/j.ijforecast.2023.04.003>,
+Bottom-Up Importance Sampling (Zambon et al., 2024)
+<doi:10.1007/s11222-023-10343-y>, methods for the reconciliation of mixed
+hierarchies (Mix-Cond and TD-cond) (Zambon et al., 2024. The 40th
+Conference on Uncertainty in Artificial Intelligence, accepted).
 
 %prep
 %setup -q -c -n %{packname}

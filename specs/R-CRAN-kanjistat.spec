@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kanjistat
-%global packver   0.9.1
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Statistical Framework for the Analysis of Japanese Kanji Characters
 
@@ -14,45 +14,50 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-transport >= 0.15
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gsubfn 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-gsubfn 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ROI 
 BuildRequires:    R-CRAN-sysfonts 
 BuildRequires:    R-CRAN-showtext 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-transport 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-transport >= 0.15
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-gsubfn 
 Requires:         R-utils 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-gsubfn 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ROI 
 Requires:         R-CRAN-sysfonts 
 Requires:         R-CRAN-showtext 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-transport 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Various tools and data sets that support the study of kanji, including

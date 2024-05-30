@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastbackward
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Backward Elimination Based on Information Criterion
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-MASS
 Requires:         R-CRAN-MASS 
 
 %description
-Performs backward elimination with similar syntax to the stepAIC function
-from the 'MASS' package. A bounding algorithm is used to avoid fitting
-unnecessary models, making it much faster.
+Performs backward elimination with similar syntax to the stepAIC()
+function from the 'MASS' package. A bounding algorithm is used to avoid
+fitting unnecessary models, making it much faster.
 
 %prep
 %setup -q -c -n %{packname}
