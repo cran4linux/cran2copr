@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infoelectoral
-%global packver   1.0.2
+%global packname  Rfmtool
+%global packver   5.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          5.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Spanish Election Results
+Summary:          Fuzzy Measure Tools
 
-License:          GPL-2
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-httr >= 1.0.0
+BuildRequires:    R-devel >= 2.9.2
+Requires:         R-core >= 2.9.2
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Download official election results for Spain at polling station,
-municipality and province level from the Ministry of Interior
-(<https://infoelectoral.interior.gob.es/es/elecciones-celebradas/area-de-descargas/>),
-format them and import them to the R environment.
+Various tools for handling fuzzy measures, calculating Shapley value and
+interaction index, Choquet and Sugeno integrals, as well as fitting fuzzy
+measures to empirical data are provided. Construction of fuzzy measures
+from empirical data is done by solving a linear programming problem by
+using 'lpsolve' package, whose source in C adapted to the R environment is
+included. The description of the basic theory of fuzzy measures is in the
+manual in the Doc folder in this package. Please refer to the following:
+[1] <https://personal-sites.deakin.edu.au/~gleb/fmtools.html> [2] G.
+Beliakov, H. Bustince, T. Calvo, 'A Practical Guide to Averaging',
+Springer, (2016, ISBN: 978-3-319-24753-3). [3] G. Beliakov, S. James, J-Z.
+Wu, 'Discrete Fuzzy Measures', Springer, (2020, ISBN: 978-3-030-15305-2).
 
 %prep
 %setup -q -c -n %{packname}

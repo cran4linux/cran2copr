@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialTIME
-%global packver   1.3.4-3
+%global packver   1.3.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4.3
+Version:          1.3.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis of Vectra Immunoflourescent Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-scales 
 Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-spatstat.univar 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-RColorBrewer 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sstvars
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Reduced Form and Structural Smooth Transition Vector Autoregressive Models
 
@@ -30,14 +30,17 @@ Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-RcppArmadillo >= 0.12.0.0.0
 
 %description
-Maximum likelihood estimation of models with various types of transition
-weight functions, conditional distributions, and identification methods.
-Constrained estimation with various types of constraints is available. See
-Heather Anderson, Farshid Vahid (1998)
-<doi:10.1016/S0304-4076(97)00076-6>, Helmut Lütkepohl, Aleksei Netšunajev
-(2017) <doi:10.1016/j.jedc.2017.09.001>, Markku Lanne, Savi Virolainen
-(2024) <doi:10.48550/arXiv.2403.14216>, Savi Virolainen (2024)
-<doi:10.48550/arXiv.2404.19707>.
+Maximum likelihood estimation of smooth transition vector autoregressive
+models with various types of transition weight functions, conditional
+distributions, and identification methods. Constrained estimation with
+various types of constraints is available. Residual based model
+diagnostics, forecasting, simulations, and calculation of impulse response
+functions, generalized impulse response functions, and generalized
+forecast error variance decompositions. See Heather Anderson, Farshid
+Vahid (1998) <doi:10.1016/S0304-4076(97)00076-6>, Helmut Lütkepohl,
+Aleksei Netšunajev (2017) <doi:10.1016/j.jedc.2017.09.001>, Markku Lanne,
+Savi Virolainen (2024) <doi:10.48550/arXiv.2403.14216>, Savi Virolainen
+(2024) <doi:10.48550/arXiv.2404.19707>.
 
 %prep
 %setup -q -c -n %{packname}

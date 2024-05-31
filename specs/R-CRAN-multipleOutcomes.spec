@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multipleOutcomes
-%global packver   0.2
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Asymptotic Covariance Matrix of Regression Models for Multiple Outcomes
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-momentfit 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-momentfit 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
 
 %description
 Regression models can be fitted for multiple outcomes simultaneously. This

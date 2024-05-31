@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  knitr
-%global packver   1.46
+%global packver   1.47
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.46
+Version:          1.47
 Release:          1%{?dist}%{?buildtag}
 Summary:          A General-Purpose Package for Dynamic Report Generation in R
 
@@ -20,15 +20,15 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-xfun >= 0.43
+BuildRequires:    R-CRAN-xfun >= 0.44
 BuildRequires:    R-CRAN-evaluate >= 0.15
-BuildRequires:    R-CRAN-highr 
+BuildRequires:    R-CRAN-highr >= 0.11
 BuildRequires:    R-methods 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-xfun >= 0.43
+Requires:         R-CRAN-xfun >= 0.44
 Requires:         R-CRAN-evaluate >= 0.15
-Requires:         R-CRAN-highr 
+Requires:         R-CRAN-highr >= 0.11
 Requires:         R-methods 
 Requires:         R-tools 
 

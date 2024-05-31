@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtpcr
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          qPCR Data Analysis
 
@@ -55,11 +55,10 @@ method) or relative expression (RE, Delta Ct method). The functions
 further provide standard errors and confidence intervals for means, apply
 statistical mean comparisons and present significance. To facilitate
 function application, different data sets were used as examples and the
-outputs were explained. An outstanding feature of ‘rtpcr’ package is
-providing publication-ready bar plots with various controlling arguments
-which are further editable by ggplot2 functions. The 'rtpcr' package is
-user-friendly and easy to work with and provides an applicable resource
-for analyzing real-time PCR data.
+outputs were explained. ‘rtpcr’ package also provides bar plots using
+various controlling arguments. The 'rtpcr' package is user-friendly and
+easy to work with and provides an applicable resource for analyzing
+real-time PCR data.
 
 %prep
 %setup -q -c -n %{packname}

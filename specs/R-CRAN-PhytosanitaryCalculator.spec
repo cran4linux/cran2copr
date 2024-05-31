@@ -1,34 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infoelectoral
-%global packver   1.0.2
+%global packname  PhytosanitaryCalculator
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Spanish Election Results
+Summary:          Phytosanitary Calculator for Inspection Plans Based on Risks
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-AcceptanceSampling 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-AcceptanceSampling 
 
 %description
-Download official election results for Spain at polling station,
-municipality and province level from the Ministry of Interior
-(<https://infoelectoral.interior.gob.es/es/elecciones-celebradas/area-de-descargas/>),
-format them and import them to the R environment.
+A 'Shiny' application for calculating phytosanitary inspection plans based
+on risks.
 
 %prep
 %setup -q -c -n %{packname}

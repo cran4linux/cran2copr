@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MFSIS
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Moder-Free Sure Independent Screening Procedures
+Summary:          Model-Free Sure Independent Screening Procedures
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-dr
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Ball 
@@ -40,7 +39,6 @@ Requires:         R-CRAN-dr
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-fs 
 
 %description
 An implementation of popular screening methods that are commonly employed
@@ -57,8 +55,9 @@ procedures including SIS (Fan and Lv (2008)
 <doi:10.1214/14-AOS1303>), MVSIS (Cui et al. (2015)
 <doi:10.1080/01621459.2014.920256>), PSIS (Pan et al. (2016)
 <doi:10.1080/01621459.2014.998760>), CAS (Xie et al. (2020)
-<doi:10.1080/01621459.2019.1573734>), CI-SIS (Cheng and Wang. (2022)
-<doi:10.1016/j.cmpb.2022.107269>)and CSIS.
+<doi:10.1080/01621459.2019.1573734>), CI-SIS (Cheng and Wang. (2023)
+<doi:10.1016/j.cmpb.2022.107269>) and CSIS (Cheng et al. (2023)
+<doi:10.1007/s00180-023-01399-5>).
 
 %prep
 %setup -q -c -n %{packname}

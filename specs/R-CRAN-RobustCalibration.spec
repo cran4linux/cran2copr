@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobustCalibration
-%global packver   0.5.4
+%global packver   0.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Calibration of Imperfect Mathematical Models
 
@@ -31,9 +31,9 @@ Implements full Bayesian analysis for calibrating mathematical models with
 new methodology for modeling the discrepancy function. It allows for
 emulation, calibration and prediction using complex mathematical model
 outputs and experimental data. See the reference: Mengyang Gu and Long
-Wang (2018) <arXiv:1707.08215>, Mengyang Gu, Fangzheng Xie and Long Wang
-(2021) <arXiv:1807.03829>, Mengyang Gu, Kyle Anderson and Erika McPhillips
-(2021) <arXiv:1810.11664>.
+Wang, 2018, Journal of Uncertainty Quantification; Mengyang Gu, Fangzheng
+Xie and Long Wang, 2022, Journal of Uncertainty Quantification; Mengyang
+Gu, Kyle Anderson and Erika McPhillips, 2023, Technometrics.
 
 %prep
 %setup -q -c -n %{packname}

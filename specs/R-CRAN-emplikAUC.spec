@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emplikAUC
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Likelihood Ratio Test/Confidence Interval for AUC or pAUC
 
@@ -28,8 +28,9 @@ Requires:         R-stats
 Test hypotheses and construct confidence intervals for AUC (area under
 Receiver Operating Characteristic curve) and pAUC (partial area under ROC
 curve), from the given two samples of test data with disease/healthy
-subjects. The method used is based on two sample empirical likelihood, as
-described in <https://www.ms.uky.edu/~mai/research/eAUC1.pdf>.
+subjects. The method used is based on TWO SAMPLE empirical likelihood and
+PROFILE empirical likelihood, as described in
+<https://www.ms.uky.edu/~mai/research/eAUC1.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

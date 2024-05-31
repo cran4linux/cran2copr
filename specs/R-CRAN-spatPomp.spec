@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatPomp
-%global packver   0.34.2
+%global packver   0.35.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.34.2
+Version:          0.35.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for Spatiotemporal Partially Observed Markov Processes
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-pomp >= 5.4
 Requires:         R-methods 
@@ -34,15 +33,14 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 
 %description
 Inference on panel data using spatiotemporal partially-observed Markov
 process (SpatPOMP) models. The 'spatPomp' package extends 'pomp' to
 include algorithms taking advantage of the spatial structure in order to
-assist with handling high dimensional processes. See Asfaw et al. (2023)
-<arXiv:2101.01157> for further description of the package.
+assist with handling high dimensional processes. See Asfaw et al. (2024)
+<doi:10.48550/arXiv.2101.01157> for further description of the package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infoelectoral
-%global packver   1.0.2
+%global packname  rSDI
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Spanish Election Results
+Summary:          Spatial Dispersion Index (SDI) Family of Metrics for Spatial/Geographic Networks
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-igraph 
 
 %description
-Download official election results for Spain at polling station,
-municipality and province level from the Ministry of Interior
-(<https://infoelectoral.interior.gob.es/es/elecciones-celebradas/area-de-descargas/>),
-format them and import them to the R environment.
+Spatial Dispersion Index (SDI) is a generalized measurement index, or
+rather a family of indices to evaluate spatial dispersion of
+movements/flows in a network in a problem neutral way as described in:
+Gencer (2023) <doi:10.1007/s12061-023-09545-8>. This package computes and
+optionally visualizes this index with minimal hassle.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinytest2JUnit
-%global packver   1.0.3
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert 'tinytest' Output to JUnit XML
 
@@ -17,14 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-tools 
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tinytest 
+Requires:         R-tools 
+Requires:         R-parallel 
+Requires:         R-utils 
+Requires:         R-CRAN-tinytest 
 
 %description
 Unit testing is a solid component of automated CI/CD pipelines. 'tinytest'
-- a light-weight, zero-dependency alternative to 'testthat' was developed.
+- a lightweight, zero-dependency alternative to 'testthat' was developed.
 To be able to integrate 'tinytests' results into common CI/CD systems the
-'tinytests'-object needs to be converted to JUnit XML format.
-'tinytest2JUnit' enables this conversion while keeping the zero-dependency
-nature.
+test results from tinytest need to be caputred and converted to JUnit XML
+format. 'tinytest2JUnit' enables this conversion while staying also
+lightweight and only have 'tinytest' as its dependency.
 
 %prep
 %setup -q -c -n %{packname}

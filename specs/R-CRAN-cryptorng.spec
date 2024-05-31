@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cryptorng
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access System Cryptographic Pseudorandom Number Generators
 
@@ -18,11 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Generate random bytes from the Cryptographically Secure Pseudorandom
+Generate random numbers from the Cryptographically Secure Pseudorandom
 Number Generator (CSPRNG) provided by the underlying operating system.
-These system CSPRNGs are seeded internally by the OS with entropy it
-gathers and use random number generation algorithms which are considered
-cryptographically secure.  The following system functions are used:
+System CSPRNGs are seeded internally by the OS with entropy it gathers
+from the system hardware. The following system functions are used:
 arc4random_buf() on macOS and BSD; BCryptgenRandom() on Windows;
 Sys_getrandom() on Linux.
 

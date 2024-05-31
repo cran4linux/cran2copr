@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infoelectoral
-%global packver   1.0.2
+%global packname  D3GB
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Spanish Election Results
+Summary:          Interactive Genome Browser
 
-License:          GPL-2
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-httr >= 1.0.0
+BuildRequires:    R-CRAN-RSQLite >= 1.0.0
+BuildRequires:    R-CRAN-DBI >= 0.3.1
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-RSQLite >= 1.0.0
+Requires:         R-CRAN-DBI >= 0.3.1
+Requires:         R-CRAN-base64enc 
 
 %description
-Download official election results for Spain at polling station,
-municipality and province level from the Ministry of Interior
-(<https://infoelectoral.interior.gob.es/es/elecciones-celebradas/area-de-descargas/>),
-format them and import them to the R environment.
+Creates interactive genome browser. It joins the data analysis power of
+'R' and the visualization libraries of 'JavaScript' in one package.
+Barrios, D. & Prieto, C. (2017) <doi:10.1089/cmb.2016.0213>.
 
 %prep
 %setup -q -c -n %{packname}

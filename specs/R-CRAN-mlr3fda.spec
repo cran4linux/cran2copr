@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3fda
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'mlr3' to Functional Data Analysis
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mlr3pipelines >= 0.5.2
+BuildRequires:    R-CRAN-tf >= 0.3.4
 BuildRequires:    R-CRAN-mlr3 >= 0.14.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.14.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
-BuildRequires:    R-CRAN-mlr3pipelines 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tf 
+Requires:         R-CRAN-mlr3pipelines >= 0.5.2
+Requires:         R-CRAN-tf >= 0.3.4
 Requires:         R-CRAN-mlr3 >= 0.14.0
 Requires:         R-CRAN-mlr3misc >= 0.14.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
-Requires:         R-CRAN-mlr3pipelines 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tf 
 
 %description
 Extends the 'mlr3' ecosystem to functional analysis by adding support for

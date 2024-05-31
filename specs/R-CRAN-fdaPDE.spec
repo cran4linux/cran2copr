@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   2.1.0
+%global packname  fdaPDE
+%global packver   1.1-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.1.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Physics-Informed Spatial and Functional Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ecp 
 BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ecp 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-plot3D 
+Requires:         R-methods 
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+An implementation of regression models with partial differential
+regularizations, making use of the Finite Element Method. The models
+efficiently handle data distributed over irregularly shaped domains and
+can comply with various conditions at the boundaries of the domain. A
+priori information about the spatial structure of the phenomenon under
+study can be incorporated in the model via the differential
+regularization. See Sangalli, L. M. (2021) <doi:10.1111/insr.12444>
+"Spatial Regression With Partial Differential Equation Regularisation" for
+an overview. The release 1.1-9 requires R (>= 4.2.0) to be installed on
+windows machines.
 
 %prep
 %setup -q -c -n %{packname}

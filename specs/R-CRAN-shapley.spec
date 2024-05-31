@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapley
-%global packver   0.1
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Mean SHAP for Feature Selection in ML Grid and Ensemble
 
@@ -27,40 +27,42 @@ Requires:         R-CRAN-h2o >= 3.34.0.0
 Requires:         R-CRAN-waffle >= 1.0.2
 
 %description
-This R package introduces an innovative method for calculating SHapley
-Additive exPlanations (SHAP) values for a grid of fine-tuned base-learner
-machine learning models as well as stacked ensembles, a method not
-previously available due to the common reliance on single best-performing
-models. By integrating the weighted mean SHAP values from individual
-base-learners comprising the ensemble or individual base-learners in a
-tuning grid search, the package weights SHAP contributions according to
-each model's performance, assessed by the Area Under the Precision-Recall
-Curve (AUCPR) for binary classifiers (currently implemented). It further
-extends this framework to implement weighted confidence intervals for
-weighted mean SHAP values, offering a more comprehensive and robust
-feature importance evaluation over a grid of machine learning models,
-instead of solely computing SHAP values for the best-performing model.
-This methodology is particularly beneficial for addressing the severe
-class imbalance (class rarity) problem by providing a transparent,
-generalized measure of feature importance that mitigates the risk of
-reporting SHAP values for an overfitted or biased model and maintains
-robustness under severe class imbalance, where there is no universal
-criteria of identifying the absolute best model. Furthermore, the package
-implements hypothesis testing to ascertain the statistical significance of
-SHAP values for individual features, as well as comparative significance
-testing of SHAP contributions between features. Additionally, it tackles a
-critical gap in feature selection literature by presenting criteria for
-the automatic feature selection of the most important features across a
-grid of models or stacked ensembles, eliminating the need for arbitrary
-determination of the number of top features to be extracted. This utility
-is invaluable for researchers analyzing feature significance, particularly
-within severely imbalanced outcomes where conventional methods fall short.
-In addition, it is also expected to report democratic feature importance
-across a grid of models, resulting in a more comprehensive and
-generalizable feature selection. The package further implements a novel
-method for visualizing SHAP values both at subject level and feature level
-as well as a plot for feature selection based on the weighted mean SHAP
-ratios.
+This R package introduces Weighted Mean SHapley Additive exPlanations
+(WMSHAP), an innovative method for calculating SHAP values for a grid of
+fine-tuned base-learner machine learning models as well as stacked
+ensembles, a method not previously available due to the common reliance on
+single best-performing models. By integrating the weighted mean SHAP
+values from individual base-learners comprising the ensemble or individual
+base-learners in a tuning grid search, the package weights SHAP
+contributions according to each model's performance, assessed by multiple
+either R squared (for both regression and classification models).
+alternatively, this software also offers weighting SHAP values based on
+the area under the precision-recall curve (AUCPR), the area under the
+curve (AUC), and F2 measures for binary classifiers. It further extends
+this framework to implement weighted confidence intervals for weighted
+mean SHAP values, offering a more comprehensive and robust feature
+importance evaluation over a grid of machine learning models, instead of
+solely computing SHAP values for the best model. This methodology is
+particularly beneficial for addressing the severe class imbalance (class
+rarity) problem by providing a transparent, generalized measure of feature
+importance that mitigates the risk of reporting SHAP values for an
+overfitted or biased model and maintains robustness under severe class
+imbalance, where there is no universal criteria of identifying the
+absolute best model. Furthermore, the package implements hypothesis
+testing to ascertain the statistical significance of SHAP values for
+individual features, as well as comparative significance testing of SHAP
+contributions between features. Additionally, it tackles a critical gap in
+feature selection literature by presenting criteria for the automatic
+feature selection of the most important features across a grid of models
+or stacked ensembles, eliminating the need for arbitrary determination of
+the number of top features to be extracted. This utility is invaluable for
+researchers analyzing feature significance, particularly within severely
+imbalanced outcomes where conventional methods fall short. Moreover, it is
+also expected to report democratic feature importance across a grid of
+models, resulting in a more comprehensive and generalizable feature
+selection. The package further implements a novel method for visualizing
+SHAP values both at subject level and feature level as well as a plot for
+feature selection based on the weighted mean SHAP ratios.
 
 %prep
 %setup -q -c -n %{packname}

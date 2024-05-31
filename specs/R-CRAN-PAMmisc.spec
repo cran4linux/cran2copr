@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAMmisc
-%global packver   1.11.6
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.6
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for Passive Acoustic Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tuneR 
@@ -31,13 +31,14 @@ BuildRequires:    R-CRAN-ncdf4
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-hoardr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-suncalc 
 BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-signal 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-seewave 
@@ -52,13 +53,14 @@ Requires:         R-CRAN-ncdf4
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-hoardr 
 Requires:         R-methods 
 Requires:         R-CRAN-geosphere 
 Requires:         R-tcltk 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-suncalc 
 Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-signal 
 
 %description
 A collection of miscellaneous functions for passive acoustics. Much of the

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyfinance
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Finance Helper Functions
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-lubridate >= 1.9.3
-BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-lubridate >= 1.9.3
-Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-tidyr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-purrr >= 1.0.2
