@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  avotrex
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Global Dataset of Anthropogenic Extinct Birds and their Traits: Phylogeny Builder
 
@@ -27,6 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-snow 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-TreeTools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tidytree >= 0.4.6
 Requires:         R-CRAN-ape 
@@ -38,6 +39,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-snow 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-TreeTools 
 Requires:         R-utils 
 
 %description

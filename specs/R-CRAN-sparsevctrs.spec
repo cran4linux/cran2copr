@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  incidence
-%global packver   1.7.5
+%global packname  sparsevctrs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle, Plot and Model Incidence of Dated Events
+Summary:          Sparse Vectors for Use in Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-aweek >= 0.2.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-aweek >= 0.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. In
-addition, log-linear models can be fitted to 'incidence' objects using
-'fit'. This package is part of the RECON
-(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+Provides sparse vectors powered by ALTREP (Alternative Representations for
+R Objects) that behave like regular vectors, and can thus be used in data
+frames. Also provides tools to convert between sparse matrices and data
+frames with sparse columns and functions to interact with sparse vectors.
 
 %prep
 %setup -q -c -n %{packname}

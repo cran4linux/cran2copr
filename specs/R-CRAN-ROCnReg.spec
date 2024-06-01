@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ROCnReg
-%global packver   1.0-8
+%global packver   1.0-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          ROC Curve Inference with and without Covariates
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
@@ -26,12 +25,11 @@ BuildRequires:    R-CRAN-np
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-nor1mix 
-BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -40,7 +38,7 @@ Requires:         R-CRAN-np
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-nor1mix 
-Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.univar 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-pbivnorm 
@@ -56,12 +54,12 @@ optimal cutpoints utilizing several criteria. Based on Erkanli, A. et al.
 <doi:10.1111/1467-9884.00350>; Gu, J. et al. (2008)
 <doi:10.1002/sim.3366>; Inacio de Carvalho, V. et al. (2013)
 <doi:10.1214/13-BA825>; Inacio de Carvalho, V., and Rodriguez-Alvarez,
-M.X. (2018) <arXiv:1806.00473>; Janes, H., and Pepe, M.S. (2009)
+M.X. (2022) <doi:10.1214/21-STS839>; Janes, H., and Pepe, M.S. (2009)
 <doi:10.1093/biomet/asp002>; Pepe, M.S. (1998)
 <http://www.jstor.org/stable/2534001?seq=1>; Rodriguez-Alvarez, M.X. et
 al. (2011a) <doi:10.1016/j.csda.2010.07.018>; Rodriguez-Alvarez, M.X. et
 al. (2011a) <doi:10.1007/s11222-010-9184-1>. Please see Rodriguez-Alvarez,
-M.X. and Inacio, V. (20208) <arXiv:2003.13111> for more details.
+M.X. and Inacio, V. (2021) <doi:10.32614/RJ-2021-066> for more details.
 
 %prep
 %setup -q -c -n %{packname}

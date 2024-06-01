@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cosimmr
-%global packver   1.0.12
+%global packname  QGA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Fitting of Stable Isotope Mixing Models with Covariates
+Summary:          Quantum Genetic Algorithm
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,33 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-bayesplot 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggnewscale 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-bayesplot 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-CRAN-ggnewscale 
+BuildArch:        noarch
 
 %description
-Fast fitting of Stable Isotope Mixing Models in R. Allows for the
-inclusion of covariates. Also has built-in summary functions and plot
-functions which allow for the creation of isospace plots. Variational
-Bayes is used to fit these models, methods as described in: Tran et al.,
-(2021) <doi:10.48550/arXiv.2103.01327>.
+Function that implements the Quantum Genetic Algorithm, first proposed by
+Han and Kim in 2000. This is an R implementation of the 'python'
+application developed by Lahoz-Beltra
+(<https://github.com/ResearchCodesHub/QuantumGeneticAlgorithms>). Each
+optimization problem is represented as a maximization one, where each
+solution is a sequence of (qu)bits. Following the quantum paradigm, these
+qubits are in a superposition state: when measuring them, they collapse in
+a 0 or 1 state. After measurement, the fitness of the solution is
+calculated as in usual genetic algorithms. The evolution at each iteration
+is oriented by the application of two quantum gates to the amplitudes of
+the qubits: (1) a rotation gate (always); (2) a Pauli-X gate (optionally).
+The rotation is based on the theta angle values: higher values allow a
+quicker evolution, and lower values avoid local maxima. The Pauli-X gate
+is equivalent to the classical mutation operator and determines the swap
+between alfa and beta amplitudes of a given qubit. The package has been
+developed in such a way as to permit a complete separation between the
+engine, and the particular problem subject to combinatorial optimization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,54 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  incidence2
-%global packver   2.3.1
+%global packname  phylepic
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle and Plot Incidence of Dated Events
+Summary:          Combined Visualisation of Phylogenetic and Epidemiological Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-grates >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-grates >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-pillar 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidygraph 
 Requires:         R-CRAN-vctrs 
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence2' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. This
-package is part of the RECON (<https://www.repidemicsconsortium.org/>)
-toolkit for outbreak analysis (<https://www.reconverse.org>).
+A collection of utilities and 'ggplot2' extensions to assist with
+visualisations in genomic epidemiology. This includes the 'phylepic'
+chart, a visual combination of a phylogenetic tree and a matched epidemic
+curve. The included 'ggplot2' extensions such as date axes binned by week
+are relevant for other applications in epidemiology and beyond. The
+approach is described in Suster et al. (2024)
+<doi:10.1101/2024.04.02.24305229>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QuickJSR
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for the 'QuickJS' Lightweight 'JavaScript' Engine
 
@@ -16,17 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
 
 %description
-An 'R' interface to the 'QuickJS' portable 'JavaScript' engine. The engine
-is bundled entirely within the package, requiring no external system
-dependencies beyond a 'C' compiler.
+An 'R' interface to the 'QuickJS' portable 'JavaScript' engine.  The
+engine and all 'R' to 'JavaScript' interopability is bundled within the
+package, requiring no dependencies beyond a 'C' compiler.
 
 %prep
 %setup -q -c -n %{packname}

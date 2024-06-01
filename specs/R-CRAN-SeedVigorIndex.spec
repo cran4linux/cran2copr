@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  incidence
-%global packver   1.7.5
+%global packname  SeedVigorIndex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle, Plot and Model Incidence of Dated Events
+Summary:          Seed Vigor Index
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-aweek >= 0.2.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-aweek >= 0.2.0
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. In
-addition, log-linear models can be fitted to 'incidence' objects using
-'fit'. This package is part of the RECON
-(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+Seed vigor is defined as the sum total of those properties of the seed
+which determine the level of activity and performance of the seed or seed
+lot during germination and seedling emergence.  Testing for vigor becomes
+more important for carryover seeds, especially if seeds were stored under
+unknown conditions or under unfavorable storage conditions. Seed vigor
+testing is also used as indicator of the storage potential of a seed lot
+and in ranking various seed lots with different qualities. The vigour
+index is calculated using the equation given by (Ling et al. 2014)
+<doi:10.1038/srep05859>.
 
 %prep
 %setup -q -c -n %{packname}

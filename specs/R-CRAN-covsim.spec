@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  covsim
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          VITA, IG and PLSIM Simulation for Given Covariance and Marginals
 
@@ -22,8 +23,6 @@ BuildRequires:    R-CRAN-nleqslv
 BuildRequires:    R-CRAN-PearsonDS 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-lavaan >= 0.6.5
@@ -32,8 +31,6 @@ Requires:         R-CRAN-nleqslv
 Requires:         R-CRAN-PearsonDS 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-gsl 
 Requires:         R-CRAN-tmvtnorm 
 Requires:         R-CRAN-Matrix 
 

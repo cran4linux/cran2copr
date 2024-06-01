@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  incidence
-%global packver   1.7.5
+%global packname  geoarrow
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle, Plot and Model Incidence of Dated Events
+Summary:          Extension Types for Spatial Data for Use with 'Arrow'
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-aweek >= 0.2.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-aweek >= 0.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-wk >= 0.9.0
+BuildRequires:    R-CRAN-nanoarrow >= 0.5.0
+Requires:         R-CRAN-wk >= 0.9.0
+Requires:         R-CRAN-nanoarrow >= 0.5.0
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. In
-addition, log-linear models can be fitted to 'incidence' objects using
-'fit'. This package is part of the RECON
-(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+Provides extension types and conversions to between R-native object types
+and 'Arrow' columnar types. This includes integration among the 'arrow',
+'nanoarrow', 'sf', and 'wk' packages such that spatial metadata is
+preserved wherever possible. Extension type implementations ensure
+first-class geometry data type support in the 'arrow' and 'nanoarrow'
+packages.
 
 %prep
 %setup -q -c -n %{packname}

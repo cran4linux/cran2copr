@@ -1,48 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cosimmr
-%global packver   1.0.12
+%global packname  dlmtree
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Fitting of Stable Isotope Mixing Models with Covariates
+Summary:          Bayesian Treed Distributed Lag Models
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-bayesplot 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-bayesplot 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-mgcv 
 
 %description
-Fast fitting of Stable Isotope Mixing Models in R. Allows for the
-inclusion of covariates. Also has built-in summary functions and plot
-functions which allow for the creation of isospace plots. Variational
-Bayes is used to fit these models, methods as described in: Tran et al.,
-(2021) <doi:10.48550/arXiv.2103.01327>.
+Estimation of distributed lag models (DLMs) based on a Bayesian additive
+regression trees framework. Includes several extensions of DLMs: treed
+DLMs and distributed lag mixture models (Mork and Wilson, 2023)
+<doi:10.1111/biom.13568>; treed distributed lag nonlinear models (Mork and
+Wilson, 2022) <doi:10.1093/biostatistics/kxaa051>; heterogeneous DLMs
+(Mork, et. al., 2024) <doi:10.1080/01621459.2023.2258595>; monotone DLMs
+(Mork and Wilson, 2024) <doi:10.1214/23-BA1412>. The package also includes
+visualization tools and a 'shiny' interface to help interpret results.
 
 %prep
 %setup -q -c -n %{packname}

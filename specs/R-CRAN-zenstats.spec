@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  incidence
-%global packver   1.7.5
+%global packname  zenstats
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle, Plot and Model Incidence of Dated Events
+Summary:          Statistics from 'Zenodo' Deposits
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
-BuildRequires:    R-CRAN-aweek >= 0.2.0
-Requires:         R-CRAN-ggplot2 >= 3.3.2
-Requires:         R-CRAN-aweek >= 0.2.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-polite 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-polite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. In
-addition, log-linear models can be fitted to 'incidence' objects using
-'fit'. This package is part of the RECON
-(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+Fetch statistics about views, downloads and data volume from 'Zenodo'
+deposits. The package collects a 'Zenodo' (<https://zenodo.org>) deposit
+file information, respecting the website scrapping policies.
 
 %prep
 %setup -q -c -n %{packname}

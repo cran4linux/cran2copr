@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmer
-%global packver   1.5.9
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.9
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          History Matching and Emulation Package
 
@@ -56,9 +56,10 @@ proposal methods for generating 'waves' of points. For details on the
 mathematical background, there are many papers available on the topic (see
 references attached to function help files or the below references); for
 details of the functions in this package, consult the manual or help
-files. Bower, R.G., Goldstein, M., and Vernon, I. (2010)
-<doi:10.1214/10-BA524>. Craig, P.S., Goldstein, M., Seheult, A.H., and
-Smith, J.A. (1997) <doi:10.1007/978-1-4612-2290-3_2>.
+files. Iskauskas, A, et al. (2024) <doi:10.18637/jss.v109.i10>. Bower,
+R.G., Goldstein, M., and Vernon, I. (2010) <doi:10.1214/10-BA524>. Craig,
+P.S., Goldstein, M., Seheult, A.H., and Smith, J.A. (1997)
+<doi:10.1007/978-1-4612-2290-3_2>.
 
 %prep
 %setup -q -c -n %{packname}

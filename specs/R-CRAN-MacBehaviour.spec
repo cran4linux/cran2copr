@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MacBehaviour
-%global packver   1.1.3
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Behavioural Studies of Large Language Models
 
@@ -19,11 +19,9 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rjson 
 
 %description

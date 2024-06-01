@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openintro
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Sets and Supplemental Functions from 'OpenIntro' Textbooks and Labs
+Summary:          Datasets and Supplemental Functions from 'OpenIntro' Textbooks and Labs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,7 +37,7 @@ Requires:         R-CRAN-tibble
 %description
 Supplemental functions and data for 'OpenIntro' resources, which includes
 open-source textbooks and resources for introductory statistics
-(<https://www.openintro.org/>). The package contains data sets used in our
+(<https://www.openintro.org/>). The package contains datasets used in our
 open-source textbooks along with custom plotting functions for reproducing
 book figures. Note that many functions and examples include color
 transparency; some plotting elements may not show up properly (or at all)

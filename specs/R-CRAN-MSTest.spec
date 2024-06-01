@@ -1,48 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cosimmr
-%global packver   1.0.12
+%global packname  MSTest
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Fitting of Stable Isotope Mixing Models with Covariates
+Summary:          Hypothesis Testing for Markov Switching Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-R2jags 
-BuildRequires:    R-CRAN-bayesplot 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-R2jags 
-Requires:         R-CRAN-bayesplot 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-stats 
-Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-pso 
+Requires:         R-CRAN-GA 
+Requires:         R-graphics 
 
 %description
-Fast fitting of Stable Isotope Mixing Models in R. Allows for the
-inclusion of covariates. Also has built-in summary functions and plot
-functions which allow for the creation of isospace plots. Variational
-Bayes is used to fit these models, methods as described in: Tran et al.,
-(2021) <doi:10.48550/arXiv.2103.01327>.
+Implementation of hypothesis testing procedures described in Hansen (1992)
+<doi:10.1002/jae.3950070506>, Carrasco, Hu, & Ploberger (2014)
+<doi:10.3982/ECTA8609>, Dufour & Luger (2017)
+<doi:10.1080/07474938.2017.1307548>, and Rodriguez Rondon & Dufour (2022)
+<https://grodriguezrondon.com/files/RodriguezRondon_Dufour_MonteCarlo_LikelihoodRatioTest_MarkovSwitchingModels.pdf>
+that can be used to identify the number of regimes in Markov switching
+models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Petersen
-%global packver   2023.12.1
+%global packver   2024.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.12.1
+Version:          2024.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimators for Two-Sample Capture-Recapture Studies
 

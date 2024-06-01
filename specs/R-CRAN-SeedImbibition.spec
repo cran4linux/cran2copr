@@ -1,50 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  piecewiseSEM
-%global packver   2.3.0
+%global packname  SeedImbibition
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Piecewise Structural Equation Modeling
+Summary:          Seed Imbibition Percentage
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-multcomp 
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-performance 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-multcomp 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-performance 
 
 %description
-Implements piecewise structural equation modeling from a single list of
-structural equations, with new methods for non-linear, latent, and
-composite variables, standardized coefficients, query-based prediction and
-indirect effects. See <http://jslefche.github.io/piecewiseSEM/> for more.
+Imbibition causes seeds to expand, which results in the seed coat or testa
+being broken. Seed germination begins with imbibition. Imbibition aids in
+the transport of water into the developing ovules. Imbibition is required
+during the first stages of root water absorption.
 
 %prep
 %setup -q -c -n %{packname}

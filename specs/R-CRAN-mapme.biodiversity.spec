@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapme.biodiversity
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Monitoring of Global Biodiversity Portfolios
 
@@ -17,36 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Biodiversity areas, especially primary forest, serve a multitude of
