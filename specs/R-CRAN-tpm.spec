@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  link2GI
-%global packver   0.6-1
+%global packname  tpm
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linking Geographic Information Systems, Remote Sensing and Other Command Line Tools
+Summary:          FHWA TPM Score Calculation Functions
 
-License:          GPL (>= 3) | file LICENSE
+License:          Mozilla Public License Version 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-renv 
-Requires:         R-CRAN-sf >= 0.9
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-brew 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-renv 
+BuildRequires:    R-CRAN-data.table >= 1.13
+BuildRequires:    R-CRAN-fasttime 
+Requires:         R-CRAN-data.table >= 1.13
+Requires:         R-CRAN-fasttime 
 
 %description
-Functions and tools for using open GIS and remote sensing command-line
-interfaces in a reproducible environment.
+Contains functions for calculating the Federal Highway Administration
+(FHWA) Transportation Performance Management (TPM) performance measures.
+Currently, the package provides methods for the System Reliability and
+Freight (PM3) performance measures calculated from travel time data
+provided by The National Performance Management Research Data Set
+(NPMRDS), including Level of Travel Time Reliability (LOTTR), Truck Travel
+Time Reliability (TTTR), and Peak Hour Excessive Delay (PHED) metric
+scores for calculating statewide reliability performance measures.
+Implements <https://www.fhwa.dot.gov/tpm/guidance/pm3_hpms.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

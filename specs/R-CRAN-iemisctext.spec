@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  link2GI
-%global packver   0.6-1
+%global packname  iemisctext
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linking Geographic Information Systems, Remote Sensing and Other Command Line Tools
+Summary:          Irucka Embry's Miscellaneous Text Collection
 
-License:          GPL (>= 3) | file LICENSE
+License:          Artistic License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-brew 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-renv 
-Requires:         R-CRAN-sf >= 0.9
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-brew 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-terra 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-renv 
 
 %description
-Functions and tools for using open GIS and remote sensing command-line
-interfaces in a reproducible environment.
+An eclectic collection of short stories and poetry with topics on climate
+strange, connecting the geopolitical dots, the myth of us versus them, and
+the idiocy of war. Please refer to the COPYRIGHTS file and the
+text_citation.cff file for the reference copyright information and for the
+complete citations of the reference sources, respectively.
 
 %prep
 %setup -q -c -n %{packname}

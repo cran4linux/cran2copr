@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dhis2r
-%global packver   0.1.1
+%global packname  runDRT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'DHIS2' Web API
+Summary:          Run Doubly Ranked Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3.3
-BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-BuildRequires:    R-CRAN-attempt >= 0.3.1
-BuildRequires:    R-CRAN-httr2 >= 0.2.2
-Requires:         R-CRAN-curl >= 4.3.3
-Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-attempt >= 0.3.1
-Requires:         R-CRAN-httr2 >= 0.2.2
 
 %description
-Connect and pull data from a 'DHIS2 (District Health Information Software
-2)' instance into R.
+Doubly ranked tests are nonparametric tests for grouped functional and
+multivariate data. The testing procedure first ranks a matrix (or three
+dimensional array) of data by column (if a matrix) or by cell (across the
+third dimension if an array). By default, it calculates a sufficient
+statistic for the subject's order within the sample using the observed
+ranks, taken over the columns or cells. Depending on the number of groups,
+G, the summarized ranks are then analyzed using either a Wilcoxon Rank Sum
+test (G = 2) or a Kruskal-Wallis (G greater than 2).
 
 %prep
 %setup -q -c -n %{packname}
