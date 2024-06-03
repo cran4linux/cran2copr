@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmrOptim
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate Optimal Experimental Designs Using Generalised Linear Mixed Models
 
@@ -39,8 +39,8 @@ cluster randomised trials, cohort studies, spatial and temporal
 epidemiological studies, and split-plot designs. See
 <https://github.com/samuel-watson/glmmrBase/blob/master/README.md> for a
 detailed manual on model specification. A detailed discussion of the
-methods in this package can be found in Watson and Pan (2022)
-<arXiv:2207.09183>.
+methods in this package can be found in Watson, Hemming, and Girling
+(2023) <doi:10.1177/09622802231202379>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDCD
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Changepoint Detection
 
@@ -24,8 +24,8 @@ Requires:         R-CRAN-Rdpack
 %description
 Efficient implementations of the following multiple changepoint detection
 algorithms: Efficient Sparsity Adaptive Change-point estimator by Moen,
-Glad and Tveten (2023) <arXiv:2306.04702> , Informative Sparse Projection
-for Estimating Changepoints by Wang and Samworth (2017)
+Glad and Tveten (2023) <doi:10.48550/arXiv.2306.04702> , Informative
+Sparse Projection for Estimating Changepoints by Wang and Samworth (2017)
 <doi:10.1111/rssb.12243>, and the method of Pilliat et al (2023)
 <doi:10.1214/23-EJS2126>.
 

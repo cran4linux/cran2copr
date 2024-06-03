@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biopixR
-%global packver   0.2.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting Insights from Biological Images
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-cluster 
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-magick 
 Requires:         R-tcltk 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-cluster 
 
 %description
 Combines the 'magick' and 'imager' packages to streamline image analysis,

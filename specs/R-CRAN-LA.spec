@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LA
-%global packver   2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lioness Algorithm (LA)
 
@@ -26,7 +26,7 @@ continuous design space, optimal Latin hypercube designs, and optimal
 order-of-addition designs. LA is a brand new nature-inspired
 meta-heuristic optimization algorithm. Detailed methodologies of LA and
 its implementation on numerical simulations can be found at Hongzhi Wang,
-Qian Xiao and Abhyuday Mandal (2021) <arXiv:2010.09154>.
+Qian Xiao and Abhyuday Mandal (2021) <doi:10.48550/arXiv.2010.09154>.
 
 %prep
 %setup -q -c -n %{packname}

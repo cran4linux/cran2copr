@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SNSeg
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Normalization(SN) Based Change-Point Estimation for Time Series
 
@@ -21,15 +21,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-evd 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-evd 
 
 %description
 Implementations self-normalization (SN) based algorithms for change-points

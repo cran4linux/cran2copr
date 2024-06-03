@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fxl
-%global packver   1.6.3
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'fxl' Single Case Design Charting Package
 
@@ -25,7 +25,13 @@ Requires:         R-CRAN-grImport
 %description
 The 'fxl' Charting package is used to prepare and design single case
 design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works.
+'fxl', there is no need to leave the R environment to prepare these works
+and many of the more unique conventions in single case experimental
+designs can be performed without the need for physically constructing
+features of plots (e.g., drawing annotations across plots). Support is
+provided for various different plotting arrangements (e.g., multiple
+baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
+svg, rasters).
 
 %prep
 %setup -q -c -n %{packname}
