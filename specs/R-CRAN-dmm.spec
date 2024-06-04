@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dmm
-%global packver   2.1-9
+%global packver   2.1-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.9
+Version:          2.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dyadic Mixed Model for Pedigree Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-nadiv 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-pls 
+Requires:         R-CRAN-nadiv 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 

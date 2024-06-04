@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataPackageR
-%global packver   0.15.9
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.9
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Reproducible Analytic Data Sets as R Packages
 
@@ -17,38 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-roxygen2 >= 6.0.1
-BuildRequires:    R-CRAN-devtools >= 1.12.0
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-roxygen2 >= 6.0.1
-Requires:         R-CRAN-devtools >= 1.12.0
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-knitr 
-Requires:         R-utils 
-Requires:         R-CRAN-rmarkdown 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-withr 
+Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
 A framework to help construct R data packages in a reproducible manner.
@@ -57,7 +51,7 @@ data sets is done in a reproducible manner and decoupled from the usual 'R
 CMD build' process so that data sets can be processed into R objects in
 the data package and the data package can then be shared, built, and
 installed by others without the need to repeat computationally costly data
-processing. The package maintains data provenance by turning the data
+processing.  The package maintains data provenance by turning the data
 processing scripts into package vignettes, as well as enforcing
 documentation and version checking of included data objects. Data packages
 can be version controlled on 'GitHub', and used to share data for

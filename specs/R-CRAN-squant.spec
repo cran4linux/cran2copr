@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  squant
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subgroup Identification Based on Quantitative Objectives
 
@@ -19,12 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-stats >= 3.4.3
 BuildRequires:    R-graphics >= 3.4.3
 BuildRequires:    R-utils >= 3.4.3
+BuildRequires:    R-methods >= 3.4.3
 BuildRequires:    R-CRAN-survival >= 2.41.3
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-glmnet >= 2.0.13
 Requires:         R-stats >= 3.4.3
 Requires:         R-graphics >= 3.4.3
 Requires:         R-utils >= 3.4.3
+Requires:         R-methods >= 3.4.3
 Requires:         R-CRAN-survival >= 2.41.3
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-glmnet >= 2.0.13
@@ -40,7 +43,7 @@ identifying a subgroup that is at least better than a
 pre-specified/auto-selected constant. The derived signature is a linear
 combination of predictors, and the selected subgroup are subjects with the
 signature > 0. The false discover rate when no true subgroup exists is
-strictly controlled at a user-specified level.
+controlled at a user-specified level.
 
 %prep
 %setup -q -c -n %{packname}

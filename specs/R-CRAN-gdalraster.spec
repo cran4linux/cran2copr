@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   1.10.0
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bindings to the 'Geospatial Data Abstraction Library' Raster API
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
@@ -24,7 +25,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-RcppInt64 
 Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-bit64 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
@@ -49,13 +52,14 @@ to evaluate a given R expression on a layer or stack of layers, with pixel
 x/y available as variables in the expression; and raster 'combine()' to
 identify and count unique pixel combinations across multiple input layers,
 with optional output of the pixel-level combination IDs. Provides raster
-display using base 'graphics'. Bindings to a subset of the Virtual Systems
-Interface ('VSI') are also included to support operations on 'GDAL'
-virtual file systems. These are general utility functions that abstract
-file system operations on URLs, cloud storage services,
-'Zip'/'GZip'/'7z'/'RAR' archives, and in-memory files. 'gdalraster' may be
-useful in applications that need scalable, low-level I/O, or prefer a
-direct 'GDAL' API.
+display using base 'graphics'. Bindings to a subset of the 'OGR' API are
+also included for managing vector data sources. Bindings to a subset of
+the Virtual Systems Interface ('VSI') are also included to support
+operations on 'GDAL' virtual file systems. These are general utility
+functions that abstract file system operations on URLs, cloud storage
+services, 'Zip'/'GZip'/'7z'/'RAR' archives, and in-memory files.
+'gdalraster' may be useful in applications that need scalable, low-level
+I/O, or prefer a direct 'GDAL' API.
 
 %prep
 %setup -q -c -n %{packname}
