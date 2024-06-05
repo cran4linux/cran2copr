@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brms.mmrm
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian MMRMs using 'brms'
 
@@ -18,8 +18,6 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-brms >= 2.19.0
-BuildRequires:    R-CRAN-emmeans >= 1.8.7
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
@@ -35,8 +33,6 @@ BuildRequires:    R-CRAN-trialr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-brms >= 2.19.0
-Requires:         R-CRAN-emmeans >= 1.8.7
-Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 

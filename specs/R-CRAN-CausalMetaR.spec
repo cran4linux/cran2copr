@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalMetaR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causally Interpretable Meta-Analysis
 
@@ -31,13 +31,16 @@ Requires:         R-CRAN-SuperLearner
 %description
 Provides robust and efficient methods for estimating causal effects in a
 target population using a multi-source dataset, including those of
-Dahabreh et al. (2019) <doi:10.1111/biom.13716> and Robertson et al.
-(2021) <arXiv:2104.05905>. The multi-source data can be a collection of
-trials, observational studies, or a combination of both, which have the
+Dahabreh et al. (2019) <doi:10.1111/biom.13716>, Robertson et al. (2021)
+<doi:10.48550/arXiv.2104.05905>, and Wang et al. (2024)
+<doi:10.48550/arXiv.2402.02684>. The multi-source data can be a collection
+of trials, observational studies, or a combination of both, which have the
 same data structure (outcome, treatment, and covariates). The target
 population can be based on an internal dataset or an external dataset
 where only covariate information is available. The causal estimands
 available are average treatment effects and subgroup treatment effects.
+See Wang et al. (2024) <doi:10.48550/arXiv.2402.04341> for a detailed
+guide on using the package.
 
 %prep
 %setup -q -c -n %{packname}

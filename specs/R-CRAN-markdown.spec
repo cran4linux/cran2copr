@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markdown
-%global packver   1.12
+%global packver   1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Markdown with 'commonmark'
 
@@ -26,11 +26,7 @@ Requires:         R-utils
 
 %description
 Render Markdown to full and lightweight HTML/LaTeX documents with the
-'commonmark' package. It also supports features that are missing in
-'commonmark', such as raw HTML/LaTeX blocks, LaTeX math, superscripts,
-subscripts, footnotes, element attributes, appendices, and fenced 'Divs'.
-With additional JavaScript and CSS, it can also create HTML slides and
-articles.
+'commonmark' package. This package has been superseded by 'litedown'.
 
 %prep
 %setup -q -c -n %{packname}

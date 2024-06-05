@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EBASE
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estuarine Bayesian Single-Station Estimation Method for Ecosystem Metabolism
 
@@ -42,7 +42,8 @@ quality monitoring stations with continuous dissolved oxygen time series.
 A mass balance equation is used that provides estimates of parameters for
 gross primary production, respiration, and gas exchange. Methods adapted
 from Grace et al. (2015) <doi:10.1002/lom3.10011> and Wanninkhof (2014)
-<doi:10.4319/lom.2014.12.351>.
+<doi:10.4319/lom.2014.12.351>. Details in Beck et al. (2024)
+<doi:10.1002/lom3.10620>.
 
 %prep
 %setup -q -c -n %{packname}

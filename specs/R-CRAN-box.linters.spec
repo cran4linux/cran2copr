@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  box.linters
-%global packver   0.9.0
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linters for 'box' Modules
 
@@ -22,13 +22,17 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-xmlparsedata 
 Requires:         R-CRAN-lintr >= 3.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-xmlparsedata 
 
 %description
 Static code analysis of 'box' modules. The package enhances code quality

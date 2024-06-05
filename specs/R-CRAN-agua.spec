@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agua
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'tidymodels' Integration with 'h2o'
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-h2o >= 3.38.0.1
+BuildRequires:    R-CRAN-tune >= 1.2.0
 BuildRequires:    R-CRAN-hardhat >= 1.1.0
-BuildRequires:    R-CRAN-tune >= 1.0.1
 BuildRequires:    R-CRAN-generics >= 0.1.3
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-cli 
@@ -38,8 +38,8 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-workflows 
 Requires:         R-CRAN-h2o >= 3.38.0.1
+Requires:         R-CRAN-tune >= 1.2.0
 Requires:         R-CRAN-hardhat >= 1.1.0
-Requires:         R-CRAN-tune >= 1.0.1
 Requires:         R-CRAN-generics >= 0.1.3
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-cli 

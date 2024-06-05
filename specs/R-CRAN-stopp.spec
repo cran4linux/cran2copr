@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stopp
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Point Pattern Methods, Model Fitting, Diagnostics, Simulation, Local Tests
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-spatstat.utils
 BuildRequires:    R-CRAN-stlnpp 
 BuildRequires:    R-CRAN-stpp 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-spatstat.univar 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-KernSmooth 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-spatstat.utils
 Requires:         R-CRAN-stlnpp 
 Requires:         R-CRAN-stpp 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-spatstat.univar 
 
 %description
 Toolbox for different kinds of spatio-temporal analyses to be performed on

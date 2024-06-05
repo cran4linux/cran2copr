@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RMSDp
-%global packver   0.1.0
+%global packname  codewhere
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Refined Modified Stahel-Donoho (MSD) Estimators for Outlier Detection (Parallel Version)
+Summary:          Find the Location of an R Package's Code
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-httr 
 
 %description
-A parallel function for multivariate outlier detection named modified
-Stahel-Donoho estimators is contained in this package.  The function
-RMSDp() is for elliptically distributed datasets and recognizes outliers
-based on Mahalanobis distance. This function is for higher dimensional
-datasets that cannot be handled by a single core function RMSD() included
-in 'RMSD' package.  See Wada and Tsubaki (2013)
-<doi:10.1109/CLOUDCOM-ASIA.2013.86> for the detail of the algorithm.
+Find the location of the code for an R package based on the package's name
+or string representation. Checks on 'CRAN' based on information in the
+'URL' field or 'BioConductor' and 'GitHub' based on constructing a URL,
+and verifies all paths via testing for a successful response. This can be
+useful when automating static code analysis based on a list of package
+names, and similar tasks.
 
 %prep
 %setup -q -c -n %{packname}

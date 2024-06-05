@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  waveslim
-%global packver   1.8.4
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.4
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Wavelet Routines for One-, Two-, and Three-Dimensional Signal Processing
 
@@ -20,10 +20,12 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-multitaper 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-multitaper 
 
 %description
 Basic wavelet routines for time series (1D), image (2D) and array (3D)

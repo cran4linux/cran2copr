@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  org
-%global packver   2022.11.23
+%global packver   2024.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.11.23
+Version:          2024.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Organising Projects
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
 A system to help you organize projects. Most analyses have three (or more)

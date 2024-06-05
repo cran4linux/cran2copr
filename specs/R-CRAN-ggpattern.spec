@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpattern
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Pattern Geoms
 
@@ -17,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-gridpattern >= 1.0.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-gridpattern >= 1.2.2
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-gridpattern >= 1.0.2
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-gridpattern >= 1.2.2
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-grid 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vctrs 
 
 %description
 Provides 'ggplot2' geoms filled with various patterns.  Includes a

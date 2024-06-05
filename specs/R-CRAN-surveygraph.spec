@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveygraph
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Representations of Attitudes
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 2.15.1
 
 %description
 A tool for computing network representations of attitudes, extracted from
-tabular data such as sociological surveys. By treating a survey as a
-bipartite network, we measure the similarity between respondents and
-survey items to produce network edges. We do this in both a respondent
-network, as well as a survey item network. Used in combination with graph
-visualisation libraries, this technique helps practitioners in the social
-sciences identify network structure that may be present within a survey.
+tabular data such as sociological surveys. Development of surveygraph
+software and training materials was initially funded by the European Union
+under the ERC Proof-of-concept programme (ERC, Attitude-Maps-4-All,
+project number: 101069264). Views and opinions expressed are however those
+of the author(s) only and do not necessarily reflect those of the European
+Union or the European Research Council Executive Agency. Neither the
+European Union nor the granting authority can be held responsible for
+them.
 
 %prep
 %setup -q -c -n %{packname}

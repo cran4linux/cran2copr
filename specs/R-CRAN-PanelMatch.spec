@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PanelMatch
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching Methods for Causal Inference with Time-Series Cross-Sectional Data
 
@@ -21,10 +22,10 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-CBPS 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -34,16 +35,16 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-CBPS 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-methods 
 
 %description
 Implements a set of methodological tools that enable researchers to apply
 matching methods to time-series cross-sectional data. Imai, Kim, and Wang
-(2021) <http://web.mit.edu/insong/www/pdf/tscs.pdf> proposes a
+(2023) <http://web.mit.edu/insong/www/pdf/tscs.pdf> proposes a
 nonparametric generalization of the difference-in-differences estimator,
 which does not rely on the linearity assumption as often done in practice.
 Researchers first select a method of matching each treated observation for
@@ -51,11 +52,9 @@ a given unit in a particular time period with control observations from
 other units in the same time period that have a similar treatment and
 covariate history. These methods include standard matching methods based
 on propensity score and Mahalanobis distance, as well as weighting
-methods. Once matching is done, both short-term and long-term average
-treatment effects for the treated can be estimated with standard errors.
-The package also offers a visualization technique that allows researchers
-to assess the quality of matches by examining the resulting covariate
-balance.
+methods. Once matching and refinement is done, treatment effects can be
+estimated with standard errors. The package also offers diagnostics for
+researchers to assess the quality of their results.
 
 %prep
 %setup -q -c -n %{packname}
