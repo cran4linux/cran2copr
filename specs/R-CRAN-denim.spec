@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  denim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Generate and Simulate Deterministic Discrete-Time Compartmental Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.6
+BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-Rcpp >= 1.0.6
+Requires:         R-CRAN-viridisLite 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+R package to build and simulate deterministic discrete-time compartmental
+models that can be non-Markov. Length of stay in each compartment can be
+defined to follow a parametric distribution (d_exponential(), d_gamma(),
+d_weibull(), d_lognormal()) or a non-parametric distribution
+(nonparametric()). Other supported types of transition from one
+compartment to another includes fixed transition (constant()), multinomial
+(multinomial()), fixed transition probability (transprob()).
 
 %prep
 %setup -q -c -n %{packname}

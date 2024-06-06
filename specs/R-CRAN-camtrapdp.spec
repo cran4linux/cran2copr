@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  camtrapdp
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Read and Manipulate Camera Trap Data Packages
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-frictionless >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-frictionless >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+Read and manipulate Camera Trap Data Packages ('Camtrap DP'). 'Camtrap DP'
+(<https://camtrap-dp.tdwg.org>) is a data exchange format for camera trap
+data. With 'camtrapdp' you can read, filter and transform data (including
+to Darwin Core) before further analysis in e.g. 'camtraptor' or
+'camtrapR'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  iemiscdata
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Irucka Embry's Miscellaneous Data Collection
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+Miscellaneous data sets [Chemistry, Engineering Economics,
+Environmental/Water Resources Engineering, Nuclear Accidents, US
+Presidential Elections, and US Continental Congress Presidents].
 
 %prep
 %setup -q -c -n %{packname}

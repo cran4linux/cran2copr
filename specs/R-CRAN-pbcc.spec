@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pbcc
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Percentile-Based Control Chart
 
@@ -23,12 +23,14 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-qcc 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-rgenoud 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-qcc 
 Requires:         R-grDevices 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-methods 
 
 %description
 Design and implementation of Percentile-based Shewhart Control Charts for

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitzRoy
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Scrape and Process AFL Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -31,10 +31,10 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-stringr >= 1.3.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.1.2
@@ -49,10 +49,10 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-httr2 
 
 %description
 An easy package for scraping and processing Australia Rules Football (AFL)

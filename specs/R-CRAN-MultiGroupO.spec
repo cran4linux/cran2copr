@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MultiGroupO
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MultiGroup Method and Simulation Data Analysis
 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-gplots
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-qgraph 
 BuildRequires:    R-CRAN-mgm 
+BuildRequires:    R-CRAN-lemon 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-expm 
@@ -40,6 +42,7 @@ Requires:         R-CRAN-gplots
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-qgraph 
 Requires:         R-CRAN-mgm 
+Requires:         R-CRAN-lemon 
 
 %description
 Two method new of multigroup and simulation of data. The first technique

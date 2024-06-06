@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jsmodule
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-jskm >= 0.4.4
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-epiDisplay 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-forestploter 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-GGally 
@@ -45,6 +46,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-see 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinycustomloader 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survey 
@@ -57,6 +59,7 @@ Requires:         R-CRAN-jskm >= 0.4.4
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-epiDisplay 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-forestploter 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-GGally 
@@ -80,6 +83,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-see 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinycustomloader 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-stats 
 Requires:         R-CRAN-survey 

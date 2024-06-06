@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zen4R
-%global packver   0.9
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Zenodo' REST API
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-XML 
@@ -27,8 +28,10 @@ BuildRequires:    R-CRAN-keyring
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-atom4R 
 BuildRequires:    R-CRAN-utf8 
+BuildRequires:    R-CRAN-plyr 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-XML 
@@ -37,6 +40,7 @@ Requires:         R-CRAN-keyring
 Requires:         R-tools 
 Requires:         R-CRAN-atom4R 
 Requires:         R-CRAN-utf8 
+Requires:         R-CRAN-plyr 
 
 %description
 Provides an Interface to 'Zenodo' (<https://zenodo.org>) REST API,

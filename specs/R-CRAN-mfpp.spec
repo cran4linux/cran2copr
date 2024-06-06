@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mfpp
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Matrix-Based Flexible Project Planning'
 
@@ -23,6 +23,9 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-genalg 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rfast 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-nsga2R 
@@ -30,6 +33,9 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-genalg 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-CRAN-Rfast 
 
 %description

@@ -1,35 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  lehuynh
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Le-Huynh Truc-Ly's R Code and Templates
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rio 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-brms 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rio 
+Requires:         R-CRAN-tibble 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+Miscellaneous R functions (for graphics, data import, data transformation,
+and general utilities) and templates (for exploratory analysis, Bayesian
+modeling, and crafting scientific manuscripts).
 
 %prep
 %setup -q -c -n %{packname}

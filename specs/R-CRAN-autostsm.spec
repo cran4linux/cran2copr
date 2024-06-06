@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autostsm
-%global packver   3.1.4
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          3.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Structural Time Series Models
 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-maxLik >= 1.5.2
 BuildRequires:    R-CRAN-strucchange >= 1.5
 BuildRequires:    R-CRAN-foreach >= 1.5
 BuildRequires:    R-CRAN-progress >= 1.2
-BuildRequires:    R-CRAN-data.table >= 1.14
+BuildRequires:    R-CRAN-data.table >= 1.15
 BuildRequires:    R-CRAN-doSNOW >= 1.0.19
 BuildRequires:    R-CRAN-lmtest >= 0.9.38
 BuildRequires:    R-CRAN-ggrepel >= 0.9
@@ -43,7 +43,7 @@ Requires:         R-CRAN-maxLik >= 1.5.2
 Requires:         R-CRAN-strucchange >= 1.5
 Requires:         R-CRAN-foreach >= 1.5
 Requires:         R-CRAN-progress >= 1.2
-Requires:         R-CRAN-data.table >= 1.14
+Requires:         R-CRAN-data.table >= 1.15
 Requires:         R-CRAN-doSNOW >= 1.0.19
 Requires:         R-CRAN-lmtest >= 0.9.38
 Requires:         R-CRAN-ggrepel >= 0.9

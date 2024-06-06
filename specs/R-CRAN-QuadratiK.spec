@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QuadratiK
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Methods Constructed using Kernel-Based Quadratic Distances
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-clusterRepro 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpp 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-methods 
@@ -40,8 +40,8 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-clusterRepro 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpp 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-mclust 
 Requires:         R-methods 

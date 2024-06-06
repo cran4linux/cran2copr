@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  finnishgrid
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Fingrid Open Data API' R Client
 
@@ -22,10 +23,12 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-jsonlite 
 
 %description
-R API client package for 'Fingrid Open Data' on the electricity market and
-the power system. get_data() function holds the main application logic to
-retrieve time-series data. API calls require free user account
-registration.
+R API client package for 'Fingrid Open Data' <https://data.fingrid.fi/> on
+the electricity market and the power system. get_data() function holds the
+main application logic to retrieve time-series data. API calls require
+free user account registration. Data is made available by Fingrid Oyj and
+distributed under Creative Commons 4.0
+<https://creativecommons.org/licenses/by/4.0/>.
 
 %prep
 %setup -q -c -n %{packname}

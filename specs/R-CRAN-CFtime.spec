@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CFtime
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Using CF-Compliant Calendars with Climate Projection Data
 
@@ -33,7 +33,7 @@ specifically allows the user to work with any of the CF-compliant
 calendars (many of which are not compliant with POSIXt). The CF time
 coordinate is formally defined in the CF Metadata Conventions document
 available at
-<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.10/cf-conventions.html#time-coordinate>.
+<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.11/cf-conventions.html#time-coordinate>.
 
 %prep
 %setup -q -c -n %{packname}

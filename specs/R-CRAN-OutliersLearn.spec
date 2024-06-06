@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  OutliersLearn
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Educational Outlier Package with Common Outlier Detection Algorithms
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+Provides implementations of some of the most important outlier detection
+algorithms. Includes a tutorial mode option that shows a description of
+each algorithm and provides a step-by-step execution explanation of how it
+identifies outliers from the given data with the specified input
+parameters. References include the works of Azzedine Boukerche, Lining
+Zheng, and Omar Alfandi (2020) <doi:10.1145/3381028>, Abir Smiti (2020)
+<doi:10.1016/j.cosrev.2020.100306>, and Xiaogang Su, Chih-Ling Tsai (2011)
+<doi:10.1002/widm.19>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  ggarrow
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Arrows for 'ggplot2'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-polyclip 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-grid 
+Requires:         R-CRAN-polyclip 
+Requires:         R-CRAN-scales 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+A 'ggplot2' extension that adds specialised arrow geometry layers. It
+offers more arrow options than the standard 'grid' arrows that are
+built-in many line-based geom layers.
 
 %prep
 %setup -q -c -n %{packname}

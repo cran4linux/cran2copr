@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  crqa
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Unidimensional and Multidimensional Methods for Recurrence Quantification Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rdist 
+BuildRequires:    R-CRAN-tseriesChaos 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rdist 
+Requires:         R-CRAN-tseriesChaos 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+Auto, Cross and Multi-dimensional recurrence quantification analysis.
+Different methods for computing recurrence, cross vs. multidimensional or
+profile iti.e., only looking at the diagonal recurrent points, as well as
+functions for optimization and plotting are proposed. in-depth measures of
+the whole cross-recurrence plot, Please refer to Coco and others (2021)
+<doi:10.32614/RJ-2021-062>, Coco and Dale (2014)
+<doi:10.3389/fpsyg.2014.00510> and Wallot (2018) <doi:
+10.1080/00273171.2018.1512846> for further details about the method.
 
 %prep
 %setup -q -c -n %{packname}

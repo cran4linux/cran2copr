@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  runMCMCbtadjust
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Runs Monte Carlo Markov Chain - With Either 'JAGS', 'nimble' or 'greta' - While Adjusting Burn-in and Thinning Parameters
 
@@ -25,7 +25,9 @@ The function runMCMC_btadjust() returns a mcmc.list object which is the
 output of a Markov Chain Monte Carlo obtained - from either 'JAGS',
 'nimble' or 'greta' - after adjusting burn-in and thinning parameters to
 meet pre-specified criteria in terms of convergence & effective sample
-size.
+size. Used with 'nimble', runMCMC_btadjust() allows extra calculations
+(e.g. information criteria for model comparison and goodness-of-fit
+p-values for model diagnosis).
 
 %prep
 %setup -q -c -n %{packname}

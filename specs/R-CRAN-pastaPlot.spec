@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fxl
-%global packver   1.7.1
+%global packname  pastaPlot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'fxl' Single Case Design Charting Package
+Summary:          Spaghetti-Plot Fixed and Random Effects of Linear Mixed Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggeffects 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-ggeffects 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-lme4 
 
 %description
-The 'fxl' Charting package is used to prepare and design single case
-design figures that are typically prepared in spreadsheet software. With
-'fxl', there is no need to leave the R environment to prepare these works
-and many of the more unique conventions in single case experimental
-designs can be performed without the need for physically constructing
-features of plots (e.g., drawing annotations across plots). Support is
-provided for various different plotting arrangements (e.g., multiple
-baseline), annotations (e.g., brackets, arrows), and output formats (e.g.,
-svg, rasters).
+Plot both fixed and random effects of linear mixed models, multilevel
+models in a single spaghetti plot. The package allows to visualize the
+effect of a predictor on a criterion between different levels of a
+grouping variable. Additionally, confidence intervals can be displayed for
+fixed effects. Calculation of predicted values of random effects allows
+only models with one random intercept and/or one random slope to be
+plotted. Confidence intervals and predicted values of fixed effects are
+computed using the 'ggpredict' function from the 'ggeffects' package.
+Lüdecke, D. (2018) <doi:10.21105/joss.00638>.
 
 %prep
 %setup -q -c -n %{packname}
