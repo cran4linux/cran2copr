@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rPDBapi
-%global packver   1.3
+%global packname  ClusterVAR
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Comprehensive Interface for Accessing the Protein Data Bank
+Summary:          Fitting Latent Class Vector-Autoregressive (VAR) Models
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-bio3d 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-bio3d 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-parabar 
+BuildRequires:    R-CRAN-iterators 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-parabar 
+Requires:         R-CRAN-iterators 
 
 %description
-Streamlines the interaction with the RCSB Protein Data Bank (PDB)
-<https://www.rcsb.org/>. This interface offers an intuitive and powerful
-tool for searching and retrieving a diverse range of data types from the
-PDB. It includes advanced functionalities like BLAST and sequence motif
-queries. Built upon the existing XML-based API of the PDB, it simplifies
-the creation of custom requests, thereby enhancing usability and
-flexibility for researchers.
+Estimates latent class vector-autoregressive models via EM algorithm on
+time-series data for model-based clustering and classification. Includes
+model selection criteria for selecting the number of lags and clusters.
 
 %prep
 %setup -q -c -n %{packname}

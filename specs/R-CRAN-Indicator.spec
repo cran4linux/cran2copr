@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rPDBapi
-%global packver   1.3
+%global packname  Indicator
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Comprehensive Interface for Accessing the Protein Data Bank
+Summary:          Composite 'Indicator' Construction and Imputation Data
 
-License:          GPL (>= 2)
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-bio3d 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-bio3d 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-missMethods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-norm 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-missMethods 
+Requires:         R-stats 
+Requires:         R-CRAN-norm 
 
 %description
-Streamlines the interaction with the RCSB Protein Data Bank (PDB)
-<https://www.rcsb.org/>. This interface offers an intuitive and powerful
-tool for searching and retrieving a diverse range of data types from the
-PDB. It includes advanced functionalities like BLAST and sequence motif
-queries. Built upon the existing XML-based API of the PDB, it simplifies
-the creation of custom requests, thereby enhancing usability and
-flexibility for researchers.
+Different functions includes constructing composite indicators, imputing
+missing data, and evaluating imputation techniques. Additionally,
+different tools for data normalization. Detailed methodologies of
+'Indicator' package are: OECD/European Union/EC-JRC (2008), 'Handbook on
+Constructing Composite Indicators: Methodology and User Guide', OECD
+Publishing, Paris, <DOI:10.1787/533411815016>, Matteo Mazziotta & Adriano
+Pareto, (2018) 'Measuring Well-Being Over Time: The Adjusted
+Mazziotta–Pareto Index Versus Other Non-compensatory Indices'
+<DOI:10.1007/s11205-017-1577-5> and De Muro P., Mazziotta M., Pareto A.
+(2011), 'Composite Indices of Development and Poverty: An Application to
+MDGs' <DOI:10.1007/s11205-010-9727-z>.
 
 %prep
 %setup -q -c -n %{packname}

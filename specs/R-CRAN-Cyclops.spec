@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Cyclops
-%global packver   3.4.0
+%global packver   3.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cyclic Coordinate Descent for Logistic, Poisson and Survival Analysis
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-RcppParallel 
 Requires:         R-CRAN-Andromeda >= 0.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-rlang 

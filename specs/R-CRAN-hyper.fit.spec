@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rPDBapi
-%global packver   1.3
+%global packname  hyper.fit
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Comprehensive Interface for Accessing the Protein Data Bank
+Summary:          N-Dimensional Hyperplane Fitting with Errors
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.00
+Requires:         R-core >= 3.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-bio3d 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-bio3d 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-magicaxis 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-magicaxis 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-LaplacesDemon 
 
 %description
-Streamlines the interaction with the RCSB Protein Data Bank (PDB)
-<https://www.rcsb.org/>. This interface offers an intuitive and powerful
-tool for searching and retrieving a diverse range of data types from the
-PDB. It includes advanced functionalities like BLAST and sequence motif
-queries. Built upon the existing XML-based API of the PDB, it simplifies
-the creation of custom requests, thereby enhancing usability and
-flexibility for researchers.
+High level functions for hyperplane fitting (hyper.fit()) and visualising
+(hyper.plot2d() / hyper.plot3d()). In simple terms this allows the user to
+produce robust 1D linear fits for 2D x vs y type data, and robust 2D plane
+fits to 3D x vs y vs z type data. This hyperplane fitting works
+generically for any N-1 hyperplane model being fit to a N dimension
+dataset. All fits include intrinsic scatter in the generative model
+orthogonal to the hyperplane.
 
 %prep
 %setup -q -c -n %{packname}

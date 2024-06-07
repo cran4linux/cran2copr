@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paleoTS
-%global packver   0.5.3
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Paleontological Time-Series
 

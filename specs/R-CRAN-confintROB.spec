@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  confintROB
-%global packver   1.0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap Confidence Intervals for Robust and Classical Linear Mixed Model Estimators
+Summary:          Confidence Intervals for Robust and Classical Linear Mixed Model Estimators
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,9 +38,9 @@ package, as well as the varComprob() function in the 'robustvarComp'
 package. Three methods are available: the classical Wald method, the wild
 bootstrap, and the parametric bootstrap. Bootstrap methods offer
 flexibility in obtaining lower and upper bounds through percentile or BCa
-methods. More details are given in n Mason, F., Cantoni, E., & Ghisletta,
-P. (2021) <doi:10.5964/meth.6607> and n Mason, F., Cantoni, E., &
-Ghisletta, P. (2024) <doi:10.1037/met0000643>.
+methods. More details are given in Mason, F., Cantoni, E., & Ghisletta, P.
+(2021) <doi:10.5964/meth.6607> and Mason, F., Cantoni, E., & Ghisletta, P.
+(2024) <doi:10.1037/met0000643>.
 
 %prep
 %setup -q -c -n %{packname}

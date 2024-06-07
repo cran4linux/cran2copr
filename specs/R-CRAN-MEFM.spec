@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rPDBapi
-%global packver   1.3
+%global packname  MEFM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Comprehensive Interface for Accessing the Protein Data Bank
+Summary:          Perform MEFM Estimation on Matrix Time Series
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-bio3d 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-bio3d 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-tensorMiss 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-tensorMiss 
+Requires:         R-stats 
 
 %description
-Streamlines the interaction with the RCSB Protein Data Bank (PDB)
-<https://www.rcsb.org/>. This interface offers an intuitive and powerful
-tool for searching and retrieving a diverse range of data types from the
-PDB. It includes advanced functionalities like BLAST and sequence motif
-queries. Built upon the existing XML-based API of the PDB, it simplifies
-the creation of custom requests, thereby enhancing usability and
-flexibility for researchers.
+To perform main effect matrix factor model (MEFM) estimation for a given
+matrix time series as described in Lam and Cen (2024)
+<doi:10.48550/arXiv.2406.00128>. Estimation of traditional matrix factor
+models is also supported. Supplementary functions for testing MEFM over
+factor models are included.
 
 %prep
 %setup -q -c -n %{packname}
