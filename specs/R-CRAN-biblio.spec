@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biblio
-%global packver   0.0.9
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interacting with BibTeX Databases
 
@@ -19,11 +19,13 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rcrossref 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yamlme 
 Requires:         R-methods 
+Requires:         R-CRAN-rcrossref 
 Requires:         R-CRAN-stringr 
 Requires:         R-tools 
 Requires:         R-utils 

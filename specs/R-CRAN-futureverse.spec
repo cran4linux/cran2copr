@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Kira
-%global packver   1.0.3
+%global packname  futureverse
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning
+Summary:          Easily Install and Load the 'Futureverse'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-progressr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-progressr 
 
 %description
-Machine learning, containing several algorithms for supervised and
-unsupervised classification, in addition to a function that plots the
-Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
-graphs, and also a function that returns several metrics used for model
-evaluation, the latter can be used in ranking results from other packs.
+The 'Futureverse' is a set of packages for parallel and distributed
+process with the 'future' package at its core, cf. Bengtsson (2021)
+<doi:10.32614/RJ-2021-048>. This package is designed to make it easy to
+install and load multiple 'Futureverse' packages in a single step. This
+package is intended for end-users, interactive use, and R scripts.
+Packages must not list it as a dependency - instead, explicitly declare
+each 'Futureverse' package as a dependency as needed.
 
 %prep
 %setup -q -c -n %{packname}

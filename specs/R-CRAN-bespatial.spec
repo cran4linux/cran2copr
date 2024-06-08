@@ -1,26 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  QuickJSR
-%global packver   1.2.2
+%global packname  bespatial
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for the 'QuickJS' Lightweight 'JavaScript' Engine
+Summary:          Boltzmann Entropy for Spatial Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
+BuildRequires:    R-CRAN-terra >= 1.5.13
+BuildRequires:    R-CRAN-comat >= 0.9.2
+BuildRequires:    R-CRAN-belg 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-landscapemetrics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-terra >= 1.5.13
+Requires:         R-CRAN-belg 
+Requires:         R-CRAN-comat >= 0.9.2
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-landscapemetrics 
 
 %description
-An 'R' interface to the 'QuickJS' portable 'JavaScript' engine.  The
-engine and all 'R' to 'JavaScript' interoperability is bundled within the
-package, requiring no dependencies beyond a 'C' compiler.
+Calculates several entropy metrics for spatial data inspired by
+Boltzmann's entropy formula. It includes metrics introduced by Cushman for
+landscape mosaics (Cushman (2015) <doi:10.1007/s10980-015-0305-2>), and
+landscape gradients and point patterns (Cushman (2021)
+<doi:10.3390/e23121616>); by Zhao and Zhang for landscape mosaics (Zhao
+and Zhang (2019) <doi:10.1007/s10980-019-00876-x>); and by Gao et al. for
+landscape gradients (Gao et al. (2018) <doi:10.1111/tgis.12315>; Gao and
+Li (2019) <doi:10.1007/s10980-019-00854-3>).
 
 %prep
 %setup -q -c -n %{packname}

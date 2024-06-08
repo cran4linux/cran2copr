@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Luminescence
-%global packver   0.9.23
+%global packver   0.9.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.23
+Version:          0.9.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
@@ -14,40 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-mclust >= 6.0.0
-BuildRequires:    R-CRAN-XML >= 3.99.0.15
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-mclust >= 6.1
+BuildRequires:    R-CRAN-XML >= 3.99.0.16
 BuildRequires:    R-CRAN-DEoptim >= 2.2.8
-BuildRequires:    R-CRAN-lamW >= 2.2.1
+BuildRequires:    R-CRAN-lamW >= 2.2.3
 BuildRequires:    R-CRAN-zoo >= 1.8.12
 BuildRequires:    R-CRAN-httr >= 1.4.7
 BuildRequires:    R-CRAN-shape >= 1.4.6
 BuildRequires:    R-CRAN-readxl >= 1.4.3
+BuildRequires:    R-CRAN-matrixStats >= 1.3.0
 BuildRequires:    R-CRAN-minpack.lm >= 1.2.4
-BuildRequires:    R-CRAN-data.table >= 1.14.8
-BuildRequires:    R-CRAN-interp >= 1.1.4
-BuildRequires:    R-CRAN-bbmle >= 1.0.25
-BuildRequires:    R-CRAN-Rcpp >= 1.0.11
-BuildRequires:    R-CRAN-matrixStats >= 1.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.6.6.0
+BuildRequires:    R-CRAN-data.table >= 1.15.4
+BuildRequires:    R-CRAN-interp >= 1.1.6
+BuildRequires:    R-CRAN-bbmle >= 1.0.25.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.8.4.0
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-mclust >= 6.0.0
-Requires:         R-CRAN-XML >= 3.99.0.15
+Requires:         R-CRAN-mclust >= 6.1
+Requires:         R-CRAN-XML >= 3.99.0.16
 Requires:         R-CRAN-DEoptim >= 2.2.8
-Requires:         R-CRAN-lamW >= 2.2.1
+Requires:         R-CRAN-lamW >= 2.2.3
 Requires:         R-CRAN-zoo >= 1.8.12
 Requires:         R-CRAN-httr >= 1.4.7
 Requires:         R-CRAN-shape >= 1.4.6
 Requires:         R-CRAN-readxl >= 1.4.3
+Requires:         R-CRAN-matrixStats >= 1.3.0
 Requires:         R-CRAN-minpack.lm >= 1.2.4
-Requires:         R-CRAN-data.table >= 1.14.8
-Requires:         R-CRAN-interp >= 1.1.4
-Requires:         R-CRAN-bbmle >= 1.0.25
-Requires:         R-CRAN-Rcpp >= 1.0.11
-Requires:         R-CRAN-matrixStats >= 1.0.0
+Requires:         R-CRAN-data.table >= 1.15.4
+Requires:         R-CRAN-interp >= 1.1.6
+Requires:         R-CRAN-bbmle >= 1.0.25.1
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-parallel 

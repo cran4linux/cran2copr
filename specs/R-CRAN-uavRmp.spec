@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  uavRmp
-%global packver   0.6.2
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          UAV Mission Planner
 
@@ -30,6 +30,11 @@ BuildRequires:    R-CRAN-link2GI
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-spatialEco 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-geosphere 
@@ -43,15 +48,20 @@ Requires:         R-CRAN-link2GI
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-spatialEco 
 
 %description
 The Unmanned Aerial Vehicle Mission Planner provides an easy to use work
-flow for planning autonomous obstacle avoiding surveys of (almost) ready
-to fly unmanned aerial vehicles to retrieve aerial or spot related data.
-It creates either intermediate flight control files for the DJI-Litchi
+flow for planning autonomous obstacle avoiding surveys of ready to fly
+unmanned aerial vehicles to retrieve aerial or spot related data. It
+creates either intermediate flight control files for the DJI-Litchi
 supported series or ready to upload control files for the pixhawk-based
-flight controller as used in the 3DR-Solo. Additionally it contains some
-useful tools for digitizing and data manipulation.
+flight controller. Additionally it contains some useful tools for
+digitizing and data manipulation.
 
 %prep
 %setup -q -c -n %{packname}

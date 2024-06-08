@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Kira
-%global packver   1.0.3
+%global packname  adoptr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning
+Summary:          Adaptive Optimal Two-Stage Designs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-nloptr 
+Requires:         R-methods 
+Requires:         R-CRAN-glue 
 
 %description
-Machine learning, containing several algorithms for supervised and
-unsupervised classification, in addition to a function that plots the
-Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
-graphs, and also a function that returns several metrics used for model
-evaluation, the latter can be used in ranking results from other packs.
+Optimize one or two-arm, two-stage designs for clinical trials with
+respect to several implemented objective criteria or custom objectives.
+Optimization under uncertainty and conditional (given stage-one outcome)
+constraints are supported. See Pilz et al. (2019) <doi:10.1002/sim.8291>
+and Kunzmann et al. (2021) <doi:10.18637/jss.v098.i09> for details.
 
 %prep
 %setup -q -c -n %{packname}

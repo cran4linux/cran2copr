@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Kira
-%global packver   1.0.3
+%global packname  MetaHD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning
+Summary:          A Multivariate Meta-Analysis Model for Metabolomics Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-Machine learning, containing several algorithms for supervised and
-unsupervised classification, in addition to a function that plots the
-Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
-graphs, and also a function that returns several metrics used for model
-evaluation, the latter can be used in ranking results from other packs.
+Performs multivariate meta-analysis for high-dimensional metabolomics data
+for integrating and collectively analysing individual-level metabolomics
+data generated from multiple studies as well as for combining summary
+estimates. This approach accounts for correlation between metabolites,
+considers variability within and between studies, handles missing values
+and uses shrinkage estimation to allow for high dimensionality.
 
 %prep
 %setup -q -c -n %{packname}

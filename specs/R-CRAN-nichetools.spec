@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  surveyexplorer
+%global packname  nichetools
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Explore Complex Survey Data
+Summary:          Complementary Package to 'nicheROVER' and 'SIBER'
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggupset 
-BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-nicheROVER 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggupset 
-Requires:         R-CRAN-gt 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-nicheROVER 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Visualize and tabulate single-choice, multiple-choice, matrix-style
-questions from survey data. Includes ability to group cross-tabulations,
-frequency distributions, and plots by categorical variables and to
-integrate survey weights. Ideal for quickly uncovering descriptive
-patterns in survey data.
+Provides functions complementary to packages 'nicheROVER' and 'SIBER'
+allowing the user to extract Bayesian estimates from data objects created
+by the packages 'nicheROVER and 'SIBER'. Please see the following
+publications for detailed methods on 'nicheROVER' and 'SIBER' Hansen et
+al. (2015) <doi:10.1890/14-0235.1> and 'SIBER', Jackson et al. (2011)
+<doi:10.1111/j.1365-2656.2011.01806.x>, respectfully.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Kira
-%global packver   1.0.3
+%global packname  TidyConsultant
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning
+Summary:          Tidy Consultant Universe
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-badger 
+BuildRequires:    R-CRAN-pacman 
+BuildRequires:    R-CRAN-framecleaner 
+BuildRequires:    R-CRAN-validata 
+BuildRequires:    R-CRAN-presenter 
+BuildRequires:    R-CRAN-autostats 
+BuildRequires:    R-CRAN-tidybins 
+BuildRequires:    R-CRAN-Ckmeans.1d.dp 
+Requires:         R-CRAN-badger 
+Requires:         R-CRAN-pacman 
+Requires:         R-CRAN-framecleaner 
+Requires:         R-CRAN-validata 
+Requires:         R-CRAN-presenter 
+Requires:         R-CRAN-autostats 
+Requires:         R-CRAN-tidybins 
+Requires:         R-CRAN-Ckmeans.1d.dp 
 
 %description
-Machine learning, containing several algorithms for supervised and
-unsupervised classification, in addition to a function that plots the
-Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
-graphs, and also a function that returns several metrics used for model
-evaluation, the latter can be used in ranking results from other packs.
+Loads the 5 packages in the Tidy Consultant Universe. This collection of
+packages is useful for anyone doing data science, data analysis, or
+quantitative consulting. The functions in these packages range from data
+cleaning, data validation, data binning, statistical modeling, and file
+exporting.
 
 %prep
 %setup -q -c -n %{packname}

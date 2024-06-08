@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmeffects
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Agnostic Interpretations with Forward Marginal Effects
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-ggparty 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-partykit 
 Requires:         R-CRAN-ggparty 
@@ -39,7 +41,7 @@ Create local, regional, and global explanations for any machine learning
 model with forward marginal effects. You provide a model and data, and
 'fmeffects' computes feature effects. The package is based on the theory
 in: C. A. Scholbeck, G. Casalicchio, C. Molnar, B. Bischl, and C. Heumann
-(2022) <arXiv:2201.08837>.
+(2022) <doi:10.48550/arXiv.2201.08837>.
 
 %prep
 %setup -q -c -n %{packname}

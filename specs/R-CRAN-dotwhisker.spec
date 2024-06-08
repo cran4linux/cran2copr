@@ -1,36 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Kira
-%global packver   1.0.3
+%global packname  dotwhisker
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning
+Summary:          Dot-and-Whisker Plots of Regression Results
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggstance 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 >= 2.2.1
+Requires:         R-grid 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-stats 
+Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggstance 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
 
 %description
-Machine learning, containing several algorithms for supervised and
-unsupervised classification, in addition to a function that plots the
-Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
-graphs, and also a function that returns several metrics used for model
-evaluation, the latter can be used in ranking results from other packs.
+Quick and easy dot-and-whisker plots of regression results.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Kira
-%global packver   1.0.3
+%global packname  RankPCA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning
+Summary:          Rank of Variables Based on Principal Component Analysis for Mixed Data Types
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-caret 
 Requires:         R-stats 
+Requires:         R-CRAN-caret 
 
 %description
-Machine learning, containing several algorithms for supervised and
-unsupervised classification, in addition to a function that plots the
-Receiver Operating Characteristic (ROC) and Precision-Recall (PRC) curve
-graphs, and also a function that returns several metrics used for model
-evaluation, the latter can be used in ranking results from other packs.
+Principal Component Analysis (PCA) is a statistical technique used to
+reduce the dimensionality of a dataset while preserving as much
+variability as possible. By transforming the original variables into a new
+set of uncorrelated variables called principal components, PCA helps in
+identifying patterns and simplifying the complexity of high-dimensional
+data. The 'RankPCA' package provides a streamlined workflow for performing
+PCA on datasets containing both categorical and continuous variables. It
+facilitates data preprocessing, encoding of categorical variables, and
+computes PCA to determine the optimal number of principal components based
+on a specified variance threshold. The package also computes composite
+indices for ranking observations, which can be useful for various
+analytical purposes. Garai, S., & Paul, R. K. (2023)
+<doi:10.1016/j.iswa.2023.200202>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jarbes
-%global packver   2.0.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Just a Rather Bayesian Evidence Synthesis
 
@@ -16,30 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.0
-BuildRequires:    R-CRAN-R2jags >= 0.04.03
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-mcmcplots 
-Requires:         R-CRAN-rjags >= 4.0
-Requires:         R-CRAN-R2jags >= 0.04.03
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-qpdf 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-R2jags 
 Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-MASS 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-mcmcplots 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-qpdf 
 
 %description
 Provides a new class of Bayesian meta-analysis models that incorporates a

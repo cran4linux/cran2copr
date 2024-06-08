@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapCAST
-%global packver   24.2.1
+%global packver   24.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.1
+Version:          24.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          REDCap Castellated Data Handling
 
@@ -27,8 +27,10 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-openxlsx2 
-BuildRequires:    R-CRAN-rsconnect 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-REDCapR 
 Requires:         R-CRAN-tidyr 
@@ -39,8 +41,10 @@ Requires:         R-CRAN-readr
 Requires:         R-stats 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-openxlsx2 
-Requires:         R-CRAN-rsconnect 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-readODS 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-assertthat 
 
 %description
 Originally forked from the R part of 'REDCapRITS' by Paul Egeler. See

@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  valse
-%global packver   0.1-0
+%global packname  TBox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection with Mixture of Models
+Summary:          Useful Functions for Programming and Generating Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-CRAN-RcppGSL
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-MASS 
-Requires:         R-parallel 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-utils 
 
 %description
-Two methods are implemented to cluster data with finite mixture regression
-models. Those procedures deal with high-dimensional covariates and
-responses through a variable selection procedure based on the Lasso
-estimator. A low-rank constraint could be added, computed for the
-Lasso-Rank procedure. A collection of models is constructed, varying the
-level of sparsity and the number of clusters, and a model is selected
-using a model selection criterion (slope heuristic, BIC or AIC). Details
-of the procedure are provided in "Model-based clustering for
-high-dimensional data. Application to functional data" by Emilie Devijver
-(2016) <arXiv:1409.1333v2>, published in Advances in Data Analysis and
-Clustering.
+Tools to help developers and producers manipulate R objects and outputs.
+It includes tools for displaying results and objects, and for formatting
+them in the correct format.
 
 %prep
 %setup -q -c -n %{packname}

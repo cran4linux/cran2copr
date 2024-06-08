@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pldamixture
-%global packver   0.1.1
+%global packname  quaxnat
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Post-Linkage Data Analysis Based on Mixture Modelling
+Summary:          Estimation of Natural Regeneration Potential
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,27 +18,17 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-terra 
 
 %description
-Perform inference in the secondary analysis setting with linked data
-potentially containing mismatch errors. Only the linked data file may be
-accessible and information about the record linkage process may be limited
-or unavailable. Implements the 'General Framework for Regression with
-Mismatched Data' developed by Slawski et al. (2023)
-<doi:10.48550/arXiv.2306.00909>. The framework uses a mixture model for
-pairs of linked records whose two components reflect distributions
-conditional on match status, i.e., correct match or mismatch. Inference is
-based on composite likelihood and the Expectation-Maximization (EM)
-algorithm. The package currently supports Cox Proportional Hazards
-Regression (right-censored data only) and Generalized Linear Regression
-Models (Gaussian, Gamma, Poisson, and Logistic (binary models only)).
-Information about the underlying record linkage process can be
-incorporated into the method if available (e.g., assumed overall mismatch
-rate, safe matches, predictors of match status, or predicted probabilities
-of correct matches).
+Functions for estimating the potential dispersal of tree species using
+regeneration densities and dispersal distances to nearest seed trees. A
+quantile regression is implemented to determine the dispersal potential.
+Spatial prediction can be used to identify natural regeneration potential
+for forest restoration as described in Axer et al. (2021)
+<doi:10.1016/j.foreco.2020.118802>.
 
 %prep
 %setup -q -c -n %{packname}
