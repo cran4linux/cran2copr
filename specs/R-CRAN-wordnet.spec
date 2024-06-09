@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wordnet
-%global packver   0.1-16
+%global packver   0.1-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.16
+Version:          0.1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          WordNet Interface
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         wordnet
+Recommends:       wordnet
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
@@ -32,7 +32,11 @@ makes WordNet available to research and commercial users free of charge
 provided the terms of their license
 (<https://wordnet.princeton.edu/license-and-commercial-use>) are followed,
 and proper reference is made to the project using an appropriate citation
-(<https://wordnet.princeton.edu/citing-wordnet>).
+(<https://wordnet.princeton.edu/citing-wordnet>). The WordNet database
+files need to be made available separately, either via package
+'wordnetDicts' from <https://datacube.wu.ac.at>, installing system
+packages where available, or direct download from
+<https://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz>.
 
 %prep
 %setup -q -c -n %{packname}

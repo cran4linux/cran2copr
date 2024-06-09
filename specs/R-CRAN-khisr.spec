@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  khisr
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from Kenya Health Information System (KHIS)
+Summary:          An R Client to Retrieve Data from DHIS2
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,10 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -33,7 +36,10 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -43,10 +49,10 @@ Requires:         R-utils
 Requires:         R-CRAN-withr 
 
 %description
-Simplify data retrieval from Kenya's health system with a powerful
-interface for efficient data retrieval from the Kenya Health Information
-System (KHIS) <https://hiskenya.org>. Empower researchers, analysts, and
-healthcare professionals to access critical health data efficiently.
+Provides a user-friendly interface for interacting with the District
+Health Information Software 2 (DHIS2) instance. It streamlines data
+retrieval, empowering researchers, analysts, and healthcare professionals
+to obtain and utilize data efficiently.
 
 %prep
 %setup -q -c -n %{packname}

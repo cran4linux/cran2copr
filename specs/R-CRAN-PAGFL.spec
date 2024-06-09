@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAGFL
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joint Estimation and Identification of Latent Groups in Panel Data Models
+Summary:          Joint Estimation of Latent Groups and Group-Specific Coefficients in Panel Data Models
 
 License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-RcppParallel 
 
 %description
-In panel data analysis, unobservable group structures are a common
-challenge. Disregarding group-level heterogeneity by assuming an entirely
-homogeneous panel can introduce bias. Conversely, estimating individual
-coefficients for each cross-sectional unit is inefficient and may lead to
-high uncertainty. This package addresses this issue by implementing the
-pairwise adaptive group fused Lasso (PAGFL) by Mehrabani (2023)
-<doi:10.1016/j.jeconom.2022.12.002>. PAGFL is an efficient methodology to
-identify latent group structures and estimate group-specific coefficients
-simultaneously.
+Latent group structures are a common challenge in panel data analysis.
+Disregarding group-level heterogeneity can introduce bias. Conversely,
+estimating individual coefficients for each cross-sectional unit is
+inefficient and may lead to high uncertainty. This package addresses the
+issue of unobservable group structures by implementing the pairwise
+adaptive group fused Lasso (PAGFL) by Mehrabani (2023)
+<doi:10.1016/j.jeconom.2022.12.002>. PAGFL identifies latent group
+structures and group-specific coefficients in a single step. On top of
+that, we extend the PAGFL to time-varying coefficient functions.
 
 %prep
 %setup -q -c -n %{packname}

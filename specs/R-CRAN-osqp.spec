@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osqp
-%global packver   0.6.3.2
+%global packver   0.6.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3.2
+Version:          0.6.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quadratic Programming Solver using the 'OSQP' Library
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-R6
 Provides bindings to the 'OSQP' solver. The 'OSQP' solver is a numerical
 optimization package or solving convex quadratic programs written in 'C'
 and based on the alternating direction method of multipliers. See
-<arXiv:1711.08013> for details.
+<doi:10.48550/arXiv.1711.08013> for details.
 
 %prep
 %setup -q -c -n %{packname}
