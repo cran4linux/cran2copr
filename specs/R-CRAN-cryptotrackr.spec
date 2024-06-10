@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsm
-%global packver   2.10.5
+%global packname  cryptotrackr
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.5
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Response-Surface Analysis
+Summary:          An Interface to Crypto Data Sources
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-estimability 
-Requires:         R-CRAN-estimability 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-openssl 
+Requires:         R-utils 
+Requires:         R-CRAN-digest 
 
 %description
-Provides functions to generate response-surface designs, fit first- and
-second-order response-surface models, make surface plots, obtain the path
-of steepest ascent, and do canonical analysis. A good reference on these
-methods is Chapter 10 of Wu, C-F J and Hamada, M (2009) "Experiments:
-Planning, Analysis, and Parameter Design Optimization" ISBN
-978-0-471-69946-0. An early version of the package is documented in
-Journal of Statistical Software <doi:10.18637/jss.v032.i07>.
+Allows you to connect to data sources across the crypto ecosystem. This
+data can enable a range of activity such as portfolio tracking,
+programmatic trading, or industry analysis. The package is described in
+French (2024) <https://github.com/TrevorFrench/cryptotrackr/wiki>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SINRELEF.LD
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reliability and Relative Efficiency in Locally-Dependent Measures
 
@@ -18,7 +18,13 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinyjs 
 Requires:         R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinyjs 
 
 %description
 Implements an approach aimed at assessing the accuracy and effectiveness

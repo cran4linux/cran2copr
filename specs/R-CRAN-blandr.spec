@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rsm
-%global packver   2.10.5
+%global packname  blandr
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.5
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Response-Surface Analysis
+Summary:          Bland-Altman Method Comparison
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-estimability 
-Requires:         R-CRAN-estimability 
+BuildRequires:    R-CRAN-jmvcore >= 0.8.5
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-jmvcore >= 0.8.5
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-Provides functions to generate response-surface designs, fit first- and
-second-order response-surface models, make surface plots, obtain the path
-of steepest ascent, and do canonical analysis. A good reference on these
-methods is Chapter 10 of Wu, C-F J and Hamada, M (2009) "Experiments:
-Planning, Analysis, and Parameter Design Optimization" ISBN
-978-0-471-69946-0. An early version of the package is documented in
-Journal of Statistical Software <doi:10.18637/jss.v032.i07>.
+Carries out Bland Altman analyses (also known as a Tukey mean-difference
+plot) as described by JM Bland and DG Altman in 1986
+<doi:10.1016/S0140-6736(86)90837-8>. This package was created in 2015 as
+existing Bland-Altman analysis functions did not calculate confidence
+intervals. This package was created to rectify this, and create
+reproducible plots. This package is also available as a module for the
+'jamovi' statistical spreadsheet (see <https://www.jamovi.org> for more
+information).
 
 %prep
 %setup -q -c -n %{packname}

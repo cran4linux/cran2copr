@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SpatialGEV
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Spatial Generalized Extreme Value Models
 
@@ -16,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-TMB >= 1.7.16
-BuildRequires:    R-CRAN-RcppEigen
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.7.16
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-evd 
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
 Fit latent variable models with the GEV distribution as the data
@@ -38,7 +43,7 @@ write the models in 'TMB' by themselves. This package also offers methods
 to sample from both fixed and random effects posteriors as well as the
 posterior predictive distributions at different spatial locations. Methods
 for fitting this class of models are described in Chen, Ramezan, and Lysy
-(2021) <arXiv:2110.07051>.
+(2024) <doi:10.48550/arXiv.2110.07051>.
 
 %prep
 %setup -q -c -n %{packname}

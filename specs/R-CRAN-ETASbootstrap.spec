@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ETASbootstrap
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Confidence Interval Estimation for 'ETAS' Model Parameters
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.58.2
 BuildRequires:    R-stats >= 4.2.2
 BuildRequires:    R-utils >= 4.2.2
+BuildRequires:    R-CRAN-spatstat.geom >= 3.2.8
 BuildRequires:    R-CRAN-ETAS >= 0.5.1
 Requires:         R-CRAN-MASS >= 7.3.58.2
 Requires:         R-stats >= 4.2.2
 Requires:         R-utils >= 4.2.2
+Requires:         R-CRAN-spatstat.geom >= 3.2.8
 Requires:         R-CRAN-ETAS >= 0.5.1
 
 %description
@@ -35,9 +37,13 @@ the fitted model. However, when an 'ETAS' model is fitted to a local data
 set over a time period that is limited or short, the standard errors based
 on the Hessian matrix may be inaccurate. It follows that the asymptotic
 confidence intervals for parameters may not always be reliable. As an
-alternative, this package allows the building of bootstrap confidence
-intervals based on empirical quantiles for the parameters of the 2-D
-spatial and temporal 'ETAS' model.
+alternative, this package allows for the construction of bootstrap
+confidence intervals based on empirical quantiles for the parameters of
+the 2-D spatial and temporal 'ETAS' model. This version improves on
+Version 0.1.0 of the package by enabling the study space window (renamed
+'study region') to be polygonal rather than merely rectangular. A Japan
+earthquake data catalog is used in a second example to illustrate this new
+feature.
 
 %prep
 %setup -q -c -n %{packname}
