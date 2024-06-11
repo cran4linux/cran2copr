@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  arrowheadr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          Make Custom Arrowheads
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bezier 
 BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-bezier 
 Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+Requires:         R-grDevices 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+The 'ggarrow' package is a 'ggplot2' extension that plots a variety of
+different arrow segments with many options to customize. The 'arrowheadr'
+package makes it easy to create custom arrowheads and fins within the
+parameters that 'ggarrow' functions expect. It has preset arrowheads and a
+collection of functions to create and transform data for customizing
+arrows.
 
 %prep
 %setup -q -c -n %{packname}

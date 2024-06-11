@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  qlcData
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          Processing Data for Quantitative Language Comparison
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml >= 2.1.11
+BuildRequires:    R-CRAN-stringi >= 0.2.5
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-docopt 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-ape 
+Requires:         R-CRAN-yaml >= 2.1.11
+Requires:         R-CRAN-stringi >= 0.2.5
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-docopt 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-ape 
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+Functionality to read, recode, and transcode data as used in quantitative
+language comparison, specifically to deal with multilingual orthographic
+variation (Moran & Cysouw (2018) <doi:10.5281/zenodo.1296780>) and with
+the recoding of nominal data.
 
 %prep
 %setup -q -c -n %{packname}

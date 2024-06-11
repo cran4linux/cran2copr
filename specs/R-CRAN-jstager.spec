@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  jstager
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          Retrieve Information Published on J-STAGE
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-openxlsx 
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+Provides tools to access the J-STAGE WebAPI and retrieve information
+published on J-STAGE <https://www.jstage.jst.go.jp/browse/-char/ja>.
 
 %prep
 %setup -q -c -n %{packname}

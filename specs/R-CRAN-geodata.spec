@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  geodata
+%global packver   0.6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          Download Geographic Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.6.41
+Requires:         R-CRAN-terra >= 1.6.41
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+Functions for downloading of geographic data for use in spatial analysis
+and mapping. The package facilitates access to climate, crops, elevation,
+land use, soil, species occurrence, accessibility, administrative
+boundaries and other data.
 
 %prep
 %setup -q -c -n %{packname}

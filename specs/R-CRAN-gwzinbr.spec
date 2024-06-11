@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.1
+%global packname  gwzinbr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          Geographically Weighted Zero Inflated Negative Binomial Regression
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-utils 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-sp 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Fits a geographically weighted regression model using zero inflated
+probability distributions. Has the zero inflated negative binomial
+distribution (zinb) as default, but also accepts the zero inflated Poisson
+(zip), negative binomial (negbin) and Poisson distributions. Can also fit
+the global versions of each regression model. Da Silva, A. R. & De Sousa,
+M. D. R. (2023). "Geographically weighted zero-inflated negative binomial
+regression: A general case for count data", Spatial Statistics
+<doi:10.1016/j.spasta.2023.100790>. Brunsdon, C., Fotheringham, A. S., &
+Charlton, M. E. (1996). "Geographically weighted regression: a method for
+exploring spatial nonstationarity", Geographical Analysis,
+<doi:10.1111/j.1538-4632.1996.tb00936.x>. Yau, K. K. W., Wang, K., & Lee,
+A. H. (2003). "Zero-inflated negative binomial mixed regression modeling
+of over-dispersed count data with extra zeros", Biometrical Journal,
+<doi:10.1002/bimj.200390024>.
 
 %prep
 %setup -q -c -n %{packname}

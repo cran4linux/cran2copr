@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  lakhesis
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          Consensus Seriation for Binary Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-ca 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-bslib 
+Requires:         R-stats 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-ca 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-bslib 
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+Determining consensus seriations for binary incidence matrices, using a
+two-step process of Procrustes-fit correspondence analysis for heuristic
+selection of partial seriations and iterative regression to establish a
+single consensus. Contains the Lakhesis Calculator, a graphical platform
+for identifying seriated sequences. Collins-Elliott (2024)
+<https://volweb.utk.edu/~scolli46/sceLakhesis.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

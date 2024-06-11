@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saeTrafo
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformations for Unit-Level Small Area Models
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-emdi
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-CRAN-parallelMap 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-openxlsx 
@@ -37,7 +36,6 @@ Requires:         R-CRAN-emdi
 Requires:         R-stats 
 Requires:         R-CRAN-sfsmisc 
 Requires:         R-CRAN-parallelMap 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-openxlsx 

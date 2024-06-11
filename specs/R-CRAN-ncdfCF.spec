@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  ncdfCF
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          Easy Access to NetCDF Files with CF Metadata Conventions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-CFtime 
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RNetCDF 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-CFtime 
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+Requires:         R-CRAN-RNetCDF 
+Requires:         R-CRAN-stringr 
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+Network Common Data Form (NetCDF) files are widely used for scientific
+data. Library-level access in R is provided through packages 'RNetCDF' and
+'ncdf4'. Package 'ncdfCF' is built on top of 'RNetCDF' and makes the data
+and its attributes available as a set of S4 classes that are informed by
+the Climate and Forecasting Metadata Conventions. Access to the data uses
+standard R subsetting operators and common function forms.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FaaSr
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          FaaS (Function as a Service) Package
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-jsonvalidate 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-sodium 
+BuildRequires:    R-CRAN-askpass 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-uuid 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-jsonvalidate 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-sodium 
+Requires:         R-CRAN-askpass 
 
 %description
 Allows users to create and deploy the workflow with multiple functions in

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NTSS
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Tests in Spatial Statistics
 
@@ -22,8 +22,9 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.univar 
+BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-GET 
 BuildRequires:    R-CRAN-geoR 
@@ -32,8 +33,9 @@ Requires:         R-graphics
 Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.univar 
+Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-GET 
 Requires:         R-CRAN-geoR 
@@ -43,7 +45,8 @@ Nonparametric test of independence between a pair of spatial objects
 (random fields, point processes) based on random shifts with torus or
 variance correction. See Mrkvička et al. (2021)
 <doi:10.1016/j.spasta.2020.100430>, Dvořák et al. (2022)
-<doi:10.1111/insr.12503>, Dvořák and Mrkvička (2022) <arxiv:2210.05424>.
+<doi:10.1111/insr.12503>, Dvořák and Mrkvička (2024)
+<doi:10.1080/10618600.2024.2357626>.
 
 %prep
 %setup -q -c -n %{packname}

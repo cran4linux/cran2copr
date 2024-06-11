@@ -1,47 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  disprofas
+%global packname  cassandRa
 %global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Dissolution Profile Analysis
+Summary:          Finds Missing Links and Metric Confidence Intervals in Ecological Bipartite Networks
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
+BuildRequires:    R-CRAN-vegan >= 2.5.3
+BuildRequires:    R-CRAN-bipartite >= 2.11
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-reshape2 >= 1.4.3
+BuildRequires:    R-CRAN-tidyr >= 0.8
+BuildRequires:    R-CRAN-purrr >= 0.2.5
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.1.0
+Requires:         R-CRAN-vegan >= 2.5.3
+Requires:         R-CRAN-bipartite >= 2.11
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-reshape2 >= 1.4.3
+Requires:         R-CRAN-tidyr >= 0.8
+Requires:         R-CRAN-purrr >= 0.2.5
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Similarity of dissolution profiles is assessed using the similarity factor
-f2 according to the EMA guideline (European Medicines Agency 2010) "On the
-investigation of bioequivalence". Dissolution profiles are regarded as
-similar if the f2 value is between 50 and 100. For the applicability of
-the similarity factor f2, the variability between profiles needs to be
-within certain limits. Often, this constraint is violated. One possibility
-in this situation is to resample the measured profiles in order to obtain
-a bootstrap estimate of f2 (Shah et al. (1998)
-<doi:10.1023/A:1011976615750>). Other alternatives are the
-model-independent non-parametric multivariate confidence region (MCR)
-procedure (Tsong et al. (1996) <doi:10.1177/009286159603000427>) or the
-T2-test for equivalence procedure (Hoffelder (2016)
-<https://www.ecv.de/suse_item.php?suseId=Z|pi|8430>). Functions for
-estimation of f1, f2, bootstrap f2, MCR / T2-test for equivalence
-procedure are implemented.
+Provides methods to deal with under sampling in ecological bipartite
+networks from Terry and Lewis (2020) Ecology <doi:10.1002/ecy.3047>
+Includes tools to fit a variety of statistical network models and sample
+coverage estimators to highlight most likely missing links. Also includes
+simple functions to resample from observed networks to generate confidence
+intervals for common ecological network metrics.
 
 %prep
 %setup -q -c -n %{packname}

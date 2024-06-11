@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdep
-%global packver   1.3-4
+%global packver   1.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-spData >= 2.3.1
 BuildRequires:    R-CRAN-boot >= 1.3.1
 BuildRequires:    R-CRAN-sp >= 1.0
-BuildRequires:    R-CRAN-spData >= 0.2.6.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
@@ -29,9 +29,9 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-s2 
 BuildRequires:    R-CRAN-e1071 
+Requires:         R-CRAN-spData >= 2.3.1
 Requires:         R-CRAN-boot >= 1.3.1
 Requires:         R-CRAN-sp >= 1.0
-Requires:         R-CRAN-spData >= 0.2.6.0
 Requires:         R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 

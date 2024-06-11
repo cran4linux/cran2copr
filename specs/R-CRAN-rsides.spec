@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nnlib2Rcpp
-%global packver   0.2.8
+%global packname  rsides
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tool for Creating Custom Neural Networks in C++ and using Them in R
+Summary:          SIDES-Based Subgroup Search Algorithms
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-class 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-utils 
-Requires:         R-CRAN-class 
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-flextable 
 
 %description
-Contains a module to define neural networks from custom components and
-versions of Autoencoder, BP, LVQ, MAM NN.
+R implementation of SIDES-based subgroup search algorithms (Lipkovich et
+al. (2017) <doi:10.1002/sim.7064>).
 
 %prep
 %setup -q -c -n %{packname}

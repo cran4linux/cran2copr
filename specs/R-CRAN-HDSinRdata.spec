@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDSinRdata
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data for the 'Mastering Health Data Science Using R' Online Textbook
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Contains nine datasets used in the chapters and exercises of Paul, Alice
+Contains ten datasets used in the chapters and exercises of Paul, Alice
 (2023) "Health Data Science in R"
 <https://alicepaul.github.io/health-data-science-using-r/>.
 

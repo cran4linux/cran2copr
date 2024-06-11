@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spgwr
-%global packver   0.6-36
+%global packver   0.6-37
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.36
+Version:          0.6.37
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically Weighted Regression
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.14
 Requires:         R-core >= 2.14
+BuildRequires:    R-CRAN-spData >= 2.3.1
 BuildRequires:    R-CRAN-sp >= 0.8.3
-BuildRequires:    R-CRAN-spData >= 0.2.6.2
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-spData >= 2.3.1
 Requires:         R-CRAN-sp >= 0.8.3
-Requires:         R-CRAN-spData >= 0.2.6.2
 Requires:         R-stats 
 Requires:         R-methods 
 
