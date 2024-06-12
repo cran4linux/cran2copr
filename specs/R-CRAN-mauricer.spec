@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JFE
-%global packver   2.5.7
+%global packname  mauricer
+%global packver   2.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.7
+Version:          2.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Analyzing Time Series Data of Just Finance and Econometrics
+Summary:          Work with 'BEAST2' Packages
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-CRAN-beastier >= 2.5
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-beastier >= 2.5
+Requires:         R-CRAN-stringr 
 
 %description
-Offers procedures to support financial-economic time series modelling and
-enhanced procedures for computing the investment performance indices of
-Bacon (2004) <DOI:10.1002/9781119206309>.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'BEAST2' is
+commonly accompanied by 'BEAUti 2' (<https://www.beast2.org>), which,
+among others, allows one to install 'BEAST2' package. This package allows
+to work with 'BEAST2' packages from 'R'.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,7 +48,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

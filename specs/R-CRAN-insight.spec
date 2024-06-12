@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  insight
-%global packver   0.20.0
+%global packver   0.20.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.0
+Version:          0.20.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Access to Model Information for Various Model Objects
 
@@ -31,7 +31,7 @@ information about random effects, data that was used to fit the model or
 data from response variables. 'insight' mainly revolves around two types
 of functions: Functions that find (the names of) information, starting
 with 'find_', and functions that get the underlying data, starting with
-'get_'.  The package has a consistent syntax and works with many different
+'get_'. The package has a consistent syntax and works with many different
 model objects, where otherwise functions to access these information are
 missing.
 

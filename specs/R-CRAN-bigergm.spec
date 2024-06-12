@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bigergm
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate, and Diagnose Hierarchical Exponential-Family Models for Big Networks
 
@@ -32,14 +32,13 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-ergm.multi 
 Requires:         R-CRAN-ergm >= 4.5.0
 Requires:         R-CRAN-network >= 1.16.0
 Requires:         R-CRAN-RcppArmadillo >= 0.10.5
@@ -56,21 +55,20 @@ Requires:         R-parallel
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-ergm.multi 
 
 %description
-A toolbox to analyze and simulate large networks based on hierarchical
-exponential-family random graph models (HERGMs).'bigergm' implements the
-estimation for large networks efficiently on large networks building on
-the 'lighthergm' package. Moreover, the package contains tools for
-simulating networks with local dependence to assess the estimates'
+A toolbox for analyzing and simulating large networks based on
+hierarchical exponential-family random graph models (HERGMs).'bigergm'
+implements the estimation for large networks efficiently building on the
+'lighthergm' and 'hergm' packages. Moreover, the package contains tools
+for simulating networks with local dependence to assess the
 goodness-of-fit.
 
 %prep

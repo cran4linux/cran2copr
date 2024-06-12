@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mFLICA
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leadership-Inference Framework for Multivariate Time Series
 
@@ -17,9 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0
-BuildRequires:    R-CRAN-dtw 
 Requires:         R-CRAN-ggplot2 >= 3.0
-Requires:         R-CRAN-dtw 
 
 %description
 A leadership-inference framework for multivariate time series. The

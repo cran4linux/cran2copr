@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JFE
-%global packver   2.5.7
+%global packname  catregs
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.7
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Analyzing Time Series Data of Just Finance and Econometrics
+Summary:          Post-Estimation Functions for Generalized Linear Mixed Models
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-xts 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Offers procedures to support financial-economic time series modelling and
-enhanced procedures for computing the investment performance indices of
-Bacon (2004) <DOI:10.1002/9781119206309>.
+Several functions for working with mixed effects regression models for
+limited dependent variables. The functions facilitate post-estimation of
+model predictions or margins, and comparisons between model predictions
+for assessing or probing moderation. Additional helper functions
+facilitate model comparisons and implements simulation-based inference for
+model predictions of alternative-specific outcome models. See also,
+Melamed and Doan (2024, ISBN: 978-1032509518).
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,7 +47,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

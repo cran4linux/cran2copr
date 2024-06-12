@@ -1,41 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  reproj
-%global packver   0.7.0
+%global packname  piecewiseSEM
+%global packver   2.3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          2.3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Coordinate System Transformations for Generic Map Data
+Summary:          Piecewise Structural Equation Modeling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.5
-Requires:         R-core >= 3.2.5
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PROJ >= 0.4.5
-BuildRequires:    R-CRAN-crsmeta >= 0.3.0
-BuildRequires:    R-CRAN-proj4 
-Requires:         R-CRAN-PROJ >= 0.4.5
-Requires:         R-CRAN-crsmeta >= 0.3.0
-Requires:         R-CRAN-proj4 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-performance 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-performance 
 
 %description
-Transform coordinates from a specified source to a specified target map
-projection. This uses the 'PROJ' library directly, by wrapping the 'PROJ'
-package which leverages 'libproj', otherwise the 'proj4' package. The
-'reproj()' function is generic, methods may be added to remove the need
-for an explicit source definition. If 'proj4' is in use 'reproj()' handles
-the requirement for conversion of angular units where necessary. This is
-for use primarily to transform generic data formats and direct leverage of
-the underlying 'PROJ' library. (There are transformations that aren't
-possible with 'PROJ' and that are provided by the 'GDAL' library, a
-limitation which users of this package should be aware of.) The 'PROJ'
-library is available at <https://proj.org/>.
+Implements piecewise structural equation modeling from a single list of
+structural equations, with new methods for non-linear, latent, and
+composite variables, standardized coefficients, query-based prediction and
+indirect effects. See <http://jslefche.github.io/piecewiseSEM/> for more.
 
 %prep
 %setup -q -c -n %{packname}

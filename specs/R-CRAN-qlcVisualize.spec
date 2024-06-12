@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oceanic
-%global packver   0.1.7
+%global packname  qlcVisualize
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Location Identify Tool
+Summary:          Visualization for Quantitative Language Comparison
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-qlcMatrix 
+BuildRequires:    R-CRAN-seriation 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-spData 
+BuildRequires:    R-CRAN-mapplots 
+BuildRequires:    R-CRAN-geodata 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-alphahull 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-concaveman 
+BuildRequires:    R-CRAN-cartogramR 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-qlcMatrix 
+Requires:         R-CRAN-seriation 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-maps 
-Requires:         R-CRAN-spData 
+Requires:         R-CRAN-mapplots 
+Requires:         R-CRAN-geodata 
 Requires:         R-methods 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-alphahull 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-concaveman 
+Requires:         R-CRAN-cartogramR 
 
 %description
-Determine the sea area where the fishing boat operates. The latitude and
-longitude of geographic coordinates are used to match oceanic areas and
-economic sea areas. You can plot the distribution map with dotplot()
-function. Please refer to Flanders Marine Institute (2020)
-<doi:10.14284/403>.
+Collection of visualizations as used in quantitative language comparison.
+Currently implemented are visualisations dealing nominal data with
+multiple levels ("level map" and "factor map"), and assistance for making
+weighted geographical Voronoi-maps ("weighted map").
 
 %prep
 %setup -q -c -n %{packname}

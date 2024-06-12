@@ -1,43 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oceanic
-%global packver   0.1.7
+%global packname  birdie
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Location Identify Tool
+Summary:          Bayesian Instrumental Regression for Disparity Estimation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-spData 
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-spData 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-SQUAREM 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-SQUAREM 
 
 %description
-Determine the sea area where the fishing boat operates. The latitude and
-longitude of geographic coordinates are used to match oceanic areas and
-economic sea areas. You can plot the distribution map with dotplot()
-function. Please refer to Flanders Marine Institute (2020)
-<doi:10.14284/403>.
+Bayesian models for accurately estimating conditional distributions by
+race, using Bayesian Improved Surname Geocoding (BISG) probability
+estimates of individual race. Implements the methods described in
+McCartan, Fisher, Goldin, Ho and Imai (2024) <doi:10.3386/w32373>.
 
 %prep
 %setup -q -c -n %{packname}

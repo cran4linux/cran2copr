@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ANSM5
-%global packver   1.1.0
+%global packname  SoilSaltIndex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Data for the Book "Applied Nonparametric Statistical Methods", 5th Edition
+Summary:          Soil Salinity Indices Generation using Satellite Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-sp 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-sp 
 
 %description
-Functions and data to accompany the 5th edition of the book "Applied
-Nonparametric Statistical Methods" (4th edition: Sprent & Smeeton, 2024,
-ISBN:158488701X), the revisions from the 4th edition including a move from
-describing the output from a miscellany of statistical software packages
-to using R. While the output from many of the functions can also be
-obtained using a range of other R functions, this package provides
-functions in a unified setting and give output using both p-values and
-confidence intervals, exemplifying the book's approach of treating
-p-values as a guide to statistical importance and not an end product in
-their own right.
+The developed function generates soil salinity indices using satellite
+data, utilizing multiple spectral bands such as Blue, Green, Red,
+Near-Infrared (NIR), and Shortwave Infrared (SWIR1, SWIR2). It computes 24
+different salinity indices crucial for monitoring and analyzing
+salt-affected soils efficiently. For more details see, Rani, et al.
+(2022). <DOI: 10.1007/s12517-022-09682-3>. One of the key features of the
+developed function is its flexibility. Users can provide any combination
+of the required spectral bands, and the function will automatically
+calculate only the relevant indices based on the available data. This
+dynamic capability ensures that users can maximize the utility of their
+data without the need for all spectral bands, making the package versatile
+and user-friendly. Outputs are provided as GeoTIFF file format,
+facilitating easy integration with GIS workflows.
 
 %prep
 %setup -q -c -n %{packname}

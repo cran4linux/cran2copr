@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lares
-%global packver   5.2.7
+%global packver   5.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.7
+Version:          5.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics & Machine Learning Sidekick
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 

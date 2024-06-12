@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Indicator
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite 'Indicator' Construction and Imputation Data
 
@@ -30,14 +30,14 @@ Requires:         R-CRAN-norm
 Different functions includes constructing composite indicators, imputing
 missing data, and evaluating imputation techniques. Additionally,
 different tools for data normalization. Detailed methodologies of
-'Indicator' package are: OECD/European Union/EC-JRC (2008), 'Handbook on
-Constructing Composite Indicators: Methodology and User Guide', OECD
+'Indicator' package are: OECD/European Union/EC-JRC (2008), "Handbook on
+Constructing Composite Indicators: Methodology and User Guide", OECD
 Publishing, Paris, <DOI:10.1787/533411815016>, Matteo Mazziotta & Adriano
-Pareto, (2018) 'Measuring Well-Being Over Time: The Adjusted
-Mazziotta–Pareto Index Versus Other Non-compensatory Indices'
+Pareto, (2018) "Measuring Well-Being Over Time: The Adjusted
+Mazziotta–Pareto Index Versus Other Non-compensatory Indices"
 <DOI:10.1007/s11205-017-1577-5> and De Muro P., Mazziotta M., Pareto A.
-(2011), 'Composite Indices of Development and Poverty: An Application to
-MDGs' <DOI:10.1007/s11205-010-9727-z>.
+(2011), "Composite Indices of Development and Poverty: An Application to
+MDGs" <DOI:10.1007/s11205-010-9727-z>.
 
 %prep
 %setup -q -c -n %{packname}

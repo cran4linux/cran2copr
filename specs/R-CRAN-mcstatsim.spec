@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JFE
-%global packver   2.5.7
+%global packname  mcstatsim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Analyzing Time Series Data of Just Finance and Econometrics
+Summary:          Monte Carlo Statistical Simulation Tools Using a Functional Approach
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xts 
-Requires:         R-CRAN-xts 
 
 %description
-Offers procedures to support financial-economic time series modelling and
-enhanced procedures for computing the investment performance indices of
-Bacon (2004) <DOI:10.1002/9781119206309>.
+A lightweight, dependency-free tool designed to facilitate statistical
+simulations through functional programming. It centralizes the simulation
+process into a single higher-order function, enhancing manageability and
+usability without adding overhead from external dependencies. The package
+includes ready-to-use functions for common simulation targets and
+processes. A detailed example can be found on
+<https://github.com/ielbadisy/mcstatsim>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,7 +45,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

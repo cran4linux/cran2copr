@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KnockoffHybrid
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hybrid Analysis of Population and Trio Data with Knockoff Statistics for FDR Control
 
@@ -24,7 +24,12 @@ Requires:         R-CRAN-SPAtest
 
 %description
 Identification of putative causal variants in genome-wide association
-studies using hybrid analysis of both the trio and population designs.
+studies using hybrid analysis of both the trio and population designs. The
+package implements the method in the paper: Yang, Y., Wang, Q., Wang, C.,
+Buxbaum, J., & Ionita-Laza, I. (2024). KnockoffHybrid: A knockoff
+framework for hybrid analysis of trio and population designs in
+genome-wide association studies. The American Journal of Human Genetics,
+in press.
 
 %prep
 %setup -q -c -n %{packname}

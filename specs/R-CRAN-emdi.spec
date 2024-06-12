@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emdi
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating and Mapping Disaggregated Indicators
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-reshape2 
@@ -39,7 +38,6 @@ BuildRequires:    R-CRAN-spdep
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-reshape2 
