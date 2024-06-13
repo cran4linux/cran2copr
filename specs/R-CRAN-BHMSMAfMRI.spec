@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BHMSMAfMRI
-%global packver   2.1
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Multi-Subject Multiscale Analysis of Functional MRI (fMRI) Data
 
@@ -28,7 +28,7 @@ Requires:         R-CRAN-wavethresh
 Package BHMSMAfMRI performs Bayesian hierarchical multi-subject multiscale
 analysis of fMRI data as described in Sanyal & Ferreira (2012)
 <DOI:10.1016/j.neuroimage.2012.08.041>, or other multiscale data, using
-wavelet based prior that borrows strength across subjects and provides
+wavelet-based prior that borrows strength across subjects and provides
 posterior smoothed images of the effect sizes and samples from the
 posterior distribution.
 

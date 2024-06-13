@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tidybins
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Tidy Bins
 
@@ -35,6 +36,7 @@ BuildRequires:    R-CRAN-ClusterR
 BuildRequires:    R-CRAN-framecleaner 
 BuildRequires:    R-CRAN-xgboost 
 BuildRequires:    R-CRAN-badger 
+BuildRequires:    R-CRAN-autostats 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -54,6 +56,7 @@ Requires:         R-CRAN-ClusterR
 Requires:         R-CRAN-framecleaner 
 Requires:         R-CRAN-xgboost 
 Requires:         R-CRAN-badger 
+Requires:         R-CRAN-autostats 
 
 %description
 Multiple ways to bin numeric columns with a tidy output. Wraps a variety

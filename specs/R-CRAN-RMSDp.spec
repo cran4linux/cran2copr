@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RRPP
-%global packver   2.0.2
+%global packname  RMSDp
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Model Evaluation with Randomized Residuals in a Permutation Procedure
+Summary:          Refined Modified Stahel-Donoho (MSD) Estimators for Outlier Detection (Parallel Version)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-stats 
 Requires:         R-parallel 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Linear model calculations are made for many random versions of data. Using
-residual randomization in a permutation procedure, sums of squares are
-calculated over many permutations to generate empirical probability
-distributions for evaluating model effects.  This packaged is described by
-Collyer & Adams (2018).  Additionally, coefficients, statistics, fitted
-values, and residuals generated over many permutations can be used for
-various procedures including pairwise tests, prediction, classification,
-and model comparison.  This package should provide most tools one could
-need for the analysis of high-dimensional data, especially in ecology and
-evolutionary biology, but certainly other fields, as well.
+A parallel function for multivariate outlier detection named modified
+Stahel-Donoho estimators is contained in this package.  The function
+RMSDp() is for elliptically distributed datasets and recognizes outliers
+based on Mahalanobis distance. This function is for higher dimensional
+datasets that cannot be handled by a single core function RMSD() included
+in 'RMSD' package.  See Wada and Tsubaki (2013)
+<doi:10.1109/CLOUDCOM-ASIA.2013.86> for the detail of the algorithm.
 
 %prep
 %setup -q -c -n %{packname}

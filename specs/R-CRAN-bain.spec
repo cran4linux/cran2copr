@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bain
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factors for Informative Hypotheses
 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-lavaan
 Computes approximated adjusted fractional Bayes factors for equality,
 inequality, and about equality constrained hypotheses. For a tutorial on
 this method, see Hoijtink, Mulder, van Lissa, & Gu, (2019)
-<doi:10.31234/osf.io/v3shc>. For applications in structural equation
+<doi:10.1037/met0000201>. For applications in structural equation
 modeling, see: Van Lissa, Gu, Mulder, Rosseel, Van Zundert, & Hoijtink,
 (2021) <doi:10.1080/10705511.2020.1745644>. For the statistical
 underpinnings, see Gu, Mulder, and Hoijtink (2018)

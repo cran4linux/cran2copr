@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wxgenR
-%global packver   1.3.6
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stochastic Weather Generator with Seasonality
 
@@ -50,12 +50,11 @@ due to phenomena like climate change. Data for training should be a single
 time series but can originate from station data, basin averages, grid
 cells, etc. Bearup, L., Gangopadhyay, S., & Mikkelson, K. (2021).
 "Hydroclimate Analysis Lower Santa Cruz River Basin Study (Technical
-Memorandum No ENV-2020-056)." Bureau of Reclamation.
-<https://www.usbr.gov/lc/phoenix/programs/lscrbasin/LSCRBS_Hydroclimate_2021.pdf>.
-Gangopadhyay, S., Bearup, L. A., Verdin, A., Pruitt, T., Halper, E., &
-Shamir, E. (2019, December 1). "A collaborative stochastic weather
-generator for climate impacts assessment in the Lower Santa Cruz River
-Basin, Arizona." Fall Meeting 2019, American Geophysical Union.
+Memorandum No ENV-2020-056)." Bureau of Reclamation. Gangopadhyay, S.,
+Bearup, L. A., Verdin, A., Pruitt, T., Halper, E., & Shamir, E. (2019,
+December 1). "A collaborative stochastic weather generator for climate
+impacts assessment in the Lower Santa Cruz River Basin, Arizona." Fall
+Meeting 2019, American Geophysical Union.
 <https://ui.adsabs.harvard.edu/abs/2019AGUFMGC41G1267G>.
 
 %prep

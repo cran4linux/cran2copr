@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FMAT
-%global packver   2024.5
+%global packver   2024.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.5
+Version:          2024.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Fill-Mask Association Test
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PsychWordVec 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
@@ -25,12 +24,12 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-PsychWordVec 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
@@ -38,6 +37,7 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-plyr 

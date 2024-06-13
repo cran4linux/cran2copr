@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern.gee
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tables and Graphs for Generalized Estimating Equations (GEE) Model Fits
 
@@ -18,18 +18,18 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-emmeans >= 1.4.5
-BuildRequires:    R-CRAN-tern >= 0.9.3
-BuildRequires:    R-CRAN-rtables >= 0.6.6
-BuildRequires:    R-CRAN-formatters >= 0.5.5
+BuildRequires:    R-CRAN-tern >= 0.9.4
+BuildRequires:    R-CRAN-rtables >= 0.6.7
+BuildRequires:    R-CRAN-formatters >= 0.5.6
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-geeasy 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-emmeans >= 1.4.5
-Requires:         R-CRAN-tern >= 0.9.3
-Requires:         R-CRAN-rtables >= 0.6.6
-Requires:         R-CRAN-formatters >= 0.5.5
+Requires:         R-CRAN-tern >= 0.9.4
+Requires:         R-CRAN-rtables >= 0.6.7
+Requires:         R-CRAN-formatters >= 0.5.6
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-geeasy 
 Requires:         R-CRAN-geepack 
@@ -43,7 +43,7 @@ fitting GEE, currently for logistic regression, within the 'tern'
 <https://cran.r-project.org/package=tern> framework (Zhu, Sabanés Bové et
 al., 2023) and tabulate results easily using 'rtables'
 <https://cran.r-project.org/package=rtables> (Becker, Waddell et al.,
-2023). It builds on 'geepack' <doi:10.18637/jss.v015.i02> (Højsgaard,
+2023).  It builds on 'geepack' <doi:10.18637/jss.v015.i02> (Højsgaard,
 Halekoh and Yan, 2006) for the actual GEE model fitting.
 
 %prep

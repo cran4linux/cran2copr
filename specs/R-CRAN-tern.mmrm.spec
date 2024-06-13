@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern.mmrm
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tables and Graphs for Mixed Models for Repeated Measures (MMRM)
 
@@ -17,38 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-emmeans >= 1.6
-BuildRequires:    R-CRAN-tern >= 0.9.3
-BuildRequires:    R-CRAN-rtables >= 0.6.6
-BuildRequires:    R-CRAN-formatters >= 0.5.5
+BuildRequires:    R-CRAN-parallelly >= 1.25.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.1
+BuildRequires:    R-CRAN-tern >= 0.9.4
+BuildRequires:    R-CRAN-tidyr >= 0.8.3
+BuildRequires:    R-CRAN-rtables >= 0.6.7
+BuildRequires:    R-CRAN-formatters >= 0.5.6
 BuildRequires:    R-CRAN-mmrm >= 0.3.5
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-emmeans >= 1.6
-Requires:         R-CRAN-tern >= 0.9.3
-Requires:         R-CRAN-rtables >= 0.6.6
-Requires:         R-CRAN-formatters >= 0.5.5
+Requires:         R-CRAN-parallelly >= 1.25.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.1
+Requires:         R-CRAN-tern >= 0.9.4
+Requires:         R-CRAN-tidyr >= 0.8.3
+Requires:         R-CRAN-rtables >= 0.6.7
+Requires:         R-CRAN-formatters >= 0.5.6
 Requires:         R-CRAN-mmrm >= 0.3.5
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
 
 %description
 Mixed models for repeated measures (MMRM) are a popular choice for
