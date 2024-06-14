@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rgl.cry
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'cry' and 'rgl' — Applications in Crystallography
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cry 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cry 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-rgl 
 Requires:         R-utils 
 

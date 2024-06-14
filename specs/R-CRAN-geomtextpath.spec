@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geomtextpath
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Curved Text in 'ggplot2'
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-textshaping >= 0.4.0
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-systemfonts 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-textshaping 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-textshaping >= 0.4.0
 Requires:         R-grid 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-systemfonts 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-textshaping 
 
 %description
 A 'ggplot2' extension that allows text to follow curved paths. Curved text

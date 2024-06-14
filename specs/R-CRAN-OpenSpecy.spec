@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenSpecy
-%global packver   1.0.8
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Process, Identify, and Share Raman and (FT)IR Spectra
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-methods 
 Requires:         R-CRAN-data.table 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-shiny 
 
 %description

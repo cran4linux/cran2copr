@@ -1,52 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crypto2
-%global packver   2.0.0
+%global packname  margins
+%global packver   0.3.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.3.27
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
+Summary:          Marginal Effects for Model Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-prediction >= 0.3.6
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-janitor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-prediction >= 0.3.6
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-data.table 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
 
 %description
-Retrieves crypto currency information and historical prices as well as
-information on the exchanges they are listed on. Historical data contains
-daily open, high, low and close values for all crypto currencies. All data
-is scraped from <https://coinmarketcap.com> via their 'web-api'.
+An R port of the margins command from 'Stata', which can be used to
+calculate marginal (or partial) effects from model objects.
 
 %prep
 %setup -q -c -n %{packname}

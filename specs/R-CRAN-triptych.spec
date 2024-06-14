@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  triptych
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Graphics to Evaluate Forecast Performance
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-geomtextpath >= 0.1.4
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pROC 
@@ -29,9 +30,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-geomtextpath 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-geomtextpath >= 0.1.4
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pROC 
@@ -45,7 +46,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-geomtextpath 
 Requires:         R-CRAN-ggrepel 
 
 %description
@@ -53,7 +53,7 @@ Overall predictive performance is measured by a mean score (or loss),
 which decomposes into miscalibration, discrimination, and uncertainty
 components. The main focus is visualization of these distinct and
 complementary aspects in joint displays. See Dimitriadis, Gneiting,
-Jordan, Vogel (2023) <arXiv:2301.10803>.
+Jordan, Vogel (2024) <doi:10.1016/j.ijforecast.2023.09.007>.
 
 %prep
 %setup -q -c -n %{packname}

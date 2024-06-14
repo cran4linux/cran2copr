@@ -1,52 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crypto2
-%global packver   2.0.0
+%global packname  synthesizer
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
+Summary:          Synthesize Data Based on Emperical Multivariate Distributions and Rank Order Matching
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-janitor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-randomForest 
 
 %description
-Retrieves crypto currency information and historical prices as well as
-information on the exchanges they are listed on. Historical data contains
-daily open, high, low and close values for all crypto currencies. All data
-is scraped from <https://coinmarketcap.com> via their 'web-api'.
+Data is synthesized using a combination of inverse transform sampling from
+the emperical quantile functions for each variable, and then copying the
+rank order structure from the original dataset. The package also includes
+a number of functions to measure the utility of synthesized datasets.
 
 %prep
 %setup -q -c -n %{packname}

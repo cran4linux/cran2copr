@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OneSampleMR
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          One Sample Mendelian Randomization and Instrumental Variable Analyses
 
@@ -14,14 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-gmm 
 BuildRequires:    R-CRAN-ivreg 
 BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-gmm 
 Requires:         R-CRAN-ivreg 

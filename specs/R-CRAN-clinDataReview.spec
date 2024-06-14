@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clinDataReview
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Data Review Tool
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-bookdown
 BuildRequires:    R-CRAN-crosstalk 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
@@ -39,11 +40,13 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-clinUtils >= 0.1.0
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-crosstalk 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
@@ -61,6 +64,7 @@ Requires:         R-tools
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-base64enc 
 
 %description
 Creation of interactive tables, listings and figures ('TLFs') and

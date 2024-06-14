@@ -1,27 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OBsMD
-%global packver   11.1
+%global packname  SurveyDefense
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Objective Bayesian Model Discrimination in Follow-Up Designs
+Summary:          Survey Defense Tool
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-flextable 
+Requires:         R-CRAN-flextable 
 
 %description
-Implements the objective Bayesian methodology proposed in Consonni and
-Deldossi in order to choose the optimal experiment that better
-discriminate between competing models, see Deldossi and Nai Ruscone (2020)
-<doi:10.18637/jss.v094.i02>.
+This tool is designed to analyze up to 5 Fraud Detection Questions
+integrated into a survey, focusing on potential fraudulent participants to
+clean the survey dataset from potential fraud. Fraud Detection Questions
+and further information available at <https://surveydefense.org>.
 
 %prep
 %setup -q -c -n %{packname}

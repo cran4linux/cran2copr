@@ -1,52 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crypto2
-%global packver   2.0.0
+%global packname  Rtapas
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
+Summary:          Random Tanglegram Partitions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-distory 
+BuildRequires:    R-CRAN-paco 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-janitor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-progress 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-phytools 
+Requires:         R-parallel 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-distory 
+Requires:         R-CRAN-paco 
+Requires:         R-CRAN-parallelly 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-vegan 
 
 %description
-Retrieves crypto currency information and historical prices as well as
-information on the exchanges they are listed on. Historical data contains
-daily open, high, low and close values for all crypto currencies. All data
-is scraped from <https://coinmarketcap.com> via their 'web-api'.
+Applies a given global-fit method to random partial tanglegrams of a fixed
+size to identify the associations, terminals, and nodes that maximize
+phylogenetic (in)congruence. It also includes functions to compute more
+easily the confidence intervals of classification metrics and plot
+results, reducing computational time. See Llaberia-Robledillo et al.,
+(2023) <doi:10.1093/sysbio/syad016>.
 
 %prep
 %setup -q -c -n %{packname}

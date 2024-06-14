@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mmeta
-%global packver   3.0.0
+%global packname  scCAN
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Meta-Analysis
+Summary:          Single-Cell Clustering using Autoencoder and Network Fusion
 
-License:          GPL (>= 2)
+License:          LGPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-scDHA 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scDHA 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
 
 %description
-Multiple 2 by 2 tables often arise in meta-analysis which combines
-statistical evidence from multiple studies. Two risks within the same
-study are possibly correlated because they share some common factors such
-as environment and population structure. This package implements a set of
-novel Bayesian approaches for multivariate meta analysis when the risks
-within the same study are independent or correlated. The exact posterior
-inference of odds ratio, relative risk, and risk difference given either a
-single 2 by 2 table or multiple 2 by 2 tables is provided. Luo, Chen, Su,
-Chu, (2014) <doi:10.18637/jss.v056.i11>, Chen, Luo, (2011)
-<doi:10.1002/sim.4248>, Chen, Chu, Luo, Nie, Chen, (2015)
-<doi:10.1177/0962280211430889>, Chen, Luo, Chu, Su, Nie, (2014)
-<doi:10.1080/03610926.2012.700379>, Chen, Luo, Chu, Wei, (2013)
-<doi:10.1080/19466315.2013.791483>.
+A single-cell Clustering method using 'Autoencoder' and Network fusion
+('scCAN') Bang Tran (2022) <doi:10.1038/s41598-022-14218-6> for
+segregating the cells from the high-dimensional 'scRNA-Seq' data. The
+software automatically determines the optimal number of clusters and then
+partitions the cells in a way such that the results are robust to noise
+and dropouts. 'scCAN' is fast and it supports Windows, Linux, and Mac OS.
 
 %prep
 %setup -q -c -n %{packname}

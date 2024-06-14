@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NPRED
-%global packver   1.0.7
+%global packname  pci
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predictor Identifier: Nonparametric Prediction
+Summary:          A Collection of Process Capability Index Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vek >= 1.0.0
+Requires:         R-CRAN-vek >= 1.0.0
 
 %description
-Partial informational correlation (PIC) is used to identify the meaningful
-predictors to the response from a large set of potential predictors.
-Details of methodologies used in the package can be found in Sharma, A.,
-Mehrotra, R. (2014). <doi:10.1002/2013WR013845>, Sharma, A., Mehrotra, R.,
-Li, J., & Jha, S. (2016). <doi:10.1016/j.envsoft.2016.05.021>, and
-Mehrotra, R., & Sharma, A. (2006). <doi:10.1016/j.advwatres.2005.08.007>.
+A collection of process capability index functions, such as C_p(), C_pk(),
+C_pm(), and others, along with metadata about each, like 'LaTeX' equations
+and 'R' expressions. Its primary purpose is to form a foundation for other
+quality control packages to build on top of, by providing basic resources
+and functions. The indices belong to the field of statistical quality
+control, and quantify the degree to which a manufacturing process is able
+to create items that adhere to a certain standard of quality. For details
+see Montgomery, D. C. (2019, ISBN:978-1-119-39930-8).
 
 %prep
 %setup -q -c -n %{packname}

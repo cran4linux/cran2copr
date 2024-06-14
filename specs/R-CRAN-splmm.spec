@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  splmm
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Penalized Linear Mixed Effects Models
 
@@ -23,6 +24,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-emulator 
@@ -32,6 +35,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-progress 
+Requires:         R-methods 
 
 %description
 Contains functions that fit linear mixed-effects models for

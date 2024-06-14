@@ -1,52 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crypto2
-%global packver   2.0.0
+%global packname  cumulcalib
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
+Summary:          Cumulative Calibration Assessment for Prediction Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-janitor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-progress 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-janitor 
 
 %description
-Retrieves crypto currency information and historical prices as well as
-information on the exchanges they are listed on. Historical data contains
-daily open, high, low and close values for all crypto currencies. All data
-is scraped from <https://coinmarketcap.com> via their 'web-api'.
+Tools for visualization of, and inference on, the calibration of
+prediction models on the cumulative domain. This provides a method for
+evaluating calibration of risk prediction models without having to group
+the data or use tuning parameters (e.g., loess bandwidth). This package
+implements the methodology described in Sadatsafavi and Patkau (2024)
+<doi:10.1002/sim.10138>. The core of the package is cumulcalib(), which
+takes in vectors of binary responses and predicted risks. The plot() and
+summary() methods are implemented for the results returned by
+cumulcalib().
 
 %prep
 %setup -q -c -n %{packname}

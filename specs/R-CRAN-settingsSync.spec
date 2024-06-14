@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crypto2
-%global packver   2.0.0
+%global packname  settingsSync
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Crypto Currency Data from 'CoinMarketCap' without 'API'
+Summary:          'Rstudio' Addin to Sync Settings and Keymaps
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-janitor 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-progress 
-Requires:         R-stats 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-googledrive 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-yesno 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-googledrive 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-yesno 
 
 %description
-Retrieves crypto currency information and historical prices as well as
-information on the exchanges they are listed on. Historical data contains
-daily open, high, low and close values for all crypto currencies. All data
-is scraped from <https://coinmarketcap.com> via their 'web-api'.
+Provides a 'Rstudio' addin to download, merge and upload 'Rstudio'
+settings and keymaps, essentially 'syncing them' at will. It uses 'Google
+Drive' as a cloud storage to keep the settings and keymaps files.
 
 %prep
 %setup -q -c -n %{packname}

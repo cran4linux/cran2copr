@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MASS
-%global packver   7.3-60.2
+%global packver   7.3-61
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.60.2
+Version:          7.3.61
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support Functions and Datasets for Venables and Ripley's MASS
 
