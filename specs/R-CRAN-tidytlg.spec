@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidytlg
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create TLGs using the 'tidyverse'
 
@@ -18,18 +18,17 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-huxtable >= 5.1.0
+BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-stats >= 3.6.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-usethis >= 1.6.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-glue >= 1.4.2
 BuildRequires:    R-CRAN-crayon >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-readxl >= 1.3.1
-BuildRequires:    R-CRAN-tidyselect >= 1.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-cellranger >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-forcats >= 0.5.1
 BuildRequires:    R-CRAN-rlang >= 0.4.10
@@ -39,18 +38,17 @@ BuildRequires:    R-CRAN-rstudioapi >= 0.13
 BuildRequires:    R-CRAN-png >= 0.1.7
 BuildRequires:    R-methods 
 Requires:         R-CRAN-huxtable >= 5.1.0
+Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-stats >= 3.6.0
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-usethis >= 1.6.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-glue >= 1.4.2
 Requires:         R-CRAN-crayon >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-readxl >= 1.3.1
-Requires:         R-CRAN-tidyselect >= 1.1.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-cellranger >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.4
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-forcats >= 0.5.1
 Requires:         R-CRAN-rlang >= 0.4.10

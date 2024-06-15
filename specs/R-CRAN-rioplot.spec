@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neonOS
-%global packver   1.1.0
+%global packname  rioplot
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Data Wrangling for NEON Observational Data
+Summary:          Turn a Regression Model Inside Out
 
-License:          AGPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-NEON observational data are provided via the NEON Data Portal
-<https://www.neonscience.org> and NEON API, and can be downloaded and
-reformatted by the 'neonUtilities' package. NEON observational data
-(human-observed measurements, and analyses derived from human-collected
-samples, such as tree diameters and algal chemistry) are published in a
-format consisting of one or more tabular data files. This package provides
-tools for performing common operations on NEON observational data,
-including checking for duplicates and joining tables.
+Turns regression models inside out. Functions decompose variances and
+coefficients for various regression model types. Functions also visualize
+regression model objects using techniques developed in Schoon, Melamed,
+and Breiger (2024) <doi:10.1017/9781108887205>.
 
 %prep
 %setup -q -c -n %{packname}

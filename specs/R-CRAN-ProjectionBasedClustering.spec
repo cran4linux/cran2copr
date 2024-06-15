@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProjectionBasedClustering
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Based Clustering
 
@@ -58,8 +58,7 @@ mountains surround each cluster. The number of clusters can be determined
 by counting valleys on the topographic map. Most projection methods are
 wrappers for already available methods in R. By contrast, the neighbor
 retrieval visualizer (NeRV) is based on C++ source code of the 'dredviz'
-software package, the t-SNE multicore version is based on C++ source code
-of Dmitry Ulyanov, and the Curvilinear Component Analysis (CCA) is
+software package, and the Curvilinear Component Analysis (CCA) is
 translated from 'MATLAB' ('SOM Toolbox' 2.0) to R.
 
 %prep

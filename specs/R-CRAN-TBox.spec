@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TBox
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Functions for Programming and Generating Documents
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-utils 
 

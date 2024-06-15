@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  StructFDR
-%global packver   1.4
+%global packname  PerMat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          False Discovery Control Procedure Integrating the Prior Structure Information
+Summary:          Performance Metrics in Predictive Modeling
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-dirmult 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-dirmult 
-Requires:         R-CRAN-matrixStats 
 
 %description
-Perform more powerful false discovery control (FDR) for microbiome data,
-taking into account the prior phylogenetic relationship among bacteria
-species.  As a general methodology, it is applicable to any type of
-(genomic) data with prior structure information.
+Performance metric provides different performance measures like mean
+squared error, root mean square error, mean absolute deviation, mean
+absolute percentage error etc. of a fitted model. These can provide a way
+for forecasters to quantitatively compare the performance of competing
+models. For method details see (i) Pankaj Das (2020)
+<http://krishi.icar.gov.in/jspui/handle/123456789/44138>.
 
 %prep
 %setup -q -c -n %{packname}

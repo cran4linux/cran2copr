@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neonOS
-%global packver   1.1.0
+%global packname  smile
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Data Wrangling for NEON Observational Data
+Summary:          Spatial Misalignment: Interpolation, Linkage, and Estimation
 
-License:          AGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-Matrix 
 
 %description
-NEON observational data are provided via the NEON Data Portal
-<https://www.neonscience.org> and NEON API, and can be downloaded and
-reformatted by the 'neonUtilities' package. NEON observational data
-(human-observed measurements, and analyses derived from human-collected
-samples, such as tree diameters and algal chemistry) are published in a
-format consisting of one or more tabular data files. This package provides
-tools for performing common operations on NEON observational data,
-including checking for duplicates and joining tables.
+Provides functions to estimate, predict and interpolate areal data. For
+estimation and prediction we assume areal data is an average of an
+underlying continuous spatial process as in Moraga et al. (2017)
+<doi:10.1016/j.spasta.2017.04.006>, Johnson et al. (2020)
+<doi:10.1186/s12942-020-00200-w>, and Wilson and Wakefield (2020)
+<doi:10.1093/biostatistics/kxy041>. The interpolation methodology is
+(mostly) based on Goodchild and Lam (1980, ISSN:01652273).
 
 %prep
 %setup -q -c -n %{packname}

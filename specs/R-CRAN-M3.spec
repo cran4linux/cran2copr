@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  alcyon
-%global packver   0.2.0
+%global packname  M3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Network Analysis
+Summary:          Reading M3 Files
 
-License:          GPL-3
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-mapdata 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-mapdata 
+Requires:         R-stats 
 
 %description
-Interface package for 'sala', the spatial network analysis library from
-the 'depthmapX' software application. The R parts of the code are based on
-the 'rdepthmap' package. Allows for the analysis of urban and
-building-scale networks and provides metrics and methods usually found
-within the Space Syntax domain. Methods in this package are described by
-K. Al-Sayed, A. Turner, B. Hillier, S. Iida and A. Penn (2014) "Space
-Syntax methodology", and also by A. Turner (2004)
-<https://discovery.ucl.ac.uk/id/eprint/2651> "Depthmap 4: a researcher's
-handbook".
+Provides functions to read in and manipulate air quality model output from
+Models3-formatted files.  This format is used by the Community Multiscale
+Air Quality (CMAQ) model.
 
 %prep
 %setup -q -c -n %{packname}

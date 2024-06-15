@@ -1,37 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyfst
-%global packver   1.7.9
+%global packname  ehymet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Verbs for Fast Data Manipulation
+Summary:          Methodologies for Functional Data Based on the Epigraph and Hypograph Indices
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr >= 1.5.0
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-BuildRequires:    R-CRAN-fst >= 0.9.0
-Requires:         R-CRAN-stringr >= 1.5.0
-Requires:         R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-fst >= 0.9.0
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tf 
+Requires:         R-CRAN-kernlab 
+Requires:         R-stats 
+Requires:         R-CRAN-tf 
 
 %description
-A toolkit of tidy data manipulation verbs with 'data.table' as the
-backend. Combining the merits of syntax elegance from 'dplyr' and
-computing performance from 'data.table', 'tidyfst' intends to provide
-users with state-of-the-art data manipulation tools with least pain. This
-package is an extension of 'data.table'. While enjoying a tidy syntax, it
-also wraps combinations of efficient functions to facilitate
-frequently-used data operations.
+Implements methods for functional data analysis based on the epigraph and
+hypograph indices. These methods transform functional datasets, whether in
+one or multiple dimensions, into multivariate datasets. The transformation
+involves applying the epigraph, hypograph, and their modified versions to
+both the original curves and their first and second derivatives. The
+calculation of these indices is tailored to the dimensionality of the
+functional dataset, with special considerations for dependencies between
+dimensions in multidimensional cases. This approach extends traditional
+multivariate data analysis techniques to the functional data setting. A
+key application of this package is the EHyClus method, which enhances
+clustering analysis for functional data across one or multiple dimensions
+using the epigraph and hypograph indices.
 
 %prep
 %setup -q -c -n %{packname}

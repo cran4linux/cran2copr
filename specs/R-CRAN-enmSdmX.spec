@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enmSdmX
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling and Ecological Niche Modeling
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-AICcmodavg 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-ks
 BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-MuMIn 
 BuildRequires:    R-CRAN-omnibus 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-predicts 
@@ -42,6 +42,7 @@ BuildRequires:    R-CRAN-statisfactory
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-AICcmodavg 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
@@ -53,7 +54,6 @@ Requires:         R-CRAN-ks
 Requires:         R-CRAN-maxnet 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-MuMIn 
 Requires:         R-CRAN-omnibus 
 Requires:         R-parallel 
 Requires:         R-CRAN-predicts 

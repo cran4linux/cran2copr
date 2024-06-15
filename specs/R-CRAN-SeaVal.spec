@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeaVal
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Validation of Seasonal Weather Forecasts
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggplotify 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-maps 
@@ -26,8 +27,10 @@ BuildRequires:    R-CRAN-ncdf4
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggplotify 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-maps 
@@ -35,6 +38,7 @@ Requires:         R-CRAN-ncdf4
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
 
 %description
 Provides tools for processing and evaluating seasonal weather forecasts,
@@ -44,7 +48,7 @@ Forecasts", S.J.Mason (2018, ISBN: 978-92-63-11220-0, URL:
 <https://library.wmo.int/idurl/4/56227>). The development was supported by
 the European Union’s Horizon 2020 research and innovation programme under
 grant agreement no. 869730 (CONFER). A comprehensive online tutorial is
-available at <http://files.nr.no/samba/CONFER/SeaVal/>.
+available at <https://seasonalforecastingengine.github.io/SeaValDoc/>.
 
 %prep
 %setup -q -c -n %{packname}

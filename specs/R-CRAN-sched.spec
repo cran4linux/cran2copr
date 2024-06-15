@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neonOS
-%global packver   1.1.0
+%global packname  sched
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Data Wrangling for NEON Observational Data
+Summary:          Request Scheduler
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-fscache >= 1.0.3
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-openssl 
+Requires:         R-CRAN-fscache >= 1.0.3
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-lgr 
+Requires:         R-methods 
+Requires:         R-CRAN-RCurl 
+Requires:         R-tools 
+Requires:         R-CRAN-openssl 
 
 %description
-NEON observational data are provided via the NEON Data Portal
-<https://www.neonscience.org> and NEON API, and can be downloaded and
-reformatted by the 'neonUtilities' package. NEON observational data
-(human-observed measurements, and analyses derived from human-collected
-samples, such as tree diameters and algal chemistry) are published in a
-format consisting of one or more tabular data files. This package provides
-tools for performing common operations on NEON observational data,
-including checking for duplicates and joining tables.
+Offers classes and functions to contact web servers while enforcing
+scheduling rules required by the sites. The URL class makes it easy to
+construct a URL by providing parameters as a vector. The Request class
+allows to describes SOAP (Simple Object Access Protocol) or standard
+requests: URL, method (POST or GET), header, body. The Scheduler class
+controls the request frequency for each server address by mean of rules
+(Rule class). The RequestResult class permits to get the request status to
+handle error cases and the content.
 
 %prep
 %setup -q -c -n %{packname}
