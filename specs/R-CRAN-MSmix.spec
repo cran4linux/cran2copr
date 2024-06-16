@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSmix
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Mixtures of Mallows Models with Spearman Distance for Full and Partial Rankings
 
@@ -20,11 +20,12 @@ BuildRequires:    R-methods >= 4.3.1
 BuildRequires:    R-stats >= 4.3.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-BayesMallows >= 2.0.1
 BuildRequires:    R-CRAN-fields >= 15.2
 BuildRequires:    R-CRAN-bmixture >= 1.7
 BuildRequires:    R-CRAN-foreach >= 1.5.2
-BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.3
@@ -40,11 +41,12 @@ Requires:         R-methods >= 4.3.1
 Requires:         R-stats >= 4.3.1
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-BayesMallows >= 2.0.1
 Requires:         R-CRAN-fields >= 15.2
 Requires:         R-CRAN-bmixture >= 1.7
 Requires:         R-CRAN-foreach >= 1.5.2
-Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-RColorBrewer >= 1.1.3

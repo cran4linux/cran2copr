@@ -1,29 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PKI
-%global packver   0.1-14
+%global packname  telescope
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Public Key Infrastucture for R Based on the X.509 Standard
+Summary:          Bayesian Mixtures with an Unknown Number of Components
 
-License:          GPL-2 | GPL-3 | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openssl-devel
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-base64enc 
-Requires:         R-CRAN-base64enc 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-bayesm 
+BuildRequires:    R-CRAN-DirichletReg 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-bayesm 
+Requires:         R-CRAN-DirichletReg 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-Public Key Infrastucture functions such as verifying certificates, RSA
-encription and signing which can be used to build PKI infrastructure and
-perform cryptographic tasks.
+Fits Bayesian finite mixtures with an unknown number of components using
+the telescoping sampler and different component distributions. For more
+details see Frühwirth-Schnatter et al. (2021) <doi:10.1214/21-BA1294>.
 
 %prep
 %setup -q -c -n %{packname}

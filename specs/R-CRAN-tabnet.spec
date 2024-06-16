@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabnet
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit 'TabNet' Models for Classification and Regression
 
@@ -19,35 +19,58 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-hardhat >= 1.3.0
 BuildRequires:    R-CRAN-torch >= 0.4.0
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-hardhat >= 1.3.0
 Requires:         R-CRAN-torch >= 0.4.0
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-rlang 
-Requires:         R-methods 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-coro 
+Requires:         R-CRAN-tune 
+Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-zeallot 
 
 %description
 Implements the 'TabNet' model by Sercan O. Arik et al. (2019)
-<arXiv:1908.07442> with 'Coherent Hierarchical Multi-label Classification
-Networks' by Giunchiglia et al. <arXiv:2010.10151> and provides a
-consistent interface for fitting and creating predictions. It's also fully
-compatible with the 'tidymodels' ecosystem.
+<doi:10.48550/arXiv.1908.07442> with 'Coherent Hierarchical Multi-label
+Classification Networks' by Giunchiglia et al.
+<doi:10.48550/arXiv.2010.10151> and provides a consistent interface for
+fitting and creating predictions. It's also fully compatible with the
+'tidymodels' ecosystem.
 
 %prep
 %setup -q -c -n %{packname}

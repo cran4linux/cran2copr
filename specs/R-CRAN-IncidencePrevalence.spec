@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IncidencePrevalence
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Incidence and Prevalence using the OMOP Common Data Model
 
@@ -30,11 +30,13 @@ BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-scales >= 1.1.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.1.0
 BuildRequires:    R-CRAN-DBI >= 1.0.0
 BuildRequires:    R-CRAN-lubridate >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.5
 BuildRequires:    R-CRAN-omopgenerics >= 0.1.2
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
@@ -50,11 +52,13 @@ Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-scales >= 1.1.0
+Requires:         R-CRAN-PatientProfiles >= 1.1.0
 Requires:         R-CRAN-DBI >= 1.0.0
 Requires:         R-CRAN-lubridate >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.5
 Requires:         R-CRAN-omopgenerics >= 0.1.2
+Requires:         R-CRAN-clock 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble 
 
