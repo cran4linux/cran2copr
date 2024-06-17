@@ -1,52 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  uniswappeR
-%global packver   0.6.1
+%global packname  BayLum
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with the Uniswap Platform
+Summary:          Chronological Bayesian Models Integrating Optically Stimulated Luminescence and Radiocarbon Age Dating
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ghql 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rjags >= 4.13
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-yaml >= 2.3.7
+BuildRequires:    R-CRAN-KernSmooth >= 2.23
+BuildRequires:    R-CRAN-runjags >= 2.2.1
+BuildRequires:    R-CRAN-hexbin >= 1.28.3
+BuildRequires:    R-CRAN-Luminescence >= 0.9.22
+BuildRequires:    R-CRAN-coda >= 0.19
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ghql 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-rjags >= 4.13
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-yaml >= 2.3.7
+Requires:         R-CRAN-KernSmooth >= 2.23
+Requires:         R-CRAN-runjags >= 2.2.1
+Requires:         R-CRAN-hexbin >= 1.28.3
+Requires:         R-CRAN-Luminescence >= 0.9.22
+Requires:         R-CRAN-coda >= 0.19
 Requires:         R-utils 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-purrr 
+Requires:         R-methods 
 
 %description
-Routines to interact with the Uniswap trading platform and its API
-<https://uniswap.org>. The package contains codebase to interact with the
-uniswap platform directly from R console, Ability to pull and export data
-related to the platform and analyse some aspects.
+Bayesian analysis of luminescence data and C-14 age estimates. Bayesian
+models are based on the following publications: Combes, B. & Philippe, A.
+(2017) <doi:10.1016/j.quageo.2017.02.003> and Combes et al. (2015)
+<doi:10.1016/j.quageo.2015.04.001>. This includes, amongst others, data
+import, export, application of age models and palaeodose model.
 
 %prep
 %setup -q -c -n %{packname}

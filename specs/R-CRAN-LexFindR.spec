@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.count
-%global packver   4.1.2
+%global packname  LexFindR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks with Count Edges
+Summary:          Find Related Items and Lexical Dimensions in a Lexicon
 
-License:          GPL-3 + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ergm >= 4.2.1
-BuildRequires:    R-CRAN-statnet.common >= 4.2.0
-BuildRequires:    R-CRAN-Rdpack >= 2.4
-BuildRequires:    R-CRAN-network >= 1.15
-Requires:         R-CRAN-ergm >= 4.2.1
-Requires:         R-CRAN-statnet.common >= 4.2.0
-Requires:         R-CRAN-Rdpack >= 2.4
-Requires:         R-CRAN-network >= 1.15
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-A set of extensions for the 'ergm' package to fit weighted networks whose
-edge weights are counts. See Krivitsky (2012) <doi:10.1214/12-EJS696> and
-Krivitsky, Hunter, Morris, and Klumb (2023) <doi:10.18637/jss.v105.i06>.
+Implements code to identify lexical competitors in a given list of words.
+We include many of the standard competitor types used in spoken word
+recognition research, such as functions to find cohorts, neighbors, and
+rhymes, amongst many others. The package includes documentation for using
+a variety of lexicon files, including those with form codes made up of
+multiple letters (i.e., phoneme codes) and also basic orthographies.
+Importantly, the code makes use of multiple CPU cores and vectorization
+when possible, making it extremely fast and able to handle large lexicons.
+Additionally, the package contains documentation for users to easily write
+new functions, allowing researchers to examine other relationships within
+a lexicon. Preprint: <https://osf.io/preprints/psyarxiv/8dyru/>. Open
+access: <doi:10.3758/s13428-021-01667-6>. Citation: Li, Z., Crinnion, A.M.
+& Magnuson, J.S. (2021). <doi:10.3758/s13428-021-01667-6>.
 
 %prep
 %setup -q -c -n %{packname}

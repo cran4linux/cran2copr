@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extrafrail
-%global packver   1.9
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Additional Tools for Alternative Shared Frailty Models
 
@@ -36,7 +36,7 @@ inverse Gaussian as the distribution for the frailty terms. For the basal
 model, it is considered a parametric approach based on the exponential,
 Weibull and the piecewise exponential distributions as well as a
 semiparametric approach. For details, see Gallardo and Bourguignon (2022)
-<arXiv:2206.12973>.
+<doi:10.48550/arXiv.2206.12973>.
 
 %prep
 %setup -q -c -n %{packname}

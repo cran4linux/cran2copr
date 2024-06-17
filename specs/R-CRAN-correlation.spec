@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  correlation
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Correlation Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-datawizard >= 0.7.0
-BuildRequires:    R-CRAN-parameters >= 0.20.2
-BuildRequires:    R-CRAN-insight >= 0.19.1
-BuildRequires:    R-CRAN-bayestestR >= 0.13.0
+BuildRequires:    R-CRAN-parameters >= 0.21.7
+BuildRequires:    R-CRAN-insight >= 0.20.0
+BuildRequires:    R-CRAN-bayestestR >= 0.13.2
+BuildRequires:    R-CRAN-datawizard >= 0.11.0
 BuildRequires:    R-datasets 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-datawizard >= 0.7.0
-Requires:         R-CRAN-parameters >= 0.20.2
-Requires:         R-CRAN-insight >= 0.19.1
-Requires:         R-CRAN-bayestestR >= 0.13.0
+Requires:         R-CRAN-parameters >= 0.21.7
+Requires:         R-CRAN-insight >= 0.20.0
+Requires:         R-CRAN-bayestestR >= 0.13.2
+Requires:         R-CRAN-datawizard >= 0.11.0
 Requires:         R-datasets 
 Requires:         R-stats 
 

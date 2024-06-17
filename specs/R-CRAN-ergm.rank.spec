@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ergm.rank
-%global packver   4.1.0
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Rank-Order Relational Data
 
@@ -17,10 +18,12 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-ergm >= 4.2.2
 BuildRequires:    R-CRAN-statnet.common >= 4.2.0
+BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-network >= 1.15
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ergm >= 4.2.2
 Requires:         R-CRAN-statnet.common >= 4.2.0
+Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-network >= 1.15
 Requires:         R-utils 
 
@@ -28,7 +31,7 @@ Requires:         R-utils
 A set of extensions for the 'ergm' package to fit weighted networks whose
 edge weights are ranks. See Krivitsky and Butts (2017)
 <doi:10.1177/0081175017692623> and Krivitsky, Hunter, Morris, and Klumb
-(2021) <arXiv:2106.04997>.
+(2023) <doi:10.18637/jss.v105.i06>.
 
 %prep
 %setup -q -c -n %{packname}

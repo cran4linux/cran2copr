@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConnectednessApproach
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connectedness Approach
 
@@ -32,6 +32,9 @@ BuildRequires:    R-CRAN-urca
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-riskParityPortfolio 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-L1pack 
 Requires:         R-CRAN-frequencyConnectedness 
 Requires:         R-CRAN-rmgarch 
 Requires:         R-CRAN-rugarch 
@@ -47,6 +50,9 @@ Requires:         R-CRAN-urca
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-riskParityPortfolio 
 Requires:         R-methods 
+Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-L1pack 
 
 %description
 The estimation of static and dynamic connectedness measures is created in

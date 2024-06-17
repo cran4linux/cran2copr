@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R2HTML
-%global packver   2.3.4
+%global packname  ArchaeoPhases
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          HTML Exportation for R Objects
+Summary:          Post-Processing of Markov Chain Monte Carlo Simulations for Chronological Modelling
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0
-Requires:         R-core >= 2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-arkhe >= 1.6.0
+BuildRequires:    R-CRAN-aion >= 1.0.2
 BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-stats 
+BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-arkhe >= 1.6.0
+Requires:         R-CRAN-aion >= 1.0.2
 Requires:         R-graphics 
-Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Includes HTML function and methods to write in an HTML file. Thus, making
-HTML reports is easy. Includes a function that allows redirection on the
-fly, which appears to be very useful for teaching purpose, as the student
-can keep a copy of the produced output to keep all that he did during the
-course. Package comes with a vignette describing how to write HTML reports
-for statistical analysis. Finally, a driver for 'Sweave' allows to parse
-HTML flat files containing R code and to automatically write the
-corresponding outputs (tables and graphs).
+Statistical analysis of archaeological dates and groups of dates. This
+package allows to post-process Markov Chain Monte Carlo (MCMC) simulations
+from 'ChronoModel' <https://chronomodel.com/>, 'Oxcal'
+<https://c14.arch.ox.ac.uk/oxcal.html> or 'BCal'
+<https://bcal.shef.ac.uk/>. It provides functions for the study of rhythms
+of the long term from the posterior distribution of a series of dates
+(tempo and activity plot). It also allows the estimation and visualization
+of time ranges from the posterior distribution of groups of dates (e.g.
+duration, transition and hiatus between successive phases) as described in
+Philippe and Vibet (2020) <doi:10.18637/jss.v093.c01>.
 
 %prep
 %setup -q -c -n %{packname}

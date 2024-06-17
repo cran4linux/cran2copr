@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secretbase
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cryptographic Hash and Extendable-Output Functions
+Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,17 +18,12 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 
 %description
-Fast and memory-efficient streaming hash functions. Performs direct
-hashing of strings, raw bytes, and files potentially larger than memory,
-as well as hashing in-memory objects through R's serialization mechanism,
-without requiring allocation of the serialized object. Implementations
-include the SHA-256, SHA-3 and 'Keccak' cryptographic hash functions,
-SHAKE256 extendable-output function (XOF), and 'SipHash' pseudo-random
-function. The SHA-3 Secure Hash Standard was published by the National
-Institute of Standards and Technology (NIST) in 2015 at
-<doi:10.6028/NIST.FIPS.202>. The SHA-256 Secure Hash Standard was
-published by NIST in 2002 at
-<https://csrc.nist.gov/publications/fips/fips180-2/fips180-2.pdf>.
+Fast and memory-efficient streaming hash functions and base64 encoding and
+decoding. Performs direct hashing of strings and raw vectors. Stream
+hashes files potentially larger than memory, as well as in-memory objects
+through R's serialization mechanism. Implementations include the SHA-256,
+SHA-3 and 'Keccak' cryptographic hash functions, SHAKE256
+extendable-output function (XOF), and 'SipHash' pseudo-random function.
 
 %prep
 %setup -q -c -n %{packname}
