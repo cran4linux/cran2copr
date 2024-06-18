@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  woodValuationDE
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wood Valuation Germany
 
@@ -27,14 +28,14 @@ trees, stand quality, and logging method. The functions include
 estimations for the consequences of disturbances on revenues and costs.
 The underlying assortment tables are taken from Offer and Staupendahl
 (2018) with corresponding functions for salable and skidded volume derived
-in Fuchs et al. (in preparation). Wood revenue and harvest cost functions
-were taken from v. Bodelschwingh (2018). The consequences of disturbances
-refer to Dieter (2001), Moellmann and Moehring (2017), and Fuchs et al.
-(2022a, 2022b). For the full references see documentation of the
-functions, package README, and Fuchs et al. (in preparation). Apart from
-Dieter (2001) and Moellmann and Moehring (2017), all functions and factors
-are based on data from HessenForst, the forest administration of the
-Federal State of Hesse in Germany.
+in Fuchs et al. (2023). Wood revenue and harvest cost functions were taken
+from v. Bodelschwingh (2018). The consequences of disturbances refer to
+Dieter (2001), Moellmann and Moehring (2017), and Fuchs et al. (2022a,
+2022b). For the full references see documentation of the functions,
+package README, and Fuchs et al. (2023). Apart from Dieter (2001) and
+Moellmann and Moehring (2017), all functions and factors are based on data
+from HessenForst, the forest administration of the Federal State of Hesse
+in Germany.
 
 %prep
 %setup -q -c -n %{packname}

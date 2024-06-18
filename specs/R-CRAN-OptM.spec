@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OptM
-%global packver   0.1.6
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating the Optimal Number of Migration Edges from 'Treemix'
 
@@ -16,15 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.2
 Requires:         R-core >= 3.2.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot >= 1.3.20
 BuildRequires:    R-CRAN-SiZer >= 0.1.4
 BuildRequires:    R-stats 
-BuildRequires:    R-splines 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-boot >= 1.3.20
 Requires:         R-CRAN-SiZer >= 0.1.4
 Requires:         R-stats 
-Requires:         R-splines 
 Requires:         R-grDevices 
 
 %description

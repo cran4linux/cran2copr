@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ALFAM2
-%global packver   4.0
+%global packver   4.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Model of Ammonia Emission from Field-Applied Manure
 

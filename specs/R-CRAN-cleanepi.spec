@@ -1,40 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  linelist
-%global packver   1.1.4
+%global packname  cleanepi
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tagging and Validating Epidemiological Data
+Summary:          Clean and Standardize Epidemiological Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-linelist >= 1.0.0
+BuildRequires:    R-CRAN-arsenal 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matchmaker 
+BuildRequires:    R-CRAN-numberize 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-linelist >= 1.0.0
+Requires:         R-CRAN-arsenal 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matchmaker 
+Requires:         R-CRAN-numberize 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-snakecase 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Provides tools to help storing and handling case line list data. The
-'linelist' class adds a tagging system to classical 'data.frame' objects
-to identify key epidemiological data such as dates of symptom onset,
-epidemiological case definition, age, gender or disease outcome. Once
-tagged, these variables can be seamlessly used in downstream analyses,
-making data pipelines more robust and reliable.
+Cleaning and standardizing tabular data package, tailored specifically for
+curating epidemiological data. It streamlines various data cleaning tasks
+that are typically expected when working with datasets in epidemiology. It
+returns the processed data in the same format, ensuring seamless
+integration into existing workflows. Additionally, it generates a
+comprehensive report detailing the outcomes of each cleaning task.
 
 %prep
 %setup -q -c -n %{packname}

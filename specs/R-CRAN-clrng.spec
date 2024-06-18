@@ -1,37 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Delaporte
-%global packver   8.4.1
+%global packname  clrng
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.1
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Functions for the Delaporte Distribution
+Summary:          Parallel Random Number Generation on GPU
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-gpuR 
+BuildRequires:    R-CRAN-RViennaCL 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-gpuR 
 
 %description
-Provides probability mass, distribution, quantile, random-variate
-generation, and method-of-moments parameter-estimation functions for the
-Delaporte distribution with parameterization based on Vose (2008)
-<isbn:9780470512845>. The Delaporte is a discrete probability distribution
-which can be considered the convolution of a negative binomial
-distribution with a Poisson distribution. Alternatively, it can be
-considered a counting distribution with both Poisson and negative binomial
-components. It has been studied in actuarial science as a frequency
-distribution which has more variability than the Poisson, but less than
-the negative binomial.
+Builds on 'gpuR' and utilizes the 'clRNG' ('OpenCL') library to provide
+efficient tools to generate independent random numbers in parallel on a
+GPU and save the results as 'R' objects, ensuring high-quality random
+numbers even when 'R' is used interactively or in an ad-hoc manner.
+Includes Fisher's simulation method adapted from Patefield, William M
+(1981) <doi:10.2307/2346669> and 'MRG31k3p' Random Number Generator from
+'clRNG' library by Advanced Micro Devices, Inc. (2015)
+<https://github.com/clMathLibraries/clRNG>.
 
 %prep
 %setup -q -c -n %{packname}

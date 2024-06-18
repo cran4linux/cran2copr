@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Delaporte
-%global packver   8.4.1
+%global packname  adelie
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Functions for the Delaporte Distribution
+Summary:          A Fast and Flexible Group Elastic Net Solver
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-r2r 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-r2r 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Provides probability mass, distribution, quantile, random-variate
-generation, and method-of-moments parameter-estimation functions for the
-Delaporte distribution with parameterization based on Vose (2008)
-<isbn:9780470512845>. The Delaporte is a discrete probability distribution
-which can be considered the convolution of a negative binomial
-distribution with a Poisson distribution. Alternatively, it can be
-considered a counting distribution with both Poisson and negative binomial
-components. It has been studied in actuarial science as a frequency
-distribution which has more variability than the Poisson, but less than
-the negative binomial.
+R bindings for the Python package 'adelie'. These bindings offer a general
+purpose group elastic net solver, a wide range of matrix classes that can
+exploit special structure to allow large-scale inputs, and an assortment
+of generalized linear model classes for fitting various types of data. The
+package is an implementation of Yang, J. and Hastie, T. (2024)
+<doi:10.48550/arXiv.2405.08631>.
 
 %prep
 %setup -q -c -n %{packname}

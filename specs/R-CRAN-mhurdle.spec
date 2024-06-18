@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelView
-%global packver   1.1.18
+%global packname  mhurdle
+%global packver   1.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.18
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing Panel Data
+Summary:          Multiple Hurdle Tobit Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-grid 
-Requires:         R-CRAN-ggplot2 >= 2.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-gridExtra 
-Requires:         R-grid 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-truncreg 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-prediction 
+BuildRequires:    R-CRAN-margins 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-nonnest2 
+BuildRequires:    R-CRAN-CompQuadForm 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-truncreg 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-prediction 
+Requires:         R-CRAN-margins 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-nonnest2 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
-Visualizes panel data. It has three main functionalities: (1) it plots the
-treatment status and missing values in a panel dataset; (2) it visualizes
-the temporal dynamics of a main variable of interest; (3) it depicts the
-bivariate relationships between a treatment variable and an outcome
-variable either by unit or in aggregate. For details, see
-<doi:10.18637/jss.v107.i07>.
+Estimation of models with dependent variable left-censored at zero. Null
+values may be caused by a selection process Cragg (1971)
+<doi:10.2307/1909582>, insufficient resources Tobin (1958)
+<doi:10.2307/1907382>, or infrequency of purchase Deaton and Irish (1984)
+<doi:10.1016/0047-2727(84)90067-7>.
 
 %prep
 %setup -q -c -n %{packname}

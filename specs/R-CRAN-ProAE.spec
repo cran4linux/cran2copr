@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProAE
-%global packver   0.2.15
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          PRO-CTCAE Scoring, Analysis, and Graphical Tools
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-ggpattern 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggtext 
@@ -35,12 +36,13 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-ggpattern 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-kableExtra 
 
 %description
 A collection of tools to facilitate standardized analysis and graphical
 procedures when using the National Cancer Institute’s Patient-Reported
 Outcomes version of the Common Terminology Criteria for Adverse Events
-(PRO-CTCAE).
+(PRO-CTCAE) and other PRO measurements.
 
 %prep
 %setup -q -c -n %{packname}

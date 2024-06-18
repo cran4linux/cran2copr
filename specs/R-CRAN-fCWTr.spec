@@ -1,37 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Delaporte
-%global packver   8.4.1
+%global packname  fCWTr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical Functions for the Delaporte Distribution
+Summary:          Fast Continuous Wavelet Transform
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Provides probability mass, distribution, quantile, random-variate
-generation, and method-of-moments parameter-estimation functions for the
-Delaporte distribution with parameterization based on Vose (2008)
-<isbn:9780470512845>. The Delaporte is a discrete probability distribution
-which can be considered the convolution of a negative binomial
-distribution with a Poisson distribution. Alternatively, it can be
-considered a counting distribution with both Poisson and negative binomial
-components. It has been studied in actuarial science as a frequency
-distribution which has more variability than the Poisson, but less than
-the negative binomial.
+Enables the usage of the fast continuous wavelet transform, originally
+implemented in the 'C++' library 'fCWT' by Lukas Arts. See Arts, P.A. and
+Van den Broek, E.L. (2022) <doi:10.1038/s43588-021-00183-z> for details.
+The package includes simple helpers such as a plotting function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parallelPlot
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Htmlwidget' for a Parallel Coordinates Plot
+Summary:          `htmlwidget` for a Parallel Coordinates Plot
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-htmlwidgets
 Requires:         R-CRAN-htmlwidgets 
 
 %description
-Create a parallel coordinates plot, using 'htmlwidgets' package and
-'d3.js'.
+Create a parallel coordinates plot, using `htmlwidgets` package and
+`d3.js`.
 
 %prep
 %setup -q -c -n %{packname}

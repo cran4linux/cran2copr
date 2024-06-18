@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  scatterPlotMatrix
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Htmlwidget' for a Scatter Plot Matrix
+Summary:          `htmlwidget` for a Scatter Plot Matrix
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,7 +21,7 @@ BuildRequires:    R-CRAN-htmlwidgets
 Requires:         R-CRAN-htmlwidgets 
 
 %description
-Create a scatter plot matrix, using 'htmlwidgets' package and 'd3.js'.
+Create a scatter plot matrix, using `htmlwidgets` package and `d3.js`.
 
 %prep
 %setup -q -c -n %{packname}

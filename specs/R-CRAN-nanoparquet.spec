@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nanoparquet
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Parquet Files
+Summary:          Read and Write 'Parquet' Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 
 %description
-Self-sufficient reader and writer for flat Parquet files. Can read most
-Parquet data types. Can write many R data types, including factors and
-temporal types. Supports Snappy compression.
+Self-sufficient reader and writer for flat 'Parquet' files. Can read most
+'Parquet' data types. Can write many 'R' data types, including factors and
+temporal types. See docs for limitations.
 
 %prep
 %setup -q -c -n %{packname}
