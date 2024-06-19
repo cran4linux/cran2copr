@@ -1,49 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iai
-%global packver   1.10.1
+%global packname  microdatasus
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Interpretable AI' Modules
+Summary:          Download and Process 'DataSUS' Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaCall >= 0.17.5
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dtplyr 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-read.dbc 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-CRAN-JuliaCall >= 0.17.5
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dtplyr 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-read.dbc 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
-An interface to the algorithms of 'Interpretable AI'
-<https://www.interpretable.ai> from the R programming language.
-'Interpretable AI' provides various modules, including 'Optimal Trees' for
-classification, regression, prescription and survival analysis, 'Optimal
-Imputation' for missing data imputation and outlier detection, and
-'Optimal Feature Selection' for exact sparse regression. The 'iai' package
-is an open-source project. The 'Interpretable AI' software modules are
-proprietary products, but free academic and evaluation licenses are
-available.
+Downloads data files from 'DataSUS' health information systems from
+<ftp.datasus.gov.br> and process the data, including labeling categorical
+variables.
 
 %prep
 %setup -q -c -n %{packname}

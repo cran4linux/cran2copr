@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mokken
-%global packver   3.1.2
+%global packname  beeca
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducts Mokken Scale Analysis
+Summary:          Binary Endpoint Estimation with Covariate Adjustment
 
-License:          GPL (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-poLCA 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-graphics 
-Requires:         R-CRAN-poLCA 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 
 %description
-Contains functions for performing Mokken scale analysis on test and
-questionnaire data. It includes an automated item selection algorithm, and
-various checks of model assumptions.
+Performs estimation of marginal treatment effects for binary outcomes when
+using logistic regression working models with covariate adjustment (see
+discussions in Magirr et al (2024) <https://osf.io/9mp58/>). Implements
+the variance estimators of Ge et al (2011)
+<doi:10.1177/009286151104500409> and Ye et al (2023)
+<doi:10.1080/24754269.2023.2205802>.
 
 %prep
 %setup -q -c -n %{packname}

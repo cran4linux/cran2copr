@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mokken
-%global packver   3.1.2
+%global packname  easyORtables
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducts Mokken Scale Analysis
+Summary:          Easy Odds Ratio Tables
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-poLCA 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-graphics 
-Requires:         R-CRAN-poLCA 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-MASS 
 
 %description
-Contains functions for performing Mokken scale analysis on test and
-questionnaire data. It includes an automated item selection algorithm, and
-various checks of model assumptions.
+Creates text, 'LaTeX', Markdown, or Bootstrap-styled HTML-formatted odds
+ratio tables with confidence intervals for multiple logistic regression
+models.
 
 %prep
 %setup -q -c -n %{packname}

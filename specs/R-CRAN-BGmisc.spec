@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BGmisc
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Extended Behavior Genetics Analysis
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-kinship2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 
 %description

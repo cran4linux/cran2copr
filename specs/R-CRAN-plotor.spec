@@ -1,50 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CrossCarry
-%global packver   0.2.0
+%global packname  plotor
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Data from a Crossover Design with GEE
+Summary:          Produces an Odds Ratio Plot from a Logistic Regression Model
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gee 
-BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gee 
-Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-splines 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Analyze data from a crossover design using generalized estimation
-equations (GEE), including carryover effects and various correlation
-structures based on the Kronecker product. It contains functions for
-semiparametric estimates of carry-over effects in repeated measures and
-allows estimation of complex carry-over effects. Related work includes: a)
-Cruz N.A., Melo O.O., Martinez C.A. (2023). "CrossCarry: An R package for
-the analysis of data from a crossover design with GEE".
-<doi:10.48550/arXiv.2304.02440>. b) Cruz N.A., Melo O.O., Martinez C.A.
-(2023). "A correlation structure for the analysis of Gaussian and
-non-Gaussian responses in crossover experimental designs with repeated
-measures". <doi:10.1007/s00362-022-01391-z> and c) Cruz N.A., Melo O.O.,
-Martinez C.A. (2023). "Semiparametric generalized estimating equations for
-repeated measurements in cross-over designs".
-<doi:10.1177/09622802231158736>.
+Produces an Odds Ratio (OR) Plot to visualise the result of a logistic
+regression analysis. Provide it with a binomial regression model produced
+by 'glm()' and it will convert the estimates to odds ratios with a 95%%
+confidence interval and plot the results using 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mokken
-%global packver   3.1.2
+%global packname  wordmap
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducts Mokken Scale Analysis
+Summary:          Feature Extraction and Document Classification with Noisy Labels
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-poLCA 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-graphics 
-Requires:         R-CRAN-poLCA 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quanteda >= 2.1
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-quanteda >= 2.1
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-stringi 
 
 %description
-Contains functions for performing Mokken scale analysis on test and
-questionnaire data. It includes an automated item selection algorithm, and
-various checks of model assumptions.
+Extract features and classify documents with noisy labels given by
+document-meta data or keyword matching Watanabe & Zhou (2020)
+<doi:10.1177/0894439320907027>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mokken
-%global packver   3.1.2
+%global packname  gmfamm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conducts Mokken Scale Analysis
+Summary:          Generalized Multivariate Functional Additive Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-poLCA 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-graphics 
-Requires:         R-CRAN-poLCA 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bamlss 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-bamlss 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-splines 
+Requires:         R-CRAN-Matrix 
 
 %description
-Contains functions for performing Mokken scale analysis on test and
-questionnaire data. It includes an automated item selection algorithm, and
-various checks of model assumptions.
+Supply implementation to model generalized multivariate functional data
+using Bayesian additive mixed models of R package 'bamlss' via a latent
+Gaussian process (see Umlauf, Klein, Zeileis (2018)
+<doi:10.1080/10618600.2017.1407325>).
 
 %prep
 %setup -q -c -n %{packname}

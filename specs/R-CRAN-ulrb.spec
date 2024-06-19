@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ulrb
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unsupervised Learning Based Definition of Microbial Rare Biosphere
 
@@ -38,13 +38,12 @@ Requires:         R-CRAN-gridExtra
 
 %description
 A tool to define rare biosphere. 'ulrb' solves the problem of the
-definition of rarity by replacing human decision with an unsupervised
-machine learning algorithm (partitioning around medoids, or k-medoids).
-This algorithm works for any type of microbiome data, provided there is an
-abundance score for each phylogenetic unit. For validation of this method
-to several kinds of molecular data and environments, please see Pascoal et
-al, 2023 (in preparation). Preliminary data suggest this method also works
-well for non-microbiome data, if there is a species abundance table.
+definition of rarity by replacing arbitrary thresholds with an
+unsupervised machine learning algorithm (partitioning around medoids, or
+k-medoids). This algorithm works for any type of microbiome data, provided
+there is a species abundance table. For validation of this method to
+different species abundance tables see Pascoal et al, 2024 (in
+peer-review). This method also works for non-microbiome data.
 
 %prep
 %setup -q -c -n %{packname}

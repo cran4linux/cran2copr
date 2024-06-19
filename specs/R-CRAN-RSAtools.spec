@@ -1,49 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iai
-%global packver   1.10.1
+%global packname  RSAtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Interpretable AI' Modules
+Summary:          Advanced Response Surface Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaCall >= 0.17.5
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-semTools >= 0.5.5
+BuildRequires:    R-CRAN-lavaan >= 0.5.20
+BuildRequires:    R-CRAN-RSA >= 0.10.4
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-CRAN-JuliaCall >= 0.17.5
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-aplpack 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-semTools >= 0.5.5
+Requires:         R-CRAN-lavaan >= 0.5.20
+Requires:         R-CRAN-RSA >= 0.10.4
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-aplpack 
+Requires:         R-methods 
 
 %description
-An interface to the algorithms of 'Interpretable AI'
-<https://www.interpretable.ai> from the R programming language.
-'Interpretable AI' provides various modules, including 'Optimal Trees' for
-classification, regression, prescription and survival analysis, 'Optimal
-Imputation' for missing data imputation and outlier detection, and
-'Optimal Feature Selection' for exact sparse regression. The 'iai' package
-is an open-source project. The 'Interpretable AI' software modules are
-proprietary products, but free academic and evaluation licenses are
-available.
+Provides tools for response surface analysis, using a comparative
+framework that identifies best-fitting solutions across 37 families of
+polynomials. Many of these tools are based upon and extend the 'RSA'
+package, by testing a larger scope of polynomials (+27 families), more
+diverse response surface probing techniques (+acceleration points), more
+plots (+line of congruence, +line of incongruence, both with extrema), and
+other useful functions for exporting results.
 
 %prep
 %setup -q -c -n %{packname}
