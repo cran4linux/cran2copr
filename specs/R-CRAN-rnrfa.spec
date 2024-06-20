@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnrfa
-%global packver   2.1.0.5
+%global packver   2.1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0.5
+Version:          2.1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          UK National River Flow Archive Data from R
 
@@ -19,28 +19,30 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggmap >= 4.0.0
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-ggmap >= 4.0.0
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sf 
 Requires:         R-parallel 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
 Utility functions to retrieve data from the UK National River Flow Archive

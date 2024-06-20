@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  speakeasyR
-%global packver   0.1.0
+%global packname  alcyon
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Robust Multi-Scale Graph Clustering
+Summary:          Spatial Network Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 
 %description
-A graph community detection algorithm that aims to be performant on large
-graphs and robust, returning consistent results across runs. SpeakEasy 2
-(SE2), the underlying algorithm, is described in Chris Gaiteri, David R.
-Connell & Faraz A. Sultan et al. (2023) <doi:10.1186/s13059-023-03062-0>.
-The core algorithm is written in 'C', providing speed and keeping the
-memory requirements low. This implementation can take advantage of
-multiple computing cores without increasing memory usage. SE2 can detect
-community structure across scales, making it a good choice for biological
-data, which often has hierarchical structure. Graphs can be passed to the
-algorithm as adjacency matrices using base 'R' matrices, the 'Matrix'
-library, 'igraph' graphs, or any data that can coerced into a matrix.
+Interface package for 'sala', the spatial network analysis library from
+the 'depthmapX' software application. The R parts of the code are based on
+the 'rdepthmap' package. Allows for the analysis of urban and
+building-scale networks and provides metrics and methods usually found
+within the Space Syntax domain. Methods in this package are described by
+K. Al-Sayed, A. Turner, B. Hillier, S. Iida and A. Penn (2014) "Space
+Syntax methodology", and also by A. Turner (2004)
+<https://discovery.ucl.ac.uk/id/eprint/2651> "Depthmap 4: a researcher's
+handbook".
 
 %prep
 %setup -q -c -n %{packname}

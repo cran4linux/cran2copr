@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nloptr
-%global packver   2.0.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to NLopt
 
@@ -16,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    cmake
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-testthat 
 
 %description
 Solve optimization problems using an R interface to NLopt. NLopt is a
@@ -28,8 +28,8 @@ information on the available algorithms. Building from included sources
 requires 'CMake'. On Linux and 'macOS', if a suitable system build of
 NLopt (2.7.0 or later) is found, it is used; otherwise, it is built from
 included sources via 'CMake'. On Windows, NLopt is obtained through
-'rwinlib' for 'R <= 4.1.x' or grabbed from the 'Rtools42 toolchain' for 'R
->= 4.2.0'.
+'rwinlib' for 'R <= 4.1.x' or grabbed from the appropriate toolchain for
+'R >= 4.2.0'.
 
 %prep
 %setup -q -c -n %{packname}

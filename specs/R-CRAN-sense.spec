@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sense
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Stacked Ensemble for Regression Tasks
 
@@ -21,8 +22,8 @@ BuildRequires:    R-CRAN-readr >= 2.0.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.10
 BuildRequires:    R-CRAN-data.table >= 1.14.0
 BuildRequires:    R-CRAN-tictoc >= 1.0.1
+BuildRequires:    R-CRAN-paradox >= 1.0.0
 BuildRequires:    R-CRAN-mlr3tuning >= 0.8.0
-BuildRequires:    R-CRAN-paradox >= 0.7.1
 BuildRequires:    R-CRAN-mlr3viz >= 0.5.5
 BuildRequires:    R-CRAN-forcats >= 0.5.1
 BuildRequires:    R-CRAN-mlr3learners >= 0.5.0
@@ -37,8 +38,8 @@ Requires:         R-CRAN-readr >= 2.0.1
 Requires:         R-CRAN-lubridate >= 1.7.10
 Requires:         R-CRAN-data.table >= 1.14.0
 Requires:         R-CRAN-tictoc >= 1.0.1
+Requires:         R-CRAN-paradox >= 1.0.0
 Requires:         R-CRAN-mlr3tuning >= 0.8.0
-Requires:         R-CRAN-paradox >= 0.7.1
 Requires:         R-CRAN-mlr3viz >= 0.5.5
 Requires:         R-CRAN-forcats >= 0.5.1
 Requires:         R-CRAN-mlr3learners >= 0.5.0

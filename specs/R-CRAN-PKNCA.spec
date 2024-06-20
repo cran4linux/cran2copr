@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PKNCA
-%global packver   0.10.2
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Pharmacokinetic Non-Compartmental Analysis
 
@@ -27,6 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
@@ -37,6 +38,7 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Compute standard Non-Compartmental Analysis (NCA) parameters for typical

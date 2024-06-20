@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optimizeR
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Framework for Numerical Optimizers
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-oeli >= 0.4.1
+BuildRequires:    R-CRAN-oeli >= 0.5.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lbfgsb3c 
@@ -26,7 +26,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-TestFunctions 
 BuildRequires:    R-CRAN-ucminf 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-oeli >= 0.4.1
+Requires:         R-CRAN-oeli >= 0.5.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lbfgsb3c 

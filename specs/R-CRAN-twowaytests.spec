@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  twowaytests
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Way Tests in Independent Groups Designs
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-wesanderson 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-onewaytests 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-wesanderson 
+Requires:         R-CRAN-MASS 
 
 %description
 Performs two-way tests in independent groups designs. These are two-way
