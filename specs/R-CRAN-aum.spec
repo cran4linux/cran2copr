@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aum
-%global packver   2023.6.14
+%global packver   2024.6.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.6.14
+Version:          2024.6.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Area Under Minimum of False Positives and Negatives
 
@@ -22,9 +22,10 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-data.table 
 
 %description
-Standard template library sort is used to implement an efficient algorithm
-<arXiv:2107.01285> for computing Area Under Minimum and directional
-derivatives.
+Efficient algorithms <https://jmlr.org/papers/v24/21-0751.html> for
+computing Area Under Minimum, directional derivatives, and line search
+optimization of a linear model, with objective defined as either max Area
+Under the Curve or min Area Under Minimum.
 
 %prep
 %setup -q -c -n %{packname}

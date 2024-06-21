@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.22.0
+%global packname  probs
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.0
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Elementary Probability on Finite Sample Spaces
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.20.0
-BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-CRAN-datawizard >= 0.11.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.20.0
-Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-CRAN-datawizard >= 0.11.0
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-reshape 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-reshape 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Performs elementary probability calculations on finite sample spaces,
+which may be represented by data frames or lists. This package is meant to
+rescue some widely used functions from the archived 'prob' package (see
+<https://cran.r-project.org/src/contrib/Archive/prob/>). Functionality
+includes setting up sample spaces, counting tools, defining probability
+spaces, performing set algebra, calculating probability and conditional
+probability, tools for simulation and checking the law of large numbers,
+adding random variables, and finding marginal distributions.
+Characteristic functions for all base R distributions are included.
 
 %prep
 %setup -q -c -n %{packname}

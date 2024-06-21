@@ -1,46 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.22.0
+%global packname  rush
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Rapid Parallel and Distributed Computing
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.20.0
-BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-CRAN-datawizard >= 0.11.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.20.0
-Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-CRAN-datawizard >= 0.11.0
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-redux 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3misc 
+Requires:         R-parallel 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-redux 
+Requires:         R-CRAN-uuid 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Parallel computing with a network of local and remote workers. Fast
+exchange of results between the workers through a 'Redis' database. Key
+features include task queues, local caching, and sophisticated error
+handling.
 
 %prep
 %setup -q -c -n %{packname}

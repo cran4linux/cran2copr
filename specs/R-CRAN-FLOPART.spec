@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FLOPART
-%global packver   2023.8.31
+%global packver   2024.6.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.8.31
+Version:          2024.6.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Labeled Optimal Partitioning
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-data.table
 %description
 Provides an efficient 'C++' code for computing an optimal segmentation
 model with Poisson loss, up-down constraints, and label constraints, as
-described by Kaufman et al. (2022) <arXiv:2210.02580>.
+described by Kaufman et al. (2024) <doi:10.1080/10618600.2023.2293216>.
 
 %prep
 %setup -q -c -n %{packname}

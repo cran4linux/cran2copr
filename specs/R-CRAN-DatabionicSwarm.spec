@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DatabionicSwarm
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Swarm Intelligence for Self-Organized Clustering
 
@@ -20,11 +20,15 @@ BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-deldir 
 BuildRequires:    R-CRAN-GeneralizedUmatrix 
+BuildRequires:    R-CRAN-ABCanalysis 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-deldir 
 Requires:         R-CRAN-GeneralizedUmatrix 
+Requires:         R-CRAN-ABCanalysis 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Algorithms implementing populations of agents that interact with one

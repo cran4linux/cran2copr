@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crayon
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colored Terminal Output
 
@@ -26,10 +26,10 @@ Requires:         R-utils
 
 %description
 The crayon package is now superseded. Please use the 'cli' package for new
-projects. Colored terminal output on terminals that support 'ANSI' color
+projects.  Colored terminal output on terminals that support 'ANSI' color
 and highlight codes. It also works in 'Emacs' 'ESS'. 'ANSI' color support
 is automatically detected. Colors and highlighting can be combined and
-nested. New styles can also be created easily. This package was inspired
+nested. New styles can also be created easily.  This package was inspired
 by the 'chalk' 'JavaScript' project.
 
 %prep

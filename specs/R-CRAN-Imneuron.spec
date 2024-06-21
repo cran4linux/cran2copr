@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multibias
-%global packver   1.5.1
+%global packname  Imneuron
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Multi-Bias Adjustment
+Summary:          AI Powered Neural Network Solutions for Regression Tasks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-dplyr >= 1.1.3
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-dplyr >= 1.1.3
-Requires:         R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-MLmetrics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-neuralnet 
+Requires:         R-CRAN-MLmetrics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-neuralnet 
 
 %description
-Quantify the causal effect of a binary exposure on a binary outcome with
-adjustment for multiple biases. The functions can simultaneously adjust
-for any combination of uncontrolled confounding, exposure/outcome
-misclassification, and selection bias. The underlying method generalizes
-the concept of combining inverse probability of selection weighting with
-predictive value weighting. Simultaneous multi-bias analysis can be used
-to enhance the validity and transparency of real-world evidence obtained
-from observational, longitudinal studies. Based on the work from Paul
-Brendel, Aracelis Torres, and Onyebuchi Arah (2023)
-<doi:10.1093/ije/dyad001>.
+It offers a sophisticated and versatile tool for creating and evaluating
+artificial intelligence based neural network models tailored for
+regression analysis on datasets with continuous target variables.
+Leveraging the power of neural networks, it allows users to experiment
+with various hidden neuron configurations across two layers, optimizing
+model performance through "5 fold"" or "10 fold"" cross validation. The
+package normalizes input data to ensure efficient training and assesses
+model accuracy using key metrics such as R squared (R2), Root Mean Square
+Error (RMSE), Mean Absolute Error (MAE), and Percentage Error (PER). By
+storing and visualizing the best performing models, it provides a
+comprehensive solution for precise and efficient regression modeling
+making it an invaluable tool for data scientists and researchers aiming to
+harness AI for predictive analytics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forecast
-%global packver   8.22.0
+%global packver   8.23.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.22.0
+Version:          8.23.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Functions for Time Series and Linear Models
 
@@ -31,6 +31,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-Rcpp >= 0.11.0
@@ -46,6 +47,7 @@ Requires:         R-stats
 Requires:         R-CRAN-timeDate 
 Requires:         R-CRAN-tseries 
 Requires:         R-CRAN-urca 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-zoo 
 
 %description

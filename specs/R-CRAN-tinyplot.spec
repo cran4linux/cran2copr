@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.22.0
+%global packname  tinyplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Lightweight Extension of the Base R Graphics System
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.20.0
-BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-CRAN-datawizard >= 0.11.0
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.20.0
-Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-CRAN-datawizard >= 0.11.0
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Lightweight extension of the base R graphics system, with support for
+automatic legends, facets, and various other enhancements.
 
 %prep
 %setup -q -c -n %{packname}

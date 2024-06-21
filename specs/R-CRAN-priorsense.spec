@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.22.0
+%global packname  priorsense
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.22.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Prior Diagnostics and Sensitivity Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.20.0
-BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-CRAN-datawizard >= 0.11.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-ggdist >= 3.3.2
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-checkmate >= 2.3.1
+BuildRequires:    R-CRAN-posterior >= 1.5.0
+BuildRequires:    R-CRAN-matrixStats >= 1.3.0
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-ggh4x >= 0.2.5
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.20.0
-Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-CRAN-datawizard >= 0.11.0
-Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-ggdist >= 3.3.2
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-checkmate >= 2.3.1
+Requires:         R-CRAN-posterior >= 1.5.0
+Requires:         R-CRAN-matrixStats >= 1.3.0
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-ggh4x >= 0.2.5
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Provides functions for prior and likelihood sensitivity analysis in
+Bayesian models. Currently it implements methods to determine the
+sensitivity of the posterior to power-scaling perturbations of the prior
+and likelihood.
 
 %prep
 %setup -q -c -n %{packname}

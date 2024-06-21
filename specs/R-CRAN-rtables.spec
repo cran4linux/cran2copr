@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtables
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reporting Tables
 
@@ -20,15 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-stringi >= 1.6
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-formatters >= 0.5.5.9005
+BuildRequires:    R-CRAN-formatters >= 0.5.8
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-stringi >= 1.6
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-formatters >= 0.5.5.9005
+Requires:         R-CRAN-formatters >= 0.5.8
 Requires:         R-CRAN-htmltools >= 0.5.4
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-stats 
 

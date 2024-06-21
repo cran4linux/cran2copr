@@ -1,47 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SIAtools
-%global packver   0.1.1
+%global packname  beastt
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'ShinyItemAnalysis' Modules Development Toolkit
+Summary:          Bayesian Evaluation, Analysis, and Simulation Software Tools for Trials
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-desc 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cobalt 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-mixtools 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-desc 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cobalt 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-mixtools 
 
 %description
-A comprehensive suite of functions designed for constructing and managing
-'ShinyItemAnalysis' modules, supplemented with detailed guides,
-ready-to-use templates, linters, and tests. This package allows developers
-to seamlessly create and integrate one or more modules into their existing
-packages or to start a new module project from scratch.
+Bayesian dynamic borrowing with covariate adjustment via inverse
+probability weighting for simulations and data analyses in clinical
+trials. This makes it easy to use propensity score methods to balance
+covariate distributions between external and internal data.
 
 %prep
 %setup -q -c -n %{packname}

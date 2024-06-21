@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sqltargets
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Targets Extension for 'SQL' Queries
+Summary:          'Targets' Extension for 'SQL' Queries
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tarchetypes 
 BuildRequires:    R-CRAN-targets 
@@ -36,14 +35,13 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tarchetypes 
 Requires:         R-CRAN-targets 
 Requires:         R-CRAN-withr 
 
 %description
-Provides an extension for 'SQL' queries as separate file within targets
+Provides an extension for 'SQL' queries as separate file within 'targets'
 pipelines. The shorthand creates two targets, the query file and the query
 result.
 

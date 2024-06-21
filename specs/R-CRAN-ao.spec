@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ao
-%global packver   0.3.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternating Optimization
 
@@ -17,21 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimizeR >= 1.0.4
+BuildRequires:    R-CRAN-optimizeR >= 1.1.1
+BuildRequires:    R-CRAN-oeli >= 0.5.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-oeli 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-optimizeR >= 1.0.4
+Requires:         R-CRAN-optimizeR >= 1.1.1
+Requires:         R-CRAN-oeli >= 0.5.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-oeli 
+Requires:         R-CRAN-R6 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Alternating optimization of (high-dimensional) functions is an iterative
-procedure for optimizing jointly over all parameters by alternately
-optimizing parameter subsets.
+Alternating optimization is an iterative procedure that optimizes a
+function by alternately performing restricted optimization over individual
+parameter subsets. Instead of tackling joint optimization directly, it
+breaks the problem down into simpler sub-problems. This approach can make
+optimization feasible when joint optimization is too difficult.
 
 %prep
 %setup -q -c -n %{packname}
