@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  milorGWAS
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          Mixed Logistic Regression for Genome-Wide Analysis Studies (GWAS)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-gaston >= 1.6
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-gaston >= 1.6
+Requires:         R-CRAN-Rcpp >= 1.0.2
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+Fast approximate methods for mixed logistic regression in genome-wide
+analysis studies (GWAS). Two computationnally efficient methods are
+proposed for obtaining effect size estimates (beta) in Mixed Logistic
+Regression in GWAS: the Approximate Maximum Likelihood Estimate (AMLE),
+and the Offset method. The wald test obtained with AMLE is identical to
+the score test. Data can be genotype matrices in plink format, or dosage
+(VCF files). The methods are described in details in Milet et al (2020)
+<doi:10.1101/2020.01.17.910109>.
 
 %prep
 %setup -q -c -n %{packname}

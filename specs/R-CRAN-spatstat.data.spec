@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.data
-%global packver   3.0-4
+%global packver   3.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets for 'spatstat' Family
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.2
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.utils >= 3.0.2
+Requires:         R-CRAN-spatstat.utils >= 3.0.5
 Requires:         R-CRAN-Matrix 
 
 %description

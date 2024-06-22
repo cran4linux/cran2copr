@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  shinyLottie
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          Seamlessly Integrate 'Lottie' Animations into 'shiny' Applications
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+Easily integrate and control 'Lottie' animations within 'shiny'
+applications', without the need for idiosyncratic expression or use of
+'JavaScript'. This includes utilities for generating animation instances,
+controlling playback, manipulating animation properties, and more. For
+more information on 'Lottie', see: <https://airbnb.io/lottie/#/>.
+Additionally, see the official 'Lottie' GitHub repository at
+<https://github.com/airbnb/lottie>.
 
 %prep
 %setup -q -c -n %{packname}

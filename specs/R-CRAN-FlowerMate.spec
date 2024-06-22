@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  FlowerMate
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          Reciprocity Indices for Style-Polymorphic Plants
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+Computes unidimensional and multidimensional Reciprocity and Inaccuracy
+indices. These indices are applicable to common heterostylous populations
+and to any other type of stylar dimorphic and trimorphic populations, such
+as in enantiostylous and three-dimensional heterostylous plants.
+Simón-Porcar, V., A. J. Muñoz-Pajares, J. Arroyo, and S. D. Johnson. (in
+press) "FlowerMate: multidimensional reciprocity and inaccuracy indices
+for style-polymorphic plant populations."
 
 %prep
 %setup -q -c -n %{packname}

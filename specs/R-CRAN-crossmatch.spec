@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  crossmatch
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          The Cross-Match Test
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nbpMatching 
+Requires:         R-CRAN-nbpMatching 
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+Performs the cross-match test that is an exact, distribution free test of
+equality of 2 high dimensional multivariate distributions. The input is a
+distance matrix and the labels of the two groups to be compared, the
+output is the number of cross-matches and a p-value. See Rosenbaum (2005)
+<doi:10.1111/j.1467-9868.2005.00513.x>.
 
 %prep
 %setup -q -c -n %{packname}

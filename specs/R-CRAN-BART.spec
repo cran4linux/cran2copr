@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BART
-%global packver   2.9.7
+%global packver   2.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.7
+Version:          2.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Additive Regression Trees
 
@@ -18,13 +18,11 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-survival 
 Requires:         R-parallel 
 Requires:         R-tools 

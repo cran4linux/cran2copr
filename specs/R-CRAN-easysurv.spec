@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vital
-%global packver   1.1.0
+%global packname  easysurv
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Analysis Tools for Mortality, Fertility, Migration and Population Data
+Summary:          Simplify Survival Data Analysis and Model Fitting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,50 +17,56 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HMDHFDplus >= 2.0.3
-BuildRequires:    R-CRAN-fabletools >= 0.3.3
-BuildRequires:    R-CRAN-cobs 
-BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-bshazard 
+BuildRequires:    R-CRAN-censored 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fable 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-flexsurvcure 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-ggsurvfit 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-HMDHFDplus >= 2.0.3
-Requires:         R-CRAN-fabletools >= 0.3.3
-Requires:         R-CRAN-cobs 
-Requires:         R-CRAN-distributional 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bshazard 
+Requires:         R-CRAN-censored 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fable 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-flexsurvcure 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-ggsurvfit 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
 
 %description
-Analysing vital statistics based on tools consistent with the tidyverse.
-Tools are provided for data visualization, lifetable calculations,
-computing net migration numbers, Lee-Carter modelling; functional data
-modelling and forecasting.
+Inspect survival data, plot Kaplan-Meier curves, assess the proportional
+hazards assumption, fit parametric survival models, predict and plot
+survival and hazards, and export the outputs to Excel.  A simple interface
+for fitting survival models using 'flexsurv::flexsurvreg()',
+'flexsurv::flexsurvspline()', 'flexsurvcure::flexsurvcure()', and
+'survival::survreg()'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasanalyzer
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Recompute and Analyze Data from Portable Gas Analyzers
 
@@ -41,16 +41,14 @@ Requires:         R-CRAN-vctrs
 Requires:         R-CRAN-xml2 
 
 %description
-Provides functions to import data from several instruments commonly used
-by plant physiologists to measure characteristics related to
-photosynthesis. It provides a standardized list of variable names, and
-several sets of equations to calculate additional variables based on the
-measurements.  These equations have been described by von Caemmerer and
-Farquhar (1981) <doi:10.1007/BF00384257>, Busch et al. (2020)
-<doi:10.1038/s41477-020-0606-6> and Márquez et al. (2021)
-<doi:10.1038/s41477-021-00861-w>. In addition, this package facilitates
-performing sensitivity analyses on variables or assumptions used in the
-calculations.
+The gasanalyzer R package offers methods for importing, preprocessing, and
+analyzing data related to photosynthetic characteristics (gas exchange,
+chlorophyll fluorescence and isotope ratios). It translates variable names
+into a standard format, and can recalculate derived, physiological
+quantities using imported or predefined equations. The package also allows
+users to assess the sensitivity of their results to different assumptions
+used in the calculations. See also Tholen (2024)
+<doi:10.1093/aobpla/plae035>.
 
 %prep
 %setup -q -c -n %{packname}

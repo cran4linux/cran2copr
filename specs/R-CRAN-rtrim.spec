@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  rtrim
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          Trends and Indices for Monitoring Data
 
-License:          GPL (>= 2)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+The TRIM model is widely used for estimating growth and decline of animal
+populations based on (possibly sparsely available) count data. The current
+package is a reimplementation of the original TRIM software developed at
+Statistics Netherlands by Jeroen Pannekoek. See
+<https://www.cbs.nl/en-gb/society/nature-and-environment/indices-and-trends%%2d%%2dtrim%%2d%%2d>
+for more information about TRIM.
 
 %prep
 %setup -q -c -n %{packname}

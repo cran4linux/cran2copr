@@ -1,40 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  hclusteasy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          Determining Hierarchical Clustering Easily
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clusterSim 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
+Requires:         R-CRAN-clusterSim 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-readxl 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+Facilitates hierarchical clustering analysis with functions to read data
+in 'txt', 'xlsx', and 'xls' formats, apply normalization techniques to the
+dataset, perform hierarchical clustering and construct scatter plot from
+principal component analysis to evaluate the groups obtained.
 
 %prep
 %setup -q -c -n %{packname}

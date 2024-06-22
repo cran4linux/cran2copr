@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WALS
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted-Average Least Squares Model Averaging
 
@@ -30,15 +30,15 @@ Requires:         R-stats
 
 %description
 Implements Weighted-Average Least Squares model averaging for negative
-binomial regression models of Huynh (2023) (mimeo), generalized linear
-models of De Luca, Magnus, Peracchi (2018)
-<doi:10.1016/j.jeconom.2017.12.007> and linear regression models of
-Magnus, Powell, Pruefer (2010) <doi:10.1016/j.jeconom.2009.07.004>, see
-also Magnus, De Luca (2016) <doi:10.1111/joes.12094>. Weighted-Average
-Least Squares for the linear regression model is based on the original
-'MATLAB' code by Magnus and De Luca
-<https://www.janmagnus.nl/items/WALS.pdf>, see also Kumar, Magnus (2013)
-<doi:10.1007/s13571-013-0060-9> and De Luca, Magnus (2011)
+binomial regression models of Huynh (2024)
+<doi:10.48550/arXiv.2404.11324>, generalized linear models of De Luca,
+Magnus, Peracchi (2018) <doi:10.1016/j.jeconom.2017.12.007> and linear
+regression models of Magnus, Powell, Pruefer (2010)
+<doi:10.1016/j.jeconom.2009.07.004>, see also Magnus, De Luca (2016)
+<doi:10.1111/joes.12094>. Weighted-Average Least Squares for the linear
+regression model is based on the original 'MATLAB' code by Magnus and De
+Luca <https://www.janmagnus.nl/items/WALS.pdf>, see also Kumar, Magnus
+(2013) <doi:10.1007/s13571-013-0060-9> and De Luca, Magnus (2011)
 <doi:10.1177/1536867X1201100402>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  npboottprm
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Bootstrap Test with Pooled Resampling
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-lmPerm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MKinfer 
+BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-sn 
@@ -32,6 +34,8 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-lmPerm 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MKinfer 
+Requires:         R-CRAN-pool 
+Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-sn 

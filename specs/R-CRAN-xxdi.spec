@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xxdi
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Expertise Indices
 
@@ -21,11 +21,13 @@ BuildRequires:    R-stats >= 4.3.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-Matrix >= 1.6.1.1
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-agop >= 0.2.4
 Requires:         R-stats >= 4.3.3
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-Matrix >= 1.6.1.1
 Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-agop >= 0.2.4
 
 %description

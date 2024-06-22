@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVar.pt
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analise multivariada (brazilian portuguese)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -26,7 +26,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 
 %description
-Pacote para analise multivariada, tendo funcoes que executam analise de
+Analise multivariada, tendo funcoes que executam analise de
 correspondencia simples (CA) e multipla (MCA), analise de componentes
 principais (PCA), analise de correlacao canonica (CCA), analise fatorial
 (FA), escalonamento multidimensional (MDS), analise discriminante linear

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVar
-%global packver   2.2.1
+%global packver   2.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Analysis
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -26,15 +26,15 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 
 %description
-Package for multivariate analysis, having functions that perform simple
-correspondence analysis (CA) and multiple correspondence analysis (MCA),
-principal components analysis (PCA), canonical correlation analysis (CCA),
-factorial analysis (FA), multidimensional scaling (MDS), linear (LDA) and
-quadratic discriminant analysis (QDA), hierarchical and non-hierarchical
-cluster analysis, simple and multiple linear regression, multiple factor
-analysis (MFA) for quantitative, qualitative, frequency (MFACT) and mixed
-data, biplot, scatter plot, projection pursuit (PP), grant tour method and
-other useful functions for the multivariate analysis.
+Multivariate analysis, having functions that perform simple correspondence
+analysis (CA) and multiple correspondence analysis (MCA), principal
+components analysis (PCA), canonical correlation analysis (CCA), factorial
+analysis (FA), multidimensional scaling (MDS), linear (LDA) and quadratic
+discriminant analysis (QDA), hierarchical and non-hierarchical cluster
+analysis, simple and multiple linear regression, multiple factor analysis
+(MFA) for quantitative, qualitative, frequency (MFACT) and mixed data,
+biplot, scatter plot, projection pursuit (PP), grant tour method and other
+useful functions for the multivariate analysis.
 
 %prep
 %setup -q -c -n %{packname}

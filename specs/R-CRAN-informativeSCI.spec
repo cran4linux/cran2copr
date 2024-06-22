@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.sparse
-%global packver   3.1-0
+%global packname  informativeSCI
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Three-Dimensional Arrays and Linear Algebra Utilities
+Summary:          Informative Simultaneous Confidence Intervals
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.utils >= 3.0.5
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-tensor 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm >= 1.2.4
+BuildRequires:    R-CRAN-gMCP >= 0.8.17
+Requires:         R-CRAN-mvtnorm >= 1.2.4
+Requires:         R-CRAN-gMCP >= 0.8.17
 
 %description
-Defines sparse three-dimensional arrays and supports standard operations
-on them. The package also includes utility functions for matrix
-calculations that are common in statistics, such as quadratic forms.
+Calculation of informative simultaneous confidence intervals for graphical
+described multiple test procedures and given information weights. Bretz et
+al. (2009) <doi:10.1002/sim.3495> and Brannath et al. (2024)
+<doi:10.48550/arXiv.2402.13719>. Furthermore, exploration of the behavior
+of the informative bounds in dependence of the information weights.
+Comparisons with compatible bounds are possible. Strassburger and Bretz
+(2008) <doi:10.1002/sim.3338>.
 
 %prep
 %setup -q -c -n %{packname}

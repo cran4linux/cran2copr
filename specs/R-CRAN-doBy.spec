@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doBy
-%global packver   4.6.21
+%global packver   4.6.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.21
+Version:          4.6.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbkrtest >= 0.4.8.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-broom 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-microbenchmark
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-pbkrtest >= 0.4.8.1
 Requires:         R-methods 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-broom 
