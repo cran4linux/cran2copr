@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MuMIn
-%global packver   1.47.5
+%global packver   1.48.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.47.5
+Version:          1.48.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Model Inference
 
@@ -33,11 +33,12 @@ Requires:         R-CRAN-nlme
 Requires:         R-CRAN-insight 
 
 %description
-Tools for performing model selection and model averaging. Automated model
-selection through subsetting the maximum model, with optional constraints
-for model inclusion. Model parameter and prediction averaging based on
-model weights derived from information criteria (AICc and alike) or custom
-model weighting schemes.
+Tools for model selection and model averaging with support for a wide
+range of statistical models. Automated model selection through subsets of
+the maximum model, with optional constraints for model inclusion.
+Averaging of model parameters and predictions based on model weights
+derived from information criteria (AICc and alike) or custom model
+weighting schemes.
 
 %prep
 %setup -q -c -n %{packname}
