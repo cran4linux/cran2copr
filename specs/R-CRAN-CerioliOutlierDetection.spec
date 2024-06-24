@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CerioliOutlierDetection
-%global packver   1.1.13
+%global packver   1.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.13
+Version:          1.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Outlier Detection Using the Iterated RMCD Method of Cerioli (2010)
 
@@ -25,7 +25,10 @@ Implements the iterated RMCD method of Cerioli (2010) for multivariate
 outlier detection via robust Mahalanobis distances. Also provides the
 finite-sample RMCD method discussed in the paper, as well as the methods
 provided in Hardin and Rocke (2005) <doi:10.1198/106186005X77685> and
-Green and Martin (2017).
+Green and Martin (2017)
+<https://christopherggreen.github.io/papers/hr05_extension.pdf>. See also
+Chapter 2 of Green (2017)
+<https://digital.lib.washington.edu/researchworks/handle/1773/40304>.
 
 %prep
 %setup -q -c -n %{packname}

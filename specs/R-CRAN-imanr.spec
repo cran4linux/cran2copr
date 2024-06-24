@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  meconetcomp
-%global packver   0.5.1
+%global packname  imanr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compare Microbial Networks of 'trans_network' Class of 'microeco' Package
+Summary:          Identify the Racial Complex of Native Corns from Mexico
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-microeco >= 1.3.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-microeco >= 1.3.0
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-Compare microbial co-occurrence networks created from 'trans_network'
-class of 'microeco' package <https://github.com/ChiLiubio/microeco>. This
-package is the extension of 'trans_network' class of 'microeco' package
-and especially useful when different networks are constructed and analyzed
-simultaneously.
+A model that provides researchers with a powerful tool for the
+classification and study of native corn by aiding in the identification of
+racial complexes which are fundamental to Mexico's agriculture and
+culture. This package has been developed based on data collected by
+"Proyecto Global de Maíces Nativos México", which has conducted exhaustive
+surveys across the country to document the qualitative and quantitative
+characteristics of different types of native maize. The trained model uses
+a robust and diverse dataset, enabling it to achieve an 80%% accuracy in
+classifying maize racial complexes. The characteristics included in the
+analysis comprise geographic location, grain and cob colors, as well as
+various physical measurements, such as lengths and widths.
 
 %prep
 %setup -q -c -n %{packname}

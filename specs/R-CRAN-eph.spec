@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eph
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Argentina's Permanent Household Survey Data and Manipulation Utilities
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-attempt 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-htmltools 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-attempt 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-htmltools 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  canvasXpress
-%global packver   1.46.9-1
+%global packver   1.50.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.46.9.1
+Version:          1.50.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization Package for CanvasXpress in R
 

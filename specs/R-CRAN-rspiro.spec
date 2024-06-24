@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rspiro
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Spirometry Equations
 
@@ -22,9 +22,12 @@ BuildArch:        noarch
 Implementation of various spirometry equations in R, currently the
 GLI-2012 (Global Lung Initiative; Quanjer et al. 2012
 <doi:10.1183/09031936.00080312>), the race-neutral GLI global 2022 (Global
-Lung Initiative; Bowerman et al. 2023 <doi:10.1164/rccm.202205-0963OC>)
-and the NHANES3 (National Health and Nutrition Examination Survey;
-Hankinson et al. 1999 <doi:10.1164/ajrccm.159.1.9712108>) equations.
+Lung Initiative; Bowerman et al. 2023 <doi:10.1164/rccm.202205-0963OC>),
+the NHANES3 (National Health and Nutrition Examination Survey; Hankinson
+et al. 1999 <doi:10.1164/ajrccm.159.1.9712108>) and the JRS 2014 (Japanese
+Respiratory Society; Kubota et al. 2014
+<doi:10.1016/j.resinv.2014.03.003>) equations. Also the GLI-2017 diffusing
+capacity equations <doi:10.1183/13993003.00010-2017> are implemented.
 Contains user-friendly functions to calculate predicted and LLN (Lower
 Limit of Normal) values for different spirometric parameters such as FEV1
 (Forced Expiratory Volume in 1 second), FVC (Forced Vital Capacity), etc,

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bonsai
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Wrappers for Tree-Based Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-parsnip >= 1.0.1
 BuildRequires:    R-CRAN-cli 
@@ -41,9 +41,10 @@ Requires:         R-utils
 %description
 Bindings for additional tree-based model engines for use with the
 'parsnip' package. Models include gradient boosted decision trees with
-'LightGBM' (Ke et al, 2017.) and conditional inference trees and
-conditional random forests with 'partykit' (Hothorn and Zeileis, 2015. and
-Hothorn et al, 2006. <doi:10.1198/106186006X133933>).
+'LightGBM' (Ke et al, 2017.), conditional inference trees and conditional
+random forests with 'partykit' (Hothorn and Zeileis, 2015. and Hothorn et
+al, 2006. <doi:10.1198/106186006X133933>), and accelerated oblique random
+forests with 'aorsf' (Jaeger et al, 2022 <doi:10.5281/zenodo.7116854>).
 
 %prep
 %setup -q -c -n %{packname}

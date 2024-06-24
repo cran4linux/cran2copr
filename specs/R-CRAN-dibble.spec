@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dibble
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dimensional Data Frames
 
@@ -14,22 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-pillar 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

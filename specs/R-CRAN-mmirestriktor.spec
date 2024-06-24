@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmirestriktor
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Informative Hypothesis Testing Web Applications
 
@@ -20,13 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mmcards 
+BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-restriktor 
+BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mmcards 
+Requires:         R-CRAN-pool 
 Requires:         R-CRAN-restriktor 
+Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ferrn
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Exploration of touRR optimisatioN
 
@@ -25,12 +25,15 @@ BuildRequires:    R-CRAN-gganimate
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-geozoo 
 BuildRequires:    R-CRAN-tourr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-GpGp 
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
@@ -39,12 +42,15 @@ Requires:         R-CRAN-gganimate
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-geozoo 
 Requires:         R-CRAN-tourr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-GpGp 
 
 %description
 Diagnostic plots for optimisation, with a focus on projection pursuit.

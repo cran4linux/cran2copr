@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMaCzek
-%global packver   1.5.1
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Czekanowski's Diagrams
 
@@ -24,6 +24,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-ecp 
+BuildRequires:    R-CRAN-FuzzyDBScan 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-GA >= 3.2
@@ -33,12 +34,14 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-ecp 
+Requires:         R-CRAN-FuzzyDBScan 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-utils 
 
 %description
-Allows for production of Czekanowski's Diagrams. See K. Bartoszek, A.
-Vasterlund (2020) <doi:10.2478/bile-2020-0008>.
+Allows for production of Czekanowski's Diagrams with clusters. See K.
+Bartoszek, A. Vasterlund (2020) <doi:10.2478/bile-2020-0008> and K.
+Bartoszek, Y. Luo (2023) <doi:10.14708/ma.v51i2.7259>.
 
 %prep
 %setup -q -c -n %{packname}

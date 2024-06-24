@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  occCite
-%global packver   0.5.6
+%global packver   0.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-leaflet
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RPostgreSQL 
 BuildRequires:    R-CRAN-RColorBrewer 
@@ -51,7 +51,6 @@ Requires:         R-CRAN-leaflet
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-RPostgreSQL 
 Requires:         R-CRAN-RColorBrewer 

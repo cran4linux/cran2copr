@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidysdm
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Models with Tidymodels
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-maxnet 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-recipes 
@@ -51,6 +52,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-maxnet 
+Requires:         R-methods 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-recipes 
@@ -68,10 +70,10 @@ Requires:         R-CRAN-yardstick
 Fit species distribution models (SDMs) using the 'tidymodels' framework,
 which provides a standardised interface to define models and process their
 outputs. 'tidysdm' expands 'tidymodels' by providing methods for spatial
-objects, as well as a number of specialised functions to process presences
-and pseudoabsences for contemporary and palaeo datasets. The full
-functionalities of the package are described in Leonardi et al. (2023)
-<doi:10.1101/2023.07.24.550358>.
+objects, models and metrics specific to SDMs, as well as a number of
+specialised functions to process occurrences for contemporary and palaeo
+datasets. The full functionalities of the package are described in
+Leonardi et al. (2023) <doi:10.1101/2023.07.24.550358>.
 
 %prep
 %setup -q -c -n %{packname}
