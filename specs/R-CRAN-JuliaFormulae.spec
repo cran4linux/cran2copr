@@ -1,26 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  JuliaFormulae
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Translate R Regression Model Formulae to 'Julia' Syntax
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rrapply 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rrapply 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+Metaprogramming utilities for converting R regression model formulae to
+equivalents in 'Julia' <doi:10.1137/141000671>, via modifications to the
+abstract syntax tree. Supports translations in zero correlation random
+effects syntax, protection of expressions to be evaluated as-is,
+interaction terms, and more. Accepts strings or R formula objects and
+returns modified R formula objects where possible (or a modified string,
+if not a valid formula in R).
 
 %prep
 %setup -q -c -n %{packname}

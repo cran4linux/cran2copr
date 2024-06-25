@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.7.4
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 
@@ -50,10 +50,11 @@ visualisation. Both Bayesian and maximum likelihood methods are provided.
 Log-Gaussian Cox Processes are described by Diggle et al. (2013)
 <doi:10.1214/13-STS441> and we provide both the low-rank approximation for
 Gaussian processes described by Solin and Särkkä (2020)
-<doi:10.1007/s11222-019-09886-w> and Riutort-Mayol et al (2020)
-<arXiv:2004.11408> and the nearest neighbour Gaussian process described by
-Datta et al (2016) <doi:10.1080/01621459.2015.1044091>. 'cmdstanr' can be
-downloaded at <https://mc-stan.org/cmdstanr/>.
+<doi:10.1007/s11222-019-09886-w> and Riutort-Mayol et al (2023)
+<doi:10.1007/s11222-022-10167-2> and the nearest neighbour Gaussian
+process described by Datta et al (2016)
+<doi:10.1080/01621459.2015.1044091>. 'cmdstanr' can be downloaded at
+<https://mc-stan.org/cmdstanr/>.
 
 %prep
 %setup -q -c -n %{packname}

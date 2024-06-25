@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prodlim
-%global packver   2024.06.25
+%global packname  geppe
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.06.25
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Product-Limit Estimation for Censored Event History Analysis
+Summary:          Generalised Exponential Poisson and Poisson Exponential Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lava 
-Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-diagram 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lava 
 
 %description
-Fast and user friendly implementation of nonparametric estimators for
-censored event history (survival) analysis. Kaplan-Meier and
-Aalen-Johansen method.
+Maximum likelihood estimation, random values generation, density
+computation and other functions for the exponential-Poisson generalised
+exponential-Poisson and Poisson-exponential distributions. References
+include: Rodrigues G. C., Louzada F. and Ramos P. L. (2018).
+"Poisson-exponential distribution: different methods of estimation".
+Journal of Applied Statistics, 45(1): 128--144.
+<doi:10.1080/02664763.2016.1268571>. Louzada F., Ramos, P. L. and
+Ferreira, H. P. (2020). "Exponential-Poisson distribution: estimation and
+applications to rainfall and aircraft data with zero occurrence".
+Communications in Statistics--Simulation and Computation, 49(4):
+1024--1043. <doi:10.1080/03610918.2018.1491988>. Barreto-Souza W. and
+Cribari-Neto F. (2009). "A generalization of the exponential-Poisson
+distribution". Statistics and Probability Letters, 79(24): 2493--2500.
+<doi:10.1016/j.spl.2009.09.003>.
 
 %prep
 %setup -q -c -n %{packname}

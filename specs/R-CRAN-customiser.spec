@@ -1,26 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  customiser
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Use R Markdown to Write your "Rprofile"
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-withr 
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+A simple way to write ".Rprofile" code in an R Markdown file and have it
+knit to the correct location for your operating system.
 
 %prep
 %setup -q -c -n %{packname}

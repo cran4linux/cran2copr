@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reservr
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Distributions and Neural Networks to Censored and Truncated Data
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-R6 >= 2.4.1
-BuildRequires:    R-CRAN-keras >= 2.2.5.0
 BuildRequires:    R-CRAN-glue >= 1.3.1
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-keras3 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-numDeriv 
@@ -33,12 +33,12 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-R6 >= 2.4.1
-Requires:         R-CRAN-keras >= 2.2.5.0
 Requires:         R-CRAN-glue >= 1.3.1
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-keras3 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-numDeriv 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  jcalendaR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Interconversion Between the Japanese Calendar System and the Western Calendar
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,8 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+This is a set of simple utility functions to perform mutual conversion
+between the current Japanese calendar system that Wareki, the old Japanese
+calendar system that the Kyureki calendar and the Julian and Gregorian
+calendar. To calculate each calendar method, it converts to the Julian Day
+Number.
 
 %prep
 %setup -q -c -n %{packname}

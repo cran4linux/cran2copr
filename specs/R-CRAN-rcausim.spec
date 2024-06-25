@@ -1,54 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SLCARE
-%global packver   1.2.0
+%global packname  rcausim
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semiparametric Latent Class Analysis of Recurrent Events
+Summary:          Generate Causally-Simulated Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-reda 
-BuildRequires:    R-CRAN-reReg 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-reda 
-Requires:         R-CRAN-reReg 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-igraph 
 
 %description
-Efficient R package for latent class analysis of recurrent events, based
-on the semiparametric multiplicative intensity model by Zhao et al. (2022)
-<doi:10.1111/rssb.12499>. SLCARE returns estimates for non-functional
-model parameters along with the associated variance estimates and
-p-values. Visualization tools are provided to depict the estimated
-functional model parameters and related functional quantities of interest.
-SLCARE also delivers a model checking plot to help assess the adequacy of
-the fitted model.
+Generate causally-simulated data to serve as ground truth for evaluating
+methods in causal discovery and effect estimation. The package provides
+tools to assist in defining functions based on specified edges, and
+conversely, defining edges based on functions. It enables the generation
+of data according to these predefined functions and causal structures.
+This is particularly useful for researchers in fields such as artificial
+intelligence, statistics, biology, medicine, epidemiology, economics, and
+social sciences, who are developing a general or a domain-specific methods
+to discover causal structures and estimate causal effects. Data simulation
+adheres to principles of structural causal modeling. Detailed
+methodologies and examples are documented in our vignette, available at
+<https://htmlpreview.github.io/?https://github.com/herdiantrisufriyana/rcausim/blob/master/doc/causal_simulation_exemplar.html>.
 
 %prep
 %setup -q -c -n %{packname}

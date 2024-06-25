@@ -1,26 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  qtkit
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Quantitative Text Kit
 
-License:          CC0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+Support package for the textbook "An Introduction to Quantitative Text
+Analysis for Linguists: Reproducible Research using R" (Francom, 2024)
+<doi:10.4324/9781003393764> (available only after August 12, 2024).
+Includes functions to acquire, clean, and analyze text data as well as
+functions to document and share the results of text analysis. The package
+is designed to be used in conjunction with the book, but can also be used
+as a standalone package for text analysis.
 
 %prep
 %setup -q -c -n %{packname}

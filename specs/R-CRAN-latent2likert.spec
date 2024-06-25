@@ -1,26 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  latent2likert
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Converting Latent Variables into Likert Scale Responses
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-sn 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+Effectively simulates the discretization process inherent to Likert scales
+while minimizing distortion.  It converts continuous latent variables into
+ordinal categories to generate Likert scale item responses.  Particularly
+useful for accurately modeling and analyzing survey data that use Likert
+scales, especially when applying statistical techniques that require
+metric data.
 
 %prep
 %setup -q -c -n %{packname}

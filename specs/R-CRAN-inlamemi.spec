@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  inlamemi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Missing Data and Measurement Error Modelling in INLA
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-scales 
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+Facilitates fitting measurement error and missing data imputation models
+using integrated nested Laplace approximations, according to the method
+described in Skarstein, Martino and Muff (2023)
+<doi:10.1002/bimj.202300078>. See Skarstein and Muff (2024)
+<doi:10.48550/arXiv.2406.08172> for details on using the package.
 
 %prep
 %setup -q -c -n %{packname}

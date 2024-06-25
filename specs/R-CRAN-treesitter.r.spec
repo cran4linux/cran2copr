@@ -1,26 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  treesitter.r
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          'R' Grammar for 'Tree-Sitter'
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
+alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
+trees for source files of any language, and can efficiently update those
+syntax trees as the source file is edited.
 
 %prep
 %setup -q -c -n %{packname}

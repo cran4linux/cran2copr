@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csalert
-%global packver   2023.6.17
+%global packver   2024.6.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.6.17
+Version:          2024.6.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alerts from Public Health Surveillance Data
 
@@ -23,14 +23,18 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-glm2 
 BuildRequires:    R-CRAN-cstidy 
 BuildRequires:    R-CRAN-cstime 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-surveillance 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glm2 
 Requires:         R-CRAN-cstidy 
 Requires:         R-CRAN-cstime 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-surveillance 
 
 %description
 Helps create alerts and determine trends by using various methods to

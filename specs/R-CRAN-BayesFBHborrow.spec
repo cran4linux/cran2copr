@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesFBHborrow
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Dynamic Borrowing with Flexible Baseline Hazard Function
 
@@ -39,7 +39,7 @@ Allows Bayesian borrowing from a historical dataset for time-to- event
 data. A flexible baseline hazard function is achieved via a piecewise
 exponential likelihood with time varying split points and smoothing prior
 on the historic baseline hazards. The method is described in Scott and
-Lewin (2024) <arXiv:2401.06082>.
+Lewin (2024) <doi:10.48550/arXiv.2401.06082>.
 
 %prep
 %setup -q -c -n %{packname}

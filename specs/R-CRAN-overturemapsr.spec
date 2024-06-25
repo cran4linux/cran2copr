@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rcheology
-%global packver   4.4.1.0
+%global packname  overturemapsr
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.1.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data on Base and Recommended Packages for Current and Previous Versions of R
+Summary:          Download Overture Maps Data in R
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
 
 %description
-Provides a dataset of functions in all base and recommended packages of R
-versions 0.50 onwards.
+Overture Maps offers free and open geospatial map data sourced from
+various providers and standardized to a common schema. This tool allows
+you to download Overture Maps data for a specific region of interest and
+convert it to several different file formats. For more information, visit
+<https://overturemaps.org/download/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fwlplot
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scatter Plot After Residualizing Using 'fixest' Package
 
@@ -19,16 +19,16 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-fixest 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tinyplot 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-fixest 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tinyplot 
 
 %description
 Creates a scatter plot after residualizing using a set of covariates. The
 residuals are calculated using the 'fixest' package which allows very fast
 estimation that scales. Details of the (Yule-)Frisch-Waugh-Lovell theorem
-is given in Basu (2023) <arXiv:2307.00369>.
+is given in Basu (2023) <doi:10.48550/arXiv.2307.00369>.
 
 %prep
 %setup -q -c -n %{packname}

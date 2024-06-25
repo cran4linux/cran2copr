@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgis
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ArcGIS Location Services Meta-Package
 
@@ -18,21 +18,26 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-arcgisutils >= 0.3.0
 BuildRequires:    R-CRAN-arcgislayers >= 0.2.0
-BuildRequires:    R-CRAN-arcgisutils >= 0.2.0
+BuildRequires:    R-CRAN-arcgisgeocode >= 0.1.0
+BuildRequires:    R-CRAN-arcgisplaces >= 0.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-arcgisutils >= 0.3.0
 Requires:         R-CRAN-arcgislayers >= 0.2.0
-Requires:         R-CRAN-arcgisutils >= 0.2.0
+Requires:         R-CRAN-arcgisgeocode >= 0.1.0
+Requires:         R-CRAN-arcgisplaces >= 0.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-utils 
 
 %description
 Provides easy installation and loading of core ArcGIS location services
-packages 'arcgislayers' and 'arcgisutils'. Enabling developers to interact
-with spatial data and services from 'ArcGIS Online', 'ArcGIS Enterprise',
-and 'ArcGIS Platform'. Learn more about the 'arcgis' meta-package at
+packages 'arcgislayers', 'arcgisutils', 'arcgisgeocode', and
+'arcgisplaces'. Enabling developers to interact with spatial data and
+services from 'ArcGIS Online', 'ArcGIS Enterprise', and 'ArcGIS Platform'.
+Learn more about the 'arcgis' meta-package at
 <https://r.esri.com/r-bridge-site/>.
 
 %prep

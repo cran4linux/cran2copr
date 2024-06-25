@@ -1,49 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAIRmaterials
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Materials Data FAIR
+Summary:          Ontology Tools with Data FAIRification in Development
 
 License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1.1
+Requires:         R-core >= 3.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-svDialogs 
-BuildRequires:    R-CRAN-tidyjson 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rdflib 
 BuildRequires:    R-CRAN-jsonld 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-svDialogs 
-Requires:         R-CRAN-tidyjson 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-DiagrammeRsvg 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-graphics 
+Requires:         R-CRAN-rdflib 
 Requires:         R-CRAN-jsonld 
+Requires:         R-CRAN-httr 
 Requires:         R-utils 
+Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-DiagrammeRsvg 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 
 %description
-We provide here tools used by the Solar Durability and Lifetime Extension
-Center (SDLE) for FAIRifying data from materials science projects.
-Functions have been created for numerous tools common in the field in
-order to make the metadata more Findable, Accessible, Interoperable, and
-Reproducible.
+Translates several CSV files with ontological terms and corresponding data
+into RDF triples. These RDF triples are stored in OWL and JSON-LD files,
+facilitating data accessibility, interoperability, and knowledge
+unification. The triples are also visualized in a graph saved as an SVG.
+The input CSVs must be formatted with a template from a public Google
+Sheet; see README or vignette for more information. This is a tool is used
+by the SDLE Research Center at Case Western Reserve University to create
+and visualize material science ontologies, and it includes example
+ontologies to demonstrate its capabilities. This work was supported by the
+U.S. Department of Energy’s Office of Energy Efficiency and Renewable
+Energy (EERE) under Solar Energy Technologies Office (SETO) Agreement
+Numbers E-EE0009353 and DE-EE0009347, Department of Energy (National
+Nuclear Security Administration) under Award Number DE-NA0004104 and
+Contract number B647887, and U.S. National Science Foundation Award under
+Award Number 2133576.
 
 %prep
 %setup -q -c -n %{packname}
