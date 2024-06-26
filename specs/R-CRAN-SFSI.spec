@@ -1,45 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quadrupen
-%global packver   0.2-12
+%global packname  SFSI
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparsity by Worst-Case Quadratic Penalties
+Summary:          Sparse Family and Selection Index
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-tensorEVD >= 0.1.3
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-reshape2 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-tensorEVD >= 0.1.3
+Requires:         R-stats 
 Requires:         R-CRAN-scales 
-Requires:         R-grid 
 Requires:         R-parallel 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Fits classical sparse regression models with efficient active set
-algorithms by solving quadratic problems as described by Grandvalet,
-Chiquet and Ambroise (2017) <doi:10.48550/arXiv.1210.2077>. Also provides
-a few methods for model selection purpose (cross-validation, stability
-selection).
+Here we provide tools for the estimation of coefficients in penalized
+regressions when the (co)variance matrix of predictors and the covariance
+vector between predictors and response, are provided. These methods are
+extended to the context of a Selection Index (commonly used for breeding
+value prediction). The approaches offer opportunities such as the
+integration of high-throughput traits in genetic evaluations ('Lopez-Cruz
+et al., 2020') <doi:10.1038/s41598-020-65011-2> and solutions for training
+set optimization in Genomic Prediction ('Lopez-Cruz & de los Campos,
+2021') <doi:10.1093/genetics/iyab030>.
 
 %prep
 %setup -q -c -n %{packname}

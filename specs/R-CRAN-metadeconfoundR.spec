@@ -1,45 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quadrupen
-%global packver   0.2-12
+%global packname  metadeconfoundR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.12
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparsity by Worst-Case Quadratic Penalties
+Summary:          Covariate-Sensitive Analysis of Cross-Sectional High-Dimensional Data
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-detectseparation 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-detectseparation 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-stats 
+Requires:         R-CRAN-futile.logger 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-reshape2 
 Requires:         R-methods 
-Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-parallel 
+Requires:         R-CRAN-rlang 
 
 %description
-Fits classical sparse regression models with efficient active set
-algorithms by solving quadratic problems as described by Grandvalet,
-Chiquet and Ambroise (2017) <doi:10.48550/arXiv.1210.2077>. Also provides
-a few methods for model selection purpose (cross-validation, stability
-selection).
+Using non-parametric tests, naive associations between omics features and
+metadata in cross-sectional data-sets are detected. In a second step,
+confounding effects between metadata associated to the same omics feature
+are detected and labeled using nested post-hoc model comparison tests, as
+first described in Forslund, Chakaroun, Zimmermann-Kogadeeva, et al.
+(2021) <doi:10.1038/s41586-021-04177-9>. The generated output can be
+graphically summarized using the built-in plotting function.
 
 %prep
 %setup -q -c -n %{packname}

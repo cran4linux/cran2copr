@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  actxps
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Actuarial Experience Studies: Prepare Data, Summarize Results, and Create Reports
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-gt >= 0.9.0
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
@@ -32,9 +31,9 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-clock 
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-gt >= 0.9.0
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
@@ -47,6 +46,7 @@ Requires:         R-CRAN-generics
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-clock 
 
 %description
 Experience studies are used by actuaries to explore historical experience

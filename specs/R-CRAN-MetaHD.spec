@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetaHD
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Multivariate Meta-Analysis Model for Metabolomics Data
 
@@ -17,11 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixcalc 
@@ -32,7 +38,9 @@ for integrating and collectively analysing individual-level metabolomics
 data generated from multiple studies as well as for combining summary
 estimates. This approach accounts for correlation between metabolites,
 considers variability within and between studies, handles missing values
-and uses shrinkage estimation to allow for high dimensionality.
+and uses shrinkage estimation to allow for high dimensionality. A detailed
+vignette with example datasets and code to prepare data and analyses are
+available on <https://bookdown.org/a2delivera/MetaHD/>.
 
 %prep
 %setup -q -c -n %{packname}

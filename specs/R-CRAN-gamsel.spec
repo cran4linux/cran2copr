@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gamsel
-%global packver   1.8-2
+%global packver   1.8-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Regularization Path for Generalized Additive Models
 
@@ -27,7 +28,7 @@ Using overlap grouped-lasso penalties, 'gamsel' selects whether a term in
 a 'gam' is nonzero, linear, or a non-linear spline (up to a specified max
 df per variable). It fits the entire regularization path on a grid of
 values for the overall penalty lambda, both for gaussian and binomial
-families.
+families. See <doi:10.48550/arXiv.1506.03850> for more details.
 
 %prep
 %setup -q -c -n %{packname}

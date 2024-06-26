@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gratia
-%global packver   0.9.0
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graceful 'ggplot'-Based Graphics and Other Functions for GAMs Fitted Using 'mgcv'
 
@@ -20,11 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-mgcv >= 1.9.0
+BuildRequires:    R-CRAN-patchwork >= 1.2.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-mvnfast 
@@ -42,11 +42,11 @@ BuildRequires:    R-CRAN-withr
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-mgcv >= 1.9.0
+Requires:         R-CRAN-patchwork >= 1.2.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-vctrs 
 Requires:         R-grid 
 Requires:         R-CRAN-mvnfast 

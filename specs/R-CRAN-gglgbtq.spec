@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gglgbtq
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Show Pride on 'ggplot2' Plots
 
@@ -14,15 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
 Provides multiple palettes based on pride flags with tailored themes.

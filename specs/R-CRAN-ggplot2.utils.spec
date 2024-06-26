@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggplot2.utils
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selected Utilities Extending 'ggplot2'
 
@@ -38,7 +38,7 @@ the 'ggplot2' package. This package imports functions from 'EnvStats'
 'ggstats' <doi:10.5281/zenodo.10183964> by Larmarange (2023), and then
 exports them. This package also contains modified code from 'ggquickeda'
 <https://CRAN.R-project.org/package=ggquickeda> by Mouksassi et al. (2023)
-for Kaplan-Meier lines and ticks additions to plots. All functions are
+for Kaplan-Meier lines and ticks additions to plots.  All functions are
 tested to make sure that they work reliably.
 
 %prep

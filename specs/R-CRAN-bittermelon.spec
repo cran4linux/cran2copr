@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bittermelon
-%global packver   1.1.2
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monochrome Bitmap Font Tools
+Summary:          Bitmap Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-findpython 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-Unicode 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-findpython 
+Requires:         R-CRAN-cli 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-Unicode 
 Requires:         R-utils 
 
 %description
-Provides functions for creating and modifying bitmaps with special
-emphasis on bitmap fonts and their glyphs.  Provides native read/write
-support for the 'hex' and 'yaff' bitmap font formats and if 'Python' is
-installed can also read/write several more bitmap font formats using an
-embedded version of 'monobit'.
+Provides functions for creating, modifying, and displaying bitmaps
+including printing them in the terminal.  There is a special emphasis on
+monochrome bitmap fonts and their glyphs as well as colored pixel
+art/sprites.  Provides native read/write support for the 'hex' and 'yaff'
+bitmap font formats and if 'monobit'
+<https://github.com/robhagemans/monobit> is installed can also read/write
+several additional bitmap font formats.
 
 %prep
 %setup -q -c -n %{packname}
