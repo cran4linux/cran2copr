@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tutorial.helpers
-%global packver   0.2.7
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Creating Tutorials
 
@@ -18,26 +18,26 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-learnr 
+BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-parsermd 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-learnr 
+Requires:         R-CRAN-mime 
 Requires:         R-CRAN-parsermd 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 

@@ -1,32 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrapply
-%global packver   1.2.7
+%global packname  frequentistSSDBinary
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Revisiting Base Rapply
+Summary:          Screened Selection Design with Binary Endpoints
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-clinfun 
+BuildRequires:    R-CRAN-ph2mult 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-clinfun 
+Requires:         R-CRAN-ph2mult 
 
 %description
-The minimal 'rrapply'-package contains a single function rrapply(),
-providing an extended implementation of 'R'-base rapply() by allowing to
-recursively apply a function to elements of a nested list based on a
-general condition function and including the possibility to prune or
-aggregate nested list elements from the result. In addition, special
-arguments can be supplied to access the name, location, parents and
-siblings in the nested list of the element under evaluation. The rrapply()
-function builds upon rapply()'s native 'C' implementation and requires no
-other package dependencies.
+A study based on the screened selection design (SSD) is an exploratory
+phase II randomized trial with two or more arms but without concurrent
+control. The primary aim of the SSD trial is to pick a desirable treatment
+arm (e.g., in terms of the response rate) to recommend to the subsequent
+randomized phase IIb (with the concurrent control) or phase III. The
+proposed designs can “partially” control or provide the empirical type I
+error/false positive rate by an optimal algorithm (implemented by the
+optimal_2arm_binary() or optimal_3arm_binary() function) for each arm. All
+the design needed components (sample size, operating characteristics) are
+supported.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggFishPlots
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualise and Calculate Life History Parameters for Fisheries Science using 'ggplot2'
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
@@ -39,12 +41,14 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-purrr 
 
 %description
 Contains functions to create life history parameter plots from raw data.
 The plots are created using 'ggplot2', and calculations done using the
 'tidyverse' collection of packages. The package contains references to
-FishBase (Froese R., Pauly. D., 2023) <https://www.fishbase.se/>.
+FishBase (Froese R., Pauly D., 2023) <https://www.fishbase.se/>.
 
 %prep
 %setup -q -c -n %{packname}

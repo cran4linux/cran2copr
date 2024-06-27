@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrapply
-%global packver   1.2.7
+%global packname  readme2vignette
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Revisiting Base Rapply
+Summary:          Convert README to Vignette During Package Installation
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-whisker 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
+Requires:         R-CRAN-whisker 
 
 %description
-The minimal 'rrapply'-package contains a single function rrapply(),
-providing an extended implementation of 'R'-base rapply() by allowing to
-recursively apply a function to elements of a nested list based on a
-general condition function and including the possibility to prune or
-aggregate nested list elements from the result. In addition, special
-arguments can be supplied to access the name, location, parents and
-siblings in the nested list of the element under evaluation. The rrapply()
-function builds upon rapply()'s native 'C' implementation and requires no
-other package dependencies.
+Convert README.md to vignettes when installing packages without vignettes.
 
 %prep
 %setup -q -c -n %{packname}

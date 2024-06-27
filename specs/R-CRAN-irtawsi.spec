@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irtawsi
-%global packver   0.3.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Items Response Theory Analysis with Steps and Interpretation
 
@@ -28,6 +28,9 @@ BuildRequires:    R-CRAN-rmarkdown
 BuildRequires:    R-CRAN-bs4Dash 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-mirtCAT 
+BuildRequires:    R-CRAN-WrightMap 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-mirt 
 Requires:         R-CRAN-psych 
@@ -39,12 +42,15 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-bs4Dash 
 Requires:         R-CRAN-gt 
 Requires:         R-CRAN-diagram 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-mirtCAT 
+Requires:         R-CRAN-WrightMap 
 
 %description
-Analysis of Dichotomous and polytomous data using unidimensional Item
-Response Theory model (Chalmers (2012) <doi:10.18637/jss.v048.i06>) with
-user friendly Graphical User Interface. Suitable for beginners who are
-learning Item Response Theory.
+Dichotomous and polytomous data analysis and their scoring using the
+unidimensional Item Response Theory model (Chalmers (2012)
+<doi:10.18637/jss.v048.i06>) with user-friendly graphic User Interface.
+Suitable for beginners who are learning item response theory.
 
 %prep
 %setup -q -c -n %{packname}

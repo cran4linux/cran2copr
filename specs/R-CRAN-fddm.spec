@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fddm
-%global packver   0.5-2
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Implementation of the Diffusion Decision Model
 
@@ -17,19 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-Formula 
 
 %description
 Provides the probability density function (PDF), cumulative distribution
-function (CDF), and the partial derivatives of the PDF of the diffusion
-decision model (DDM; e.g., Ratcliff & McKoon, 2008,
-<doi:10.1162/neco.2008.12-06-420>) with across-trial variability in the
-drift rate. Because the PDF, its partial derivatives, and the CDF of the
-DDM both contain an infinite sum, they need to be approximated. 'fddm'
-implements all published approximations (Navarro & Fuss, 2009,
-<doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, & Kesselmeier, 2014,
-<doi:10.1016/j.jmp.2014.05.002>; Blurton, Kesselmeier, & Gondan, 2017,
-<doi:10.1016/j.jmp.2016.11.003>; Hartmann & Klauer, 2021,
+function (CDF), the first-order and second-order partial derivatives of
+the PDF, and a fitting function for the diffusion decision model (DDM;
+e.g., Ratcliff & McKoon, 2008, <doi:10.1162/neco.2008.12-06-420>) with
+across-trial variability in the drift rate. Because the PDF, its partial
+derivatives, and the CDF of the DDM both contain an infinite sum, they
+need to be approximated. 'fddm' implements all published approximations
+(Navarro & Fuss, 2009, <doi:10.1016/j.jmp.2009.02.003>; Gondan, Blurton, &
+Kesselmeier, 2014, <doi:10.1016/j.jmp.2014.05.002>; Blurton, Kesselmeier,
+& Gondan, 2017, <doi:10.1016/j.jmp.2016.11.003>; Hartmann & Klauer, 2021,
 <doi:10.1016/j.jmp.2021.102550>) plus new approximations. All
 approximations are implemented purely in 'C++' providing faster speed than
 existing packages.

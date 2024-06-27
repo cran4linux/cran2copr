@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pbkrtest
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Bootstrap, Kenward-Roger and Satterthwaite Based Methods for Test in Mixed Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.2.3
 BuildRequires:    R-CRAN-lme4 >= 1.1.31
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doBy 
 Requires:         R-CRAN-Matrix >= 1.2.3
 Requires:         R-CRAN-lme4 >= 1.1.31
 Requires:         R-CRAN-broom 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-parallel 
+Requires:         R-CRAN-doBy 
 
 %description
 Computes p-values based on (a) Satterthwaite or Kenward-Rogers degree of

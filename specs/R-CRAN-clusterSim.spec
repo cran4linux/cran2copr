@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clusterSim
-%global packver   0.51-3
+%global packver   0.51-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.51.3
+Version:          0.51.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Searching for Optimal Clustering Procedure for a Data Set
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-R2HTML 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-R2HTML 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 

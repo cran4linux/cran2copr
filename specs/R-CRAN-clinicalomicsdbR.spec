@@ -1,32 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrapply
-%global packver   1.2.7
+%global packname  clinicalomicsdbR
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Revisiting Base Rapply
+Summary:          Interface with the 'ClinicalOmicsDB' API, Allowing for Easy Data Downloading and Importing
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
-The minimal 'rrapply'-package contains a single function rrapply(),
-providing an extended implementation of 'R'-base rapply() by allowing to
-recursively apply a function to elements of a nested list based on a
-general condition function and including the possibility to prune or
-aggregate nested list elements from the result. In addition, special
-arguments can be supplied to access the name, location, parents and
-siblings in the nested list of the element under evaluation. The rrapply()
-function builds upon rapply()'s native 'C' implementation and requires no
-other package dependencies.
+Provides an interface to the 'ClinicalOmicsDB' API, allowing for easy data
+downloading and importing. 'ClinicalOmicsDB' is a database of clinical and
+'omics' data from cancer patients. The database is accessible at
+<http://trials.linkedomics.org>.
 
 %prep
 %setup -q -c -n %{packname}

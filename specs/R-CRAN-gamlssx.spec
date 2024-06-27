@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrapply
-%global packver   1.2.7
+%global packname  gamlssx
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Revisiting Base Rapply
+Summary:          Generalized Additive Extreme Value Models for Location, Scale and Shape
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-nieve 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-nieve 
+Requires:         R-stats 
 
 %description
-The minimal 'rrapply'-package contains a single function rrapply(),
-providing an extended implementation of 'R'-base rapply() by allowing to
-recursively apply a function to elements of a nested list based on a
-general condition function and including the possibility to prune or
-aggregate nested list elements from the result. In addition, special
-arguments can be supplied to access the name, location, parents and
-siblings in the nested list of the element under evaluation. The rrapply()
-function builds upon rapply()'s native 'C' implementation and requires no
-other package dependencies.
+Fits generalized additive models for the location, scale and shape
+parameters of a generalized extreme value response distribution. The
+methodology is based on Rigby, R.A. and Stasinopoulos, D.M. (2005),
+<doi:10.1111/j.1467-9876.2005.00510.x> and implemented using functions
+from the 'gamlss' package <doi:10.32614/CRAN.package.gamlss>.
 
 %prep
 %setup -q -c -n %{packname}
