@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EdSurvey
-%global packver   4.0.6
+%global packver   4.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.6
+Version:          4.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of NCES Education Survey and Assessment Data
 

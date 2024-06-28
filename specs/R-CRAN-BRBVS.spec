@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BRBVS
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Ranking in Copula Survival Models Affected by General Censoring Scheme
+Summary:          Variable Selection and Ranking in Copula Survival Models Affected by General Censoring Scheme
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,10 +31,10 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Performs variable ranking based on several measures for the class of
-copula survival model(s) in high dimensional domain. The package is based
-on the class of copula survival model(s) implemented in the 'GJRM'
-package.
+Performs variable selection and ranking based on several measures for the
+class of copula survival model(s) in high dimensional domain. The package
+is based on the class of copula survival model(s) implemented in the
+'GJRM' package.
 
 %prep
 %setup -q -c -n %{packname}

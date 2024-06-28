@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psych
-%global packver   2.4.3
+%global packver   2.4.6.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.4.6.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Psychological, Psychometric, and Personality Research
 
@@ -25,6 +25,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-GPArotation 
 Requires:         R-CRAN-mnormt 
 Requires:         R-parallel 
 Requires:         R-stats 
@@ -33,6 +34,7 @@ Requires:         R-grDevices
 Requires:         R-methods 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-GPArotation 
 
 %description
 A general purpose toolbox developed originally for personality,

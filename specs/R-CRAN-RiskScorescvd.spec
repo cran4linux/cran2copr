@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RiskScorescvd
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cardiovascular Risk Scores Calculator
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-PooledCohort >= 0.0.1
@@ -29,14 +29,18 @@ individual's likelihood of developing a cardiovascular disease based on
 various risk factors, such as age, gender, blood pressure, cholesterol
 levels, and smoking. Here we bring together the six most commonly used in
 the emergency department. Using 'RiskScorescvd', you can calculate all the
-risk scores in an extended dataset in seconds. ASCVD described in Goff, et
-al (2013) <doi:10.1161/01.cir.0000437741.48606.98>. EDACS described in
-Mark DG, et al (2016) <doi:10.1016/j.jacc.2017.11.064>. GRACE described in
-Fox KA, et al (2006) <doi:10.1136/bmj.38985.646481.55>. HEART is described
-in Mahler SA, et al (2017) <doi:10.1016/j.clinbiochem.2017.01.003>.
-SCORE2/OP described in SCORE2 working group and ESC Cardiovascular risk
-collaboration (2021) <doi:10.1093/eurheartj/ehab309>. TIMI described in
-Antman EM, et al (2000) <doi:10.1001/jama.284.7.835>.
+risk scores in an extended dataset in seconds. PCE (ASCVD) described in
+Goff, et al (2013) <doi:10.1161/01.cir.0000437741.48606.98>. EDACS
+described in Mark DG, et al (2016) <doi:10.1016/j.jacc.2017.11.064>. GRACE
+described in Fox KA, et al (2006) <doi:10.1136/bmj.38985.646481.55>. HEART
+is described in Mahler SA, et al (2017)
+<doi:10.1016/j.clinbiochem.2017.01.003>. SCORE2/OP described in SCORE2
+working group and ESC Cardiovascular risk collaboration (2021)
+<doi:10.1093/eurheartj/ehab309>. TIMI described in Antman EM, et al (2000)
+<doi:10.1001/jama.284.7.835>. SCORE2-Diabetes described in SCORE2-Diabetes
+working group and ESC Cardiovascular risk collaboration (2023)
+<doi:10.1093/eurheartj/ehab260>. SCORE2/OP with CKD add-on described in
+Kunihiro M et al (2022) <doi:10.1093/eurjpc/zwac176>.
 
 %prep
 %setup -q -c -n %{packname}

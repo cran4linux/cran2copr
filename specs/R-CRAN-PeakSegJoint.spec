@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PeakSegJoint
-%global packver   2024.1.24
+%global packver   2024.6.27
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.24
+Version:          2024.6.27
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Peak Detection in Several ChIP-Seq Samples
 
@@ -28,7 +28,7 @@ Jointly segment several ChIP-seq samples to find the peaks which are the
 same and different across samples. The fast approximate maximum Poisson
 likelihood algorithm is described in "PeakSegJoint: fast supervised peak
 detection via joint segmentation of multiple count data samples"
-<arXiv:1506.01286> by TD Hocking and G Bourque.
+<doi:10.48550/arXiv.1506.01286> by TD Hocking and G Bourque.
 
 %prep
 %setup -q -c -n %{packname}

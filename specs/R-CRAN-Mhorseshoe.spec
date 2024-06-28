@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Mhorseshoe
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Approximate Algorithm for Horseshoe Prior
 
@@ -22,12 +22,8 @@ Requires:         R-CRAN-Rcpp >= 1.0.11
 Requires:         R-stats 
 
 %description
-Provides an approximate algorithm for the horseshoe estimator used in
-Bayesian linear models. By implementing a sampler with high computational
-cost in the 'Rcpp' package and using an approximate algorithm that reduces
-matrix calculation complexity, parameter estimation speed for
-high-dimensional sparse data is faster. The approximate algorithm is
-described in Johndrow et al. (2020)
+Provides exact and approximate algorithms for the horseshoe prior in
+linear regression models, which were proposed by Johndrow et al. (2020)
 <https://www.jmlr.org/papers/v21/19-536.html>.
 
 %prep

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  UComp
-%global packver   4.0.2
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Unobserved Components and Other Time Series Models
+Summary:          Automatic Univariate Time Series Modelling of many Kinds
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,11 +38,13 @@ Requires:         R-parallel
 
 %description
 Comprehensive analysis and forecasting of univariate time series using
-automatic unobserved components models and algorithms. Harvey, AC (1989)
+automatic time series models of many kinds. Harvey AC (1989)
 <doi:10.1017/CBO9781107049994>. Pedregal DJ and Young PC (2002)
 <doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
 <doi:10.1093/acprof:oso/9780199641178.001.0001>. Hyndman RJ, Koehler AB,
-Ord JK, and Snyder RD (2008) <doi:10.1007/978-3-540-71918-2>.
+Ord JK, and Snyder RD (2008) <doi:10.1007/978-3-540-71918-2>. Gómez V,
+Maravall A (2000) <doi:10.1002/9781118032978>. Pedregal DJ, Trapero JR and
+Holgado E (2024) <doi:10.1016/j.ijforecast.2023.09.004>.
 
 %prep
 %setup -q -c -n %{packname}

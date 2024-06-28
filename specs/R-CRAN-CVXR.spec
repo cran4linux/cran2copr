@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CVXR
-%global packver   1.0-13
+%global packver   1.0-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disciplined Convex Optimization
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-scs >= 3.0
+BuildRequires:    R-CRAN-clarabel >= 0.9.0
 BuildRequires:    R-CRAN-ECOSolveR >= 0.5.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-methods 
@@ -29,6 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-scs >= 3.0
+Requires:         R-CRAN-clarabel >= 0.9.0
 Requires:         R-CRAN-ECOSolveR >= 0.5.4
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-methods 

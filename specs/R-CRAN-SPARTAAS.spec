@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPARTAAS
-%global packver   1.2.1
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Pattern Recognition and daTing using Archaeological Artefacts assemblageS
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyjs 
@@ -39,14 +38,12 @@ BuildRequires:    R-CRAN-shinythemes
 BuildRequires:    R-CRAN-explor 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-scatterD3 
-BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-lmtest 
@@ -62,7 +59,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyjs 
@@ -76,14 +72,12 @@ Requires:         R-CRAN-shinythemes
 Requires:         R-CRAN-explor 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-scatterD3 
-Requires:         R-CRAN-sp 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-foreign 
 Requires:         R-grid 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-mapview 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-lmtest 
@@ -95,11 +89,11 @@ Requires:         R-CRAN-fastcluster
 %description
 Statistical pattern recognition and dating using archaeological artefacts
 assemblages. Package of statistical tools for archaeology.
-hclustcompro(perioclust): Bellanger Lise, Coulon Arthur, Husi Philippe
-(2021, ISBN:978-3-030-60103-4). mapclust: Bellanger Lise, Coulon Arthur,
-Husi Philippe (2021) <doi:10.1016/j.jas.2021.105431>. seriograph: Desachy
-Bruno (2004) <doi:10.3406/pica.2004.2396>. cerardat: Bellanger Lise, Husi
-Philippe (2012) <doi:10.1016/j.jas.2011.06.031>.
+hclustcompro()/perioclust(): Bellanger Lise, Coulon Arthur, Husi Philippe
+(2021, ISBN:978-3-030-60103-4). mapclust(): Bellanger Lise, Coulon Arthur,
+Husi Philippe (2021) <doi:10.1016/j.jas.2021.105431>. seriograph():
+Desachy Bruno (2004) <doi:10.3406/pica.2004.2396>. cerardat(): Bellanger
+Lise, Husi Philippe (2012) <doi:10.1016/j.jas.2011.06.031>.
 
 %prep
 %setup -q -c -n %{packname}

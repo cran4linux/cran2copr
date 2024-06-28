@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roads
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Road Network Projection
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.0.3
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-units 
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-igraph >= 2.0.3
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-units 
@@ -37,13 +37,17 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-terra 
 
 %description
-Project road network development based on an existing road network, target
-locations to be connected by roads and a cost surface. Road projection
-methods include minimum spanning tree with least cost path (Kruskal's
-algorithm (1956) <doi:10.2307/2033241>), least cost path (Dijkstra's
-algorithm (1959) <doi:10.1007/BF01386390>) or snapping. These road network
-projection methods are ideal for use with land cover change projection
-models.
+Iterative least cost path and minimum spanning tree methods for projecting
+forest road networks. The methods connect a set of target points to an
+existing road network using 'igraph' <https://igraph.org> to identify
+least cost routes. The cost of constructing a road segment between
+adjacent pixels is determined by a user supplied weight raster and a
+weight function; options include the average of adjacent weight raster
+values, and a function of the elevation differences between adjacent cells
+that penalizes steep grades. These road network projection methods are
+intended for integration into R workflows and modelling frameworks used
+for forecasting forest change, and can be applied over multiple time-steps
+without rebuilding a graph at each time-step.
 
 %prep
 %setup -q -c -n %{packname}

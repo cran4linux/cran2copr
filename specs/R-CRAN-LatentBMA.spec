@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tfevents
-%global packver   0.0.4
+%global packname  LatentBMA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Write Events for 'TensorBoard'
+Summary:          Bayesian Model Averaging for Univariate Link Latent Gaussian Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,32 +16,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-blob 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-blob 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-zeallot 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-mnormt >= 2.1.1
+BuildRequires:    R-CRAN-knitr >= 1.47
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-CRAN-progress >= 1.2.3
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-mnormt >= 2.1.1
+Requires:         R-CRAN-knitr >= 1.47
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-CRAN-progress >= 1.2.3
 
 %description
-Provides a convenient way to log scalars, images, audio, and histograms in
-the 'tfevent' record file format. Logged data can be visualized on the fly
-using 'TensorBoard', a web based tool that focuses on visualizing the
-training progress of machine learning models.
+Bayesian model averaging (BMA) algorithms for univariate link latent
+Gaussian models (ULLGMs). For detailed information, refer to Steel M.F.J.
+& Zens G. (2024) "Model Uncertainty in Latent Gaussian Models with
+Univariate Link Function" <doi:10.48550/arXiv.2406.17318>. The package
+supports various g-priors and a beta-binomial prior on the model space. It
+also includes auxiliary functions for visualizing and tabulating BMA
+results. Currently, it offers an out-of-the-box solution for model
+averaging of Poisson log-normal (PLN) and binomial logistic-normal (BiL)
+models. The codebase is designed to be easily extendable to other
+likelihoods, priors, and link functions.
 
 %prep
 %setup -q -c -n %{packname}

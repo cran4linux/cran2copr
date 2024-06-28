@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  lpme
-%global packver   1.1.3
+%global __requires_exclude ^libmpi
+%global packname  simpletex
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Estimation of Measurement Error Models
+Summary:          Mathematical Formulas and Character Recognition
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.4.300.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.1
-BuildRequires:    R-CRAN-decon 
-BuildRequires:    R-CRAN-flexmix 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-locpol 
-Requires:         R-CRAN-Rcpp >= 0.11.1
-Requires:         R-CRAN-decon 
-Requires:         R-CRAN-flexmix 
-Requires:         R-splines 
-Requires:         R-CRAN-locpol 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provide nonparametric methods for mean regression model, modal regression
-and conditional density estimation in the presence/absence of measurement
-error. Bandwidth selection is also provided for each method. See Huang and
-Zhou (2017) <doi:10.1080/10485252.2017.1303060>, Zhou and Huang (2016)
-<doi:10.1214/16-EJS1210>, Huang and Zhou (2020) <doi:10.1214/20-EJS1688>,
-and Zhou and Huang (2019) <doi:10.1080/03610918.2017.1402044>.
+By calling the 'SimpleTex' <https://simpletex.cn/> open API implements
+text and mathematical formula recognition on the image, and the output
+formula can be used directly with 'Markdown' and 'LaTeX'.
 
 %prep
 %setup -q -c -n %{packname}

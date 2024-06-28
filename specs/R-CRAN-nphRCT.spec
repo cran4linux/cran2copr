@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nphRCT
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Proportional Hazards in Randomized Controlled Trials
 
@@ -28,8 +28,9 @@ Requires:         R-CRAN-survival
 Perform a stratified weighted log-rank test in a randomized controlled
 trial. Tests can be visualized as a difference in average score on the two
 treatment arms. These methods are described in Magirr and Burman (2018)
-<arXiv:1807.11097v1>, Magirr (2020) <arXiv:2007.04767v1>, and Magirr and
-Jimenez (2022) <arXiv:2201.10445v1>.
+<doi:10.48550/arXiv.1807.11097>, Magirr (2020)
+<doi:10.48550/arXiv.2007.04767>, and Magirr and Jimenez (2022)
+<doi:10.48550/arXiv.2201.10445>.
 
 %prep
 %setup -q -c -n %{packname}

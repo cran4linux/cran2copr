@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  decon
-%global packver   1.3-4
+%global __requires_exclude ^libmpi
+%global packname  geommc
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deconvolution Estimation in Measurement Error Models
+Summary:          Geometric Markov Chain Sampling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -15,22 +16,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-mcmc 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-mcmc 
 
 %description
-A collection of functions to deal with nonparametric measurement error
-problems using deconvolution kernel methods. We focus two measurement
-error models in the package: (1) an additive measurement error model,
-where the goal is to estimate the density or distribution function from
-contaminated data; (2) nonparametric regression model with
-errors-in-variables. The R functions allow the measurement errors to be
-either homoscedastic or heteroscedastic. To make the deconvolution
-estimators computationally more efficient in R, we adapt the "Fast Fourier
-Transform" (FFT) algorithm for density estimation with error-free data to
-the deconvolution kernel estimation. Several methods for the selection of
-the data-driven smoothing parameter are also provided in the package. See
-details in: Wang, X.F. and Wang, B. (2011). Deconvolution estimation in
-measurement error models: The R package decon. Journal of Statistical
-Software, 39(10), 1-24.
+Simulates from discrete and continuous target distributions using
+geometric Metropolis-Hastings (MH) algorithms. Users specify the target
+distribution by an R function that evaluates the log un-normalized pdf or
+pmf. The package also contains a function implementing a specific
+geometric MH algorithm for performing high dimensional Bayesian variable
+selection.
 
 %prep
 %setup -q -c -n %{packname}

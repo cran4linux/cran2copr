@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dacc
-%global packver   0.0-3
+%global packver   0.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detection and Attribution Analysis of Climate Change
 
@@ -24,6 +24,9 @@ BuildRequires:    R-CRAN-Iso
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-CFtime 
+BuildRequires:    R-CRAN-ncdf4 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -31,6 +34,9 @@ Requires:         R-CRAN-Iso
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-ncdf4 
 
 %description
 Conduct detection and attribution of climate change using methods

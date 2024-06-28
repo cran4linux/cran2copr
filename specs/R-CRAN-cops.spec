@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cops
-%global packver   1.3-1
+%global packver   1.11-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Optimized Proximity Scaling
 
@@ -14,68 +14,59 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-smacof >= 1.10.4
 BuildRequires:    R-CRAN-cordillera >= 0.7.2
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-pso 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-CRAN-NlcOptim 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-CRAN-smacofx 
+BuildRequires:    R-CRAN-smacof 
+BuildRequires:    R-CRAN-analogue 
 BuildRequires:    R-CRAN-cmaes 
 BuildRequires:    R-CRAN-crs 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-dfoptim 
 BuildRequires:    R-CRAN-GenSA 
-Requires:         R-CRAN-smacof >= 1.10.4
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-NlcOptim 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-subplex 
 Requires:         R-CRAN-cordillera >= 0.7.2
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-pso 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-CRAN-NlcOptim 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-subplex 
+Requires:         R-CRAN-smacofx 
+Requires:         R-CRAN-smacof 
+Requires:         R-CRAN-analogue 
 Requires:         R-CRAN-cmaes 
 Requires:         R-CRAN-crs 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-dfoptim 
 Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-NlcOptim 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-pso 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-subplex 
 
 %description
 Multidimensional scaling (MDS) methods that aim at pronouncing the
 clustered appearance of the configuration (Rusch, Mair & Hornik, 2021,
 <doi:10.1080/10618600.2020.1869027>). They achieve this by transforming
-proximities/distances with power functions and augment the fitting
-criterion with a clusteredness index, the OPTICS Cordillera (Rusch, Hornik
-& Mair, 2018, <doi:10.1080/10618600.2017.1349664>). There are two
-variants: One for finding the configuration directly (COPS-C) for ratio,
-power, interval and non-metric MDS (Borg & Groenen, 2005,
+proximities/distances with explicit power functions and penalizing the
+fitting criterion with a clusteredness index, the OPTICS Cordillera
+(Rusch, Hornik & Mair, 2018, <doi:10.1080/10618600.2017.1349664>). There
+are two variants: One for finding the configuration directly (COPS-C) with
+given explicit power transformations and implicit ratio, interval and
+non-metric optimal scaling transformations (Borg & Groenen, 2005,
 ISBN:978-0-387-28981-6), and one for using the augmented fitting criterion
-to find optimal parameters (P-COPS). The package contains various
-functions, wrappers, methods and classes for fitting, plotting and
-displaying different MDS models in a COPS framework like ratio, interval
-and non-metric MDS for COPS-C and P-COPS with Torgerson scaling
-(Torgerson, 1958, ISBN:978-0471879459), scaling by majorizing a complex
-function (SMACOF; de Leeuw, 1977,
-<https://escholarship.org/uc/item/4ps3b5mj>), Sammon mapping (Sammon,
-1969, <doi:10.1109/T-C.1969.222678>), elastic scaling (McGee, 1966,
-<doi:10.1111/j.2044-8317.1966.tb00367.x>), s-stress (Takane, Young & de
-Leeuw, 1977, <doi:10.1007/BF02293745>), r-stress (de Leeuw, Groenen &
-Mair, 2016, <https://rpubs.com/deleeuw/142619>), power stress (Buja &
-Swayne, 2002 <doi:10.1007/s00357-001-0031-0>), restricted power stress,
-approximate power stress, power elastic scaling, power Sammon mapping (for
-all Rusch, Mair & Hornik, 2021, <doi:10.1080/10618600.2020.1869027>). All
-of these models can also solely be fit as MDS with power transformations.
-The package further contains a function for pattern search optimization,
-the ``Adaptive Luus-Jaakola Algorithm'' (Rusch, Mair & Hornik,
-2021,<doi:10.1080/10618600.2020.1869027>).
+to find optimal hyperparameters for the explicit transformations (P-COPS).
+The package contains various functions, wrappers, methods and classes for
+fitting, plotting and displaying a large number of different MDS models
+(most of the functionality in smacofx) in the COPS framework. The package
+further contains a function for pattern search optimization, the
+``Adaptive Luus-Jaakola Algorithm'' (Rusch, Mair & Hornik,
+2021,<doi:10.1080/10618600.2020.1869027>) and a functions to calculate the
+phi-distances for count data or histograms.
 
 %prep
 %setup -q -c -n %{packname}
