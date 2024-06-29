@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbscan
-%global packver   1.1-12
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density-Based Spatial Clustering of Applications with Noise (DBSCAN) and Related Algorithms
 
@@ -14,14 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-generics 
 
 %description
 A fast reimplementation of several density-based algorithms of the DBSCAN

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Nonpareil
-%global packver   3.4.0
+%global packver   3.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          3.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metagenome Coverage Estimation and Projections for 'Nonpareil'
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsparse
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Learning on Sparse Matrices
 
@@ -51,15 +51,15 @@ Koren, Volinsky (2008, <doi:10.1109/ICDM.2008.22>) 2) Maximum-Margin
 Matrix Factorization via ALS, paper by Rennie, Srebro (2005,
 <doi:10.1145/1102351.1102441>) 3) Fast Truncated Singular Value
 Decomposition (SVD), Soft-Thresholded SVD, Soft-Impute matrix completion
-via ALS - paper by Hastie, Mazumder et al. (2014, <arXiv:1410.2596>) 4)
-Linear-Flow matrix factorization, from 'Practical linear models for
-large-scale one-class collaborative filtering' by Sedhain, Bui, Kawale et
-al (2016, ISBN:978-1-57735-770-4) 5) GlobalVectors (GloVe) matrix
-factorization via SGD, paper by Pennington, Socher, Manning (2014,
-<https://aclanthology.org/D14-1162/>) Package is reasonably fast and
-memory efficient - it allows to work with large datasets - millions of
-rows and millions of columns. This is particularly useful for
-practitioners working on recommender systems.
+via ALS - paper by Hastie, Mazumder et al. (2014,
+<doi:10.48550/arXiv.1410.2596>) 4) Linear-Flow matrix factorization, from
+'Practical linear models for large-scale one-class collaborative
+filtering' by Sedhain, Bui, Kawale et al (2016, ISBN:978-1-57735-770-4) 5)
+GlobalVectors (GloVe) matrix factorization via SGD, paper by Pennington,
+Socher, Manning (2014, <https://aclanthology.org/D14-1162/>) Package is
+reasonably fast and memory efficient - it allows to work with large
+datasets - millions of rows and millions of columns. This is particularly
+useful for practitioners working on recommender systems.
 
 %prep
 %setup -q -c -n %{packname}

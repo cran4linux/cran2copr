@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fitODBOD
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Over Dispersed Binomial Outcome Data Using BMD and ABD
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-bbmle
 BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-bbmle 
 Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 
 %description

@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PieGlyph
-%global packver   1.0.0
+%global packname  cartographr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Axis Invariant Scatter Pie Plots
+Summary:          Crafting Print-Ready Maps and Layered Visualizations
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggiraph 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-osmdata 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggiraph 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-plyr 
-Requires:         R-grid 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-osmdata 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-sf 
 Requires:         R-utils 
 
 %description
-Extends 'ggplot2' to help replace points in a scatter plot with pie-chart
-glyphs showing the relative proportions of different categories. The pie
-glyphs are independent of the axes and plot dimensions, to prevent
-distortions when the plot dimensions are changed.
+Simplifying the creation of print-ready maps, this package offers a
+user-friendly interface derived from 'ggplot2' for handling OpenStreetMap
+data. It streamlines the map-making process, allowing users to focus on
+the story their maps tell. Transforming raw geospatial data into
+informative visualizations is made easy with simple features 'sf'
+geometries. Whether for urban planning, environmental studies, or
+impactful public presentations, this tool facilitates straightforward and
+effective map creation. Enhance the dissemination of spatial information
+with high-quality, narrative-driven visualizations!
 
 %prep
 %setup -q -c -n %{packname}

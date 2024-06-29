@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbm
-%global packver   2.2.2
+%global packname  CommEcol
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Boosted Regression Models
+Summary:          Community Ecology Analyses
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-rncl 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-picante 
+BuildRequires:    R-CRAN-adespatial 
+BuildRequires:    R-CRAN-betapart 
+BuildRequires:    R-CRAN-gmp 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-rncl 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-picante 
+Requires:         R-CRAN-adespatial 
+Requires:         R-CRAN-betapart 
+Requires:         R-CRAN-gmp 
 
 %description
-An implementation of extensions to Freund and Schapire's AdaBoost
-algorithm and Friedman's gradient boosting machine. Includes regression
-methods for least squares, absolute loss, t-distribution loss, quantile
-regression, logistic, multinomial logistic, Poisson, Cox proportional
-hazards partial likelihood, AdaBoost exponential loss, Huberized hinge
-loss, and Learning to Rank measures (LambdaMart). Originally developed by
-Greg Ridgeway. Newer version available at github.com/gbm-developers/gbm3.
+Autosimilarity curves, standardization of spatial extent, dissimilarity
+indexes that overweight rare species, phylogenetic and functional
+(pairwise and multisample) dissimilarity indexes and nestedness for
+phylogenetic, functional and other diversity metrics. The methods for
+phylogenetic and functional nestedness is described in Melo, Cianciaruso
+and Almeida-Neto (2014) <doi:10.1111/2041-210X.12185>. This should be a
+complement to available packages, particularly 'vegan'.
 
 %prep
 %setup -q -c -n %{packname}

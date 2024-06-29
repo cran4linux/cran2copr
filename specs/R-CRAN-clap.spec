@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  orbweaver
-%global packver   0.10.2
+%global packname  clap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Efficient Graph Data Structures
+Summary:          Detecting Class Overlapping Regions in Multidimensional Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-glue 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 
 %description
-Empower your data analysis with 'orbweaver', an R package designed for
-effortless construction and analysis of graph data structures. With
-'orbweaver', you can seamlessly build and manipulate graph structures,
-leveraging its high-performance methods for filtering, joining, and
-mutating data within the R environment. Drawing inspiration from the
-efficiency of the 'data.table' package, 'orbweaver' ensures that mutations
-and changes to the graph are performed in place, streamlining your
-workflow for optimal productivity.
+The issue of overlapping regions in multidimensional data arises when
+different classes or clusters share similar feature representations,
+making it challenging to delineate distinct boundaries between them
+accurately. This package provides methods for detecting and visualizing
+these overlapping regions using partitional clustering techniques based on
+nearest neighbor distances.
 
 %prep
 %setup -q -c -n %{packname}

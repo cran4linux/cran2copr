@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbm
-%global packver   2.2.2
+%global packname  convertBCD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Boosted Regression Models
+Summary:          Convert Decimal to Binary-Coded Decimal (BCD) Form and Vice Versa
 
-License:          GPL (>= 2) | file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-gmp 
+Requires:         R-methods 
 
 %description
-An implementation of extensions to Freund and Schapire's AdaBoost
-algorithm and Friedman's gradient boosting machine. Includes regression
-methods for least squares, absolute loss, t-distribution loss, quantile
-regression, logistic, multinomial logistic, Poisson, Cox proportional
-hazards partial likelihood, AdaBoost exponential loss, Huberized hinge
-loss, and Learning to Rank measures (LambdaMart). Originally developed by
-Greg Ridgeway. Newer version available at github.com/gbm-developers/gbm3.
+Convert BCD (raw bytes) to decimal numbers and vice versa. BCD format is
+used to preserve decimals exactly, as opposed to the binary rounding
+errors inherent in "numeric" or "floating-point" formats.
 
 %prep
 %setup -q -c -n %{packname}

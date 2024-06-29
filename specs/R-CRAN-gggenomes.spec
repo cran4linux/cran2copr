@@ -1,54 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PieGlyph
+%global packname  gggenomes
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Axis Invariant Scatter Pie Plots
+Summary:          A Grammar of Graphics for Comparative Genomics
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.2
+Requires:         R-core >= 3.4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-readr >= 2.0.0
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggiraph 
-BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ellipsis 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-readr >= 2.0.0
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggiraph 
-Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-stringr 
 Requires:         R-grid 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-colorspace 
+Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-ellipsis 
 
 %description
-Extends 'ggplot2' to help replace points in a scatter plot with pie-chart
-glyphs showing the relative proportions of different categories. The pie
-glyphs are independent of the axes and plot dimensions, to prevent
-distortions when the plot dimensions are changed.
+An extension of 'ggplot2' for creating complex genomic maps. It builds on
+the power of 'ggplot2' and 'tidyverse' adding new 'ggplot2'-style geoms &
+positions and 'dplyr'-style verbs to manipulate the underlying data. It
+implements a layout concept inspired by 'ggraph' and introduces tracks to
+bring tidiness to the mess that is genomics data.
 
 %prep
 %setup -q -c -n %{packname}

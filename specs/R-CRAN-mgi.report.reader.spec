@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbm
-%global packver   2.2.2
+%global packname  mgi.report.reader
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Boosted Regression Models
+Summary:          Read Mouse Genome Informatics Reports
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vroom 
 
 %description
-An implementation of extensions to Freund and Schapire's AdaBoost
-algorithm and Friedman's gradient boosting machine. Includes regression
-methods for least squares, absolute loss, t-distribution loss, quantile
-regression, logistic, multinomial logistic, Poisson, Cox proportional
-hazards partial likelihood, AdaBoost exponential loss, Huberized hinge
-loss, and Learning to Rank measures (LambdaMart). Originally developed by
-Greg Ridgeway. Newer version available at github.com/gbm-developers/gbm3.
+Provides readers for easy and consistent importing of Mouse Genome
+Informatics (MGI) report files:
+<https://www.informatics.jax.org/downloads/reports/index.html>. These data
+are provided by Baldarelli RM, Smith CL, Ringwald M, Richardson JE, Bult
+CJ, Mouse Genome Informatics Group. (2024) <doi:10.1093/genetics/iyae031>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bigBits
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Boolean Operations on Large Numbers
 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-gmp
 Requires:         R-methods 
 
 %description
-These tools accept integers in any base from 2 to 36, including 2's
-complement format, and perform actions like "AND," "OR", "NOT", "SHIFTR/L"
-etc. The output can be in any base specified. A direct base to base
-converter is included.
+A set of Boolean operators which accept integers of any size, in any base
+from 2 to 36, including 2's complement format, and perform actions like
+"AND," "OR", "NOT", "SHIFTR/L" etc. The output can be in any base
+specified. A direct base to base converter is included.
 
 %prep
 %setup -q -c -n %{packname}

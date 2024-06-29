@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  segregatr
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Segregation Analysis for Variant Interpretation
 
@@ -25,11 +25,13 @@ Requires:         R-CRAN-pedprobr
 %description
 An implementation of the full-likelihood Bayes factor (FLB) for evaluating
 segregation evidence in clinical medical genetics. The method was
-introduced by Thompson et al. (2003) <doi:10.1086/378100>, and further
-popularised by Bayrak-Toydemir et al. (2008)
-<doi:10.1016/j.yexmp.2008.03.006>. This implementation allows custom
-penetrance values and liability classes, and includes specialised pedigree
-visualisations.
+introduced by Thompson et al. (2003) <doi:10.1086/378100>. This
+implementation supports custom penetrance values and liability classes,
+and allows visualisations and robustness analysis as presented in Ratajska
+et al. (2023) <doi:10.1002/mgg3.2107>. See also the online app 'shinyseg',
+<https://chrcarrizosa.shinyapps.io/shinyseg>, which offers interactive
+segregation analysis with many additional features (Carrizosa et al.
+(2024) <doi:10.1093/bioinformatics/btae201>).
 
 %prep
 %setup -q -c -n %{packname}

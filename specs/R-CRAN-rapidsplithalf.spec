@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbm
-%global packver   2.2.2
+%global packname  rapidsplithalf
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Boosted Regression Models
+Summary:          A Fast Split-Half Reliability Algorithm
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+Requires:         R-CRAN-Rcpp >= 1.0.5
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
-An implementation of extensions to Freund and Schapire's AdaBoost
-algorithm and Friedman's gradient boosting machine. Includes regression
-methods for least squares, absolute loss, t-distribution loss, quantile
-regression, logistic, multinomial logistic, Poisson, Cox proportional
-hazards partial likelihood, AdaBoost exponential loss, Huberized hinge
-loss, and Learning to Rank measures (LambdaMart). Originally developed by
-Greg Ridgeway. Newer version available at github.com/gbm-developers/gbm3.
+Accurately estimates the reliability of cognitive tasks using a fast and
+flexible permutated split-half reliability algorithm that supports
+stratified splitting while maintaining equal split sizes. See Kahveci,
+Bathke, and Blechert (2022) <doi:10.31234/osf.io/ta59r> for details.
 
 %prep
 %setup -q -c -n %{packname}

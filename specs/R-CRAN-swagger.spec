@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swagger
-%global packver   5.17.14
+%global packver   5.17.14.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.17.14
+Version:          5.17.14.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamically Generates Documentation from a 'Swagger' Compliant API
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lqr
-%global packver   5.0
+%global packver   5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Quantile Regression
 
@@ -19,14 +19,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-MomTrunc 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-MASS 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.univar 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-MomTrunc 
 Requires:         R-CRAN-quantreg 

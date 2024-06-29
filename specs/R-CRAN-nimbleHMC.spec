@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nimbleHMC
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hamiltonian Monte Carlo and Other Gradient-Based MCMC Sampling Algorithms for 'nimble'
 
@@ -28,9 +28,9 @@ engine provided by the 'nimble' package.  This includes two versions of
 Hamiltonian Monte Carlo (HMC) No-U-Turn (NUTS) sampling, and (under
 development) Langevin samplers.  The `NUTS_classic` sampler implements the
 original HMC-NUTS algorithm as described in Hoffman and Gelman (2014)
-<arXiv:1111.4246>.  The `NUTS` sampler is a modern version of HMC-NUTS
-sampling matching the HMC sampler available in version 2.32.2 of Stan
-(Stan Development Team, 2023). In addition, convenience functions are
+<doi:10.48550/arXiv.1111.4246>.  The `NUTS` sampler is a modern version of
+HMC-NUTS sampling matching the HMC sampler available in version 2.32.2 of
+Stan (Stan Development Team, 2023). In addition, convenience functions are
 provided for generating and modifying MCMC configuration objects which
 employ HMC sampling.
 

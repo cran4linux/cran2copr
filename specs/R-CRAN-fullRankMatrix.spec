@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  metajam
-%global packver   0.2.3
+%global __requires_exclude ^libmpi
+%global packname  fullRankMatrix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Download Data and Metadata from 'DataONE'
+Summary:          Generation of Full Rank Design Matrix
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,35 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dataone 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-EML 
-BuildRequires:    R-CRAN-emld 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dataone 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-EML 
-Requires:         R-CRAN-emld 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
 
 %description
-A set of tools to foster the development of reproducible analytical
-workflow by simplifying the download of data and metadata from 'DataONE'
-(<https://www.dataone.org>) and easily importing this information into R.
+Creates a full rank matrix out of a given matrix. The intended use is for
+one-hot encoded design matrices that should be used in linear models to
+ensure that significant associations can be correctly interpreted.
+However, 'fullRankMatrix' can be applied to any matrix to make it full
+rank. It removes columns with only 0's, merges duplicated columns and
+discovers linearly dependent columns and replaces them with linearly
+independent columns that span the space of the original columns. Columns
+are renamed to reflect those modifications. This results in a full rank
+matrix that can be used as a design matrix in linear models. The algorithm
+and some functions are inspired by Kuhn, M. (2008)
+<doi:10.18637/jss.v028.i05>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -54,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

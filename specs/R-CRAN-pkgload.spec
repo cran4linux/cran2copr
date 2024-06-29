@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgload
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Package Installation and Attach
 
@@ -20,23 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-withr >= 2.4.3
 BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pkgbuild 
+BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-withr >= 2.4.3
 Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-pkgbuild 
+Requires:         R-CRAN-processx 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-utils 
 

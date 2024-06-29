@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qlifetable
-%global packver   0.0.2-4
+%global packver   0.0.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2.4
+Version:          0.0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Managing and Building of Quarterly Life Tables
 
@@ -29,7 +29,7 @@ a general or an insured population. References: Pavía and Lledó (2022)
 <doi:10.1111/rssa.12769>. Pavía and Lledó (2023)
 <doi:10.1017/asb.2023.16>. Acknowledgements: The authors wish to thank
 Consellería de Educación, Universidades y Empleo, Generalitat Valenciana
-(grant AICO/2021/257), Ministerio de Economía e Innovación (grant
+(grant AICO/2021/257), Ministerio de Ciencia e Innovación (grant
 PID2021-128228NB-I00) and Fundación Mapfre (grant 'Modelización espacial e
 intra-anual de la mortalidad en España. Una herramienta automática para el
 cálculo de productos de vida') for supporting this research.

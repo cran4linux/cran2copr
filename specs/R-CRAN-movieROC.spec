@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  movieROC
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing the Decision Rules Underlying Binary Classification
 
@@ -39,21 +39,17 @@ Requires:         R-CRAN-zoo
 %description
 Visualization of decision rules for binary classification and Receiver
 Operating Characteristic (ROC) curve estimation under different
-generalizations: - making the classification subsets flexible to cover
-those scenarios where both extremes of the marker are associated with a
-higher risk of being positive, considering two thresholds (gROC curve); -
-transforming the marker by a function either defined by the user or
-resulting from a logistic regression model (hROC curve); - considering a
-linear transformation with some fixed parameters introduced by the user,
-dynamic parameters or empirically maximizing TPR for each FPR for a
-bivariate marker. Also a quadratic transformation with particular
-coefficients or a function fitted by a logistic regression model can be
-considered (biROC curve); - considering a linear transformation with some
-fixed parameters introduced by the user, dynamic parameters or a function
-fitted by a logistic regression model (multiROC curve). The classification
-regions behind each point of the ROC curve are displayed in both fixed
-graphics (plot.buildROC(), plot.regions() or plot.funregions() function)
-or videos (movieROC() function).
+generalizations proposed in the literature: - making the classification
+subsets flexible to cover those scenarios where both extremes of the
+marker are associated with a higher risk of being positive, considering
+two thresholds (gROC() function); - transforming the marker by a proper
+function trying to improve the classification performance (hROC()
+function); - when dealing with multivariate markers, considering a proper
+transformation to univariate space trying to maximize the resulting AUC of
+the TPR for each FPR (multiROC() function). The classification regions
+behind each point of the ROC curve are displayed in both static graphics
+(plot_buildROC(), plot_regions() or plot_funregions() function) or videos
+(movieROC() function).
 
 %prep
 %setup -q -c -n %{packname}

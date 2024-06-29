@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  microeco
-%global packver   1.8.0
+%global packname  poweRbal
+%global packver   0.0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          0.0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Microbial Community Ecology Data Analysis
+Summary:          Phylogenetic Tree Models and the Power of Tree Shape Statistics
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-treebalance 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-diversitree 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-scales 
-Requires:         R-grid 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-treebalance 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-diversitree 
 
 %description
-A series of statistical and plotting approaches in microbial community
-ecology based on the R6 class. The classes are designed for data
-preprocessing, taxa abundance plotting, alpha diversity analysis, beta
-diversity analysis, differential abundance test, null model analysis,
-network analysis, machine learning, environmental data analysis and
-functional analysis.
+The first goal of this package is to provide a multitude of tree models,
+i.e., functions that generate rooted binary trees with a given number of
+leaves. Second, the package allows for an easy evaluation and comparison
+of tree shape statistics by estimating their power to differentiate
+between different tree models. Please note that this R package was
+developed alongside the manuscript "Tree balance in phylogenetic models"
+by S. J. Kersting, K. Wicke, and M. Fischer (2024)
+<doi:10.48550/arXiv.2406.05185>, which provides further background and the
+respective mathematical definitions. This project was supported by the
+project ArtIGROW, which is a part of the WIR!-Alliance ArtIFARM –
+Artificial Intelligence in Farming funded by the German Federal Ministry
+of Education and Research (No. 03WIR4805).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tagtools
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Data from High-Resolution Biologging Tags
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CircStats 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-lubridate 
@@ -34,7 +36,9 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-zoom 
 Requires:         R-CRAN-CircStats 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-lubridate 

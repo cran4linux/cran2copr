@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dynamicSDM
-%global packver   1.3.4
+%global packname  epiCo
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Distribution and Abundance Modelling at High Spatio-Temporal Resolution
+Summary:          Statistical and Viz Tools for Vector-Borne Diseases in Colombia
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,47 +18,43 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-googledrive 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-incidence 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-rgee 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-treemapify 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-googledrive 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-incidence 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-rgee 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-spdep 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tidyr 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-treemapify 
 Requires:         R-utils 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-readr 
 
 %description
-A collection of novel tools for generating species distribution and
-abundance models (SDM) that are dynamic through both space and time. These
-highly flexible functions incorporate spatial and temporal aspects across
-key SDM stages; including when cleaning and filtering species occurrence
-data, generating pseudo-absence records, assessing and correcting sampling
-biases and autocorrelation, extracting explanatory variables and
-projecting distribution patterns. Throughout, functions utilise Google
-Earth Engine and Google Drive to minimise the computing power and storage
-demands associated with species distribution modelling at high
-spatio-temporal resolution.
+Provides statistical and visualization tools for the analysis of
+demographic indicators, and spatio-temporal behavior and characterization
+of outbreaks of vector-borne diseases (VBDs) in Colombia. It implements
+travel times estimated in Bravo-Vega C., Santos-Vega M., & Cordovez J.M.
+(2022), and the endemic channel method (Bortman, M.  (1999)
+<https://iris.paho.org/handle/10665.2/8562>).
 
 %prep
 %setup -q -c -n %{packname}

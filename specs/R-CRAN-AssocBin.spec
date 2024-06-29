@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AssocBin
-%global packver   0.1-0
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Association with Recursive Binning
 
@@ -25,7 +25,7 @@ specification of the splitting logic and stop criteria. Helper functions
 provide suggested versions of both and support visualization and the
 computation of summary statistics on final binnings. For a complete
 description of the functionality and algorithm, see Salahub and Oldford
-(2023) <arxiv:2311.08561>.
+(2023) <doi:10.48550/arXiv.2311.08561>.
 
 %prep
 %setup -q -c -n %{packname}

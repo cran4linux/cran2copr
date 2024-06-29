@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbm
-%global packver   2.2.2
+%global packname  evitaicossa
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Boosted Regression Models
+Summary:          Antiassociative Algebra
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-lattice 
-Requires:         R-parallel 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-disordR >= 0.9.8.2
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-disordR >= 0.9.8.2
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 
 %description
-An implementation of extensions to Freund and Schapire's AdaBoost
-algorithm and Friedman's gradient boosting machine. Includes regression
-methods for least squares, absolute loss, t-distribution loss, quantile
-regression, logistic, multinomial logistic, Poisson, Cox proportional
-hazards partial likelihood, AdaBoost exponential loss, Huberized hinge
-loss, and Learning to Rank measures (LambdaMart). Originally developed by
-Greg Ridgeway. Newer version available at github.com/gbm-developers/gbm3.
+Methods to deal with the free antiassociative algebra over the reals with
+an arbitrary number of indeterminates. Antiassociativity means that (xy)z
+= -x(yz).  Antiassociative algebras are nilpotent with nilindex four
+(Remm, 2022, <doi:10.48550/arXiv.2202.10812>) and this drives the design
+and philosophy of the package.  Methods are defined to create and
+manipulate arbitrary elements of the antiassociative algebra, and to
+extract and replace coefficients.  A vignette is provided.
 
 %prep
 %setup -q -c -n %{packname}
