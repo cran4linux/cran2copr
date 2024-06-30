@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtrek
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Relating to Star Trek
 
@@ -17,28 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-downloader 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-jpeg 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-downloader 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-downloader 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-jpeg 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-downloader 
+Requires:         R-CRAN-xml2 
 
 %description
 Provides datasets related to the Star Trek fictional universe and

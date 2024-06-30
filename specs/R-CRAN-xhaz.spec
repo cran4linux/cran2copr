@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xhaz
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Excess Hazard Modelling Considering Inappropriate Mortality Rates
 
@@ -14,21 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-survival >= 3.5.7
+BuildRequires:    R-CRAN-mexhaz >= 2.6
+BuildRequires:    R-CRAN-statmod >= 1.5.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survexp.fr 
-Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-survival >= 3.5.7
+Requires:         R-CRAN-mexhaz >= 2.6
+Requires:         R-CRAN-statmod >= 1.5.0
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-optimParallel 
@@ -45,15 +47,17 @@ comparable to that of the general population or in population-based
 studies where the available life tables used for net survival estimation
 are insufficiently stratified. In the latter case, the proposed model by
 Touraine et al. (2020) <doi:10.1177/0962280218823234> can be used. The
-user can also fit a model that relax the proportional expected hazards
+user can also fit a model that relaxes the proportional expected hazards
 assumption considered in the Touraine et al. excess hazard model. This
 extension was proposed by Mba et al. (2020)
 <doi:10.1186/s12874-020-01139-z> to allow non-proportional effects of the
 additional variable on the general population mortality. In
 non-population-based studies, researchers can identify non-comparability
-source of bias in terms of expected mortality of selected individuals. A
-proposed excess hazard model correcting this selection bias is presented
-in Goungounga et al. (2019) <doi:10.1186/s12874-019-0747-3>.
+source of bias in terms of expected mortality of selected individuals. An
+excess hazard model correcting this selection bias is presented in
+Goungounga et al. (2019) <doi:10.1186/s12874-019-0747-3>. This class of
+model with a random effect at the cluster level on excess hazard is
+presented in Goungounga et al. (2023) <doi:10.1002/bimj.202100210>.
 
 %prep
 %setup -q -c -n %{packname}

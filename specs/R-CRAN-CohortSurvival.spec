@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSurvival
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Survival from Common Data Model Cohorts
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-CDMConnector >= 1.3.0
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-visOmopResults >= 0.3.0
@@ -53,6 +54,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 
 %description
 Estimate survival using data mapped to the Observational Medical Outcomes

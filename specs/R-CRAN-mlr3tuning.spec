@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3tuning
-%global packver   0.20.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hyperparameter Optimization for 'mlr3'
 
@@ -18,18 +18,18 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-bbotk >= 0.7.3
-BuildRequires:    R-CRAN-mlr3 >= 0.17.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.13.0
-BuildRequires:    R-CRAN-paradox >= 0.10.0
+BuildRequires:    R-CRAN-paradox >= 1.0.0
+BuildRequires:    R-CRAN-bbotk >= 1.0.0
+BuildRequires:    R-CRAN-mlr3 >= 0.20.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.15.1
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-bbotk >= 0.7.3
-Requires:         R-CRAN-mlr3 >= 0.17.0
-Requires:         R-CRAN-mlr3misc >= 0.13.0
-Requires:         R-CRAN-paradox >= 0.10.0
+Requires:         R-CRAN-paradox >= 1.0.0
+Requires:         R-CRAN-bbotk >= 1.0.0
+Requires:         R-CRAN-mlr3 >= 0.20.0
+Requires:         R-CRAN-mlr3misc >= 0.15.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-R6 
@@ -37,11 +37,12 @@ Requires:         R-CRAN-R6
 %description
 Hyperparameter optimization package of the 'mlr3' ecosystem. It features
 highly configurable search spaces via the 'paradox' package and finds
-optimal hyperparameter configurations for any 'mlr3' learner. 'mlr3tuning'
-works with several optimization algorithms e.g. Random Search, Iterated
-Racing, Bayesian Optimization (in 'mlr3mbo') and Hyperband (in
-'mlr3hyperband'). Moreover, it can automatically optimize learners and
-estimate the performance of optimized models with nested resampling.
+optimal hyperparameter configurations for any 'mlr3' learner.
+'mlr3tuning' works with several optimization algorithms e.g. Random
+Search, Iterated Racing, Bayesian Optimization (in 'mlr3mbo') and
+Hyperband (in 'mlr3hyperband'). Moreover, it can automatically optimize
+learners and estimate the performance of optimized models with nested
+resampling.
 
 %prep
 %setup -q -c -n %{packname}

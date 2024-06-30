@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3hyperband
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hyperband for 'mlr3'
 
@@ -18,28 +18,29 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 1.9.4
+BuildRequires:    R-CRAN-mlr3tuning >= 1.0.0
+BuildRequires:    R-CRAN-bbotk >= 1.0.0
 BuildRequires:    R-CRAN-paradox >= 0.9.0
-BuildRequires:    R-CRAN-bbotk >= 0.7.0
 BuildRequires:    R-CRAN-mlr3 >= 0.13.1
-BuildRequires:    R-CRAN-mlr3tuning >= 0.13.0
 BuildRequires:    R-CRAN-mlr3misc >= 0.10.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-checkmate >= 1.9.4
+Requires:         R-CRAN-mlr3tuning >= 1.0.0
+Requires:         R-CRAN-bbotk >= 1.0.0
 Requires:         R-CRAN-paradox >= 0.9.0
-Requires:         R-CRAN-bbotk >= 0.7.0
 Requires:         R-CRAN-mlr3 >= 0.13.1
-Requires:         R-CRAN-mlr3tuning >= 0.13.0
 Requires:         R-CRAN-mlr3misc >= 0.10.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-R6 
 
 %description
-Successive Halving (Jamieson and Talwalkar (2016) <arXiv:1502.07943>) and
-Hyperband (Li et al. 2018 <arXiv:1603.06560>) optimization algorithm for
-the mlr3 ecosystem. The implementation in mlr3hyperband features improved
+Successive Halving (Jamieson and Talwalkar (2016)
+<doi:10.48550/arXiv.1502.07943>) and Hyperband (Li et al. 2018
+<doi:10.48550/arXiv.1603.06560>) optimization algorithm for the mlr3
+ecosystem. The implementation in mlr3hyperband features improved
 scheduling and parallelizes the evaluation of configurations. The package
 includes tuners for hyperparameter optimization in mlr3tuning and
 optimizers for black-box optimization in bbotk.

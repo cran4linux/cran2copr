@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastTopics
-%global packver   0.6-163
+%global packver   0.6-186
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.163
+Version:          0.6.186
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Fitting Topic Models and Non-Negative Matrix Factorizations to Count Data
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-RcppParallel >= 4.4.1
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.7
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-ggrepel >= 0.9.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-uwot 
 BuildRequires:    R-CRAN-ashr 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-pbapply 
@@ -39,9 +40,9 @@ BuildRequires:    R-CRAN-cowplot
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel >= 4.4.1
+Requires:         R-CRAN-RcppParallel >= 5.1.7
 Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-ggrepel >= 0.9.0
 Requires:         R-graphics 
 Requires:         R-utils 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-uwot 
 Requires:         R-CRAN-ashr 
+Requires:         R-CRAN-RhpcBLASctl 
 Requires:         R-parallel 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-pbapply 
@@ -70,9 +72,9 @@ multinomial topic model (also, "probabilistic latent semantic indexing")
 and Poisson non-negative matrix factorization. The package provides tools
 to compare, annotate and visualize model fits, including functions to
 efficiently create "structure plots" and identify key features in topics.
-The 'fastTopics' package is a successor to the 'CountClust' package. Note
-that the 'fastTopicis' package on GitHub has more vignettes illustrating
-application to single-cell RNA-seq data.
+The 'fastTopics' package is a successor to the 'CountClust' package. For
+more information, see <doi:10.48550/arXiv.2105.13440> and
+<doi:10.1186/s13059-023-03067-9>.
 
 %prep
 %setup -q -c -n %{packname}

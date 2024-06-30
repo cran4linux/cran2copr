@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scplot
-%global packver   0.4.0
+%global packname  PDXpower
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Function for Single-Case Data Frames
+Summary:          Time to Event Outcome in Experimental Designs of Pre-Clinical Studies
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scan >= 0.57.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mblm 
-Requires:         R-CRAN-scan >= 0.57.0
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-frailtypack 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mblm 
+Requires:         R-parallel 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-frailtypack 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 
 %description
-Add-on for the 'scan' package that creates plots from single-case data
-frames ('scdf'). It includes functions for styling single-case plots,
-adding phase-based lines to indicate various statistical parameters, and
-predefined themes for presentations and publications. More information and
-in depth examples can be found in the online book "Analyzing Single-Case
-Data with R and 'scan" Jürgen Wilbert (2023)
-<https://jazznbass.github.io/scan-Book/>.
+Conduct simulation-based customized power calculation for clustered time
+to event data in a mixed crossed/nested design, where a number of cell
+lines and a number of mice within each cell line are considered to achieve
+a desired statistical power, motivated by Eckel-Passow and colleagues
+(2021) <doi:10.1093/neuonc/noab137> and Li and colleagues (2024)
+<doi:10.48550/arXiv.2404.08927>. This package provides two commonly used
+models for powering a design, linear mixed effects and Cox frailty model.
+Both models account for within-subject (cell line) correlation while
+holding different distributional assumptions about the outcome.
+Alternatively, the counterparts of fixed effects model are also available,
+which produces similar estimates of statistical power.
 
 %prep
 %setup -q -c -n %{packname}
