@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3verse
-%global packver   0.2.8
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
@@ -17,38 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mlr3fselect >= 0.8.0
-BuildRequires:    R-CRAN-paradox >= 0.6.0
-BuildRequires:    R-CRAN-mlr3pipelines >= 0.4.0
-BuildRequires:    R-CRAN-mlr3tuning >= 0.17.0
-BuildRequires:    R-CRAN-mlr3 >= 0.12.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.11.0
-BuildRequires:    R-CRAN-mlr3tuningspaces >= 0.1.1
-BuildRequires:    R-CRAN-bbotk 
+BuildRequires:    R-CRAN-bbotk >= 1.0.0
+BuildRequires:    R-CRAN-mlr3fselect >= 1.0.0
+BuildRequires:    R-CRAN-mlr3tuning >= 1.0.0
+BuildRequires:    R-CRAN-paradox >= 1.0.0
+BuildRequires:    R-CRAN-mlr3filters >= 0.8.0
+BuildRequires:    R-CRAN-mlr3viz >= 0.8.0
+BuildRequires:    R-CRAN-mlr3data >= 0.7.0
+BuildRequires:    R-CRAN-mlr3learners >= 0.7.0
+BuildRequires:    R-CRAN-mlr3pipelines >= 0.5.2
+BuildRequires:    R-CRAN-mlr3tuningspaces >= 0.5.1
+BuildRequires:    R-CRAN-mlr3hyperband >= 0.5.0
+BuildRequires:    R-CRAN-mlr3 >= 0.20.0
+BuildRequires:    R-CRAN-mlr3mbo >= 0.2.2
+BuildRequires:    R-CRAN-mlr3misc >= 0.15.1
+BuildRequires:    R-CRAN-mlr3cluster >= 0.1.9
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-mlr3cluster 
-BuildRequires:    R-CRAN-mlr3data 
-BuildRequires:    R-CRAN-mlr3filters 
-BuildRequires:    R-CRAN-mlr3hyperband 
-BuildRequires:    R-CRAN-mlr3learners 
-BuildRequires:    R-CRAN-mlr3mbo 
-BuildRequires:    R-CRAN-mlr3viz 
-Requires:         R-CRAN-mlr3fselect >= 0.8.0
-Requires:         R-CRAN-paradox >= 0.6.0
-Requires:         R-CRAN-mlr3pipelines >= 0.4.0
-Requires:         R-CRAN-mlr3tuning >= 0.17.0
-Requires:         R-CRAN-mlr3 >= 0.12.0
-Requires:         R-CRAN-mlr3misc >= 0.11.0
-Requires:         R-CRAN-mlr3tuningspaces >= 0.1.1
-Requires:         R-CRAN-bbotk 
+Requires:         R-CRAN-bbotk >= 1.0.0
+Requires:         R-CRAN-mlr3fselect >= 1.0.0
+Requires:         R-CRAN-mlr3tuning >= 1.0.0
+Requires:         R-CRAN-paradox >= 1.0.0
+Requires:         R-CRAN-mlr3filters >= 0.8.0
+Requires:         R-CRAN-mlr3viz >= 0.8.0
+Requires:         R-CRAN-mlr3data >= 0.7.0
+Requires:         R-CRAN-mlr3learners >= 0.7.0
+Requires:         R-CRAN-mlr3pipelines >= 0.5.2
+Requires:         R-CRAN-mlr3tuningspaces >= 0.5.1
+Requires:         R-CRAN-mlr3hyperband >= 0.5.0
+Requires:         R-CRAN-mlr3 >= 0.20.0
+Requires:         R-CRAN-mlr3mbo >= 0.2.2
+Requires:         R-CRAN-mlr3misc >= 0.15.1
+Requires:         R-CRAN-mlr3cluster >= 0.1.9
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-mlr3cluster 
-Requires:         R-CRAN-mlr3data 
-Requires:         R-CRAN-mlr3filters 
-Requires:         R-CRAN-mlr3hyperband 
-Requires:         R-CRAN-mlr3learners 
-Requires:         R-CRAN-mlr3mbo 
-Requires:         R-CRAN-mlr3viz 
 
 %description
 The 'mlr3' package family is a set of packages for machine-learning

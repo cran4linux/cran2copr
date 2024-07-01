@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jlmerclusterperm
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster-Based Permutation Analysis for Densely Sampled Time Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-backports >= 1.1.7
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-JuliaFormulae 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-backports >= 1.1.7
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-JuliaFormulae 
 Requires:         R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-tools 

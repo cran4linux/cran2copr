@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lincom
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Biomarker Combination: Empirical Performance Optimization
 
@@ -17,12 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-SparseM 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-Rmosek 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-SparseM 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-Rmosek 
 Requires:         R-methods 
 Requires:         R-stats 

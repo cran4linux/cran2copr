@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.18.0
+%global packver   1.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18.0
+Version:          1.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-zip
 BuildRequires:    R-CRAN-V8 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-countrycode 
 Requires:         R-CRAN-curl >= 5.1.0
 Requires:         R-CRAN-nodbi >= 0.10.0
 Requires:         R-CRAN-jsonlite 
@@ -47,25 +48,24 @@ Requires:         R-CRAN-zip
 Requires:         R-CRAN-V8 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-countrycode 
 
 %description
 A system for querying, retrieving and analyzing protocol- and
 results-related information on clinical trials from four public registers,
 the 'European Union Clinical Trials Register' ('EUCTR',
-<https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov' ('CTGOV',
-using the classic interface at <https://classic.clinicaltrials.gov/>, and
-'CTGOV2', using the current interface at
-<https://www.clinicaltrials.gov/>), the 'ISRCTN'
-(<http://www.isrctn.com/>) and the 'European Union Clinical Trials
-Information System' ('CTIS', <https://euclinicaltrials.eu/>). Trial
-information is downloaded, converted and stored in a database
-('PostgreSQL', 'SQLite', 'DuckDB' or 'MongoDB'; via package 'nodbi').
-Documents in registers associated with trials can also be downloaded.
-Other functions identify deduplicated records, easily find and extract
-variables (fields) of interest even from complex nested data as used by
-the registers, merge variables and update queries. The package can be used
-for meta-analysis and trend-analysis of the design and conduct as well as
-of the results of clinical trials.
+<https://www.clinicaltrialsregister.eu/>), 'ClinicalTrials.gov'
+(<https://clinicaltrials.gov/> and also translating queries the retired
+classic interface), the 'ISRCTN' (<http://www.isrctn.com/>) and the
+'European Union Clinical Trials Information System' ('CTIS',
+<https://euclinicaltrials.eu/>). Trial information is downloaded,
+converted and stored in a database ('PostgreSQL', 'SQLite', 'DuckDB' or
+'MongoDB'; via package 'nodbi'). Documents in registers associated with
+trials can also be downloaded. Other functions identify deduplicated
+records, easily find and extract variables (fields) of interest even from
+complex nested data as used by the registers, merge variables and update
+queries. The package can be used for meta-analysis and trend-analysis of
+the design and conduct as well as of the results of clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mevr
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting the Metastatistical Extreme Value Distribution MEVD
 
@@ -46,11 +46,12 @@ the simplified metastatistical extreme value distribution SMEV (Marra et
 al., 2019, <doi:10.1016/j.advwatres.2019.04.002>) and the temporal
 metastatistical extreme value distribution TMEV (Falkensteiner et al.,
 2023, <doi:10.1016/j.wace.2023.100601>). Parameters can be estimated with
-probability weighted moments, maximum likelihood and least squares.
-Density, distribution function, quantile function and random generation
-for the MEVD, SMEV and TMEV are included. In addition, functions for the
-calculation of return levels including confidence intervals are provided.
-For a description of use cases please see the provided references.
+probability weighted moments, maximum likelihood and least squares. The
+data can also be left-censored prior to a fit. Density, distribution
+function, quantile function and random generation for the MEVD, SMEV and
+TMEV are included. In addition, functions for the calculation of return
+levels including confidence intervals are provided. For a description of
+use cases please see the provided references.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netplot
-%global packver   0.2-0
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Beautiful Graph Drawing
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-sna
 Requires:         R-stats 
 
 %description
-A graph visualization engine that puts an emphasis on aesthetics at the
-same time of providing default parameters that yield out-of-the-box-nice
+A graph visualization engine that emphasizes on aesthetics at the same
+time providing default parameters that yield out-of-the-box-nice
 visualizations. The package is built on top of 'The Grid Graphics Package'
 and seamlessly work with 'igraph' and 'network' objects.
 
