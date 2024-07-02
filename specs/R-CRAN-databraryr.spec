@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  databraryr
-%global packver   0.6.4
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interact with the 'Databrary.org' API
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods >= 4.3.2
-BuildRequires:    R-utils >= 4.3.2
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-magick >= 2.8.2
 BuildRequires:    R-CRAN-jsonlite >= 1.8.8
@@ -33,10 +32,7 @@ BuildRequires:    R-CRAN-xfun >= 0.41
 BuildRequires:    R-CRAN-getPass >= 0.2.4
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rvest 
 Requires:         R-methods >= 4.3.2
-Requires:         R-utils >= 4.3.2
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-magick >= 2.8.2
 Requires:         R-CRAN-jsonlite >= 1.8.8
@@ -51,8 +47,6 @@ Requires:         R-CRAN-xfun >= 0.41
 Requires:         R-CRAN-getPass >= 0.2.4
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rvest 
 
 %description
 'Databrary.org' is a restricted access repository for research data,

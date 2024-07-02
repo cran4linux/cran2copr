@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LKT
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logistic Knowledge Tracing
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 4.0.2
 BuildRequires:    R-CRAN-LiblineaR >= 2.10.8
 BuildRequires:    R-CRAN-cluster >= 2.1.3
-BuildRequires:    R-CRAN-SparseM >= 1.78
+BuildRequires:    R-CRAN-SparseM >= 1.83
 BuildRequires:    R-CRAN-pROC >= 1.16.2
 BuildRequires:    R-CRAN-data.table >= 1.13.2
 BuildRequires:    R-CRAN-glmnetUtils >= 1.1.8
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-crayon
 Requires:         R-CRAN-glmnet >= 4.0.2
 Requires:         R-CRAN-LiblineaR >= 2.10.8
 Requires:         R-CRAN-cluster >= 2.1.3
-Requires:         R-CRAN-SparseM >= 1.78
+Requires:         R-CRAN-SparseM >= 1.83
 Requires:         R-CRAN-pROC >= 1.16.2
 Requires:         R-CRAN-data.table >= 1.13.2
 Requires:         R-CRAN-glmnetUtils >= 1.1.8

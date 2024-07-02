@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  taxonbridge
-%global packver   1.2.2
+%global __requires_exclude ^libmpi
+%global packname  simdata
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Custom Taxonomies Based on the NCBI Taxonomy and GBIF Backbone Taxonomy
+Summary:          Generate Simulated Datasets
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-vroom 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rje 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-vroom 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rje 
-Requires:         R-CRAN-withr 
-Requires:         R-utils 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-igraph >= 1.2.1
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-igraph >= 1.2.1
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-The NCBI taxonomy is a popular resource for taxonomic studies but it only
-contains data on species with sequence data whereas the GBIF has a more
-extensive coverage of extinct species. Taxonbridge is useful for the
-creation and analysis of custom taxonomies based on the NCBI taxonomy and
-GBIF backbone taxonomy.
+Generate simulated datasets from an initial underlying distribution and
+apply transformations to obtain realistic data. Implements the 'NORTA'
+(Normal-to-anything) approach from Cario and Nelson (1997) and other data
+generating mechanisms. Simple network visualization tools are provided to
+facilitate communicating the simulation setup.
 
 %prep
 %setup -q -c -n %{packname}

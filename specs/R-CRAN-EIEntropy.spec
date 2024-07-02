@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  latcontrol
-%global packver   0.1.1
+%global packname  EIEntropy
+%global packver   0.0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluation of the Role of Control Variables in Structural Equation Models
+Summary:          Ecological Inference Applying Entropy
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Various opportunities to evaluate the effects of including one or more
-control variable(s) in structural equation models onto model-implied
-variances, covariances, and parameter estimates. The derivation of the
-methodology employed in this package can be obtained from Blötner (2023)
-<doi:10.31234/osf.io/dy79z>.
+Implements two estimations related to the foundations of info metrics
+applied to ecological inference. These methodologies assess the lack of
+disaggregated data and provide an approach to obtaining disaggregated
+territorial-level data. For more details, see the following references:
+Fernández-Vázquez, E., Díaz-Dapena, A., Rubiera-Morollón, F. et al. (2020)
+"Spatial Disaggregation of Social Indicators: An Info-Metrics Approach."
+<doi:10.1007/s11205-020-02455-z>. Díaz-Dapena, A., Fernández-Vázquez, E.,
+Rubiera-Morollón, F., & Vinuela, A. (2021) "Mapping poverty at the local
+level in Europe: A consistent spatial disaggregation of the AROPE
+indicator for France, Spain, Portugal and the United Kingdom."
+<doi:10.1111/rsp3.12379>.
 
 %prep
 %setup -q -c -n %{packname}

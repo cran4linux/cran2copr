@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scan
-%global packver   0.60.0
+%global packver   0.61.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.60.0
+Version:          0.61.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Case Data Analyses for Single and Multiple Baseline Designs
 
@@ -23,6 +23,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-readxl 
@@ -34,6 +35,7 @@ Requires:         R-utils
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-gt 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-readxl 

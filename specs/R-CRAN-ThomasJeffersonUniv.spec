@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ThomasJeffersonUniv
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Handy Tools for TJU/TJUH Employees
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-timeDate 
@@ -25,6 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-timeDate 

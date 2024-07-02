@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  latcontrol
-%global packver   0.1.1
+%global packname  vse4ts
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluation of the Role of Control Variables in Structural Equation Models
+Summary:          Identify Memory Patterns in Time Series Using Variance Scale Exponent
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Various opportunities to evaluate the effects of including one or more
-control variable(s) in structural equation models onto model-implied
-variances, covariances, and parameter estimates. The derivation of the
-methodology employed in this package can be obtained from Blötner (2023)
-<doi:10.31234/osf.io/dy79z>.
+Methods for calculating the variance scale exponent to identify memory
+patterns in time series data. Includes tests for white noise, short
+memory, and long memory. See Fu, H. et al. (2018)
+<doi:10.1016/j.physa.2018.06.092>.
 
 %prep
 %setup -q -c -n %{packname}

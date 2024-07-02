@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvgam
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate (Dynamic) Generalized Additive Models
 
@@ -25,16 +25,14 @@ BuildRequires:    R-CRAN-mgcv >= 1.8.13
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
 BuildRequires:    R-CRAN-posterior >= 1.0.0
 BuildRequires:    R-CRAN-insight >= 0.19.1
+BuildRequires:    R-CRAN-marginaleffects >= 0.16.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-CRAN-marginaleffects 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-scoringRules 
 BuildRequires:    R-CRAN-smooth 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -51,16 +49,14 @@ Requires:         R-CRAN-mgcv >= 1.8.13
 Requires:         R-CRAN-bayesplot >= 1.5.0
 Requires:         R-CRAN-posterior >= 1.0.0
 Requires:         R-CRAN-insight >= 0.19.1
+Requires:         R-CRAN-marginaleffects >= 0.16.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-CRAN-marginaleffects 
 Requires:         R-methods 
-Requires:         R-CRAN-matrixStats 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-scoringRules 
 Requires:         R-CRAN-smooth 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 

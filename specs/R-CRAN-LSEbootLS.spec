@@ -1,28 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fCWTr
-%global packver   0.2.1
+%global packname  LSEbootLS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Continuous Wavelet Transform
+Summary:          Bootstrap Methods for Regression Models with Locally Stationary Errors
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-LSTS 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-rlecuyer 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doRNG 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-LSTS 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-rlecuyer 
 
 %description
-Enables the usage of the fast continuous wavelet transform, originally
-implemented in the 'C++' library 'fCWT' by Lukas Arts. See Arts, P.A. and
-Van den Broek, E.L. (2022) <doi:10.1038/s43588-021-00183-z> for details.
-The package includes simple helpers such as a plotting function.
+Implements bootstrap methods for linear regression models with errors
+following a time-varying process, focusing on approximating the
+distribution of the least-squares estimator for regression models with
+locally stationary errors. It enables the construction of bootstrap and
+classical confidence intervals for regression coefficients, leveraging
+intensive simulation studies and real data analysis.
 
 %prep
 %setup -q -c -n %{packname}

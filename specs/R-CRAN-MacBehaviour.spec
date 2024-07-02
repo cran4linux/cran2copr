@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MacBehaviour
-%global packver   1.2.2
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Behavioural Studies of Large Language Models
 
@@ -19,18 +19,19 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rjson 
 
 %description
-We provide an efficient way to design and conduct psycholinguistic
-experiments for testing the performance of large language models. It
-simplifies the process of setting up experiments, and data collection via
-large language models' API, streamlining workflow for researchers in the
-field of machine behavior. For methodology details, see Duan, X., Li, S.,
-& Cai, Z. G. (2023) <doi:10.31234/osf.io/ywtfd>.
+Efficient way to design and conduct psychological experiments for testing
+the performance of large language models. It simplifies the process of
+setting up experiments and data collection via language models’ API,
+facilitating a smooth workflow for researchers in the field of machine
+behaviour.
 
 %prep
 %setup -q -c -n %{packname}

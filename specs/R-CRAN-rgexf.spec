@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rgexf
-%global packver   0.16.2
+%global packver   0.16.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          0.16.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build, Import and Export GEXF Graph Files
+Summary:          Build, Import, and Export GEXF Graph Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,13 +29,13 @@ Requires:         R-utils
 Requires:         R-CRAN-servr 
 
 %description
-Create, read and write 'GEXF' (Graph Exchange 'XML' Format) graph files
-(used in 'Gephi' and others). Using the 'XML' package, it allows the user
-to easily build/read graph files including attributes, 'GEXF' visual
+Create, read, and write 'GEXF' (Graph Exchange 'XML' Format) graph files
+(used in 'Gephi' and others). Using the 'XML' package, rgexf allows
+reading and writing GEXF files, including attributes, 'GEXF' visual
 attributes (such as color, size, and position), network dynamics (for both
-edges and nodes) and edge weighting. Users can build/handle graphs
-element-by-element or massively through data-frames, visualize the graph
-on a web browser through 'gexf-js' (a 'javascript' library) and interact
+edges and nodes), and edges' weights. Users can build/handle graphs
+element-by-element or massively through data frames, visualize the graph
+on a web browser through 'gexf-js' (a 'javascript' library), and interact
 with the 'igraph' package.
 
 %prep

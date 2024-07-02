@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  latcontrol
-%global packver   0.1.1
+%global packname  orbital
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluation of the Role of Control Variables in Structural Equation Models
+Summary:          Predict with 'tidymodels' Workflows in Databases
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-Requires:         R-CRAN-lavaan 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-Various opportunities to evaluate the effects of including one or more
-control variable(s) in structural equation models onto model-implied
-variances, covariances, and parameter estimates. The derivation of the
-methodology employed in this package can be obtained from Blötner (2023)
-<doi:10.31234/osf.io/dy79z>.
+Turn 'tidymodels' workflows into objects containing the sufficient
+sequential equations to perform predictions. These smaller objects allow
+for low dependency prediction locally or directly in databases.
 
 %prep
 %setup -q -c -n %{packname}

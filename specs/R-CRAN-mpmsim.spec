@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mpmsim
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Matrix Population Models with Defined Life History Characteristics
 
@@ -22,16 +22,18 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-popbio 
 BuildRequires:    R-CRAN-popdemo 
-BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-Rage 
 BuildRequires:    R-CRAN-Rcompadre 
+BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-CRAN-popbio 
 Requires:         R-CRAN-popdemo 
-Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-Rage 
 Requires:         R-CRAN-Rcompadre 
+Requires:         R-CRAN-reshape 
 Requires:         R-stats 
 
 %description
