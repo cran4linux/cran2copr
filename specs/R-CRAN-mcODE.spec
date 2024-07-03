@@ -1,39 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pedmod
-%global packver   0.2.4
+%global packname  mcODE
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pedigree Models
+Summary:          Monte Carlo Solution of First Order Differential Equations
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-psqn 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-alabama 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides functions to estimate mixed probit models using, for instance,
-pedigree data like in <doi:10.1002/sim.1603>. The models are also commonly
-called liability threshold models. The approximation is based on direct
-log marginal likelihood approximations like the randomized Quasi-Monte
-Carlo suggested by <doi:10.1198/106186002394> with a similar procedure to
-approximate the derivatives. The minimax tilting method suggested by
-<doi:10.1111/rssb.12162> is also supported. Graph-based methods are also
-provided that can be used to simplify pedigrees.
+Two functions for simulating the solution of initial value problems of the
+form g'(x) = G(x, g) with g(x0) = g0.  One is an acceptance-rejection
+method. The other is a method based on the Mean Value Theorem.
 
 %prep
 %setup -q -c -n %{packname}

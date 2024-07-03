@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  foghorn
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarize CRAN Check Results in the Terminal
 
@@ -17,22 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-curl >= 2.2
-BuildRequires:    R-CRAN-crayon >= 1.3.2
 BuildRequires:    R-CRAN-tibble >= 1.2
-BuildRequires:    R-CRAN-clisymbols >= 1.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.3
 BuildRequires:    R-CRAN-rvest >= 0.3.2
-BuildRequires:    R-CRAN-httr2 >= 0.2.1
+Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-curl >= 2.2
-Requires:         R-CRAN-crayon >= 1.3.2
 Requires:         R-CRAN-tibble >= 1.2
-Requires:         R-CRAN-clisymbols >= 1.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-xml2 >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.3
 Requires:         R-CRAN-rvest >= 0.3.2
-Requires:         R-CRAN-httr2 >= 0.2.1
 
 %description
 The CRAN check results and where your package stands in the CRAN

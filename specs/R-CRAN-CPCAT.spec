@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  constructive
+%global packname  CPCAT
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Idiomatic Code to Construct Most R Objects
+Summary:          The Closure Principle Computational Approach Test
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-waldo 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-diffobj 
-Requires:         R-methods 
-Requires:         R-CRAN-waldo 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Prints code that can be used to recreate R objects. In a sense it is
-similar to 'base::dput()' or 'base::deparse()' but 'constructive' strives
-to use idiomatic constructors.
+P-values and no/lowest observed (adverse) effect concentration values
+derived from the closure principle computational approach test (Lehmann,
+R. et al. (2015) <doi:10.1007/s00477-015-1079-4>) are provided. The
+package contains functions to generate intersection hypotheses according
+to the closure principle (Bretz, F., Hothorn, T., Westfall, P. (2010)
+<doi:10.1201/9781420010909>), an implementation of the computational
+approach test (Ching-Hui, C., Nabendu, P., Jyh-Jiuan, L. (2010)
+<doi:10.1080/03610918.2010.508860>) and the combination of both, that is,
+the closure principle computational approach test.
 
 %prep
 %setup -q -c -n %{packname}

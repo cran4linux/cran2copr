@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TSEAL
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Analysis Library
 
@@ -54,9 +54,9 @@ based on the use of Discrete Wavelet Transform for feature extraction, a
 step wise discriminant to select the most relevant features and finally,
 the use of a linear or quadratic discriminant for classification. Note
 that all these steps can be done separately which allows to implement new
-steps. Velasco, I., Sipols, A., de Blas, C. S., Pastor, L., & Bayona, S.
-(2023) <doi:10.1186/S12938-023-01079-X>. Percival, D. B., & Walden, A. T.
-(2000,ISBN:0521640687). Maharaj, E. A., & Alonso, A. M. (2014)
+steps.  Velasco, I., Sipols, A., de Blas, C. S., Pastor, L., & Bayona, S.
+(2023) <doi:10.1186/S12938-023-01079-X>.  Percival, D. B., & Walden, A. T.
+(2000,ISBN:0521640687).  Maharaj, E. A., & Alonso, A. M. (2014)
 <doi:10.1016/j.csda.2013.09.006>.
 
 %prep

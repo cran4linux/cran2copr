@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redbookperu
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access and Analyze the Data from the Red Book of Endemic Plants of Peru
+Summary:          Access and Analyze Data from the Red Book of Endemic Plants of Peru
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,12 +19,12 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Access and analysis of data from `The Red Book of Endemic Plants of Peru`
-León, B., Roque, J., Ulloa, C., Jorgensen, P.M., Pitman, N., Cano, A.
-(2006)<doi:10.15381/rpb.v13i2.1782> providing taxonomic, geographic, and
-conservation information about Peru's endemic plant species. The package
-offers functions to check species inclusion, obtain updated taxonomic
-details, and explore the dataset.
+Provides access to and analysis of data from "The Red Book of Endemic
+Plants of Peru" (León, B., Roque, J., Ulloa, C., Jorgensen, P.M., Pitman,
+N., Cano, A. 2006) <doi:10.15381/rpb.v13i2.1782>. This package offers
+comprehensive taxonomic, geographic, and conservation information about
+Peru's endemic plant species. It includes functions to verify species
+inclusion, obtain updated taxonomic details, and explore the dataset.
 
 %prep
 %setup -q -c -n %{packname}

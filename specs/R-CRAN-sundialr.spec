@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  constructive
-%global packver   1.0.0
+%global packname  sundialr
+%global packver   0.1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Idiomatic Code to Construct Most R Objects
+Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-waldo 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-diffobj 
-Requires:         R-methods 
-Requires:         R-CRAN-waldo 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-Prints code that can be used to recreate R objects. In a sense it is
-similar to 'base::dput()' or 'base::deparse()' but 'constructive' strives
-to use idiomatic constructors.
+Provides a way to call the functions in 'SUNDIALS' C ODE solving library
+(<https://computing.llnl.gov/projects/sundials>). Currently the serial
+version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
+differential algebraic solver 'IDA' from the 'SUNDIALS' library are
+implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
+function and does not require the 'SUNDIALS' library to be installed on
+the local machine.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  constructive
-%global packver   1.0.0
+%global packname  jlme
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Idiomatic Code to Construct Most R Objects
+Summary:          Regression Modelling with 'GLM.jl' and 'MixedModels.jl' in 'Julia'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-waldo 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-diffobj 
-Requires:         R-methods 
-Requires:         R-CRAN-waldo 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-JuliaConnectoR 
+BuildRequires:    R-CRAN-JuliaFormulae 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-JuliaFormulae 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Prints code that can be used to recreate R objects. In a sense it is
-similar to 'base::dput()' or 'base::deparse()' but 'constructive' strives
-to use idiomatic constructors.
+Bindings to 'Julia' packages 'GLM.jl' <doi:10.5281/zenodo.3376013> and
+'MixedModels.jl' <doi:10.5281/zenodo.12575371>, powered by
+'JuliaConnectoR'. Fits (generalized) linear (mixed-effects) regression
+models in 'Julia' using familiar model fitting syntax from R. Offers
+'broom'-style data frame summary functionalities for 'Julia' regression
+models.
 
 %prep
 %setup -q -c -n %{packname}

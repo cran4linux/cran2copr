@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  constructive
-%global packver   1.0.0
+%global packname  ecode
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Idiomatic Code to Construct Most R Objects
+Summary:          Ordinary Differential Equation Systems in Ecology
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,21 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-waldo 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-diffobj 
-Requires:         R-methods 
-Requires:         R-CRAN-waldo 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Prints code that can be used to recreate R objects. In a sense it is
-similar to 'base::dput()' or 'base::deparse()' but 'constructive' strives
-to use idiomatic constructors.
+A framework to simulate ecosystem dynamics through ordinary differential
+equations (ODEs). You create an ODE model, tells 'ecode' to explore its
+behaviour, and perform numerical simulations on the model. 'ecode' also
+allows you to fit model parameters by machine learning algorithms.
+Potential users include researchers who are interested in the dynamics of
+ecological community and biogeochemical cycles.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  constructive
-%global packver   1.0.0
+%global packname  uncertainUCDP
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Idiomatic Code to Construct Most R Objects
+Summary:          Parametric Mixture Models for Uncertainty Estimation of Fatalities in UCDP Conflict Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-diffobj 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-waldo 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-diffobj 
-Requires:         R-methods 
-Requires:         R-CRAN-waldo 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mistr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mistr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Prints code that can be used to recreate R objects. In a sense it is
-similar to 'base::dput()' or 'base::deparse()' but 'constructive' strives
-to use idiomatic constructors.
+Provides functions for estimating uncertainty in the number of fatalities
+in the Uppsala Conflict Data Program (UCDP) data. The package implements a
+parametric reported-value Gumbel mixture distribution that accounts for
+the uncertainty in the number of fatalities in the UCDP data. The model is
+based on information from a survey on UCDP coders and how they view the
+uncertainty of the number of fatalities from UCDP events. The package
+provides functions for making random draws of fatalities from the mixture
+distribution, as well as to estimate percentiles, quantiles, means, and
+other statistics of the distribution. Full details on the survey and
+estimation procedure can be found in Vesco et al (2024).
 
 %prep
 %setup -q -c -n %{packname}

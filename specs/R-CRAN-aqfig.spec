@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  supc
-%global packver   0.2.6.2
+%global __requires_exclude ^libmpi
+%global packname  aqfig
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6.2
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Self-Updating Process Clustering Algorithms
+Summary:          Display Air Quality Model Output and Monitoring Data
 
-License:          GPL (>= 3)
+License:          Unlimited
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-BH >= 1.62
-BuildRequires:    R-CRAN-Rcpp >= 0.12
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-geoR 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp >= 0.12
+Requires:         R-CRAN-geoR 
 
 %description
-Implements the self-updating process clustering algorithms proposed in
-Shiu and Chen (2016) <doi:10.1080/00949655.2015.1049605>.
+Display air quality model output and monitoring data using scatterplots,
+grids, and legends.
 
 %prep
 %setup -q -c -n %{packname}
