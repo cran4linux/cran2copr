@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.mirai
-%global packver   0.2.2
+%global packname  neuroimaGene
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Future' API for Parallel Processing using 'mirai'
+Summary:          Transcriptomic Atlas of Neuroimaging Derived Phenotypes
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 1.1.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mirai >= 1.1.0
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-parallelly 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggseg 
+BuildRequires:    R-CRAN-RSQLite 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggseg 
+Requires:         R-CRAN-RSQLite 
 
 %description
-Implementation of the 'Future' API <doi:10.32614/RJ-2021-048> on top of
-the 'mirai' package <doi:10.5281/zenodo.7912722>. This allows you to
-process futures, as defined by the 'future' package, in parallel out of
-the box, on your local machine or across remote machines. Contrary to
-back-ends relying on the 'parallel' package (e.g. 'multisession') and
-socket connections, 'mirai_cluster' and 'mirai_multisession', provided
-here, can run more than 125 parallel R processes.
+Contains functions to query and visualize the Neuroimaging features
+associated with genetically regulated gene expression (GReX). The primary
+utility, neuroimaGene(), relies on a list of user-defined genes and
+returns a table of neuroimaging features (NIDPs) associated with each
+gene. This resource is designed to assist in the interpretation of
+genome-wide and transcriptome-wide association studies that evaluate brain
+related traits. Bledsoe (2024) <doi:10.1016/j.ajhg.2024.06.002>. In
+addition there are several visualization functions that generate summary
+plots and 2-dimensional visualizations of regional brain measures.
+Mowinckel (2020).
 
 %prep
 %setup -q -c -n %{packname}

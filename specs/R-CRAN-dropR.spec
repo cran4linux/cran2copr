@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.mirai
-%global packver   0.2.2
+%global packname  dropR
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Future' API for Parallel Processing using 'mirai'
+Summary:          Dropout Analysis by Condition
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 1.1.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mirai >= 1.1.0
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-parallelly 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Implementation of the 'Future' API <doi:10.32614/RJ-2021-048> on top of
-the 'mirai' package <doi:10.5281/zenodo.7912722>. This allows you to
-process futures, as defined by the 'future' package, in parallel out of
-the box, on your local machine or across remote machines. Contrary to
-back-ends relying on the 'parallel' package (e.g. 'multisession') and
-socket connections, 'mirai_cluster' and 'mirai_multisession', provided
-here, can run more than 125 parallel R processes.
+Analysis and visualization of dropout between conditions in surveys and
+(online) experiments. Features include computation of dropout statistics,
+comparing dropout between conditions (e.g. Chi square), analyzing survival
+(e.g. Kaplan-Meier estimation), comparing conditions with the most
+different rates of dropout (Kolmogorov-Smirnov) and visualizing the result
+of each in designated plotting functions. Sources: Andrea Frick,
+Marie-Terese Baechtiger & Ulf-Dietrich Reips (2001)
+<https://www.researchgate.net/publication/223956222_Financial_incentives_personal_information_and_drop-out_in_online_studies>;
+Ulf-Dietrich Reips (2002) "Standards for Internet-Based Experimenting"
+<doi:10.1027//1618-3169.49.4.243>.
 
 %prep
 %setup -q -c -n %{packname}

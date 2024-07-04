@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lme4
-%global packver   1.1-35.4
+%global packver   1.1-35.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.35.4
+Version:          1.1.35.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Mixed-Effects Models using 'Eigen' and S4
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-nlme >= 3.1.123
-BuildRequires:    R-CRAN-Matrix >= 1.6.2
+BuildRequires:    R-CRAN-Matrix >= 1.2.3
 BuildRequires:    R-CRAN-minqa >= 1.1.15
 BuildRequires:    R-CRAN-nloptr >= 1.0.4
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.9.4
@@ -33,9 +33,9 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-nlme >= 3.1.123
-Requires:         R-CRAN-Matrix >= 1.6.2
 Requires:         R-CRAN-minqa >= 1.1.15
 Requires:         R-CRAN-nloptr >= 1.0.4
+Requires:         R-CRAN-Matrix >= 1.2.3
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 

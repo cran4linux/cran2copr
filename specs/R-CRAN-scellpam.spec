@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.mirai
-%global packver   0.2.2
+%global packname  scellpam
+%global packver   1.4.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.4.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Future' API for Parallel Processing using 'mirai'
+Summary:          Applying Partitioning Around Medoids to Single Cell Data with High Number of Cells
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 1.1.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mirai >= 1.1.0
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-parallelly 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-memuse >= 4.2.1
+BuildRequires:    R-CRAN-cluster >= 2.1.4
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-memuse >= 4.2.1
+Requires:         R-CRAN-cluster >= 2.1.4
+Requires:         R-CRAN-Rcpp >= 1.0.8
 
 %description
-Implementation of the 'Future' API <doi:10.32614/RJ-2021-048> on top of
-the 'mirai' package <doi:10.5281/zenodo.7912722>. This allows you to
-process futures, as defined by the 'future' package, in parallel out of
-the box, on your local machine or across remote machines. Contrary to
-back-ends relying on the 'parallel' package (e.g. 'multisession') and
-socket connections, 'mirai_cluster' and 'mirai_multisession', provided
-here, can run more than 125 parallel R processes.
+PAM (Partitioning Around Medoids) algorithm application to samples of
+single cell sequencing techniques with a high number of cells (as many as
+the computer memory allows). The package uses a binary format to store
+matrices (either full, sparse or symmetric) in files written in the disk
+that can contain any data type (not just double) which allows its
+manipulation when memory is sufficient to load them as int or float, but
+not as double. The PAM implementation is done in parallel, using
+several/all the cores of the machine, if it has them. This package shares
+a great part of its code with packages 'jmatrix' and 'parallelpam' but
+their functionality is included here so there is no need to install them.
 
 %prep
 %setup -q -c -n %{packname}

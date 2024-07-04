@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMsim
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless 'Nonmem' Simulation Platform
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.1.3
+BuildRequires:    R-CRAN-NMdata >= 0.1.5
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.1.3
+Requires:         R-CRAN-NMdata >= 0.1.5
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-MASS 

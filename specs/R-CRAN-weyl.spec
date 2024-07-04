@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weyl
-%global packver   0.0-4
+%global packver   0.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Weyl Algebra
 
@@ -21,18 +21,16 @@ BuildRequires:    R-CRAN-freealg >= 1.0.4
 BuildRequires:    R-CRAN-spray >= 1.0.19
 BuildRequires:    R-CRAN-disordR >= 0.0.8
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-freealg >= 1.0.4
 Requires:         R-CRAN-spray >= 1.0.19
 Requires:         R-CRAN-disordR >= 0.0.8
 Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
 
 %description
 A suite of routines for Weyl algebras.  Notation follows Coutinho (1995,
 ISBN 0-521-55119-6, "A Primer of Algebraic D-Modules").  Uses 'disordR'
-discipline (Hankin 2022 <doi:10.48550/ARXIV.2210.03856>).  To cite the
-package in publications, use Hankin 2022 <doi:10.48550/ARXIV.2212.09230>.
+discipline (Hankin 2022 <doi:10.48550/arXiv.2210.03856>).  To cite the
+package in publications, use Hankin 2022 <doi:10.48550/arXiv.2212.09230>.
 
 %prep
 %setup -q -c -n %{packname}

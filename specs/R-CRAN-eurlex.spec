@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eurlex
-%global packver   0.4.7
+%global packver   0.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Data on European Union Law
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-antiword 
 Requires:         R-CRAN-magrittr 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-antiword 
 

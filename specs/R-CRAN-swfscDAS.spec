@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swfscDAS
-%global packver   0.6.2
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Southwest Fisheries Science Center Shipboard DAS Data Processing
+Summary:          Processing DAS Data Files
 
-License:          CC0
+License:          Apache License (== 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -41,13 +41,13 @@ Requires:         R-CRAN-swfscMisc
 Requires:         R-CRAN-tidyr 
 
 %description
-Process and summarize shipboard 'DAS'
+Process and summarize DAS data files. These files are typically, but do
+not have to be DAS
 <https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
 data produced by the Southwest Fisheries Science Center (SWFSC) program
-'WinCruz'
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
-This package standardizes and streamlines basic DAS data processing, and
-includes a PDF with the DAS data format requirements.
+'WinCruz'. This package standardizes and streamlines basic DAS data
+processing, and includes a PDF with the DAS data format requirements
+expected by the package.
 
 %prep
 %setup -q -c -n %{packname}

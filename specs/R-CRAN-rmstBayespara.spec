@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  future.mirai
-%global packver   0.2.2
+%global packname  rmstBayespara
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'Future' API for Parallel Processing using 'mirai'
+Summary:          Bayesian Restricted Mean Survival Time for Cluster Effect
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mirai >= 1.1.0
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-mirai >= 1.1.0
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-parallelly 
-Requires:         R-utils 
+BuildRequires:    R-stats >= 4.3.0
+BuildRequires:    R-CRAN-loo >= 2.7.0
+BuildRequires:    R-CRAN-rstan >= 2.32.0
+BuildRequires:    R-CRAN-brms >= 2.21.0
+BuildRequires:    R-CRAN-crayon >= 1.5.0
+BuildRequires:    R-CRAN-zipfR >= 0.6.7
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-stats >= 4.3.0
+Requires:         R-CRAN-loo >= 2.7.0
+Requires:         R-CRAN-rstan >= 2.32.0
+Requires:         R-CRAN-brms >= 2.21.0
+Requires:         R-CRAN-crayon >= 1.5.0
+Requires:         R-CRAN-zipfR >= 0.6.7
+Requires:         R-methods 
+Requires:         R-CRAN-rstantools
 
 %description
-Implementation of the 'Future' API <doi:10.32614/RJ-2021-048> on top of
-the 'mirai' package <doi:10.5281/zenodo.7912722>. This allows you to
-process futures, as defined by the 'future' package, in parallel out of
-the box, on your local machine or across remote machines. Contrary to
-back-ends relying on the 'parallel' package (e.g. 'multisession') and
-socket connections, 'mirai_cluster' and 'mirai_multisession', provided
-here, can run more than 125 parallel R processes.
+The parametric Bayes analysis for the restricted mean survival time (RMST)
+with cluster effect, as described in Hanada and Kojima (2024)
+<doi:10.48550/arXiv.2406.06071>. Bayes estimation with random-effect and
+frailty-effect can be applied to several parametric models useful in
+survival time analysis. The RMST under these parametric models can be
+computed from the obtained posterior samples.
 
 %prep
 %setup -q -c -n %{packname}

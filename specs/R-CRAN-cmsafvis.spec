@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmsafvis
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Visualize CM SAF NetCDF Data
 
@@ -20,8 +20,8 @@ BuildArch:        noarch
 BuildRequires:    R-methods >= 3.6
 BuildRequires:    R-CRAN-maps >= 3.3.0
 BuildRequires:    R-CRAN-raster >= 3.0
+BuildRequires:    R-CRAN-sp >= 2.1
 BuildRequires:    R-CRAN-fields >= 10.3
-BuildRequires:    R-CRAN-terra >= 1.7
 BuildRequires:    R-CRAN-colorspace >= 1.4
 BuildRequires:    R-CRAN-mapproj >= 1.2.7
 BuildRequires:    R-CRAN-progress >= 1.2.2
@@ -38,8 +38,8 @@ BuildRequires:    R-utils
 Requires:         R-methods >= 3.6
 Requires:         R-CRAN-maps >= 3.3.0
 Requires:         R-CRAN-raster >= 3.0
+Requires:         R-CRAN-sp >= 2.1
 Requires:         R-CRAN-fields >= 10.3
-Requires:         R-CRAN-terra >= 1.7
 Requires:         R-CRAN-colorspace >= 1.4
 Requires:         R-CRAN-mapproj >= 1.2.7
 Requires:         R-CRAN-progress >= 1.2.2

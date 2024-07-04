@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OPI
-%global packver   2.11.2
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.2
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Perimetry Interface
 
-License:          Apache License (== 2.0)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-openssl 
-Requires:         R-methods 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-abind 
-Requires:         R-grDevices 
 Requires:         R-CRAN-openssl 
 
 %description
@@ -35,10 +33,10 @@ interfacing with visual field testing machines (perimeters) first started
 as an open source project with support of Haag-Streit in 2010. It
 specifies basic functions that allow many visual field tests to be
 constructed. As of February 2022 it is fully implemented on the
-Haag-Streit Octopus 900 with partial implementations on the Centervue
-Compass, Kowa AP 7000, Android phones and the CrewT IMO. It also has a
-cousin: the R package 'visualFields', which has tools for analysing and
-manipulating visual field data.
+Haag-Streit Octopus 900 and 'CrewT ImoVifa' ('Topcon Tempo') with partial
+implementations on the Centervue Compass, Kowa AP 7000 and Android phones.
+It also has a cousin: the R package 'visualFields', which has tools for
+analysing and manipulating visual field data.
 
 %prep
 %setup -q -c -n %{packname}
