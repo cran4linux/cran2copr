@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ready4
-%global packver   0.1.9
+%global packver   0.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implement Modular and Open-Source Health Economic Models
+Summary:          Develop and Use Modular Health Economic Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dataverse 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gh 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-tidyRSS
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dataverse 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gh 
@@ -57,15 +59,16 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Programming syntax, a template model module and tools to help maintain a
-modular and open-source health economic model's project documentation
-website.  These elements are the foundation for a prototype software
-framework to support replicable and transferable health economic models.
-The software framework is extended by other R libraries.  For detailed
-documentation about the framework and how to use it visit
-<https://www.ready4-dev.com/>. For a background to the methodological
-issues that the framework is attempting to help solve, see Hamilton et al.
-(2024) <doi:10.48550/arXiv.2310.14138>.
+A template model module, tools to help find model modules derived from
+this template and a programming syntax to use these modules in health
+economic analyses.  These elements are the foundation for a prototype
+software framework for developing living and transferable models and using
+those models in reproducible health economic analyses. The software
+framework is extended by other R libraries.  For detailed documentation
+about the framework and how to use it visit <https://www.ready4-dev.com/>.
+For a background to the methodological issues that the framework is
+attempting to help solve, see Hamilton et al. (2024)
+<doi:10.1007/s40273-024-01378-8>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedcv
-%global packver   0.7.8
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross-Validation with 'glmnet' and 'caret'
 

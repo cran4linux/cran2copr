@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HotellingEllipse
-%global packver   1.2.0
+%global packname  LightLogR
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hotelling’s T-Squared Statistic and Ellipse
+Summary:          Process Data from Wearable Light Loggers and Optical Radiation Dosimeters
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,58 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pkgload 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsconnect 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pkgload 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsconnect 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-slider 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Functions to calculate the Hotelling’s T-squared statistic and
-corresponding confidence ellipses. Provides the semi-axes of the
-Hotelling’s T-squared ellipses at 95%% and 99%% confidence levels. Enables
-users to obtain the coordinates in two or three dimensions at user-defined
-confidence levels, allowing for the construction of 2D or 3D ellipses with
-customized confidence levels. Bro and Smilde (2014)
-<DOI:10.1039/c3ay41907j>. Brereton (2016) <DOI:10.1002/cem.2763>.
+Import, processing, validation, and visualization of personal light
+exposure measurement data from wearable devices. The package implements
+features such as the import of data and metadata files, conversion of
+common file formats, validation of light logging data, verification of
+crucial metadata, calculation of common parameters, and semi-automated
+analysis and visualization.
 
 %prep
 %setup -q -c -n %{packname}

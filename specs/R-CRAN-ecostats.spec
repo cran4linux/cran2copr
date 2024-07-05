@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecostats
-%global packver   1.1.11
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.11
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Code and Data Accompanying the Eco-Stats Text (Warton 2022)
 
@@ -23,8 +23,10 @@ BuildRequires:    R-CRAN-GET
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-mvabund >= 4.2
 Requires:         R-CRAN-ecoCopula 
@@ -32,8 +34,10 @@ Requires:         R-CRAN-GET
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-parallel 
 Requires:         R-stats 
 
 %description

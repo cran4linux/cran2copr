@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  uGMAR
-%global packver   3.5.0
+%global packname  hidradenitis
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Univariate Gaussian and Student's t Mixture Autoregressive Models
+Summary:          Calculate Clinical Scores for Hidradenitis Suppurativa (HS), a Dermatologic Disease
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.3.2
-BuildRequires:    R-CRAN-gsl >= 1.9.10.3
-BuildRequires:    R-CRAN-pbapply >= 1.3.2
-BuildRequires:    R-CRAN-Brobdingnag >= 1.2.4
-BuildRequires:    R-parallel 
-Requires:         R-stats >= 3.3.2
-Requires:         R-CRAN-gsl >= 1.9.10.3
-Requires:         R-CRAN-pbapply >= 1.3.2
-Requires:         R-CRAN-Brobdingnag >= 1.2.4
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate 
 
 %description
-Maximum likelihood estimation of univariate Gaussian Mixture
-Autoregressive (GMAR), Student's t Mixture Autoregressive (StMAR), and
-Gaussian and Student's t Mixture Autoregressive (G-StMAR) models, quantile
-residual tests, graphical diagnostics, forecast and simulate from GMAR,
-StMAR and G-StMAR processes. Leena Kalliovirta, Mika Meitz, Pentti
-Saikkonen (2015) <doi:10.1111/jtsa.12108>, Mika Meitz, Daniel Preve,
-Pentti Saikkonen (2023) <doi:10.1080/03610926.2021.1916531>, Savi
-Virolainen (2022) <doi:10.1515/snde-2020-0060>.
+Calculate clinical scores for hidradenitis suppurativa (HS), a
+dermatologic disease.  The scores are typically used for evaluation of
+efficacy in clinical trials.  The scores are not commonly used in clinical
+practice.  The specific scores implemented are Hidradenitis Suppurativa
+Clinical Response (HiSCR) (Kimball, et al. (2015)
+<doi:10.1111/jdv.13216>), Hidradenitis Suppurativa Area and Severity Index
+Revised (HASI-R) (Goldfarb, et al. (2020) <doi:10.1111/bjd.19565>),
+hidradenitis suppurativa Physician Global Assessment (HS PGA) (Marzano, et
+al. (2020) <doi:10.1111/jdv.16328>), and the International Hidradenitis
+Suppurativa Severity Score System (IHS4) (Zouboulis, et al. (2017)
+<doi:10.1111/bjd.15748>).
 
 %prep
 %setup -q -c -n %{packname}

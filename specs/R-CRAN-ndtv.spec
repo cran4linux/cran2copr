@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ndtv
-%global packver   0.13.3
+%global packver   0.13.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.3
+Version:          0.13.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Dynamic Temporal Visualizations
 
@@ -23,16 +23,22 @@ BuildRequires:    R-CRAN-networkDynamic >= 0.9
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-statnet.common 
+BuildRequires:    R-CRAN-tsna 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-base64 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-scatterplot3d 
 Requires:         R-CRAN-animation >= 2.4
 Requires:         R-CRAN-network >= 1.13
 Requires:         R-CRAN-networkDynamic >= 0.9
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-statnet.common 
+Requires:         R-CRAN-tsna 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-base64 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-scatterplot3d 
 
 %description
 Renders dynamic network data from 'networkDynamic' objects as movies,

@@ -1,42 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  streamConnect
-%global packver   0.0-6
+%global packname  ctxR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connecting Stream Mining Components Using Sockets and Web Services
+Summary:          Utilities for Interacting with the 'CTX' APIs
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stream >= 2.0.0
-BuildRequires:    R-CRAN-plumber 
-BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-stream >= 2.0.0
-Requires:         R-CRAN-plumber 
-Requires:         R-CRAN-callr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-urltools 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-urltools 
 
 %description
-Adds functionality to connect stream mining components from package stream
-using sockets and Web services. The package can be used create distributed
-workflows and create plumber-based Web services which can be deployed on
-most common cloud services.
+Access chemical, hazard, bioactivity, and exposure data from the
+Computational Toxicology and Exposure ('CTX') APIs
+<https://api-ccte.epa.gov/docs/>. 'ctxR' was developed to streamline the
+process of accessing the information available through the 'CTX' APIs
+without requiring prior knowledge of how to use APIs. Most data is also
+available on the CompTox Chemical Dashboard ('CCD')
+<https://comptox.epa.gov/dashboard/> and other resources found at the EPA
+Computational Toxicology and Exposure Online Resources
+<https://www.epa.gov/comptox-tools>.
 
 %prep
 %setup -q -c -n %{packname}

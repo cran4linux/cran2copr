@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BFI
-%global packver   2.0.1
+%global packname  ReturnCurves
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Federated Inference
+Summary:          Estimation of Return Curves
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-openair 
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-ismev 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-tools 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-openair 
 
 %description
-The Bayesian Federated Inference ('BFI') method combines inference results
-obtained from local data sets in the separate centers. In this version of
-the package, the 'BFI' methodology is programmed for linear, logistic and
-survival regression models. For GLMs, see Jonker, Pazira and Coolen (2024)
-<doi:10.1002/sim.10072>; for survival models, see Pazira, Massa, Weijers,
-Coolen and Jonker (2024) <doi:10.48550/arXiv.2404.17464>; and for
-heterogeneous populations, see Jonker, Pazira and Coolen (2024)
-<doi:10.48550/arXiv.2402.02898>.
+Estimates the p-probability return curve proposed by Murphy-Barltrop et
+al. (2023) <doi:10.1002/env.2797>. Implements pointwise and smooth
+estimation of the angular dependence function introduced by Wadsworth and
+Tawn (2013) <doi:10.3150/12-BEJ471>.
 
 %prep
 %setup -q -c -n %{packname}

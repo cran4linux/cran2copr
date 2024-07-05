@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  uGMAR
-%global packver   3.5.0
+%global packname  circhelp
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Univariate Gaussian and Student's t Mixture Autoregressive Models
+Summary:          Circular Analyses Helper Functions
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats >= 3.3.2
-BuildRequires:    R-CRAN-gsl >= 1.9.10.3
-BuildRequires:    R-CRAN-pbapply >= 1.3.2
-BuildRequires:    R-CRAN-Brobdingnag >= 1.2.4
-BuildRequires:    R-parallel 
-Requires:         R-stats >= 3.3.2
-Requires:         R-CRAN-gsl >= 1.9.10.3
-Requires:         R-CRAN-pbapply >= 1.3.2
-Requires:         R-CRAN-Brobdingnag >= 1.2.4
-Requires:         R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-patchwork 
 
 %description
-Maximum likelihood estimation of univariate Gaussian Mixture
-Autoregressive (GMAR), Student's t Mixture Autoregressive (StMAR), and
-Gaussian and Student's t Mixture Autoregressive (G-StMAR) models, quantile
-residual tests, graphical diagnostics, forecast and simulate from GMAR,
-StMAR and G-StMAR processes. Leena Kalliovirta, Mika Meitz, Pentti
-Saikkonen (2015) <doi:10.1111/jtsa.12108>, Mika Meitz, Daniel Preve,
-Pentti Saikkonen (2023) <doi:10.1080/03610926.2021.1916531>, Savi
-Virolainen (2022) <doi:10.1515/snde-2020-0060>.
+Light-weight functions for computing descriptive statistics in different
+circular spaces (e.g., 2pi, 180, or 360 degrees), to handle
+angle-dependent biases, pad circular data, and more. Specifically aimed
+for psychologists and neuroscientists analyzing circular data. Basic
+methods are based on Jammalamadaka and SenGupta (2001) <doi:10.1142/4031>,
+removal of cardinal biases is based on the approach introduced in van
+Bergen, Ma, Pratte, & Jehee (2015) <doi:10.1038/nn.4150> and Chetverikov
+and Jehee (2023) <doi:10.1038/s41467-023-43251-w>.
 
 %prep
 %setup -q -c -n %{packname}
