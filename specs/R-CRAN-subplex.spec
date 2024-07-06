@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  subplex
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unconstrained Optimization using the Subplex Algorithm
 
@@ -13,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.5.1
-Requires:         R-core >= 2.5.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 
 %description
 The subplex algorithm for unconstrained optimization, developed by Tom
-Rowan <http://www.netlib.org/opt/subplex.tgz>.
+Rowan.
 
 %prep
 %setup -q -c -n %{packname}

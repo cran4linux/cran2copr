@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comets
-%global packver   0.0-1
+%global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariance Measure Tests for Conditional Independence
 
@@ -20,9 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-coin 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-coin 
 
 %description
 Covariance measure tests for conditional independence testing against

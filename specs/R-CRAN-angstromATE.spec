@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vol2birdR
-%global packver   1.0.2
+%global packname  angstromATE
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vertical Profiles of Biological Signals in Weather Radar Data
+Summary:          Imports Log Files from Angstrom Engineering Thermal Evaporator
 
-License:          LGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-CRAN-rlang 
+BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-XML 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-XML 
 
 %description
-'R' implementation of the 'vol2bird' software for generating vertical
-profiles of birds and other biological signals in weather radar data. See
-Dokter et al. (2011) <doi:10.1098/rsif.2010.0116> for a paper describing
-the methodology.
+Opens and imports log files from Angstrom Engineering Thermal Evaporator
+and extracts basic characteristics, such as base pressure, time of the
+evaporation. It can visualize the deposition observables for review.
 
 %prep
 %setup -q -c -n %{packname}

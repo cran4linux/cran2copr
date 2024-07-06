@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mggd
-%global packver   1.2.3
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Generalised Gaussian Distribution; Kullback-Leibler Divergence
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-data.table 
 
 %description
 Distance between multivariate generalised Gaussian distributions, as

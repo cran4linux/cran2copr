@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rush
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rapid Parallel and Distributed Computing
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-mlr3misc
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-CRAN-redux 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-mlr3misc
 Requires:         R-parallel 
 Requires:         R-CRAN-processx 
 Requires:         R-CRAN-redux 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-uuid 
 
 %description

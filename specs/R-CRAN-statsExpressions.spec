@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statsExpressions
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Dataframes and Expressions with Statistical Details
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,44 +19,44 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-withr >= 3.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-PMCMRplus >= 1.9.10
+BuildRequires:    R-CRAN-glue >= 1.7.0
 BuildRequires:    R-CRAN-afex >= 1.3.1
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-WRS2 >= 1.1.6
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-BayesFactor >= 0.9.12.4.7
-BuildRequires:    R-CRAN-datawizard >= 0.9.1
-BuildRequires:    R-CRAN-effectsize >= 0.8.6
-BuildRequires:    R-CRAN-correlation >= 0.8.4
-BuildRequires:    R-CRAN-parameters >= 0.21.6
-BuildRequires:    R-CRAN-insight >= 0.19.9
-BuildRequires:    R-CRAN-performance >= 0.10.9
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-PMCMRplus 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-effectsize >= 0.8.9
+BuildRequires:    R-CRAN-correlation >= 0.8.5
+BuildRequires:    R-CRAN-parameters >= 0.22.0
+BuildRequires:    R-CRAN-insight >= 0.20.1
+BuildRequires:    R-CRAN-performance >= 0.12.0
+BuildRequires:    R-CRAN-datawizard >= 0.11.0
+BuildRequires:    R-CRAN-zeallot >= 0.1.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-WRS2 
-BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-withr >= 3.0.0
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-PMCMRplus >= 1.9.10
+Requires:         R-CRAN-glue >= 1.7.0
 Requires:         R-CRAN-afex >= 1.3.1
 Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-WRS2 >= 1.1.6
 Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-BayesFactor >= 0.9.12.4.7
-Requires:         R-CRAN-datawizard >= 0.9.1
-Requires:         R-CRAN-effectsize >= 0.8.6
-Requires:         R-CRAN-correlation >= 0.8.4
-Requires:         R-CRAN-parameters >= 0.21.6
-Requires:         R-CRAN-insight >= 0.19.9
-Requires:         R-CRAN-performance >= 0.10.9
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-PMCMRplus 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-effectsize >= 0.8.9
+Requires:         R-CRAN-correlation >= 0.8.5
+Requires:         R-CRAN-parameters >= 0.22.0
+Requires:         R-CRAN-insight >= 0.20.1
+Requires:         R-CRAN-performance >= 0.12.0
+Requires:         R-CRAN-datawizard >= 0.11.0
+Requires:         R-CRAN-zeallot >= 0.1.0
 Requires:         R-stats 
-Requires:         R-CRAN-WRS2 
-Requires:         R-CRAN-zeallot 
 
 %description
 Utilities for producing dataframes with rich details for the most common

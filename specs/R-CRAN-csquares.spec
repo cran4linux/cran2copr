@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csquares
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concise Spatial Query and Representation System (c-Squares)
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-sf
 BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-stars 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 
 %description
 Encode and decode c-squares, from and to simple feature (sf) or
