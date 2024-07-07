@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bamm
-%global packver   0.4.3
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Models as a Function of Biotic, Abiotic and Movement Factors (BAM)
 
@@ -22,8 +22,8 @@ BuildRequires:    R-CRAN-animation >= 2.3
 BuildRequires:    R-CRAN-leaflet >= 2.0
 BuildRequires:    R-CRAN-sp >= 1.3.0
 BuildRequires:    R-CRAN-Matrix >= 1.2.14
-BuildRequires:    R-CRAN-magrittr >= 1.2
 BuildRequires:    R-CRAN-igraph >= 1.2
+BuildRequires:    R-CRAN-magrittr >= 1.2
 BuildRequires:    R-CRAN-future >= 1.18.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-purrr >= 0.2
@@ -31,6 +31,12 @@ BuildRequires:    R-CRAN-RSpectra >= 0.13.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-CRAN-Rdpack >= 0.11
 BuildRequires:    R-CRAN-furrr >= 0.1.0
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-raster >= 3.4.13
 Requires:         R-methods >= 3.3
@@ -38,8 +44,8 @@ Requires:         R-CRAN-animation >= 2.3
 Requires:         R-CRAN-leaflet >= 2.0
 Requires:         R-CRAN-sp >= 1.3.0
 Requires:         R-CRAN-Matrix >= 1.2.14
-Requires:         R-CRAN-magrittr >= 1.2
 Requires:         R-CRAN-igraph >= 1.2
+Requires:         R-CRAN-magrittr >= 1.2
 Requires:         R-CRAN-future >= 1.18.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-purrr >= 0.2
@@ -47,6 +53,12 @@ Requires:         R-CRAN-RSpectra >= 0.13.1
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-Rdpack >= 0.11
 Requires:         R-CRAN-furrr >= 0.1.0
+Requires:         R-CRAN-crosstalk 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-plotly 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Species Distribution Modeling (SDM) is a practical methodology that aims
@@ -58,14 +70,14 @@ for a species but not generally as maps of its actual distribution.
 Soberón and Peterson (2005) <doi:10.17161/bi.v2i0.4> presented the BAM
 scheme, a heuristic framework that states that the occupied area of a
 species occurs on sites that have been accessible through dispersal (M)
-and have both favorable biotic (B) and abiotic conditions (A). The 'bamm'
+and have both favorable biotic (B) and abiotic conditions (A).  The 'bamm'
 package implements classes and functions to operate on each element of the
 BAM and by using a cellular automata model where the occupied area of a
 species at time t is estimated by the multiplication of three binary
 matrices: one matrix represents movements (M), another abiotic -niche-
-tolerances (A), and a third, biotic interactions (B). The theoretical
-background of the package can be found in Soberón and Osorio-Olvera (2022)
-<arXiv:2212.06308>.
+tolerances (A), and a third, biotic interactions (B).  The theoretical
+background of the package can be found in Soberón and Osorio-Olvera (2023)
+<doi:10.1111/jbi.14587>.
 
 %prep
 %setup -q -c -n %{packname}

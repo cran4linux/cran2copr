@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  weightedRank
-%global packver   0.2.5
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis Using Weighted Rank Statistics
 
@@ -21,17 +21,20 @@ BuildRequires:    R-stats
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-sensitivitymv 
+BuildRequires:    R-CRAN-senstrat 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-sensitivitymv 
+Requires:         R-CRAN-senstrat 
 
 %description
 Performs a sensitivity analysis using weighted rank tests in observational
-studies with I blocks of size J; see Rosenbaum (2018)
-<doi:10.1214/18-AOAS1153>.  The package can perform adaptive inference in
-block designs; see Rosenbaum (2012) <doi:10.1093/biomet/ass032>.  The main
-functions are wgtRank() and wgtRanktt() and ef2C().
+studies with I blocks of size J; see Rosenbaum (2024)
+<doi:10.1080/01621459.2023.2221402>.  The package can perform adaptive
+inference in block designs; see Rosenbaum (2012)
+<doi:10.1093/biomet/ass032>.  The main functions are wgtRank(),
+wgtRankCI() and wgtRanktt().
 
 %prep
 %setup -q -c -n %{packname}

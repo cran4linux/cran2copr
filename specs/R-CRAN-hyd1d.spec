@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hyd1d
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          1d Water Level Interpolation along the Rivers Elbe and Rhine
 
@@ -35,7 +35,7 @@ and gauging data enable 1d water level interpolation. The S4 class
 water level information along the German federal waterways Elbe and Rhine.
 'hyd1d' delivers 1d water level data - extracted from the 'FLYS' database
 - and validated gauging data - extracted from the hydrological database
-'HyDaBa' - package-internally. For computations near real time gauging
+'WISKI7' - package-internally. For computations near real time gauging
 data are queried externally from the 'PEGELONLINE REST API'
 <https://pegelonline.wsv.de/webservice/dokuRestapi>.
 

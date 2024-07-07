@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  COMBO
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correcting Misclassified Binary Outcomes in Association Studies
 
@@ -35,9 +35,9 @@ Requires:         R-CRAN-Matrix > 1.4.1
 %description
 Use frequentist and Bayesian methods to estimate parameters from a binary
 outcome misclassification model. These methods correct for the problem of
-"label switching" by assuming that correct outcome classification occurs
-in at least 50%% of observations. A description of the analysis methods is
-available in Hochstedler and Wells (2023) <arXiv:2303.10215>.
+"label switching" by assuming that the sum of outcome sensitivity and
+specificity is at least 1. A description of the analysis methods is
+available in Hochstedler and Wells (2023) <doi:10.48550/arXiv.2303.10215>.
 
 %prep
 %setup -q -c -n %{packname}

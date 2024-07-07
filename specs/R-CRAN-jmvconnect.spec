@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jmvconnect
-%global packver   2.3.13
+%global packver   2.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.13
+Version:          2.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to the 'jamovi' Statistical Spreadsheet
 

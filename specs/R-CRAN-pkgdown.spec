@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pkgdown
-%global packver   2.0.9
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Static HTML Documentation for a Package
 
@@ -20,19 +20,19 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-callr >= 3.7.3
 BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-withr >= 2.4.3
-BuildRequires:    R-CRAN-httr >= 1.4.2
+BuildRequires:    R-CRAN-rmarkdown >= 2.27
 BuildRequires:    R-CRAN-desc >= 1.4.0
 BuildRequires:    R-CRAN-fs >= 1.4.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.1
-BuildRequires:    R-CRAN-rmarkdown >= 1.1
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-bslib >= 0.5.1
-BuildRequires:    R-CRAN-downlit >= 0.4.0
+BuildRequires:    R-CRAN-downlit >= 0.4.4
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-ragg 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-whisker 
@@ -40,19 +40,19 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-CRAN-callr >= 3.7.3
 Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-withr >= 2.4.3
-Requires:         R-CRAN-httr >= 1.4.2
+Requires:         R-CRAN-rmarkdown >= 2.27
 Requires:         R-CRAN-desc >= 1.4.0
 Requires:         R-CRAN-fs >= 1.4.0
 Requires:         R-CRAN-xml2 >= 1.3.1
-Requires:         R-CRAN-rmarkdown >= 1.1
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-bslib >= 0.5.1
-Requires:         R-CRAN-downlit >= 0.4.0
+Requires:         R-CRAN-downlit >= 0.4.4
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-ragg 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-whisker 

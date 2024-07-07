@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  read.dbc
-%global packver   1.0.7
+%global packname  emIRT
+%global packver   0.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Data Stored in DBC (Compressed DBF) Files
+Summary:          EM Algorithms for Estimating Item Response Theory Models
 
-License:          AGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-foreign 
-Requires:         R-CRAN-foreign 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-pscl >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.10.6
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-pscl >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 0.10.6
 
 %description
-Functions for reading and decompressing the DBC (compressed DBF) files.
-Please note that this is the file format used by the Brazilian Ministry of
-Health (DATASUS) to publish healthcare datasets. It is not related to the
-FoxPro or CANdb DBC file formats.
+Various Expectation-Maximization (EM) algorithms are implemented for item
+response theory (IRT) models. The package includes IRT models for binary
+and ordinal responses, along with dynamic and hierarchical IRT models with
+binary responses. The latter two models are fitted using variational EM.
+The package also includes variational network and text scaling models.
+The algorithms are described in Imai, Lo, and Olmsted (2016)
+<DOI:10.1017/S000305541600037X>.
 
 %prep
 %setup -q -c -n %{packname}

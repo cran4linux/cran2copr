@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  recalibratiNN
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Recalibration for Regression Models
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc >= 5.0.0
-BuildRequires:    R-stats >= 4.3.0
+BuildRequires:    R-stats >= 3.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0.0
 BuildRequires:    R-CRAN-RANN >= 2.0.0
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-glue >= 1.0.0
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-Hmisc >= 5.0.0
-Requires:         R-stats >= 4.3.0
+Requires:         R-stats >= 3.0.0
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-RANN >= 2.0.0
@@ -41,11 +41,14 @@ Requires:         R-CRAN-glue >= 1.0.0
 Requires:         R-CRAN-Rdpack 
 
 %description
-Enables the diagnostics and enhancement of calibration of regression
-models. It offers both global and local visualization tools to calibration
-diagnostics and provides one recalibration method : Torres R, Nott DJ,
+Enables the diagnostics and enhancement of regression model calibration.It
+offers both global and local visualization tools for calibration
+diagnostics and provides one recalibration method: Torres R, Nott DJ,
 Sisson SA, Rodrigues T, Reis JG, Rodrigues GS (2024)
-<doi:10.48550/arXiv.2403.05756>.
+<doi:10.48550/arXiv.2403.05756>. The method leverages on Probabilistic
+Integral Transform (PIT) values to both evaluate and perform the
+calibration of statistical models. For a more detailed description of the
+package, please refer to the bachelor's thesis available bellow.
 
 %prep
 %setup -q -c -n %{packname}
