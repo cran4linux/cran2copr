@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparr
-%global packver   2.3-10
+%global packver   2.3-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.10
+Version:          2.3.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial and Spatiotemporal Relative Risk
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-spatstat.utils
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-spatstat.utils
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat.univar 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 

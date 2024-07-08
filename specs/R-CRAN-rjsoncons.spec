@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjsoncons
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query, Pivot, Patch, and Validate 'JSON' and 'NDJSON'
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
 
 %description
 Functions to query (filter or transform), pivot (convert from

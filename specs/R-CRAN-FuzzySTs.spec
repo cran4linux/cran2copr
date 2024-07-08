@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  FuzzySTs
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Statistical Tools
 
@@ -24,25 +25,25 @@ Requires:         R-CRAN-polynom
 %description
 The main goal of this package is to present various fuzzy statistical
 tools. It intends to provide an implementation of the theoretical and
-empirical approaches presented in the thesis entitled "The signed distance
+empirical approaches presented in the book entitled "The signed distance
 measure in fuzzy statistical analysis. Some theoretical, empirical and
-programming advances" (Thesis to be published soon. For the theoretical
-approaches, see Berkachy R. and Donze L. (2019)
+programming advances" <doi: 10.1007/978-3-030-76916-1>. For the
+theoretical approaches, see Berkachy R. and Donze L. (2019)
 <doi:10.1007/978-3-030-03368-2_1>. For the empirical approaches, see
 Berkachy R. and Donze L. (2016) <ISBN: 978-989-758-201-1>). Important
 (non-exhaustive) implementation highlights of this package are as follows:
 (1) a numerical procedure to estimate the fuzzy difference and the fuzzy
 square. (2) two numerical methods of fuzzification. (3) a function
 performing different possibilities of distances, including the signed
-distance and the generalized signed distance for instance. (4) numerical
-estimations of fuzzy statistical measures such as the variance, the
-moment, etc. (5) two methods of estimation of the bootstrap distribution
-of the likelihood ratio in the fuzzy context. (6) an estimation of a fuzzy
-confidence interval by the likelihood ratio method. (7) testing fuzzy
-hypotheses and/or fuzzy data by fuzzy confidence intervals in the
-Kwakernaak - Kruse and Meyer sense. (8) a general method to estimate the
-fuzzy p-value with fuzzy hypotheses and/or fuzzy data. (9) a method of
-estimation of global and individual evaluations of linguistic
+distance and the generalized signed distance for instance with all its
+properties. (4) numerical estimations of fuzzy statistical measures such
+as the variance, the moment, etc. (5) two methods of estimation of the
+bootstrap distribution of the likelihood ratio in the fuzzy context. (6)
+an estimation of a fuzzy confidence interval by the likelihood ratio
+method. (7) testing fuzzy hypotheses and/or fuzzy data by fuzzy confidence
+intervals in the Kwakernaak - Kruse and Meyer sense. (8) a general method
+to estimate the fuzzy p-value with fuzzy hypotheses and/or fuzzy data. (9)
+a method of estimation of global and individual evaluations of linguistic
 questionnaires. (10) numerical estimations of multi-ways analysis of
 variance models in the fuzzy context. The unbalance in the considered
 designs are also foreseen.
@@ -55,6 +56,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LadderFuelsR
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Tool for Vertical Fuel Continuity Analysis using Airborne Laser Scanning Data
 
@@ -43,22 +43,21 @@ calculating the vertical height profiles of each segmented tree; 2)
 identifying gaps and fuel layers; 3) estimating the distance between fuel
 layers; and 4) retrieving the fuel layers base height and depth.
 Additionally, other functions recalculate previous metrics after
-considering distances greater than 1 m and calculate the canopy base
-height as the fuel base height located at the largest- and at the
-last-distance. Moreover, the package calculates: i) the percentage of Leaf
-Area Density comprised in each fuel layer, ii) remove fuel layers with
-Leaf Area Density percentage less than 25, iii) recalculate the distances
-among the reminder ones, and iv) identify the canopy base height as the
-fuel base height with the highest Leaf Area Density percentage. On the
-other hand, when there is only one fuel layer, it identifies the canopy
-base height performing a segmented linear regression (breaking points) on
-the cumulative sum of Leaf Area Density as a function of height. Finally,
-a collection of plotting functions is developed to represent: i) the
-initial gaps and fuel layers; ii) the fuels base height, depths and gaps
-with distances greater than 1 m and, iii) the fuels base height and depths
-after applying the breaking point method over trees with only one fuel
-layer. The methods implemented in this package are original and have not
-been published elsewhere.
+considering distances greater than certain threshold. Moreover, the
+package calculates: i) the percentage of Leaf Area Density comprised in
+each fuel layer, ii) remove fuel layers with Leaf Area Density (LAD)
+percentage less than 10, and iii) recalculate the distances among the
+reminder ones. On the other hand, it identifies the crown base height
+(CBH) based on different criteria: the fuel layer with the highest LAD
+percentage and the fuel layers located at the largest- and at the
+last-distance. When there is only one fuel layer, it also identifies the
+CBH performing a segmented linear regression (breaking points) on the
+cumulative sum of LAD as a function of height. Finally, a collection of
+plotting functions is developed to represent: i) the initial gaps and fuel
+layers; ii) the fuels base height, depths and gaps with distances greater
+than certain threshold and, iii) the CBH based on different criteria. The
+methods implemented in this package are original and have not been
+published elsewhere.
 
 %prep
 %setup -q -c -n %{packname}

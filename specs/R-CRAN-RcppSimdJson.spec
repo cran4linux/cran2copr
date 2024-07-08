@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppSimdJson
-%global packver   0.1.11
+%global packver   0.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.11
+Version:          0.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the 'simdjson' Header-Only Library for 'JSON' Parsing
 
@@ -26,9 +26,9 @@ The 'JSON' format is ubiquitous for data interchange, and the 'simdjson'
 library written by Daniel Lemire (and many contributors) provides a
 high-performance parser for these files which by relying on parallel
 'SIMD' instruction manages to parse these files as faster than disk speed.
-See the <arXiv:1902.08318> paper for more details about 'simdjson'.  This
-package parses 'JSON' from string, file, or remote URLs under a variety of
-settings.
+See the <doi:10.48550/arXiv.1902.08318> paper for more details about
+'simdjson'.  This package parses 'JSON' from string, file, or remote URLs
+under a variety of settings.
 
 %prep
 %setup -q -c -n %{packname}

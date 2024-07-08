@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  betareg
-%global packver   3.1-4
+%global packver   3.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Beta Regression
 
@@ -13,9 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
@@ -36,11 +36,15 @@ Requires:         R-CRAN-modeltools
 Requires:         R-CRAN-sandwich 
 
 %description
-Beta regression for modeling beta-distributed dependent variables, e.g.,
-rates and proportions. In addition to maximum likelihood regression (for
-both mean and precision of a beta-distributed response), bias-corrected
-and bias-reduced estimation as well as finite mixture models and recursive
-partitioning for beta regressions are provided.
+Beta regression for modeling beta-distributed dependent variables on the
+open unit interval (0, 1), e.g., rates and proportions, see Cribari-Neto
+and Zeileis (2010) <doi:10.18637/jss.v034.i02>. Moreover, extended-support
+beta regression models can accommodate dependent variables with boundary
+observations at 0 and/or 1. For the classical beta regression model,
+alternative specifications are provided: Bias-corrected and bias-reduced
+estimation, finite mixture models, and recursive partitioning for beta
+regression, see Grün, Kosmidis, and Zeileis (2012)
+<doi:10.18637/jss.v048.i11>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -50,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genderstat
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Analysis Tools for Gender Studies
 
@@ -17,26 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-reshape2 
 
 %description
 Provides tools for quantitative analysis in gender studies, including
 functions to calculate various gender inequality metrics such as the
 Gender Pay Gap, Gender Inequality Index (GII), Gender Development Index
-(GDI), and Gender Empowerment Measure (GEM). Also includes extracted real
-datasets for practice and learning purposes, which were obtained from the
-UNDP Human Development Reports Data Center
-<https://hdr.undp.org/data-center/documentation-and-downloads> and the
-World Bank Gender Data Portal
-<https://genderdata.worldbank.org/indicators/>. References: Miller, Kevin;
-Vagins, Deborah J. (2021) <https://eric.ed.gov/?id=ED596219>. Jacques
-Charmes & Saskia Wieringa (2003) <doi:10.1080/1464988032000125773>. Gaëlle
-Ferrant (2010) <https://shs.hal.science/halshs-00462463/>.
+(GDI), and Gender Empowerment Measure (GEM). Also includes extracted
+secondary example datasets for practice and learning purposes, which were
+obtained from the UNDP Human Development Reports Data Center and the World
+Bank Gender Data Portal by the author the dataset is available on
+<doi:10.34740/kaggle/dsv/6359326>. References: Miller, Kevin; Vagins,
+Deborah J. (2021) <https://eric.ed.gov/?id=ED596219>. Jacques Charmes &
+Saskia Wieringa (2003) <doi:10.1080/1464988032000125773>. Gaëlle Ferrant
+(2010) <https://shs.hal.science/halshs-00462463/>.
 
 %prep
 %setup -q -c -n %{packname}

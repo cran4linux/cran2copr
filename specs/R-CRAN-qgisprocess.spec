@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qgisprocess
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use 'QGIS' Processing Algorithms
 
@@ -46,7 +46,7 @@ processing toolbox using the standalone 'qgis_process' command-line
 utility.  Both native and third-party (plugin) processing providers are
 supported.  Beside referring data sources from file, also common objects
 from 'sf', 'terra' and 'stars' are supported. The native processing
-algorithms are documented by QGIS.org (2023)
+algorithms are documented by QGIS.org (2024)
 <https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/>.
 
 %prep

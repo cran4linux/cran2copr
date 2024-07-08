@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  globalKinhom
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inhomogeneous K- And Pair Correlation Functions Using Global Estimators
 
@@ -22,18 +22,21 @@ BuildRequires:    R-CRAN-spatstat.random >= 2.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-spatstat.univar 
 Requires:         R-CRAN-spatstat.geom >= 3.1
 Requires:         R-CRAN-spatstat.explore >= 3.0
 Requires:         R-CRAN-spatstat.random >= 2.1.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grDevices 
+Requires:         R-CRAN-spatstat.univar 
 
 %description
 Second-order summary statistics K- and pair-correlation functions describe
 interactions in point pattern data. This package provides computations to
 estimate those statistics on inhomogeneous point processes, using the
-methods of in T Shaw, J Møller, R Waagepetersen, 2020 <arXiv:2004.00527>.
+methods of in T Shaw, J Møller, R Waagepetersen, 2020
+<doi:10.48550/arXiv.2004.00527>.
 
 %prep
 %setup -q -c -n %{packname}

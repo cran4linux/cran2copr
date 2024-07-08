@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  knitr
-%global packver   1.48
+%global packname  synthesis
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.48
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          A General-Purpose Package for Dynamic Report Generation in R
+Summary:          Generate Synthetic Data from Statistical Models
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
-Recommends:       rst2pdf
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-xfun >= 0.44
-BuildRequires:    R-CRAN-evaluate >= 0.15
-BuildRequires:    R-CRAN-highr >= 0.11
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-xfun >= 0.44
-Requires:         R-CRAN-evaluate >= 0.15
-Requires:         R-CRAN-highr >= 0.11
-Requires:         R-methods 
-Requires:         R-tools 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
 
 %description
-Provides a general-purpose tool for dynamic report generation in R using
-Literate Programming techniques.
+Generate synthetic time series from commonly used statistical models,
+including linear, nonlinear and chaotic systems. Applications to testing
+methods can be found in Jiang, Z., Sharma, A., & Johnson, F. (2019)
+<doi:10.1016/j.advwatres.2019.103430> and Jiang, Z., Sharma, A., &
+Johnson, F. (2020) <doi:10.1029/2019WR026962> associated with an
+open-source tool by Jiang, Z., Rashid, M. M., Johnson, F., & Sharma, A.
+(2020) <doi:10.1016/j.envsoft.2020.104907>.
 
 %prep
 %setup -q -c -n %{packname}

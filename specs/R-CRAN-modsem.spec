@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modsem
-%global packver   0.1.4
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Interaction (and Moderation) Analysis in Structural Equation Models (SEM)
 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-gaussquad 
+BuildRequires:    R-CRAN-fastGHQuad 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -42,7 +42,7 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-stats 
-Requires:         R-CRAN-gaussquad 
+Requires:         R-CRAN-fastGHQuad 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
 
@@ -56,7 +56,7 @@ moderated structural equations (LMS) approach (Klein & Moosbrugger, 2000).
 The quasi-maximum likelihood (QML) approach (Klein & Muthén, 2007)
 (temporarily unavailable) The constrained- unconstrained, residual- and
 double centering- approaches are estimated via 'lavaan' (Rosseel, 2012),
-whilst the LMS- and QML- approaches are estimated via by ModSEM it self.
+whilst the LMS- and QML- approaches are estimated via by modsem it self.
 Alternatively model can be estimated via 'Mplus' (Muthén & Muthén,
 1998-2017). References: Algina, J., & Moulder, B. C. (2001).
 <doi:10.1207/S15328007SEM0801_3>. "A note on estimating the Jöreskog-Yang
