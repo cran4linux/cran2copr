@@ -1,36 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splines2
-%global packver   0.5.3
+%global packname  translit.uk
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Spline Functions and Classes
+Summary:          Ukrainian to Latin Transliteration
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Constructs basis functions of B-splines, M-splines, I-splines, convex
-splines (C-splines), periodic splines, natural cubic splines, generalized
-Bernstein polynomials, their derivatives, and integrals (except C-splines)
-by closed-form recursive formulas. It also contains a C++ head-only
-library integrated with Rcpp. See Wang and Yan (2021)
-<doi:10.6339/21-JDS1020> for details.
+Provides a robust and user-friendly solution for transliterating Ukrainian
+strings into Latin symbols.
 
 %prep
 %setup -q -c -n %{packname}

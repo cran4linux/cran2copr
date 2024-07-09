@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phoenix
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Phoenix Pediatric Sepsis and Septic Shock Criteria
 
@@ -24,10 +24,13 @@ in "Development and Validation of the Phoenix Criteria for Pediatric
 Sepsis and Septic Shock" by Sanchez-Pinto, Bennett, DeWitt, Russell et al.
 (2024) <doi:10.1001/jama.2024.0196> (Drs. Sanchez-Pinto and Bennett
 contributed equally to this manuscript; Dr. DeWitt and Mr. Russell
-contributed equally to the manuscript) and "International Consensus
-Criteria for Pediatric Sepsis and Septic Shock" by Schlapbach, Watson,
-Sorce, Argent, et al. (2024) <doi:10.1001/jama.2024.0179> (Drs Schlapbach,
-Watson, Sorce, and Argent contributed equally).
+contributed equally to the manuscript), "International Consensus Criteria
+for Pediatric Sepsis and Septic Shock" by Schlapbach, Watson, Sorce,
+Argent, et al. (2024) <doi:10.1001/jama.2024.0179> (Drs Schlapbach,
+Watson, Sorce, and Argent contributed equally) and the application note
+"phoenix: an R package and Python module for calculating the Phoenix
+pediatric sepsis score and criteria" by DeWitt, Russell, Rebull,
+Sanchez-Pinto, and Bennett (2024) <doi:10.1093/jamiaopen/ooae066>.
 
 %prep
 %setup -q -c -n %{packname}

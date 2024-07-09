@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbk
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the Bundesbank API
+Summary:          Client for the Deutsche Bundesbank and European Central Bank APIs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,7 +29,9 @@ Requires:         R-CRAN-xml2
 %description
 Download data and metadata from the 'Bundesbank SDMX Web Service API'
 found at
-<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>.
+<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
+and the 'ECB Data Portal API' found at
+<https://data.ecb.europa.eu/help/api/overview>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biplotEZ
-%global packver   1.2.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          EZ-to-Use Biplots
 
@@ -16,16 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-grid 
+Requires:         R-CRAN-plotrix 
+Requires:         R-splines 
+Requires:         R-stats 
 Requires:         R-CRAN-withr 
 
 %description

@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splines2
-%global packver   0.5.3
+%global packname  covtracer
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Spline Functions and Classes
+Summary:          Contextualizing Tests
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-tools 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-methods 
+Requires:         R-tools 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Constructs basis functions of B-splines, M-splines, I-splines, convex
-splines (C-splines), periodic splines, natural cubic splines, generalized
-Bernstein polynomials, their derivatives, and integrals (except C-splines)
-by closed-form recursive formulas. It also contains a C++ head-only
-library integrated with Rcpp. See Wang and Yan (2021)
-<doi:10.6339/21-JDS1020> for details.
+Dissects a package environment or 'covr' coverage object in order to cross
+reference tested code with the lines that are evaluated, as well as
+linking those evaluated lines to the documentation that they are described
+within. Connecting these three pieces of information provides a mechanism
+of linking tests to documented behaviors.
 
 %prep
 %setup -q -c -n %{packname}

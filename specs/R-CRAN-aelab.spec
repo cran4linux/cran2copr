@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ClusBoot
-%global packver   1.2.2
+%global packname  aelab
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bootstrap a Clustering Solution to Establish the Stability of the Clusters
+Summary:          Calculation of Greenhouse Gas Flux
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lubridate 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Providing a cluster allocation for n samples, either with an $n times p$
-data matrix or an $n times n$ distance matrix, a bootstrap procedure is
-performed. The proportion of bootstrap replicates where a pair of samples
-cluster in the same cluster indicates who tightly the samples in a
-particular cluster clusters together.
+Facilitate the analysis of data related to ecology, specifically the
+establishment of carbon budget. Currently, the package allows the below
+analysis. (i) the calculation of greenhouse gas flux based on data
+obtained from trace gas analyzer using the method described in Lin et al.
+(2024). (ii) the calculation of Dissolved Oxygen (DO) metabolism based on
+data obtained from dissolved oxygen data logger using the method described
+in Staehr et al. (2010). Lin et al. (2024)
+<doi:10.1016/j.scitotenv.2024.170768>. Staehr et al. (2024)
+<doi:10.4319/lom.2010.8.0628>.
 
 %prep
 %setup -q -c -n %{packname}

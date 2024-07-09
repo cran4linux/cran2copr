@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PPCDT
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Optimal Subset Selection for Distributed Hypothesis Testing
 
-License:          MIT + file LICENSE
+License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -24,14 +24,15 @@ Requires:         R-stats
 
 %description
 In the era of big data, data redundancy and distributed characteristics
-pose new challenges to data analysis. This article proposes a method of
-optimal subset estimation for redundant distributed data based on PPC.
-Through PPC technology, this method can effectively extract useful
-information from redundant distributed data and estimate the optimal
-subset. Experimental results show that this method can improve data
-quality and utilization efficiency and evaluate its performance.The
-philosophy of the package is described in Guo G. (2020)
-<doi:10.1007/s00180-020-00974-4>.
+present novel challenges to data analysis. This package introduces a
+method for estimating optimal subsets of redundant distributed data, based
+on PPCDT (Conjunction of Power and P-value in Distributed Settings).
+Leveraging PPC technology, this approach can efficiently extract valuable
+information from redundant distributed data and determine the optimal
+subset. Experimental results demonstrate that this method not only
+enhances data quality and utilization efficiency but also assesses its
+performance effectively. The philosophy of the package is described in Guo
+G. (2020) <doi:10.1007/s00180-020-00974-4>.
 
 %prep
 %setup -q -c -n %{packname}

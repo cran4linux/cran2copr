@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   6.8
+%global packver   6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.8
+Version:          6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -18,22 +18,21 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-Directional 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
 BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-FlexDir 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mda 
+BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-mixture 
 BuildRequires:    R-CRAN-mvhtests 
 BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-pchc 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-regda 
 BuildRequires:    R-CRAN-Rfast 
@@ -42,22 +41,21 @@ BuildRequires:    R-CRAN-Rnanoflann
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-Directional 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-FlexDir 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mda 
+Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-mixture 
 Requires:         R-CRAN-mvhtests 
 Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-pchc 
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-regda 
 Requires:         R-CRAN-Rfast 
@@ -112,7 +110,7 @@ and Stewart C. (2023). "Flexible non-parametric regression models for
 compositional response data with zeros". Statistics and Computing,
 33(106). <doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2024).
 "Constrained least squares simplicial-simplicial regression".
-<arxiv:2403.19835>.
+<doi:10.48550/arXiv.2403.19835>.
 
 %prep
 %setup -q -c -n %{packname}

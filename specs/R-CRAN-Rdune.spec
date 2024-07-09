@@ -1,36 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splines2
-%global packver   0.5.3
+%global packname  Rdune
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Spline Functions and Classes
+Summary:          'Creates Color Palettes Inspired by Dune'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-grDevices 
 
 %description
-Constructs basis functions of B-splines, M-splines, I-splines, convex
-splines (C-splines), periodic splines, natural cubic splines, generalized
-Bernstein polynomials, their derivatives, and integrals (except C-splines)
-by closed-form recursive formulas. It also contains a C++ head-only
-library integrated with Rcpp. See Wang and Yan (2021)
-<doi:10.6339/21-JDS1020> for details.
+Enables the use of color palettes inspired by the 'Dune' movies. These
+palettes are compatible with 'ggplot2'. See Wickham (2016)
+<doi:10.1007/978-3-319-24277-4> for more details on 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

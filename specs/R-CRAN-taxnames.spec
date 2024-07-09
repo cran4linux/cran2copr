@@ -1,36 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splines2
-%global packver   0.5.3
+%global packname  taxnames
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Spline Functions and Classes
+Summary:          Formatting Taxonomic Names in Markdown
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-taxlist >= 0.3.0
+Requires:         R-CRAN-taxlist >= 0.3.0
 
 %description
-Constructs basis functions of B-splines, M-splines, I-splines, convex
-splines (C-splines), periodic splines, natural cubic splines, generalized
-Bernstein polynomials, their derivatives, and integrals (except C-splines)
-by closed-form recursive formulas. It also contains a C++ head-only
-library integrated with Rcpp. See Wang and Yan (2021)
-<doi:10.6339/21-JDS1020> for details.
+A collection of functions used to format taxonomic names in Markdown
+documents. Those functions work with data structured according to Alvarez
+and Luebert (2018) <doi:10.3897/bdj.6.e23635>.
 
 %prep
 %setup -q -c -n %{packname}

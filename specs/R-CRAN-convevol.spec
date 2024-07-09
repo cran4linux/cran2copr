@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  convevol
-%global packver   2.0.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Convergent Evolution
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-geiger 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-phytools 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-geiger 
+Requires:         R-CRAN-magick 
 Requires:         R-CRAN-phytools 
 
 %description

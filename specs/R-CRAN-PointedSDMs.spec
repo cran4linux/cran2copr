@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PointedSDMs
-%global packver   1.3.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Models Derived from Point Processes to Species Distributions using 'inlabru'
 

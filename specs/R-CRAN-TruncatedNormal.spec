@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TruncatedNormal
-%global packver   2.2.2
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Truncated Multivariate Normal and Student Distributions
 
@@ -17,12 +18,14 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-qrng 
+BuildRequires:    R-CRAN-spacefillr 
 BuildRequires:    R-CRAN-alabama 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-qrng 
+Requires:         R-CRAN-spacefillr 
 Requires:         R-CRAN-alabama 
 
 %description
