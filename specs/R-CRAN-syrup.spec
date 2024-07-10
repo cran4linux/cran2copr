@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.13.0
+%global packname  syrup
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Measure Memory and CPU Usage for Parallel R Code
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bench 
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ps 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-bench 
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ps 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Measures memory and CPU usage of R code by regularly taking snapshots of
+calls to the system command 'ps'. The package provides an entry point
+(albeit coarse) to profile usage of system resources by R code run in
+parallel.
 
 %prep
 %setup -q -c -n %{packname}

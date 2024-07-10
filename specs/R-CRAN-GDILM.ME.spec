@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.13.0
+%global packname  GDILM.ME
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Spatial Modeling of Infectious Diseases with Co-Variate Error
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ngspatial 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-psych 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ngspatial 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-psych 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Provides tools for simulating from spatial modeling of individual level of
+infectious disease transmission when co-variates measured with error, and
+carrying out infectious disease data analyses with the same models. The
+epidemic models considered are distance-based model within
+Susceptible-Infectious-Removed (SIR) compartmental frameworks.
 
 %prep
 %setup -q -c -n %{packname}

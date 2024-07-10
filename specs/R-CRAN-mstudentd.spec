@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mstudentd
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate t Distribution
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-data.table 
 
 %description
 Distance between multivariate t distributions, as presented by N. Bouhlel

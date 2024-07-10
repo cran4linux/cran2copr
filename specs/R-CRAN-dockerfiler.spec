@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dockerfiler
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Dockerfile Creation from R
 
@@ -26,9 +26,10 @@ BuildRequires:    R-CRAN-fs >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.4.2
 BuildRequires:    R-CRAN-desc >= 1.2.0
 BuildRequires:    R-CRAN-pkgbuild >= 1.2.0
+BuildRequires:    R-CRAN-pak >= 0.6.0
 BuildRequires:    R-CRAN-attempt >= 0.3.1
-BuildRequires:    R-CRAN-pak >= 0.2.0
 BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-cli >= 2.3.0
@@ -39,9 +40,10 @@ Requires:         R-CRAN-fs >= 1.5.0
 Requires:         R-CRAN-glue >= 1.4.2
 Requires:         R-CRAN-desc >= 1.2.0
 Requires:         R-CRAN-pkgbuild >= 1.2.0
+Requires:         R-CRAN-pak >= 0.6.0
 Requires:         R-CRAN-attempt >= 0.3.1
-Requires:         R-CRAN-pak >= 0.2.0
 Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
 Requires:         R-utils 
 
 %description

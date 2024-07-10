@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heterometa
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Various Meta-Analysis Heterogeneity Measures
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-Rdpack >= 0.7
 Published meta-analyses routinely present one of the measures of
 heterogeneity introduced in Higgins and Thompson (2002)
 <doi:10.1002/sim.1186>. For critiquing articles it is often better to
-convert to another measure. Some conversions are provided here and
-confidence intervals are also available.
+convert to another of those measures. Some conversions are provided here
+and confidence intervals are also available.
 
 %prep
 %setup -q -c -n %{packname}

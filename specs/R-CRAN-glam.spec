@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.13.0
+%global packname  glam
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Generalized Additive and Linear Models (GLAM)
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gam 
+Requires:         R-stats 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Contains methods for fitting Generalized Linear Models (GLMs) and
+Generalized Additive Models (GAMs). Generalized regression models are
+common methods for handling data for which assuming Gaussian-distributed
+errors is not appropriate. For instance, if the response of interest is
+binary, count, or proportion data, one can instead model the expectation
+of the response based on an appropriate data-generating distribution. This
+package provides methods for fitting GLMs and GAMs under Beta regression,
+Poisson regression, Gamma regression, and Binomial regression (currently
+GLM only) settings. Models are fit using local scoring algorithms
+described in Hastie and Tibshirani (1990) <doi:10.1214/ss/1177013604>.
 
 %prep
 %setup -q -c -n %{packname}

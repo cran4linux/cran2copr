@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SLOPE
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sorted L1 Penalized Estimation
 
@@ -16,31 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.850.1.0
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-mice 
 Requires:         R-CRAN-Rcpp 
 
 %description
 Efficient implementations for Sorted L-One Penalized Estimation (SLOPE):
 generalized linear models regularized with the sorted L1-norm (Bogdan et
-al. (2015) <doi:10/gfgwzt>). Supported models include ordinary
-least-squares regression, binomial regression, multinomial regression, and
-Poisson regression. Both dense and sparse predictor matrices are
-supported. In addition, the package features predictor screening rules
-that enable fast and efficient solutions to high-dimensional problems.
+al. 2015). Supported models include ordinary least-squares regression,
+binomial regression, multinomial regression, and Poisson regression. Both
+dense and sparse predictor matrices are supported. In addition, the
+package features predictor screening rules that enable fast and efficient
+solutions to high-dimensional problems.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.13.0
+%global packname  FVDDPpkg
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Implement Fleming-Viot-Dependent Dirichlet Processes
 
-License:          Apache License (>= 2)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+A Bayesian Nonparametric model for the study of time-evolving frequencies,
+which has become renowned in the study of population genetics. The model
+consists of a Hidden Markov Model (HMM) in which the latent signal is a
+distribution-valued stochastic process that takes the form of a finite
+mixture of Dirichlet Processes, indexed by vectors that count how many
+times each value is observed in the population. The package implements
+methodologies presented in Ascolani, Lijoi and Ruggiero (2021)
+<doi:10.1214/20-BA1206> and Ascolani, Lijoi and Ruggiero (2023)
+<doi:10.3150/22-BEJ1504> that make it possible to study the process at the
+time of data collection or to predict its evolution in future or in the
+past.
 
 %prep
 %setup -q -c -n %{packname}

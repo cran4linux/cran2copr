@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  InteractionPoweR
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses for Interaction Effects in Cross-Sectional Regressions
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -31,7 +30,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-MASS 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -45,17 +43,18 @@ Requires:         R-CRAN-ggbeeswarm
 Requires:         R-CRAN-Matrix 
 
 %description
-Power analysis for regression models which test the interaction of two
-independent variables on a single dependent variable. Includes options for
-continuous, binary, or ordinal variables, as well as correlated
-interacting variables. Also includes options to specify variable
-reliability. Power analyses can be done either analytically or via
+Power analysis for regression models which test the interaction of two or
+three independent variables on a single dependent variable. Includes
+options for correlated interacting variables and specifying variable
+reliability. Two-way interactions can include continuous, binary, or
+ordinal variables. Power analyses can be done either analytically or via
 simulation.  Includes tools for simulating single data sets and
 visualizing power analysis results. The primary functions are
-power_interaction_r2() and power_interaction(). Please cite as: Baranger
-DAA, Finsaas MC, Goldstein BL, Vize CE, Lynam DR, Olino TM (2022).
-"Tutorial: Power analyses for interaction effects in cross-sectional
-regressions." <doi:10.31234/osf.io/5ptd7>.
+power_interaction_r2() and power_interaction() for two-way interactions,
+and power_interaction_3way_r2() for three-way interactions. Please cite
+as: Baranger DAA, Finsaas MC, Goldstein BL, Vize CE, Lynam DR, Olino TM
+(2023). "Tutorial: Power analyses for interaction effects in
+cross-sectional regressions." <doi:10.1177/25152459231187531>.
 
 %prep
 %setup -q -c -n %{packname}

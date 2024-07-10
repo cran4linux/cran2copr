@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastTopics
-%global packver   0.6-186
+%global packver   0.6-192
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.186
+Version:          0.6.192
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Fitting Topic Models and Non-Negative Matrix Factorizations to Count Data
 
@@ -74,7 +74,8 @@ to compare, annotate and visualize model fits, including functions to
 efficiently create "structure plots" and identify key features in topics.
 The 'fastTopics' package is a successor to the 'CountClust' package. For
 more information, see <doi:10.48550/arXiv.2105.13440> and
-<doi:10.1186/s13059-023-03067-9>.
+<doi:10.1186/s13059-023-03067-9>. Please also see the GitHub repository
+for additional vignettes not included in the package on CRAN.
 
 %prep
 %setup -q -c -n %{packname}

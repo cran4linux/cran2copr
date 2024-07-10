@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gt
-%global packver   0.10.1
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create Presentation-Ready Display Tables
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.2
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-xml2 >= 1.3.3
 BuildRequires:    R-CRAN-scales >= 1.2.1
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-bitops >= 1.0.7
-BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-htmltools >= 0.5.4
 BuildRequires:    R-CRAN-sass >= 0.4.5
 BuildRequires:    R-CRAN-reactable >= 0.4.3
@@ -48,8 +48,8 @@ Requires:         R-CRAN-xml2 >= 1.3.3
 Requires:         R-CRAN-scales >= 1.2.1
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-bitops >= 1.0.7
-Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-htmltools >= 0.5.4
 Requires:         R-CRAN-sass >= 0.4.5
 Requires:         R-CRAN-reactable >= 0.4.3

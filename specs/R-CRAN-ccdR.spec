@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ccdR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Interacting with the 'CCTE' APIs
+Summary:          Utilities for Interacting with the 'CTX' APIs
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,13 +39,15 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-urltools 
 
 %description
-Access chemical, hazard, and bioactivity data from the Center for
-Computational Toxicology and Exposure ('CCTE') APIs
+Access chemical, hazard, bioactivity, and exposure data from the
+Computational Toxicology and Exposure ('CTX') APIs
 <https://api-ccte.epa.gov/docs/>. 'ccdR' was developed to streamline the
-process of accessing the information available through the 'CCTE' APIs
-without requiring prior knowledge of how to use APIs. All data is also
+process of accessing the information available through the 'CTX' APIs
+without requiring prior knowledge of how to use APIs. Most data is also
 available on the CompTox Chemical Dashboard ('CCD')
-<https://comptox.epa.gov/dashboard/>.
+<https://comptox.epa.gov/dashboard/> and other resources found at the EPA
+Computational Toxicology and Exposure Online Resources
+<https://www.epa.gov/comptox-tools>.
 
 %prep
 %setup -q -c -n %{packname}

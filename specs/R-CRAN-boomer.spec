@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.13.0
+%global packname  boomer
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Debugging Tools to Inspect the Intermediate Steps of a Call
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-crayon 
+Requires:         R-methods 
+Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-styler 
+Requires:         R-CRAN-withr 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Provides debugging tools that let you inspect the intermediate results of
+a call. The output looks as if we explode a call into its parts hence the
+package name.
 
 %prep
 %setup -q -c -n %{packname}

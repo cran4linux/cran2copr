@@ -1,37 +1,37 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dosearch
-%global packver   1.0.8
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Effect Identification from Multiple Incomplete Data Sources
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.19
-Requires:         R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Identification of causal effects from arbitrary observational and
 experimental probability distributions via do-calculus and standard
-probability manipulations using a search-based algorithm by Tikka et al.
-(2021) <doi:10.18637/jss.v099.i05>. Allows for the presence of mechanisms
-related to selection bias (Bareinboim, E. and Tian, J. (2015)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r445.pdf>), transportability
-(Bareinboim, E. and Pearl, J. (2014)
-<http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>), missing data (Mohan, K.
-and Pearl, J. and Tian., J. (2013)
+probability manipulations using a search-based algorithm by Tikka,
+Hyttinen and Karvanen (2021) <doi:10.18637/jss.v099.i05>. Allows for the
+presence of mechanisms related to selection bias (Bareinboim and Tian,
+2015) <doi:10.1609/aaai.v29i1.9679>, transportability (Bareinboim and
+Pearl, 2014) <http://ftp.cs.ucla.edu/pub/stat_ser/r443.pdf>, missing data
+(Mohan, Pearl, and Tian, 2013)
 <http://ftp.cs.ucla.edu/pub/stat_ser/r410.pdf>) and arbitrary combinations
 of these. Also supports identification in the presence of context-specific
 independence (CSI) relations through labeled directed acyclic graphs
-(LDAG). For details on CSIs see Corander et al. (2019)
+(LDAG). For details on CSIs see (Corander et al., 2019)
 <doi:10.1016/j.apal.2019.04.004>.
 
 %prep

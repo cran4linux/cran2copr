@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RNAmf
+%global packname  dapper
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recursive Non-Additive Emulator for Multi-Fidelity Data
+Summary:          Data Augmentation for Private Posterior Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plgp 
+BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-plgp 
+Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-progressr 
 Requires:         R-stats 
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 
 %description
-Performs RNA emulation and active learning proposed by Heo and Sung (2024)
-<doi:10.1080/00401706.2024.2376173> for multi-fidelity computer
-experiments. The RNA emulator is particularly useful when the simulations
-with different fidelity level are nonlinearly correlated. The
-hyperparameters in the model are estimated by maximum likelihood
-estimation.
+A data augmentation based sampler for conducting privacy-aware Bayesian
+inference. The dapper_sample() function takes an existing sampler as input
+and automatically constructs a privacy-aware sampler. The process of
+constructing a sampler is simplified through the specification of four
+independent modules, allowing for easy comparison between different
+privacy mechanisms by only swapping out the relevant modules. Probability
+mass functions for the discrete Gaussian and discrete Laplacian are
+provided to facilitate analyses dealing with privatized count data. The
+output of dapper_sample() can be analyzed using many of the same tools
+from the `rstan` ecosystem. For methodological details on the sampler see
+Ju et al. (2022) <doi:10.48550/arXiv.2206.00710>, and for details on the
+discrete Gaussian and discrete Laplacian distributions see Canonne et al.
+(2020) <doi:10.48550/arXiv.2004.00010>.
 
 %prep
 %setup -q -c -n %{packname}

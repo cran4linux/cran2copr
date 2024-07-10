@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickcode
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick and Essential 'R' Tricks for Better Scripts
 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-fitdistrplus
 %description
 The NOT functions, 'R' tricks and a compilation of some simple quick plus
 often used 'R' codes to improve your scripts. Improve the quality and
-reproducibilty of 'R' scripts.
+reproducibility of 'R' scripts.
 
 %prep
 %setup -q -c -n %{packname}

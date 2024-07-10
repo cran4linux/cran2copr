@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rolog
-%global packver   0.9.17
+%global packver   0.9.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.17
+Version:          0.9.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'SWI'-'Prolog' from R
 

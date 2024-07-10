@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multilevelcoda
-%global packver   1.3.0.1
+%global packver   1.3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0.1
+Version:          1.3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Bayesian Multilevel Models for Compositional Data
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-bslib
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-insight 
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-stats 
@@ -58,6 +59,7 @@ Requires:         R-CRAN-bslib
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-insight 
 
 %description
