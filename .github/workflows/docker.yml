@@ -44,7 +44,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push r-fedora
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v6
       with:
         context: docker
         target: r-fedora
@@ -56,7 +56,7 @@ jobs:
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
     - name: Build and push r-copr
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v6
       with:
         context: docker
         target: r-copr
