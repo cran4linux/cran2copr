@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rpdo
-%global packver   0.3.2
+%global packname  checked
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pacific Decadal Oscillation Index Data
+Summary:          Systematically Run R CMD Checks
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-utils >= 3.6.2
+BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rcmdcheck 
+BuildRequires:    R-tools 
+Requires:         R-utils >= 3.6.2
+Requires:         R-CRAN-callr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rcmdcheck 
+Requires:         R-tools 
 
 %description
-Monthly Pacific Decadal Oscillation (PDO) index values from January 1900
-to September 2018.  Superseded by 'rsoi' package which includes the
-historical and most recent monthly PDO index values together with related
-climate indices.
+Systematically Run R checks against multiple packages. Checks are run in
+parallel with strategies to minimize dependency installation. Provides out
+of the box interface for running reverse dependency check.
 
 %prep
 %setup -q -c -n %{packname}

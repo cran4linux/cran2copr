@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Apoderoides
-%global packver   3.0.0
+%global packname  PurpleAir
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prioritize and Delete Erroneous Taxa in a Large Phylogenetic Tree
+Summary:          Query the 'PurpleAir' Application Programming Interface
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppProgress 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 
 %description
-Finds, prioritizes and deletes erroneous taxa in a phylogenetic tree. This
-package calculates scores for taxa in a tree. Higher score means the taxon
-is more erroneous. If the score is zero for a taxon, the taxon is not
-erroneous. This package also can remove all erroneous taxa automatically
-by iterating score calculation and pruning taxa with the highest score.
+Send requests to the 'PurpleAir' Application Programming Interface (API;
+<https://community.purpleair.com/c/data/api/18>). Check a 'PurpleAir' API
+key and get information about the related organization. Download real-time
+data from a single 'PurpleAir' sensor or many sensors by sensor
+identifier, geographical bounding box, or time since modified. Download
+historical data from a single sensor.
 
 %prep
 %setup -q -c -n %{packname}

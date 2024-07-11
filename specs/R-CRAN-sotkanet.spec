@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sotkanet
-%global packver   0.9.79
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.79
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sotkanet Open Data Access and Analysis
 
@@ -16,12 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-RefManageR 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-frictionless 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-RefManageR 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-frictionless 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-magrittr 
 
 %description
 Access statistical information on welfare and health in Finland from the

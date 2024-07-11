@@ -1,49 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exams
-%global packver   2.4-1
+%global packname  amscorer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Generation of Exams in R
+Summary:          Clinical Scores Calculator for Healthcare
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
-Automatic generation of exams based on exercises in Markdown or LaTeX
-format, possibly including R code for dynamic generation of exercise
-elements. Exercise types include single-choice and multiple-choice
-questions, arithmetic problems, string questions, and combinations thereof
-(cloze). Output formats include standalone files (PDF, HTML, Docx, ODT,
-...), Moodle XML, QTI 1.2, QTI 2.1, Blackboard, Canvas, OpenOlat, ILIAS,
-TestVision, Particify, ARSnova, Kahoot!, Grasple, and TCExam. In addition
-to fully customizable PDF exams, a standardized PDF format (NOPS) is
-provided that can be printed, scanned, and automatically evaluated.
+Provides functions to compute various clinical scores used in healthcare.
+These include the Charlson Comorbidity Index (CCI), predicting 10-year
+survival in patients with multiple comorbidities; the EPICES score, an
+individual indicator of precariousness considering its multidimensional
+nature; the MELD score for chronic liver disease severity; the Alternative
+Fistula Risk Score (a-FRS) for postoperative pancreatic fistula risk; and
+the Distal Pancreatectomy Fistula Risk Score (D-FRS) for risk following
+distal pancreatectomy. For detailed methodology, refer to Charlson et al.
+(1987) <doi:10.1016/0021-9681(87)90171-8> , Sass et al. (2006)
+<doi:10.1007/s10332-006-0131-5>, Kamath et al. (2001)
+<doi:10.1053/jhep.2001.22172>, Kim et al. (2008)
+<doi:10.1056/NEJMoa0801209> Kim et al. (2021)
+<doi:10.1053/j.gastro.2021.08.050>, Mungroop et al. (2019)
+<doi:10.1097/SLA.0000000000002620>, and de Pastena et al. (2023)
+<doi:10.1097/SLA.0000000000005497>..
 
 %prep
 %setup -q -c -n %{packname}

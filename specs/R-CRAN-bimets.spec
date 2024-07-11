@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bimets
-%global packver   3.0.2
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series and Econometric Modeling
 
@@ -32,8 +32,8 @@ to daily, monthly, quarterly, (semi)annually. Simultaneous equation models
 definition, estimation, simulation and forecasting with coefficient
 restrictions, error autocorrelation, exogenization, add-factors, impact
 and interim multipliers analysis, conditional equation evaluation,
-endogenous targeting and model renormalization, structural stability,
-stochastic simulation and forecast, optimal control.
+rational expectations, endogenous targeting and model renormalization,
+structural stability, stochastic simulation and forecast, optimal control.
 
 %prep
 %setup -q -c -n %{packname}
