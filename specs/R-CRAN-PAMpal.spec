@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PAMpal
-%global packver   1.0.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Process Passive Acoustic Data
 
@@ -17,48 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PAMmisc >= 1.8.3
 BuildRequires:    R-CRAN-PamBinaries >= 1.3.0
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-PAMmisc >= 1.12.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-CRAN-gam 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-manipulate 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-geosphere 
-Requires:         R-CRAN-PAMmisc >= 1.8.3
+BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-PamBinaries >= 1.3.0
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-PAMmisc >= 1.12.0
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-tuneR 
 Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-gam 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-manipulate 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-shiny 
 
 %description
 Tools for loading and processing passive acoustic data. Read in data that

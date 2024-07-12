@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rfacebookstat
-%global packver   2.11.0
+%global packname  quantspec
+%global packver   1.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.0
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Load Data from Facebook API Marketing
+Summary:          Quantile-Based Spectral Analysis of Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-stats4 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-snowfall 
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-stats4 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-snowfall 
 
 %description
-Load data by campaigns, ads, ad sets and insights, ad account and business
-manager from Facebook Marketing API into R. For more details see official
-documents by Facebook Marketing API
-<https://developers.facebook.com/docs/marketing-apis/>.
+Methods to determine, smooth and plot quantile periodograms for univariate
+and multivariate time series. See Kley (2016) <doi:10.18637/jss.v070.i03>
+for a description and tutorial.
 
 %prep
 %setup -q -c -n %{packname}
