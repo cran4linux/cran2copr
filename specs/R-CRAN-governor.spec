@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmhc
-%global packver   0.2.8
+%global packname  governor
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with CMHC Data
+Summary:          Speed Limiter to Control Rate of Execution of Loops
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-aws.s3 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-aws.s3 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Wrapper around the Canadian Mortgage and Housing Corporation (CMHC) web
-interface. It enables programmatic and reproducible access to a wide
-variety of housing data from CMHC.
+Speed limiter for controlling rate of execution of loops. It can be
+necessary to limit the rate of execution of a loop or repeated function
+call e.g. to show or gather data only at particular intervals. This
+package includes two methods for limiting this execution rate; speed
+governors and timers.  A speed governor will insert pauses during
+execution to meet a user-specified loop time.  Timers are alarm clocks
+which will indicate whether a certain time has passed.  These mechanisms
+are implemented in 'C' to minimize processing overhead.
 
 %prep
 %setup -q -c -n %{packname}

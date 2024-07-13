@@ -1,45 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ura
-%global packver   1.0.1
+%global packname  damAOI
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monitoring Rater Reliability
+Summary:          Create an 'Area of Interest' Around a Constructed Dam for Comparative Impact Evaluations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-smoothr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-shinydashboard 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-irr 
+Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-smoothr 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-Provides researchers with a simple set of diagnostic tools for monitoring
-the progress and reliability of raters conducting content coding tasks.
-Goehring (2024)
-<https://bengoehring.github.io/improving-content-analysis-tools-for-working-with-undergraduate-research-assistants.pdf>
-argues that supervisors---especially supervisors of small teams---should
-utilize computational tools to monitor reliability in real time. As such,
-this package provides easy-to-use functions for calculating inter-rater
-reliability statistics and measuring the reliability of one coder compared
-to the rest of the team.
+Define a spatial 'Area of Interest' (AOI) around a constructed dam using
+hydrology data. Dams have environmental and social impacts, both positive
+and negative. Current analyses of dams have no consistent way to specify
+at what spatial extent we should evaluate these impacts. 'damAOI'
+implements methods to adjust reservoir polygons to match
+satellite-observed surface water areas, plot upstream and downstream
+rivers using elevation data and accumulated river flow, and draw buffers
+clipped by river basins around reservoirs and relevant rivers. This helps
+to consistently determine the areas which could be impacted by dam
+construction, facilitating comparative analysis and informed
+infrastructure investments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmhc
-%global packver   0.2.8
+%global packname  CPoptim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with CMHC Data
+Summary:          Convex Partition Optimisation
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-aws.s3 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-aws.s3 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 
 %description
-Wrapper around the Canadian Mortgage and Housing Corporation (CMHC) web
-interface. It enables programmatic and reproducible access to a wide
-variety of housing data from CMHC.
+Convex Partition is a black-box optimisation algorithm for single
+objective real-parameters functions. The basic principle is to
+progressively estimate and exploit a regression tree similar to a CART
+(Classification and Regression Tree) of the objective function. For more
+details see 'de Paz' (2024) <doi:10.1007/978-3-031-62836-8_3> and 'Loh'
+(2011) <doi:10.1002/widm.8> .
 
 %prep
 %setup -q -c -n %{packname}

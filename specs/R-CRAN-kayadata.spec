@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kayadata
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kaya Identity Data for Nations and Regions
 
@@ -17,22 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-stringr >= 1.3
-BuildRequires:    R-CRAN-scales >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.8
-BuildRequires:    R-CRAN-tidyr >= 0.8
-BuildRequires:    R-CRAN-forcats >= 0.3
-BuildRequires:    R-CRAN-purrr >= 0.3
-Requires:         R-CRAN-ggplot2 >= 3.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-stringr >= 1.3
-Requires:         R-CRAN-scales >= 1.0
-Requires:         R-CRAN-dplyr >= 0.8
-Requires:         R-CRAN-tidyr >= 0.8
-Requires:         R-CRAN-forcats >= 0.3
-Requires:         R-CRAN-purrr >= 0.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-forcats >= 1.0.0
 
 %description
 Provides data for Kaya identity variables (population, gross domestic

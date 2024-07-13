@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fitdistrplus
-%global packver   1.2-1
+%global packname  drglm
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Help to Fit of a Parametric Distribution to Non-Censored or Censored Data
+Summary:          Fitting Linear and Generalized Linear Models in "Divide and Recombine" Approach to Large Data Sets
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-speedglm 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-MASS 
-Requires:         R-grDevices 
-Requires:         R-CRAN-survival 
-Requires:         R-methods 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-speedglm 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
 
 %description
-Extends the fitdistr() function (of the MASS package) with several
-functions to help the fit of a parametric distribution to non-censored or
-censored data. Censored data may contain left censored, right censored and
-interval censored values, with several lower and upper bounds. In addition
-to maximum likelihood estimation (MLE), the package provides moment
-matching (MME), quantile matching (QME), maximum goodness-of-fit
-estimation (MGE) and maximum spacing estimation (MSE) methods (available
-only for non-censored data). Weighted versions of MLE, MME, QME and MSE
-are available. See e.g. Casella & Berger (2002), Statistical inference,
-Pacific Grove, for a general introduction to parametric estimation.
+To overcome the memory limitations for fitting linear (LM) and Generalized
+Linear Models (GLMs) to large data sets, this package implements the
+Divide and Recombine (D&R) strategy. It basically divides the entire large
+data set into suitable subsets manageable in size and then fits model to
+each subset. Finally, results from each subset are aggregated to obtain
+the final estimate. This package also supports fitting GLMs to data sets
+that cannot fit into memory and provides methods for fitting GLMs under
+linear regression, binomial regression, Poisson regression, and
+multinomial logistic regression settings. Respective models are fitted
+using different D&R strategies as described by: Xi, Lin, and Chen (2009)
+<doi:10.1109/TKDE.2008.186>, Xi, Lin and Chen (2006)
+<doi:10.1109/TKDE.2006.196>, Zuo and Li (2018)
+<doi:10.4236/ojs.2018.81003>, Karim, M.R., Islam, M.A. (2019)
+<doi:10.1007/978-981-13-9776-9>.
 
 %prep
 %setup -q -c -n %{packname}

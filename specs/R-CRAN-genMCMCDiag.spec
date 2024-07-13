@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genMCMCDiag
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Convergence Diagnostics for Difficult MCMC Algorithms
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-knitr >= 1.45
+BuildRequires:    R-CRAN-knitr >= 1.30
 BuildRequires:    R-CRAN-mcmcse >= 1.0.0
 BuildRequires:    R-CRAN-coda >= 0.19.0
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-knitr >= 1.45
+Requires:         R-CRAN-knitr >= 1.30
 Requires:         R-CRAN-mcmcse >= 1.0.0
 Requires:         R-CRAN-coda >= 0.19.0
 Requires:         R-CRAN-lifecycle 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adestr
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation in Optimal Adaptive Two-Stage Designs
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-adoptr 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
@@ -26,9 +27,9 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-adoptr 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-grDevices 
@@ -39,16 +40,16 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-Rdpack 
 
 %description
 Methods to evaluate the performance characteristics of various point and
-interval estimators for optimal adaptive two-stage designs. Specifically,
-this package is written to work with trial designs created by the 'adoptr'
-package (Kunzmann et al. (2021) <doi:10.18637/jss.v098.i09>; Pilz et al.
-(2021) <doi:10.1002/sim.8953>)). Apart from the a priori evaluation of
+interval estimators for optimal adaptive two-stage designs as described in
+Meis et al. (2024) <doi:10.1002/sim.10020>. Specifically, this package is
+written to work with trial designs created by the 'adoptr' package
+(Kunzmann et al. (2021) <doi:10.18637/jss.v098.i09>; Pilz et al. (2021)
+<doi:10.1002/sim.8953>)). Apart from the a priori evaluation of
 performance characteristics, this package also allows for the evaluation
 of the implemented estimators on real datasets, and it implements methods
 to calculate p-values.

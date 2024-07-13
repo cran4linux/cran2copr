@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deseats
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data-Driven Locally Weighted Regression for Trend and Seasonality in TS
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.6
 Requires:         R-methods 
@@ -49,6 +50,7 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
 Various methods for the identification of trend and seasonal components in

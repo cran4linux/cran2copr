@@ -1,43 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmhc
-%global packver   0.2.8
+%global packname  SmithWilsonYieldCurve
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with CMHC Data
+Summary:          Smith-Wilson Yield Curve Construction
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-aws.s3 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-aws.s3 
 
 %description
-Wrapper around the Canadian Mortgage and Housing Corporation (CMHC) web
-interface. It enables programmatic and reproducible access to a wide
-variety of housing data from CMHC.
+Constructs a yield curve by the Smith-Wilson method from a table of libor
+and swap rates. Now updated to take bond coupons and prices in the same
+table.
 
 %prep
 %setup -q -c -n %{packname}

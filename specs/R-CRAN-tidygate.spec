@@ -1,45 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ura
-%global packver   1.0.1
+%global packname  tidygate
+%global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monitoring Rater Reliability
+Summary:          Interactively Gate Points
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-irr 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides researchers with a simple set of diagnostic tools for monitoring
-the progress and reliability of raters conducting content coding tasks.
-Goehring (2024)
-<https://bengoehring.github.io/improving-content-analysis-tools-for-working-with-undergraduate-research-assistants.pdf>
-argues that supervisors---especially supervisors of small teams---should
-utilize computational tools to monitor reliability in real time. As such,
-this package provides easy-to-use functions for calculating inter-rater
-reliability statistics and measuring the reliability of one coder compared
-to the rest of the team.
+Interactively gate points on a scatter plot. Interactively drawn gates are
+recorded and can be applied programmatically to reproduce results exactly.
+Programmatic gating is based on the package gatepoints by Wajid Jawaid
+(who is also an author of this package).
 
 %prep
 %setup -q -c -n %{packname}

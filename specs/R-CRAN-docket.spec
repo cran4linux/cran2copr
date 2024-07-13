@@ -1,43 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cmhc
-%global packver   0.2.8
+%global packname  docket
+%global packver   1.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          1.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access, Retrieve, and Work with CMHC Data
+Summary:          Insert R Data into 'Word' Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-digest >= 0.1
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-aws.s3 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-digest >= 0.1
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-aws.s3 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-zip 
 
 %description
-Wrapper around the Canadian Mortgage and Housing Corporation (CMHC) web
-interface. It enables programmatic and reproducible access to a wide
-variety of housing data from CMHC.
+Populate data from an R environment into '.doc' and '.docx' templates.
+Create a template document in a program such as 'Word', and add strings
+encased in guillemet characters to create flags («example»). Use
+getDictionary() to create a dictionary of flags and replacement values,
+then call docket() to generate a populated document.
 
 %prep
 %setup -q -c -n %{packname}
