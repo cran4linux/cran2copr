@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PubChemR
-%global packver   1.2
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'PubChem' Database for Chemical Data Retrieval
 
@@ -14,37 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-rsvg 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-httr 
+Requires:         R-utils 
+Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-png 
 Requires:         R-CRAN-rsvg 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-testthat 
 
 %description
 Provides an interface to the 'PubChem' database via the PUG REST

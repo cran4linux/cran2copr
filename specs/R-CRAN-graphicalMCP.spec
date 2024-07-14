@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grpnet
-%global packver   0.5
+%global packname  graphicalMCP
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Elastic Net Regularized GLMs and GAMs
+Summary:          Graphical Multiple Comparison Procedures
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Efficient algorithms for fitting generalized linear and additive models
-with group elastic net penalties as described in Helwig (2024)
-<doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
-and group SCAD with an optional group ridge penalty. Computes the
-regularization path for linear regression (gaussian), logistic regression
-(binomial), multinomial logistic regression (multinomial), log-linear
-count regression (poisson and negative.binomial), and log-linear
-continuous regression (gamma and inverse gaussian). Supports default and
-formula methods for model specification, k-fold cross-validation for
-tuning the regularization parameters, and nonparametric regression via
-tensor product reproducing kernel (smoothing spline) basis function
-expansion.
+Multiple comparison procedures (MCPs) control the familywise error rate in
+clinical trials. Graphical MCPs include many commonly used procedures as
+special cases; see Bretz et al. (2011) <doi:10.1002/bimj.201000239>, Lu
+(2016) <doi:10.1002/sim.6985>, and Xi et al. (2017)
+<doi:10.1002/bimj.201600233>. This package is a low-dependency
+implementation of graphical MCPs which allow mixed types of tests. It also
+includes power simulations and visualization of graphical MCPs.
 
 %prep
 %setup -q -c -n %{packname}
