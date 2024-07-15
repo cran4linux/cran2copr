@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidystats
-%global packver   0.6.2
+%global packname  hedgedrf
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Save Output of Statistical Tests
+Summary:          An Implementation of the Hedged Random Forest Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-CVXR 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-CVXR 
 
 %description
-Save the output of statistical tests in an organized file that can be
-shared with others or used to report statistics in scientific papers.
+This algorithm is described in detail in the paper "Hedging Forecast
+Combinations With an Application to the Random Forest" by Beck et al.
+(2023) <doi:10.48550/arXiv.2308.15384>. The package provides a function
+hedgedrf() that can be used to train a Hedged Random Forest model on a
+dataset, and a function predict.hedgedrf() that can be used to make
+predictions with the model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ppendemic
-%global packver   0.1.8
+%global packname  closeloop
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Glimpse at the Diversity of Peru's Endemic Plants
+Summary:          Integrate Single-Arm Observational Data in Network Meta Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,35 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-combinat 
+Requires:         R-CRAN-combinat 
 
 %description
-Introducing a novel and updated database showcasing Peru's endemic plants.
-This meticulously compiled and revised botanical collection encompasses a
-remarkable assemblage of over 7,249 distinct species. The data for this
-resource was sourced from the work of Govaerts, R., Nic Lughadha, E.,
-Black, N. et al., titled 'The World Checklist of Vascular Plants: A
-continuously updated resource for exploring global plant diversity',
-published in Sci Data 8, 215 (2021) <doi:10.1038/s41597-021-00997-6>.
+Calculate the distance between single-arm observational studies using
+covariate information to remove heterogeneity in Network Meta-Analysis
+(NMA) of randomized clinical trials. Facilitate the inclusion of
+observational data in NMA, enhancing the comprehensiveness and robustness
+of comparative effectiveness research. Schmitz (2018)
+<doi:10.1186/s12874-018-0509-7>.
 
 %prep
 %setup -q -c -n %{packname}

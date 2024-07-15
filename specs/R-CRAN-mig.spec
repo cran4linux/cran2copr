@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidystats
-%global packver   0.6.2
+%global packname  mig
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Save Output of Statistical Tests
+Summary:          Multivariate Inverse Gaussian Distribution
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-TruncatedNormal >= 2.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-TruncatedNormal >= 2.3
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-statmod 
 
 %description
-Save the output of statistical tests in an organized file that can be
-shared with others or used to report statistics in scientific papers.
+Provides utilities for estimation for the multivariate inverse Gaussian
+distribution of Minami (2003) <doi:10.1081/STA-120025379>, including
+random vector generation and explicit estimators of the location vector
+and scale matrix. The package implements kernel density estimators
+discussed in Belzile, Desgagnes, Genest and Ouimet (2024)
+<doi:10.48550/arXiv.2209.04757> for smoothing multivariate data on
+half-spaces.
 
 %prep
 %setup -q -c -n %{packname}

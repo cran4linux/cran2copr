@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidystats
-%global packver   0.6.2
+%global packname  BATSS
+%global packver   0.7.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Save Output of Statistical Tests
+Summary:          Bayesian Adaptive Trial Simulator Software (BATSS) for Generalised Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-cli 
 
 %description
-Save the output of statistical tests in an organized file that can be
-shared with others or used to report statistics in scientific papers.
+Defines operating characteristics of Bayesian Adaptive Trials considering
+a generalised linear model response via Monte Carlo simulations of
+Bayesian GLM fitted via integrated Laplace approximations (INLA).
 
 %prep
 %setup -q -c -n %{packname}

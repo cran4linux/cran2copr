@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirt
-%global packver   1.41
+%global packver   1.42
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.41
+Version:          1.42
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Item Response Theory
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-vegan
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-splines 
 BuildRequires:    R-CRAN-dcurver 
+BuildRequires:    R-CRAN-SimDesign 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-pbapply >= 1.3.0
@@ -45,6 +46,7 @@ Requires:         R-CRAN-vegan
 Requires:         R-CRAN-Deriv 
 Requires:         R-splines 
 Requires:         R-CRAN-dcurver 
+Requires:         R-CRAN-SimDesign 
 
 %description
 Analysis of discrete response data using unidimensional and
@@ -56,8 +58,8 @@ models are available for modeling item testlets using dimension reduction
 EM algorithms, while multiple group analyses and mixed effects designs are
 included for detecting differential item, bundle, and test functioning,
 and for modeling item and person covariates. Finally, latent class models
-such as the DINA, DINO, multidimensional latent class, mixture, and
-zero-inflated response models are supported.
+such as the DINA, DINO, multidimensional latent class, mixture IRT models,
+and zero-inflated response models are supported.
 
 %prep
 %setup -q -c -n %{packname}

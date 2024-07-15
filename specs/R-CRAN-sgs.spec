@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sgs
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse-Group SLOPE: Adaptive Bi-Level Selection with FDR Control
 
@@ -41,12 +41,16 @@ Requires:         R-CRAN-SLOPE
 Requires:         R-CRAN-Rlab 
 
 %description
-Implementation of Sparse-group SLOPE: Adaptive bi-level with FDR-control
-(Feser et al. (2023) <arXiv:2305.09467>). Linear and logistic regression
+Implementation of Sparse-group SLOPE (SGS) (Feser and Evangelou (2023)
+<doi:10.48550/arXiv.2305.09467>) models. Linear and logistic regression
 models are supported, both of which can be fit using k-fold
 cross-validation. Dense and sparse input matrices are supported. In
 addition, a general adaptive three operator splitting (ATOS)
-implementation is provided.
+implementation is provided. Group SLOPE (gSLOPE) (Brzyski et al. (2019)
+<doi:10.1080/01621459.2017.1411269>) models are also implemented. Both
+gSLOPE and SGS are available with strong screening rules (Feser and
+Evangelou (2024) <doi:10.48550/arXiv.2405.15357>) for computational
+speed-up.
 
 %prep
 %setup -q -c -n %{packname}

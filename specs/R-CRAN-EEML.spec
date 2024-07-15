@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidystats
-%global packver   0.6.2
+%global packname  EEML
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Save Output of Statistical Tests
+Summary:          Ensemble Explainable Machine Learning Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MCS 
+BuildRequires:    R-CRAN-WeightedEnsemble 
+BuildRequires:    R-CRAN-topsis 
+Requires:         R-stats 
+Requires:         R-CRAN-MCS 
+Requires:         R-CRAN-WeightedEnsemble 
+Requires:         R-CRAN-topsis 
 
 %description
-Save the output of statistical tests in an organized file that can be
-shared with others or used to report statistics in scientific papers.
+We introduced a novel ensemble-based explainable machine learning model
+using Model Confidence Set (MCS) and two stage Technique for Order of
+Preference by Similarity to Ideal Solution (TOPSIS) algorithm. The model
+combined the predictive capabilities of different machine-learning models
+and integrates the interpretability of explainability methods. To develop
+the proposed algorithm, a two-stage Technique for Order of Preference by
+Similarity to Ideal Solution (TOPSIS) framework was employed. The package
+has been developed using the algorithm of Paul et al.
+<doi:10.1007/s40009-023-01218-x> and Yeasin and Paul (2024)
+<doi:10.1007/s11227-023-05542-3>.
 
 %prep
 %setup -q -c -n %{packname}

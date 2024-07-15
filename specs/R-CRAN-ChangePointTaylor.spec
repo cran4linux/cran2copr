@@ -1,51 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ppendemic
-%global packver   0.1.8
+%global packname  ChangePointTaylor
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Glimpse at the Diversity of Peru's Endemic Plants
+Summary:          Identify Changes in Mean
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-Introducing a novel and updated database showcasing Peru's endemic plants.
-This meticulously compiled and revised botanical collection encompasses a
-remarkable assemblage of over 7,249 distinct species. The data for this
-resource was sourced from the work of Govaerts, R., Nic Lughadha, E.,
-Black, N. et al., titled 'The World Checklist of Vascular Plants: A
-continuously updated resource for exploring global plant diversity',
-published in Sci Data 8, 215 (2021) <doi:10.1038/s41597-021-00997-6>.
+A basic implementation of the change in mean detection method outlined in:
+Taylor, Wayne A. (2000)
+<https://variation.com/wp-content/uploads/change-point-analyzer/change-point-analysis-a-powerful-new-tool-for-detecting-changes.pdf>.
+The package recursively uses the mean-squared error change point
+calculation to identify candidate change points. The candidate change
+points are then re-estimated and Taylor's backwards elimination process is
+then employed to come up with a final set of change points. Many of the
+underlying functions are written in C++ for improved performance.
 
 %prep
 %setup -q -c -n %{packname}

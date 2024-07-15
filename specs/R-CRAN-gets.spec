@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gets
-%global packver   0.37
+%global packver   0.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.37
+Version:          0.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          General-to-Specific (GETS) Modelling and Indicator Saturation Methods
 
@@ -28,7 +28,9 @@ Requires:         R-methods
 Automated General-to-Specific (GETS) modelling of the mean and variance of
 a regression, and indicator saturation methods for detecting and testing
 for structural breaks in the mean, see Pretis, Reade and Sucarrat (2018)
-<doi:10.18637/jss.v086.i03>.
+<doi:10.18637/jss.v086.i03> for an overview of the package. In advanced
+use, the estimator and diagnostics tests can be fully user-specified, see
+Sucarrat (2021) <doi:10.32614/RJ-2021-024>.
 
 %prep
 %setup -q -c -n %{packname}

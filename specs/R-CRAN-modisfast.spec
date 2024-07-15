@@ -1,51 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ppendemic
-%global packver   0.1.8
+%global packname  modisfast
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Glimpse at the Diversity of Peru's Endemic Plants
+Summary:          Fast and Efficient Access to MODIS Earth Observation Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-xml2 
 
 %description
-Introducing a novel and updated database showcasing Peru's endemic plants.
-This meticulously compiled and revised botanical collection encompasses a
-remarkable assemblage of over 7,249 distinct species. The data for this
-resource was sourced from the work of Govaerts, R., Nic Lughadha, E.,
-Black, N. et al., titled 'The World Checklist of Vascular Plants: A
-continuously updated resource for exploring global plant diversity',
-published in Sci Data 8, 215 (2021) <doi:10.1038/s41597-021-00997-6>.
+Programmatic interface to several NASA Earth Observation 'OPeNDAP' servers
+(Open-source Project for a Network Data Access Protocol)
+(<https://www.opendap.org/>). Allows for easy downloads of MODIS subsets,
+as well as other Earth Observation datacubes, in a time-saving and
+efficient way : by sampling it at the very downloading phase (spatially,
+temporally and dimensionally).
 
 %prep
 %setup -q -c -n %{packname}
