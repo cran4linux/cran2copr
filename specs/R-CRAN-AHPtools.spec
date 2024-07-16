@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AHPtools
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consistency in the Analytic Hierarchy Process
 
@@ -14,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
 A Swiss Army knife of utility functions for users of the Analytic
 Hierarchy Process (AHP) which will help you to assess the consistency of a
 PCM as well as to improve its consistency ratio, to compute the
-sensitivity of a PCM, create a logical, not a random PCM, from the
-preferences you provide for the alternatives, and a function that helps
+sensitivity of a PCM, create a logical (as distinct from a random PCM)
+from preferences provided for the alternatives, and a function that helps
 evaluate the actual consistency of a PCM based on objective, fair bench
 marking. The various functions in the toolkit additionally provide the
 flexibility to users to specify only the upper triangular comparison

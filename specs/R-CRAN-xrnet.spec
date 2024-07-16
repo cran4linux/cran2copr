@@ -1,52 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VAJointSurv
-%global packver   0.1.0
+%global packname  xrnet
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Approximation for Joint Survival and Marker Models
+Summary:          Hierarchical Regularized Regression
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-psqn >= 0.3.0
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-splines 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-SimSurvNMarker 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.19
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-splines 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-SimSurvNMarker 
-Requires:         R-CRAN-psqn >= 0.3.0
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.19
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-bigmemory 
 Requires:         R-methods 
-Requires:         R-CRAN-lme4 
 
 %description
-Estimates joint marker (longitudinal) and and survival (time-to-event)
-outcomes using variational approximations. The package supports
-multivariate markers allowing for correlated error terms and multiple
-types of survival outcomes which may be left-truncated, right-censored,
-and recurrent. Time-varying fixed and random covariate effects are
-supported along with non-proportional hazards.
+Fits hierarchical regularized regression models to incorporate potentially
+informative external data, Weaver and Lewinger (2019)
+<doi:10.21105/joss.01761>. Utilizes coordinate descent to efficiently fit
+regularized regression models both with and without external information
+with the most common penalties used in practice (i.e. ridge, lasso,
+elastic net). Support for standard R matrices, sparse matrices and
+big.matrix objects.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lineup
-%global packver   0.42
+%global packver   0.44
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42
+Version:          0.44
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lining Up Two Sets of Measurements
 

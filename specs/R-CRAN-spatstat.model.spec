@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.model
-%global packver   3.2-11
+%global packver   3.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.11
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Statistical Modelling and Inference for the 'spatstat' Family
 
@@ -16,12 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.geom >= 3.2.9
-BuildRequires:    R-CRAN-spatstat.explore >= 3.2.7
-BuildRequires:    R-CRAN-spatstat.random >= 3.2.3
+BuildRequires:    R-CRAN-spatstat.geom >= 3.3.0
+BuildRequires:    R-CRAN-spatstat.random >= 3.3.0
+BuildRequires:    R-CRAN-spatstat.explore >= 3.3.0
+BuildRequires:    R-CRAN-spatstat.sparse >= 3.1.0
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.5
 BuildRequires:    R-CRAN-spatstat.data >= 3.0.4
-BuildRequires:    R-CRAN-spatstat.utils >= 3.0.4
-BuildRequires:    R-CRAN-spatstat.sparse >= 3.0.3
+BuildRequires:    R-CRAN-spatstat.univar >= 3.0.0
 BuildRequires:    R-CRAN-goftest >= 1.2.2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -34,12 +35,13 @@ BuildRequires:    R-CRAN-mgcv
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-tensor 
-Requires:         R-CRAN-spatstat.geom >= 3.2.9
-Requires:         R-CRAN-spatstat.explore >= 3.2.7
-Requires:         R-CRAN-spatstat.random >= 3.2.3
+Requires:         R-CRAN-spatstat.geom >= 3.3.0
+Requires:         R-CRAN-spatstat.random >= 3.3.0
+Requires:         R-CRAN-spatstat.explore >= 3.3.0
+Requires:         R-CRAN-spatstat.sparse >= 3.1.0
+Requires:         R-CRAN-spatstat.utils >= 3.0.5
 Requires:         R-CRAN-spatstat.data >= 3.0.4
-Requires:         R-CRAN-spatstat.utils >= 3.0.4
-Requires:         R-CRAN-spatstat.sparse >= 3.0.3
+Requires:         R-CRAN-spatstat.univar >= 3.0.0
 Requires:         R-CRAN-goftest >= 1.2.2
 Requires:         R-stats 
 Requires:         R-graphics 

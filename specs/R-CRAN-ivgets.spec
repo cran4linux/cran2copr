@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivgets
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          General to Specific Modeling and Indicator Saturation in 2SLS Models
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gets >= 0.36
+BuildRequires:    R-CRAN-gets >= 0.38
 BuildRequires:    R-CRAN-ivreg 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-gets >= 0.36
+Requires:         R-CRAN-gets >= 0.38
 Requires:         R-CRAN-ivreg 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

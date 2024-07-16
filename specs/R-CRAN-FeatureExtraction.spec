@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FeatureExtraction
-%global packver   3.5.2
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.2
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Features for a Cohort
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DatabaseConnector >= 3.0.0
 BuildRequires:    R-CRAN-ParallelLogger >= 2.0.2
-BuildRequires:    R-CRAN-SqlRender >= 1.6.0
+BuildRequires:    R-CRAN-SqlRender >= 1.18.0
 BuildRequires:    R-CRAN-Andromeda 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-DatabaseConnector >= 3.0.0
 Requires:         R-CRAN-ParallelLogger >= 2.0.2
-Requires:         R-CRAN-SqlRender >= 1.6.0
+Requires:         R-CRAN-SqlRender >= 1.18.0
 Requires:         R-CRAN-Andromeda 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  processmapR
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Process Maps Using Event Data
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-DiagrammeR >= 1.0.0
@@ -59,6 +60,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 Visualize event logs using directed graphs, i.e. process maps. Part of the
