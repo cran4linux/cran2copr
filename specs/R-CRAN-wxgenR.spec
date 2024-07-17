@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wxgenR
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stochastic Weather Generator with Seasonality
 
@@ -43,7 +43,7 @@ Requires:         R-CRAN-magrittr
 %description
 A weather generator to simulate precipitation and temperature for regions
 with seasonality. Users input training data containing precipitation,
-temperature, and seasonality (up to 20 seasons). Including weather season
+temperature, and seasonality (up to 26 seasons). Including weather season
 as a training variable allows users to explore the effects of potential
 changes in season duration as well as average start- and end-time dates
 due to phenomena like climate change. Data for training should be a single

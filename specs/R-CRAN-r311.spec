@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  icesDatsuQC
-%global packver   1.0.1
+%global packname  r311
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Run Quality Checks on Data Prior to Submission to ICES
+Summary:          Interface to the 'open311' Standard
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-icesDatsu >= 1.1.0
-BuildRequires:    R-CRAN-sqldf 
-Requires:         R-CRAN-icesDatsu >= 1.1.0
-Requires:         R-CRAN-sqldf 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Run quality checks on data sets using the same checks that are conducted
-on the ICES Data Submission Utility (DATSU)
-<https://datsu.ices.dk/web/index.aspx>.
+Access and handle APIs that use the international 'open311' 'GeoReport v2'
+standard for civic issue tracking
+<https://wiki.open311.org/GeoReport_v2/>. Retrieve civic service types and
+request data. Select and add available 'open311' endpoints and
+jurisdictions. Implicitly supports custom queries and 'open311'
+extensions. Requires a minimal number of hard dependencies while still
+allowing the integration in common R formats ('xml2', 'tibble', 'sf').
 
 %prep
 %setup -q -c -n %{packname}

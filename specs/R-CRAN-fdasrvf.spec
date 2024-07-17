@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdasrvf
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Elastic Functional Data Analysis
 
@@ -45,8 +45,8 @@ Requires:         R-CRAN-viridisLite
 %description
 Performs alignment, PCA, and modeling of multidimensional and
 unidimensional functions using the square-root velocity framework
-(Srivastava et al., 2011 <arXiv:1103.3817> and Tucker et al., 2014
-<DOI:10.1016/j.csda.2012.12.001>). This framework allows for elastic
+(Srivastava et al., 2011 <doi:10.48550/arXiv.1103.3817> and Tucker et al.,
+2014 <DOI:10.1016/j.csda.2012.12.001>). This framework allows for elastic
 analysis of functional data through phase and amplitude separation.
 
 %prep

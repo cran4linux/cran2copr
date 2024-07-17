@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  strawr
-%global packver   0.0.91
+%global packver   0.0.92
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.91
+Version:          0.0.92
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Implementation of Reading/Dump for .hic Files
 

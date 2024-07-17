@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lazytrade
-%global packver   0.5.3
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Learn Computer and Data Science using Algorithmic Trading
 
@@ -52,7 +53,7 @@ using reinforcement learning and even functions to generate predictions of
 price changes using pattern recognition deep regression learning. Summary
 of Methods used: Awesome H2O tutorials:
 <https://github.com/h2oai/awesome-h2o>, Market Type research of Van Tharp
-Institute: <https://www.vantharp.com/>, Reinforcement Learning R package:
+Institute: <https://vantharp.com/>, Reinforcement Learning R package:
 <https://CRAN.R-project.org/package=ReinforcementLearning>.
 
 %prep

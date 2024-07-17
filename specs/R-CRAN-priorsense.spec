@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  priorsense
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prior Diagnostics and Sensitivity Analysis
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-ggdist >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-checkmate >= 2.3.1
-BuildRequires:    R-CRAN-posterior >= 1.5.0
+BuildRequires:    R-CRAN-posterior >= 1.6.0
 BuildRequires:    R-CRAN-matrixStats >= 1.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-ggh4x >= 0.2.5
@@ -32,7 +32,7 @@ Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-ggdist >= 3.3.2
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-checkmate >= 2.3.1
-Requires:         R-CRAN-posterior >= 1.5.0
+Requires:         R-CRAN-posterior >= 1.6.0
 Requires:         R-CRAN-matrixStats >= 1.3.0
 Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-ggh4x >= 0.2.5

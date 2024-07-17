@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  icesDatsu
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  clrng
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Interact with the ICES Data Submission Utility (DATSU)
+Summary:          Parallel Random Number Generation on GPU
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-icesConnect >= 1.0.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-icesConnect >= 1.0.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-gpuR 
+BuildRequires:    R-CRAN-RViennaCL 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-gpuR 
 
 %description
-Functions to Interact with the ICES Data Submission Utility (DATSU)
-<https://datsu.ices.dk/web/index.aspx>.
+Builds on 'gpuR' and utilizes the 'clRNG' ('OpenCL') library to provide
+efficient tools to generate independent random numbers in parallel on a
+GPU and save the results as 'R' objects, ensuring high-quality random
+numbers even when 'R' is used interactively or in an ad-hoc manner.
+Includes Fisher's simulation method adapted from Patefield, William M
+(1981) <doi:10.2307/2346669> and 'MRG31k3p' Random Number Generator from
+'clRNG' library by Advanced Micro Devices, Inc. (2015)
+<https://github.com/clMathLibraries/clRNG>.
 
 %prep
 %setup -q -c -n %{packname}
