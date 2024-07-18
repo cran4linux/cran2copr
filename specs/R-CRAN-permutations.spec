@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  permutations
-%global packver   1.1-2
+%global packver   1.1-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Symmetric Group: Permutations of a Finite Set
 
@@ -22,13 +22,11 @@ BuildRequires:    R-CRAN-freealg >= 1.0.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-numbers 
-BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-partitions >= 1.9.17
 Requires:         R-CRAN-freealg >= 1.0.4
 Requires:         R-methods 
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-numbers 
-Requires:         R-CRAN-mathjaxr 
 
 %description
 Manipulates invertible functions from a finite set to itself.  Can

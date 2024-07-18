@@ -1,58 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipumsr
-%global packver   0.8.1
+%global packname  rplanes
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface for Downloading, Reading, and Handling IPUMS Data
+Summary:          Plausibility Analysis of Epidemiological Signals
 
-License:          Mozilla Public License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-hipread >= 0.2.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-ecp 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-haven >= 2.2.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-hipread >= 0.2.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-ecp 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An easy way to work with census, survey, and geographic data provided by
-IPUMS in R. Generate and download data through the IPUMS API and load
-IPUMS files into R with their associated metadata to make analysis easier.
-IPUMS data describing 1.4 billion individuals drawn from over 750 censuses
-and surveys is available free of charge from the IPUMS website
-<https://www.ipums.org>.
+Provides functionality to prepare data and analyze plausibility of both
+forecasted and reported epidemiological signals. The functions implement a
+set of plausibility algorithms that are agnostic to geographic and time
+resolutions and are calculated independently then presented as a combined
+score.
 
 %prep
 %setup -q -c -n %{packname}

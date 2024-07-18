@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rerddapXtracto
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracts Environmental Data from 'ERDDAP' Web Services
+Summary:          Extracts Environmental Data from 'ERDDAP™' Web Services
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -49,12 +49,12 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Contains three functions that access environmental data from any 'ERDDAP'
+Contains three functions that access environmental data from any 'ERDDAP™'
 data web service. The rxtracto() function extracts data along a trajectory
 for a given "radius" around the point. The rxtracto_3D() function extracts
 data in a box. The rxtractogon() function extracts data in a polygon. All
 of those three function use the 'rerddap' package to extract the data, and
-should work with any 'ERDDAP' server. There are also two functions,
+should work with any 'ERDDAP™' server. There are also two functions,
 plotBBox() and plotTrack() that use the 'plotdap' package to simplify the
 creation of maps of the data.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treestats
-%global packver   1.0.5
+%global packver   1.70.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.70.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Tree Statistics
 
@@ -19,13 +19,9 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-Matrix 
 
 %description
 Collection of phylogenetic tree statistics, collected throughout the

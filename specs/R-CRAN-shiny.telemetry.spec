@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny.telemetry
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' App Usage Telemetry
 
@@ -21,8 +21,10 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-odbc 
@@ -31,13 +33,16 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-odbc 
@@ -46,6 +51,7 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 
 %description

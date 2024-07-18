@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  see
-%global packver   0.8.4
+%global packver   0.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Visualisation Toolbox for 'easystats' and 'ggplot2'
 
@@ -14,33 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
-BuildRequires:    R-CRAN-effectsize >= 0.8.7
-BuildRequires:    R-CRAN-modelbased >= 0.8.7
-BuildRequires:    R-CRAN-correlation >= 0.8.4
-BuildRequires:    R-CRAN-parameters >= 0.21.6
-BuildRequires:    R-CRAN-insight >= 0.19.10
+BuildRequires:    R-CRAN-effectsize >= 0.8.9
+BuildRequires:    R-CRAN-modelbased >= 0.8.8
+BuildRequires:    R-CRAN-correlation >= 0.8.5
+BuildRequires:    R-CRAN-parameters >= 0.22.0
+BuildRequires:    R-CRAN-insight >= 0.20.2
 BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-CRAN-performance >= 0.11.0
-BuildRequires:    R-CRAN-datawizard >= 0.10.0
+BuildRequires:    R-CRAN-datawizard >= 0.12.1
+BuildRequires:    R-CRAN-performance >= 0.12.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 >= 3.5.1
-Requires:         R-CRAN-effectsize >= 0.8.7
-Requires:         R-CRAN-modelbased >= 0.8.7
-Requires:         R-CRAN-correlation >= 0.8.4
-Requires:         R-CRAN-parameters >= 0.21.6
-Requires:         R-CRAN-insight >= 0.19.10
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-effectsize >= 0.8.9
+Requires:         R-CRAN-modelbased >= 0.8.8
+Requires:         R-CRAN-correlation >= 0.8.5
+Requires:         R-CRAN-parameters >= 0.22.0
+Requires:         R-CRAN-insight >= 0.20.2
 Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-CRAN-performance >= 0.11.0
-Requires:         R-CRAN-datawizard >= 0.10.0
+Requires:         R-CRAN-datawizard >= 0.12.1
+Requires:         R-CRAN-performance >= 0.12.1
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Provides plotting utilities supporting packages in the 'easystats'

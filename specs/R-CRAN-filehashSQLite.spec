@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  filehashSQLite
-%global packver   0.2-6
+%global packver   0.2-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Key-Value Database Using SQLite
+Summary:          Simple Key-Value Database using SQLite
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-filehash 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-DBI 
 Requires:         R-CRAN-filehash 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-methods 
-Requires:         R-CRAN-DBI 
 
 %description
-Simple key-value database using SQLite as the back end.
+Simple key-value database using SQLite as the backend.
 
 %prep
 %setup -q -c -n %{packname}
