@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multichull
-%global packver   1.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Generic Convex-Hull-Based Model Selection Method
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-DT 
 
 %description
 Given a set of models for which a measure of model (mis)fit and model

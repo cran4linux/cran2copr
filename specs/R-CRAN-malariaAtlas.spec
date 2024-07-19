@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  malariaAtlas
-%global packver   1.5.1
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Interface to Open-Access Malaria Data, Hosted by the 'Malaria Atlas Project'
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-future.apply
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-gridExtra 
@@ -55,6 +56,7 @@ Requires:         R-CRAN-future.apply
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggnewscale 
 
 %description
 A suite of tools to allow you to download all publicly available parasite

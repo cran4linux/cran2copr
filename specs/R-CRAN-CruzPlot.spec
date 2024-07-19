@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CruzPlot
-%global packver   1.4.8
+%global packver   1.4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.8
+Version:          1.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Shipboard DAS Data
 
-License:          CC0
+License:          Apache License (== 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -41,10 +42,11 @@ Requires:         R-CRAN-stringr
 
 %description
 A utility program oriented to create maps, plot data, and do basic data
-summaries of 'DAS' data
+summaries of DAS data files. These files are typically, but do not have to
+be DAS
 <https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-305.PDF>
-produced by 'WinCruz' from the Southwest Fisheries Science Center.
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
+data produced by the Southwest Fisheries Science Center (SWFSC) program
+'WinCruz'.
 
 %prep
 %setup -q -c -n %{packname}

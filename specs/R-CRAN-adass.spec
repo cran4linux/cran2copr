@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSpectra
-%global packver   0.16-2
+%global packname  adass
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solvers for Large-Scale Eigenvalue and SVD Problems
+Summary:          Adaptive Smoothing Spline (AdaSS) Estimator for the Function-on-Function Linear Regression
 
-License:          MPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-plot3D 
+Requires:         R-CRAN-fda 
+Requires:         R-parallel 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-plot3D 
 
 %description
-R interface to the 'Spectra' library <https://spectralib.org/> for
-large-scale eigenvalue and SVD problems. It is typically used to compute a
-few eigenvalues/vectors of an n by n matrix, e.g., the k largest
-eigenvalues, which is usually more efficient than eigen() if k << n. This
-package provides the 'eigs()' function that does the similar job as in
-'Matlab', 'Octave', 'Python SciPy' and 'Julia'. It also provides the
-'svds()' function to calculate the largest k singular values and
-corresponding singular vectors of a real matrix. The matrix to be computed
-on can be dense, sparse, or in the form of an operator defined by the
-user.
+Implements the adaptive smoothing spline estimator for the
+function-on-function linear regression model described in Centofanti et
+al. (2023) <doi:10.1007/s00180-022-01223-6>.
 
 %prep
 %setup -q -c -n %{packname}

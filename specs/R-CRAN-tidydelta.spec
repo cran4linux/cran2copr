@@ -1,38 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSpectra
-%global packver   0.16-2
+%global packname  tidydelta
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solvers for Large-Scale Eigenvalue and SVD Problems
+Summary:          Estimation of Standard Errors using Delta Method
 
-License:          MPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 
 %description
-R interface to the 'Spectra' library <https://spectralib.org/> for
-large-scale eigenvalue and SVD problems. It is typically used to compute a
-few eigenvalues/vectors of an n by n matrix, e.g., the k largest
-eigenvalues, which is usually more efficient than eigen() if k << n. This
-package provides the 'eigs()' function that does the similar job as in
-'Matlab', 'Octave', 'Python SciPy' and 'Julia'. It also provides the
-'svds()' function to calculate the largest k singular values and
-corresponding singular vectors of a real matrix. The matrix to be computed
-on can be dense, sparse, or in the form of an operator defined by the
-user.
+Delta Method implementation to estimate standard errors with known
+asymptotic properties within the 'tidyverse' workflow. The Delta Method is
+a statistical tool that approximates an estimator’s behaviour using a
+Taylor Expansion. For a comprehensive explanation, please refer to Chapter
+3 of van der Vaart (1998, ISBN: 9780511802256).
 
 %prep
 %setup -q -c -n %{packname}

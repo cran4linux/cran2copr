@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RSpectra
-%global packver   0.16-2
+%global packname  EWOC.Comb
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solvers for Large-Scale Eigenvalue and SVD Problems
+Summary:          Escalation with Overdose Control using 2 Drug Combinations
 
-License:          MPL (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-MASS 
 
 %description
-R interface to the 'Spectra' library <https://spectralib.org/> for
-large-scale eigenvalue and SVD problems. It is typically used to compute a
-few eigenvalues/vectors of an n by n matrix, e.g., the k largest
-eigenvalues, which is usually more efficient than eigen() if k << n. This
-package provides the 'eigs()' function that does the similar job as in
-'Matlab', 'Octave', 'Python SciPy' and 'Julia'. It also provides the
-'svds()' function to calculate the largest k singular values and
-corresponding singular vectors of a real matrix. The matrix to be computed
-on can be dense, sparse, or in the form of an operator defined by the
-user.
+Implements Escalation With Overdose Control trial designs using two drug
+combinations described by this paper <doi:10.1002/sim.6961>(Tighiouart et
+al., 2016). It calculates the recommended dose for next cohorts and
+perform simulations to obtain operating characteristics.
 
 %prep
 %setup -q -c -n %{packname}

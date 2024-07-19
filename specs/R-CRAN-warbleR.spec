@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  warbleR
-%global packver   1.1.30
+%global packver   1.1.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.30
+Version:          1.1.31
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Bioacoustic Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-seewave >= 2.0.1
 BuildRequires:    R-CRAN-tuneR 
@@ -60,19 +60,18 @@ Requires:         R-CRAN-cli
 %description
 Functions aiming to facilitate the analysis of the structure of animal
 acoustic signals in 'R'. 'warbleR' makes use of the basic sound analysis
-tools from the package 'seewave', and offers new tools for acoustic
-structure analysis. The main features of the package are the use of loops
-to apply tasks through acoustic signals referenced in a selection
+tools from the packages 'tuneR' and 'seewave', and offers new tools for
+acoustic structure analysis. The main features of the package are the use
+of loops to apply tasks through acoustic signals referenced in a selection
 (annotation) table and the production of spectrograms in image files that
 allow to organize data and verify acoustic analyzes. The package offers
 functions to explore, organize and manipulate multiple sound files,
-explore and download 'Xeno-Canto' recordings, detect signals
-automatically, create spectrograms of complete recordings or individual
-signals, run different measures of acoustic signal structure, evaluate the
-performance of measurement methods, catalog signals, characterize
-different structural levels in acoustic signals, run statistical analysis
-of duet coordination and consolidate databases and annotation tables,
-among others.
+explore and download 'Xeno-Canto' recordings, create spectrograms of
+complete recordings or individual signals, run different measures of
+acoustic signal structure, evaluate the performance of measurement
+methods, catalog signals, characterize different structural levels in
+acoustic signals, run statistical analysis of duet coordination and
+consolidate databases and annotation tables, among others.
 
 %prep
 %setup -q -c -n %{packname}
