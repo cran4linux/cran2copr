@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chisquare
-%global packver   0.9
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chi-Square and G-Square Test of Independence, Power and Residual Analysis, Measures of Categorical Association
 
@@ -28,13 +28,15 @@ Requires:         R-CRAN-gt >= 0.3.1
 Provides the facility to perform the chi-square and G-square test of
 independence, calculates the power of the traditional chi-square test,
 compute permutation and Monte Carlo p-value, and provides measures of
-association such as Phi, odds ratio with 95 percent CI and p-value,
-adjusted contingency coefficient, Cramer's V and 95 percent CI,
-bias-corrected Cramer's V, W, Cohen's w, Goodman-Kruskal's lambda, gamma
-and its p-value, and tau, Cohen's k and its 95 percent CI. It also
-calculates standardized, moment-corrected standardized, and adjusted
-standardized residuals, and their significance. Different outputs are
-returned in nicely formatted tables.
+association for tables of any size such as Phi, Phi corrected, odds ratio
+with 95 percent CI and p-value, Yule' Q and Y, adjusted contingency
+coefficient, Cramer's V, V corrected, V standardised, bias-corrected V, W,
+Cohen's w, Goodman-Kruskal's lambda, gamma, tau, Cohen's k. It also
+calculates standardised, moment-corrected standardised, and adjusted
+standardised residuals, and their significance, as well as the Quetelet
+Index, IJ association factor, and adjusted standardised counts. It also
+computes the chi-square-maximising version of the input table. Different
+outputs are returned in nicely formatted tables.
 
 %prep
 %setup -q -c -n %{packname}

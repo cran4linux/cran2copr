@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpSolveAPI
-%global packver   5.5.2.0-17.11
+%global packver   5.5.2.0-17.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.2.0.17.11
+Version:          5.5.2.0.17.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'lp_solve' Version 5.5.2.0
 

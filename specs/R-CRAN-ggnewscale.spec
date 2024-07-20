@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggnewscale
-%global packver   0.4.10
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.10
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Fill and Colour Scales in 'ggplot2'
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 
 %description
 Use multiple fill and colour scales in 'ggplot2'.
