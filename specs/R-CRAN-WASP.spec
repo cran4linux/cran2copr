@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quarto
+%global packname  WASP
 %global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Quarto' Markdown Publishing System
+Summary:          Wavelet System Prediction
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-waveslim 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-fitdistrplus 
+Requires:         R-CRAN-waveslim 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-fitdistrplus 
 
 %description
-Convert R Markdown documents and 'Jupyter' notebooks to a variety of
-output formats using 'Quarto'.
+The wavelet-based variance transformation method is used for system
+modelling and prediction. It refines predictor spectral representation
+using Wavelet Theory, which leads to improved model specifications and
+prediction accuracy. Details of methodologies used in the package can be
+found in Jiang, Z., Sharma, A., & Johnson, F. (2020)
+<doi:10.1029/2019WR026962>, Jiang, Z., Rashid, M. M., Johnson, F., &
+Sharma, A. (2020) <doi:10.1016/j.envsoft.2020.104907>, and Jiang, Z.,
+Sharma, A., & Johnson, F. (2021) <doi:10.1016/J.JHYDROL.2021.126816>.
 
 %prep
 %setup -q -c -n %{packname}

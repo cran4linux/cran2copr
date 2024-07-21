@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cards
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis Results Data
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-rlang >= 1.1.1
 
 %description
-Construct Clinical Data Interchange Standards Consortium (CDISC) compliant
+Construct CDISC (Clinical Data Interchange Standards Consortium) compliant
 Analysis Results Data objects. These objects are used and re-used to
 construct summary tables, visualizations, and written reports. The package
 also exports utilities for working with these objects and creating new

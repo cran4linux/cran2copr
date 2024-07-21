@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenRepGrid
-%global packver   0.1.14
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Analyze Repertory Grid Data
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-XML 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-XML 
@@ -63,7 +61,9 @@ Analyze repertory grids, a qualitative-quantitative data collection
 technique devised by George A. Kelly in the 1950s. Today, grids are used
 across various domains ranging from clinical psychology to marketing. The
 package contains functions to quantitatively analyze and visualize
-repertory grid data.
+repertory grid data (e.g. 'Fransella', 'Bell', & 'Bannister', 2004, ISBN:
+978-0-470-09080-0). The package is part of the The package is part of the
+<https://openrepgrid.org/> project.
 
 %prep
 %setup -q -c -n %{packname}
