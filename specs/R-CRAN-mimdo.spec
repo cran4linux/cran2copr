@@ -1,48 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LifemapR
-%global packver   1.1.2
+%global packname  mimdo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Visualisation on 'Lifemap' Tree
+Summary:          Multivariate Imputation by Mahalanobis Distance Optimization
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-leaflet.minicharts 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-fastmatch 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-leaflet.minicharts 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-fastmatch 
 
 %description
-Allow to visualise data on the NCBI phylogenetic tree as presented in
-Lifemap '<http://lifemap.univ-lyon1.fr/>'. It takes as input a dataframe
-with at least a "taxid" column containing NCBI format TaxIds and allows to
-draw multiple layers with different visualisation tools.
+Imputes missing values of an incomplete data matrix by minimizing the
+Mahalanobis distance of each sample from the overall mean [Labita, GJ.D.
+and Tubo, B.F. (2024) <doi:10.24412/1932-2321-2024-278-115-123>].
 
 %prep
 %setup -q -c -n %{packname}

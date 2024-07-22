@@ -1,49 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PMwR
-%global packver   0.19-5
+%global packname  moc.gapbk
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Portfolio Management with R
+Summary:          Multi-Objective Clustering Algorithm Guided by a-Priori Biological Knowledge
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.2.5
+Requires:         R-core >= 3.2.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMOF 
-BuildRequires:    R-CRAN-datetimeutils 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-orgutils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-amap 
+BuildRequires:    R-CRAN-nsga2R 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-NMOF 
-Requires:         R-CRAN-datetimeutils 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-orgutils 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-doMPI 
+Requires:         R-stats 
+Requires:         R-CRAN-amap 
+Requires:         R-CRAN-nsga2R 
+Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
-Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-doParallel 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-doMPI 
 
 %description
-Tools for the practical management of financial portfolios: backtesting
-investment and trading strategies, computing profit/loss and returns,
-analysing trades, handling lists of transactions, reporting, and more.
-The package provides a small set of reliable, efficient and convenient
-tools for processing and analysing trade/portfolio data.  The Manual
-provides all the details; it is available from
-<https://enricoschumann.net/R/packages/PMwR/manual/PMwR.html>. Examples
-and descriptions of new features are provided at
-<https://enricoschumann.net/notes/PMwR/>.
+Implements the Multi-Objective Clustering Algorithm Guided by a-Priori
+Biological Knowledge (MOC-GaPBK) which was proposed by Parraga-Alava, J.
+et. al. (2018) <doi:10.1186/s13040-018-0178-4>. It was designed for
+clustering genes based on co-expression, biological coherence,
+compactness, and separation criteria. However, its flexible design allows
+it to be applied to cluster data of various types and domains. The
+algorithm optimizes object relationships based on two objective functions
+using cluster quality indexes, incorporating intensification and
+diversification strategies to enhance the search process.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Qval
-%global packver   0.1.7
+%global packname  kpcaIG
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Q-Matrix Validation Methods Framework
+Summary:          Variables Interpretability with Kernel PCA
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-GDINA 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-GDINA 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-WallomicsData 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-WallomicsData 
 
 %description
-Provide a variety of Q-matrix validation methods for the generalized
-cognitive diagnosis models, including the method based on the generalized
-deterministic input, noisy, and gate model (G-DINA) by de la Torre (2011)
-<DOI:10.1007/s11336-011-9207-7> discrimination index (the GDI method) by
-de la Torre and Chiu (2016) <DOI:10.1007/s11336-015-9467-8>, the step-wise
-Wald test method (the Wald method) by Ma and de la Torre (2020)
-<DOI:10.1111/bmsp.12156>, the Hull method by Najera et al. (2021)
-<DOI:10.1111/bmsp.12228>, the multiple logistic regression‑based Q‑matrix
-validation method (the MLR-B method) by Tu et al. (2022)
-<DOI:10.3758/s13428-022-01880-x>. Different research methods during
-Q-matrix validating are available.
+The kernelized version of principal component analysis (KPCA) has proven
+to be a valid nonlinear alternative for tackling the nonlinearity of
+biological sample spaces. However, it poses new challenges in terms of the
+interpretability of the original variables. 'kpcaIG' aims to provide a
+tool to select the most relevant variables based on the kernel PCA
+representation of the data as in Briscik et al. (2023)
+<doi:10.1186/s12859-023-05404-y>. It also includes functions for 2D and 3D
+visualization of the original variables (as arrows) into the kernel
+principal components axes, highlighting the contribution of the most
+important ones.
 
 %prep
 %setup -q -c -n %{packname}

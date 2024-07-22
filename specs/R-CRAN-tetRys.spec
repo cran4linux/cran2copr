@@ -1,49 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PMwR
-%global packver   0.19-5
+%global packname  tetRys
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Portfolio Management with R
+Summary:          Game of 'tetRys'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMOF 
-BuildRequires:    R-CRAN-datetimeutils 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-orgutils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-textutils 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-NMOF 
-Requires:         R-CRAN-datetimeutils 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-orgutils 
-Requires:         R-parallel 
-Requires:         R-CRAN-textutils 
-Requires:         R-utils 
-Requires:         R-CRAN-zoo 
+BuildRequires:    R-tcltk 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-audio 
+Requires:         R-tcltk 
+Requires:         R-grid 
+Requires:         R-CRAN-audio 
 
 %description
-Tools for the practical management of financial portfolios: backtesting
-investment and trading strategies, computing profit/loss and returns,
-analysing trades, handling lists of transactions, reporting, and more.
-The package provides a small set of reliable, efficient and convenient
-tools for processing and analysing trade/portfolio data.  The Manual
-provides all the details; it is available from
-<https://enricoschumann.net/R/packages/PMwR/manual/PMwR.html>. Examples
-and descriptions of new features are provided at
-<https://enricoschumann.net/notes/PMwR/>.
+A game inspired by 'Tetris'. Opens a plot window device and starts a game
+of 'tetRys' in it. Steer the tetrominos with the arrow keys, press Pause
+to pause and Esc to end the game.
 
 %prep
 %setup -q -c -n %{packname}

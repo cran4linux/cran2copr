@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  protr
-%global packver   1.7-2
+%global packname  centr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Various Numerical Representation Schemes for Protein Sequences
+Summary:          Weighted and Unweighted Spatial Centers
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-sf 
 
 %description
-Comprehensive toolkit for generating various numerical features of protein
-sequences described in Xiao et al. (2015)
-<DOI:10.1093/bioinformatics/btv042>. For full functionality, the software
-'ncbi-blast+' is needed, see
-<https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html> for
-more information.
+Generate mean and median weighted or unweighted spatial centers. Functions
+are analogous to their identically named counterparts within 'ArcGIS Pro'.
+Median center methodology based off of Kuhn and Kuenne (1962)
+<doi:10.1111/j.1467-9787.1962.tb00902.x>.
 
 %prep
 %setup -q -c -n %{packname}

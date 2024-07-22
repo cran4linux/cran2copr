@@ -1,49 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PMwR
-%global packver   0.19-5
+%global packname  infiltrodiscR
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.5
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Portfolio Management with R
+Summary:          Minidisc Infiltrometer Data Management
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMOF 
-BuildRequires:    R-CRAN-datetimeutils 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-orgutils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-NMOF 
-Requires:         R-CRAN-datetimeutils 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-orgutils 
-Requires:         R-parallel 
-Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
 
 %description
-Tools for the practical management of financial portfolios: backtesting
-investment and trading strategies, computing profit/loss and returns,
-analysing trades, handling lists of transactions, reporting, and more.
-The package provides a small set of reliable, efficient and convenient
-tools for processing and analysing trade/portfolio data.  The Manual
-provides all the details; it is available from
-<https://enricoschumann.net/R/packages/PMwR/manual/PMwR.html>. Examples
-and descriptions of new features are provided at
-<https://enricoschumann.net/notes/PMwR/>.
+A set of functions for the modeling of data derived from the Minidisc
+Infiltrometer device.  It calculates cumulative infiltration and square
+root of time. Also, it calculates the A parameter based on soil physical
+properties.
 
 %prep
 %setup -q -c -n %{packname}

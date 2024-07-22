@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Qval
-%global packver   0.1.7
+%global packname  bodycompref
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Q-Matrix Validation Methods Framework
+Summary:          Reference Values for CT-Assessed Body Composition
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-GDINA 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-GDINA 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-sae 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-gamlss 
 Requires:         R-stats 
+Requires:         R-CRAN-sae 
 
 %description
-Provide a variety of Q-matrix validation methods for the generalized
-cognitive diagnosis models, including the method based on the generalized
-deterministic input, noisy, and gate model (G-DINA) by de la Torre (2011)
-<DOI:10.1007/s11336-011-9207-7> discrimination index (the GDI method) by
-de la Torre and Chiu (2016) <DOI:10.1007/s11336-015-9467-8>, the step-wise
-Wald test method (the Wald method) by Ma and de la Torre (2020)
-<DOI:10.1111/bmsp.12156>, the Hull method by Najera et al. (2021)
-<DOI:10.1111/bmsp.12228>, the multiple logistic regression‑based Q‑matrix
-validation method (the MLR-B method) by Tu et al. (2022)
-<DOI:10.3758/s13428-022-01880-x>. Different research methods during
-Q-matrix validating are available.
+Get z-scores, percentiles, absolute values, and percent of predicted of a
+reference cohort. Functionality requires installing the data packages
+'adiposerefdata' and 'musclerefdata'. For more information on the
+underlying research, please visit our website which also includes a
+graphical interface. The models and underlying data are described in
+Marquardt JP et al.(planned publication 2025; reserved doi
+10.1097/RLI.0000000000001104), "Subcutaneous and Visceral adipose tissue
+Reference Values from Framingham Heart Study Thoracic and Abdominal CT",
+*Investigative Radiology* and Tonnesen PE et al. (2023), "Muscle Reference
+Values from Thoracic and Abdominal CT for Sarcopenia Assessment [column]
+The Framingham Heart Study", *Investigative Radiology*,
+<doi:10.1097/RLI.0000000000001012>.
 
 %prep
 %setup -q -c -n %{packname}

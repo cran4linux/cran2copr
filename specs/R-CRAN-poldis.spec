@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  protr
-%global packver   1.7-2
+%global packname  poldis
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Various Numerical Representation Schemes for Protein Sequences
+Summary:          Analyse Political Texts
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-spacyr 
+BuildRequires:    R-CRAN-textstem 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringdist 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-spacyr 
+Requires:         R-CRAN-textstem 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringdist 
 
 %description
-Comprehensive toolkit for generating various numerical features of protein
-sequences described in Xiao et al. (2015)
-<DOI:10.1093/bioinformatics/btv042>. For full functionality, the software
-'ncbi-blast+' is needed, see
-<https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html> for
-more information.
+Wrangle and annotate different types of political texts. It also
+introduces Urgency Analysis, a new method for the analysis of urgency in
+political texts.
 
 %prep
 %setup -q -c -n %{packname}

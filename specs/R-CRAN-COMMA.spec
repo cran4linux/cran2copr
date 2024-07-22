@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  protr
-%global packver   1.7-2
+%global packname  COMMA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Various Numerical Representation Schemes for Protein Sequences
+Summary:          Correcting Misclassified Mediation Analysis
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-turboEM >= 2021
+BuildRequires:    R-CRAN-Matrix > 1.4.1
+Requires:         R-CRAN-turboEM >= 2021
+Requires:         R-CRAN-Matrix > 1.4.1
 
 %description
-Comprehensive toolkit for generating various numerical features of protein
-sequences described in Xiao et al. (2015)
-<DOI:10.1093/bioinformatics/btv042>. For full functionality, the software
-'ncbi-blast+' is needed, see
-<https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html> for
-more information.
+Use three methods to estimate parameters from a mediation analysis with a
+binary misclassified mediator. These methods correct for the problem of
+"label switching" using Youden's J criteria. A detailed description of the
+analysis methods is available in Webb and Wells (2024), "Effect estimation
+in the presence of a misclassified binary mediator"
+<doi:10.48550/arXiv.2407.06970>.
 
 %prep
 %setup -q -c -n %{packname}

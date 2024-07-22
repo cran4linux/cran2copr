@@ -1,49 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  precommit
-%global packver   0.4.2
+%global packname  geotoolsR
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pre-Commit Hooks
+Summary:          Tools to Improve the Use of Geostatistic
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       git
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R.cache 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-here 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R.cache 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-geoR >= 1.9
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-geoR >= 1.9
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Useful git hooks for R building on top of the multi-language framework
-'pre-commit' for hook management. This package provides git hooks for
-common tasks like formatting files with 'styler' or spell checking as well
-as wrapper functions to access the 'pre-commit' executable.
+The basic idea of this package is provides some tools to help the
+researcher to work with geostatistics. Initially, we present a collection
+of functions that allow the researchers to deal with spatial data using
+bootstrap procedure. There are five methods available and two ways to
+display them: bootstrap confidence interval - provides a two-sided
+bootstrap confidence interval; bootstrap plot - a graphic with the
+original variogram and each of the B bootstrap variograms.
 
 %prep
 %setup -q -c -n %{packname}
