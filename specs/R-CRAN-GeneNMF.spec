@@ -1,45 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landscapemetrics
-%global packver   2.1.4
+%global packname  GeneNMF
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Metrics for Categorical Map Patterns
+Summary:          Non-Negative Matrix Factorization for Single-Cell Omics
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Seurat >= 4.3.0
+BuildRequires:    R-CRAN-RcppML 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-lsa 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-Seurat >= 4.3.0
+Requires:         R-CRAN-RcppML 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tibble 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-lsa 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-viridis 
 
 %description
-Calculates landscape metrics for categorical landscape patterns in a tidy
-workflow. 'landscapemetrics' reimplements the most common metrics from
-'FRAGSTATS' (<https://www.fragstats.org/>) and new ones from the current
-literature on landscape metrics. This package supports 'terra' SpatRaster
-objects as input arguments. It further provides utility functions to
-visualize patches, select metrics and building blocks to develop new
-metrics.
+A collection of methods to extract gene programs from single-cell gene
+expression data using non-negative matrix factorization (NMF). 'GeneNMF'
+contains functions to directly interact with the 'Seurat' toolkit and
+derive interpretable gene program signatures.
 
 %prep
 %setup -q -c -n %{packname}

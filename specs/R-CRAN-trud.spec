@@ -1,45 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landscapemetrics
-%global packver   2.1.4
+%global packname  trud
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Metrics for Categorical Map Patterns
+Summary:          Query the 'NHS TRUD API'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Calculates landscape metrics for categorical landscape patterns in a tidy
-workflow. 'landscapemetrics' reimplements the most common metrics from
-'FRAGSTATS' (<https://www.fragstats.org/>) and new ones from the current
-literature on landscape metrics. This package supports 'terra' SpatRaster
-objects as input arguments. It further provides utility functions to
-visualize patches, select metrics and building blocks to develop new
-metrics.
+A convenient R interface to the 'National Health Service (NHS) Technology
+Reference Update Distribution (TRUD) API'. Retrieve available releases for
+items that you are subscribed to and download these with ease. For more
+information on the API, see
+<https://isd.digital.nhs.uk/trud/users/guest/filters/0/api>.
 
 %prep
 %setup -q -c -n %{packname}

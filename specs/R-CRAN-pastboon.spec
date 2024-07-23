@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  landscapemetrics
-%global packver   2.1.4
+%global packname  pastboon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Landscape Metrics for Categorical Map Patterns
+Summary:          Simulation of Parameterized Stochastic Boolean Networks
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Calculates landscape metrics for categorical landscape patterns in a tidy
-workflow. 'landscapemetrics' reimplements the most common metrics from
-'FRAGSTATS' (<https://www.fragstats.org/>) and new ones from the current
-literature on landscape metrics. This package supports 'terra' SpatRaster
-objects as input arguments. It further provides utility functions to
-visualize patches, select metrics and building blocks to develop new
-metrics.
+Applying stochastic noise to Boolean networks is a useful approach for
+representing the effects of various perturbing stimuli on complex systems.
+A number of methods have been developed to control noise effects on
+Boolean networks using parameters integrated into the update rules. This
+package provides functions to examine three such methods: BNp (Boolean
+network with perturbations), described by Trairatphisan et al. (2013)
+<doi:10.1186/1478-811X-11-46>, SDDS (stochastic discrete dynamical
+systems), proposed by Murrugarra et al. (2012)
+<doi:10.1186/1687-4153-2012-5>, and PEW (Boolean network with
+probabilistic edge weights), presented by Deritei et al. (2022)
+<doi:10.1371/journal.pcbi.1010536>. This package includes source code
+derived from the 'BoolNet' package, which is licensed under the Artistic
+License 2.0.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  insee
-%global packver   1.1.5
+%global packname  precommit
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Download Data from INSEE BDM Database
+Summary:          Pre-Commit Hooks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+Recommends:       git
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-rappdirs 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-R.cache 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-R.cache 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-yaml 
 
 %description
-Using embedded sdmx queries, get the data of more than 150 000 insee
-series from 'bdm' macroeconomic database.
+Useful git hooks for R building on top of the multi-language framework
+'pre-commit' for hook management. This package provides git hooks for
+common tasks like formatting files with 'styler' or spell checking as well
+as wrapper functions to access the 'pre-commit' executable.
 
 %prep
 %setup -q -c -n %{packname}

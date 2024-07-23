@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rayvertex
-%global packver   0.10.4
+%global packver   0.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
+Version:          0.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Software Rasterizer
 
@@ -17,17 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-rayimage >= 0.10.0
+BuildRequires:    R-CRAN-rayimage >= 0.11.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-spacefillr 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-rayimage >= 0.10.0
+Requires:         R-CRAN-rayimage >= 0.11.0
 Requires:         R-grDevices 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-cli 
 
 %description
 Rasterize images using a 3D software renderer. 3D scenes are created

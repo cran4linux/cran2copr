@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3fda
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extending 'mlr3' to Functional Data Analysis
 
@@ -38,7 +38,7 @@ Requires:         R-CRAN-R6
 
 %description
 Extends the 'mlr3' ecosystem to functional analysis by adding support for
-irregular and regular functional data as defined in the 'tf' package. The
+irregular and regular functional data as defined in the 'tf' package.  The
 package provides 'PipeOps' for preprocessing functional columns and for
 extracting scalar features, thereby allowing standard machine learning
 algorithms to be applied afterwards. Available operations include simple

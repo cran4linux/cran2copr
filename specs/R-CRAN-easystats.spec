@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easystats
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Framework for Easy Statistical Modeling, Visualization, and Reporting
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-effectsize >= 0.8.8
-BuildRequires:    R-CRAN-modelbased >= 0.8.7
-BuildRequires:    R-CRAN-correlation >= 0.8.4
-BuildRequires:    R-CRAN-see >= 0.8.4
-BuildRequires:    R-CRAN-report >= 0.5.8
-BuildRequires:    R-CRAN-parameters >= 0.21.7
-BuildRequires:    R-CRAN-insight >= 0.19.11
-BuildRequires:    R-CRAN-bayestestR >= 0.13.2
-BuildRequires:    R-CRAN-performance >= 0.11.0
-BuildRequires:    R-CRAN-datawizard >= 0.10.0
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-correlation 
+BuildRequires:    R-CRAN-datawizard 
+BuildRequires:    R-CRAN-effectsize 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-modelbased 
+BuildRequires:    R-CRAN-parameters 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-CRAN-report 
+BuildRequires:    R-CRAN-see 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-effectsize >= 0.8.8
-Requires:         R-CRAN-modelbased >= 0.8.7
-Requires:         R-CRAN-correlation >= 0.8.4
-Requires:         R-CRAN-see >= 0.8.4
-Requires:         R-CRAN-report >= 0.5.8
-Requires:         R-CRAN-parameters >= 0.21.7
-Requires:         R-CRAN-insight >= 0.19.11
-Requires:         R-CRAN-bayestestR >= 0.13.2
-Requires:         R-CRAN-performance >= 0.11.0
-Requires:         R-CRAN-datawizard >= 0.10.0
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-correlation 
+Requires:         R-CRAN-datawizard 
+Requires:         R-CRAN-effectsize 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-modelbased 
+Requires:         R-CRAN-parameters 
+Requires:         R-CRAN-performance 
+Requires:         R-CRAN-report 
+Requires:         R-CRAN-see 
 Requires:         R-tools 
 Requires:         R-utils 
 
