@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  syt
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Young Tableaux
 
@@ -29,8 +29,9 @@ Deals with Young tableaux (field of combinatorics). For standard Young
 tabeaux, performs enumeration, counting, random generation, the
 Robinson-Schensted correspondence, and conversion to and from paths on the
 Young lattice. Also performs enumeration and counting of semistandard
-Young tableaux, enumeration of skew semistandard Young tableaux, and
-computation of Kostka numbers.
+Young tableaux, enumeration of skew semistandard Young tableaux,
+enumeration of Gelfand-Tsetlin patterns, and computation of Kostka
+numbers.
 
 %prep
 %setup -q -c -n %{packname}

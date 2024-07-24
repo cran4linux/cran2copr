@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  altdoc
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Documentation Websites with 'Quarto', 'Docsify', 'Docute', or 'MkDocs'
 
@@ -19,12 +19,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
+Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-quarto 
 Requires:         R-tools 

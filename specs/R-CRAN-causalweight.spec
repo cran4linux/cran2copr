@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  causalweight
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Methods for Causal Inference Based on Inverse Probability Weighting
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-e1071
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-grf 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-sandwich 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-np 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-e1071
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-grf 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-sandwich 
 
 %description
 Various estimators of causal effects based on inverse probability

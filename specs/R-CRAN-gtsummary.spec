@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtsummary
-%global packver   1.7.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Presentation-Ready Data Summary and Analytic Result Tables
 
@@ -14,39 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-cli >= 3.1.1
+BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-glue >= 1.6.2
-BuildRequires:    R-CRAN-stringr >= 1.4.0
-BuildRequires:    R-CRAN-knitr >= 1.37
-BuildRequires:    R-CRAN-broom.helpers >= 1.13.0
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-rlang >= 1.0.3
-BuildRequires:    R-CRAN-broom >= 1.0.1
-BuildRequires:    R-CRAN-lifecycle >= 1.0.1
-BuildRequires:    R-CRAN-purrr >= 1.0.1
-BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-gt >= 0.9.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.2
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-cli >= 3.1.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.3
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-cards >= 0.2.0
+BuildRequires:    R-CRAN-gt >= 0.10.0
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-glue >= 1.6.2
-Requires:         R-CRAN-stringr >= 1.4.0
-Requires:         R-CRAN-knitr >= 1.37
-Requires:         R-CRAN-broom.helpers >= 1.13.0
-Requires:         R-CRAN-tidyr >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-rlang >= 1.0.3
-Requires:         R-CRAN-broom >= 1.0.1
-Requires:         R-CRAN-lifecycle >= 1.0.1
-Requires:         R-CRAN-purrr >= 1.0.1
-Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-gt >= 0.9.0
-Requires:         R-CRAN-vctrs >= 0.5.2
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-cards >= 0.2.0
+Requires:         R-CRAN-gt >= 0.10.0
+Requires:         R-CRAN-vctrs 
 
 %description
 Creates presentation-ready tables summarizing data sets, regression

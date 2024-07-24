@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtwclust
-%global packver   5.5.12
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.12
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Clustering Along with Optimizations for the Dynamic Time Warping Distance
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-flexclust
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
@@ -53,6 +54,7 @@ Requires:         R-CRAN-flexclust
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
