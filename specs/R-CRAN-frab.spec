@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  frab
-%global packver   0.0-5
+%global packver   0.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          How to Add Two R Tables
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-disordR >= 0.9.8.2
-BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-disordR >= 0.9.8.2
-Requires:         R-CRAN-mathjaxr 
 Requires:         R-methods 
 
 %description

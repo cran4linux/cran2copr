@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesCureRateModel
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cure Rate Modeling for Time-to-Event Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-coda 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-flexsurv
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-coda 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cheddar
-%global packver   0.1-638
+%global packver   0.1-639
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.638
+Version:          0.1.639
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualisation of Ecological Communities
 

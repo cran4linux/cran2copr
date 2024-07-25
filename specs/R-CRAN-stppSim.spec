@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stppSim
-%global packver   1.3.2
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Point Patterns Simulation
 
@@ -71,19 +71,19 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-future.apply 
 
 %description
-Generates artificial spatiotemporal (ST) point patterns and/or
-interactions through the integration of microsimulation (Holm, E.,
-(2017)<doi:10.1002/9781118786352.wbieg0320>) and agent-based models
-(Bonabeau, E., (2002)<doi:10.1073/pnas.082080899>). The tool enables users
-to configure the actions of a group of 'walkers', which can be agents,
-objects, individuals, and more. Their engagements with both spatial
-landscapes (Quaglietta, L. and Porto, M.,
-(2019)<doi:10.1186/s40462-019-0154-8>) and time domains result in specific
-spatiotemporal point patterns and/or interactions. These emerging
-spatiotemporal patterns can be visualized, analyzed, and then employed for
-both spatial and temporal model assessments. Given the growing scarcity of
-detailed spatiotemporal data, this package offers an alternative dataset
-for a broad spectrum of studies in both the social and life sciences.
+Generates artificial point patterns marked by their spatial and temporal
+signatures. The resulting point cloud may exhibit inherent interactions
+between both signatures. The simulation integrates microsimulation (Holm,
+E., (2017)<doi:10.1002/9781118786352.wbieg0320>) and agent-based models
+(Bonabeau, E., (2002)<doi:10.1073/pnas.082080899>), beginning with the
+configuration of movement characteristics for the specified agents
+(referred to as 'walkers') and their interactions within the simulation
+environment. These interactions (Quaglietta, L. and Porto, M.,
+(2019)<doi:10.1186/s40462-019-0154-8>) result in specific spatiotemporal
+patterns that can be visualized, analyzed, and used for various analytical
+purposes. Given the growing scarcity of detailed spatiotemporal data
+across many domains, this package provides an alternative data source for
+applications in social and life sciences.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  texreg
-%global packver   1.39.3
+%global packver   1.39.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.39.3
+Version:          1.39.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conversion of R Regression Output to LaTeX or HTML Tables
 
@@ -32,12 +32,7 @@ tables/MS Word documents or to nicely formatted screen output for the R
 console for easy model comparison. A list of several models can be
 combined in a single table. The output is highly customizable. New model
 types can be easily implemented. Details can be found in Leifeld (2013),
-JStatSoft <doi:10.18637/jss.v055.i08>. (If the Zelig package, which this
-package enhances, cannot be found on CRAN, you can find it at
-<https://github.com/IQSS/Zelig>. If the mnlogit package, which this
-package enhances, cannot be found on CRAN, you can find an old version in
-the CRAN Archive at
-<https://cran.r-project.org/src/contrib/Archive/mnlogit/>.)
+JStatSoft <doi:10.18637/jss.v055.i08>.)
 
 %prep
 %setup -q -c -n %{packname}
