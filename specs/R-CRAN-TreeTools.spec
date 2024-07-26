@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeTools
-%global packver   1.11.1
+%global packver   1.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.1
+Version:          1.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, Modify and Analyse Phylogenetic Trees
 
@@ -46,12 +46,13 @@ of trees and extraction of subtrees; calculation and depiction of split
 support; plotting the position of rogue taxa (Klopfstein & Spasojevic
 2019) <doi:10.1371/journal.pone.0212942>; calculation of
 ancestor-descendant relationships, of 'stemwardness' (Asher & Smith, 2022)
-<doi:10.1093/sysbio/syab072>, and of tree balance (Mir et al. 2013)
-<doi:10.1016/j.mbs.2012.10.005>; artificial extinction (Asher & Smith,
-2022) <doi:10.1093/sysbio/syab072>; import and export of trees from
-Newick, Nexus (Maddison et al. 1997) <doi:10.1093/sysbio/46.4.590>, and
-TNT <https://www.lillo.org.ar/phylogeny/tnt/> formats; and analysis of
-splits and cladistic information.
+<doi:10.1093/sysbio/syab072>, and of tree balance (Mir et al. 2013, Lemant
+et al. 2022) <doi:10.1016/j.mbs.2012.10.005>,
+<doi:10.1093/sysbio/syac027>; artificial extinction (Asher & Smith, 2022)
+<doi:10.1093/sysbio/syab072>; import and export of trees from Newick,
+Nexus (Maddison et al. 1997) <doi:10.1093/sysbio/46.4.590>, and TNT
+<https://www.lillo.org.ar/phylogeny/tnt/> formats; and analysis of splits
+and cladistic information.
 
 %prep
 %setup -q -c -n %{packname}

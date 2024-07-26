@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smdi
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Structural Missing Data Investigations
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fastDummies 
 BuildRequires:    R-CRAN-forcats 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-gt
 BuildRequires:    R-CRAN-Hotelling 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-naniar 
 BuildRequires:    R-parallel 
@@ -38,8 +38,8 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-tableone 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fastDummies 
 Requires:         R-CRAN-forcats 
@@ -49,7 +49,6 @@ Requires:         R-CRAN-gt
 Requires:         R-CRAN-Hotelling 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-naniar 
 Requires:         R-parallel 
@@ -60,18 +59,17 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-tableone 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
 An easy to use implementation of routine structural missing data
 diagnostics with functions to visualize the proportions of missing
 observations, investigate missing data patterns and conduct various
 empirical missing data diagnostic tests. Reference: Weberpals J, Raman SR,
-Shaw PA, Lee H, Russo M, Hammil BG, Toh D, Connolly JG, Dandreo KJ, Tian
-F, Liu W, Li Jie, Hernandez-Munos JJ, Glynn RJ, Desai RJ (2023, in
-submission). "A Principled Approach to Characterize and Analyze Partially
-Observed Confounder Data From Electronic Health Records: A Plasmode
-Simulation Study."
+Shaw PA, Lee H, Hammill BG, Toh S, Connolly JG, Dandreo KJ, Tian F, Liu W,
+Li J, Hernández-Muñoz JJ, Glynn RJ, Desai RJ. smdi: an R package to
+perform structural missing data investigations on partially observed
+confounders in real-world evidence studies. JAMIA Open. 2024 Jan
+31;7(1):ooae008. <doi:10.1093/jamiaopen/ooae008>.
 
 %prep
 %setup -q -c -n %{packname}

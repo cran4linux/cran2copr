@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nodbi
-%global packver   0.10.5
+%global packver   0.10.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.5
+Version:          0.10.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'NoSQL' Database Connector
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-V8
 Requires:         R-CRAN-R.utils 
 
 %description
-Simplified document database access and manipulation, providing a common
-API across supported 'NoSQL' databases 'Elasticsearch', 'CouchDB',
+Simplified JSON document database access and manipulation, providing a
+common API across supported 'NoSQL' databases 'Elasticsearch', 'CouchDB',
 'MongoDB' as well as 'SQLite/JSON1', 'PostgreSQL', and 'DuckDB'.
 
 %prep

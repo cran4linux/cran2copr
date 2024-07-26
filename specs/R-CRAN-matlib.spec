@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matlib
-%global packver   0.9.6
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matrix Functions for Teaching and Learning Linear Algebra and Multivariate Statistics
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-car 
 Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 
 %description
 A collection of matrix functions for teaching and learning matrix linear

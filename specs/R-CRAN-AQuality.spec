@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AQuality
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water and Measurements Quality
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-The function proposed in this package allows to graphically evaluate the
-process of measurement of the chemical components of water. The TSSS()
-function is useful to control the quality of measurements of chemical
-components of a sample of water. If one or more measurements include an
-error, the generated graph will indicate it with a position of the point
-that represents the sample outside the confidence interval.
+The functions proposed in this package allows to graphically evaluate the
+process of measurement of the chemical components of water. TSSS() and
+ICHS functions are useful to control the quality of measurements of
+chemical components of a sample of water. If one or more measurements
+include an error, the generated graph will indicate it with a position of
+the point that represents the sample outside the confidence interval.
 
 %prep
 %setup -q -c -n %{packname}

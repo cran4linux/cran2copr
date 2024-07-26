@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loggit2
-%global packver   2.3.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy-to-Use, Dependencyless Logger
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 4.0
 
 %description
 An easy-to-use 'ndjson' (newline-delimited 'JSON') logger. It provides a
-set of wrappings for base R's message(), warning(), and stop() functions
+set of wrappers for base R's message(), warning(), and stop() functions
 that maintain identical functionality, but also log the handler message to
 an 'ndjson' log file. No change in existing code is necessary to use this
-package, and should only require additions to fully leverage the power of
-the logging system.
+package, and only a few additional adjustments are needed to fully utilize
+its potential.
 
 %prep
 %setup -q -c -n %{packname}

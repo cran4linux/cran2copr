@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Ternary
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Ternary and Holdridge Plots
 
@@ -31,9 +31,10 @@ Requires:         R-CRAN-viridisLite
 %description
 Plots ternary diagrams (simplex plots / Gibbs triangles) and Holdridge
 life zone plots <doi:10.1126/science.105.2727.367> using the standard
-graphics functions. An alternative to 'ggtern', which uses the 'ggplot2'
-family of plotting functions. Includes a 'Shiny' user interface for
-point-and-click ternary plotting.
+graphics functions. Allows custom annotation, interpolating, contouring
+and scaling of plotting region. Includes a 'Shiny' user interface for
+point-and-click ternary plotting. An alternative to 'ggtern', which uses
+the 'ggplot2' family of plotting functions.
 
 %prep
 %setup -q -c -n %{packname}

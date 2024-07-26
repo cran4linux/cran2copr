@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scorematchingad
-%global packver   0.0.64
+%global packver   0.0.67
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.64
+Version:          0.0.67
 Release:          1%{?dist}%{?buildtag}
 Summary:          Score Matching Estimation by Automatic Differentiation
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7
 BuildRequires:    R-CRAN-MCMCpack 
@@ -26,8 +27,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ellipsis 
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-optimx 
@@ -37,8 +37,6 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-CRAN-R6 
 Requires:         R-utils 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ellipsis 
 
 %description
 Hyvärinen's score matching (Hyvärinen, 2005)
