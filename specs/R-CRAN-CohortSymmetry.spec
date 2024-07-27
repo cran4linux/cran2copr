@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSymmetry
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequence Symmetry Analysis Using the Observational Medical Outcomes Partnership Common Data Model
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CodelistGenerator >= 3.1.0
 BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
 BuildRequires:    R-CRAN-DrugUtilisation >= 0.5.0
 BuildRequires:    R-CRAN-visOmopResults >= 0.3.0
@@ -35,7 +36,7 @@ BuildRequires:    R-CRAN-duckdb
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-CodelistGenerator 
+Requires:         R-CRAN-CodelistGenerator >= 3.1.0
 Requires:         R-CRAN-CDMConnector >= 1.3.0
 Requires:         R-CRAN-DrugUtilisation >= 0.5.0
 Requires:         R-CRAN-visOmopResults >= 0.3.0
@@ -54,7 +55,6 @@ Requires:         R-CRAN-duckdb
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-gt 
-Requires:         R-CRAN-CodelistGenerator 
 
 %description
 Calculating crude sequence ratio, adjusted sequence ratio and confidence

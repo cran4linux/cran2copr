@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rio
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Swiss-Army Knife for Data I/O
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-writexl
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-nanoparquet 
 Requires:         R-CRAN-data.table >= 1.11.2
 Requires:         R-CRAN-haven >= 1.1.2
 Requires:         R-CRAN-curl >= 0.6
@@ -44,7 +43,6 @@ Requires:         R-CRAN-writexl
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-nanoparquet 
 
 %description
 Streamlined data import and export by making assumptions that the user is

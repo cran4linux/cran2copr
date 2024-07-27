@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gsDesign
-%global packver   3.6.4
+%global packname  kissmig
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Sequential Design
+Summary:          a Keep It Simple Species Migration Model
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,39 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-r2rtf 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-ggplot2 >= 3.1.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-graphics 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-raster 
 Requires:         R-methods 
-Requires:         R-CRAN-r2rtf 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-xtable 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Derives group sequential clinical trial designs and describes their
-properties. Particular focus on time-to-event, binary, and continuous
-outcomes. Largely based on methods described in Jennison, Christopher and
-Turnbull, Bruce W., 2000, "Group Sequential Methods with Applications to
-Clinical Trials" ISBN: 0-8493-0316-8.
+Simulating species migration and range dynamics under stable or changing
+environmental conditions based on a simple, raster-based, deterministic or
+stochastic migration model. Kissmig runs on binary or quantitative
+suitability maps, which are pre-calculated with niche-based habitat
+suitability models (also called ecological niche models (ENMs) or species
+distribution models (SDMs)). Nobis & Normand (2014),
+<doi:10.1111/ecog.00930>.
 
 %prep
 %setup -q -c -n %{packname}

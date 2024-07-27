@@ -1,27 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yesno
-%global packver   0.1.3
+%global packname  SampleSizeDiagnostics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ask Yes-No Questions
+Summary:          Choosing Sample Size for Evaluating a Diagnostic Test
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
 
 %description
-Asks Yes-No questions with variable or custom responses.
+Calculates the sample size needed for evaluating a diagnostic test based
+on sensitivity, specificity, prevalence, and desired precision. Based on
+Buderer (1996) <doi:10.1111/j.1553-2712.1996.tb03538.x>.
 
 %prep
 %setup -q -c -n %{packname}

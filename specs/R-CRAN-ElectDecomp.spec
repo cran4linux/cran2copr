@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yesno
-%global packver   0.1.3
+%global packname  ElectDecomp
+%global packver   0.0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ask Yes-No Questions
+Summary:          Decomposition of Seats-to-Votes Distortion in Multimember Elections
 
-License:          MIT + file LICENSE
+License:          EPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
 
 %description
-Asks Yes-No questions with variable or custom responses.
+Decomposes the seat-to-vote distortion for every party (individual party
+bias or individual party deviation from proportional representation) into
+segments that can be attributed to separate causes for the party infra or
+over-representation: the electoral system effect (separating the mean and
+the variance effect within it) and the population effect (separating
+malapportionment and unequal participation effect within it).  It works on
+(single tired) districted electoral systems with any number of seats per
+district. In addition, the package aggregates the individual party
+distortion into an index of deviation from proportionality (the
+Losemore-Hanby index) whose value is also decomposed into segments
+attributed to the major causes of deviation from proportionality (plus the
+interactions among them).
 
 %prep
 %setup -q -c -n %{packname}

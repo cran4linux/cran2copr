@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSN2
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Modeling on Stream Networks
 
@@ -22,20 +22,20 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-graphics 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-spmodel 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tibble 
 Requires:         R-graphics 
-Requires:         R-parallel 
 Requires:         R-CRAN-spmodel 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
 Spatial statistical modeling and prediction for data on stream networks,

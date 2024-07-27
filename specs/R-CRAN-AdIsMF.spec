@@ -1,54 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ohun
-%global packver   1.0.1
+%global packname  AdIsMF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimizing Acoustic Signal Detection
+Summary:          Adsorption Isotherm Model Fitting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-seewave >= 2.0.1
-BuildRequires:    R-CRAN-warbleR >= 1.1.29
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-fftw 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-AICcmodavg 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-seewave >= 2.0.1
-Requires:         R-CRAN-warbleR >= 1.1.29
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-cli 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-fftw 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-nls2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-AICcmodavg 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nls2 
+Requires:         R-stats 
 
 %description
-Facilitates the automatic detection of acoustic signals, providing
-functions to diagnose and optimize the performance of detection routines.
-Detections from other software can also be explored and optimized.
-Araya-Salas et al. (2022) <doi:10.1101/2022.12.13.520253>.
+The Langmuir and Freundlich adsorption isotherms are pivotal in
+characterizing adsorption processes, essential across various scientific
+disciplines. Proper interpretation of adsorption isotherms involves robust
+fitting of data to the models, accurate estimation of parameters, and
+efficiency evaluation of the models, both in linear and non-linear forms.
+For researchers and practitioners in the fields of chemistry,
+environmental science, soil science, and engineering, a comprehensive
+package that satisfies all these requirements would be ideal for accurate
+and efficient analysis of adsorption data, precise model selection and
+validation for rigorous scientific inquiry and real-world applications.
+Details can be found in Langmuir (1918) <doi:10.1021/ja02242a004> and
+Giles (1973) <doi:10.1111/j.1478-4408.1973.tb03158.x>.
 
 %prep
 %setup -q -c -n %{packname}

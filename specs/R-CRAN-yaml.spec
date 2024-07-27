@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yaml
-%global packver   2.3.9
+%global packver   2.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.9
+Version:          2.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods to Convert R Data to YAML and Back
 

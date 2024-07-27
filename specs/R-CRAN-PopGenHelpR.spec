@@ -1,50 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  UComp
-%global packver   5.0.4
+%global packname  PopGenHelpR
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.4
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Univariate Time Series Modelling of many Kinds
+Summary:          Streamline Population Genomic and Genetic Analyses
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-tsibble 
-BuildRequires:    R-CRAN-tsoutliers 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scatterpie 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-spData 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-utils 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-vcfR 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-tsibble 
-Requires:         R-CRAN-tsoutliers 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scatterpie 
 Requires:         R-stats 
-Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-spData 
+Requires:         R-CRAN-spdep 
 Requires:         R-utils 
-Requires:         R-parallel 
+Requires:         R-CRAN-vcfR 
 
 %description
-Comprehensive analysis and forecasting of univariate time series using
-automatic time series models of many kinds. Harvey AC (1989)
-<doi:10.1017/CBO9781107049994>. Pedregal DJ and Young PC (2002)
-<doi:10.1002/9780470996430>. Durbin J and Koopman SJ (2012)
-<doi:10.1093/acprof:oso/9780199641178.001.0001>. Hyndman RJ, Koehler AB,
-Ord JK, and Snyder RD (2008) <doi:10.1007/978-3-540-71918-2>. Gómez V,
-Maravall A (2000) <doi:10.1002/9781118032978>. Pedregal DJ, Trapero JR and
-Holgado E (2024) <doi:10.1016/j.ijforecast.2023.09.004>.
+Estimate commonly used population genomic statistics and generate
+publication quality figures. 'PopGenHelpR' uses vcf, 'geno' (012), and csv
+files to generate output.
 
 %prep
 %setup -q -c -n %{packname}

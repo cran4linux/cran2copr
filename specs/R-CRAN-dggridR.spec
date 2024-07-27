@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dggridR
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Global Grids
 
@@ -16,17 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-methods >= 3.4.0
-BuildRequires:    R-CRAN-sp >= 1.2
+BuildRequires:    R-CRAN-collapse >= 1.8.0
+BuildRequires:    R-CRAN-s2 >= 1.1
 BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-CRAN-dplyr >= 0.4
-BuildRequires:    R-CRAN-rlang >= 0.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-methods >= 3.4.0
-Requires:         R-CRAN-sp >= 1.2
+Requires:         R-CRAN-collapse >= 1.8.0
+Requires:         R-CRAN-s2 >= 1.1
 Requires:         R-CRAN-sf >= 1.0
-Requires:         R-CRAN-dplyr >= 0.4
-Requires:         R-CRAN-rlang >= 0.4
 Requires:         R-CRAN-Rcpp >= 0.12.12
 
 %description

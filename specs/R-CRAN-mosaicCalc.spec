@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mosaicCalc
-%global packver   0.6.1
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R-Language Based Calculus Operations for Teaching
 
@@ -19,8 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mosaicCore >= 0.9.2
 BuildRequires:    R-CRAN-metR >= 0.11.0
-BuildRequires:    R-CRAN-mosaic 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-calculus 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggformula 
@@ -29,8 +28,8 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mosaic 
 BuildRequires:    R-CRAN-orthopolynom 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-CRAN-sp 
@@ -38,8 +37,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-mosaicCore >= 0.9.2
 Requires:         R-CRAN-metR >= 0.11.0
-Requires:         R-CRAN-mosaic 
-Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-calculus 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggformula 
@@ -48,8 +46,8 @@ Requires:         R-CRAN-glue
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mosaic 
 Requires:         R-CRAN-orthopolynom 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Ryacas 
 Requires:         R-CRAN-sp 

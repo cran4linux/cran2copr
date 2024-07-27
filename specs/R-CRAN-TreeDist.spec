@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeDist
-%global packver   2.7.0
+%global packver   2.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          2.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Map Distances Between Phylogenetic Trees
 
@@ -18,8 +18,7 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-cli >= 3.0
-BuildRequires:    R-CRAN-phangorn >= 2.2.1
-BuildRequires:    R-CRAN-TreeTools >= 1.7.2
+BuildRequires:    R-CRAN-TreeTools >= 1.11.1.9004
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-colorspace 
@@ -29,8 +28,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-cli >= 3.0
-Requires:         R-CRAN-phangorn >= 2.2.1
-Requires:         R-CRAN-TreeTools >= 1.7.2
+Requires:         R-CRAN-TreeTools >= 1.11.1.9004
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-stats 
 Requires:         R-CRAN-colorspace 
@@ -51,9 +49,10 @@ Subtree distances; the Kendall-Colijn (2016) distance
 <doi:10.1093/molbev/msw124>, and the Nearest Neighbour Interchange (NNI)
 distance, approximated per Li et al. (1996)
 <doi:10.1007/3-540-61332-3_168>. Includes tools for visualizing mappings
-of tree space (Smith 2022) <doi:10.1093/sysbio/syab100>, for calculating
-the median of sets of trees, and for computing the information content of
-trees and splits.
+of tree space (Smith 2022) <doi:10.1093/sysbio/syab100>, for identifying
+islands of trees (Silva and Wilkinson 2021) <doi:10.1093/sysbio/syab015>,
+for calculating the median of sets of trees, and for computing the
+information content of trees and splits.
 
 %prep
 %setup -q -c -n %{packname}

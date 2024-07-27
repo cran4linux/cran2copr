@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Rraven
-%global packver   1.0.13
+%global __requires_exclude ^libmpi
+%global packname  quickcode
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connecting R and 'Raven' Sound Analysis Software
+Summary:          Quick and Essential 'R' Tricks for Better Scripts
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel > 3.6
+Requires:         R-core > 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-warbleR 
 BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-seewave 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-NatureSounds 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-warbleR 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-Polychrome 
+BuildRequires:    R-CRAN-fitdistrplus 
 Requires:         R-utils 
+Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-CRAN-seewave 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-NatureSounds 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
+Requires:         R-CRAN-Polychrome 
+Requires:         R-CRAN-fitdistrplus 
 
 %description
-A tool to exchange data between R and 'Raven' sound analysis software
-(Cornell Lab of Ornithology). Functions work on data formats compatible
-with the R package 'warbleR'.
+The NOT functions, 'R' tricks and a compilation of some simple quick plus
+often used 'R' codes to improve your scripts. Improve the quality and
+reproducibility of 'R' scripts.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

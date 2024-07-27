@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IceSat2R
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          ICESat-2 Altimeter Data using R
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-lwgeom 
@@ -57,22 +58,24 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-rnaturalearth 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-withr 
 
 %description
 Programmatic connection to the 'OpenAltimetry API'
-<https://openaltimetry.org/data/swagger-ui/> to download and process
-'ATL03' (Global Geolocated Photon Data), 'ATL06' (Land Ice Height),
-'ATL07' (Sea Ice Height), 'ATL08' (Land and Vegetation Height), 'ATL10'
-(Sea Ice Freeboard), 'ATL12' (Ocean Surface Height) and 'ATL13' (Inland
-Water Surface Height) 'ICESat-2' Altimeter Data. The user has the option
-to download the data by selecting a bounding box from a 1- or 5-degree
-grid globally utilizing a shiny application. The 'ICESat-2' mission
-collects altimetry data of the Earth's surface. The sole instrument on
-'ICESat-2' is the Advanced Topographic Laser Altimeter System (ATLAS)
-instrument that measures ice sheet elevation change and sea ice thickness,
-while also generating an estimate of global vegetation biomass. 'ICESat-2'
-continues the important observations of ice-sheet elevation change,
-sea-ice freeboard, and vegetation canopy height begun by 'ICESat' in 2003.
+<https://openaltimetry.earthdatacloud.nasa.gov/data/openapi/swagger-ui/index.html/>
+to download and process 'ATL03' (Global Geolocated Photon Data), 'ATL06'
+(Land Ice Height), 'ATL07' (Sea Ice Height), 'ATL08' (Land and Vegetation
+Height), 'ATL10' (Sea Ice Freeboard), 'ATL12' (Ocean Surface Height) and
+'ATL13' (Inland Water Surface Height) 'ICESat-2' Altimeter Data. The user
+has the option to download the data by selecting a bounding box from a 1-
+or 5-degree grid globally utilizing a shiny application. The 'ICESat-2'
+mission collects altimetry data of the Earth's surface. The sole
+instrument on 'ICESat-2' is the Advanced Topographic Laser Altimeter
+System (ATLAS) instrument that measures ice sheet elevation change and sea
+ice thickness, while also generating an estimate of global vegetation
+biomass. 'ICESat-2' continues the important observations of ice-sheet
+elevation change, sea-ice freeboard, and vegetation canopy height begun by
+'ICESat' in 2003.
 
 %prep
 %setup -q -c -n %{packname}

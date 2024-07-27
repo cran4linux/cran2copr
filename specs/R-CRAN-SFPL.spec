@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nseval
-%global packver   0.5.1
+%global packname  SFPL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Lazy and Non-Standard Evaluation
+Summary:          Sparse Fused Plackett-Luce
 
-License:          GPL (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-gtools 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-gtools 
 
 %description
-Functions to capture, inspect, manipulate, and create lazy values
-(promises), "..." lists, and active calls.
+Implements the methodological developments found in Hermes, van
+Heerwaarden, and Behrouzi (2024) <doi:10.48550/arXiv.2308.04325>, and
+allows for the statistical modeling of multi-group rank data in
+combination with object variables. The package also allows for the
+simulation of synthetic multi-group rank data.
 
 %prep
 %setup -q -c -n %{packname}
