@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pense
-%global packver   2.2.2
+%global packname  ucimlrepo
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Elastic Net S/MM-Estimator of Regression
+Summary:          Explore UCI ML Repository Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-utils 
 
 %description
-Robust penalized (adaptive) elastic net S and M estimators for linear
-regression. The methods are proposed in Cohen Freue, G. V., Kepplinger,
-D., Salibián-Barrera, M., and Smucler, E. (2019)
-<https://projecteuclid.org/euclid.aoas/1574910036>. The package implements
-the extensions and algorithms described in Kepplinger, D. (2020)
-<doi:10.14288/1.0392915>.
+Find and import datasets from the University of California Irvine Machine
+Learning (UCI ML) Repository into R. Supports working with data from UCI
+ML repository inside of R scripts, notebooks, and 'Quarto'/'RMarkdown'
+documents. Access the UCI ML repository directly at
+<https://archive.ics.uci.edu/>.
 
 %prep
 %setup -q -c -n %{packname}

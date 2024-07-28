@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pense
-%global packver   2.2.2
+%global packname  ATQ
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Elastic Net S/MM-Estimator of Regression
+Summary:          Alert Time Quality - Evaluating Timely Epidemic Metrics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Robust penalized (adaptive) elastic net S and M estimators for linear
-regression. The methods are proposed in Cohen Freue, G. V., Kepplinger,
-D., Salibián-Barrera, M., and Smucler, E. (2019)
-<https://projecteuclid.org/euclid.aoas/1574910036>. The package implements
-the extensions and algorithms described in Kepplinger, D. (2020)
-<doi:10.14288/1.0392915>.
+Provides tools for evaluating timely epidemic detection models within
+school absenteeism-based surveillance systems. Introduces the concept of
+alert time quality as an evaluation metric. Includes functions to simulate
+populations, epidemics, and alert metrics associated with epidemic spread
+using population census data. The methods are based on research published
+in Vanderkruk et al. (2023) <doi:10.1186/s12889-023-15747-z> and Jarvis et
+al. (2019) <doi:10.1186/s12889-019-7521-7>.
 
 %prep
 %setup -q -c -n %{packname}

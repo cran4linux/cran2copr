@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qspray
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Polynomials with Rational Coefficients
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-RationalMatrix
 BuildRequires:    R-CRAN-Ryacas 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.9
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-gmp 
@@ -43,10 +42,11 @@ Requires:         R-utils
 Symbolic calculation and evaluation of multivariate polynomials with
 rational coefficients. This package is strongly inspired by the 'spray'
 package. It provides a function to compute Gröbner bases (reference
-<doi:10.1007/978-3-319-16721-3>). The header file of the C++ code can be
-used by other packages. It provides the templated class 'Qspray' that can
-be used to represent and to deal with multivariate polynomials with
-another type of coefficients.
+<doi:10.1007/978-3-319-16721-3>). It also includes some features for
+symmetric polynomials, such as the Hall inner product. The header file of
+the C++ code can be used by other packages. It provides the templated
+class 'Qspray' that can be used to represent and to deal with multivariate
+polynomials with another type of coefficients.
 
 %prep
 %setup -q -c -n %{packname}

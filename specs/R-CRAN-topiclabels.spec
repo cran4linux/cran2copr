@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pense
-%global packver   2.2.2
+%global packname  topiclabels
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Elastic Net S/MM-Estimator of Regression
+Summary:          Automated Topic Labeling with Language Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 1.8.5
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-checkmate >= 1.8.5
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-progress 
+Requires:         R-stats 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Robust penalized (adaptive) elastic net S and M estimators for linear
-regression. The methods are proposed in Cohen Freue, G. V., Kepplinger,
-D., Salibián-Barrera, M., and Smucler, E. (2019)
-<https://projecteuclid.org/euclid.aoas/1574910036>. The package implements
-the extensions and algorithms described in Kepplinger, D. (2020)
-<doi:10.14288/1.0392915>.
+Leveraging (large) language models for automatic topic labeling. The main
+function converts a list of top terms into a label for each topic. Hence,
+it is complementary to any topic modeling package that produces a list of
+top terms for each topic. While human judgement is indispensable for topic
+validation (i.e., inspecting top terms and most representative documents),
+automatic topic labeling can be a valuable tool for researchers in various
+scenarios.
 
 %prep
 %setup -q -c -n %{packname}

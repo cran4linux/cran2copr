@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pense
-%global packver   2.2.2
+%global packname  rqcanon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Elastic Net S/MM-Estimator of Regression
+Summary:          Canonical Quantile Regression
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-quantreg 
 
 %description
-Robust penalized (adaptive) elastic net S and M estimators for linear
-regression. The methods are proposed in Cohen Freue, G. V., Kepplinger,
-D., Salibián-Barrera, M., and Smucler, E. (2019)
-<https://projecteuclid.org/euclid.aoas/1574910036>. The package implements
-the extensions and algorithms described in Kepplinger, D. (2020)
-<doi:10.14288/1.0392915>.
+A quantile regression method for multivariate data to find linear
+combinations of explanatory and response variables generalizing canonical
+correlation. The package consists of functions, rqcan() for fitting the
+coefficients, and summary.rqcan(), which calls a bootstrap function. For
+details, see the help files for rqcan() and summary.rqcan(), and the
+reference: Portnoy (2022) <doi:10.1016/j.jmva.2022.105071>.
 
 %prep
 %setup -q -c -n %{packname}

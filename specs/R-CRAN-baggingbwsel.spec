@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pense
-%global packver   2.2.2
+%global packname  baggingbwsel
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Elastic Net S/MM-Estimator of Regression
+Summary:          Bagging Bandwidth Selection in Kernel Density and Regression Estimation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-kedd 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sm 
+BuildRequires:    R-CRAN-nor1mix 
+BuildRequires:    R-CRAN-misc3d 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-kedd 
+Requires:         R-stats 
+Requires:         R-CRAN-sm 
+Requires:         R-CRAN-nor1mix 
+Requires:         R-CRAN-misc3d 
 
 %description
-Robust penalized (adaptive) elastic net S and M estimators for linear
-regression. The methods are proposed in Cohen Freue, G. V., Kepplinger,
-D., Salibián-Barrera, M., and Smucler, E. (2019)
-<https://projecteuclid.org/euclid.aoas/1574910036>. The package implements
-the extensions and algorithms described in Kepplinger, D. (2020)
-<doi:10.14288/1.0392915>.
+Bagging bandwidth selection methods for the Parzen-Rosenblatt and
+Nadaraya-Watson estimators. These bandwidth selectors can achieve greater
+statistical precision than their non-bagged counterparts while being
+computationally fast. See Barreiro-Ures et al. (2020)
+<doi:10.1093/biomet/asaa092> and Barreiro-Ures et al. (2021)
+<doi:10.48550/arXiv.2105.04134>.
 
 %prep
 %setup -q -c -n %{packname}

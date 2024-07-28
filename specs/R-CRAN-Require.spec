@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Require
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Installing and Loading R Packages for Reproducible Workflows
 
@@ -19,10 +19,12 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-methods 
+Requires:         R-CRAN-sys 
 Requires:         R-tools 
 Requires:         R-utils 
 

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyglotr
-%global packver   1.5.1
+%global packname  BEAMR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Translate Text
+Summary:          Bootstrap Evaluation of Association Matrices
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,31 +18,37 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggmosaic 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-urltools 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ggmosaic 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-logistf 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-rlist 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-urltools 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+A bootstrap-based approach to integrate multiple forms of high dimensional
+genomic data with multiple clinical endpoints.  This method is used to
+find clinically meaningful groups of genomic features, such as genes or
+pathways. A manuscript describing this method is in preparation.
 
 %prep
 %setup -q -c -n %{packname}

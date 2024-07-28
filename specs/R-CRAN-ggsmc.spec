@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pense
-%global packver   2.2.2
+%global packname  ggsmc
+%global packver   0.1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          0.1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalized Elastic Net S/MM-Estimator of Regression
+Summary:          Visualising Output from Sequential Monte Carlo Samplers and Ensemble-Based Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.600
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-parallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-poorman 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gganimate 
+Requires:         R-CRAN-poorman 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gganimate 
 
 %description
-Robust penalized (adaptive) elastic net S and M estimators for linear
-regression. The methods are proposed in Cohen Freue, G. V., Kepplinger,
-D., Salibián-Barrera, M., and Smucler, E. (2019)
-<https://projecteuclid.org/euclid.aoas/1574910036>. The package implements
-the extensions and algorithms described in Kepplinger, D. (2020)
-<doi:10.14288/1.0392915>.
+Functions for plotting, and animating, the output of importance samplers,
+sequential Monte Carlo samplers (SMC) and ensemble-based methods. The
+package can be used to plot and animate histograms, densities, scatter
+plots and time series, and to plot the genealogy of an SMC or
+ensemble-based algorithm. These functions all rely on algorithm output to
+be supplied in tidy format. A function is provided to transform algorithm
+output from matrix format (one Monte Carlo point per row) to the tidy
+format required by the plotting and animating functions.
 
 %prep
 %setup -q -c -n %{packname}
