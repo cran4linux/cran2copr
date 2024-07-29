@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFF
-%global packver   3.0.1
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayes Factor Functions
 
@@ -17,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BSDA 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hypergeo 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-gsl 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-BSDA 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-CRAN-hypergeo 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-gsl 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
 Bayes factors represent the ratio of probabilities assigned to data by
@@ -50,10 +46,9 @@ thresholds to determine "statistical significance." BFFs are available in
 closed form and can be easily computed from z, t, chi-squared, and F
 statistics. They depend on hyperparameters "r" and "tau^2", which
 determine the shape and scale of the prior distributions defining the
-alternative hypotheses. For replicated designs, the "r" parameter in each
-function can be adjusted to be greater than 1. Plots of BFFs versus effect
-size provide informative summaries of hypothesis tests that can be easily
-aggregated across studies.
+alternative hypotheses. Plots of BFFs versus effect size provide
+informative summaries of hypothesis tests that can be easily aggregated
+across studies.
 
 %prep
 %setup -q -c -n %{packname}

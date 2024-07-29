@@ -1,48 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDCPLACES
-%global packver   1.1.6
+%global packname  moocore
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'CDC PLACES' API
+Summary:          Core Mathematical Functions for Multi-Objective Optimization
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-yyjsonr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-usa 
-BuildRequires:    R-CRAN-zctaCrosswalk 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-yyjsonr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-usa 
-Requires:         R-CRAN-zctaCrosswalk 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Allows users to seamlessly query several 'CDC PLACES' APIs
-(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
-state, measure, and release year. This package also contains a function to
-explore the available measures for each release year.
+Fast implementation of mathematical operations and performance metrics for
+multi-objective optimization, including filtering and ranking of dominated
+vectors according to Pareto optimality, computation of the empirical
+attainment function, V.G. da Fonseca, C.M. Fonseca, A.O. Hall (2001)
+<doi:10.1007/3-540-44719-9_15>, hypervolume metric, C.M. Fonseca, L.
+Paquete, M. López-Ibáñez (2006) <doi:10.1109/CEC.2006.1688440>), epsilon
+indicator, inverted generational distance, and Vorob'ev threshold,
+expectation and deviation, M. Binois, D. Ginsbourger, O. Roustant (2015)
+<doi:10.1016/j.ejor.2014.07.032>, among others.
 
 %prep
 %setup -q -c -n %{packname}

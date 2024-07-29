@@ -1,48 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDCPLACES
-%global packver   1.1.6
+%global packname  octopucs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'CDC PLACES' API
+Summary:          Statistical Support for Hierarchical Clusters
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-yyjsonr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-usa 
-BuildRequires:    R-CRAN-zctaCrosswalk 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-yyjsonr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-usa 
-Requires:         R-CRAN-zctaCrosswalk 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-progress 
 
 %description
-Allows users to seamlessly query several 'CDC PLACES' APIs
-(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
-state, measure, and release year. This package also contains a function to
-explore the available measures for each release year.
+Generates n hierarchical clustering hypotheses on subsets of classifiers
+(usually species in community ecology studies). The n clustering
+hypotheses are combined to generate a generalized cluster, and computes
+three metrics of support. 1) The average proportion of elements conforming
+the group in each of the n clusters (integrity). And 2) the contamination,
+i.e., the average proportion of elements from other groups that enter a
+focal group. 3) The probability of existence of the group gives the
+integrity and contamination in a Bayesian approach.
 
 %prep
 %setup -q -c -n %{packname}

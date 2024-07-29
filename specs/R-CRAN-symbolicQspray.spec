@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  symbolicQspray
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Polynomials with Symbolic Parameters in their Coefficients
 
@@ -16,17 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-qspray >= 3.0.0
-BuildRequires:    R-CRAN-ratioOfQsprays 
+BuildRequires:    R-CRAN-qspray >= 3.1.0
+BuildRequires:    R-CRAN-ratioOfQsprays >= 1.1.0
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppCGAL 
-Requires:         R-CRAN-qspray >= 3.0.0
-Requires:         R-CRAN-ratioOfQsprays 
+Requires:         R-CRAN-qspray >= 3.1.0
+Requires:         R-CRAN-ratioOfQsprays >= 1.1.0
 Requires:         R-CRAN-gmp 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 

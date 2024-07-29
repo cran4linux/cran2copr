@@ -1,48 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDCPLACES
-%global packver   1.1.6
+%global packname  mxsem
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'CDC PLACES' API
+Summary:          Specify 'OpenMx' Models with a 'lavaan'-Style Syntax
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-OpenMx 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-yyjsonr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-usa 
-BuildRequires:    R-CRAN-zctaCrosswalk 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-OpenMx 
+Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-yyjsonr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-usa 
-Requires:         R-CRAN-zctaCrosswalk 
+Requires:         R-utils 
 
 %description
-Allows users to seamlessly query several 'CDC PLACES' APIs
-(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
-state, measure, and release year. This package also contains a function to
-explore the available measures for each release year.
+Provides a 'lavaan'-like syntax for 'OpenMx' models. The syntax supports
+definition variables, bounds, and parameter transformations. This allows
+for latent growth curve models with person-specific measurement occasions,
+moderated nonlinear factor analysis and much more.
 
 %prep
 %setup -q -c -n %{packname}

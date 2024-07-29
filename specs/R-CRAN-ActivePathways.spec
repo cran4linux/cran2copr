@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ActivePathways
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrative Pathway Enrichment Analysis of Multivariate Omics Data
 
@@ -27,15 +27,15 @@ Framework for analysing multiple omics datasets in the context of
 molecular pathways, biological processes and other types of gene sets. The
 package uses p-value merging to combine gene- or protein-level signals,
 followed by ranked hypergeometric tests to determine enriched pathways and
-processes. This approach allows researchers to interpret a series of omics
-datasets in the context of known biology and gene function, and discover
+processes. Genes can be integrated using directional constraints that
+reflect how the input datasets are expected interact with one another.
+This approach allows researchers to interpret a series of omics datasets
+in the context of known biology and gene function, and discover
 associations that are only apparent when several datasets are combined.
-The first version of the package is part of the following publication:
-Integrative Pathway Enrichment Analysis of Multivariate Omics Data.
-Paczkowska M^, Barenboim J^, Sintupisut N, Fox NS, Zhu H, Abd-Rabbo D, Mee
-MW, Boutros PC, PCAWG Drivers and Functional Interpretation Working Group;
-Reimand J, PCAWG Consortium. Nature Communications (2020)
-<doi:10.1038/s41467-019-13983-9>.
+The recent version of the package is part of the following publication:
+Directional integration and pathway enrichment analysis for multi-omics
+data. Slobodyanyuk M^, Bahcheli AT^, Klein ZP, Bayati M, Strug LJ, Reimand
+J. Nature Communications (2024) <doi:10.1038/s41467-024-49986-4>.
 
 %prep
 %setup -q -c -n %{packname}

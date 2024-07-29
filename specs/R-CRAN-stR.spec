@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stR
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          STR Decomposition
+Summary:          Seasonal Trend Decomposition Using Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-SparseM 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-SparseM 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-forecast 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-foreach 
-Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-forecast 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-SparseM 
+Requires:         R-stats 
 
 %description
-Methods for decomposing seasonal data: STR (a Seasonal-Trend decomposition
-procedure based on Regression) and Robust STR. In some ways, STR is
-similar to Ridge Regression and Robust STR can be related to LASSO. They
-allow for multiple seasonal components, multiple linear covariates with
-constant, flexible and seasonal influence. Seasonal patterns (for both
-seasonal components and seasonal covariates) can be fractional and
+Methods for decomposing seasonal data: STR (a Seasonal-Trend time series
+decomposition procedure based on Regression) and Robust STR. In some ways,
+STR is similar to Ridge Regression and Robust STR can be related to LASSO.
+They allow for multiple seasonal components, multiple linear covariates
+with constant, flexible and seasonal influence. Seasonal patterns (for
+both seasonal components and seasonal covariates) can be fractional and
 flexible over time; moreover they can be either strictly periodic or have
 a more complex topology. The methods provide confidence intervals for the
-estimated components. The methods can be used for forecasting.
+estimated components. The methods can also be used for forecasting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDCPLACES
-%global packver   1.1.6
+%global packname  corrMCT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'CDC PLACES' API
+Summary:          Correlated Weighted Hochberg
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-yyjsonr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-usa 
-BuildRequires:    R-CRAN-zctaCrosswalk 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-yyjsonr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-usa 
-Requires:         R-CRAN-zctaCrosswalk 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-tibble 
 
 %description
-Allows users to seamlessly query several 'CDC PLACES' APIs
-(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
-state, measure, and release year. This package also contains a function to
-explore the available measures for each release year.
+Perform additional multiple testing procedure methods to p.adjust(), such
+as weighted Hochberg (Tamhane, A. C., & Liu, L., 2008)
+<doi:10.1093/biomet/asn018>, ICC adjusted Bonferroni method (Shi, Q.,
+Pavey, E. S., & Carter, R. E., 2012) <doi:10.1002/pst.1514> and a new
+correlation corrected weighted Hochberg for correlated endpoints.
 
 %prep
 %setup -q -c -n %{packname}
