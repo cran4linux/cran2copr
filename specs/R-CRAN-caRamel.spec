@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  caRamel
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Calibration by Evolutionary Multi Objective Algorithm
 
@@ -15,20 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-geometry 
 Requires:         R-parallel 
 
 %description
-Multi-objective optimizer initially developed for the calibration of
-hydrological models. The algorithm is a hybrid of the MEAS algorithm
-(Efstratiadis and Koutsoyiannis (2005) <doi:10.13140/RG.2.2.32963.81446>)
-by using the directional search method based on the simplexes of the
-objective space and the epsilon-NGSA-II algorithm with the method of
-classification of the parameter vectors archiving management by
-epsilon-dominance (Reed and Devireddy <doi:10.1142/9789812567796_0004>).
+The caRamel optimizer has been developed to meet the requirement for an
+automatic calibration procedure that delivers a family of parameter sets
+that are optimal with regard to a multi-objective target (Monteil et al.
+<doi:10.5194/hess-24-3189-2020>).
 
 %prep
 %setup -q -c -n %{packname}

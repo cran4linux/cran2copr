@@ -1,45 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ATQ
-%global packver   0.2.2
+%global packname  nextGenShinyApps
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Alert Time Quality - Evaluating Timely Epidemic Metrics
+Summary:          Craft Exceptional 'R Shiny' Applications and Dashboards with Novel Responsive Tools
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-quickcode 
+Requires:         R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-quickcode 
 
 %description
-Provides tools for evaluating timely epidemic detection models within
-school absenteeism-based surveillance systems. Introduces the concept of
-alert time quality as an evaluation metric. Includes functions to simulate
-populations, epidemics, and alert metrics associated with epidemic spread
-using population census data. The methods are based on research published
-in Vanderkruk et al. (2023) <doi:10.1186/s12889-023-15747-z> and Ward et
-al. (2019) <doi:10.1186/s12889-019-7521-7>.
+Novel responsive tools for developing R based 'Shiny' dashboards and
+applications. The scripts and style sheets are based on 'jQuery'
+<https://jquery.com/> and 'Bootstrap' <https://getbootstrap.com/>.
 
 %prep
 %setup -q -c -n %{packname}

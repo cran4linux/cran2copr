@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  piecenorms
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate a Piecewise Normalised Score Using Class Intervals
 
@@ -20,13 +20,27 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-univariateML 
+BuildRequires:    R-CRAN-COINr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-vdiffr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-univariateML 
+Requires:         R-CRAN-COINr 
+Requires:         R-stats 
+Requires:         R-CRAN-vdiffr 
 
 %description
 Provides an implementation of piecewise normalisation techniques useful
-when dealing with the communication of skewed and highly skewed data.
+when dealing with the communication of skewed and highly skewed data. It
+also provides utilities that recommends a normalisation technique based on
+the distribution of the data.
 
 %prep
 %setup -q -c -n %{packname}

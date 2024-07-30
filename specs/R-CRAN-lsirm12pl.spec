@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lsirm12pl
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Space Item Response Model
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-MCMCpack 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-pROC 
@@ -29,16 +29,19 @@ BuildRequires:    R-CRAN-spatstat
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-dplyr 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-pROC 
@@ -47,10 +50,13 @@ Requires:         R-CRAN-spatstat
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
 Requires:         R-CRAN-plotly 
-Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-purrr 
 
 %description
 Analysis of dichotomous and continuous response data using latent factor

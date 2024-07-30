@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datanugget
-%global packver   1.2.4
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create, and Refine Data Nuggets
 
@@ -32,22 +32,22 @@ into a small collection of nuggets of data, each containing a center
 (location), weight (importance), and scale (variability) parameter. Data
 nugget centers are created by choosing observations in the dataset which
 are as equally spaced apart as possible. Data nugget weights are created
-by counting the number observations closest to a given data nugget’s
-center. We then say the data nugget 'contains' these observations and the
-data nugget center is recalculated as the mean of these observations. Data
+by counting the number observations closest to a given data nugget center.
+We then say the data nugget 'contains' these observations and the data
+nugget center is recalculated as the mean of these observations. Data
 nugget scales are created by calculating the trace of the covariance
 matrix of the observations contained within a data nugget divided by the
 dimension of the dataset. Data nuggets are refined by 'splitting' data
 nuggets which have scales or shapes (defined as the ratio of the two
 largest eigenvalues of the covariance matrix of the observations contained
-within the data nugget) Reference paper: [1] Cherasia, K. E., Cabrera, J.,
-Fernholz, L. T., & Fernholz, R. (2022). Data Nuggets in Supervised
-Learning. emph{In Robust and Multivariate Statistical Methods:
-Festschrift in Honor of David E. Tyler} (pp. 429-449). Cham: Springer
-International Publishing. [2] Beavers, T., Cheng, G., Duan, Y., Cabrera,
-J., Lubomirski, M., Amaratunga, D., Teigler, J. (2023). Data Nuggets: A
-Method for Reducing Big Data While Preserving Data Structure (Submitted
-for Publication).
+within the data nugget) Reference paper: [1] Beavers, T. E., Cheng, G.,
+Duan, Y., Cabrera, J., Lubomirski, M., Amaratunga, D., & Teigler, J. E.
+(2024). Data Nuggets: A Method for Reducing Big Data While Preserving Data
+Structure. Journal of Computational and Graphical Statistics, 1-21. [2]
+Cherasia, K. E., Cabrera, J., Fernholz, L. T., & Fernholz, R. (2022). Data
+Nuggets in Supervised Learning. emph{In Robust and Multivariate
+Statistical Methods: Festschrift in Honor of David E. Tyler} (pp.
+429-449). Cham: Springer International Publishing.
 
 %prep
 %setup -q -c -n %{packname}

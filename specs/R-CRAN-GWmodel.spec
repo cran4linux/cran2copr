@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GWmodel
-%global packver   2.3-2
+%global packver   2.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically-Weighted Models
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-sp > 1.4.0
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-grDevices 
@@ -27,9 +27,10 @@ BuildRequires:    R-CRAN-spdep
 BuildRequires:    R-CRAN-spatialreg 
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-sp > 1.4.0
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-grDevices 

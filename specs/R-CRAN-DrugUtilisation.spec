@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DrugUtilisation
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarise Patient-Level Drug Utilisation in Data Mapped to the OMOP Common Data Model
 
@@ -17,42 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CodelistGenerator >= 3.1.0
 BuildRequires:    R-CRAN-CDMConnector >= 1.4.0
-BuildRequires:    R-CRAN-PatientProfiles >= 0.8.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.2.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.0.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.2.3
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-visOmopResults 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-CodelistGenerator >= 3.1.0
 Requires:         R-CRAN-CDMConnector >= 1.4.0
-Requires:         R-CRAN-PatientProfiles >= 0.8.0
-Requires:         R-CRAN-omopgenerics >= 0.2.0
+Requires:         R-CRAN-PatientProfiles >= 1.0.0
+Requires:         R-CRAN-omopgenerics >= 0.2.3
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-clock 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-visOmopResults 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-stringr 
 
 %description
 Summarise patient-level drug utilisation cohorts using data mapped to the

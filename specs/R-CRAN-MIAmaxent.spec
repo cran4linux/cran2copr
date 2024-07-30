@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MIAmaxent
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular, Integrated Approach to Maximum Entropy Distribution Modeling
 
@@ -16,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster >= 2.5.8
 BuildRequires:    R-CRAN-e1071 >= 1.6.7
 BuildRequires:    R-CRAN-dplyr >= 0.4.3
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-raster >= 2.5.8
 Requires:         R-CRAN-e1071 >= 1.6.7
 Requires:         R-CRAN-dplyr >= 0.4.3
 Requires:         R-graphics 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -38,7 +39,8 @@ tools for user-controlled transformation of explanatory variables,
 selection of variables by nested model comparison, and flexible model
 evaluation and projection. It follows principles based on the maximum-
 likelihood interpretation of maximum entropy modeling, and uses
-infinitely- weighted logistic regression for model fitting.
+infinitely- weighted logistic regression for model fitting. The package is
+described in Vollering et al. (2019; <doi:10.1002/ece3.5654>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +50,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

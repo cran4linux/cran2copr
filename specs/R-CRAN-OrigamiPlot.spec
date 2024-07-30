@@ -1,45 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ATQ
-%global packver   0.2.2
+%global packname  OrigamiPlot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Alert Time Quality - Evaluating Timely Epidemic Metrics
+Summary:          A Visualization Tool Enhancing Radar Plot Visualizations for Multivariate Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-plotrix 
+Requires:         R-grDevices 
 
 %description
-Provides tools for evaluating timely epidemic detection models within
-school absenteeism-based surveillance systems. Introduces the concept of
-alert time quality as an evaluation metric. Includes functions to simulate
-populations, epidemics, and alert metrics associated with epidemic spread
-using population census data. The methods are based on research published
-in Vanderkruk et al. (2023) <doi:10.1186/s12889-023-15747-z> and Ward et
-al. (2019) <doi:10.1186/s12889-019-7521-7>.
+A visualization tool for multivariate data. This package maintains the
+original functionality of a radar chart and avoids potential misuse of its
+connected regions, with newly added features to better assist
+multi-criteria decision-making.
 
 %prep
 %setup -q -c -n %{packname}
