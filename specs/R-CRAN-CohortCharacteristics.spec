@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortCharacteristics
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
 
@@ -27,10 +27,8 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-DiagrammeR 
 Requires:         R-CRAN-CDMConnector >= 1.3.2
 Requires:         R-CRAN-PatientProfiles >= 1.0.0
 Requires:         R-CRAN-visOmopResults >= 0.3.0
@@ -41,10 +39,8 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-DiagrammeR 
 
 %description
 Summarise and visualise the characteristics of patients in data mapped to

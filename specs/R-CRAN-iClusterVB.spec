@@ -1,65 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  heiscore
-%global packver   0.1.3
+%global packname  iClusterVB
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Score and Plot the Healthy Eating Index from NHANES Data
+Summary:          Fast Integrative Clustering and Feature Selection for High Dimensional Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-clustMixType 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinythemes 
-BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-inline 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-poLCA 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fmsb 
+BuildRequires:    R-CRAN-VarSelLCM 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-clustMixType 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinythemes 
-Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-inline 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-poLCA 
+Requires:         R-CRAN-R.utils 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-VarSelLCM 
 
 %description
-Calculate and visualize Healthy Eating Index (HEI) scores from National
-Health and Nutrition Examination Survey 24-hour dietary recall data
-utilizing three methods recommended by the National Cancer Institute
-(2024)
-<https://epi.grants.cancer.gov/hei/hei-methods-and-calculations.html#:~:text=To%%20use%%20the%%20simple%%20HEI,the%%20total%%20scores%%20across%%20individuals.>.
-Effortlessly analyze HEI scores across different demographic groups and
-years.
+A variational Bayesian approach for fast integrative clustering and
+feature selection, facilitating the analysis of multi-view, mixed type,
+high-dimensional datasets with applications in fields like cancer
+research, genomics, and more.
 
 %prep
 %setup -q -c -n %{packname}

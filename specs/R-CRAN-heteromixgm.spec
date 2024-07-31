@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heteromixgm
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula Graphical Models for Heterogeneous Mixed Data
 
@@ -48,8 +48,8 @@ model selection using the AIC, BIC and EBIC information criteria, as well
 as simulate mixed heterogeneous data for exploratory or simulation
 purposes and one multi-group multivariate mixed agricultural dataset
 pertaining to maize yields. The package implements the methodological
-developments found in Hermes et al. (2022)
-<doi:10.48550/arXiv.2210.13140>.
+developments found in Hermes et al. (2024)
+<doi:10.1080/10618600.2023.2289545>.
 
 %prep
 %setup -q -c -n %{packname}

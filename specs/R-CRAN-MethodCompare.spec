@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MethodCompare
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias and Precision Plots
+Summary:          Evaluating Bias and Precision in Method Comparison Studies
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,18 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-estimatr 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mfp 
+BuildRequires:    R-CRAN-rockchalk 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-estimatr 
 Requires:         R-graphics 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mfp 
+Requires:         R-CRAN-rockchalk 
 Requires:         R-stats 
 
 %description
-Implementation of the methodology from the paper entitled "Effective plots
-to assess bias and precision in method comparison studies" published in
-Statistical Methods in Medical Research, P. Taffé (2018)
-<doi:10.1177/0962280218759693>.
+Evaluate bias and precision in method comparison studies. One provides
+measurements for each method and it takes care of the estimates. Multiple
+plots to evaluate bias, precision and compare methods.
 
 %prep
 %setup -q -c -n %{packname}

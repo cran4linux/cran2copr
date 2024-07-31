@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jagshelper
-%global packver   0.3.1
+%global packname  PFLR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracting and Visualizing Output from 'jagsUI'
+Summary:          Estimating Penalized Functional Linear Regression
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jagsUI 
+BuildRequires:    R-CRAN-fda 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-jagsUI 
+BuildRequires:    R-CRAN-flare 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fda 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-flare 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Tools are provided to streamline Bayesian analyses in 'JAGS' using the
-'jagsUI' package.  Included are functions for extracting output in simpler
-format, functions for streamlining assessment of convergence, and
-functions for producing summary plots of output.  Also included is a
-function that provides a simple template for running 'JAGS' from 'R'.
-Referenced materials can be found at <DOI:10.1214/ss/1177011136>.
+Implementation of commonly used penalized functional linear regression
+models, including the Smooth and Locally Sparse (SLoS) method by Lin et
+al. (2016) <doi:10.1080/10618600.2016.1195273>, Nested Group bridge
+Regression (NGR) method by Guan et al. (2020)
+<doi:10.1080/10618600.2020.1713797>, Functional Linear Regression That's
+interpretable (FLIRTI) by James et al. (2009) <doi:10.1214/08-AOS641>, and
+the Penalized B-spline regression method.
 
 %prep
 %setup -q -c -n %{packname}

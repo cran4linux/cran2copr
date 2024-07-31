@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bnlearn
-%global packver   5.0
+%global packname  mixOofA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Network Structure Learning, Parameter Learning and Inference
+Summary:          Design and Analysis of Order-of-Addition Mixture Experiments
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-doofa 
+BuildRequires:    R-CRAN-crossdes 
+BuildRequires:    R-CRAN-mixexp 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-Rsolnp 
+Requires:         R-CRAN-doofa 
+Requires:         R-CRAN-crossdes 
+Requires:         R-CRAN-mixexp 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-Bayesian network structure learning, parameter learning and inference.
-This package implements constraint-based (PC, GS, IAMB, Inter-IAMB,
-Fast-IAMB, MMPC, Hiton-PC, HPC), pairwise (ARACNE and Chow-Liu),
-score-based (Hill-Climbing and Tabu Search) and hybrid (MMHC, RSMAX2,
-H2PC) structure learning algorithms for discrete, Gaussian and conditional
-Gaussian networks, along with many score functions and conditional
-independence tests. The Naive Bayes and the Tree-Augmented Naive Bayes
-(TAN) classifiers are also implemented. Some utility functions (model
-comparison and manipulation, random data generation, arc orientation
-testing, simple and advanced plots) are included, as well as support for
-parameter estimation (maximum likelihood and Bayesian) and inference,
-conditional probability queries, cross-validation, bootstrap and model
-averaging. Development snapshots with the latest bugfixes are available
-from <https://www.bnlearn.com/>.
+A facility to generate various classes of fractional designs for
+order-of-addition experiments namely fractional order-of-additions
+orthogonal arrays, see Voelkel, Joseph G. (2019). "The design of
+order-of-addition experiments." Journal of Quality Technology 51:3,
+230-241, <doi:10.1080/00224065.2019.1569958>. Provides facility to
+construct component orthogonal arrays, see Jian-Feng Yang, Fasheng Sun and
+Hongquan Xu (2020). "A Component Position Model, Analysis and Design for
+Order-of-Addition Experiments." Technometrics,
+<doi:10.1080/00401706.2020.1764394>. Supports generation of fractional
+designs for order-of-addition mixture experiments. Analysis of data from
+order-of-addition mixture experiments is also supported.
 
 %prep
 %setup -q -c -n %{packname}

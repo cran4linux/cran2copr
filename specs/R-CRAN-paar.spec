@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  affluenceIndex
-%global packver   2.1
+%global __requires_exclude ^libmpi
+%global packname  paar
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Affluence (Richness) Indices
+Summary:          Precision Agriculture Data Analysis
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spatstat 
-BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
 Requires:         R-stats 
-Requires:         R-CRAN-spatstat 
-Requires:         R-CRAN-spatstat.geom 
 
 %description
-Enables to compute the statistical indices of affluence (richness) with
-bootstrap errors, and inequality and polarization indices. Moreover, gives
-the possibility of calculation of Medeiros affluence line. In 2.1 version
-some simple errors are fixed.
+Precision agriculture spatial data depuration and homogeneous zones
+(management zone) delineation. The package includes functions that
+performs protocols for data cleaning management zone delineation and zone
+comparison; protocols are described in Paccioretti et al., (2020)
+<doi:10.1016/j.compag.2020.105556>.
 
 %prep
 %setup -q -c -n %{packname}

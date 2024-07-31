@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FjordLight
-%global packver   0.8
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Available Light Within the Water Column and Seafloor of Arctic Fjords
+Summary:          Available Light Within the Water Column and on the Seafloor of Arctic Fjords
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,8 +29,7 @@ Satellite data collected between 2003 and 2022, in conjunction with
 gridded bathymetric data (50-150 m resolution), are used to estimate the
 irradiance reaching the bottom of a series of representative EU Arctic
 fjords. An Earth System Science Data (ESSD) manuscript, Schlegel et al.
-(2023, in review), that provides a detailed explanation of the methodology
-is currently in review.
+(2024), provides a detailed explanation of the methodology.
 
 %prep
 %setup -q -c -n %{packname}

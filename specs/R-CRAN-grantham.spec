@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  grantham
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculate the 'Grantham' Distance
+Summary:          Calculate the Grantham Distance
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +18,15 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 
 %description
-A minimal set of routines to calculate the 'Grantham' distance
-<doi:10.1126/science.185.4154.862>. The 'Grantham' distance attempts to
+A minimal set of routines to calculate the Grantham distance
+<doi:10.1126/science.185.4154.862>. The Grantham distance attempts to
 provide a proxy for the evolutionary distance between two amino acids
 based on three key chemical properties: composition, polarity and
 molecular volume. In turn, evolutionary distance is used as a proxy for

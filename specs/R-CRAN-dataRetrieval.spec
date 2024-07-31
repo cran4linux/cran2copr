@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataRetrieval
-%global packver   2.7.15
+%global packver   2.7.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.15
+Version:          2.7.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval Functions for USGS and EPA Hydrology and Water Quality Data
 

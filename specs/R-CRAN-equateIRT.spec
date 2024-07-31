@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  equateIRT
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          IRT Equating Methods
 
@@ -33,7 +33,7 @@ dichotomous items (Battauz (2013) <doi:10.1007/s11336-012-9316-y>, Battauz
 (2015) <doi:10.18637/jss.v068.i07>). Test scoring can be performed by true
 score equating and observed score equating methods. DIF detection can be
 performed using a Wald-type test (Battauz (2019)
-<doi:10.1007/s10260-018-00442-w>). The package includes tests to access
+<doi:10.1007/s10260-018-00442-w>). The package includes tests to assess
 the stability of the equating transformations (Battauz(2022)
 <doi:10.1111/stan.12277>).
 

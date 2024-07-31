@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dials
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating Tuning Parameter Values
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sfd 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sfd 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

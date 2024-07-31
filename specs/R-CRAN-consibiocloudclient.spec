@@ -1,54 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MetaculR
-%global packver   0.4.1
+%global __requires_exclude ^libmpi
+%global packname  consibiocloudclient
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyze Metaculus Predictions and Questions
+Summary:          A Client for the 'Consibio Cloud' API
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.2
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-verification 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.0.2
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-verification 
-Requires:         R-stats 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-cowplot 
+Requires:         R-utils 
 
 %description
-Login, download, and analyze questions predicted by you and/or the
-Metaculus community by interacting with the Metaculus API, currently
-located at <https://www.metaculus.com/api2/>.
+Enable seamless interaction with 'Consibio Cloud' <https://consibio.cloud>
+'API' <https://api.v2.consibio.com/api-docs/>. This package provides tools
+to query data from resources like projects, elements, devices, and
+datalogs.
 
 %prep
 %setup -q -c -n %{packname}

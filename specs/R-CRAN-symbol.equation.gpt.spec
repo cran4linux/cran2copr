@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jagshelper
-%global packver   0.3.1
+%global packname  symbol.equation.gpt
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extracting and Visualizing Output from 'jagsUI'
+Summary:          Simple User Interface to Build Equations and Add Symbols
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel > 3.6
+Requires:         R-core > 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jagsUI 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-jagsUI 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-nextGenShinyApps 
+BuildRequires:    R-CRAN-r2symbols 
+BuildRequires:    R-CRAN-shinyStorePlus 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-markdown 
+Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-nextGenShinyApps 
+Requires:         R-CRAN-r2symbols 
+Requires:         R-CRAN-shinyStorePlus 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-markdown 
 
 %description
-Tools are provided to streamline Bayesian analyses in 'JAGS' using the
-'jagsUI' package.  Included are functions for extracting output in simpler
-format, functions for streamlining assessment of convergence, and
-functions for producing summary plots of output.  Also included is a
-function that provides a simple template for running 'JAGS' from 'R'.
-Referenced materials can be found at <DOI:10.1214/ss/1177011136>.
+Powerful user interface for adding symbols, smileys, arrows, building
+mathematical equations using 'LaTeX' or 'r2symbols'. Built for use in
+development of 'Markdown' and 'Shiny' Outputs.
 
 %prep
 %setup -q -c -n %{packname}
