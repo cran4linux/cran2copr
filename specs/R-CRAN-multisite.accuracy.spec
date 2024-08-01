@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multisite.accuracy
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Accuracy in Multisite Machine-Learning Models
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-AROC 
 BuildRequires:    R-CRAN-coxme 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
@@ -25,7 +24,6 @@ BuildRequires:    R-CRAN-logistf
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-AROC 
 Requires:         R-CRAN-coxme 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 

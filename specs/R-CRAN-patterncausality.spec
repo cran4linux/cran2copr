@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gfilogisreg
-%global packver   1.0.3
+%global packname  patterncausality
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Fiducial Inference for Binary Logistic Regression Models
+Summary:          Pattern Causality Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gmp-devel
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-rcdd 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-EigenR 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-snowfall 
+BuildRequires:    R-CRAN-tcltk2 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-roptim 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-rcdd 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-EigenR 
+Requires:         R-CRAN-snowfall 
+Requires:         R-CRAN-tcltk2 
+Requires:         R-CRAN-moments 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
 
 %description
-Fiducial framework for the logistic regression model. The fiducial
-distribution of the parameters of the logistic regression is simulated,
-allowing to perform statistical inference on any parameter of interest.
-The algorithm is taken from Jessi Cisewski's PhD thesis: Jessi Cisewski
-(2012), "Generalized fiducial inference for mixed linear models".
+The model proposes a robust methodology for detecting and reconstructing
+the hidden structure of dynamic complex systems through short-term
+forecasts and information embedded in reconstructed state spaces. The
+approach not only identifies critical components and causal interactions
+within these systems but also provides a practical tool for optimizing
+system performance and stability.
 
 %prep
 %setup -q -c -n %{packname}

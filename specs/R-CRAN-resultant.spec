@@ -1,51 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sqltargets
-%global packver   0.2.0
+%global packname  resultant
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Targets' Extension for 'SQL' Queries
+Summary:          Utilities for Multivariate Polynomials with Rational Coefficients
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jinjar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tarchetypes 
-BuildRequires:    R-CRAN-targets 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jinjar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tarchetypes 
-Requires:         R-CRAN-targets 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-qspray >= 3.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-gmp 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppCGAL 
+Requires:         R-CRAN-qspray >= 3.1.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-gmp 
+Requires:         R-utils 
 
 %description
-Provides an extension for 'SQL' queries as separate file within 'targets'
-pipelines. The shorthand creates two targets, the query file and the query
-result.
+Computation of resultant, subresultants, greatest common divisor, integral
+division (aka division without remainder) of two multivariate polynomials
+with rational coefficients, Sturm-Habicht sequence and square-free
+factorization of a multivariate polynomial with rational coefficients. The
+computations are performed by the 'C++' library 'CGAL'
+(<https://www.cgal.org/>). Resultants have applications in polynomial
+systems solving, number theory, and algebraic geometry. The package also
+contains some functions computing the number of real roots of a univariate
+polynomial with rational coefficients, and a function computing the
+division with remainder of two univariate polynomials with rational
+coefficients.
 
 %prep
 %setup -q -c -n %{packname}

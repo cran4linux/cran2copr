@@ -1,52 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digiRhythm
-%global packver   2.2
+%global packname  BioTIMEr
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing Animal's Rhythmicity
+Summary:          Tools to Use and Explore the 'BioTIME' Database
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 2.0.1
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dggridR >= 3.1.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-readr >= 2.0.1
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-dggridR >= 3.1.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-crayon 
-Requires:         R-stats 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-checkmate 
 
 %description
-Analyze and visualize the rhythmic behavior of animals using the degree of
-functional coupling (See Scheibe (1999) <doi:10.1076/brhm.30.2.216.1420>),
-compute and visualize harmonic power, actograms, average activity and
-diurnality index.
+The 'BioTIME' database was first published in 2018 and inspired ideas,
+questions, project and research article. To make it even more accessible,
+an R package was created. The 'BioTIMEr' package provides tools designed
+to interact with the 'BioTIME' database. The functions provided include
+the 'BioTIME' recommended methods for preparing (gridding and rarefaction)
+time series data, a selection of standard biodiversity metrics (including
+species richness, numerical abundance and exponential Shannon) alongside
+examples on how to display change over time. It also includes a sample
+subset of both the query and meta data, the full versions of which are
+freely available on the 'BioTIME' website
+<https://biotime.st-andrews.ac.uk/home.php>.
 
 %prep
 %setup -q -c -n %{packname}

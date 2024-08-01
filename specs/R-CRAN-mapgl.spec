@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyWechat
-%global packver   0.2.0
+%global packname  mapgl
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Notifier for R Users by 'WeChat'
+Summary:          Interactive Maps with 'Mapbox GL JS' and 'MapLibre GL JS' in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-htmltools 
+Requires:         R-grDevices 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-terra 
 
 %description
-This is a 'WeChat' Notifier for R users to notice when script run
-complete.
+Provides an interface to the 'Mapbox GL JS'
+(<https://docs.mapbox.com/mapbox-gl-js/guides>) and the 'MapLibre GL JS'
+(<https://maplibre.org/maplibre-gl-js/docs/>) interactive mapping
+libraries to help users create custom interactive maps in R.  Users can
+create interactive globe visualizations; layer 'sf' objects to create
+filled maps, circle maps, 'heatmaps', and three-dimensional graphics; and
+customize map styles and views.  The package also includes utilities to
+use 'Mapbox' and 'MapLibre' maps in 'Shiny' web applications.
 
 %prep
 %setup -q -c -n %{packname}

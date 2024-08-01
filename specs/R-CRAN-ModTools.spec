@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ModTools
-%global packver   0.9.6
+%global packver   0.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.9.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Building Regression and Classification Models
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-NeuralNetTools
 BuildRequires:    R-CRAN-naivebayes 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
@@ -59,6 +60,7 @@ Requires:         R-CRAN-NeuralNetTools
 Requires:         R-CRAN-naivebayes 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-AER 
+Requires:         R-CRAN-boot 
 
 %description
 Collection of tools for regression and classification tasks. The package

@@ -1,51 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sqltargets
-%global packver   0.2.0
+%global packname  highlightr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Targets' Extension for 'SQL' Queries
+Summary:          Highlight Conserved Edits Across Versions of a Document
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jinjar 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-quanteda.textstats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tarchetypes 
-BuildRequires:    R-CRAN-targets 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jinjar 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-quanteda.textstats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tarchetypes 
-Requires:         R-CRAN-targets 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tm 
 
 %description
-Provides an extension for 'SQL' queries as separate file within 'targets'
-pipelines. The shorthand creates two targets, the query file and the query
-result.
+Input multiple versions of a source document, and receive HTML code for a
+highlighted version of the source document indicating the frequency of
+occurrence of phrases in the different versions. This method is described
+in Chapter 3 of Rogers (2024)
+<https://digitalcommons.unl.edu/dissertations/AAI31240449/>.
 
 %prep
 %setup -q -c -n %{packname}

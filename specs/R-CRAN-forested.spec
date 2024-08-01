@@ -1,51 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sqltargets
-%global packver   0.2.0
+%global packname  forested
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Targets' Extension for 'SQL' Queries
+Summary:          Forest Attributes in Washington State
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jinjar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tarchetypes 
-BuildRequires:    R-CRAN-targets 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jinjar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tarchetypes 
-Requires:         R-CRAN-targets 
-Requires:         R-CRAN-withr 
 
 %description
-Provides an extension for 'SQL' queries as separate file within 'targets'
-pipelines. The shorthand creates two targets, the query file and the query
-result.
+A small subset of plots in Washington State are sampled and assessed
+"on-the-ground" as forested or non-forested by the U.S. Department of
+Agriculture, Forest Service, Forest Inventory and Analysis (FIA) Program,
+but the FIA also has access to remotely sensed data for all land in the
+state. The 'forested' package contains a data frame by the same name
+intended for use in predictive modeling applications where the more
+easily-accessible remotely sensed data can be used to predict whether a
+plot is forested or non-forested.
 
 %prep
 %setup -q -c -n %{packname}

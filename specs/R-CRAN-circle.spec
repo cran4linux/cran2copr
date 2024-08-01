@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  circle
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client Package for Circle CI
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 2.0.0
+BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-cli >= 2.0.0
+Requires:         R-CRAN-gh 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 

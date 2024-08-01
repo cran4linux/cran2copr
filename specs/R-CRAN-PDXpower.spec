@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  netcox
-%global packver   1.0.1
+%global packname  PDXpower
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Structural Learning in Cox Models with Time-Dependent Covariates
+Summary:          Time to Event Outcome in Experimental Designs of Pre-Clinical Studies
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-frailtypack 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-frailtypack 
 
 %description
-Efficient procedures for fitting and cross-validating the overlapping
-group Lasso (implemented in C++) for Cox models with time-dependent
-covariates. The penalty term is a weighted sum of infinity norms of
-(overlapping) groups of coefficients, which can select variables
-structurally with a specific grouping structure.
+Conduct simulation-based customized power calculation for clustered time
+to event data in a mixed crossed/nested design, where a number of cell
+lines and a number of mice within each cell line are considered to achieve
+a desired statistical power, motivated by Eckel-Passow and colleagues
+(2021) <doi:10.1093/neuonc/noab137> and Li and colleagues (2024)
+<doi:10.48550/arXiv.2404.08927>. This package provides two commonly used
+models for powering a design, linear mixed effects and Cox frailty model.
+Both models account for within-subject (cell line) correlation while
+holding different distributional assumptions about the outcome.
+Alternatively, the counterparts of fixed effects model are also available,
+which produces similar estimates of statistical power.
 
 %prep
 %setup -q -c -n %{packname}

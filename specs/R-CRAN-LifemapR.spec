@@ -1,51 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sqltargets
-%global packver   0.2.0
+%global packname  LifemapR
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Targets' Extension for 'SQL' Queries
+Summary:          Data Visualisation on 'Lifemap' Tree
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jinjar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-leaflet.minicharts 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tarchetypes 
-BuildRequires:    R-CRAN-targets 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jinjar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-fastmatch 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-leaflet.minicharts 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tarchetypes 
-Requires:         R-CRAN-targets 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-fastmatch 
 
 %description
-Provides an extension for 'SQL' queries as separate file within 'targets'
-pipelines. The shorthand creates two targets, the query file and the query
-result.
+Allow to visualise data on the NCBI phylogenetic tree as presented in
+Lifemap <http://lifemap.univ-lyon1.fr/>. It takes as input a dataframe
+with at least a "taxid" column containing NCBI format TaxIds and allows to
+draw multiple layers with different visualisation tools.
 
 %prep
 %setup -q -c -n %{packname}

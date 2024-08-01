@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stgam
-%global packver   0.0.1.1
+%global packver   0.0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.1
+Version:          0.0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially and Temporally Varying Coefficient Models Using Generalized Additive Models
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mgcv >= 1.9.1
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,9 +27,9 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-metR 
-BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-mgcv >= 1.9.1
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
@@ -38,13 +39,12 @@ Requires:         R-CRAN-glue
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-metR 
-Requires:         R-CRAN-mgcv 
 Requires:         R-parallel 
 Requires:         R-CRAN-tidyselect 
 
 %description
 A framework for specifying spatially, temporally and
-spatial-and-temporally varying coefficient models using Generalized
+spatially-and-temporally varying coefficient models using Generalized
 Additive Models with Gaussian Process smooths. The smooths are
 parameterised with location and / or time attributes. Importantly the
 framework supports the investigation of the presence and nature of any

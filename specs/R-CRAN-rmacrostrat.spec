@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  subselect
-%global packver   0.15.5
+%global packname  rmacrostrat
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Selecting Variable Subsets
+Summary:          Fetch Geologic Data from the 'Macrostrat' Platform
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ISwR 
-BuildRequires:    R-CRAN-corpcor 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ISwR 
-Requires:         R-CRAN-corpcor 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
 
 %description
-A collection of functions which (i) assess the quality of variable subsets
-as surrogates for a full data set, in either an exploratory data analysis
-or in the context of a multivariate linear model, and (ii) search for
-subsets which are optimal under various criteria. Theoretical support for
-the heuristic search methods and exploratory data analysis criteria is in
-Cadima, Cerdeira, Minhoto (2003, <doi:10.1016/j.csda.2003.11.001>).
-Theoretical support for the leap and bounds algorithm and the criteria for
-the general multivariate linear model is in Duarte Silva (2001,
-<doi:10.1006/jmva.2000.1920>). There is a package vignette "subselect",
-which includes additional references.
+Work with the 'Macrostrat' Web Service (<https://macrostrat.org/>) to
+fetch geological data relevant to the spatial and temporal distribution of
+sedimentary, igneous, and metamorphic rocks as well as data extracted from
+them.
 
 %prep
 %setup -q -c -n %{packname}

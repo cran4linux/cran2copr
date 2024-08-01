@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sqltargets
-%global packver   0.2.0
+%global packname  UEI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Targets' Extension for 'SQL' Queries
+Summary:          Compute Uniform Error Index
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jinjar 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tarchetypes 
-BuildRequires:    R-CRAN-targets 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jinjar 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tarchetypes 
-Requires:         R-CRAN-targets 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-Metrics 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-Metrics 
 
 %description
-Provides an extension for 'SQL' queries as separate file within 'targets'
-pipelines. The shorthand creates two targets, the query file and the query
-result.
+Uniform Error Index is the weighted average of different error measures.
+Uniform Error Index utilizes output from different error function and
+gives more robust and stable error values. This package has been developed
+to compute Uniform Error Index from ten different loss function like Error
+Square, Square of Square Error, Quasi Likelihood Error, LogR-Square,
+Absolute Error, Absolute Square Error etc. The weights are determined
+using Principal Component Analysis (PCA) algorithm of Yeasin and Paul
+(2024) <doi:10.1007/s11227-023-05542-3>.
 
 %prep
 %setup -q -c -n %{packname}

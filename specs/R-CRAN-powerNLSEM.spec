@@ -1,52 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  digiRhythm
-%global packver   2.2
+%global packname  powerNLSEM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzing Animal's Rhythmicity
+Summary:          Simulation-Based Power Estimation (MSPE) for Nonlinear SEM
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 2.0.1
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-lavaan >= 0.6.16
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-readr >= 2.0.1
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-lavaan >= 0.6.16
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-crayon 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-stringr 
 
 %description
-Analyze and visualize the rhythmic behavior of animals using the degree of
-functional coupling (See Scheibe (1999) <doi:10.1076/brhm.30.2.216.1420>),
-compute and visualize harmonic power, actograms, average activity and
-diurnality index.
+Model-implied simulation-based power estimation (MSPE) for nonlinear (and
+linear) SEM, path analysis and regression analysis. A theoretical
+framework is used to approximate the relation between power and sample
+size for given type I error rates and effect sizes. The package offers an
+adaptive search algorithm to find the optimal N for given effect sizes and
+type I error rates. Plots can be used to visualize the power relation to N
+for different parameters of interest (POI). Theoretical justifications are
+given in Irmer et al. (2024a) <doi:10.31219/osf.io/pe5bj> and detailed
+description are given in Irmer et al. (2024b).
 
 %prep
 %setup -q -c -n %{packname}

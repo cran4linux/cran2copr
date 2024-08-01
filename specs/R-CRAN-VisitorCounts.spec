@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VisitorCounts
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling and Forecasting Visitor Counts Using Social Media
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-Rssa 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-Rssa 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-zoo 
 
 %description
 Performs modeling and forecasting of park visitor counts using social
@@ -31,8 +33,8 @@ is built based on an automatic decomposition of the trend and seasonal
 components of the social media-based park visitor counts, from which
 short-term forecasts of the visitor counts and percent changes in the
 visitor counts can be made. A reference for the underlying model that
-'VisitorCounts' uses can be found at 'Russell Goebel', Austin Schmaltz,
-'Beth Ann Brackett', Spencer A. Wood, 'Kimihiro Noguchi' (2023)
+'VisitorCounts' uses can be found at Russell Goebel, Austin Schmaltz, Beth
+Ann Brackett, Spencer A. Wood, Kimihiro Noguchi (2023)
 <doi:10.1002/for.2965> .
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaGE
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis for Detecting Genotype x Environment Associations
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-yarrr 
 Requires:         R-CRAN-corrplot 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
@@ -57,18 +58,17 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-yarrr 
 
 %description
-Meta-analysis of genome-wide association studies for studying Genotype x
-Environment interactions.  The 4 main functions of the package
-metaGE.collect(), metaGE.cor(), metaGE.fit() and metaGE.test() correspond
-to 4 steps to perform the meta-analysis: Collecting the results of
-genome-wide association studies data from different files; Inferring the
-inter-environment correlation matrix; Performing global test procedure for
-quantitative trait loci detection (using a Fixed or Random effect model);
-Performing tests of contrast or meta-regression using an environmental
-co-factor. (De Walsche, A., et al. (2023)
-<doi:10.1101/2023.03.01.530237>).
+Provides functions to perform all steps of genome-wide association
+meta-analysis for studying Genotype x Environment interactions, from
+collecting the data to the manhattan plot.  The procedure accounts for the
+potential correlation between studies. In addition to the Fixed and Random
+models, one can investigate the relationship between QTL effects and some
+qualitative or quantitative covariate via the test of contrast and the
+meta-regression, respectively.  The methodology is available from: (De
+Walsche, A., et al. (2023) doi{10.1101/2023.03.01.530237}).
 
 %prep
 %setup -q -c -n %{packname}
