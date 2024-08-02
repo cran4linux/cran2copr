@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stats19
-%global packver   3.0.3
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-tools 
+Requires:         R-methods 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-readr 
 Requires:         R-tools 

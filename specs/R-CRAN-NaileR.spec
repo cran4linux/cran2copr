@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.2
+%global packname  NaileR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentiles
+Summary:          Interpreting Latent Variables with AI
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-FactoMineR 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ollamar 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-FactoMineR 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ollamar 
+Requires:         R-CRAN-magrittr 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+A small package designed for interpreting continuous and categorical
+latent variables. You provide a data set with a latent variable you want
+to understand and some other explanatory variables. It provides a
+description of the latent variable based on the explanatory variables. It
+also provides a name to the latent variable.
 
 %prep
 %setup -q -c -n %{packname}

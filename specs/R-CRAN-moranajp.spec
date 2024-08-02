@@ -1,50 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.2
+%global packname  moranajp
+%global packver   0.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentiles
+Summary:          Morphological Analysis for Japanese
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-ggraph 
+Requires:         R-grid 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+Requires:         R-CRAN-rvest 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Supports morphological analysis for Japanese by using 'MeCab'
+<https://taku910.github.io/mecab/>, 'Sudachi'
+<https://github.com/WorksApplications/Sudachi>, 'Chamame'
+<https://chamame.ninjal.ac.jp/>, or 'Ginza'
+<https://github.com/megagonlabs/ginza>. Can input a data.frame and obtain
+all results of 'MeCab' and the row number of the original data.frame as a
+text id.
 
 %prep
 %setup -q -c -n %{packname}

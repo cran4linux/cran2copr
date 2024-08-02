@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qlcVisualize
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization for Quantitative Language Comparison
 
@@ -17,38 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-alphahull 
+BuildRequires:    R-CRAN-automap 
+BuildRequires:    R-CRAN-cartogramR 
+BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-geodata 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-mapplots 
+BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qlcMatrix 
+BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-seriation 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-mapplots 
-BuildRequires:    R-CRAN-geodata 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-alphahull 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-concaveman 
-BuildRequires:    R-CRAN-cartogramR 
+BuildRequires:    R-CRAN-stars 
+Requires:         R-CRAN-alphahull 
+Requires:         R-CRAN-automap 
+Requires:         R-CRAN-cartogramR 
+Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-geodata 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-mapplots 
+Requires:         R-CRAN-maps 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-qlcMatrix 
+Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-seriation 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-mapplots 
-Requires:         R-CRAN-geodata 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-alphahull 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-concaveman 
-Requires:         R-CRAN-cartogramR 
+Requires:         R-CRAN-stars 
 
 %description
 Collection of visualizations as used in quantitative language comparison.

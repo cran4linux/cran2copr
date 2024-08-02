@@ -1,51 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  AROC
-%global packver   1.0-4
+%global __requires_exclude ^libmpi
+%global packname  cvLM
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Covariate-Adjusted Receiver Operating Characteristic Curve Inference
+Summary:          Cross-Validation for Linear & Ridge Regression Models
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.8
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-np 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-nor1mix 
-BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-RcppParallel >= 5.1.8
+Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-stats 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-splines 
-Requires:         R-CRAN-np 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-nor1mix 
-Requires:         R-CRAN-spatstat.geom 
 
 %description
-Estimates the covariate-adjusted Receiver Operating Characteristic (AROC)
-curve and pooled (unadjusted) ROC curve by different methods. Inacio de
-Carvalho, V., and Rodriguez-Alvarez, M. X. (2018) <arXiv:1806.00473>.
-NOTE: We have created a new package, 'ROCnReg', with more functionalities.
-It also implements all the methods included in 'AROC'. We, therefore,
-recommend using 'ROCnReg' ('AROC' will no longer be maintained).
+Efficient implementations of cross-validation techniques for linear and
+ridge regression models, leveraging 'C++' code with 'Rcpp',
+'RcppParallel', and 'Eigen' libraries. It supports leave-one-out,
+generalized, and K-fold cross-validation methods, utilizing 'Eigen'
+matrices for high performance. Methodology references: Hastie, Tibshirani,
+and Friedman (2009) <doi:10.1007/978-0-387-84858-7>.
 
 %prep
 %setup -q -c -n %{packname}

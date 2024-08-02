@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EEML
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Explainable Machine Learning Models
 
@@ -34,7 +34,7 @@ combined the predictive capabilities of different machine-learning models
 and integrates the interpretability of explainability methods. To develop
 the proposed algorithm, a two-stage Technique for Order of Preference by
 Similarity to Ideal Solution (TOPSIS) framework was employed. The package
-has been developed using the algorithm of Paul et al.
+has been developed using the algorithm of Paul et al. (2023)
 <doi:10.1007/s40009-023-01218-x> and Yeasin and Paul (2024)
 <doi:10.1007/s11227-023-05542-3>.
 

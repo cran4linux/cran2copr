@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.2
+%global packname  fio
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentiles
+Summary:          Friendly Input-Output Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-emoji 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-emoji 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Simplifies the process of importing and managing input-output matrices
+from 'Microsoft Excel' into R, and provides a suite of functions for
+analysis. It leverages the 'R6' class for clean, memory-efficient
+object-oriented programming. Furthermore, all linear algebra computations
+are implemented in 'Rust' to achieve highly optimized performance.
 
 %prep
 %setup -q -c -n %{packname}

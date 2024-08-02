@@ -1,50 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.2
+%global packname  maestro
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentiles
+Summary:          Orchestration of Data Pipelines
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
+BuildRequires:    R-CRAN-cli >= 3.3.0
+BuildRequires:    R-CRAN-lubridate >= 1.9.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
+BuildRequires:    R-CRAN-roxygen2 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-timechange 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.3.0
+Requires:         R-CRAN-lubridate >= 1.9.1
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-logger 
 Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+Requires:         R-CRAN-roxygen2 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-timechange 
+Requires:         R-utils 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Framework for creating and orchestrating data pipelines. Organize,
+orchestrate, and monitor multiple pipelines in a single project. Use tags
+to decorate functions with scheduling parameters and configuration.
 
 %prep
 %setup -q -c -n %{packname}

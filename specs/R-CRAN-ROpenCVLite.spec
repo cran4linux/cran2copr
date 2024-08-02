@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ROpenCVLite
-%global packver   4.90.1
+%global packver   4.90.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.90.1
+Version:          4.90.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Package for Installing OpenCV with R
 
@@ -19,10 +19,8 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-pkgbuild 
 BuildRequires:    R-parallel 
 Requires:         R-utils 
-Requires:         R-CRAN-pkgbuild 
 Requires:         R-parallel 
 
 %description
