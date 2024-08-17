@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qualtRics
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download 'Qualtrics' Survey Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0
+BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr >= 1.0
+Requires:         R-CRAN-archive 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 

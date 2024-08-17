@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  solvebio
-%global packver   2.14.0
+%global packver   2.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.14.0
+Version:          2.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Official SolveBio API Client
 
@@ -27,7 +28,7 @@ Requires:         R-CRAN-mime
 R language bindings for SolveBio's API. SolveBio is a biomedical knowledge
 hub that enables life science organizations to collect and harmonize the
 complex, disparate "multi-omic" data essential for today's R&D and BI
-needs. For more information, visit <https://www.solvebio.com>.
+needs.
 
 %prep
 %setup -q -c -n %{packname}

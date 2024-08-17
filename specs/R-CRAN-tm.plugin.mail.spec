@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tm.plugin.mail
-%global packver   0.2-2
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Mining E-Mail Plug-in
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tm >= 0.6.1
 BuildRequires:    R-CRAN-NLP >= 0.1.2
+BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-tm >= 0.6.1
 Requires:         R-CRAN-NLP >= 0.1.2
+Requires:         R-CRAN-reticulate 
 
 %description
 A plug-in for the tm text mining framework providing mail handling

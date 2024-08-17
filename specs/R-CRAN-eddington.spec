@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eddington
-%global packver   4.1.3
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.3
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute a Cyclist's Eddington Number
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-xml2 
 
 %description
 Compute a cyclist's Eddington number, including efficiently computing

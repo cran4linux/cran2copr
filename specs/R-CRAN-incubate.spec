@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  incubate
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Time-to-Event Analysis with Variable Incubation Phases
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-future.apply >= 1.6
 BuildRequires:    R-CRAN-glue >= 1.4
@@ -40,9 +40,10 @@ Requires:         R-CRAN-tibble
 Fit parametric models for time-to-event data that show an initial
 'incubation period', i.e., a variable delay phase where the hazard is
 zero. The delayed Weibull distribution serves as foundational data model.
-The specific method of 'MPSE' (maximum product of spacings estimation) is
-used for parameter estimation. Bootstrap confidence intervals for
-parameters and significance tests in a two group setting are provided.
+The specific method of 'MPSE' (maximum product of spacings estimation) and
+MLE-based methods are used for parameter estimation. Bootstrap confidence
+intervals for parameters and significance tests in a two group setting are
+provided.
 
 %prep
 %setup -q -c -n %{packname}

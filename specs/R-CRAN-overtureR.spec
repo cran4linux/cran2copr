@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  overtureR
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load 'Overture' Datasets as 'dbplyr' and 'sf'-Ready Data Frames
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-duckdb >= 1.0.0
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-duckdb >= 1.0.0
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 
 %description

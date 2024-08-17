@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coursekata
-%global packver   0.17.0
+%global packver   0.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.18.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Packages and Functions for 'CourseKata' Courses
 
@@ -29,8 +29,8 @@ BuildRequires:    R-CRAN-vctrs >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-ggformula >= 0.10.1
 BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-pak 
 BuildRequires:    R-CRAN-palmerpenguins 
+BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-cli >= 3.2.0
@@ -44,8 +44,8 @@ Requires:         R-CRAN-vctrs >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-ggformula >= 0.10.1
 Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-pak 
 Requires:         R-CRAN-palmerpenguins 
+Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-viridisLite 
 
 %description
