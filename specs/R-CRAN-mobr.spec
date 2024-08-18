@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mobr
-%global packver   2.0.2
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measurement of Biodiversity
 
@@ -28,6 +29,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-scam 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
@@ -40,14 +43,17 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-scam 
+Requires:         R-CRAN-sf 
 
 %description
 Functions for calculating metrics for the measurement biodiversity and its
 changes across scales, treatments, and gradients. The methods implemented
 in this package are described in: Chase, J.M., et al. (2018)
 <doi:10.1111/ele.13151>, McGlinn, D.J., et al. (2019)
-<doi:10.1111/2041-210X.13102>, and McGlinn, D.J., et al. (2021)
-<doi:10.1002/ecy.3233>.
+<doi:10.1111/2041-210X.13102>, McGlinn, D.J., et al. (2020)
+<doi:10.1101/851717>, and McGlinn, D.J., et al. (2023)
+<doi:10.1101/2023.09.19.558467>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -57,6 +63,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

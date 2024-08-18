@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wikkitidy
-%global packver   0.1.12
+%global packver   0.1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          0.1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Analysis of Wikipedia
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-webfakes 
 Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-webfakes 
 
 %description
 Access 'Wikipedia' through the several 'MediaWiki' APIs

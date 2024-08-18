@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wconf
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted Confusion Matrix
 
@@ -32,11 +32,14 @@ when provided data in matrix form. References: Kuhn, M. (2008) "Building
 Perspective Models in R Using the caret Package"
 <doi:10.18637/jss.v028.i05> Monahov, A. (2021) "Model Evaluation with
 Weighted Threshold Optimization (and the mewto R package)"
-<doi:10.2139/ssrn.3805911> Starovoitov, V., Golub, Y. (2020). New Function
-for Estimating Imbalanced Data Classification Results. Pattern Recognition
-and Image Analysis, 295–302 Van de Velden, M., Iodice D'Enza, A., Markos,
-A., Cavicchia, C. (2023) "A general framework for implementing distances
-for categorical variables" <doi:10.48550/arXiv.2301.02190>.
+<doi:10.2139/ssrn.3805911> Monahov, A. (2024) "Improved Accuracy Metrics
+for Classification with Imbalanced Data and Where Distance from the Truth
+Matters, with the wconf R Package" <doi:10.2139/ssrn.4802336> Starovoitov,
+V., Golub, Y. (2020). New Function for Estimating Imbalanced Data
+Classification Results. Pattern Recognition and Image Analysis, 295–302
+Van de Velden, M., Iodice D'Enza, A., Markos, A., Cavicchia, C. (2023) "A
+general framework for implementing distances for categorical variables"
+<doi:10.48550/arXiv.2301.02190>.
 
 %prep
 %setup -q -c -n %{packname}

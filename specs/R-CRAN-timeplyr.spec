@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timeplyr
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Tidy Tools for Date and Date-Time Manipulation
 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.8
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cheapr >= 0.9.1
+BuildRequires:    R-CRAN-cheapr >= 0.9.3
 BuildRequires:    R-CRAN-vctrs >= 0.6.0
 BuildRequires:    R-CRAN-timechange >= 0.2.0
 BuildRequires:    R-CRAN-cppdoubles 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.8
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cheapr >= 0.9.1
+Requires:         R-CRAN-cheapr >= 0.9.3
 Requires:         R-CRAN-vctrs >= 0.6.0
 Requires:         R-CRAN-timechange >= 0.2.0
 Requires:         R-CRAN-cppdoubles 

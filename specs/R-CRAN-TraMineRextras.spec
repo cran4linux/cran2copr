@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TraMineRextras
-%global packver   0.6.7
+%global packver   0.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          TraMineR Extension
 
@@ -45,8 +45,8 @@ with the 'TraMineR' package for sequence data exploration. Includes, among
 others, specific functions such as state survival plots, position-wise
 group-typical states, dynamic sequence indicators, and dissimilarities
 between event sequences. Also includes contributions by non-members of the
-TraMineR team such as the relative frequency plot and methods for polyadic
-data.
+TraMineR team such as methods for polyadic data and for the comparison of
+groups of sequences.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qtkit
-%global packver   0.10.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Text Kit
 
@@ -14,18 +14,47 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chromote 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gutenbergr 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-openai 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidytext 
+Requires:         R-CRAN-chromote 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gutenbergr 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-openai 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidytext 
 
 %description
 Support package for the textbook "An Introduction to Quantitative Text
-Analysis for Linguists: Reproducible Research using R" (Francom, 2024)
-<doi:10.4324/9781003393764> (available only after August 12, 2024).
-Includes functions to acquire, clean, and analyze text data as well as
-functions to document and share the results of text analysis. The package
-is designed to be used in conjunction with the book, but can also be used
-as a standalone package for text analysis.
+Analysis for Linguists: Reproducible Research Using R" (Francom, 2024)
+<doi:10.4324/9781003393764>. Includes functions to acquire, clean, and
+analyze text data as well as functions to document and share the results
+of text analysis. The package is designed to be used in conjunction with
+the book, but can also be used as a standalone package for text analysis.
 
 %prep
 %setup -q -c -n %{packname}

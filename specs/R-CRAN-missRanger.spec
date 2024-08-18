@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missRanger
-%global packver   2.5.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Imputation of Missing Values
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ranger >= 0.16.0
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ranger >= 0.16.0
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-ranger 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -37,8 +37,8 @@ imputation with values not already present in the original data (like a
 value 0.3334 in 0-1 coded variable).  Secondly, predictive mean matching
 tries to raise the variance in the resulting conditional distributions to
 a realistic level. This would allow, e.g., to do multiple imputation when
-repeating the call to missRanger().  A formula interface allows to control
-which variables should be imputed by which.
+repeating the call to missRanger(). Out-of-sample application is supported
+as well.
 
 %prep
 %setup -q -c -n %{packname}

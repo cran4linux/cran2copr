@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viraldomain
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applicability Domain Methods of Viral Load and CD4 Lymphocytes
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,25 +19,19 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-applicable 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kknn 
-BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-vdiffr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-workflows 
 Requires:         R-CRAN-applicable 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kknn 
-Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-recipes 
 Requires:         R-stats 
-Requires:         R-CRAN-vdiffr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-workflows 
 
 %description

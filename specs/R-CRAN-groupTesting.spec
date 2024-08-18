@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupTesting
-%global packver   1.1.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating and Modeling Group (Pooled) Testing Data
 
@@ -16,12 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-binGroup2 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-binGroup2 
 Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-parallel 
 
 %description
 Provides an expectation-maximization (EM) algorithm using the approach
-introduced in Warasi (2021) <doi:10.1080/03610918.2021.2009867>. The EM
+introduced in Warasi (2023) <doi:10.1080/03610918.2021.2009867>. The EM
 algorithm can be used to estimate the prevalence (overall proportion) of a
 disease and to estimate a binary regression model from among the class of
 generalized linear models based on group testing data. The estimation
@@ -33,7 +39,9 @@ and quality control pooling. Also, provided are functions that can be used
 to conduct the Wald tests described in Buse (1982)
 <doi:10.1080/00031305.1982.10482817> and to simulate the group testing
 data described in Kim et al. (2007)
-<doi:10.1111/j.1541-0420.2007.00817.x>.
+<doi:10.1111/j.1541-0420.2007.00817.x>. We offer a function to compute
+relative efficiency measures, which can be used to optimize the maximum
+likelihood estimator of disease prevalence.
 
 %prep
 %setup -q -c -n %{packname}

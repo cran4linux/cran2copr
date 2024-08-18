@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RImageJROI
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read 'ImageJ' Region of Interest (ROI) Files
+Summary:          Read and Write 'ImageJ' Region of Interest (ROI) Files
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
 BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat >= 2.0.0
 Requires:         R-CRAN-spatstat.geom 
 
 %description
-Provides functions to read 'ImageJ' (<http://imagej.nih.gov/ij/>) Region
-of Interest (ROI) files, to plot the ROIs and to convert them to
-'spatstat' (<http://spatstat.org/>) spatial patterns.
+Provides functions to read and write 'ImageJ' (<https://imagej.net>)
+Region of Interest (ROI) files, to plot the ROIs and to convert them to
+'spatstat' (<https://spatstat.org/>) spatial patterns.
 
 %prep
 %setup -q -c -n %{packname}
@@ -34,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

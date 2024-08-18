@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HSAUR3
-%global packver   1.0-14
+%global packver   1.0-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.14
+Version:          1.0.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Handbook of Statistical Analyses Using R (3rd Edition)
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-tools 
-Requires:         R-tools 
 
 %description
 Functions, data sets, analyses and examples from the third edition of the
@@ -29,7 +27,7 @@ in this package, for all other chapters, a vignette containing all data
 analyses is available. In addition, Sweave source code for slides of
 selected chapters is included in this package (see HSAUR3/inst/slides).
 The publishers web page is
-'<http://www.crcpress.com/product/isbn/9781482204582>'.
+'<https://www.routledge.com/A-Handbook-of-Statistical-Analyses-using-R/Hothorn-Everitt/p/book/9781482204582>'.
 
 %prep
 %setup -q -c -n %{packname}

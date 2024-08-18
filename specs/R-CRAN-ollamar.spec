@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ollamar
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Ollama' Language Models
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 

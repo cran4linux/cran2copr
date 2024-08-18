@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapgl
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Maps with 'Mapbox GL JS' and 'MapLibre GL JS' in R
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-classInt 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-sf 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-grDevices 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-classInt 
 
 %description
 Provides an interface to the 'Mapbox GL JS'

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastUtils
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast, Readable Utility Functions
 
@@ -19,6 +19,7 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-BiocManager 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -27,11 +28,11 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-BiocManager 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -40,13 +41,13 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-testthat 
-Requires:         R-tools 
 Requires:         R-CRAN-usethis 
 
 %description
 A wide variety of tools for general data analysis, wrangling, spelling,
 statistics, visualizations, package development, and more. All functions
-have vectorized implementations whenever possible.
+have vectorized implementations whenever possible. Exported names are
+designed to be readable, with longer names possessing short aliases.
 
 %prep
 %setup -q -c -n %{packname}

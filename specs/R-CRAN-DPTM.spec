@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPTM
-%global packver   1.3.8
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Panel Multiple Threshold Model with Fixed Effects
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-parabar 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-BayesianTools 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-parabar 
+Requires:         R-utils 
 
 %description
 Compute the fixed effects dynamic panel threshold model suggested by

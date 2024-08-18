@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  regressinator
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate and Diagnose (Generalized) Linear Models
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DHARMa 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-insight 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DHARMa 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-insight 

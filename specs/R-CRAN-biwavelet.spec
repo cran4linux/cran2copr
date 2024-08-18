@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  biwavelet
-%global packver   0.20.21
+%global packver   0.20.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20.21
+Version:          0.20.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Univariate and Bivariate Wavelet Analyses
 
@@ -18,9 +19,11 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.12.2
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.12.2
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-foreach 
+Requires:         R-methods 
 
 %description
 This is a port of the WTC MATLAB package written by Aslak Grinsted and the
@@ -36,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

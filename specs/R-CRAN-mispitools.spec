@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mispitools
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Person Identification Tools
 
@@ -19,9 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forrel 
 BuildRequires:    R-CRAN-pedtools 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-highcharter 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-DirichletReg 
@@ -34,9 +32,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-shiny 
 Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pedtools 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-highcharter 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-DirichletReg 

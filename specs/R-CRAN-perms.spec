@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  perms
-%global packver   1.13
+%global packver   1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13
+Version:          1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Permutation Computation
 
@@ -19,18 +19,14 @@ Requires:         R-core
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rdpack 
 
 %description
-Implements the algorithm of Christensen (2023) <doi:10.1214/22-BA1353> for
+Implements the algorithm of Christensen (2024) <doi:10.1214/22-BA1353> for
 estimating marginal likelihoods via permutation counting.
 
 %prep
