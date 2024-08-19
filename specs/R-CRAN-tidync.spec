@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidync
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tidy Approach to 'NetCDF' Data Exploration and Extraction
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RNetCDF >= 1.9.1
+BuildRequires:    R-CRAN-CFtime >= 1.4.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.0
 BuildRequires:    R-CRAN-ncmeta >= 0.2.0
 BuildRequires:    R-CRAN-forcats 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-RNetCDF >= 1.9.1
+Requires:         R-CRAN-CFtime >= 1.4.0
 Requires:         R-CRAN-dplyr >= 0.7.0
 Requires:         R-CRAN-ncmeta >= 0.2.0
 Requires:         R-CRAN-forcats 

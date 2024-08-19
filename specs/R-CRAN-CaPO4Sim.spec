@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CaPO4Sim
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Virtual Patient Simulator in the Context of Calcium and Phosphate Homeostasis
 
@@ -17,11 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinydashboardPlus 
 BuildRequires:    R-CRAN-shinyjqui 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-rintrojs 
@@ -32,11 +30,8 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinydashboardPlus 
 Requires:         R-CRAN-shinyjqui 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-rintrojs 
@@ -55,8 +50,7 @@ here <https://pubmed.ncbi.nlm.nih.gov/28747359/)>. The first application
 explores the fundamentals of Ca-Pi homeostasis, while the second provides
 interactive case studies for in-depth exploration of the topic, thereby
 seeking to foster student engagement and an integrative understanding of
-Ca-Pi regulation. These applications are hosted at
-<https://rinterface.com/AppsPhysiol.html>.
+Ca-Pi regulation.
 
 %prep
 %setup -q -c -n %{packname}
@@ -66,6 +60,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

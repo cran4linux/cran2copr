@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompExpDes
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computer Experiment Designs
 
@@ -26,9 +26,10 @@ hypercube designs (LHDs) etc. For further references one can see Mckay
 <https://cir.nii.ac.jp/crid/1570291225616774784>. In this package, we have
 provided algorithms for generate efficient LHDs and UDs. Here, generated
 LHDs are efficient as they possess lower value of Maxpro measure, Phi_p
-value and Maximum Absolute Correlation (MAC) value. On the other hand, the
-produced UDs are having good space-filling property as they attained the
-lower bound of Discrete Discrepancy measure.
+value and Maximum Absolute Correlation (MAC) value based on the weightage
+given to each criterion. On the other hand, the produced UDs are having
+good space-filling property as they attained the lower bound of Discrete
+Discrepancy measure.
 
 %prep
 %setup -q -c -n %{packname}

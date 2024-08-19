@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HierPortfolios
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Clustering-Based Portfolio Allocation Strategies
+Summary:          Hierarchical Risk Clustering Portfolio Allocation Strategies
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,9 @@ Requires:         R-CRAN-fastcluster
 Requires:         R-CRAN-cluster 
 
 %description
-Machine learning portfolio allocation strategies based on hierarchical
-clustering methods. The implemented methods are: Hierarchical risk parity
-(De Prado, 2016) <DOI: 10.3905/jpm.2016.42.4.059>. Hierarchical
+Machine learning hierarchical risk clustering portfolio allocation
+strategies. The implemented methods are: Hierarchical risk parity (De
+Prado, 2016) <DOI: 10.3905/jpm.2016.42.4.059>. Hierarchical
 clustering-based asset allocation (Raffinot, 2017) <DOI:
 10.3905/jpm.2018.44.2.089>. Hierarchical equal risk contribution portfolio
 (Raffinot, 2018) <DOI: 10.2139/ssrn.3237540>. A Constrained Hierarchical

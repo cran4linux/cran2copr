@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crandep
-%global packver   0.3.9
+%global packver   0.3.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.9
+Version:          0.3.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Analysis of Dependencies of CRAN Packages
 
@@ -16,24 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-gsl 
+Requires:         R-utils 
+Requires:         R-tools 
 Requires:         R-stats 
 
 %description
@@ -45,7 +45,7 @@ have a bird's-eye view of the CRAN ecosystem. One aspect of interest is
 the number of reverse dependencies of the packages, or equivalently the
 in-degree distribution of the dependency network. This can be fitted by
 the power law and/or an extreme value mixture distribution
-<doi:10.48550/arXiv.2008.03073>, of which functions are provided.
+<doi:10.1111/stan.12355>, of which functions are provided.
 
 %prep
 %setup -q -c -n %{packname}

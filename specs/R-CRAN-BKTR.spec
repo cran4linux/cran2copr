@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BKTR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Kernelized Tensor Regression
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-torch >= 0.13.0
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-R6P 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-torch 
+Requires:         R-CRAN-torch >= 0.13.0
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-R6P 
 Requires:         R-CRAN-ggplot2 

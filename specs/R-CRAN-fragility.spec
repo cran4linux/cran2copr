@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fragility
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing and Visualizing Fragility of Clinical Results with Binary Outcomes
 
@@ -52,8 +52,9 @@ fragility quotients of multiple datasets (e.g., a collection of clinical
 trials or meta-analyses) and produce plots of their overall distributions.
 The outputs from these functions may inform the robustness of clinical
 results in terms of statistical significance and aid the interpretation of
-fragility measures. The usage of this package is detailed in Lin and Chu
-(2022 <doi:10.1371/journal.pone.0268754>).
+fragility measures. The usage of this package is illustrated in Lin et al.
+(2023 <doi:10.1016/j.ajog.2022.08.053>) and detailed in Lin and Chu (2022
+<doi:10.1371/journal.pone.0268754>).
 
 %prep
 %setup -q -c -n %{packname}
