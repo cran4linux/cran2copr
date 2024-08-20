@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyquant
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Quantitative Financial Analysis
 
@@ -17,22 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-timetk >= 2.4.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-quantmod >= 0.4.13
-BuildRequires:    R-CRAN-alphavantager >= 0.1.2
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-PerformanceAnalytics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lazyeval 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-PerformanceAnalytics 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Quandl 
-BuildRequires:    R-CRAN-riingo 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
@@ -41,24 +38,21 @@ BuildRequires:    R-CRAN-timeDate
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyverse 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-timetk >= 2.4.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-quantmod >= 0.4.13
-Requires:         R-CRAN-alphavantager >= 0.1.2
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-PerformanceAnalytics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lazyeval 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-PerformanceAnalytics 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Quandl 
-Requires:         R-CRAN-riingo 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
@@ -67,8 +61,8 @@ Requires:         R-CRAN-timeDate
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyverse 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-cli 
 
 %description
 Bringing business and financial analysis to the 'tidyverse'. The

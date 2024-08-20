@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  surface
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Hansen Models to Investigate Convergent Evolution
 
@@ -21,11 +22,13 @@ BuildRequires:    R-CRAN-ouch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-phytools 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-ouch 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-geiger 
 Requires:         R-methods 
+Requires:         R-CRAN-phytools 
 
 %description
 This data-driven phylogenetic comparative method fits stabilizing
@@ -44,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

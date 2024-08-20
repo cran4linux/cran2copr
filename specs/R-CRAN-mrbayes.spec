@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mrbayes
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Summary Data Models for Mendelian Randomization Studies
 
@@ -13,22 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
 BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.4.0
 Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-DescTools 
 Requires:         R-methods 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rstantools
 
 %description

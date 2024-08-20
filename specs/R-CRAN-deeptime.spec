@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deeptime
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plotting Tools for Anyone Working in Deep Time
 
@@ -17,9 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-grid 
@@ -32,12 +31,10 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-ggfittext 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-geomtextpath 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-grImport2 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-ggnewscale 
 Requires:         R-utils 
 Requires:         R-CRAN-ggforce 
 Requires:         R-grid 
@@ -50,17 +47,16 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-ggfittext 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-phytools 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-geomtextpath 
+Requires:         R-CRAN-grImport2 
 
 %description
-Extends the functionality of other plotting packages like 'ggplot2' and
-'lattice' to help facilitate the plotting of data over long time
-intervals, including, but not limited to, geological, evolutionary, and
-ecological data. The primary goal of 'deeptime' is to enable users to add
-highly customizable timescales to their visualizations. Other functions
-are also included to assist with other areas of deep time visualization.
+Extends the functionality of other plotting packages (notably 'ggplot2')
+to help facilitate the plotting of data over long time intervals,
+including, but not limited to, geological, evolutionary, and ecological
+data. The primary goal of 'deeptime' is to enable users to add highly
+customizable timescales to their visualizations. Other functions are also
+included to assist with other areas of deep time visualization.
 
 %prep
 %setup -q -c -n %{packname}

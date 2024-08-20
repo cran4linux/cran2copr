@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  PUPAIM
-%global packver   0.3.1
+%global __requires_exclude ^libmpi
+%global packname  aebdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Collection of Physical and Chemical Adsorption Isotherm Models
+Summary:          Access Data from the Atlas do Estado Brasileiro
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Metrics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nls2 
-Requires:         R-CRAN-Metrics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nls2 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
 
 %description
-The PUPAIM R package can generally fit any adsorption experimental data to
-any of the 55 available adsorption isotherm models - 32 nonlinear models
-and 23 linear models. This package provides parameter estimation, model
-accuracy analysis, model error analysis, and adsorption plot created using
-the package 'ggplot2'. This package will help the users for a much easier
-way of adsorption model data fitting.
+Facilitates access to the data from the Atlas do Estado Brasileiro
+(<https://www.ipea.gov.br/atlasestado/>), maintained by the Instituto de
+Pesquisa Econômica Aplicada (Ipea). It allows users to search for specific
+series, list series or themes, and download data when available.
 
 %prep
 %setup -q -c -n %{packname}

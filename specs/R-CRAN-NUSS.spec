@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  survival666
-%global packver   0.5
+%global __requires_exclude ^libmpi
+%global packname  NUSS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Eliminate the Influence of Co-Expression Genes on Target Genes
+Summary:          Mixed N-Grams and Unigram Sequence Segmentation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-text2vec 
+BuildRequires:    R-CRAN-textclean 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-survminer 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-text2vec 
+Requires:         R-CRAN-textclean 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Functions can be used for batch survival analysis, but not only for it.
-Most importantly, it can verify any P-value calculated according to the
-gene expression level and eliminate the influence of co-expression genes.
+Segmentation of short text sequences - like hashtags - into the separated
+words sequence, done with the use of dictionary, which may be built on
+custom corpus of texts. Unigram dictionary is used to find most probable
+sequence, and n-grams approach is used to determine possible segmentation
+given the text corpus.
 
 %prep
 %setup -q -c -n %{packname}

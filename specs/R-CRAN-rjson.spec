@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rjson
-%global packver   0.2.21
+%global packver   0.2.22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21
+Version:          0.2.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          JSON for R
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 
 %description
 Converts R object into JSON objects and vice-versa.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesnec
-%global packver   2.1.2.0
+%global packver   2.1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2.0
+Version:          2.1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Bayesian No-Effect- Concentration (NEC) Algorithm
 
@@ -51,9 +51,11 @@ using Bayesian methods for the purpose of estimating 'ECx' values, but
 more particularly 'NEC' (see Fox
 (2010)<doi:10.1016/j.ecoenv.2009.09.012>), 'NSEC' (see Fisher and Fox
 (2023)<doi:10.1002/etc.5610>), and 'N(S)EC (see Fisher et al.
-2023<doi:10.1002/ieam.4809>). This package expands and supersedes an
-original version implemented in R2jags, see Fisher, Ricardo and Fox
-(2020)<doi:10.5281/ZENODO.3966864>.
+2023<doi:10.1002/ieam.4809>). A full description of this package can be
+found in Fisher 'et al.' (2024)<doi:10.18637/jss.v110.i05>. This package
+expands and supersedes an original version implemented in 'R2jags' (see Su
+and Yajima (2020)<https://CRAN.R-project.org/package=R2jags>; Fisher et
+al. (2020)<doi:10.5281/ZENODO.3966864>).
 
 %prep
 %setup -q -c -n %{packname}

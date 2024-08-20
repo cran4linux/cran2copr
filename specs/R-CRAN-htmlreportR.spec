@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
-%global packname  aods3
-%global packver   0.4-1.2
+%global __requires_exclude ^libmpi
+%global packname  htmlreportR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Overdispersed Data using S3 Methods
+Summary:          'HTML' Reporting Made Simple(R)
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xfun 
+Requires:         R-grDevices 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides functions to analyse overdispersed counts or proportions.  These
-functions should be considered as complements to more sophisticated
-methods such as generalized estimating equations (GEE) or generalized
-linear mixed effect models (GLMM). aods3 is an S3 re-implementation of the
-deprecated S4 package aod.
+Create compressed, interactive 'HTML' (Hypertext Markup Language) reports
+with embedded 'Python' code, custom 'JS' ('JavaScript') and 'CSS'
+(Cascading Style Sheets), and wrappers for 'CanvasXpress' plots, networks
+and more. Based on <https://pypi.org/project/py-report-html/>, its sister
+project.
 
 %prep
 %setup -q -c -n %{packname}

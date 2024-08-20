@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anomaly
-%global packver   4.3.2
+%global packver   4.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2
+Version:          4.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Anomalies in Data
 
@@ -43,8 +43,10 @@ Point Anomaly (MVCAPA) Fisch, Eckley, and Fearnhead (2021)
 <doi:10.1080/10618600.2021.1987257>, Proportion Adaptive Segment Selection
 (PASS) Jeng, Cai, and Li (2012) <doi:10.1093/biomet/ass059>, and Bayesian
 Abnormal Region Detector (BARD) Bardwell and Fearnhead (2015)
-<arXiv:1412.5565>. These methods are for the detection of anomalies in
-time series data.
+<doi:10.1214/16-BA998>. These methods are for the detection of anomalies
+in time series data. Further information regarding the use of this package
+along with detailed examples can be found in Fisch, Grose, Eckley,
+Fearnhead, and Bardwell (2024) <doi:10.18637/jss.v110.i01>.
 
 %prep
 %setup -q -c -n %{packname}

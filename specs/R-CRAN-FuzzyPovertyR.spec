@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyPovertyR
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Fuzzy Poverty Measures
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-CRAN-ecp 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -27,6 +28,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sampling 
 Requires:         R-CRAN-ecp 
 Requires:         R-stats 
 Requires:         R-graphics 

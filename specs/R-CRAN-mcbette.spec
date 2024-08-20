@@ -1,43 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AquaBEHER
-%global packver   0.1.0
+%global packname  mcbette
+%global packver   1.15.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.15.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Rainy Season Calendar and Soil Water Balance for Agriculture
+Summary:          Model Comparison Using 'babette'
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-beautier >= 2.6.2
+BuildRequires:    R-CRAN-mauricer >= 2.5
+BuildRequires:    R-CRAN-beastier >= 2.4.6
+BuildRequires:    R-CRAN-babette >= 2.3
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-txtplot 
+Requires:         R-CRAN-beautier >= 2.6.2
+Requires:         R-CRAN-mauricer >= 2.5
+Requires:         R-CRAN-beastier >= 2.4.6
+Requires:         R-CRAN-babette >= 2.3
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-txtplot 
 
 %description
-Computes and integrates daily reference 'evapotranspiration' ('Eto') into
-a water balance model, to estimate the calendar of wet-season (Onset,
-Cessation and Duration) based on 'agroclimatic' approach, for further
-information please refer to Allen 'et al.' (1998, ISBN:92-5-104219-5),
-Allen (2005, ISBN:9780784408056), 'Doorenbos' and Pruitt (1975,
-ISBN:9251002797) 'Guo et al.' (2016) <doi:10.1016/j.envsoft.2015.12.019>,
-Hargreaves and 'Samani' (1985) <doi:10.13031/2013.26773>, Priestley and
-Taylor (1972)
-<https://journals.ametsoc.org/downloadpdf/journals/mwre/100/2/1520-0493_1972_100_0081_otaosh_2_3_co_2.pdf>.
+'BEAST2' (<https://www.beast2.org>) is a widely used Bayesian phylogenetic
+tool, that uses DNA/RNA/protein data and many model priors to create a
+posterior of jointly estimated phylogenies and parameters. 'mcbette'
+allows to do a Bayesian model comparison over some site and clock models,
+using 'babette' (<https://github.com/ropensci/babette/>).
 
 %prep
 %setup -q -c -n %{packname}

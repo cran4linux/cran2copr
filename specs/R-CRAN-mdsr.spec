@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mdsr
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complement to 'Modern Data Science with R'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-babynames 
 BuildRequires:    R-CRAN-DBI 
@@ -47,12 +47,12 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-webshot2 
 
 %description
-A complement to *Modern Data Science with R*, both the first and second
-editions (ISBN: 978-0367191498, publisher URL:
+A complement to all editions of *Modern Data Science with R* (ISBN:
+978-0367191498, publisher URL:
 <https://www.routledge.com/Modern-Data-Science-with-R/Baumer-Kaplan-Horton/p/book/9780367191498>).
 This package contains data and code to complete exercises and reproduce
 examples from the text. It also facilitates connections to the SQL
-database server used in the book. Both editions of the book are supported
+database server used in the book. All editions of the book are supported
 by this package.
 
 %prep

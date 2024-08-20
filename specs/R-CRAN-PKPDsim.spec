@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PKPDsim
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Performing Pharmacokinetic-Pharmacodynamic Simulations
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-CRAN-BH 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp >= 0.12.9
+Requires:         R-CRAN-Rcpp >= 1.0.13
 Requires:         R-CRAN-BH 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 

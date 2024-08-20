@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GET
-%global packver   1.0-2
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Global Envelopes
 
@@ -59,8 +59,9 @@ et al. (2017) <doi:10.1111/rssb.12172>, Mrkvička and Myllymäki (2023)
 <doi:10.1007/s11009-019-09756-y>, Myllymäki et al. (2021)
 <doi:10.1016/j.spasta.2020.100436>, Mrkvička et al. (2022)
 <doi:10.1002/sim.9236>, Dai et al. (2022) <doi:10.5772/intechopen.100124>,
-Dvořák and Mrkvička (2022) <doi:10.1007/s00180-021-01134-y>, and Mrkvička
-et al. (2023) <doi:10.48550/arXiv.2309.04746>.
+Dvořák and Mrkvička (2022) <doi:10.1007/s00180-021-01134-y>, Mrkvička et
+al. (2023) <doi:10.48550/arXiv.2309.04746>, and Konstantinou et al. (2024)
+<doi: 10.48550/arXiv.2403.01838>.
 
 %prep
 %setup -q -c -n %{packname}

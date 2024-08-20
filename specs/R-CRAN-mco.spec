@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mco
-%global packver   1.16
+%global packver   1.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16
+Version:          1.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Criteria Optimization Algorithms and Related Functions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 
 %description
 A collection of function to solve multiple criteria optimization problems

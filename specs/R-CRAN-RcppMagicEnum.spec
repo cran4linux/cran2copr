@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  alcyon
-%global packver   0.4.0
+%global packname  RcppMagicEnum
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Network Analysis
+Summary:          'Rcpp' Bindings to 'Magic Enum' 'C++' 'Enum' Support
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
-Interface package for 'sala', the spatial network analysis library from
-the 'depthmapX' software application. The R parts of the code are based on
-the 'rdepthmap' package. Allows for the analysis of urban and
-building-scale networks and provides metrics and methods usually found
-within the Space Syntax domain. Methods in this package are described by
-K. Al-Sayed, A. Turner, B. Hillier, S. Iida and A. Penn (2014) "Space
-Syntax methodology", and also by A. Turner (2004)
-<https://discovery.ucl.ac.uk/id/eprint/2651> "Depthmap 4: a researcher's
-handbook".
+The header-only modern 'C++' template library 'Magic Enum' for static
+reflection of 'enums' (to string, from string, iteration) is provided by
+this package. More information about the underlying library can be found
+at its repository at <https://github.com/Neargye/magic_enum>.
 
 %prep
 %setup -q -c -n %{packname}

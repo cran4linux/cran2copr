@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PANPRSnext
-%global packver   1.2.0
+%global packname  CCSRfind
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Building PRS Models Based on Summary Statistics of GWAs
+Summary:          Convert ICD-10 Codes to CCSR Codes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,17 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-knitr 
 
 %description
-Shrinkage estimator for polygenic risk prediction (PRS) models based on
-summary statistics of genome-wide association (GWA) studies. Based upon
-the methods and original 'PANPRS' package as found in: Chen, Chatterjee,
-Landi, and Shi (2020) <doi:10.1080/01621459.2020.1764849>.
+Provides a tool for matching ICD-10 codes to corresponding Clinical
+Classification Software Refined (CCSR) codes. The main function,
+CCSRfind(), identifies each CCSR code that applies to an individual given
+their diagnosis codes. It also provides a summary of CCSR codes that are
+matched to a dataset. The package contains 3 datasets: 'DXCCSR' (mapping
+of ICD-10 codes to CCSR codes), 'Legend' (conversion of DXCCSR to
+CCSRfind-usable format for CCSR codes with less than or equal to 1000
+ICD-10 diagnosis codes), and 'LegendExtend' (conversion of DXCCSR to
+CCSRfind-usable format for CCSR codes with more than 1000 ICD-10 dx
+codes). The disc() function applies grepl() ('base') to multiple columns
+and is used in CCSRfind().
 
 %prep
 %setup -q -c -n %{packname}

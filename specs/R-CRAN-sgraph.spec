@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sgraph
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph Visualization Using 'sigma.js'
+Summary:          Network Visualization Using 'sigma.js'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,20 +39,19 @@ Requires:         R-CRAN-stringi
 %description
 Interactive visualizations of graphs created with the 'igraph' package
 using a 'htmlwidgets' wrapper for the 'sigma.js' network visualization
-library v2.4.0 <https://www.sigmajs.org/>, enabling to display several
-thousands of nodes. While several 'R' packages have been developed to
-interface 'sigma.js', all were developed for v1.x.x and none have migrated
-to v2.4.0 nor are they planning to. This package builds upon the
-'sigmaNet' package, and users familiar with it will recognize the similar
-design approach. Two extensions have been added to the classic 'sigma.js'
-visualizations by overriding the underlying 'JavaScript' code, enabling to
-draw a frame around node labels, and to display labels on multiple lines
-by parsing line breaks. Other additional functionalities that did not
-require overriding 'sigma.js' code include toggling node visibility when
-clicked using a node attribute and highlighting specific edges based on
-connectivity to a specific set of nodes. 'sigma.js' is currently preparing
-a stable release v3.0.0, and this package plans to update to it when it is
-available.
+v2.4.0 <https://www.sigmajs.org/>, enabling to display several thousands
+of nodes. While several 'R' packages have been developed to interface
+'sigma.js', all were developed for v1.x.x and none have migrated to v2.4.0
+nor are they planning to. This package builds upon the 'sigmaNet' package,
+and users familiar with it will recognize the similar design approach. Two
+extensions have been added to the classic 'sigma.js' visualizations by
+overriding the underlying 'JavaScript' code, enabling to draw a frame
+around node labels, and to display labels on multiple lines by parsing
+line breaks. Other additional functionalities that did not require
+overriding 'sigma.js' code include toggling node visibility when clicked
+using a node attribute and highlighting specific edges. 'sigma.js' is
+currently preparing a stable release v3.0.0, and this package plans to
+update to it when it is available.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rmcfs
-%global packver   1.3.5
+%global packver   1.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          The MCFS-ID Algorithm for Feature Selection and Interdependency Discovery
 
@@ -13,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         java
 BuildRequires:    R-devel >= 2.70
 Requires:         R-core >= 2.70
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.0.1
 BuildRequires:    R-CRAN-rJava >= 0.5.0
 BuildRequires:    R-CRAN-yaml 
@@ -25,7 +26,7 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.0.1
 Requires:         R-CRAN-rJava >= 0.5.0
 Requires:         R-CRAN-yaml 
@@ -34,7 +35,6 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-igraph 
 
 %description
 MCFS-ID (Monte Carlo Feature Selection and Interdependency Discovery) is a

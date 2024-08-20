@@ -1,44 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iopspackage
-%global packver   2.1.0
+%global packname  PermCor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IO-PS Framework Package
+Summary:          Robust Permutation Tests of Correlation Coefficients
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-economiccomplexity 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-economiccomplexity 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-usethis 
 
 %description
-A developmental R tool related to the input-output product space (IO-PS).
-The package requires two compulsory user inputs (raw CEPPI BACI trade
-data, and any acceptable ISO country code) and has 4 optional user inputs
-(a value chain map, chosen complexity method, number of iterations to be
-performed, and a trade digit level). Various metrics are calculated, such
-as Economic- and Product complexity, distance, opportunity gain, and
-inequality metrics, to facilitate better decision making regarding
-industrial policy making.
+Provides tools for statistical testing of correlation coefficients through
+robust permutation method and large sample approximation method. Tailored
+to different types of correlation coefficients including Pearson
+correlation coefficient, weighted Pearson correlation coefficient,
+Spearman correlation coefficient, and Lin's concordance correlation
+coefficient.The robust permutation test controls type I error under
+general scenarios when sample size is small and two variables are
+dependent but uncorrelated. The large sample approximation test generally
+controls type I error when the sample size is large (>200).
 
 %prep
 %setup -q -c -n %{packname}

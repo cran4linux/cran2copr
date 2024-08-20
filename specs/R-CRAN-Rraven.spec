@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BOSO
-%global packver   1.0.4
+%global packname  Rraven
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bilevel Optimization Selector Operator
+Summary:          Connecting R and 'Raven' Sound Analysis Software
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-warbleR >= 1.1.32
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-warbleR >= 1.1.32
+Requires:         R-CRAN-pbapply 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
 Requires:         R-methods 
 
 %description
-A novel feature selection algorithm for linear regression called BOSO
-(Bilevel Optimization Selector Operator). The main contribution is the use
-a bilevel optimization problem to select the variables in the training
-problem that minimize the error in the validation set. Preprint available:
-[Valcarcel, L. V., San Jose-Eneriz, E., Cendoya, X., Rubio, A., Agirre,
-X., Prosper, F., & Planes, F. J. (2020). "BOSO: a novel feature selection
-algorithm for linear regression with high-dimensional data." bioRxiv.
-<doi:10.1101/2020.11.18.388579>]. In order to run the vignette, it is
-recommended to install the 'bestsubset' package, using the following
-command: devtools::install_github(repo="ryantibs/best-subset",
-subdir="bestsubset"). If you do not have gurobi, run
-devtools::install_github(repo="lvalcarcel/best-subset",
-subdir="bestsubset"). Moreover, to install cplexAPI you can check
-<https://github.com/lvalcarcel/cplexAPI>.
+A tool to exchange data between R and 'Raven' sound analysis software
+(Cornell Lab of Ornithology). Functions work on data formats compatible
+with the R package 'warbleR'.
 
 %prep
 %setup -q -c -n %{packname}

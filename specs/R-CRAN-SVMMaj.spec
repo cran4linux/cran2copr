@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  moocore
-%global packver   0.1.0
+%global packname  SVMMaj
+%global packver   0.2.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.9.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Mathematical Functions for Multi-Objective Optimization
+Summary:          Implementation of the SVM-Maj Algorithm
 
-License:          LGPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kernlab 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kernlab 
 
 %description
-Fast implementation of mathematical operations and performance metrics for
-multi-objective optimization, including filtering and ranking of dominated
-vectors according to Pareto optimality, computation of the empirical
-attainment function, V.G. da Fonseca, C.M. Fonseca, A.O. Hall (2001)
-<doi:10.1007/3-540-44719-9_15>, hypervolume metric, C.M. Fonseca, L.
-Paquete, M. López-Ibáñez (2006) <doi:10.1109/CEC.2006.1688440>), epsilon
-indicator, inverted generational distance, and Vorob'ev threshold,
-expectation and deviation, M. Binois, D. Ginsbourger, O. Roustant (2015)
-<doi:10.1016/j.ejor.2014.07.032>, among others.
+Implements the SVM-Maj algorithm to train data with support vector machine
+<doi:10.1007/s11634-008-0020-9>. This algorithm uses two efficient
+updates, one for linear kernel and one for the nonlinear kernel.
 
 %prep
 %setup -q -c -n %{packname}

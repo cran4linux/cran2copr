@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deepgp
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Deep Gaussian Processes using MCMC
 
@@ -50,7 +50,9 @@ coding examples. Models are trained through MCMC including elliptical
 slice sampling of latent Gaussian layers and Metropolis-Hastings sampling
 of kernel hyperparameters.  Vecchia-approximation for faster computation
 is implemented following Sauer, Cooper, and Gramacy (2023,
-<doi:10.48550/arXiv.2204.02904>).  Downstream tasks include sequential
+<doi:10.48550/arXiv.2204.02904>).  Optional monotonic warpings are
+implemented following Barnett et al. (2024,
+<doi:10.48550/arXiv.2408.01540>).  Downstream tasks include sequential
 design through active learning Cohn/integrated mean squared error
 (ALC/IMSE; Sauer, Gramacy, and Higdon, 2023), optimization through
 expected improvement (EI; Gramacy, Sauer, and Wycoff, 2022

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPQmpfr
-%global packver   0.3-2
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          DPQ (Density, Probability, Quantile) Distribution Computations using MPFR
 
@@ -18,16 +18,16 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rmpfr >= 0.9.0
+BuildRequires:    R-CRAN-gmp >= 0.6.4
 BuildRequires:    R-CRAN-DPQ >= 0.5.3
-BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Rmpfr >= 0.9.0
+Requires:         R-CRAN-gmp >= 0.6.4
 Requires:         R-CRAN-DPQ >= 0.5.3
-Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-sfsmisc 
 Requires:         R-stats 
 Requires:         R-graphics 

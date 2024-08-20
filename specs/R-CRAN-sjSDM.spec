@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sjSDM
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalable Joint Species Distribution Modeling
 
@@ -34,6 +34,9 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-ggtern 
+BuildRequires:    R-CRAN-beeswarm 
+BuildRequires:    R-CRAN-qgam 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
 Requires:         R-CRAN-mvtnorm 
@@ -51,16 +54,28 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-ggtern 
+Requires:         R-CRAN-beeswarm 
+Requires:         R-CRAN-qgam 
+Requires:         R-CRAN-scales 
 
 %description
-A scalable method to estimate joint Species Distribution Models (jSDMs)
-for big community datasets based on a Monte Carlo approximation of the
-joint likelihood.  The numerical approximation is based on 'PyTorch' and
-'reticulate', and can be run on CPUs and GPUs alike. The method is
-described in Pichler & Hartig (2021) <doi:10.1111/2041-210X.13687>. The
-package contains various extensions, including support for different
-response families, ability to account for spatial autocorrelation, and
-deep neural networks instead of the linear predictor in jSDMs.
+A scalable and fast method for estimating joint Species Distribution
+Models (jSDMs) for big community data, including eDNA data. The package
+estimates a full (i.e. non-latent) jSDM with different response
+distributions (including the traditional multivariate probit model). The
+package allows to perform variation partitioning (VP) / ANOVA on the
+fitted models to separate the contribution of environmental, spatial, and
+biotic associations. In addition, the total R-squared can be further
+partitioned per species and site to reveal the internal metacommunity
+structure, see Leibold et al., <doi:10.1111/oik.08618>. The internal
+structure can then be regressed against environmental and spatial
+distinctiveness, richness, and traits to analyze metacommunity assembly
+processes.  The package includes support for accounting for spatial
+autocorrelation and the option to fit responses using deep neural networks
+instead of a standard linear predictor. As described in Pichler & Hartig
+(2021) <doi:10.1111/2041-210X.13687>, scalability is achieved by using a
+Monte Carlo approximation of the joint likelihood implemented via
+'PyTorch' and 'reticulate', which can be run on CPUs or GPUs.
 
 %prep
 %setup -q -c -n %{packname}

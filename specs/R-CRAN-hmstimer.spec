@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hmstimer
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'hms' Based Timer
 
@@ -14,18 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-hms 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 
 %description
-Tracks elapsed clock time using a `hms::hms()` scalar, which if running
-has an attribute named start that specifies the system time when the timer
-was started.  The elapsed time is the value of the scalar plus the
-difference between the current system time and the system time when the
-timer was started.
+Tracks elapsed clock time using a `hms::hms()` scalar. It was was
+originally developed to time Bayesian model runs. It should not be used to
+estimate how long extremely fast code takes to execute as the package code
+adds a small time cost.
 
 %prep
 %setup -q -c -n %{packname}

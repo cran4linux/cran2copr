@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rtide
-%global packver   0.0.9
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tide Heights
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-chk 
@@ -30,7 +31,7 @@ Requires:         R-utils
 %description
 Calculates tide heights based on tide station harmonics.  It includes the
 harmonics data for 637 US stations.  The harmonics data was converted from
-<https://github.com/poissonconsulting/rtide/blob/master/data-raw/harmonics-dwf-20151227-free.tar.bz2>,
+<https://github.com/poissonconsulting/rtide/blob/main/data-raw/harmonics-dwf-20151227-free.tar.bz2>,
 NOAA web site data processed by David Flater for 'XTide'.  The code to
 calculate tide heights from the harmonics is based on 'XTide'.
 
@@ -42,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
