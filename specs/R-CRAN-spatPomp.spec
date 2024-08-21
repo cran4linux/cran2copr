@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatPomp
-%global packver   0.35.0
+%global packver   0.36.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.35.0
+Version:          0.36.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for Spatiotemporal Partially Observed Markov Processes
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  voluModel
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling Species Distributions in Three Dimensions
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-metR 
 BuildRequires:    R-CRAN-modEvA 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-viridisLite 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggtext 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-metR 
 Requires:         R-CRAN-modEvA 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-viridisLite 

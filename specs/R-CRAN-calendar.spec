@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calendar
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create, Read, Write, and Work with 'iCalander' Files, Calendars and Scheduling Data
+Summary:          Create, Read, Write, and Work with 'iCalendar' Files, Calendars and Scheduling Data
 
 License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
 Requires:         R-CRAN-tibble 
 
 %description
-Provides function to create, read, write, and work with 'iCalander' files
+Provides function to create, read, write, and work with 'iCalendar' files
 (which typically have '.ics' or '.ical' extensions), and the scheduling
 data, calendars and timelines of people, organisations and other entities
 that they represent.  'iCalendar' is an open standard for exchanging

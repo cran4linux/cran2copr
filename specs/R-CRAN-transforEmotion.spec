@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transforEmotion
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sentiment Analysis for Text, Image and Video using Transformer Models
 
@@ -17,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-googledrive 
 BuildRequires:    R-CRAN-LSAfun 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-reticulate 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-googledrive 
 Requires:         R-CRAN-LSAfun 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-reticulate 
 
 %description
 Implements sentiment analysis using huggingface <https://huggingface.co>

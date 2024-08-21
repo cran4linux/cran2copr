@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ridigbio
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the iDigBio Data API
 
@@ -21,10 +21,18 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-stats 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-cowplot 
 
 %description
 An interface to iDigBio's search API that allows downloading specimen

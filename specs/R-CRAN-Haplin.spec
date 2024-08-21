@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Haplin
-%global packver   7.3.1
+%global packver   7.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.3.1
+Version:          7.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Case-Parent Triad and/or Case-Control Data with SNP Haplotypes
 

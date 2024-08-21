@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  L1centrality
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph/Network Analysis Based on L1 Centrality
 
@@ -31,10 +31,9 @@ Requires:         R-CRAN-withr
 
 %description
 Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global and local L1 centrality/prestige and L1
-centrality/prestige-based neighborhoods of vertices are provided. Routines
-for visual inspection of a graph/network are also provided. Details are in
-Kang and Oh (2024) <doi:10.48550/arXiv.2404.13233>.
+deriving global, local, and group L1 centrality/prestige are provided.
+Routines for visual inspection of a graph/network are also provided.
+Details are in Kang and Oh (2024) <doi:10.48550/arXiv.2404.13233>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WH
-%global packver   1.1.1
+%global packname  icdcomorbid
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enhanced Implementation of Whittaker-Henderson Smoothing
+Summary:          Mapping ICD Codes to Comorbidity
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonlite 
 
 %description
-An enhanced implementation of Whittaker-Henderson smoothing for the
-gradation of one-dimensional and two-dimensional actuarial tables used to
-quantify Life Insurance risks. 'WH' is based on the methods described in
-Biessy (2023) <doi:10.48550/arXiv.2306.06932>. Among other features, it
-generalizes the original smoothing algorithm to maximum likelihood
-estimation, automatically selects the smoothing parameter(s) and
-extrapolates beyond the range of data.
+Provides tools for mapping International Classification of Diseases codes
+to comorbidity, enabling the identification and analysis of various
+medical conditions within healthcare data.
 
 %prep
 %setup -q -c -n %{packname}

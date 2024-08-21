@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  psidR
-%global packver   2.2
+%global packname  svycdiff
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build Panel Data Sets from PSID Raw Data
+Summary:          Controlled Difference Estimation for Complex Surveys
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-SAScii 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-futile.logger 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-SAScii 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-futile.logger 
+BuildRequires:    R-CRAN-betareg 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+Requires:         R-CRAN-betareg 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-survey 
 
 %description
-Makes it easy to build panel data in wide format from Panel Survey of
-Income Dynamics ('PSID') delivered raw data. Downloads data directly from
-the PSID server using the 'SAScii' package. 'psidR' takes care of merging
-data from each wave onto a cross-period index file, so that individuals
-can be followed over time. The user must specify which years they are
-interested in, and the 'PSID' variable names (e.g. ER21003) for each year
-(they differ in each year). The package offers helper functions to
-retrieve variable names from different waves. There are different panel
-data designs and sample subsetting criteria implemented ("SRC", "SEO",
-"immigrant" and "latino" samples).
+Estimates the population average controlled difference for a given outcome
+between levels of a binary treatment, exposure, or other group membership
+variable of interest for clustered, stratified survey samples where sample
+selection depends on the comparison group. Provides three methods for
+estimation, namely outcome modeling and two factorizations of inverse
+probability weighting. Under stronger assumptions, these methods estimate
+the causal population average treatment effect. Salerno et al., (2024)
+<doi:10.48550/arXiv.2406.19597>.
 
 %prep
 %setup -q -c -n %{packname}

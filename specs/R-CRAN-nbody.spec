@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdrtool
-%global packver   1.2.18
+%global packname  nbody
+%global packver   1.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.18
+Version:          1.41
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of (Local) False Discovery Rates and Higher Criticism
+Summary:          Gravitational N-Body Simulation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-magicaxis 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-magicaxis 
 
 %description
-Estimates both tail area-based false discovery rates (Fdr) as well as
-local false discovery rates (fdr) for a variety of null models (p-values,
-z-scores, correlation coefficients, t-scores).  The proportion of null
-values and the parameters of the null distribution are adaptively
-estimated from the data.  In addition, the package contains functions for
-non-parametric density estimation (Grenander estimator), for monotone
-regression (isotonic regression and antitonic regression with weights),
-for computing the greatest convex minorant (GCM) and the least concave
-majorant (LCM), for the half-normal and correlation distributions, and for
-computing empirical higher criticism (HC) scores and the corresponding
-decision threshold.
+Run simple direct gravitational N-body simulations. The package can access
+different external N-body simulators (e.g. GADGET-4 by Springel et al.
+(2021) <doi:10.48550/arXiv.2010.03567>), but also has a simple built-in
+simulator. This default simulator uses a variable block time step and lets
+the user choose between a range of integrators, including 4th and 6th
+order integrators for high-accuracy simulations. Basic top-hat smoothing
+is available as an option. The code also allows the definition of
+background particles that are fixed or in uniform motion, not subject to
+acceleration by other particles.
 
 %prep
 %setup -q -c -n %{packname}

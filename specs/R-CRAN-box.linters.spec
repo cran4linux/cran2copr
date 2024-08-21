@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  box.linters
-%global packver   0.10.0
+%global packver   0.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linters for 'box' Modules
 
@@ -24,8 +24,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-treesitter 
-BuildRequires:    R-CRAN-treesitter.r 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-xml2 
@@ -37,8 +35,6 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-treesitter 
-Requires:         R-CRAN-treesitter.r 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-xml2 

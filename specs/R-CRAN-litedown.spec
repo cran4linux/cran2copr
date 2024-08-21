@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BiocManager
-%global packver   1.30.24
+%global packname  litedown
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.30.24
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Bioconductor Project Package Repository
+Summary:          A Lightweight Version of R Markdown
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,11 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-commonmark >= 1.9.1
+BuildRequires:    R-CRAN-xfun >= 0.46
 BuildRequires:    R-utils 
+Requires:         R-CRAN-commonmark >= 1.9.1
+Requires:         R-CRAN-xfun >= 0.46
 Requires:         R-utils 
 
 %description
-A convenient tool to install and update Bioconductor packages.
+Render R Markdown to Markdown (without using 'knitr'), and Markdown to
+lightweight HTML/'LaTeX' documents with the 'commonmark' package (instead
+of 'Pandoc'). Some missing Markdown features in 'commonmark' are also
+supported, such as raw HTML/'LaTeX' blocks, 'LaTeX' math, superscripts,
+subscripts, footnotes, element attributes, appendices, and fenced 'Divs',
+but not all 'Pandoc' Markdown features are (or will be) supported. With
+additional JavaScript and CSS, you can also create HTML slides and
+articles. This package can be viewed as a trimmed-down version of R
+Markdown and 'knitr'. It does not aim at rich Markdown features or a large
+variety of output formats (the primary formats are HTML and 'LaTeX'). Book
+and website projects of multiple input documents are also supported.
 
 %prep
 %setup -q -c -n %{packname}

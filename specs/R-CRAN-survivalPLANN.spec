@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  noaaoceans
-%global packver   0.3.0
+%global __requires_exclude ^libmpi
+%global packname  survivalPLANN
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collect Ocean Data from NOAA
+Summary:          Neural Networks to Predict Survival
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-nnet 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Provides a small set of tools for collecting data from National Oceanic
-and Atmospheric Administration (NOAA) data sources.  The functions
-provided in the package are wrappers around NOAA's existing APIs which is
-found at <https://api.tidesandcurrents.noaa.gov/api/prod/>.
+Several functions and S3 methods to predict survival by using neural
+networks. We implemented Partial Logistic Artificial Neural Networks
+(PLANN) as proposed by Biganzoli et al. (1998)
+<https://pubmed.ncbi.nlm.nih.gov/9618776>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -39,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
