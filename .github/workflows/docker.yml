@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tag: [39, 40, rawhide]
+        tag: [39, 40, 41, rawhide]
 
     env:
       REGISTRY: ghcr.io/cran4linux
