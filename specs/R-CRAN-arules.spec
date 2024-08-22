@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arules
-%global packver   1.7-7
+%global packver   1.7-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.7
+Version:          1.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mining Association Rules and Frequent Itemsets
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Matrix >= 1.4.0
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Matrix >= 1.4.0
-Requires:         R-stats 
-Requires:         R-methods 
 Requires:         R-CRAN-generics 
 Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
 Provides the infrastructure for representing, manipulating and analyzing
 transaction data and patterns (frequent itemsets and association rules).
 Also provides C implementations of the association mining algorithms
-Apriori and Eclat. Hahsler, Gruen and Hornik (2005)
+Apriori and Eclat.  Hahsler, Gruen and Hornik (2005)
 <doi:10.18637/jss.v014.i15>.
 
 %prep

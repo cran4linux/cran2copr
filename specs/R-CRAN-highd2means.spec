@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  indicspecies
-%global packver   1.7.15
+%global packname  highd2means
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.15
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Between Species and Groups of Sites
+Summary:          High-Dimensional Tests for Two Population Mean Vectors
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permute 
-Requires:         R-CRAN-permute 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rfast 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-CRAN-Rfast 
 
 %description
-Functions to assess the strength and statistical significance of the
-relationship between species occurrence/abundance and groups of sites [De
-Caceres & Legendre (2009) <doi:10.1890/08-1823.1>]. Also includes
-functions to measure species niche breadth using resource categories [De
-Caceres et al. (2011) <doi:10.1111/J.1600-0706.2011.19679.x>].
+Tests for two high-dimensional population mean vectors. The user has the
+option to compute the asymptotic, the permutation or the bootstrap based
+p-value of the test. Some references are: Chen S.X. and Qin Y.L. (2010).
+<doi:10.1214/09-AOS716>, Cai T.T., Liu W., and Xia Y. (2014)
+<doi:10.1111/rssb.12034> and Yu X., Li D., Xue L. and Li, R. (2023)
+<doi:10.1080/01621459.2022.2061354>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  indicspecies
-%global packver   1.7.15
+%global packname  DICEM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Between Species and Groups of Sites
+Summary:          Directness and Intensity of Conflict Expression
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permute 
-Requires:         R-CRAN-permute 
+BuildRequires:    R-CRAN-politeness 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-doc2concrete 
+BuildRequires:    R-CRAN-vader 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-politeness 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-doc2concrete 
+Requires:         R-CRAN-vader 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-xgboost 
 
 %description
-Functions to assess the strength and statistical significance of the
-relationship between species occurrence/abundance and groups of sites [De
-Caceres & Legendre (2009) <doi:10.1890/08-1823.1>]. Also includes
-functions to measure species niche breadth using resource categories [De
-Caceres et al. (2011) <doi:10.1111/J.1600-0706.2011.19679.x>].
+A Natural Language Processing Model trained to detect directness and
+intensity during conflict. See <https://www.mikeyeomans.info>.
 
 %prep
 %setup -q -c -n %{packname}

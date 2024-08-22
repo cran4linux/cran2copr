@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boxcoxmix
-%global packver   0.42
+%global packver   0.46
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42
+Version:          0.46
 Release:          1%{?dist}%{?buildtag}
 Summary:          Box-Cox-Type Transformations for Linear and Logistic Models with Random Effects
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-statmod >= 1.4.27
 BuildRequires:    R-CRAN-qicharts >= 0.5.4

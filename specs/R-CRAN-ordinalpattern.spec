@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordinalpattern
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests Based on Ordinal Patterns
 
@@ -28,7 +28,10 @@ times series, Schnurr (2014) <doi:10.1007/s00362-013-0536-8> defines a
 robust and non-parametric dependence measure: the ordinal pattern
 coefficient. Functions to calculate this and a method to detect a change
 in the pattern coefficient proposed in Schnurr and Dehling (2017)
-<doi:10.1080/01621459.2016.1164706> are provided.
+<doi:10.1080/01621459.2016.1164706> are provided. Furthermore, the package
+contains a function for calculating the ordinal pattern frequencies.
+Generalized ordinal patterns as proposed by Schnurr and Fischer (2022)
+<doi:10.1016/j.csda.2022.107472> are also considered.
 
 %prep
 %setup -q -c -n %{packname}

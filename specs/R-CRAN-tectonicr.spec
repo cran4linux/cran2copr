@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tectonicr
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing the Orientation of Maximum Horizontal Stress
 
@@ -17,36 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-methods >= 4.3.1
+BuildRequires:    R-CRAN-spatstat.geom >= 3.2.9
+BuildRequires:    R-CRAN-spatstat.explore >= 3.2.7
+BuildRequires:    R-CRAN-spatstat.utils >= 3.0.4
+BuildRequires:    R-CRAN-spatstat.univar >= 2.0.3
+BuildRequires:    R-CRAN-zoo >= 1.8.12
+BuildRequires:    R-CRAN-smoothr >= 1.0.1
+BuildRequires:    R-CRAN-circular >= 0.5.0
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-smoothr 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.univar 
-BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-zoo 
+Requires:         R-methods >= 4.3.1
+Requires:         R-CRAN-spatstat.geom >= 3.2.9
+Requires:         R-CRAN-spatstat.explore >= 3.2.7
+Requires:         R-CRAN-spatstat.utils >= 3.0.4
+Requires:         R-CRAN-spatstat.univar >= 2.0.3
+Requires:         R-CRAN-zoo >= 1.8.12
+Requires:         R-CRAN-smoothr >= 1.0.1
+Requires:         R-CRAN-circular >= 0.5.0
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-smoothr 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.univar 
-Requires:         R-CRAN-spatstat.utils 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-zoo 
 
 %description
 Models the direction of the maximum horizontal stress using relative plate

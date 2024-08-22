@@ -1,31 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  indicspecies
-%global packver   1.7.15
+%global packname  MSinference
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.15
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Between Species and Groups of Sites
+Summary:          Multiscale Inference for Nonparametric Time Trend(s)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-permute 
-Requires:         R-CRAN-permute 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
 
 %description
-Functions to assess the strength and statistical significance of the
-relationship between species occurrence/abundance and groups of sites [De
-Caceres & Legendre (2009) <doi:10.1890/08-1823.1>]. Also includes
-functions to measure species niche breadth using resource categories [De
-Caceres et al. (2011) <doi:10.1111/J.1600-0706.2011.19679.x>].
+Performs a multiscale analysis of a nonparametric regression or
+nonparametric regressions with time series errors. In case of one
+regression, with the help of this package it is possible to detect the
+regions where the trend function is increasing or decreasing. In case of
+multiple regressions, the test identifies regions where the trend
+functions are different from each other. See Khismatullina and Vogt (2020)
+<doi:10.1111/rssb.12347>, Khismatullina and Vogt (2022)
+<doi:10.48550/arXiv.2209.10841> and Khismatullina and Vogt (2023)
+<doi:10.1016/j.jeconom.2021.04.010> for more details on theory and
+applications.
 
 %prep
 %setup -q -c -n %{packname}

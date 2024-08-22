@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pastboon
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Parameterized Stochastic Boolean Networks
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5.0
 
 %description
 A Boolean network is a particular kind of discrete dynamical system where
-the variables are simple binary switches. Although its simplicity, Boolean
+the variables are simple binary switches. Despite its simplicity, Boolean
 network modeling has been a successful method to describe the behavioral
 pattern of various phenomena. Applying stochastic noise to Boolean
 networks is a useful approach for representing the effects of various

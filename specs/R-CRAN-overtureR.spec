@@ -1,55 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spotifyr
-%global packver   2.2.4
+%global packname  overtureR
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Wrapper for the 'Spotify' Web API
+Summary:          Load 'Overture' Datasets as 'dbplyr' and 'sf'-Ready Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-duckdb >= 1.0.0
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-janitor 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-duckdb >= 1.0.0
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-sf 
 
 %description
-An R wrapper for pulling data from the 'Spotify' Web API
-<https://developer.spotify.com/documentation/web-api/> in bulk, or post
-items on a 'Spotify' user's playlist.
+An integrated R interface to the 'Overture' API
+(<https://docs.overturemaps.org/>). Allows R users to return 'Overture'
+data as 'dbplyr' data frames or materialized 'sf' spatial data frames.
 
 %prep
 %setup -q -c -n %{packname}

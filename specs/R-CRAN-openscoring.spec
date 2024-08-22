@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  indicspecies
-%global packver   1.7.15
+%global packname  openscoring
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.15
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Relationship Between Species and Groups of Sites
+Summary:          'Open Scoring' API Client
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-permute 
-Requires:         R-CRAN-permute 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-Functions to assess the strength and statistical significance of the
-relationship between species occurrence/abundance and groups of sites [De
-Caceres & Legendre (2009) <doi:10.1890/08-1823.1>]. Also includes
-functions to measure species niche breadth using resource categories [De
-Caceres et al. (2011) <doi:10.1111/J.1600-0706.2011.19679.x>].
+Creativity research involves the need to score open-ended problems.
+Usually done by humans, automatic scoring using AI becomes more and more
+accurate. This package provides a simple interface to the 'Open Scoring'
+API <https://openscoring.du.edu/docs>, leading creativity scoring
+technology by Organiscak et al. (2023) <doi:10.1016/j.tsc.2023.101356>.
+With it, you can score your own data directly from an R script.
 
 %prep
 %setup -q -c -n %{packname}

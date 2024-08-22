@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geosimilarity
-%global packver   2.2
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically Optimal Similarity
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-SecDim 
-BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggrepel 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-stats 
-Requires:         R-CRAN-SecDim 
-Requires:         R-CRAN-DescTools 
+Requires:         R-parallel 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggrepel 
 
 %description

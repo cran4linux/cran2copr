@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecocbo
-%global packver   0.10.2
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.2
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Optimum Sampling Effort in Community Ecology
 
@@ -21,30 +21,38 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-sampling 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-SSP 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-sampling 
 Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-SSP 
 
 %description
 A system for calculating the optimal sampling effort, based on the ideas
 of "Ecological cost-benefit optimization" as developed by A. Underwood
 (1997, ISBN 0 521 55696 1). Data is obtained from simulated ecological
-communities, and the optimization follows the following procedure of four
-functions (1) sim_beta() estimates statistical power and type 2 error by
-using Permutational Multivariate Analysis of Variance, (2) plot_power()
-represents the results of the previous function, (3) scompvar() calculates
-the variation components necessary for (4) sim_cbo() to calculate the
-optimal combination of number of sites and samples depending on either an
-economical budget or on a desired statistical accuracy.
+communities with prep_data() which formats and arranges the initial data,
+and then the optimization follows the following procedure of four
+functions: (1) scompvar() calculates the variation components necessary
+for (2) sim_cbo() to calculate the optimal combination of number of sites
+and samples depending on either an economic budget or on a desired
+statistical accuracy. Additionally, (3) sim_beta() estimates statistical
+power and type 2 error by using Permutational Multivariate Analysis of
+Variance, and (6) plot_power() represents the results of the previous
+function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RMySQL
-%global packver   0.10.27
+%global packver   0.10.28
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.27
+Version:          0.10.28
 Release:          1%{?dist}%{?buildtag}
 Summary:          Database Interface and 'MySQL' Driver for R
 

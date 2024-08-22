@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qtl
-%global packver   1.66
+%global packver   1.70
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.66
+Version:          1.70
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing QTL Experiments
 

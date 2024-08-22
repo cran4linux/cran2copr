@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rapiclient
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic OpenAPI/Swagger Client
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
+Requires:         R-tools 
 Requires:         R-CRAN-yaml 
 
 %description
