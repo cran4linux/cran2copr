@@ -1,41 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simodels
-%global packver   0.2.0
+%global packname  despair
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Framework for Developing Spatial Interaction Models
+Summary:          Motivational Quotes and Shakespearean Bard–bits for Personal Projects
 
-License:          AGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-od >= 0.5.1
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geodist 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-od >= 0.5.1
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geodist 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
 
 %description
-Develop spatial interaction models (SIMs).  SIMs predict the amount of
-interaction, for example number of trips per day, between geographic
-entities representing trip origins and destinations. Contains functions
-for creating origin-destination datasets from geographic input datasets
-and calculating movement between origin-destination pairs with
-constrained, production-constrained, and attraction-constrained models
-(Wilson 1979) <doi:10.1068/a030001>.
+Generate motivational quotes and Shakespearean word combinations
+(bard–bits) that a user can consider for their personal projects. Each of
+the package functions takes two arguments, cat which default to any, and a
+a numeric or character seed to ensure reproducible results.
 
 %prep
 %setup -q -c -n %{packname}

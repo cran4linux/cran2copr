@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jstager
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Information Published on J-STAGE
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-chromote 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-openxlsx 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-xml2 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-chromote 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-openxlsx 
 
 %description

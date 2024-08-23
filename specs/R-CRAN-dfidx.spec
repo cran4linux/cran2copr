@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dfidx
-%global packver   0.0-5
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Indexed Data Frames
 
@@ -13,13 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Provides extended data frames, with a special data frame column which
