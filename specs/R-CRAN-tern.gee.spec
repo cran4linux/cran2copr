@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern.gee
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tables and Graphs for Generalized Estimating Equations (GEE) Model Fits
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-emmeans >= 1.4.5
-BuildRequires:    R-CRAN-tern >= 0.9.4
-BuildRequires:    R-CRAN-rtables >= 0.6.7
-BuildRequires:    R-CRAN-formatters >= 0.5.6
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-emmeans >= 1.10.4
+BuildRequires:    R-CRAN-tern >= 0.9.5
+BuildRequires:    R-CRAN-rtables >= 0.6.9
+BuildRequires:    R-CRAN-formatters >= 0.5.8
 BuildRequires:    R-CRAN-geeasy 
 BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-emmeans >= 1.4.5
-Requires:         R-CRAN-tern >= 0.9.4
-Requires:         R-CRAN-rtables >= 0.6.7
-Requires:         R-CRAN-formatters >= 0.5.6
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-emmeans >= 1.10.4
+Requires:         R-CRAN-tern >= 0.9.5
+Requires:         R-CRAN-rtables >= 0.6.9
+Requires:         R-CRAN-formatters >= 0.5.8
 Requires:         R-CRAN-geeasy 
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-nlme 

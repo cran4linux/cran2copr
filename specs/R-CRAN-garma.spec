@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  garma
-%global packver   0.9.13
+%global packver   0.9.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.13
+Version:          0.9.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
 
@@ -20,39 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-pso 
-BuildRequires:    R-CRAN-FKF 
-BuildRequires:    R-CRAN-tswge 
-BuildRequires:    R-CRAN-hypergeo 
-BuildRequires:    R-CRAN-ltsa 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-crayon 
 Requires:         R-utils 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-GA 
-Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-pso 
-Requires:         R-CRAN-FKF 
-Requires:         R-CRAN-tswge 
-Requires:         R-CRAN-hypergeo 
-Requires:         R-CRAN-ltsa 
 
 %description
 Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer

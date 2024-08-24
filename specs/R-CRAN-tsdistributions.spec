@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsdistributions
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Location Scale Standardized Distributions
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-TMB >= 1.7.20
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tsmethods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-GeneralizedHyperbolic 
 BuildRequires:    R-CRAN-KernSmooth 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-mev
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-Rsolnp 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-future.apply 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-RcppEigen
 Requires:         R-CRAN-TMB >= 1.7.20
 Requires:         R-methods 
 Requires:         R-CRAN-tsmethods 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-GeneralizedHyperbolic 
 Requires:         R-CRAN-KernSmooth 
@@ -45,7 +46,6 @@ Requires:         R-CRAN-mev
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-Rsolnp 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-future.apply 

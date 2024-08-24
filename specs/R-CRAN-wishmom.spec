@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coxme
-%global packver   2.2-22
+%global packname  wishmom
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.22
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Effects Cox Models
+Summary:          Compute Moments Related to Beta-Wishart and Inverse Beta-Wishart Distributions
 
-License:          LGPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-survival >= 2.36.14
-BuildRequires:    R-CRAN-bdsmatrix >= 1.3
-BuildRequires:    R-CRAN-Matrix >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-CRAN-survival >= 2.36.14
-Requires:         R-CRAN-bdsmatrix >= 1.3
-Requires:         R-CRAN-Matrix >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-roxygen2 
+Requires:         R-CRAN-roxygen2 
 
 %description
-Fit Cox proportional hazards models containing both fixed and random
-effects.  The random effects can have a general form, of which familial
-interactions (a "kinship" matrix) is a particular special case. Note that
-the simplest case of a mixed effects Cox model, i.e. a single random
-per-group intercept, is also called a "frailty" model.  The approach is
-based on Ripatti and Palmgren, Biometrics 2002.
+Provides functions for computing moments and coefficients related to the
+Beta-Wishart and Inverse Beta-Wishart distributions. It includes functions
+for calculating the expectation of matrix-valued functions of the
+Beta-Wishart distribution, coefficient matrices C_k and H_k, expectation
+of matrix-valued functions of the inverse Beta-Wishart distribution, and
+inverse coefficient matrices tilde C_k and tilde H_k. For more details,
+refer to the paper "On the Expectations of Equivariant Matrix-valued
+Functions of Wishart and Inverse Wishart Matrices" by Grant Hillier and
+Raymond Kan.
 
 %prep
 %setup -q -c -n %{packname}

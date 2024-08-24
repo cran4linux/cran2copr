@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polyglotr
-%global packver   1.5.1
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate Text
 
@@ -41,8 +41,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-urltools 
 
 %description
-The goal of the this package is to provide easy methods to translate
-pieces of text. Functions send requests to translation services online.
+Provide easy methods to translate pieces of text. Functions send requests
+to translation services online.
 
 %prep
 %setup -q -c -n %{packname}

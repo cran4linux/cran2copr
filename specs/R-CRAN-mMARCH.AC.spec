@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mMARCH.AC
-%global packver   2.9.2.0
+%global packver   2.9.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2.0
+Version:          2.9.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing of Accelerometry Data with 'GGIR' in mMARCH
 
@@ -82,16 +82,16 @@ Individual Variation Explained (JIVE), an unsupervised machine learning
 dimension reduction technique that identifies latent factors capturing
 joint across and individual to each of three domains of PA/SL/CR.  In
 detail, the pipeline generates all necessary R/Rmd/shell files for data
-processing after running 'GGIR' (v2.4.0) for accelerometer data. In module
-1, all csv files in the 'GGIR' output directory were read, transformed and
-then merged. In module 2, the 'GGIR' output files were checked and
-summarized in one excel sheet. In module 3, the merged data was cleaned
-according to the number of valid hours on each night and the number of
-valid days for each subject. In module 4, the cleaned activity data was
-imputed by the average Euclidean norm minus one (ENMO) over all the valid
-days for each subject. Finally, a comprehensive report of data processing
-was created using Rmarkdown, and the report includes few exploratory plots
-and multiple commonly used features extracted from minute level actigraphy
+processing after running 'GGIR' for accelerometer data. In module 1, all
+csv files in the 'GGIR' output directory were read, transformed and then
+merged. In module 2, the 'GGIR' output files were checked and summarized
+in one excel sheet. In module 3, the merged data was cleaned according to
+the number of valid hours on each night and the number of valid days for
+each subject. In module 4, the cleaned activity data was imputed by the
+average Euclidean norm minus one (ENMO) over all the valid days for each
+subject. Finally, a comprehensive report of data processing was created
+using Rmarkdown, and the report includes few exploratory plots and
+multiple commonly used features extracted from minute level actigraphy
 data.  Reference: Guo W, Leroux A, Shou S, Cui L, Kang S, Strippoli MP,
 Preisig M, Zipunnikov V, Merikangas K (2022) Processing of accelerometry
 data with GGIR in Motor Activity Research Consortium for Health (mMARCH)

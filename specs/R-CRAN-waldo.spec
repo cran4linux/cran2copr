@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  waldo
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Differences Between R Objects
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-diffobj >= 0.3.4
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rematch2 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-tibble
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-diffobj >= 0.3.4
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
 Requires:         R-CRAN-rematch2 

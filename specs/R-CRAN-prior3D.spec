@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MIAmaxent
-%global packver   1.3.1
+%global packname  prior3D
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Modular, Integrated Approach to Maximum Entropy Distribution Modeling
+Summary:          3D Prioritization Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-e1071 >= 1.6.7
-BuildRequires:    R-CRAN-dplyr >= 0.4.3
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-prioritizr >= 8.0.4
+BuildRequires:    R-CRAN-maps >= 3.4.2
+BuildRequires:    R-CRAN-readxl >= 1.4.3
+BuildRequires:    R-CRAN-geodiv >= 1.1.0
+BuildRequires:    R-CRAN-viridis >= 0.6.5
+BuildRequires:    R-CRAN-rasterdiv >= 0.3.4
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-highs 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-e1071 >= 1.6.7
-Requires:         R-CRAN-dplyr >= 0.4.3
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-prioritizr >= 8.0.4
+Requires:         R-CRAN-maps >= 3.4.2
+Requires:         R-CRAN-readxl >= 1.4.3
+Requires:         R-CRAN-geodiv >= 1.1.0
+Requires:         R-CRAN-viridis >= 0.6.5
+Requires:         R-CRAN-rasterdiv >= 0.3.4
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-highs 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-graphics 
 
 %description
-Tools for training, selecting, and evaluating maximum entropy (and
-standard logistic regression) distribution models. This package provides
-tools for user-controlled transformation of explanatory variables,
-selection of variables by nested model comparison, and flexible model
-evaluation and projection. It follows principles based on the maximum-
-likelihood interpretation of maximum entropy modeling, and uses
-infinitely- weighted logistic regression for model fitting. The package is
-described in Vollering et al. (2019; <doi:10.1002/ece3.5654>).
+3D systematic conservation planning, conducting nested prioritization
+analyses across multiple depth levels and ensuring efficient resource
+allocation throughout the water column (Doxa et al. 2024
+<doi:10.1111/gcb.16268>). It provides a structured workflow designed to
+address biodiversity conservation and management challenges in the 3
+dimensions, such as the incorporation of multiple costs at different depth
+levels, while facilitating users’ choices and parameterization.
 
 %prep
 %setup -q -c -n %{packname}

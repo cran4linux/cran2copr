@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CvmortalityMult
-%global packver   1.0.3
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Multi-Population Mortality Models
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.50
 Requires:         R-core >= 3.50
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gnm >= 1.1.2
 BuildRequires:    R-CRAN-StMoMo 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gnm 
 BuildRequires:    R-CRAN-tmap 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-graphics 
+Requires:         R-CRAN-gnm >= 1.1.2
 Requires:         R-CRAN-StMoMo 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gnm 
 Requires:         R-CRAN-tmap 
 Requires:         R-CRAN-sf 
 Requires:         R-graphics 

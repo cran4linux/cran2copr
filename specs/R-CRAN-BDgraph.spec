@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BDgraph
-%global packver   2.72
+%global packver   2.73
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.72
+Version:          2.73
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
 
@@ -24,12 +24,14 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-pROC 
 
 %description
-Statistical tools for Bayesian structure learning in undirected graphical
-models for continuous, ordinal/discrete/count, and mixed data. The package
-is implemented the recent improvements in the Bayesian graphical models'
-literature, including Mohammadi and Wit (2015) <doi:10.1214/14-BA889>,
-Mohammadi et al. (2021) <doi:10.1080/01621459.2021.1996377>, and Dobra and
-Mohammadi (2018) <doi:10.1214/18-AOAS1164>.
+Advanced statistical tools for Bayesian structure learning in undirected
+graphical models, accommodating continuous, ordinal, discrete, count, and
+mixed data. It integrates recent advancements in Bayesian graphical models
+as presented in the literature, including the works of Mohammadi and Wit
+(2015) <doi:10.1214/14-BA889>, Mohammadi et al. (2021)
+<doi:10.1080/01621459.2021.1996377>, Dobra and Mohammadi (2018)
+<doi:10.1214/18-AOAS1164>, and Mohammadi et al. (2023)
+<doi:10.48550/arXiv.2307.00127>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssMRCD
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Smoothed MRCD Estimator
 
@@ -27,6 +27,15 @@ BuildRequires:    R-CRAN-dbscan
 BuildRequires:    R-CRAN-plot3D 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-rrcov 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
@@ -37,12 +46,23 @@ Requires:         R-CRAN-dbscan
 Requires:         R-CRAN-plot3D 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-rrcov 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-parallel 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-reshape2 
 
 %description
 Estimation of the Spatially Smoothed Minimum Regularized Determinant
 (ssMRCD) estimator and its usage in an ssMRCD-based outlier detection
 method as described in Puchhammer and Filzmoser (2023)
-<doi:10.48550/arXiv.2305.05371>. Included are also complementary
+<doi:10.1080/10618600.2023.2277875> and for sparse robust PCA for
+multi-source data described in Puchhammer, Wilms and Filzmoser (2024)
+<doi:10.48550/arXiv.2407.16299>. Included are also complementary
 visualization and parameter tuning tools.
 
 %prep

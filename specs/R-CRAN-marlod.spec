@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coxme
-%global packver   2.2-22
+%global packname  marlod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Effects Cox Models
+Summary:          Marginal Modeling for Exposure Data with Values Below the LOD
 
-License:          LGPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-survival >= 2.36.14
-BuildRequires:    R-CRAN-bdsmatrix >= 1.3
-BuildRequires:    R-CRAN-Matrix >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-CRAN-survival >= 2.36.14
-Requires:         R-CRAN-bdsmatrix >= 1.3
-Requires:         R-CRAN-Matrix >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-miWQS 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-miWQS 
+Requires:         R-CRAN-quantreg 
+Requires:         R-stats 
+Requires:         R-CRAN-knitr 
 
 %description
-Fit Cox proportional hazards models containing both fixed and random
-effects.  The random effects can have a general form, of which familial
-interactions (a "kinship" matrix) is a particular special case. Note that
-the simplest case of a mixed effects Cox model, i.e. a single random
-per-group intercept, is also called a "frailty" model.  The approach is
-based on Ripatti and Palmgren, Biometrics 2002.
+Functions of marginal mean and quantile regression models for analyzing
+environmental exposure and biomonitoring data with repeated measurements
+and non-detects, and for longitudinal exposure data with non-detects and
+time-dependent covariates.
 
 %prep
 %setup -q -c -n %{packname}

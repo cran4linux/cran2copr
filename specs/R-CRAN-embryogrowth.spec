@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  embryogrowth
-%global packver   9.1
+%global packver   9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.1
+Version:          9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Analyze the Thermal Reaction Norm of Embryo Growth
 
@@ -17,16 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 6.0.3
+BuildRequires:    R-CRAN-HelpersMG >= 6.0
 BuildRequires:    R-CRAN-deSolve 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-HelpersMG >= 6.0.3
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-HelpersMG >= 6.0
 Requires:         R-CRAN-deSolve 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-parallel 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Tools to analyze the embryo growth and the sexualisation thermal reaction

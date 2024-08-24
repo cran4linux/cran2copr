@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coxme
-%global packver   2.2-22
+%global packname  smiles
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mixed Effects Cox Models
+Summary:          Sequential Method in Leading Evidence Synthesis
 
-License:          LGPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-survival >= 2.36.14
-BuildRequires:    R-CRAN-bdsmatrix >= 1.3
-BuildRequires:    R-CRAN-Matrix >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-CRAN-survival >= 2.36.14
-Requires:         R-CRAN-bdsmatrix >= 1.3
-Requires:         R-CRAN-Matrix >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-boot 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-meta 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Fit Cox proportional hazards models containing both fixed and random
-effects.  The random effects can have a general form, of which familial
-interactions (a "kinship" matrix) is a particular special case. Note that
-the simplest case of a mixed effects Cox model, i.e. a single random
-per-group intercept, is also called a "frailty" model.  The approach is
-based on Ripatti and Palmgren, Biometrics 2002.
+Trial sequential analysis emerges as an important method in data synthesis
+realm. It is necessary to integrate pooling methods and sequential
+analysis coherently, as discussed in the Chapter by Thomas, J., Askie,
+L.M., Berlin, J.A., Elliott, J.H., Ghersi, D., Simmonds, M., Takwoingi,
+Y., Tierney, J.F. and Higgins, J.P. (2019). "Prospective approaches to
+accumulating evidence". In Cochrane Handbook for Systematic Reviews of
+Interventions (eds J.P.T. Higgins, J. Thomas, J. Chandler, M. Cumpston, T.
+Li, M.J. Page and V.A. Welch). <doi:10.1002/9781119536604.ch22>.
 
 %prep
 %setup -q -c -n %{packname}

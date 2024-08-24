@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jfa
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Auditing
 
@@ -53,8 +53,8 @@ distributions and repeated values. Finally, the package includes methods
 for auditing algorithms on the aspect of fairness and bias. Next to
 classical statistical methodology, the package implements Bayesian
 equivalents of these methods whose statistical underpinnings are described
-in Derks et al. (2021) <doi:10.1111/ijau.12240>, Derks et al. (2021)
-<doi:10.31234/osf.io/kzqp5>, and Derks et al. (2022)
+in Derks et al. (2021) <doi:10.1111/ijau.12240>, Derks et al. (2024)
+<doi:10.2308/AJPT-2021-086>, and Derks et al. (2022)
 <doi:10.31234/osf.io/8nf3e>.
 
 %prep

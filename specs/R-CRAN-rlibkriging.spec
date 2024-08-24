@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rlibkriging
-%global packver   0.8-0.1
+%global packver   0.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kriging Models using the 'libKriging' Library
 
@@ -32,9 +32,7 @@ features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
 'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
 by Conrad Sanderson, 'lbfgsb_cpp' is a 'C++' port around 'lbfgsb' library
 (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge Nocedal and Jose Luis
-Morales used for hyperparameters optimization, and HDF5 features coming
-from HDF Group (see HDF5_LICENSE file) possibly provided by Rhdf5lib by
-Mike Smith (Artistic-2.0 license).
+Morales used for hyperparameters optimization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treesliceR
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          To Slice Phylogenetic Trees and Infer Evolutionary Patterns Over Time
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape >= 5.7.1
+BuildRequires:    R-CRAN-ape >= 5.7
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
 BuildRequires:    R-CRAN-foreach >= 1.5.2
 BuildRequires:    R-CRAN-sf >= 1.0.9
 BuildRequires:    R-CRAN-doParallel >= 1.0.17
-Requires:         R-CRAN-ape >= 5.7.1
+Requires:         R-CRAN-ape >= 5.7
 Requires:         R-CRAN-ggplot2 >= 3.4.2
 Requires:         R-CRAN-foreach >= 1.5.2
 Requires:         R-CRAN-sf >= 1.0.9

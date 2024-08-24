@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  makemyprior
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Intuitive Construction of Joint Priors for Variance Parameters
 
@@ -48,7 +48,9 @@ variance decomposition, we formulate a joint variance prior that takes the
 whole model structure into account. In this way, existing knowledge can
 intuitively be incorporated at the level it applies to. Alternatively, one
 can use independent variance priors for each model components in the
-latent Gaussian model.
+latent Gaussian model. Details can be found in the accompanying scientific
+paper: Hem, Fuglstad, Riebler (2024, Journal of Statistical Software,
+<doi:10.18637/jss.v110.i03>).
 
 %prep
 %setup -q -c -n %{packname}
