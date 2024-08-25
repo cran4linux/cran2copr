@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeightIt
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting for Covariate Balance in Observational Studies
 
@@ -19,17 +19,17 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cobalt >= 4.5.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-crayon >= 1.3.4
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-chk >= 0.8.1
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-chk >= 0.9.2
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-cobalt >= 4.5.1
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-crayon >= 1.3.4
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-chk >= 0.8.1
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-chk >= 0.9.2
 Requires:         R-CRAN-generics 
 Requires:         R-utils 
 Requires:         R-stats 
@@ -39,8 +39,8 @@ Generates balancing weights for causal effect estimation in observational
 studies with binary, multi-category, or continuous point or longitudinal
 treatments by easing and extending the functionality of several R packages
 and providing in-house estimation methods. Available methods include those
-that rely on parameteric modeling, optimization, and machine learning.
-Also allows for assessment of weights and checking of covariate balance by
+that rely on parametric modeling, optimization, and machine learning. Also
+allows for assessment of weights and checking of covariate balance by
 interfacing directly with the 'cobalt' package. Methods for estimating
 weighted regression models that take into account uncertainty in the
 estimation of the weights via M-estimation or bootstrapping are available.

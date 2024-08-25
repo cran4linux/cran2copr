@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDXBoxeR
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Hydrogen-Deuterium Exchange Mass-Spectrometry Data
 
@@ -45,14 +45,15 @@ statistics and Critical Interval analysis. It provides a pipeline for
 analyzing data from 'HDXExaminer' (Sierra Analytics, Trajan Scientific),
 automating matching and comparison of protein states through Welch's
 T-test and the Critical Interval statistical framework. Additionally, it
-simplifies data export, generates 'Pymol' scripts, and ensures
+simplifies data export, generates 'PyMol' scripts, and ensures
 calculations meet publication standards. 'HDXBoxeR' assists in various
 aspects of hydrogen-deuterium exchange data analysis, including
 reprocessing data, calculating parameters, identifying significant
 peptides, generating plots, and facilitating comparison between protein
 states. For details check papers by Hageman and Weis (2019)
 <doi:10.1021/acs.analchem.9b01325> and Masson et al. (2019)
-<doi:10.1038/s41592-019-0459-y>.
+<doi:10.1038/s41592-019-0459-y>. 'HDXBoxeR' citation: Janowska et al.
+(2024) <doi:10.1093/bioinformatics/btae479>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoneProfileR
-%global packver   2.5
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Study Bone Compactness
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 5.3
+BuildRequires:    R-CRAN-HelpersMG >= 6.1
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-HelpersMG >= 5.3
+Requires:         R-CRAN-HelpersMG >= 6.1
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 

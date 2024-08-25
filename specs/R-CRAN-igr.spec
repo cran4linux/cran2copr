@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  igr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Irish Grid Reference Utilities
 
@@ -23,9 +23,9 @@ Requires:         R-CRAN-sf
 %description
 Convert between Irish grid references and Irish Grid coordinates. Irish
 grid references can also be converted to or from an 'sf' object in any
-coordinate reference system. Precisions from 1 m to 100 km are supported,
-as are datasets with mixed precision. Conversion to 'sf' polygons is
-precision-aware.
+coordinate reference system. Precisions from 1 m to 100 km including 2 km
+(tetrads) are supported, as are datasets with mixed precision. Conversion
+to 'sf' polygons is precision-aware.
 
 %prep
 %setup -q -c -n %{packname}

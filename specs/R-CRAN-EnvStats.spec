@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EnvStats
-%global packver   2.8.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package for Environmental Statistics, Including US EPA Guidance
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1
-Requires:         R-core >= 3.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
@@ -34,8 +34,7 @@ use them, and where to find them in the literature.  Numerous built-in
 data sets from regulatory guidance documents and environmental statistics
 literature.  Includes scripts reproducing analyses presented in the book
 "EnvStats: An R Package for Environmental Statistics" (Millard, 2013,
-Springer, ISBN 978-1-4614-8455-4,
-<https://link.springer.com/book/10.1007/978-1-4614-8456-1>).
+Springer, ISBN 978-1-4614-8455-4, <doi:10.1007/978-1-4614-8456-1>).
 
 %prep
 %setup -q -c -n %{packname}

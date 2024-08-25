@@ -1,54 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dbmss
-%global packver   2.9-2
+%global packname  inferCSN
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Based Measures of Spatial Structures
+Summary:          Inferring Cell-Specific Gene Regulatory Network
 
-License:          GNU General Public License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.14
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggnetwork 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-spatstat.utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-Rcpp >= 0.12.14
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-cubature 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggnetwork 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-spatstat.utils 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
+Requires:         R-utils 
 
 %description
-Simple computation of spatial statistic functions of distance to
-characterize the spatial structures of mapped objects, following Marcon,
-Traissac, Puech, and Lang (2015) <doi:10.18637/jss.v067.c03>. Includes
-classical functions (Ripley's K and others) and more recent ones used by
-spatial economists (Duranton and Overman's Kd, Marcon and Puech's M).
-Relies on 'spatstat' for some core calculation.
+An R package for inferring cell-type specific gene regulatory network from
+single-cell RNA data.
 
 %prep
 %setup -q -c -n %{packname}

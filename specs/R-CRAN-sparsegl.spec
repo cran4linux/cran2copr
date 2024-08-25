@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sparsegl
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Group Lasso
 
@@ -37,12 +37,13 @@ Requires:         R-CRAN-tidyr
 
 %description
 Efficient implementation of sparse group lasso with optional bound
-constraints on the coefficients. It supports the use of a sparse design
-matrix as well as returning coefficient estimates in a sparse matrix.
-Furthermore, it correctly calculates the degrees of freedom to allow for
-information criteria rather than cross-validation with very large data.
-Finally, the interface to compiled code avoids unnecessary copies and
-allows for the use of long integers.
+constraints on the coefficients; see <doi:10.18637/jss.v110.i06>.  It
+supports the use of a sparse design matrix as well as returning
+coefficient estimates in a sparse matrix. Furthermore, it correctly
+calculates the degrees of freedom to allow for information criteria rather
+than cross-validation with very large data. Finally, the interface to
+compiled code avoids unnecessary copies and allows for the use of long
+integers.
 
 %prep
 %setup -q -c -n %{packname}
