@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jtools
-%global packver   2.2.2
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Presentation of Social Scientific Data
 
@@ -14,24 +14,30 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-pkgconfig 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-pkgconfig 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-tibble 
 
 %description

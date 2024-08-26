@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  governor
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Speed Limiter to Control Rate of Execution of Loops
 
@@ -18,10 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Speed limiter for controlling rate of execution of loops. It can be
-necessary to limit the rate of execution of a loop or repeated function
-call e.g. to show or gather data only at particular intervals. This
-package includes two methods for limiting this execution rate; speed
+It can be necessary to limit the rate of execution of a loop or repeated
+function call e.g. to show or gather data only at particular intervals.
+This package includes two methods for limiting this execution rate; speed
 governors and timers.  A speed governor will insert pauses during
 execution to meet a user-specified loop time.  Timers are alarm clocks
 which will indicate whether a certain time has passed.  These mechanisms

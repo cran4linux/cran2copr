@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  misty
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions 'T. Yanagida'
 
@@ -21,8 +21,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-norm 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-writexl 
@@ -30,8 +28,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-norm 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-writexl 
@@ -49,11 +45,11 @@ multilevel confirmatory factor analysis, level-specific fit indices,
 cross-level measurement equivalence evaluation, multilevel composite
 reliability, and multilevel R-squared measures), (5) item analysis (e.g.,
 confirmatory factor analysis, coefficient alpha and omega, between-group
-and longitudinal measurement equivalence evaluation), and (6) statistical
+and longitudinal measurement equivalence evaluation), (6) statistical
 analysis (e.g., confidence intervals, collinearity and residual
 diagnostics, dominance analysis, between- and within-subject analysis of
 variance, latent class analysis, t-test, z-test, sample size
-determination).
+determination), and (7) functions to interact with 'Blimp' and 'Mplus'.
 
 %prep
 %setup -q -c -n %{packname}
