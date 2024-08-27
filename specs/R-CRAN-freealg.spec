@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  freealg
-%global packver   1.1-1
+%global packver   1.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Free Algebra
 
@@ -18,14 +18,12 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-partitions >= 1.9.22
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-disordR >= 0.9
+BuildRequires:    R-CRAN-disordR >= 0.9.5.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-partitions >= 1.9.22
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-disordR >= 0.9
+Requires:         R-CRAN-disordR >= 0.9.5.1
 Requires:         R-methods 
-Requires:         R-CRAN-mathjaxr 
 
 %description
 The free algebra in R with non-commuting indeterminates. Uses 'disordR'

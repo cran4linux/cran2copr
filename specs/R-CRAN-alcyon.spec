@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.2
+%global packname  alcyon
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          Spatial Network Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Interface package for 'sala', the spatial network analysis library from
+the 'depthmapX' software application. The R parts of the code are based on
+the 'rdepthmap' package. Allows for the analysis of urban and
+building-scale networks and provides metrics and methods usually found
+within the Space Syntax domain. Methods in this package are described by
+K. Al-Sayed, A. Turner, B. Hillier, S. Iida and A. Penn (2014) "Space
+Syntax methodology", and also by A. Turner (2004)
+<https://discovery.ucl.ac.uk/id/eprint/2651> "Depthmap 4: a researcher's
+handbook".
 
 %prep
 %setup -q -c -n %{packname}

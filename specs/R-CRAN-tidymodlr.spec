@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.2
+%global packname  tidymodlr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          An R6 Class to Perform Analysis on Long Tidy Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-corrr 
+BuildRequires:    R-CRAN-FactoMineR 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-corrr 
+Requires:         R-CRAN-FactoMineR 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Transforms long data into a matrix form to allow for ease of input into
+modelling packages for regression, principal components, imputation or
+machine learning. It does this by pivoting on user defined columns,
+generating a key-value table for variable names to ensure one-to-one
+mappings are preserved. It is particularly useful when the indicator names
+in the columns are long descriptive strings, for example "Energy imports,
+net (%% of energy use)". High level analysis wrapper functions for
+correlation and principal components analysis are provided.
 
 %prep
 %setup -q -c -n %{packname}

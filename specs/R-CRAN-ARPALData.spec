@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARPALData
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieving and Analyzing Air Quality and Weather Data from ARPA Lombardia
 
@@ -61,17 +61,17 @@ Contains functions for retrieving, managing and analysing air quality and
 weather data from Regione Lombardia open database
 (<https://www.dati.lombardia.it/>). Data are collected by ARPA Lombardia
 (Lombardia Environmental Protection Agency), Italy, through its ground
-monitoring network. See the webpage <https://www.arpalombardia.it/> for
-further information on ARPA Lombardia's activities and history. Data
-quality (e.g. missing values, exported values, graphical mapping) has been
-checked involving members of the ARPA Lombardia's office for air quality
-control. The package makes available observations since 1989 (for weather)
-and 1968 (for air quality) and are updated with daily frequency by the
-regional agency. Full description of the package can be retrieved in the
-companion paper Maranzano & Algieri (2024), "ARPALData: an R package for
-retrieving and analyzing air quality and weather data from ARPA Lombardia
-(Italy)", Environmental and Ecological Statistics,
-<doi:10.1007/s10651-024-00599-6>.
+monitoring network (<https://www.dati.lombardia.it/stories/s/auv9-c2sj>).
+See the webpage <https://www.arpalombardia.it/> for further information on
+ARPA Lombardia's activities and history. Data quality (e.g. missing
+values, exported values, graphical mapping) has been checked involving
+members of the ARPA Lombardia's office for air quality control. The
+package makes available observations since 1989 (for weather) and 1968
+(for air quality) and are updated with daily frequency by the regional
+agency. Full description of the package can be retrieved in the companion
+paper Maranzano & Algieri (2024), "ARPALData: an R package for retrieving
+and analyzing air quality and weather data from ARPA Lombardia (Italy)",
+Environmental and Ecological Statistics, <doi:10.1007/s10651-024-00599-6>.
 
 %prep
 %setup -q -c -n %{packname}

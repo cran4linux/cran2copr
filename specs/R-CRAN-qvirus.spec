@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.2
+%global packname  qvirus
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          Quantum Computing for Analyzing CD4 Lymphocytes and Antiretroviral Therapy
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-utils 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Resources, tutorials, and code snippets dedicated to exploring the
+intersection of quantum computing and artificial intelligence (AI) in the
+context of analyzing Cluster of Differentiation 4 (CD4) lymphocytes and
+optimizing antiretroviral therapy (ART) for human immunodeficiency virus
+(HIV). With the emergence of quantum artificial intelligence and the
+development of small-scale quantum computers, there's an unprecedented
+opportunity to revolutionize the understanding of HIV dynamics and
+treatment strategies. This project leverages the R package 'qsimulatR'
+(Ostmeyer and Urbach, 2023,
+<https://CRAN.R-project.org/package=qsimulatR>), a quantum computer
+simulator, to explore these applications in quantum computing techniques,
+addressing the challenges in studying CD4 lymphocytes and enhancing ART
+efficacy.
 
 %prep
 %setup -q -c -n %{packname}

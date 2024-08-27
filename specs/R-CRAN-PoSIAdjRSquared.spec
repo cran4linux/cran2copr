@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.2
+%global packname  PoSIAdjRSquared
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          Post-Selection Inference for Adjusted R Squared
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
+BuildRequires:    R-CRAN-lmf 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-lmf 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-VGAM 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Conduct post-selection inference for regression coefficients in linear
+models after they have been selected by adjusted R squared. The p-values
+and confidence intervals are valid after model selection with the same
+data. This allows the user to use all data for both model selection and
+inference without losing control over the type I error rate. The provided
+tests are more powerful than data splitting, which bases inference on less
+data since it discards all information used for selection.
 
 %prep
 %setup -q -c -n %{packname}

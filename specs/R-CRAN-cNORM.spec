@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cNORM
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Norming
 
@@ -24,11 +24,11 @@ Requires:         R-CRAN-leaps >= 3.1
 
 %description
 A comprehensive toolkit for generating continuous test norms in
-psychometrics and biometrics, and analyzing model fit. cNORM offers both
-distribution-free modeling using Taylor polynomials and parametric
+psychometrics and biometrics, and analyzing model fit. The package offers
+both distribution-free modeling using Taylor polynomials and parametric
 modeling using the beta-binomial distribution. Originally developed for
-achievement tests, it's applicable to a wide range of mental, physical, or
-other test scores dependent on continuous or discrete explanatory
+achievement tests, it is applicable to a wide range of mental, physical,
+or other test scores dependent on continuous or discrete explanatory
 variables. The package provides several advantages: It minimizes
 deviations from representativeness in subsamples, interpolates between
 discrete levels of explanatory variables, and significantly reduces the

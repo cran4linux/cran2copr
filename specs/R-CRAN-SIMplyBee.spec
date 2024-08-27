@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIMplyBee
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'AlphaSimR' Extension for Simulating Honeybee Populations and Breeding Programmes
 
@@ -16,19 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-extraDistr >= 1.9.1
-BuildRequires:    R-CRAN-AlphaSimR >= 1.3.2
+BuildRequires:    R-CRAN-AlphaSimR >= 1.5.3
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.7.500.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-extraDistr >= 1.9.1
-Requires:         R-CRAN-AlphaSimR >= 1.3.2
+Requires:         R-CRAN-AlphaSimR >= 1.5.3
+Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-RANN 
 
 %description
 An extension of the 'AlphaSimR' package

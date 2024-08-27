@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  taxize
-%global packver   0.9.100
+%global packver   0.9.100.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.100
+Version:          0.9.100.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Taxonomic Information from Around the Web
 
@@ -20,7 +21,6 @@ BuildRequires:    R-CRAN-rotl >= 3.0.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
 BuildRequires:    R-CRAN-tibble >= 1.2
 BuildRequires:    R-CRAN-natserv >= 1.0.0
-BuildRequires:    R-CRAN-bold >= 0.8.6
 BuildRequires:    R-CRAN-ritis >= 0.7.6
 BuildRequires:    R-CRAN-crul >= 0.7.0
 BuildRequires:    R-CRAN-worrms >= 0.4.0
@@ -44,7 +44,6 @@ Requires:         R-CRAN-rotl >= 3.0.0
 Requires:         R-CRAN-xml2 >= 1.2.0
 Requires:         R-CRAN-tibble >= 1.2
 Requires:         R-CRAN-natserv >= 1.0.0
-Requires:         R-CRAN-bold >= 0.8.6
 Requires:         R-CRAN-ritis >= 0.7.6
 Requires:         R-CRAN-crul >= 0.7.0
 Requires:         R-CRAN-worrms >= 0.4.0

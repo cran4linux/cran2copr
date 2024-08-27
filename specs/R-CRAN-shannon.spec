@@ -1,41 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bold
-%global packver   1.3.0
+%global packname  shannon
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Bold Systems API
+Summary:          Computation of Entropy Measures and Relative Loss
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 0.3
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-crul >= 0.3
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VaRES 
+BuildRequires:    R-CRAN-extraDistr 
+Requires:         R-stats 
+Requires:         R-CRAN-VaRES 
+Requires:         R-CRAN-extraDistr 
 
 %description
-A programmatic interface to the Web Service methods provided by Bold
-Systems (<http://www.boldsystems.org/>) for genetic 'barcode' data.
-Functions include methods for searching by sequences by taxonomic names,
-ids, collectors, and institutions; as well as a function for searching for
-specimens, and downloading trace files.
+The functions allow for the numerical evaluation of some commonly used
+entropy measures, such as Shannon entropy, Rényi entropy, Havrda and
+Charvat entropy, and Arimoto entropy, at selected parametric values from
+several well-known and widely used probability distributions. Moreover,
+the functions also compute the relative loss of these entropies using the
+truncated distributions. Related works include: Awad, A. M., & Alawneh, A.
+J. (1987). Application of entropy to a life-time model. IMA Journal of
+Mathematical Control and Information, 4(2), 143-148.
+<doi:10.1093/imamci/4.2.143>.
 
 %prep
 %setup -q -c -n %{packname}

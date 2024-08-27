@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.2
+%global packname  wikiprofiler
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          'WikiPathway' Based Data Integration and Visualization
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-utils 
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggplotify 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gson 
+BuildRequires:    R-CRAN-rsvg 
+Requires:         R-CRAN-yulab.utils >= 0.1.7
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggplotify 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-gson 
+Requires:         R-CRAN-rsvg 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Queries online 'WikiPathway' graphics and allows mapping user data (e.g.,
+expression values) on the graph. The package designs a grammar of graphic
+syntax that using pipe operator to add graphic layer.
 
 %prep
 %setup -q -c -n %{packname}

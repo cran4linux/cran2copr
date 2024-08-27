@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nichetools
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Complementary Package to 'nicheROVER' and 'SIBER'
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-nicheROVER 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SIBER 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
@@ -33,16 +34,18 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-nicheROVER 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SIBER 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
 Provides functions complementary to packages 'nicheROVER' and 'SIBER'
 allowing the user to extract Bayesian estimates from data objects created
-by the packages 'nicheROVER and 'SIBER'. Please see the following
+by the packages 'nicheROVER' and 'SIBER'. Please see the following
 publications for detailed methods on 'nicheROVER' and 'SIBER' Hansen et
-al. (2015) <doi:10.1890/14-0235.1> and 'SIBER', Jackson et al. (2011)
-<doi:10.1111/j.1365-2656.2011.01806.x>, respectfully.
+al. (2015) <doi:10.1890/14-0235.1>, Jackson et al. (2011)
+<doi:10.1111/j.1365-2656.2011.01806.x>, and Layman et al. (2007)
+<doi:10.1890/0012-9658(2007)88[42:CSIRPF]2.0.CO;2>, respectfully.
 
 %prep
 %setup -q -c -n %{packname}

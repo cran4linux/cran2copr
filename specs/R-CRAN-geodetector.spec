@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapSpain
-%global packver   0.9.2
+%global packname  geodetector
+%global packver   1.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Administrative Boundaries of Spain
+Summary:          Stratified Heterogeneity Measure, Dominant Driving Force Detection, Interaction Relationship Investigation
 
-License:          GPL-3
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-rappdirs >= 0.3.0
-BuildRequires:    R-CRAN-giscoR >= 0.2.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-rappdirs >= 0.3.0
-Requires:         R-CRAN-giscoR >= 0.2.4
-Requires:         R-utils 
 
 %description
-Administrative Boundaries of Spain at several levels (Autonomous
-Communities, Provinces, Municipalities) based on the 'GISCO' 'Eurostat'
-database <https://ec.europa.eu/eurostat/web/gisco> and 'CartoBase SIANE'
-from 'Instituto Geografico Nacional' <https://www.ign.es/>.  It also
-provides a 'leaflet' plugin and the ability of downloading and processing
-static tiles.
+Spatial stratified heterogeneity (SSH), referring to the within strata are
+more similar than the between strata, a model with global parameters would
+be confounded if input data is SSH. Note that the "spatial" here can be
+either geospatial or the space in mathematical meaning. Geographical
+detector is a novel tool to investigate SSH: (1) measure and find SSH of a
+variable Y; (2) test the power of determinant X of a dependent variable Y
+according to the consistency between their spatial distributions; and (3)
+investigate the interaction between two explanatory variables X1 and X2 to
+a dependent variable Y (Wang et al 2014 <doi:10.1080/13658810802443457>,
+Wang, Zhang, and Fu 2016 <doi:10.1016/j.ecolind.2016.02.052>).
 
 %prep
 %setup -q -c -n %{packname}

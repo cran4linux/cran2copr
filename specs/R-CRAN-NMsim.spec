@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMsim
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless 'Nonmem' Simulation Platform
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-NMdata >= 0.1.5
+BuildRequires:    R-CRAN-NMdata >= 0.1.6
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-NMdata >= 0.1.5
+Requires:         R-CRAN-NMdata >= 0.1.6
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-MASS 
@@ -31,10 +31,10 @@ Requires:         R-CRAN-fst
 Requires:         R-CRAN-xfun 
 
 %description
-A complete and seamless 'Nonmem' simulation interface from within R. Turns
+A complete and seamless 'Nonmem' simulation interface within R. Turns
 'Nonmem' control streams into simulation control streams, executes them
 with specified simulation input data and returns the results. The
-simulation is performed by 'Nonmem', eliminating time spent and risks of
+simulation is performed by 'Nonmem', eliminating manual work and risks of
 re-implementation of models in other tools.
 
 %prep

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datana
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data and Functions to Accompany Analisis De Datos Con R
+Summary:          Datasets and Functions to Accompany Analisis De Datos Con R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
 
 %description
-Datasets and Functions to Accompany Salas-Eljatib (2021, ISBN:
-9789566086109) "Analisis de datos con el programa estadistico R: una
-introduccion aplicada". The package helps carry out data management,
+Datasets and functions to accompany the book 'Analisis de datos con el
+programa estadistico R: una introduccion aplicada' by Salas-Eljatib (2021,
+ISBN: 9789566086109). The package helps carry out data management,
 exploratory analyses, and model fitting.
 
 %prep

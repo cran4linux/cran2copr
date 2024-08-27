@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmiCATs
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Adjusted t Statistic Applications
 
@@ -24,8 +24,10 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mmcards 
+BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-robust 
 BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
 Requires:         R-CRAN-broom 
@@ -35,8 +37,10 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mmcards 
+Requires:         R-CRAN-pool 
 Requires:         R-CRAN-robust 
 Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SemiPar.depCens
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula Based Cox Proportional Hazards Models for Dependent Censoring
 
@@ -43,7 +43,7 @@ Frank, Gumbel and Normal copulas. Only Weibull and lognormal models are
 allowed for the censoring model, even though any parametric model that
 satisfies certain identifiability conditions could be used. Implemented
 methods are described in the article "Copula based Cox proportional
-hazards models for dependent censoring" by Deresa and Van Keilegom (2023)
+hazards models for dependent censoring" by Deresa and Van Keilegom (2024)
 <doi:10.1080/01621459.2022.2161387>.
 
 %prep
