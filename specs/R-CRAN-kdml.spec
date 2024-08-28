@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  armadillo
-%global packver   0.3.0
+%global packname  kdml
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An 'Armadillo' Interface
+Summary:          Kernel Distance Metric Learning for Mixed-Type Data
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,11 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-markdown 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-markdown 
 
 %description
-Provides function declarations and inline function definitions that
-facilitate communication between R and the 'Armadillo' 'C++' library for
-linear algebra and scientific computing.
+Distance metrics for mixed-type data consisting of continuous, nominal,
+and ordinal variables. This methodology uses additive and product kernels
+to calculate similarity functions and metrics, and selects variables
+relevant to the underlying distance through bandwidth selection via
+maximum similarity cross-validation. These methods can be used in any
+distance-based algorithm, such as distance-based clustering. For further
+details, we refer the reader to Ghashti and Thompson (2024)
+<<doi:10.48550/arXiv.2306.01890>> for dkps() methodology, and Ghashti
+(2024) <doi:10.14288/1.0443975> for dkss() methodology.
 
 %prep
 %setup -q -c -n %{packname}

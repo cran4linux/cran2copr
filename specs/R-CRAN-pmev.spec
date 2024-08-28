@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmev
-%global packver   0.0.2
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Earned Value for a Project Schedule
 
@@ -19,14 +19,18 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-vdiffr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vdiffr 
 
 %description
 Given a project schedule and associated costs, this package calculates the

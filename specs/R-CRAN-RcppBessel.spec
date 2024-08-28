@@ -1,45 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  BayesMassBal
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  RcppBessel
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Data Reconciliation of Separation Processes
+Summary:          Bessel Functions Rcpp Interface
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-tmvtnorm 
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-HDInterval 
-BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-tmvtnorm 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-HDInterval 
-Requires:         R-CRAN-coda 
 
 %description
-Bayesian tools that can be used to reconcile, or mass balance, mass flow
-rate data collected from chemical or particulate separation processes
-aided by constraints governed by the conservation of mass. Functions
-included in the package aid the user in organizing and constraining data,
-using Markov chain Monte Carlo methods to obtain samples from Bayesian
-models, and in computation of the marginal likelihood of the data, given a
-particular model, for model selection.  Marginal likelihood is
-approximated by methods in Chib S (1995) <doi:10.2307/2291521>.
+Exports an 'Rcpp' interface for the Bessel functions in the 'Bessel'
+package, which can then be called from the 'C++' code of other packages.
+For the original 'Fortran' implementation of these functions see Amos
+(1995) <doi:10.1145/212066.212078>.
 
 %prep
 %setup -q -c -n %{packname}

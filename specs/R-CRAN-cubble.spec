@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cubble
-%global packver   0.3.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Vector Spatio-Temporal Data Structure for Data Analysis
 
@@ -48,7 +48,8 @@ Requires:         R-CRAN-vctrs
 
 %description
 A spatiotemperal data object in a relational data structure to separate
-the recording of time variant/ invariant variables.
+the recording of time variant/ invariant variables. See the Journal of
+Statistical Software reference: <doi:10.18637/jss.v110.i07>.
 
 %prep
 %setup -q -c -n %{packname}

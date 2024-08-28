@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcrPioda
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Method Comparison Regression - Mcr Fork for M- And MM-Deming Regression
 

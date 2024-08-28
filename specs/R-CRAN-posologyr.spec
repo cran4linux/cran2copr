@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  posologyr
-%global packver   1.2.4
+%global packver   1.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Individual Dose Optimization using Population Pharmacokinetics
 
@@ -27,12 +27,12 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-data.table 
 
 %description
-Determine individual pharmacokinetic (and pharmacokinetic-pharmacodynamic)
-profiles and use them to personalise drug regimens. You provide the data
-and a population pharmacokinetic model, 'posologyr' provides the
-individual a posteriori estimate and allows you to determine the optimal
-dosing. The empirical Bayes estimates are computed as described in Kang et
-al. (2012) <doi:10.4196/kjpp.2012.16.2.97>.
+Personalize drug regimens using individual pharmacokinetic and
+pharmacokinetic-pharmacodynamic profiles. Using combining therapeutic drug
+monitoring (TDM) data and a population model, 'posologyr' provides
+accurate a posteriori estimates and allows you to compute the optimal
+individualized dosing regimen. The empirical Bayes estimates are computed
+as described in Kang et al. (2012) <doi:10.4196/kjpp.2012.16.2.97>.
 
 %prep
 %setup -q -c -n %{packname}

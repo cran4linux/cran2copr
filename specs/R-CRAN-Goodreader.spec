@@ -1,50 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IPDFileCheck
-%global packver   0.8.1
+%global packname  Goodreader
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Basic Functions to Check Readability, Consistency, and Content of an Individual Participant Data File
+Summary:          Scrape and Analyze 'Goodreads' Book Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cld2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-eeptools 
-BuildRequires:    R-CRAN-hash 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-gtsummary 
-BuildRequires:    R-CRAN-effsize 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-topicmodels 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-wordcloud2 
+Requires:         R-CRAN-cld2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-methods 
-Requires:         R-CRAN-eeptools 
-Requires:         R-CRAN-hash 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-gtsummary 
-Requires:         R-CRAN-effsize 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-tm 
+Requires:         R-CRAN-topicmodels 
+Requires:         R-utils 
+Requires:         R-CRAN-wordcloud2 
 
 %description
-Basic checks needed with an individual level participant data from
-randomised controlled trial. This checks files for existence, read access
-and individual columns for formats. The checks on format is currently
-implemented for gender and age formats.
+A comprehensive toolkit for scraping and analyzing book data from
+<https://www.goodreads.com/>. This package provides functions to search
+for books, scrape book details and reviews, perform sentiment analysis on
+reviews, and conduct topic modeling. It's designed for researchers, data
+analysts, and book enthusiasts who want to gain insights from 'Goodreads'
+data.
 
 %prep
 %setup -q -c -n %{packname}

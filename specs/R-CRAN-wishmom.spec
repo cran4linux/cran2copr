@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wishmom
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute Moments Related to Beta-Wishart and Inverse Beta-Wishart Distributions
 
@@ -26,10 +26,11 @@ Beta-Wishart and Inverse Beta-Wishart distributions. It includes functions
 for calculating the expectation of matrix-valued functions of the
 Beta-Wishart distribution, coefficient matrices C_k and H_k, expectation
 of matrix-valued functions of the inverse Beta-Wishart distribution, and
-inverse coefficient matrices tilde C_k and tilde H_k. For more details,
-refer to the paper "On the Expectations of Equivariant Matrix-valued
-Functions of Wishart and Inverse Wishart Matrices" by Grant Hillier and
-Raymond Kan.
+coefficient matrices tilde{C}_k and tilde{H}_k. For more details, refer
+Hillier and Kan (2024)
+<https://www-2.rotman.utoronto.ca/~kan/papers/wishmom.pdf>, "On the
+Expectations of Equivariant Matrix-valued Functions of Wishart and Inverse
+Wishart Matrices".
 
 %prep
 %setup -q -c -n %{packname}

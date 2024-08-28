@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  quantilogram
-%global packver   2.2.1
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Quantilogram
 
@@ -13,31 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-np 
 BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 
 %description
 Estimation and inference methods for the cross-quantilogram. The
 cross-quantilogram is a measure of nonlinear dependence between two
 variables, based on either unconditional or conditional quantile
-functions.  The cross-quantilogram can be considered as an extension of
-the correlogram, which is a correlation function over multiple lag periods
-and mainly focuses on linear dependency.  One can use the
-cross-quantilogram to detect the presence of directional predictability
-from one time series to another.  This package provides a statistical
-inference method based on the stationary bootstrap.  See Linton and Whang
-(2007) <doi:10.1016/j.jeconom.2007.01.004> for univariate time series
-analysis and Han, Linton, Oka and Whang (2016)
-<doi:10.1016/j.jeconom.2016.03.001> for multivariate time series analysis.
+functions.  It can be considered an extension of the correlogram, which is
+a correlation function over multiple lag periods that mainly focuses on
+linear dependency.  One can use the cross-quantilogram to detect the
+presence of directional predictability from one time series to another.
+This package provides a statistical inference method based on the
+stationary bootstrap.  For detailed theoretical and empirical
+explanations, see Linton and Whang (2007) for univariate time series
+analysis and Han, Linton, Oka and Whang (2016) for multivariate time
+series analysis.  The full references for these key publications are as
+follows: (1) Linton, O., and Whang, Y. J. (2007). The quantilogram: with
+an application to evaluating directional predictability.  Journal of
+Econometrics, 141(1), 250-282 <doi:10.1016/j.jeconom.2007.01.004>; (2)
+Han, H., Linton, O., Oka, T., and Whang, Y. J. (2016).  The
+cross-quantilogram: measuring quantile dependence and testing directional
+predictability between time series. Journal of Econometrics, 193(1),
+251-270 <doi:10.1016/j.jeconom.2016.03.001>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MAGMA.R
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          MAny-Group MAtching
 
@@ -18,10 +18,11 @@ BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 4.4.0
-BuildRequires:    R-parallel >= 4.2.0
-BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-parallel >= 4.2
+BuildRequires:    R-stats >= 4.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-stddiff >= 3.1
 BuildRequires:    R-CRAN-psych >= 2.3.9
 BuildRequires:    R-CRAN-janitor >= 2.2.0
 BuildRequires:    R-CRAN-robumeta >= 2.1
@@ -35,10 +36,11 @@ BuildRequires:    R-CRAN-doParallel >= 1.0.17
 BuildRequires:    R-CRAN-purrr >= 1.0.1
 BuildRequires:    R-CRAN-flextable >= 0.9.4
 Requires:         R-CRAN-metafor >= 4.4.0
-Requires:         R-parallel >= 4.2.0
-Requires:         R-stats >= 4.2.0
+Requires:         R-parallel >= 4.2
+Requires:         R-stats >= 4.2
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-stddiff >= 3.1
 Requires:         R-CRAN-psych >= 2.3.9
 Requires:         R-CRAN-janitor >= 2.2.0
 Requires:         R-CRAN-robumeta >= 2.1
@@ -57,15 +59,14 @@ Balancing quasi-experimental field research for effects of covariates is
 fundamental for drawing causal inference. Propensity Score Matching deals
 with this issue but current techniques are restricted to binary treatment
 variables. Moreover, they provide several solutions without providing a
-comprehensive framework on choosing the best model. The 'MAGMA.R' -package
+comprehensive framework on choosing the best model. The MAGMA R-package
 addresses these restrictions by offering nearest neighbor matching for two
 to four groups. It also includes the option to match data of a 2x2 design.
-In addition, 'MAGMA.R' includes a framework for evaluating the
-post-matching balance. The package includes functions for the matching
-process and matching reporting. We provide a tutorial on 'MAGMA.R' as
-vignette. More information on 'MAGMA.R' can be found in Feuchter, M. D.,
-Urban, J., Scherrer V., Breit, M. L., and Preckel F. (2022)
-<https://osf.io/p47nc/>.
+In addition, MAGMA includes a framework for evaluating the post-matching
+balance. The package includes functions for the matching process and
+matching reporting. We provide a tutorial on MAGMA as vignette. More
+information on MAGMA can be found in Feuchter, M. D., Urban, J., Scherrer
+V., Breit, M. L., and Preckel F. (2022) <https://osf.io/p47nc/>.
 
 %prep
 %setup -q -c -n %{packname}

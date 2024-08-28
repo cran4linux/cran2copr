@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  f1dataR
-%global packver   1.5.3
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Formula 1 Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-reticulate >= 1.14
 BuildRequires:    R-CRAN-glue 
@@ -52,7 +52,7 @@ Requires:         R-CRAN-withr
 
 %description
 Obtain Formula 1 data via the 'Ergast API' <https://ergast.com/mrd/> and
-the unofficial API <https://www.formula1.com/en/f1-live.html> via the
+the unofficial API <https://www.formula1.com/en/timing/f1-live> via the
 'fastf1' 'Python' library <https://docs.fastf1.dev/>.
 
 %prep

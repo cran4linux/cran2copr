@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SEI
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Standardised Indices
 
@@ -21,19 +21,26 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-lmom 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-lmom 
 
 %description
 Convert a time series of observations to a time series of standardised
 indices that can be used to monitor variables on a common and
 probabilistically interpretable scale. The indices can be aggregated and
 rescaled to different time scales, visualised using plot capabilities, and
-calculated using a range of distributions. This includes flexible non- and
-semi-parametric methods, as suggested by Allen and Otero (2023)
-<doi:10.1016/j.renene.2023.119206>.
+calculated using a range of distributions. This includes flexible
+non-parametric and non-stationary methods.
 
 %prep
 %setup -q -c -n %{packname}

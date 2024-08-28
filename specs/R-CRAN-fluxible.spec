@@ -1,63 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  finnsurveytext
-%global packver   2.0.0
+%global packname  fluxible
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyse Open-Ended Survey Responses in Finnish
+Summary:          Ecosystem Gas Fluxes Calculations for Closed Loop Chamber Setup
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-textrank 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-udpipe 
-BuildRequires:    R-CRAN-wordcloud 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-stopwords 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-textrank 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-udpipe 
-Requires:         R-CRAN-wordcloud 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-progress 
 
 %description
-Annotates Finnish textual survey responses into CoNLL-U format using
-Finnish treebanks from <https://universaldependencies.org/format.html>
-using UDPipe as described in Straka and Straková (2017)
-<doi:10.18653/v1/K17-3009>. Formatted data is then analysed using single
-or comparison n-gram plots, wordclouds, summary tables and Concept Network
-plots. The Concept Network plots use the TextRank algorithm as outlined in
-Mihalcea, Rada & Tarau, Paul (2004) <https://aclanthology.org/W04-3252/>.
+Processes the raw data from closed loop flux chamber (or tent) setups into
+ecosystem gas fluxes usable for analysis. It goes from a data frame of gas
+concentration over time (which can contain several measurements) and a
+meta data file indicating which measurement was done when, to a data frame
+of ecosystem gas fluxes including quality diagnostics. Functions provided
+include different models (exponential as described in Zhao et al (2018)
+<doi:10.1016/j.agrformet.2018.08.022>, quadratic and linear) to estimate
+the fluxes from the raw data, quality assessment, plotting for visual
+check and calculation of fluxes based on the setup specific parameters
+(chamber size, plot area, ...).
 
 %prep
 %setup -q -c -n %{packname}

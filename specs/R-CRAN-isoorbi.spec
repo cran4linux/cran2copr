@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isoorbi
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Orbitrap Isotopocule Data
 
@@ -46,7 +46,7 @@ Requires:         R-methods
 
 %description
 Read and process isotopocule data from an Orbitrap Isotope Solutions mass
-spectrometer. Citation: Kantnerova et al. (in review).
+spectrometer. Citation: Kantnerova et al. (Nature Protocols, 2024).
 
 %prep
 %setup -q -c -n %{packname}

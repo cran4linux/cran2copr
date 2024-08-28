@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spc
-%global packver   0.6.8
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.8
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Process Control -- Calculation of ARL and Other Control Chart Performance Measures
 

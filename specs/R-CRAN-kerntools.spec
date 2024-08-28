@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tetRys
-%global packver   1.2
+%global packname  kerntools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Game of 'tetRys'
+Summary:          Kernel Functions and Tools for Machine Learning Applications
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-tcltk 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-tuneR 
-BuildRequires:    R-CRAN-audio 
-Requires:         R-tcltk 
-Requires:         R-grid 
-Requires:         R-CRAN-tuneR 
-Requires:         R-CRAN-audio 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-kernlab 
+Requires:         R-methods 
+Requires:         R-CRAN-reshape2 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 
 %description
-A game inspired by 'Tetris'. Opens a plot window device and starts a game
-of 'tetRys' in it. Steer the tetrominos with the arrow keys, press Pause
-to pause and Esc to end the game.
+Kernel functions for diverse types of data (including, but not restricted
+to: nonnegative and real vectors, real matrices, categorical and ordinal
+variables, sets, strings), plus other utilities like kernel similarity,
+kernel Principal Components Analysis (PCA) and features' importance for
+Support Vector Machines (SVMs), which expand other 'R' packages like
+'kernlab'.
 
 %prep
 %setup -q -c -n %{packname}

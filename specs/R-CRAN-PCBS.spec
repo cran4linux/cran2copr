@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PCBS
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Principle Component BiSulfite
+Summary:          Principal Component BiSulfite
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,7 +30,7 @@ Requires:         R-CRAN-data.table
 
 %description
 A system for fast, accurate, and flexible whole genome bisulfite
-sequencing (WGBS) data analysis of two-condition comparisons. Principle
+sequencing (WGBS) data analysis of two-condition comparisons. Principal
 Component BiSulfite, 'PCBS', assigns methylated loci eigenvector values
 from the treatment-delineating principal component in lieu of running
 millions of pairwise statistical tests, which dramatically increases
