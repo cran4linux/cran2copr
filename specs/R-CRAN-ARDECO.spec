@@ -1,50 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viafr
-%global packver   0.3.1
+%global packname  ARDECO
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'VIAF' ('Virtual International Authority File') API
+Summary:          Annual Regional Database of the European Commission (ARDECO)
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-crul 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-rjstat 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-crul 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-rjstat 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides direct access to linked names for the same entity across the
-world's major name authority files, including national and regional
-variations in language, character set, and spelling. For more information
-go to <https://viaf.org/>.
+A set of functions to access the 'ARDECO' (Annual Regional Database of the
+European Commission) data directly from the official ARDECO public
+repository through the exploitation of the 'ARDECO' APIs. The APIs are
+completely transparent to the user and the provided functions provide a
+direct access to the 'ARDECO' data. The 'ARDECO' database is a collection
+of variables related to demography, employment, labour market, domestic
+product, capital formation. Each variable can be exposed in one or more
+units of measure as well as refers to total values plus economic sectors.
+The description of the 'ARDECO' database can be found at the following URL
+<https://urban.jrc.ec.europa.eu/ardeco>.
 
 %prep
 %setup -q -c -n %{packname}

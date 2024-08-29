@@ -1,50 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viafr
-%global packver   0.3.1
+%global packname  tican
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'VIAF' ('Virtual International Authority File') API
+Summary:          Plot and Analyse Time-Intensity Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 
 %description
-Provides direct access to linked names for the same entity across the
-world's major name authority files, including national and regional
-variations in language, character set, and spelling. For more information
-go to <https://viaf.org/>.
+Plots and analyzes time-intensity curve data, such as data from
+(contrast-enhanced) ultrasound. Values such as peak intensity, time to
+peak and area under the curve are calculated.
 
 %prep
 %setup -q -c -n %{packname}

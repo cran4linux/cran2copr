@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecmwfr
-%global packver   1.5.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'ECMWF' and 'CDS' Data Web Services
 
@@ -14,30 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-getPass 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-keyring 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-getPass 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-keyring 
 
 %description
 Programmatic interface to the European Centre for Medium-Range Weather
 Forecasts dataset web services (ECMWF; <https://www.ecmwf.int/>) and
-Copernicus's Climate Data Store (CDS;
-<https://cds.climate.copernicus.eu>). Allows for easy downloads of weather
-forecasts and climate reanalysis data in R.
+Copernicus's Data Stores. Allows for easy downloads of weather forecasts
+and climate reanalysis data in R. Data stores covered include the Climate
+Data Store (CDS; <https://cds-beta.climate.copernicus.eu>), Atmosphere
+Data Store (ADS; <https://ads-beta.atmosphere.copernicus.eu>) and Early
+Warning Data Store (CEMS; <https://ewds-beta.climate.copernicus.eu>).
 
 %prep
 %setup -q -c -n %{packname}

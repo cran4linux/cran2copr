@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viafr
-%global packver   0.3.1
+%global packname  dbw
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'VIAF' ('Virtual International Authority File') API
+Summary:          Doubly Robust Distribution Balancing Weighting Estimation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
 
 %description
-Provides direct access to linked names for the same entity across the
-world's major name authority files, including national and regional
-variations in language, character set, and spelling. For more information
-go to <https://viaf.org/>.
+Implements the doubly robust distribution balancing weighting proposed by
+Katsumata (2024) <doi:10.1017/psrm.2024.23>, which improves the augmented
+inverse probability weighting (AIPW) by estimating propensity scores with
+estimating equations suitable for the pre-specified parameter of interest
+(e.g., the average treatment effects or the average treatment effects on
+the treated) and estimating outcome models with the estimated inverse
+probability weights. It also implements the covariate balancing propensity
+score proposed by Imai and Ratkovic (2014) <doi:10.1111/rssb.12027> and
+the entropy balancing weighting proposed by Hainmueller (2012)
+<doi:10.1093/pan/mpr025>, both of which use covariate balancing conditions
+in propensity score estimation. The point estimate of the parameter of
+interest and its uncertainty as well as coefficients for propensity score
+estimation and outcome regression are produced using the M-estimation. The
+same functions can be used to estimate average outcomes in missing outcome
+cases.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  portalr
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Useful Summaries of the Portal Data
 
@@ -17,10 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.3
 Requires:         R-core >= 3.2.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyselect >= 1.0.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-httr 
@@ -30,10 +29,9 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-tidyselect >= 1.0.0
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-httr 
@@ -47,7 +45,7 @@ Requires:         R-CRAN-zoo
 %description
 Download and generate summaries for the rodent, plant, ant, and weather
 data from the Portal Project. Portal is a long-term (and ongoing)
-experimental monitoring site in the Chihuahua desert. The raw data files
+experimental monitoring site in the Chihuahuan desert. The raw data files
 can be found at <https://github.com/weecology/portaldata>.
 
 %prep

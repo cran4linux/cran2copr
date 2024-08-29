@@ -1,50 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viafr
-%global packver   0.3.1
+%global packname  bage
+%global packver   0.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.7.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'VIAF' ('Virtual International Authority File') API
+Summary:          Bayesian Estimation and Forecasting of Age-Specific Rates
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-poputils 
+BuildRequires:    R-CRAN-rvec 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-poputils 
+Requires:         R-CRAN-rvec 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-TMB 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides direct access to linked names for the same entity across the
-world's major name authority files, including national and regional
-variations in language, character set, and spelling. For more information
-go to <https://viaf.org/>.
+Fast Bayesian estimation and forecasting of age-specific rates,
+probabilities, and means, based on 'Template Model Builder'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nonnest2
-%global packver   0.5-7
+%global packver   0.5-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Non-Nested Models
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-lavaan >= 0.6.6
 BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-lavaan >= 0.6.6
 Requires:         R-CRAN-CompQuadForm 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-sandwich 
+Requires:         R-methods 
 
 %description
 Testing non-nested models via theory supplied by Vuong (1989)

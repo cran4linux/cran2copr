@@ -1,54 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unmarked
-%global packver   1.4.2
+%global packname  quanteda.textplots
+%global packver   0.95
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.95
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Data from Unmarked Animals
+Summary:          Plots for the Quantitative Analysis of Textual Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-TMB >= 1.7.18
-BuildRequires:    R-CRAN-Rcpp >= 0.8.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB >= 1.7.18
-Requires:         R-CRAN-Rcpp >= 0.8.0
-Requires:         R-graphics 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-Rcpp >= 0.12.12
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-grid 
+Requires:         R-CRAN-sna 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-stringi 
 
 %description
-Fits hierarchical models of animal abundance and occurrence to data
-collected using survey methods such as point counts, site occupancy
-sampling, distance sampling, removal sampling, and double observer
-sampling. Parameters governing the state and observation processes can be
-modeled as functions of covariates. References: Kellner et al. (2023)
-<doi:10.1111/2041-210X.14123>, Fiske and Chandler (2011)
-<doi:10.18637/jss.v043.i10>.
+Plotting functions for visualising textual data.  Extends 'quanteda' and
+related packages with plot methods designed specifically for text data,
+textual statistics, and models fit to textual data. Plot types include
+word clouds, lexical dispersion plots, scaling plots, network
+visualisations, and word 'keyness' plots.
 
 %prep
 %setup -q -c -n %{packname}

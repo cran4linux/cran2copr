@@ -1,28 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  VPdtw
-%global packver   2.1-14
+%global __requires_exclude ^libmpi
+%global packname  evola
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.14
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Penalty Dynamic Time Warping
+Summary:          Evolutionary Algorithm
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-AlphaSimR >= 1.4.2
+BuildRequires:    R-CRAN-Matrix >= 1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-crayon 
+Requires:         R-CRAN-AlphaSimR >= 1.4.2
+Requires:         R-CRAN-Matrix >= 1.0
+Requires:         R-methods 
+Requires:         R-CRAN-crayon 
 
 %description
-Variable Penalty Dynamic Time Warping (VPdtw) for aligning chromatographic
-signals. With an appropriate penalty this method performs good alignment
-of chromatographic data without deforming the peaks (Clifford, D., Stone,
-G., Montoliu, I., Rezzi S., Martin F., Guy P., Bruce S., and Kochhar
-S.(2009) <doi:10.1021/ac802041e>; Clifford, D. and Stone, G. (2012)
-<doi:10.18637/jss.v047.i08>).
+Runs a genetic algorithm using the 'AlphaSimR' machinery
+<doi:10.1093/g3journal/jkaa017> and the coalescent simulator 'MaCS'
+<doi:10.1101/gr.083634.108>.
 
 %prep
 %setup -q -c -n %{packname}

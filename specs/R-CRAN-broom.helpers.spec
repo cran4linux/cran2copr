@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  broom.helpers
-%global packver   1.16.0
+%global packver   1.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.16.0
+Version:          1.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helpers for Model Coefficients Tibbles
 
@@ -17,10 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.1
 BuildRequires:    R-CRAN-broom >= 0.8
+BuildRequires:    R-CRAN-cards 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
@@ -28,10 +29,11 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.1
 Requires:         R-CRAN-broom >= 0.8
+Requires:         R-CRAN-cards 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 

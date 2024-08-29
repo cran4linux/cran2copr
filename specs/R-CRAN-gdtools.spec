@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdtools
-%global packver   0.3.7
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Graphical Rendering and Fonts Management
 
@@ -22,20 +22,16 @@ BuildRequires:    R-CRAN-fontquiver >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-systemfonts >= 0.1.1
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-gfonts 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-fontquiver >= 0.2.0
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-systemfonts >= 0.1.1
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-gfonts 
 Requires:         R-tools 
-Requires:         R-CRAN-curl 
 
 %description
 Tools are provided to compute metrics of formatted strings and to check
-the availability of a font. Another set of functions is provided to
+the availability of a font.  Another set of functions is provided to
 support the collection of fonts from 'Google Fonts' in a cache. Their use
 is simple within 'R Markdown' documents and 'shiny' applications but also
 with graphic productions generated with the 'ggiraph', 'ragg' and

@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  viafr
-%global packver   0.3.1
+%global packname  rYWAASB
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'VIAF' ('Virtual International Authority File') API
+Summary:          Simultaneous Selection of Trait and WAASB Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-utf8 
-BuildRequires:    R-CRAN-crul 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-utf8 
-Requires:         R-CRAN-crul 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
 
 %description
-Provides direct access to linked names for the same entity across the
-world's major name authority files, including national and regional
-variations in language, character set, and spelling. For more information
-go to <https://viaf.org/>.
+Proposes a new ranking algorithm that utilizes a "Y*WAASB" biplot
+generated from the 'metan' package. The aim of the package is to
+effectively distinguish the top-ranked genotypes. For a detailed
+explanation of the process of obtaining a "Y*WAASB" biplot and the related
+data, please refer to the manual included in this package as well as the
+study by Olivoto & Lúcio (2020) <doi:10.1111/2041-210X.13384>. In this
+context, "WAASB" refers to the "Weighted Average of Absolute Scores"
+provided by Olivoto et al. (2019) <doi:10.2134/agronj2019.03.0220>, which
+quantifies the stability of genotypes across different environments using
+linear mixed-effect models. In order to run the package, it is necessary
+to extract the "WAASB" coefficients using the 'metan' package.
 
 %prep
 %setup -q -c -n %{packname}
