@@ -1,25 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startupmsg
-%global packver   0.9.7
+%global packname  AirExposure
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Start-Up Messages
+Summary:          Exposure Model to Air Pollutants Based on Mobility and Daily Activities
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 4.1.1
+Requires:         R-core >= 4.1.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-sf 
 
 %description
-Provides utilities to create or suppress start-up messages.
+Model that assesses daily exposure to air pollution, which considers daily
+population mobility on a geographical scale and the spatial and temporal
+variability of pollutant concentrations, in addition to traditional
+parameters such as exposure time and pollutant concentration.
 
 %prep
 %setup -q -c -n %{packname}

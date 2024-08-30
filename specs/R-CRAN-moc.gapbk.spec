@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moc.gapbk
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Objective Clustering Algorithm Guided by a-Priori Biological Knowledge
 
@@ -39,13 +39,7 @@ Requires:         R-CRAN-doMPI
 %description
 Implements the Multi-Objective Clustering Algorithm Guided by a-Priori
 Biological Knowledge (MOC-GaPBK) which was proposed by Parraga-Alava, J.
-et. al. (2018) <doi:10.1186/s13040-018-0178-4>. It was designed for
-clustering genes based on co-expression, biological coherence,
-compactness, and separation criteria. However, its flexible design allows
-it to be applied to cluster data of various types and domains. The
-algorithm optimizes object relationships based on two objective functions
-using cluster quality indexes, incorporating intensification and
-diversification strategies to enhance the search process.
+et. al. (2018) <doi:10.1186/s13040-018-0178-4>.
 
 %prep
 %setup -q -c -n %{packname}

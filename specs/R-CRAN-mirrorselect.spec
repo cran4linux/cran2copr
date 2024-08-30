@@ -1,25 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startupmsg
-%global packver   0.9.7
+%global packname  mirrorselect
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Start-Up Messages
+Summary:          Test CRAN/Bioconductor Mirror Speed
 
-License:          LGPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
+BuildRequires:    R-utils 
+Requires:         R-CRAN-yulab.utils >= 0.1.7
+Requires:         R-utils 
 
 %description
-Provides utilities to create or suppress start-up messages.
+Testing CRAN and Bioconductor mirror speed by recording download time of
+'src/base/COPYING' (for CRAN) and 'packages/release/bioc/html/ggtree.html'
+(for Bioconductor).
 
 %prep
 %setup -q -c -n %{packname}

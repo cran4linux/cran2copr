@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TreatmentPatterns
-%global packver   2.6.8
+%global packname  MALDIcellassay
+%global packver   0.4.47
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.8
+Version:          0.4.47
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyzes Real-World Treatment Patterns of a Study Population of Interest
+Summary:          Automated MALDI Cell Assays Using Dose-Response Curve Fitting
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nplr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Andromeda 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-sunburstR 
-BuildRequires:    R-CRAN-networkD3 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-MALDIquant 
+BuildRequires:    R-CRAN-MALDIquantForeign 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-svMisc 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nplr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Andromeda 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-sunburstR 
-Requires:         R-CRAN-networkD3 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-MALDIquant 
+Requires:         R-CRAN-MALDIquantForeign 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-svMisc 
+Requires:         R-CRAN-purrr 
 
 %description
-Computes treatment patterns within a given cohort using the Observational
-Medical Outcomes Partnership (OMOP) common data model (CDM). As described
-in Markus, Verhamme, Kors, and Rijnbeek (2022)
-<doi:10.1016/j.cmpb.2022.107081>.
+Conduct automated cell-based assays using Matrix-Assisted Laser
+Desorption/Ionization (MALDI) methods for high-throughput screening of
+signals responsive to treatments. The package efficiently identifies high
+variance signals and fits dose-response curves to them. Quality metrics
+such as Z', V', log2FC, and CRS are provided for evaluating the potential
+of signals as biomarkers. The methodologies were introduced by Weigt et
+al. (2018) <doi:10.1038/s41598-018-29677-z> and refined by Unger et al.
+(2021) <doi:10.1038/s41596-021-00624-z>.
 
 %prep
 %setup -q -c -n %{packname}

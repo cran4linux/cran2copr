@@ -1,25 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startupmsg
-%global packver   0.9.7
+%global packname  tintin
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Start-Up Messages
+Summary:          Tintin Palette Generator
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides utilities to create or suppress start-up messages.
+Palettes generated from Tintin covers. There is one palette per cover,
+with a total of 24 palettes of 5 colours each. Includes functions to
+interpolate colors in order to create more colors based on the provided
+palettes.The data is based on Cyr, et al. (2004)
+<doi:10.1503/cmaj.1041405> and Wikipedia
+<https://en.wikipedia.org/wiki/The_Adventures_of_Tintin>.
 
 %prep
 %setup -q -c -n %{packname}

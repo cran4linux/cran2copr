@@ -1,25 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startupmsg
-%global packver   0.9.7
+%global packname  fdesigns
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Start-Up Messages
+Summary:          Optimal Experimental Designs for Functional/Dynamic Models
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-mvQuad 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-mvQuad 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Provides utilities to create or suppress start-up messages.
+Optimal experimental designs for functional linear and functional
+generalised linear models, for scalar responses and profile/dynamic
+factors. The designs are optimised using the coordinate exchange
+algorithm. The methods are discussed by Michaelides (2023)
+<https://eprints.soton.ac.uk/474982/1/Thesis_DamianosMichaelides_Final_pdfa_1_.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CrossCarry
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Data from a Crossover Design with GEE
 
@@ -19,16 +19,16 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gee 
-BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-splines 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gee 
-Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-splines 
 Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
 Analyze data from a crossover design using generalized estimation

@@ -1,25 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startupmsg
-%global packver   0.9.7
+%global packname  timeEL
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Start-Up Messages
+Summary:          Time to Event Analysis via Empirical Likelihood Inference
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 
 %description
-Provides utilities to create or suppress start-up messages.
+Computation of t-year survival probabilities and t-year risks with right
+censored survival data. The Kaplan-Meier estimator is used to provide
+estimates for data without competing risks and the Aalen-Johansen
+estimator is used when there are competing risks. Confidence intervals and
+p-values are obtained using either usual Wald-type inference or empirical
+likelihood inference, as described in Thomas and Grunkemeier (1975)
+<doi:10.1080/01621459.1975.10480315> and Blanche (2020)
+<doi:10.1007/s10985-018-09458-6>. Functions for both one-sample and
+two-sample inference are provided. Unlike Wald-type inference, empirical
+likelihood inference always leads to consistent conclusions, in terms of
+statistical significance, when comparing two risks (or survival
+probabilities) via either a ratio or a difference.
 
 %prep
 %setup -q -c -n %{packname}

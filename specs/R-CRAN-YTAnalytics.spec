@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  YTAnalytics
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for 'YouTube Analytics' API
 
@@ -20,15 +20,16 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-progress 
 
 %description
 Simplify working with the 'YouTube Analytics' API
-<https://developers.google.com/youtube/analytics>. Collect traffic, time
-period, location, and other data quickly and efficiently. For working with
-the 'YouTube Data' API, use the 'tuber' 'R' Package.
+<https://developers.google.com/youtube/analytics>. Collect data for your
+channel including geography, traffic sources, time period, etc.
 
 %prep
 %setup -q -c -n %{packname}

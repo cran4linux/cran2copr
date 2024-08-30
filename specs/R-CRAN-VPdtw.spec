@@ -1,25 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  startupmsg
-%global packver   0.9.7
+%global packname  VPdtw
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Start-Up Messages
+Summary:          Variable Penalty Dynamic Time Warping
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 1.8.0
-Requires:         R-core >= 1.8.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Provides utilities to create or suppress start-up messages.
+Variable Penalty Dynamic Time Warping (VPdtw) for aligning chromatographic
+signals. With an appropriate penalty this method performs good alignment
+of chromatographic data without deforming the peaks (Clifford, D., Stone,
+G., Montoliu, I., Rezzi S., Martin F., Guy P., Bruce S., and Kochhar
+S.(2009) <doi:10.1021/ac802041e>; Clifford, D. and Stone, G. (2012)
+<doi:10.18637/jss.v047.i08>).
 
 %prep
 %setup -q -c -n %{packname}

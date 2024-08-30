@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sas7bdat
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          sas7bdat Reverse Engineering Documentation
 
@@ -21,8 +21,8 @@ BuildArch:        noarch
 %description
 Documentation and prototypes for the earliest (circa 2010) open-source
 effort to reverse engineer the sas7bdat file format. The package includes
-a prototype reader for sas7bdat files. However, newer packages (notably
-the haven package) contain more robust readers for sas7bdat files.
+a prototype reader for sas7bdat files. However, newer packages may contain
+more robust readers for sas7bdat files.
 
 %prep
 %setup -q -c -n %{packname}
