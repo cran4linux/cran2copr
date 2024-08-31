@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rnassqs
-%global packver   0.6.1
+%global packver   0.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Data from the NASS 'Quick Stats' API
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -28,7 +29,7 @@ Requires:         R-utils
 %description
 Interface to access data via the United States Department of Agriculture's
 National Agricultural Statistical Service (NASS) 'Quick Stats' web API
-<https://quickstats.nass.usda.gov/api>. Convenience functions facilitate
+<https://quickstats.nass.usda.gov/api/>. Convenience functions facilitate
 building queries based on available parameters and valid parameter values.
 This product uses the NASS API but is not endorsed or certified by NASS.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LPCM
-%global packver   0.47-4
+%global packver   0.47-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.47.4
+Version:          0.47.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Principal Curve Methods
 

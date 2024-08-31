@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  campsis
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generic PK/PD Simulation Platform CAMPSIS
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-campsismod >= 1.1.0
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-plyr 
@@ -37,9 +37,9 @@ Requires:         R-CRAN-campsismod >= 1.1.0
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-plyr 
@@ -52,16 +52,16 @@ Requires:         R-CRAN-tidyr
 
 %description
 A generic, easy-to-use and intuitive pharmacokinetic/pharmacodynamic
-(PK/PD) simulation platform based on R packages 'rxode2', 'RxODE' and
-'mrgsolve'. CAMPSIS provides an abstraction layer over the underlying
-processes of writing a PK/PD model, assembling a custom dataset and
-running a simulation. CAMPSIS has a strong dependency to the R package
-'campsismod', which allows to read/write a model from/to files and adapt
-it further on the fly in the R environment. Package 'campsis' allows the
-user to assemble a dataset in an intuitive manner. Once the user’s dataset
-is ready, the package is in charge of preparing the simulation, calling
-'rxode2', 'RxODE' or 'mrgsolve' (at the user's choice) and returning the
-results, for the given model, dataset and desired simulation settings.
+(PK/PD) simulation platform based on R packages 'rxode2' and 'mrgsolve'.
+CAMPSIS provides an abstraction layer over the underlying processes of
+writing a PK/PD model, assembling a custom dataset and running a
+simulation. CAMPSIS has a strong dependency to the R package 'campsismod',
+which allows to read/write a model from/to files and adapt it further on
+the fly in the R environment. Package 'campsis' allows the user to
+assemble a dataset in an intuitive manner. Once the user’s dataset is
+ready, the package is in charge of preparing the simulation, calling
+'rxode2' or 'mrgsolve' (at the user's choice) and returning the results,
+for the given model, dataset and desired simulation settings.
 
 %prep
 %setup -q -c -n %{packname}

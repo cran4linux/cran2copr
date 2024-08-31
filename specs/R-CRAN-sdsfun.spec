@@ -1,50 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mvord
-%global packver   1.2.5
+%global packname  sdsfun
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Ordinal Regression Models
+Summary:          Spatial Data Science Complementary Features
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pbivnorm 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spdep 
 Requires:         R-stats 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tibble 
 
 %description
-A flexible framework for fitting multivariate ordinal regression models
-with composite likelihood methods. Methodological details are given in
-Hirk, Hornik, Vana (2020) <doi:10.18637/jss.v093.i04>.
+Wrapping and supplementing commonly used functions in the R ecosystem
+related to spatial data science, while serving as a basis for other
+packages maintained by Wenbo Lv.
 
 %prep
 %setup -q -c -n %{packname}

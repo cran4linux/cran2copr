@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CorrBin
-%global packver   1.6.1
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametrics with Clustered Binary and Multinomial Data
 
@@ -18,12 +18,10 @@ BuildRequires:    R-devel >= 2.6.0
 Requires:         R-core >= 2.6.0
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-geepack 
 BuildRequires:    R-CRAN-dirmult 
 BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-dirmult 
 Requires:         R-CRAN-mvtnorm 
 

@@ -1,50 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mvord
-%global packver   1.2.5
+%global packname  SurfRough
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Ordinal Regression Models
+Summary:          Calculate Surface/Image Texture Indexes
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-terra 
 
 %description
-A flexible framework for fitting multivariate ordinal regression models
-with composite likelihood methods. Methodological details are given in
-Hirk, Hornik, Vana (2020) <doi:10.18637/jss.v093.i04>.
+Methods for the computation of surface/image texture indices using a
+geostatistical based approach (Trevisani et al. (2023)
+<doi:10.1016/j.geomorph.2023.108838>). It provides various functions for
+the computation of surface texture indices (e.g., omnidirectional
+roughness and roughness anisotropy), including the ones based on the
+robust MAD estimator. The kernels included in the software permit also to
+calculate the surface/image texture indices directly from the input
+surface (i.e., without de-trending) using increments of order 2. It also
+provides the new radial roughness index (RRI), representing the
+improvement of the popular topographic roughness index (TRI). The
+framework can be easily extended with ad-hoc surface/image texture
+indices.
 
 %prep
 %setup -q -c -n %{packname}

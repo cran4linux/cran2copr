@@ -1,50 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mvord
-%global packver   1.2.5
+%global packname  psvmSDR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Ordinal Regression Models
+Summary:          Unified Principal Sufficient Dimension Reduction Package
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-minqa 
-BuildRequires:    R-CRAN-BB 
-BuildRequires:    R-CRAN-ucminf 
-BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pbivnorm 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-optimx 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-CRAN-minqa 
-Requires:         R-CRAN-BB 
-Requires:         R-CRAN-ucminf 
-Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pbivnorm 
+BuildRequires:    R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-optimx 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-graphics 
 
 %description
-A flexible framework for fitting multivariate ordinal regression models
-with composite likelihood methods. Methodological details are given in
-Hirk, Hornik, Vana (2020) <doi:10.18637/jss.v093.i04>.
+A unified and user-friendly framework for applying the principal
+sufficient dimension reduction methods for both linear and nonlinear
+cases. The package has an extendable power by varying loss functions for
+the support vector machine, even for an user-defined arbitrary function,
+unless those are convex and differentiable everywhere over the support (Li
+et al. (2011) <doi:10.1214/11-AOS932>). Also, it provides a real-time
+sufficient dimension reduction update procedure using the principal least
+squares support vector machine (Artemiou et al. (2021)
+<doi:10.1016/j.patcog.2020.107768>).
 
 %prep
 %setup -q -c -n %{packname}

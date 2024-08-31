@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabxplor
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly Tables with Color Helpers for Data Exploration
 
@@ -58,11 +58,11 @@ Requires:         R-CRAN-data.table
 Make it easy to deal with multiple cross-tables in data exploration, by
 creating them, manipulating them, and adding color helpers to highlight
 important informations (differences from totals, comparisons between lines
-or columns, contributions to variance, margins of error, etc.). All
-functions are pipe-friendly and render data frames which can be easily
-manipulated. In the same time, time-taking operations are done with
-'data.table' to go faster with big dataframes. Tables can be exported to
-'Excel' and in html with formats and colors.
+or columns, contributions to variance, confidence intervals, odds ratios,
+etc.). All functions are pipe-friendly and render data frames which can be
+easily manipulated. In the same time, time-taking operations are done with
+'data.table' to go faster with big dataframes. Tables can be exported with
+formats and colors to 'Excel', plot and html.
 
 %prep
 %setup -q -c -n %{packname}

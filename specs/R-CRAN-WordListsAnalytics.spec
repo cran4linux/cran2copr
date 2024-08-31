@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WordListsAnalytics
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Data Analysis Tools for Property Listing Tasks
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-lsa 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-readr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-reshape2
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-lsa 
 
 %description
 Application to estimate statistical values using properties provided by a
