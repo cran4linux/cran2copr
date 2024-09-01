@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ANSM5
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data for the Book "Applied Nonparametric Statistical Methods", 5th Edition
 
@@ -30,7 +30,9 @@ obtained using a range of other R functions, this package provides
 functions in a unified setting and give output using both p-values and
 confidence intervals, exemplifying the book's approach of treating
 p-values as a guide to statistical importance and not an end product in
-their own right.
+their own right. Please note that in creating the ANSM5 package we do not
+claim to have produced software which is necessarily the most
+computationally efficient nor the most comprehensive.
 
 %prep
 %setup -q -c -n %{packname}

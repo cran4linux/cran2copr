@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  streetscape
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collect And Investigate Street Views For Urban Science
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-OpenImageR
 BuildRequires:    R-CRAN-pbmcapply 
 BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 

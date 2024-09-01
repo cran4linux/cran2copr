@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  emplik2
-%global packver   1.32
+%global packver   1.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.32
+Version:          1.33
 Release:          1%{?dist}%{?buildtag}
-Summary:          Empirical Likelihood Ratio Test for Two Samples with Censored Data
+Summary:          Empirical Likelihood Ratio Test for Two-Sample U-Statistics with Censored Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,8 +21,9 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Calculates the p-value for a mean-type hypothesis (or multiple mean-type
-hypotheses) based on two samples with possible censored data.
+Calculates the empirical likelihood ratio and p-value for a mean-type
+hypothesis (or multiple mean-type hypotheses) based on two samples with
+possible censored data.
 
 %prep
 %setup -q -c -n %{packname}

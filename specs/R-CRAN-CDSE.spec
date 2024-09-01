@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDSE
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Copernicus Data Space Ecosystem' API Wrapper
 
@@ -47,6 +47,7 @@ The package uses the 'Sentinel Hub' REST API interface
 <https://dataspace.copernicus.eu/analyse/apis/sentinel-hub> that provides
 access to various satellite imagery archives. It allows you to access raw
 satellite data, rendered images, statistical analysis, and other features.
+This package is in no way officially related to or endorsed by Copernicus.
 
 %prep
 %setup -q -c -n %{packname}
