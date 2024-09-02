@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EffectLiteR
-%global packver   0.4-6
+%global packver   0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Average and Conditional Effects
 
@@ -20,17 +20,25 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.5.0
 BuildRequires:    R-CRAN-lavaan >= 0.6.8
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-restriktor 
+BuildRequires:    R-CRAN-ic.infer 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-shiny >= 1.5.0
 Requires:         R-CRAN-lavaan >= 0.6.8
 Requires:         R-methods 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-restriktor 
+Requires:         R-CRAN-ic.infer 
+Requires:         R-CRAN-numDeriv 
 
 %description
 Use structural equation modeling to estimate average and conditional

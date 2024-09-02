@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ToolsForCoDa
-%global packver   1.0.6
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Tools for Compositional Data Analysis
 
@@ -18,10 +19,10 @@ Requires:         R-core >= 1.8.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-calibrate 
-BuildRequires:    R-CRAN-HardyWeinberg 
+BuildRequires:    R-CRAN-Correlplot 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-calibrate 
-Requires:         R-CRAN-HardyWeinberg 
+Requires:         R-CRAN-Correlplot 
 
 %description
 Provides functions for multivariate analysis with compositional data.
@@ -30,8 +31,9 @@ analysis.  This analysis requires two data matrices of compositions, which
 can be adequately transformed and used as entries in a specialized program
 for canonical correlation analysis, that is able to deal with singular
 covariance matrices. The methodology is described in Graffelman et al.
-(2017) <doi:10.1101/144584>. A function for log-ratio principal component
-analysis with condition number computations has been added to the package.
+(2017) <doi:10.1101/144584>. Functions for log-ratio principal component
+analysis with condition number computations and log-ratio discriminant
+analysis have been added to the package.
 
 %prep
 %setup -q -c -n %{packname}
