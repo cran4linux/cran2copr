@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.4.0
+%global packname  re
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          'Python' Style Regular Expression Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-stringi 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+A comprehensive set of regular expression functions based on those found
+in 'Python' without relying on 'reticulate'. It provides functions that
+intend to (1) make it easier for users familiar with 'Python' to work with
+regular expressions, (2) reduce the complexity often associated with
+regular expressions code, (3) and enable users to write more readable and
+maintainable code that relies on regular expression-based pattern
+matching.
 
 %prep
 %setup -q -c -n %{packname}

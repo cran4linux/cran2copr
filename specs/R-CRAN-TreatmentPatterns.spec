@@ -1,40 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.4.0
+%global packname  TreatmentPatterns
+%global packver   2.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          2.6.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Analyzes Real-World Treatment Patterns of a Study Population of Interest
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Andromeda 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-sunburstR 
+BuildRequires:    R-CRAN-networkD3 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-Andromeda 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-sunburstR 
+Requires:         R-CRAN-networkD3 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Computes treatment patterns within a given cohort using the Observational
+Medical Outcomes Partnership (OMOP) common data model (CDM). As described
+in Markus, Verhamme, Kors, and Rijnbeek (2022)
+<doi:10.1016/j.cmpb.2022.107081>.
 
 %prep
 %setup -q -c -n %{packname}

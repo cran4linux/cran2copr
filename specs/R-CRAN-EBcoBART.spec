@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.4.0
+%global packname  EBcoBART
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Co-Data Learning for Bayesian Additive Regression Trees
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-dbarts 
+BuildRequires:    R-CRAN-loo 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-univariateML 
+BuildRequires:    R-CRAN-extraDistr 
+Requires:         R-CRAN-dbarts 
+Requires:         R-CRAN-loo 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-univariateML 
+Requires:         R-CRAN-extraDistr 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Estimate prior variable weights for Bayesian Additive Regression Trees
+(BART). These weights correspond to the probabilities of the variables
+being selected in the splitting rules of the sum-of-trees. Weights are
+estimated using empirical Bayes and external information on the
+explanatory variables (co-data). BART models are fitted using the 'dbarts'
+'R' package. See Goedhart and others (2023)
+<doi:10.48550/arXiv.2311.09997> for details.
 
 %prep
 %setup -q -c -n %{packname}

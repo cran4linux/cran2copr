@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfishbase
-%global packver   4.1.2
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FishBase'
 
@@ -17,46 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-readr >= 2.0.0
-BuildRequires:    R-CRAN-contentid >= 0.0.15
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-duckdbfs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-readr >= 2.0.0
-Requires:         R-CRAN-contentid >= 0.0.15
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-duckdbfs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-memoise 
 
 %description
 A programmatic interface to 'FishBase', re-written based on an

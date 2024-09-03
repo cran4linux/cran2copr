@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.4.0
+%global packname  GeoThinneR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Simple Spatial Thinning for Ecological and Spatial Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Provides efficient geospatial thinning algorithms to reduce the density of
+coordinate data while maintaining spatial relationships. Implements K-D
+Tree Approximate Nearest Neighbors (ANN), R-Tree, and brute force thinning
+methods. It uses a modified version of the R-tree structure from the
+'rtree' package <https://github.com/akoyabio/rtree>. The modified version
+can be downloaded from <https://github.com/jmestret/rtree>. For more
+information on the methods, see Elseberg et al. (2012)
+<https://hdl.handle.net/10446/86202>.
 
 %prep
 %setup -q -c -n %{packname}

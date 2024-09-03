@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.4.0
+%global packname  dpasurv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Dynamic Path Analysis of Survival Data via Aalen's Additive Hazards Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
+BuildRequires:    R-CRAN-survival >= 2.44.1.1
+BuildRequires:    R-CRAN-timereg >= 1.9.4
+BuildRequires:    R-CRAN-dplyr >= 0.8.3
+BuildRequires:    R-CRAN-tidyr >= 0.8.3
+BuildRequires:    R-CRAN-rlang >= 0.4.0
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 >= 3.2.0
+Requires:         R-CRAN-survival >= 2.44.1.1
+Requires:         R-CRAN-timereg >= 1.9.4
+Requires:         R-CRAN-dplyr >= 0.8.3
+Requires:         R-CRAN-tidyr >= 0.8.3
+Requires:         R-CRAN-rlang >= 0.4.0
+Requires:         R-methods 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+Dynamic path analysis with estimation of the corresponding direct,
+indirect, and total effects, based on Fosen et al., (2006)
+<doi:10.1007/s10985-006-9004-2>. The main outcome of interest is a
+counting process from survival analysis (or recurrent events) data. At
+each time of event, ordinary linear regression is used to estimate the
+relation between the covariates, while Aalen's additive hazard model is
+used for the regression of the counting process on the covariates.
 
 %prep
 %setup -q -c -n %{packname}

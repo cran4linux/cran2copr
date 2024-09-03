@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpp11armadillo
-%global packver   0.3.1
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An 'Armadillo' Interface
 
@@ -21,7 +21,9 @@ BuildArch:        noarch
 %description
 Provides function declarations and inline function definitions that
 facilitate communication between R and the 'Armadillo' 'C++' library for
-linear algebra and scientific computing.
+linear algebra and scientific computing. This implementation is detailed
+in Vargas Sepulveda and Schneider Malamud (2024)
+<doi:10.48550/arXiv.2408.11074>.
 
 %prep
 %setup -q -c -n %{packname}

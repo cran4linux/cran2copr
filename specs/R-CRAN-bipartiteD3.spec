@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bipartiteD3
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Bipartite Graphs
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-stringr >= 1.3
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1
 BuildRequires:    R-CRAN-tidyr >= 0.8
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
-BuildRequires:    R-CRAN-downloader >= 0.4
 BuildRequires:    R-CRAN-purrr >= 0.2.5
 BuildRequires:    R-CRAN-r2d3 >= 0.2.2
 Requires:         R-CRAN-tibble >= 1.4
@@ -30,13 +29,12 @@ Requires:         R-CRAN-stringr >= 1.3
 Requires:         R-CRAN-RColorBrewer >= 1.1
 Requires:         R-CRAN-tidyr >= 0.8
 Requires:         R-CRAN-dplyr >= 0.7.5
-Requires:         R-CRAN-downloader >= 0.4
 Requires:         R-CRAN-purrr >= 0.2.5
 Requires:         R-CRAN-r2d3 >= 0.2.2
 
 %description
 Generates interactive bipartite graphs using the D3 library. Designed for
-use with the 'bipartite' analysis package. Sources open source 'viz-js'
+use with the 'bipartite' analysis package. Includes open source 'viz-js'
 library Adapted from examples at <https://bl.ocks.org/NPashaP> (released
 under GPL-3).
 

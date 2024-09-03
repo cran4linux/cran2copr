@@ -1,49 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HLAtools
-%global packver   1.2.0
+%global packname  EQUALrepeat
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for HLA Immunogenomics
+Summary:          Algorithm Driven Time Series Analysis for Researchers without Coding Skills
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-fmsb 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-urca 
+BuildRequires:    R-CRAN-vars 
+BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-fmsb 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-irr 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-urca 
+Requires:         R-CRAN-vars 
+Requires:         R-CRAN-viridisLite 
 
 %description
-A toolkit for the analysis and management of data for genes in the
-so-called "Human Leukocyte Antigen" (HLA) region. Functions extract
-reference data from the Anthony Nolan HLA Informatics Group/ImmunoGeneTics
-HLA 'GitHub' repository (ANHIG/IMGTHLA)
-<https://github.com/ANHIG/IMGTHLA>, validate Genotype List (GL) Strings,
-convert between UNIFORMAT and GL String Code (GLSC) formats, translate HLA
-alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
-Database release versions, identify differences between pairs of alleles
-at a locus, generate customized, multi-position sequence alignments, trim
-and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+Support functions for R-based 'EQUAL-STATS' software which automatically
+classifies the data and performs appropriate statistical tests.
+'EQUAL-STATS' software is a shiny application with an user-friendly
+interface to perform complex statistical analysis. Gurusamy,K
+(2024)<doi:10.5281/zenodo.13354162>.
 
 %prep
 %setup -q -c -n %{packname}

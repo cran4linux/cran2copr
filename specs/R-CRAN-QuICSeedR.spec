@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  incidence2
-%global packver   2.4.0
+%global packname  QuICSeedR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute, Handle and Plot Incidence of Dated Events
+Summary:          Analyze Data for Fluorophore-Assisted Seed Amplification Assays
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,40 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ympes >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-grates >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-pillar 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-WRS2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ympes >= 1.3.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-grates >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-pillar 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-WRS2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-readxl 
 
 %description
-Provides functions and classes to compute, handle and visualise incidence
-from dated events for a defined time interval. Dates can be provided in
-various standard formats. The class 'incidence2' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. This
-package is part of the RECON (<https://www.repidemicsconsortium.org/>)
-toolkit for outbreak analysis (<https://www.reconverse.org>).
+A toolkit for analysis and visualization of data from fluorophore-assisted
+seed amplification assays, such as Real-Time Quaking-Induced Conversion
+(RT-QuIC) and Fluorophore-Assisted Protein Misfolding Cyclic Amplification
+(PMCA). 'QuICSeedR' addresses limitations in existing software by
+automating data processing, supporting large-scale analysis, and enabling
+comparative studies of analysis methods. It incorporates methods described
+in Henderson et al. (2015) <doi:10.1099/vir.0.069906-0>, Li et al. (2020)
+<doi:10.1038/s41598-021-96127-8>, Rowden et al. (2023)
+<doi:10.3390/pathogens12020309>, Haley et al. (2013)
+<doi:10.1371/journal.pone.0081488>, and Mair and Wilcox (2020)
+<doi:10.3758/s13428-019-01246-w>. Please refer to the original
+publications for details.
 
 %prep
 %setup -q -c -n %{packname}

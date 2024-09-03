@@ -1,51 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gtfs2gps
-%global packver   2.1-1
+%global packname  rice
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Converting Transport Data from GTFS Format to GPS-Like Records
+Summary:          Radiocarbon Calibration Equations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rintcal >= 0.6.4
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-gtfstools 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-lwgeom 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-rintcal >= 0.6.4
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-gtfstools 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sfheaders 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-lwgeom 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Convert general transit feed specification (GTFS) data to global
-positioning system (GPS) records in 'data.table' format. It also has some
-functions to subset GTFS data in time and space and to convert both
-representations to simple feature format.
+Provides functions for the calibration of radiocarbon dates, as well as
+options to calculate different radiocarbon realms (C14 age, F14C, pMC,
+D14C) and estimating the effects of contamination. The methods follow
+long-established recommendations such as Stuiver and Polach (1977)
+<doi:10.1017/S0033822200003672> and Reimer et al. (2004)
+<doi:10.1017/S0033822200033154>. This package accompanies the data package
+'rintcal'.
 
 %prep
 %setup -q -c -n %{packname}

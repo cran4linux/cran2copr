@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipeaplot
-%global packver   0.4.0
+%global packname  box.lsp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Add Ipea Editorial Standards to 'ggplot2' Graphics
+Summary:          Provides 'box' Compatibility for 'languageserver'
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-paletteer 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-box 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggthemes 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-paletteer 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-box 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggthemes 
 
 %description
-Convenient functions to create 'ggplot2' graphics following the editorial
-guidelines of the Institute for Applied Economic Research (Ipea).
+A 'box' compatible custom language parser for the 'languageserver' package
+to provide completion and signature hints in code editors.
 
 %prep
 %setup -q -c -n %{packname}

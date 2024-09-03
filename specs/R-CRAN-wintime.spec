@@ -1,46 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gtfstools
-%global packver   1.2.0
+%global packname  wintime
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Transit Feed Specification (GTFS) Editing and Analysing Tools
+Summary:          Win Time Methods for Time-to-Event Data in Clinical Trials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-gtfsio >= 1.0.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sfheaders 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-gtfsio >= 1.0.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sfheaders 
-Requires:         R-CRAN-units 
-Requires:         R-utils 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival 
 
 %description
-Utility functions to read, manipulate, analyse and write transit feeds in
-the General Transit Feed Specification (GTFS) data format.
+Performs an analysis of time-to-event clinical trial data using various
+"win time" methods, including 'ewt', 'ewtr', 'rmt', 'max', 'wtr', 'rwtr',
+and 'pwt'. These methods are used to calculate and compare treatment
+effects on ordered composite endpoints. The package handles event times,
+event indicators, and treatment arm indicators and supports calculations
+on observed and resampled data. Detailed explanations of each method and
+usage examples are provided in "Use of win time for ordered composite
+endpoints in clinical trials," by Troendle et al.
+(2024)<https://pubmed.ncbi.nlm.nih.gov/38417455/>. For more information,
+see the package documentation or the vignette titled "Introduction to
+wintime."
 
 %prep
 %setup -q -c -n %{packname}
