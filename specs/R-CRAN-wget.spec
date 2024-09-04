@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DOYPAColors
+%global packname  wget
 %global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Don't Overthink Your Palette of Colors
+Summary:          Setting Download Method to 'wget'
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
+Requires:         R-CRAN-yulab.utils >= 0.1.7
 
 %description
-Access diverse 'ggplot2'-compatible color palettes for simplified data
-visualization.
+Provides function, wget_set(), to change the method (default to 'wget -c')
+using in download.file(). Using 'wget -c' allowing continued downloading,
+which is especially useful for slow internet connection and for
+downloading large files. User can run wget_unset() to restore previous
+setting.
 
 %prep
 %setup -q -c -n %{packname}

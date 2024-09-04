@@ -1,58 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FeatureExtraction
-%global packver   3.7.0
+%global packname  clintrialx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Features for a Cohort
+Summary:          Connect and Work with Clinical Trials Data Sources
 
 License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DatabaseConnector >= 3.0.0
-BuildRequires:    R-CRAN-ParallelLogger >= 2.0.2
-BuildRequires:    R-CRAN-SqlRender >= 1.18.0
-BuildRequires:    R-CRAN-Andromeda 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-xfun >= 0.44
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-DatabaseConnector >= 3.0.0
-Requires:         R-CRAN-ParallelLogger >= 2.0.2
-Requires:         R-CRAN-SqlRender >= 1.18.0
-Requires:         R-CRAN-Andromeda 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rJava 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-pillar 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-xfun >= 0.44
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rmarkdown 
 
 %description
-An R interface for generating features for a cohort using data in the
-Common Data Model. Features can be constructed using default or custom
-made feature definitions. Furthermore it's possible to aggregate features
-and get the summary statistics.
+Are you spending too much time fetching and managing clinical trial data?
+Struggling with complex queries and bulk data extraction? What if you
+could simplify this process with just a few lines of code? Introducing
+'clintrialx' - Fetch clinical trial data from sources like
+'ClinicalTrials.gov' <https://clinicaltrials.gov/> and the 'Clinical
+Trials Transformation Initiative - Access to Aggregate Content of
+ClinicalTrials.gov' database <https://aact.ctti-clinicaltrials.org/>,
+supporting pagination and bulk downloads. Also, you can generate HTML
+reports based on the data obtained from the sources!
 
 %prep
 %setup -q -c -n %{packname}

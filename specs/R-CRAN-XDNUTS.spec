@@ -1,30 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fntl
-%global packver   0.1.0
+%global packname  XDNUTS
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Tools for 'Rcpp' and Lambda Functions
+Summary:          Discontinuous Hamiltonian Monte Carlo with Varying Trajectory Length
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-base 
+Requires:         R-CRAN-coda 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 
 %description
-Provides a 'C++' API for routinely used numerical tools such as
-integration, root-finding, and optimization, where function arguments are
-given as lambdas. This facilitates 'Rcpp' programming, enabling the
-development of 'R'-like code in 'C++' where functions can be defined on
-the fly and use variables in the surrounding environment.
+Hamiltonian Monte Carlo for both continuous and discontinuous posterior
+distributions with customisable trajectory length termination criterion.
+See Nishimura et al. (2020) <doi:10.1093/biomet/asz083> for the original
+Discontinuous Hamiltonian Monte Carlo, Hoffman et al. (2014)
+<doi:10.48550/arXiv.1111.4246> and Betancourt (2016)
+<doi:10.48550/arXiv.1601.00225> for the definition of possible Hamiltonian
+Monte Carlo termination criteria.
 
 %prep
 %setup -q -c -n %{packname}

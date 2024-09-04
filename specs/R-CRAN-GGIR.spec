@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GGIR
-%global packver   3.1-2
+%global packver   3.1-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Raw Accelerometer Data Analysis
 

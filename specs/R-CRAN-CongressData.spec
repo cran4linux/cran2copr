@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DOYPAColors
-%global packver   0.0.2
+%global packname  CongressData
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Don't Overthink Your Palette of Colors
+Summary:          A Functional Tool for 'CongressData'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-fst 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-fst 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Access diverse 'ggplot2'-compatible color palettes for simplified data
-visualization.
+A tool that imports, subsets, and exports the 'CongressData' dataset.
+'CongressData' contains approximately 800 variables concerning all US
+congressional districts with data back to 1789. The dataset tracks
+district characteristics, members of Congress, and the political behavior
+of those members. Users with only a basic understanding of R can subset
+this data across multiple dimensions, export their search results,
+identify the citations associated with their searches, and more.
 
 %prep
 %setup -q -c -n %{packname}

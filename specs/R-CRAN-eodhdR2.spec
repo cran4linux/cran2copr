@@ -1,32 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DOYPAColors
-%global packver   0.0.2
+%global packname  eodhdR2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Don't Overthink Your Palette of Colors
+Summary:          Official R API for Fetching Data from 'EODHD'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
 
 %description
-Access diverse 'ggplot2'-compatible color palettes for simplified data
-visualization.
+Second and backward-incompatible version of R package 'eodhd'
+<https://eodhd.com/>, extended with a cache and quota system, also
+offering functions for cleaning and aggregating the financial data.
 
 %prep
 %setup -q -c -n %{packname}

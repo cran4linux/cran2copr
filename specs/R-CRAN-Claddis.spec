@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Claddis
-%global packver   0.6.3
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Morphological Diversity and Evolutionary Tempo
 
@@ -24,6 +25,8 @@ BuildRequires:    R-CRAN-geoscale
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-multicool 
+BuildRequires:    R-CRAN-partitions 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ape 
@@ -34,6 +37,8 @@ Requires:         R-CRAN-geoscale
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-multicool 
+Requires:         R-CRAN-partitions 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -48,16 +53,17 @@ tests for discrete character rates introduced across Lloyd et al. (2012)
 <doi:10.1111/j.1558-5646.2011.01460.x>, Brusatte et al. (2014)
 <doi:10.1016/j.cub.2014.08.034>, Close et al. (2015)
 <doi:10.1016/j.cub.2015.06.047>, and Lloyd (2016) <doi:10.1111/bij.12746>,
-and MatrixDistances(), which implements multiple discrete character
-distance metrics from Gower (1971) <doi:10.2307/2528823>, Wills (1998)
-<doi:10.1006/bijl.1998.0255>, Lloyd (2016) <doi:10.1111/bij.12746>, and
-Hopkins and St John (2018) <doi:10.1098/rspb.2018.1784>. This also
-includes the GED correction from Lehmann et al. (2019)
-<doi:10.1111/pala.12430>. Multiple functions implement morphospace plots:
-plot_chronophylomorphospace() implements Sakamoto and Ruta (2012)
-<doi:10.1371/journal.pone.0039752>, plot_morphospace() implements Wills et
-al. (1994) <doi:10.1017/S009483730001263X>, plot_changes_on_tree()
-implements Wang and Lloyd (2016) <doi:10.1098/rspb.2016.0214>, and
+and calculate_morphological_distances(), which implements multiple
+discrete character distance metrics from Gower (1971)
+<doi:10.2307/2528823>, Wills (1998) <doi:10.1006/bijl.1998.0255>, Lloyd
+(2016) <doi:10.1111/bij.12746>, and Hopkins and St John (2018)
+<doi:10.1098/rspb.2018.1784>. This also includes the GED correction from
+Lehmann et al. (2019) <doi:10.1111/pala.12430>. Multiple functions
+implement morphospace plots: plot_chronophylomorphospace() implements
+Sakamoto and Ruta (2012) <doi:10.1371/journal.pone.0039752>,
+plot_morphospace() implements Wills et al. (1994)
+<doi:10.1017/S009483730001263X>, plot_changes_on_tree() implements Wang
+and Lloyd (2016) <doi:10.1098/rspb.2016.0214>, and
 plot_morphospace_stack() implements Foote (1993)
 <doi:10.1017/S0094837300015864>. Other functions include
 safe_taxonomic_reduction(), which implements Wilkinson (1995)
@@ -65,13 +71,21 @@ safe_taxonomic_reduction(), which implements Wilkinson (1995)
 stochastic character mapping of Tarver et al. (2018)
 <doi:10.1093/gbe/evy096>, and estimate_ancestral_states() implements the
 ancestral state options of Lloyd (2018) <doi:10.1111/pala.12380>.
+calculate_tree_length() and reconstruct_ancestral_states() implements the
+generalised algorithms from Swofford and Maddison (1992; no doi).
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -81,6 +95,7 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
 find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files

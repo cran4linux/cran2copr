@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DOYPAColors
-%global packver   0.0.2
+%global packname  ProSportsDraftData
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Don't Overthink Your Palette of Colors
+Summary:          Professional Sports Draft Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 
 %description
-Access diverse 'ggplot2'-compatible color palettes for simplified data
-visualization.
+We provide comprehensive draft data for major professional sports leagues,
+including the National Football League (NFL), National Basketball
+Association (NBA), and National Hockey League (NHL). It offers access to
+both historical and current draft data, allowing for detailed analysis and
+research on player biases and player performance. The package is useful
+for sports fans and researchers interested in identifying biases and
+trends within scouting reports. Created by web scraping data from leading
+websites that cover professional sports player scouting reports, the
+package allows users to filter and summarize data for analytical purposes.
+For further details on the methods used, please refer to Wickham (2022)
+"rvest: Easily Harvest (Scrape) Web Pages"
+<https://CRAN.R-project.org/package=rvest> and Harrison (2023) "RSelenium:
+R Bindings for Selenium WebDriver"
+<https://CRAN.R-project.org/package=RSelenium>.
 
 %prep
 %setup -q -c -n %{packname}

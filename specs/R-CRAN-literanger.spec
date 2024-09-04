@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  literanger
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forests for Multiple Imputation Based on 'ranger'
 
@@ -16,7 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.3
+BuildRequires:    R-CRAN-Rcereal >= 1.2.0
+BuildRequires:    R-CRAN-cpp11 >= 0.4.7
 BuildRequires:    R-stats 
 Requires:         R-stats 
 

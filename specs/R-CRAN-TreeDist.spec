@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeDist
-%global packver   2.8.0
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate and Map Distances Between Phylogenetic Trees
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-ape >= 5.0
 BuildRequires:    R-CRAN-cli >= 3.0
-BuildRequires:    R-CRAN-TreeTools >= 1.11.1.9004
+BuildRequires:    R-CRAN-TreeTools >= 1.12.0
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-colorspace 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-cli >= 3.0
-Requires:         R-CRAN-TreeTools >= 1.11.1.9004
+Requires:         R-CRAN-TreeTools >= 1.12.0
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-stats 
 Requires:         R-CRAN-colorspace 

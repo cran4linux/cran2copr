@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.linters
-%global packver   0.10.4
+%global packname  mregions2
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linters for 'box' Modules
+Summary:          Access Data from Marineregions.org: Gazetteer & Data Products
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lintr >= 3.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rdflib 
+BuildRequires:    R-CRAN-ISOcodes 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-xmlparsedata 
-Requires:         R-CRAN-lintr >= 3.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
+BuildRequires:    R-CRAN-wrapr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
+Requires:         R-CRAN-rdflib 
+Requires:         R-CRAN-ISOcodes 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-xmlparsedata 
+Requires:         R-CRAN-wrapr 
+Requires:         R-methods 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 
 %description
-Static code analysis of 'box' modules. The package enhances code quality
-by providing linters that check for common issues, enforce best practices,
-and ensure consistent coding standards.
+Explore and retrieve marine geospatial data from the Marine Regions
+Gazetteer <https://marineregions.org/gazetteer.php?p=webservices> and the
+Marine Regions Data Products <https://marineregions.org/webservices.php>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eodhd
-%global packver   1.0.4
+%global packname  AOboot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Official 'eodhd' API R Financial Library
+Summary:          Bootstrapping in Different One-Way and Two-Way ANOVA
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-afex 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-lsr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-carData 
+Requires:         R-CRAN-afex 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-lsr 
+Requires:         R-methods 
+Requires:         R-CRAN-carData 
 
 %description
-Official 'eodhd' API R Library. It helps to get and work with financial
-data, historical data and etc. API reference available at
-<https://eodhd.com/financial-apis/>.
+To address the violation of the assumption of normally distributed
+variables, researchers frequently employ bootstrapping. Building upon
+established packages for R (Sigmann et al. (2024)
+<doi:10.32614/CRAN.package.afex>, Lenth (2024)
+<doi:10.32614/CRAN.package.emmeans>), we provide bootstrapping functions
+to approximate a normal distribution of the parameter estimates for
+between-subject, within-subject, and mixed one-way and two-way ANOVA.
 
 %prep
 %setup -q -c -n %{packname}

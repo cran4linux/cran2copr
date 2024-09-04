@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CondCopulas
-%global packver   0.1.3
+%global packver   0.1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Inference for Conditional Copula Models
 

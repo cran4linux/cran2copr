@@ -1,32 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DOYPAColors
-%global packver   0.0.2
+%global packname  RWNN
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Don't Overthink Your Palette of Colors
+Summary:          Random Weight Neural Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-methods 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Access diverse 'ggplot2'-compatible color palettes for simplified data
-visualization.
+Creation, estimation, and prediction of random weight neural networks
+(RWNN), Schmidt et al. (1992) <doi:10.1109/ICPR.1992.201708>, including
+popular variants like extreme learning machines, Huang et al. (2006)
+<doi:10.1016/j.neucom.2005.12.126>, sparse RWNN, Zhang et al. (2019)
+<doi:10.1016/j.neunet.2019.01.007>, and deep RWNN, Henríquez et al. (2018)
+<doi:10.1109/IJCNN.2018.8489703>. It further allows for the creation of
+ensemble RWNNs like bagging RWNN, Sui et al. (2021)
+<doi:10.1109/ECCE47101.2021.9595113>, boosting RWNN, stacking RWNN, and
+ensemble deep RWNN, Shi et al. (2021) <doi:10.1016/j.patcog.2021.107978>.
 
 %prep
 %setup -q -c -n %{packname}

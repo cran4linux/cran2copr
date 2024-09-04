@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bs4Dash
-%global packver   2.3.3
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Bootstrap 4' Version of 'shinydashboard'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-httpuv >= 1.5.2

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inti
-%global packver   0.6.5
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Statistical Procedures in Plant Science
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-FactoMineR
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-shiny 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-FactoMineR
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-googlesheets4 
 Requires:         R-CRAN-DT 
 

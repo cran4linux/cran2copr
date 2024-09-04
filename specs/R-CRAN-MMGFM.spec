@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DOYPAColors
-%global packver   0.0.2
+%global packname  MMGFM
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Don't Overthink Your Palette of Colors
+Summary:          Multi-Study Multi-Modality Generalized Factor Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-GFM 
+BuildRequires:    R-CRAN-MultiCOAP 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-GFM 
+Requires:         R-CRAN-MultiCOAP 
 
 %description
-Access diverse 'ggplot2'-compatible color palettes for simplified data
-visualization.
+We introduce a generalized factor model designed to jointly analyze
+high-dimensional multi-modality data from multiple studies by extracting
+study-shared and specified factors. Our factor models account for
+heterogeneous noises and overdispersion among modality variables with
+augmented covariates. We propose an efficient and speedy variational
+estimation procedure for estimating model parameters, along with a novel
+criterion for selecting the optimal number of factors. More details can be
+referred to Liu et al. (2024) <doi:10.48550/arXiv.2408.10542>.
 
 %prep
 %setup -q -c -n %{packname}

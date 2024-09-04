@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adelie
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast and Flexible Group Elastic Net Solver
+Summary:          Group Lasso and Elastic Net Solver for Generalized Linear Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,18 +20,25 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-r2r 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-r2r 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-methods 
+Requires:         R-CRAN-stringr 
 
 %description
-R bindings for the Python package 'adelie'. These bindings offer a general
-purpose group elastic net solver, a wide range of matrix classes that can
-exploit special structure to allow large-scale inputs, and an assortment
-of generalized linear model classes for fitting various types of data. The
-package is an implementation of Yang, J. and Hastie, T. (2024)
+Extremely efficient procedures for fitting the entire group lasso and
+group elastic net regularization path for GLMs, multinomial, the Cox model
+and multi-task Gaussian models. Similar to the R package glmnet in scope
+of models, and in computational speed.  This package provides R bindings
+to the C++ code underlying the corresponding Python package 'adelie'.
+These bindings offer a general purpose group elastic net solver, a wide
+range of matrix classes that can exploit special structure to allow
+large-scale inputs, and an assortment of generalized linear model classes
+for fitting various types of data. The package includes The package is an
+implementation of Yang, J. and Hastie, T. (2024)
 <doi:10.48550/arXiv.2405.08631>.
 
 %prep
