@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  pandemics
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          Monitoring a Developing Pandemic with Available Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Binning and plotting functions for hexagonal bins.
+Full dynamic system to describe and forecast the spread and the severity
+of a developing pandemic, based on available data. These data are number
+of infections, hospitalizations, deaths and recoveries notified each day.
+The system consists of three transitions, infection-infection,
+infection-hospital and hospital-death/recovery. The intensities of these
+transitions are dynamic and estimated using non-parametric local linear
+estimators. The package can be used to provide forecasts and survival
+indicators such as the median time spent in hospital and the probability
+that a patient who has been in hospital for a number of days can leave it
+alive. Methods are described in Gámiz, Mammen, Martínez-Miranda, and
+Nielsen (2024) <doi:10.48550/arXiv.2308.09918> and
+<doi:10.48550/arXiv.2308.09919>.
 
 %prep
 %setup -q -c -n %{packname}

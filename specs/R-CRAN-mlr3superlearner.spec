@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  mlr3superlearner
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          Super Learner Fitting and Prediction
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glmnet 
 
 %description
-Binning and plotting functions for hexagonal bins.
+An implementation of the Super Learner prediction algorithm from van der
+Laan, Polley, and Hubbard (2007) <doi:10.2202/1544-6115.1309 using the
+'mlr3' framework.
 
 %prep
 %setup -q -c -n %{packname}

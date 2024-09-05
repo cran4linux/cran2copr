@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  mlmc
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          Multi-Level Monte Carlo
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Binning and plotting functions for hexagonal bins.
+An implementation of MLMC (Multi-Level Monte Carlo), Giles (2008)
+<doi:10.1287/opre.1070.0496>, Heinrich (1998)
+<doi:10.1006/jcom.1998.0471>, for R.  This package builds on the original
+'Matlab' and 'C++' implementations by Mike Giles to provide a full MLMC
+driver and example level samplers. Multi-core parallel sampling of levels
+is provided built-in.
 
 %prep
 %setup -q -c -n %{packname}

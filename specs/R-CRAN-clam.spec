@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clam
-%global packver   2.5.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classical Age-Depth Modelling of Cores from Deposits
 
@@ -17,16 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.4.1
+BuildRequires:    R-CRAN-rice 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rintcal >= 0.4.1
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-rice 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-data.table 
 
 %description
 Performs 'classical' age-depth modelling of dated sediment deposits -

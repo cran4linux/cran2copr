@@ -1,54 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayesianVARs
-%global packver   0.1.3
+%global packname  GeRnika
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MCMC Estimation of Bayesian Vectorautoregressions
+Summary:          Simulation, Visualization and Comparison of Tumor Evolution Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-stochvol >= 3.0.3
-BuildRequires:    R-CRAN-factorstochvol >= 1.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-GIGrvg >= 0.7
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-stochvol >= 3.0.3
-Requires:         R-CRAN-factorstochvol >= 1.1.0
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-GIGrvg >= 0.7
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-colorspace 
-Requires:         R-graphics 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Efficient Markov Chain Monte Carlo (MCMC) algorithms for the fully
-Bayesian estimation of vectorautoregressions (VARs) featuring stochastic
-volatility (SV). Implements state-of-the-art shrinkage priors following
-Gruber & Kastner (2023) <doi:10.48550/arXiv.2206.04902>. Efficient
-equation-per-equation estimation following Kastner & Huber (2020)
-<doi:10.1002/for.2680> and Carrerio et al. (2021)
-<doi:10.1016/j.jeconom.2021.11.010>.
+Simulating, visualizing and comparing tumor clonal data by using simple
+commands. This aims at providing a tool to help researchers to easily
+simulate tumor data and analyze the results of their approaches for
+studying the composition and the evolutionary history of tumors.
 
 %prep
 %setup -q -c -n %{packname}

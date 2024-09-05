@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  fastpng
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          Read and Write PNG Files with Configurable Decoder/Encoder Options
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 
 %description
-Binning and plotting functions for hexagonal bins.
+Read and write PNG images with arrays, rasters, native rasters, numeric
+arrays, integer arrays, raw vectors and indexed values.  This PNG encoder
+exposes configurable internal options enabling the user to select a
+speed-size tradeoff.  For example, disabling compression can speed up
+writing PNG by a factor of 50. Multiple image formats are supported
+including raster, native rasters, and integer and numeric arrays at color
+depths of 1, 2, 3 or 4. 16-bit images are also supported. This
+implementation uses the 'libspng' 'C' library which is available from
+<https://github.com/randy408/libspng/>.
 
 %prep
 %setup -q -c -n %{packname}

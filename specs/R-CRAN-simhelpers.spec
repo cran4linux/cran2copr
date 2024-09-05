@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simhelpers
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Simulation Studies
 
@@ -20,13 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-Rdpack 
 

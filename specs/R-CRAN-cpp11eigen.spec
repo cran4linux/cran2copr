@@ -1,38 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  cpp11eigen
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          An 'Eigen' Interface
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 
 %description
-Binning and plotting functions for hexagonal bins.
+Provides function declarations and inline function definitions that
+facilitate communication between R and the 'Eigen' 'C++' library for
+linear algebra and scientific computing.
 
 %prep
 %setup -q -c -n %{packname}

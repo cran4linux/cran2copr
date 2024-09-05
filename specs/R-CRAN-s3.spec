@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  s3
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Files from 'AWS S3'
 
@@ -21,20 +21,18 @@ BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-aws.signature 
-BuildRequires:    R-CRAN-digest 
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-aws.signature 
-Requires:         R-CRAN-digest 
 
 %description
 Download files hosted on 'AWS S3' (Amazon Web Services Simple Storage

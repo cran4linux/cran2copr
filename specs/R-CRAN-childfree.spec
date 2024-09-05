@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  childfree
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Harmonize Childfree Demographic Data
 
@@ -19,8 +19,12 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-RCurl 
 Requires:         R-CRAN-rio 
 Requires:         R-utils 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-RCurl 
 
 %description
 Reads demographic data from a variety of public data sources, extracting

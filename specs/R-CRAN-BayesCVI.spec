@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesCVI
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cluster Validity Index
 
@@ -28,10 +28,12 @@ Requires:         R-CRAN-UniversalCVI
 
 %description
 Algorithms for computing and generating plots with and without error bars
-for Bayesian cluster validity index (BCVI) (N. Wiroonsri, O. Preedasawakul
-(2024) <arXiv:2402.02162>) based on several underlying cluster validity
-indexes (CVIs) including Calinski-Harabasz, Chou-Su-Lai, Davies-Bouldin,
-Dunn, Pakhira-Bandyopadhyay-Maulik, Point biserial correlation, the score
+for Bayesian cluster validity index (BCVI) (O. Preedasawakul, and N.
+Wiroonsri, A Bayesian Cluster Validity Index, Computational Statistics &
+Data Analysis, 202, 108053, 2025. <doi:10.1016/j.csda.2024.108053>) based
+on several underlying cluster validity indexes (CVIs) including
+Calinski-Harabasz, Chou-Su-Lai, Davies-Bouldin, Dunn,
+Pakhira-Bandyopadhyay-Maulik, Point biserial correlation, the score
 function, Starczewski, and Wiroonsri indices for hard clustering, and
 Correlation Cluster Validity, the generalized C, HF, KWON, KWON2, Modified
 Pakhira-Bandyopadhyay-Maulik, Pakhira-Bandyopadhyay-Maulik, Tang,

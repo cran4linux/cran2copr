@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forrel
-%global packver   1.6.1
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forensic Pedigree Analysis and Relatedness Inference
 
@@ -17,15 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.2.0
-BuildRequires:    R-CRAN-ribd >= 1.5.0
+BuildRequires:    R-CRAN-pedtools >= 2.6.0
+BuildRequires:    R-CRAN-ribd >= 1.7.0
 BuildRequires:    R-CRAN-pedprobr >= 0.8
+BuildRequires:    R-CRAN-verbalisr >= 0.7.1
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-pedFamilias 
-Requires:         R-CRAN-pedtools >= 2.2.0
-Requires:         R-CRAN-ribd >= 1.5.0
+Requires:         R-CRAN-pedtools >= 2.6.0
+Requires:         R-CRAN-ribd >= 1.7.0
 Requires:         R-CRAN-pedprobr >= 0.8
+Requires:         R-CRAN-verbalisr >= 0.7.1
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-pedFamilias 
 
 %description

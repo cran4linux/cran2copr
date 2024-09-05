@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  biostats101
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          Practical Functions for Biostatistics Beginners
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 
 %description
-Binning and plotting functions for hexagonal bins.
+A set of user-friendly functions designed to fill gaps in existing
+introductory biostatistics R tools, making it easier for newcomers to
+perform basic biostatistical analyses without needing advanced programming
+skills. The methods implemented in this package are based on the works:
+Connor (1987) <doi:10.2307/2531961> Fleiss, Levin, & Paik (2013,
+ISBN:978-1-118-62561-3) Levin & Chen (1999)
+<doi:10.1080/00031305.1999.10474431> McNemar (1947)
+<doi:10.1007/BF02295996>.
 
 %prep
 %setup -q -c -n %{packname}

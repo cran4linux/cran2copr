@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hexbin
-%global packver   1.28.4
+%global packname  GPEMR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.28.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hexagonal Binning Routines
+Summary:          Growth Parameter Estimation Method
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.0.1
-Requires:         R-core >= 2.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-grid 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-grid 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Binning and plotting functions for hexagonal bins.
+Provides functions for simulating and estimating parameters of various
+growth models, including Logistic, Exponential, Theta-logistic,
+Von-Bertalanffy, and Gompertz models. The package supports both simulated
+and real data analysis, including parameter estimation, visualization, and
+calculation of global and local estimates. The methods are based on
+research described by Md Aktar Ul Karim and Amiya Ranjan Bhowmick (2022)
+in (<https://www.researchsquare.com/article/rs-2363586/v1>). An
+interactive web application is also available at [GPEMR Web
+App](<https://gpem-r.shinyapps.io/GPEM-R/>).
 
 %prep
 %setup -q -c -n %{packname}

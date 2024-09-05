@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramvs
-%global packver   0.0-4
+%global packver   0.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subset Selection for Transformation Models
 
@@ -22,11 +22,17 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-variables 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cotram 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-tram >= 0.6.1
 Requires:         R-stats 
 Requires:         R-CRAN-variables 
 Requires:         R-methods 
 Requires:         R-CRAN-cotram 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Greedy optimal subset selection for transformation models (Hothorn et al.,
