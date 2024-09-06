@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DatastreamDSWS2R
-%global packver   1.9.7
+%global packver   1.9.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.7
+Version:          1.9.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides a Link Between the 'Refinitiv Datastream' System and R
+Summary:          Provides a Link Between the 'LSEG Datastream' System and R
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -38,9 +38,9 @@ Requires:         R-CRAN-dplyr
 
 %description
 Provides a set of functions and a class to connect, extract and upload
-information from the 'Refinitiv Datastream' database. This package uses
-the 'DSWS' API and server used by the 'Datastream DFO addin'. Details of
-this API are available at <https://www.lseg.com/en/data-analytics>. Please
+information from the 'LSEG Datastream' database. This package uses the
+'DSWS' API and server used by the 'Datastream DFO addin'. Details of this
+API are available at <https://www.lseg.com/en/data-analytics>. Please
 report issues at <https://github.com/CharlesCara/DatastreamDSWS2R/issues>.
 
 %prep

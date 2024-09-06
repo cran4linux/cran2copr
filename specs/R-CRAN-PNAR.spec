@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PNAR
-%global packver   1.6
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Poisson Network Autoregressive Models
 
@@ -40,12 +40,13 @@ Poisson Network Autoregression models with p lags and covariates. Tools
 for testing the linearity versus several non-linear alternatives. Tools
 for simulation of multivariate count distributions, from linear and
 non-linear PNAR models, by using a specific copula construction.
-References include: Armillotta, M. and K. Fokianos (2022a). Poisson
-network autoregression. <arXiv:2104.06296>. Armillotta, M. and K. Fokianos
-(2022b). Testing linearity for network autoregressive models.
-<arXiv:2202.03852>. Armillotta, M., Tsagris, M. and Fokianos, K. (2022c).
-The R-package PNAR for modelling count network time series.
-<arXiv:2211.02582>.
+References include: Armillotta, M. and K. Fokianos (2023). "Nonlinear
+network autoregression". Annals of Statistics, 51(6): 2526--2552.
+<doi:10.1214/23-AOS2345>. Armillotta, M. and K. Fokianos (2024). "Count
+network autoregression". Journal of Time Series Analysis, 45(4): 584--612.
+<doi:10.1111/jtsa.12728>. Armillotta, M., Tsagris, M. and Fokianos, K.
+(2024). "Inference for Network Count Time Series with the R Package PNAR".
+The R Journal, 15/4: 255--269. <doi:10.32614/RJ-2023-094>.
 
 %prep
 %setup -q -c -n %{packname}

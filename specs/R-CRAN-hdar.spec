@@ -1,42 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bggAnalytics
-%global packver   0.2.1
+%global packname  hdar
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          BoardGameGeek's Board Game Data Analysis Tools
+Summary:          'REST' API Client for Accessing Data on 'WEkEO HDA V2'
 
-License:          GPL-3
+License:          EUPL (>= 1.2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-pryr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-humanize 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-pryr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-humanize 
 
 %description
-Tools for analysing board game data. Mainly focused on providing an
-interface for BoardGameGeek's XML API2 through R6 class system objects.
-More details about the BoardGameGeek's API can be obtained here
-<https://boardgamegeek.com/wiki/page/BGG_XML_API2>.
+Provides seamless access to the WEkEO Harmonised Data Access (HDA) API,
+enabling users to query, download, and process data efficiently from the
+HDA platform. With 'hdar', researchers and data scientists can integrate
+the extensive HDA datasets into their R workflows, enhancing their data
+analysis capabilities. Comprehensive information on the API functionality
+and usage is available at
+<https://gateway.prod.wekeo2.eu/hda-broker/docs>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  garma
-%global packver   0.9.22
+%global packname  AIFFtools
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.22
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
+Summary:          Read AIFF Files and Convert to WAVE Format
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tuneR 
+Requires:         R-CRAN-R.utils 
+Requires:         R-methods 
+Requires:         R-CRAN-tuneR 
 
 %description
-Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer
-time series processes. See for example (2022)
-<doi:10.1007/s00362-022-01290-3>. Refer to the vignette for details of
-fitting these processes.
+Functions are provided to read and convert AIFF audio files to WAVE (WAV)
+format.  This supports, for example, use of the 'tuneR' package, which
+does not currently handle AIFF files.  The AIFF file format is defined in
+<https://web.archive.org/web/20080125221040/http://www.borg.com/~jglatt/tech/aiff.htm>
+and
+<https://www.mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Docs/AIFF-1.3.pdf>
+.
 
 %prep
 %setup -q -c -n %{packname}

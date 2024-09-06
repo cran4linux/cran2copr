@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  garma
-%global packver   0.9.22
+%global packname  mmints
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
+Summary:          Workflows for Building Web Applications
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-pool 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-pool 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-shiny 
 
 %description
-Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer
-time series processes. See for example (2022)
-<doi:10.1007/s00362-022-01290-3>. Refer to the vignette for details of
-fitting these processes.
+Sharing statistical methods or simulation frameworks through 'shiny'
+applications often requires workflows for handling data. To help save and
+display simulation results, the postgresUI() and postgresServer()
+functions in 'mmints' help with persistent data storage using a
+'PostgreSQL' database. The 'mmints' package also offers data upload
+functionality through the csvUploadUI() and csvUploadServer() functions
+which allow users to upload data, view variables and their types, and edit
+variable types before fitting statistical models within the 'shiny'
+application. These tools aim to enhance efficiency and user interaction in
+'shiny' based statistical and simulation applications.
 
 %prep
 %setup -q -c -n %{packname}

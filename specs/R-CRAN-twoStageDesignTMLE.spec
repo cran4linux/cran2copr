@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  garma
-%global packver   0.9.22
+%global packname  twoStageDesignTMLE
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.22
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
+Summary:          Targeted Maximum Likelihood Estimation for Two-Stage Study Design
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tmle >= 2.0
+Requires:         R-CRAN-tmle >= 2.0
 
 %description
-Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer
-time series processes. See for example (2022)
-<doi:10.1007/s00362-022-01290-3>. Refer to the vignette for details of
-fitting these processes.
+An inverse probability of censoring weighted (IPCW) targeted maximum
+likelihood estimator (TMLE) for evaluating a marginal point treatment
+effect from data where some variables were collected on only a subset of
+participants using a two-stage design (or marginal mean outcome for a
+single arm study). A TMLE for conditional parameters defined by a marginal
+structural model (MSM) is also available.
 
 %prep
 %setup -q -c -n %{packname}

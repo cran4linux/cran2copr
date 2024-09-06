@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  garma
-%global packver   0.9.22
+%global packname  ecpdist
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.22
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
+Summary:          Extended Chen-Poisson Lifetime Distribution
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
 
 %description
-Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer
-time series processes. See for example (2022)
-<doi:10.1007/s00362-022-01290-3>. Refer to the vignette for details of
-fitting these processes.
+Computes the Extended Chen-Poisson (ecp) distribution, survival, density,
+hazard, cumulative hazard and quantile functions. It also allows to
+generate a pseudo-random sample from this distribution. The corresponding
+graphics are available. Functions to obtain measures of skewness and
+kurtosis, k-th raw moments, conditional k-th moments and mean residual
+life function were added. For details about ecp distribution, see
+Sousa-Ferreira, I., Abreu, A.M. & Rocha, C. (2023).
+<doi:10.57805/revstat.v21i2.405>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scoringRules
-%global packver   1.1.2
+%global packname  iTOS
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Scoring Rules for Parametric and Simulated Distribution Forecasts
+Summary:          Methods and Examples from Introduction to the Theory of Observational Studies
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.00
-Requires:         R-core >= 3.00
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rcbalance 
+BuildRequires:    R-CRAN-BiasedUrn 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-stats 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rcbalance 
+Requires:         R-CRAN-BiasedUrn 
+Requires:         R-CRAN-xtable 
 
 %description
-Dictionary-like reference for computing scoring rules in a wide range of
-situations. Covers both parametric forecast distributions (such as
-mixtures of Gaussians) and distributions generated via simulation. Further
-details can be found in the package vignettes <doi:10.18637/jss.v090.i12>,
-<doi:10.18637/jss.v110.i08>.
+Supplements for a book, "iTOS" = "Introduction to the Theory of
+Observational Studies."  Data sets are 'aHDL' from Rosenbaum (2023a)
+<doi:10.1111/biom.13558> and 'bingeM' from Rosenbaum (2023b)
+<doi:10.1111/biom.13921>.  The function makematch() uses two-criteria
+matching from Zhang et al. (2023) <doi:10.1080/01621459.2021.1981337> to
+create the matched data 'bingeM' from 'binge'.  The makematch() function
+also implements optimal matching (Rosenbaum (1989) <doi:10.2307/2290079>)
+and matching with fine or near-fine balance (Rosenbaum et al. (2007)
+<doi:10.1198/016214506000001059> and Yang et al (2012)
+<doi:10.1111/j.1541-0420.2011.01691.x>).  The book makes use of two other
+R packages, 'weightedRank' and 'tightenBlock'.
 
 %prep
 %setup -q -c -n %{packname}

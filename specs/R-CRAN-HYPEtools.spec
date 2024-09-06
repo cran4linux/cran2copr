@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HYPEtools
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Processing and Analyzing Files from the Hydrological Catchment Model HYPE
 
@@ -70,7 +70,9 @@ Requires:         R-CRAN-zoo
 Work with model files (setup, input, output) from the hydrological
 catchment model HYPE: Streamlined file import and export, standard
 evaluation plot routines, diverse post-processing and aggregation routines
-for hydrological model analysis.
+for hydrological model analysis. The HYPEtools package is also archived at
+<doi:10.5281/zenodo.7627955> and can be cited in publications with Brendel
+et al. (2024) <doi:10.1016/j.envsoft.2024.106094>.
 
 %prep
 %setup -q -c -n %{packname}

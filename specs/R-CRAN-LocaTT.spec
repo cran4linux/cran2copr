@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LocaTT
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographically-Conscious Taxonomic Assignment for Metabarcoding
 
@@ -19,10 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-taxize 
 Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-taxize 
 
 %description
 A bioinformatics pipeline for performing taxonomic assignment of DNA

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wordmap
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Extraction and Document Classification with Noisy Labels
 
@@ -22,11 +22,15 @@ BuildRequires:    R-methods
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-quanteda >= 2.1
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 
 %description
 Extract features and classify documents with noisy labels given by
