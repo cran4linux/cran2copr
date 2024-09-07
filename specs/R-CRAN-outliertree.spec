@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  outliertree
-%global packver   1.9.0
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explainable Outlier Detection Through Decision Tree Conditioning
 
@@ -27,7 +27,7 @@ Outlier detection method that flags suspicious values within observations,
 constrasting them against the normal values in a user-readable format,
 potentially describing conditions within the data that make a given
 outlier more rare. Full procedure is described in Cortes (2020)
-<arXiv:2001.00636>. Loosely based on the 'GritBot'
+<doi:10.48550/arXiv.2001.00636>. Loosely based on the 'GritBot'
 <https://www.rulequest.com/gritbot-info.html> software.
 
 %prep

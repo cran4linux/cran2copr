@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geobr
-%global packver   1.9.0
+%global packver   1.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Official Spatial Data Sets of Brazil
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.4.1
+BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-sf >= 0.9.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr >= 1.4.1
+Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-sf >= 0.9.3
 Requires:         R-CRAN-dplyr >= 0.8.3
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fs 
 Requires:         R-methods 
 Requires:         R-utils 
 

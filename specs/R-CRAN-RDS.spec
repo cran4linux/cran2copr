@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RDS
-%global packver   0.9-9
+%global packver   0.9-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          0.9.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Respondent-Driven Sampling
 
@@ -48,7 +48,7 @@ RDS-II estimators as well as Gile's Sequential Sampling estimator. The
 package is part of the "RDS Analyst" suite of packages for the analysis of
 respondent-driven sampling data. See Gile and Handcock (2010)
 <doi:10.1111/j.1467-9531.2010.01223.x>, Gile and Handcock (2015)
-<doi:10.1111/rssa.12091> and Gile and Beaudry and Handcock and Ott (2018)
+<doi:10.1111/rssa.12091> and Gile, Beaudry, Handcock and Ott (2018)
 <doi:10.1146/annurev-statistics-031017-100704>.
 
 %prep

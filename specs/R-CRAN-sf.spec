@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sf
-%global packver   1.0-16
+%global packver   1.0-17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.16
+Version:          1.0.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Features for R
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-s2 >= 1.1.0
 BuildRequires:    R-CRAN-DBI >= 0.8
 BuildRequires:    R-CRAN-units >= 0.7.0
 BuildRequires:    R-CRAN-classInt >= 0.4.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.18
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -33,11 +32,11 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-s2 >= 1.1.0
 Requires:         R-CRAN-DBI >= 0.8
 Requires:         R-CRAN-units >= 0.7.0
 Requires:         R-CRAN-classInt >= 0.4.1
-Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-grDevices 

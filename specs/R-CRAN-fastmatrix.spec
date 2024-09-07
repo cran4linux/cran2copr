@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastmatrix
-%global packver   0.5-772
+%global packver   0.5-7721
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.772
+Version:          0.5.7721
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of some Matrices Useful in Statistics
 

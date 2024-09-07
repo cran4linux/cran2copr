@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  netropy
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Entropy Analysis of Network Data
 
@@ -25,8 +26,8 @@ Requires:         R-CRAN-igraph
 
 %description
 Statistical entropy analysis of network data as introduced by Frank and
-Shafie (2016) <doi:10.1177/0759106315615511>, and in a forthcoming book by
-Nowicki, Shafie and Frank (2022).
+Shafie (2016) <doi:10.1177/0759106315615511>, and a in textbook which is
+in progress.
 
 %prep
 %setup -q -c -n %{packname}

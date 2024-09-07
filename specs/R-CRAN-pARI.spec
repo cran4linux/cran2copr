@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pARI
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Permutation-Based All-Resolutions Inference Method
+Summary:          Permutation-Based All-Resolutions Inference
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,9 +37,9 @@ Requires:         R-CRAN-ARIbrain
 Requires:         R-utils 
 
 %description
-It computes the All-Resolution Inference method in the permutation
-framework, i.e., simultaneous lower confidence bounds for the number of
-true discoveries. <arXiv:2012.00368>.
+Computes the All-Resolution Inference method in the permutation framework,
+i.e., simultaneous lower confidence bounds for the number of true
+discoveries. <doi:10.1002/sim.9725>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SHELF
-%global packver   1.10.0
+%global packver   1.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.0
+Version:          1.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Support the Sheffield Elicitation Framework
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-ggExtra 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
@@ -30,8 +31,11 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinyMatrix 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-ggExtra 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
@@ -45,6 +49,8 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinyMatrix 
 Requires:         R-CRAN-sn 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-survminer 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
@@ -56,10 +62,11 @@ or her cumulative distribution function. A range of parametric
 distributions can then be fitted and displayed, with feedback provided in
 the form of fitted probabilities and percentiles. For multiple experts, a
 weighted linear pool can be calculated. Also includes functions for
-eliciting beliefs about population distributions, eliciting multivariate
-distributions using a Gaussian copula, eliciting a Dirichlet distribution,
-and eliciting distributions for variance parameters in a random effects
-meta-analysis model. R Shiny apps for most of the methods are included.
+eliciting beliefs about population distributions; eliciting multivariate
+distributions using a Gaussian copula; eliciting a Dirichlet distribution;
+eliciting distributions for variance parameters in a random effects
+meta-analysis model; survival extrapolation. R Shiny apps for most of the
+methods are included.
 
 %prep
 %setup -q -c -n %{packname}

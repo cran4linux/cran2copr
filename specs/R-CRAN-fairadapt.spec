@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fairadapt
-%global packver   0.2.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fair Data Adaptation with Quantile Preservation
 
@@ -36,11 +36,12 @@ Requires:         R-CRAN-scales
 
 %description
 An implementation of the fair data adaptation with quantile preservation
-described in Plecko & Meinshausen (2019) <arXiv:1911.06685>. The
+described in Plecko & Meinshausen (JMLR 2020, 21(242), 1-44). The
 adaptation procedure uses the specified causal graph to pre-process the
 given training and testing data in such a way to remove the bias caused by
 the protected attribute. The procedure uses tree ensembles for quantile
-regression.
+regression. Instructions for using the methods are further elaborated in
+the corresponding JSS manuscript, see <doi:10.18637/jss.v110.i04>.
 
 %prep
 %setup -q -c -n %{packname}

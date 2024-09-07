@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AFR
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Regression Analysis of Kazakhstan Banking Sector Data
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-regclass 
 BuildRequires:    R-CRAN-olsrr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lmtest 
@@ -31,12 +32,15 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-mFilter 
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-regclass 
 Requires:         R-CRAN-olsrr 
 Requires:         R-stats 
 Requires:         R-CRAN-lmtest 
@@ -48,6 +52,8 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-xts 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-mFilter 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-goftest 
 Requires:         R-CRAN-cli 

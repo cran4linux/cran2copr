@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pedsuite
-%global packver   1.2.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Installation of the 'ped suite' Packages for Pedigree Analysis
+Summary:          Easy Installation of the 'pedsuite' Packages for Pedigree Analysis
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-dvir
 BuildRequires:    R-CRAN-ibdsim2 
 BuildRequires:    R-CRAN-paramlink2 
 BuildRequires:    R-CRAN-pedbuildr 
+BuildRequires:    R-CRAN-pedFamilias 
 BuildRequires:    R-CRAN-segregatr 
 Requires:         R-CRAN-forrel 
 Requires:         R-CRAN-pedprobr 
@@ -38,13 +39,14 @@ Requires:         R-CRAN-dvir
 Requires:         R-CRAN-ibdsim2 
 Requires:         R-CRAN-paramlink2 
 Requires:         R-CRAN-pedbuildr 
+Requires:         R-CRAN-pedFamilias 
 Requires:         R-CRAN-segregatr 
 
 %description
-The 'ped suite' is a collection of packages for pedigree analysis,
-covering applications in forensic genetics, medical genetics and more. A
-detailed presentation of the 'ped suite' is given in the book 'Pedigree
-Analysis in R' (Vigeland, 2021, ISBN: 9780128244302).
+The 'pedsuite' is a collection of packages for pedigree analysis, covering
+applications in forensic genetics, medical genetics and more. A detailed
+presentation of the 'pedsuite' is given in the book 'Pedigree Analysis in
+R' (Vigeland, 2021, ISBN: 9780128244302).
 
 %prep
 %setup -q -c -n %{packname}

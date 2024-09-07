@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  IrregLong
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Longitudinal Data with Irregular Observation Times
 
@@ -17,11 +18,11 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-geepack 
+BuildRequires:    R-CRAN-geeM 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-graphics 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-geepack 
+Requires:         R-CRAN-geeM 
 Requires:         R-CRAN-data.table 
 Requires:         R-graphics 
 

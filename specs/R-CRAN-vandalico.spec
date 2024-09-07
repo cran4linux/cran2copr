@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  vandalico
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Presence-Absence Models
 
@@ -24,11 +25,12 @@ Requires:         R-stats
 Requires:         R-graphics 
 
 %description
-Collection of functions to evaluate presence-absence models. The main
-function corrects discrimination for the representativeness effect
-following: Jiménez-Valverde (2022) "The uniform AUC: dealing with the
-representativeness effect in presence-absence models. Methods Ecol. Evol,
-accepted on 28 January 2022.
+Collection of functions to evaluate presence-absence models. It comprises
+functions to adjust discrimination statistics for the representativeness
+effect through case-weighting, along with functions for visualizing the
+outcomes. Originally outlined in: Jiménez-Valverde (2022) The uniform AUC:
+dealing with the representativeness effect in presence-absence models.
+Methods Ecol. Evol, 13, 1224-1236.
 
 %prep
 %setup -q -c -n %{packname}

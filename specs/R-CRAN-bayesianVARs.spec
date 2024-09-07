@@ -1,43 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbacon
-%global packver   3.3.0
+%global packname  bayesianVARs
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          MCMC Estimation of Bayesian Vectorautoregressions
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-rice 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-stochvol >= 3.0.3
+BuildRequires:    R-CRAN-factorstochvol >= 1.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-GIGrvg >= 0.7
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-rice 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
+Requires:         R-CRAN-stochvol >= 3.0.3
+Requires:         R-CRAN-factorstochvol >= 1.1.0
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-GIGrvg >= 0.7
+Requires:         R-CRAN-colorspace 
 Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-data.table 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information on accumulation rates
-and their variability. See Blaauw & Christen (2011).
+Efficient Markov Chain Monte Carlo (MCMC) algorithms for the fully
+Bayesian estimation of vectorautoregressions (VARs) featuring stochastic
+volatility (SV). Implements state-of-the-art shrinkage priors following
+Gruber & Kastner (2023) <doi:10.48550/arXiv.2206.04902>. Efficient
+equation-per-equation estimation following Kastner & Huber (2020)
+<doi:10.1002/for.2680> and Carrerio et al. (2021)
+<doi:10.1016/j.jeconom.2021.11.010>.
 
 %prep
 %setup -q -c -n %{packname}

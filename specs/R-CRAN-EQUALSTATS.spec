@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EQUALSTATS
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algorithm Driven Statistical Analysis for Researchers without Coding Skills
 
@@ -34,7 +34,6 @@ BuildRequires:    R-CRAN-pROC
 BuildRequires:    R-CRAN-ThresholdROC 
 BuildRequires:    R-CRAN-ggsurvfit 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-mclogit 
 BuildRequires:    R-CRAN-ordinal 
 BuildRequires:    R-CRAN-coxme 
@@ -56,7 +55,6 @@ Requires:         R-CRAN-pROC
 Requires:         R-CRAN-ThresholdROC 
 Requires:         R-CRAN-ggsurvfit 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-mclogit 
 Requires:         R-CRAN-ordinal 
 Requires:         R-CRAN-coxme 

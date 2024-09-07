@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VertexWiseR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplified Vertex-Wise Analyses of Whole-Brain and Hippocampal Surface
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ciftiTools 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-CRAN-foreach 
@@ -26,9 +27,13 @@ BuildRequires:    R-CRAN-gifti
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-ciftiTools 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-CRAN-foreach 
@@ -38,19 +43,22 @@ Requires:         R-CRAN-gifti
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
 Provides functions to run statistical analyses on surface-based
 neuroimaging data, computing measures including cortical thickness and
 surface area of the whole-brain and of the hippocampi. It can make use of
-'FreeSurfer' preprocessed datasets and 'HippUnfold' hippocampal
-segmentation outputs for a given sample by restructuring the data values
-into a single file. The single file can then be used by the package for
-analyses independently from its base dataset and without need for its
-access.
+'FreeSurfer', 'fMRIprep' and 'HCP' preprocessed datasets and 'HippUnfold'
+hippocampal segmentation outputs for a given sample by restructuring the
+data values into a single file. The single file can then be used by the
+package for analyses independently from its base dataset and without need
+for its access.
 
 %prep
 %setup -q -c -n %{packname}
