@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datana
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets and Functions to Accompany Analisis De Datos Con R
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-methods 
 
 %description
 Datasets and functions to accompany the book 'Analisis de datos con el

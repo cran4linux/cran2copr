@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paramlink2
-%global packver   1.0.6
+%global packname  fntl
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric Linkage Analysis
+Summary:          Numerical Tools for 'Rcpp' and Lambda Functions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools 
-BuildRequires:    R-CRAN-pedprobr 
-Requires:         R-CRAN-pedtools 
-Requires:         R-CRAN-pedprobr 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Parametric linkage analysis of monogenic traits in medical pedigrees.
-Features include singlepoint analysis, multipoint analysis via 'MERLIN'
-(Abecasis et al. (2002) <doi:10.1038/ng786>), visualisation of log of the
-odds (LOD) scores and summaries of linkage peaks. Disease models may be
-specified to accommodate phenocopies, reduced penetrance and liability
-classes. 'paramlink2' is part of the 'pedsuite' package ecosystem,
-presented in 'Pedigree Analysis in R' (Vigeland, 2021,
-ISBN:9780128244302).
+Provides a 'C++' API for routinely used numerical tools such as
+integration, root-finding, and optimization, where function arguments are
+given as lambdas. This facilitates 'Rcpp' programming, enabling the
+development of 'R'-like code in 'C++' where functions can be defined on
+the fly and use variables in the surrounding environment.
 
 %prep
 %setup -q -c -n %{packname}

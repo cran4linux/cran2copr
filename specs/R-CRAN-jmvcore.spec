@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmvcore
-%global packver   2.4.7
+%global packver   2.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.7
+Version:          2.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dependencies for the 'jamovi' Framework
 
@@ -21,12 +21,10 @@ BuildRequires:    R-CRAN-R6 >= 1.0.1
 BuildRequires:    R-CRAN-rlang >= 0.3.0.1
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-stringi 
 Requires:         R-CRAN-R6 >= 1.0.1
 Requires:         R-CRAN-rlang >= 0.3.0.1
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-stringi 
 
 %description
 A framework for creating rich interactive analyses for the jamovi platform
