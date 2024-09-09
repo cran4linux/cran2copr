@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fNonlinear
-%global packver   4021.81
+%global packver   4041.82
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4021.81
+Version:          4041.82
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rmetrics - Nonlinear and Chaotic Time Series Modelling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.1
-Requires:         R-core >= 2.15.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-timeDate 
 BuildRequires:    R-CRAN-timeSeries 
 BuildRequires:    R-CRAN-fBasics 

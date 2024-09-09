@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  litedown
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Version of R Markdown
 
@@ -14,28 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-commonmark >= 1.9.1
-BuildRequires:    R-CRAN-xfun >= 0.46
+BuildRequires:    R-CRAN-xfun >= 0.47
 BuildRequires:    R-utils 
 Requires:         R-CRAN-commonmark >= 1.9.1
-Requires:         R-CRAN-xfun >= 0.46
+Requires:         R-CRAN-xfun >= 0.47
 Requires:         R-utils 
 
 %description
 Render R Markdown to Markdown (without using 'knitr'), and Markdown to
-lightweight HTML/'LaTeX' documents with the 'commonmark' package (instead
-of 'Pandoc'). Some missing Markdown features in 'commonmark' are also
-supported, such as raw HTML/'LaTeX' blocks, 'LaTeX' math, superscripts,
-subscripts, footnotes, element attributes, appendices, and fenced 'Divs',
-but not all 'Pandoc' Markdown features are (or will be) supported. With
-additional JavaScript and CSS, you can also create HTML slides and
-articles. This package can be viewed as a trimmed-down version of R
-Markdown and 'knitr'. It does not aim at rich Markdown features or a large
-variety of output formats (the primary formats are HTML and 'LaTeX'). Book
-and website projects of multiple input documents are also supported.
+lightweight HTML/LaTeX documents with the 'commonmark' package (instead of
+'Pandoc'). Some missing Markdown features in 'commonmark' are also
+supported, such as raw HTML/LaTeX blocks, LaTeX math, superscripts,
+subscripts, footnotes, element attributes, and appendices, but not all
+'Pandoc' Markdown features are (or will be) supported. With additional
+JavaScript and CSS, you can also create HTML slides and articles. This
+package can be viewed as a trimmed-down version of R Markdown and 'knitr'.
+It does not aim at rich Markdown features or a large variety of output
+formats (the primary formats are HTML and LaTeX). Book and website
+projects of multiple input documents are also supported.
 
 %prep
 %setup -q -c -n %{packname}

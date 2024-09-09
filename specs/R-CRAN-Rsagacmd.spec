@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rsagacmd
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linking R with the Open-Source 'SAGA-GIS' Software
 
@@ -53,7 +53,7 @@ are accessed as a named list of libraries and tools. This structure
 facilitates an easier scripting experience by organizing the large number
 of 'SAGA-GIS' geoprocessing tools (>700) by their respective library.
 Interactive scripting can fully take advantage of code autocompletion
-tools (e.g. in 'Rstudio'), allowing for each tools syntax to be quickly
+tools (e.g. in 'RStudio'), allowing for each tools syntax to be quickly
 recognized. Furthermore, the most common types of spatial data (via the
 'terra', 'sp', and 'sf' packages) along with non-spatial data are
 automatically passed from R to the 'SAGA-GIS' command line tool for
@@ -65,7 +65,7 @@ available under a GPLv2 / LGPLv2 licence from
 <https://sourceforge.net/projects/saga-gis/> including Windows x86/x64 and
 macOS binaries. SAGA-GIS is also included in Debian/Ubuntu default
 software repositories. Rsagacmd has currently been tested on 'SAGA-GIS'
-versions from 2.3.1 to 9.2 on Windows, Linux and macOS.
+versions from 2.3.1 to 9.5.1 on Windows, Linux and macOS.
 
 %prep
 %setup -q -c -n %{packname}

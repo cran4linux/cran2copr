@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geessbin
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modified Generalized Estimating Equations for Binary Outcome
 
@@ -22,10 +22,9 @@ Requires:         R-CRAN-MASS >= 7.3.45
 
 %description
 Analyze small-sample clustered or longitudinal data with binary outcome
-using modified generalized estimating equations with bias-adjusted
-covariance estimator. The package provides any combination of three
-modified generalized estimating equations and 11 bias-adjusted covariance
-estimators.
+using modified generalized estimating equations (GEE) with bias-adjusted
+covariance estimator. The package provides any combination of three GEE
+methods and 12 covariance estimators.
 
 %prep
 %setup -q -c -n %{packname}

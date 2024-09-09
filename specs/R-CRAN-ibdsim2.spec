@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibdsim2
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Chromosomal Regions Shared by Family Members
 
@@ -33,10 +33,10 @@ members. Using sex specific recombination rates along the human genome
 (Halldorsson et al. (2019) <doi:10.1126/science.aau1043>), phased
 chromosomes are simulated for all pedigree members. Applications include
 calculation of realised relatedness coefficients and IBD segment
-distributions. 'ibdsim2' is part of the 'ped suite' collection of packages
+distributions. 'ibdsim2' is part of the 'pedsuite' collection of packages
 for pedigree analysis. A detailed presentation of the 'ped suite',
 including a separate chapter on 'ibdsim2', is available in the book
-'Pedigree analysis in R' (Vigeland, 2021, ISBN:9780128244302). A 'shiny'
+'Pedigree analysis in R' (Vigeland, 2021, ISBN:9780128244302). A 'Shiny'
 app for visualising and comparing IBD distributions is available at
 <https://magnusdv.shinyapps.io/ibdsim2-shiny/>.
 

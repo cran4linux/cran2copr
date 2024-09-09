@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMCluster
-%global packver   0.2-15
+%global packver   0.2-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.15
+Version:          0.2.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          EM Algorithm for Model-Based Clustering of Finite Mixture Gaussian Distribution
 

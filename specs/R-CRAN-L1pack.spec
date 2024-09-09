@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  L1pack
-%global packver   0.41-245
+%global packver   0.50
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.41.245
+Version:          0.50
 Release:          1%{?dist}%{?buildtag}
 Summary:          Routines for L1 Estimation
 
@@ -32,6 +32,8 @@ L1 estimation for linear regression using Barrodale and Roberts' method
 using the multivariate Laplace distribution, density, distribution
 function, quantile function and random number generation for univariate
 and multivariate Laplace distribution <doi:10.1080/03610929808832115>.
+Implementation of Naik and Plungpongpun <doi:10.1007/0-8176-4487-3_7> for
+the Generalized spatial median estimator is included.
 
 %prep
 %setup -q -c -n %{packname}
