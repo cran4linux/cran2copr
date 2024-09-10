@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ElliptCopulas
-%global packver   0.1.4.1
+%global packname  PoweREST
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference of Elliptical Distributions and Copulas
+Summary:          A Bootstrap-Based Power Estimation Tool for Spatial Transcriptomics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-CRAN-wdm 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-kStatistics 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-Runuran 
-Requires:         R-CRAN-wdm 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-kStatistics 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-CRAN-scam 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-resample 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rayshader 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-scam 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-resample 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rayshader 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Provides functions for the simulation and the nonparametric estimation of
-elliptical distributions, meta-elliptical copulas and trans-elliptical
-distributions, following the article Derumigny and Fermanian (2022)
-<doi:10.1016/j.jmva.2022.104962>.
+Power estimation and sample size calculation for 10X Visium Spatial
+Transcriptomics data to detect differential expressed genes between two
+conditions based on bootstrap resampling. See Shui et al. (2024)
+<doi:10.1101/2024.08.30.610564> for method details.
 
 %prep
 %setup -q -c -n %{packname}

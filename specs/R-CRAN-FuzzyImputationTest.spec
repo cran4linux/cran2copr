@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ElliptCopulas
-%global packver   0.1.4.1
+%global packname  FuzzyImputationTest
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference of Elliptical Distributions and Copulas
+Summary:          Imputation Procedures and Quality Tests for Fuzzy Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-CRAN-wdm 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-kStatistics 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-Runuran 
-Requires:         R-CRAN-wdm 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-kStatistics 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-FuzzySimRes 
+BuildRequires:    R-CRAN-FuzzyNumbers 
+BuildRequires:    R-CRAN-missForest 
+BuildRequires:    R-CRAN-miceRanger 
+BuildRequires:    R-CRAN-VIM 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-FuzzySimRes 
+Requires:         R-CRAN-FuzzyNumbers 
+Requires:         R-CRAN-missForest 
+Requires:         R-CRAN-miceRanger 
+Requires:         R-CRAN-VIM 
 
 %description
-Provides functions for the simulation and the nonparametric estimation of
-elliptical distributions, meta-elliptical copulas and trans-elliptical
-distributions, following the article Derumigny and Fermanian (2022)
-<doi:10.1016/j.jmva.2022.104962>.
+Special procedures for the imputation of missing fuzzy numbers are still
+underdeveloped. The goal of the package is to provide the new d-imputation
+method (DIMP for short, Romaniuk, M. and Grzegorzewski, P. "Fuzzy Data
+Imputation with DIMP and FGAIN" RB/23/2023 (2023)) and covert some
+classical ones applied in R packages ('missForest','miceRanger','knn') for
+use with fuzzy datasets. Additionally, specially tailored benchmarking
+tests are provided to check and compare these imputation procedures with
+fuzzy datasets.
 
 %prep
 %setup -q -c -n %{packname}

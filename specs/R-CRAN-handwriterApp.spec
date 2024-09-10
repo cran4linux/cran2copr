@@ -1,34 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdicdata
-%global packver   0.1.0
+%global packname  handwriterApp
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accessing FDIC Bank Data
+Summary:          A 'shiny' Application for Handwriting Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-handwriter 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-handwriter 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-A system provides a set of functions for working with data from the
-Federal Deposit Insurance Corporation (FDIC), including retrieving
-financial data for FDIC-insured institutions and accessing the data
-taxonomy.
+Perform statistical writership analysis of scanned handwritten documents
+with a 'shiny' app for 'handwriter'.
 
 %prep
 %setup -q -c -n %{packname}

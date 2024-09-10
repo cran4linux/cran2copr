@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hytest
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hypothesis Testing Based on Neyman-Pearson Lemma and Likelihood Ratio Test
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
 
 %description
 Error type I and Optimal critical values to test statistical hypothesis
 based on Neyman-Pearson Lemma and Likelihood ratio test based on random
 samples from several distributions. The families of distributions are
-Bernoulli, Exponential, Geometric, Normal, Gamma, Lognormal, and Poisson.
-This package is an ideal resource to help with the teaching of Statistics.
-The main references for this package are Casella G. and Berger R.
-(2003,ISBN:0-534-24312-6 , "Statistical Inference. Second Edition",
-Duxbury Press) and Hogg, R., McKean, J., and Craig, A.
-(2019,ISBN:013468699, "Introduction to Mathematical Statistic. Eighth
-edition", Pearson).
+Bernoulli, Exponential, Geometric, Inverse Normal, Normal, Gamma, Gumbel,
+Lognormal, Poisson, and Weibull. This package is an ideal resource to help
+with the teaching of Statistics. The main references for this package are
+Casella G. and Berger R. (2003,ISBN:0-534-24312-6 , "Statistical
+Inference. Second Edition", Duxbury Press) and Hogg, R., McKean, J., and
+Craig, A. (2019,ISBN:013468699, "Introduction to Mathematical Statistic.
+Eighth edition", Pearson).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoImp
-%global packver   2.0.1
+%global packname  lab2clean
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric and Non-Parametric Copula-Based Imputation Methods
+Summary:          Automation and Standardization of Cleaning Clinical Lab Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-locfit 
-Requires:         R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
 Requires:         R-stats 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-locfit 
+Requires:         R-utils 
 
 %description
-Copula-based imputation methods: parametric and non-parametric algorithms
-for missing multivariate data through conditional copulas.
+Navigating the shift of clinical laboratory data from primary everyday
+clinical use to secondary research purposes presents a significant
+challenge. Given the substantial time and expertise required for lab data
+pre-processing and cleaning and the lack of all-in-one tools tailored for
+this need, we developed our algorithm 'lab2clean' as an open-source
+R-package. 'lab2clean' package is set to automate and standardize the
+intricate process of cleaning clinical laboratory results. With a keen
+focus on improving the data quality of laboratory result values, our goal
+is to equip researchers with a straightforward, plug-and-play tool, making
+it smoother for them to unlock the true potential of clinical laboratory
+data in clinical research and clinical machine learning (ML) model
+development. Version 1.0 of the algorithm is described in detail in 'Zayed
+et al. (2024)' <doi:10.1186/s12911-024-02652-7>.
 
 %prep
 %setup -q -c -n %{packname}

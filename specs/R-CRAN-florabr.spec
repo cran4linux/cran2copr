@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  florabr
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore Flora e Funga do Brasil Database
 
@@ -17,20 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-parallel >= 4.3.1
 BuildRequires:    R-stats >= 4.2.3
 BuildRequires:    R-utils >= 4.2.3
 BuildRequires:    R-grDevices >= 4.2.3
 BuildRequires:    R-CRAN-XML >= 3.99.0.14
 BuildRequires:    R-CRAN-terra >= 1.7.39
+BuildRequires:    R-CRAN-foreach >= 1.5.2
 BuildRequires:    R-CRAN-httr >= 1.4.6
 BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-doSNOW >= 1.0.20
+Requires:         R-parallel >= 4.3.1
 Requires:         R-stats >= 4.2.3
 Requires:         R-utils >= 4.2.3
 Requires:         R-grDevices >= 4.2.3
 Requires:         R-CRAN-XML >= 3.99.0.14
 Requires:         R-CRAN-terra >= 1.7.39
+Requires:         R-CRAN-foreach >= 1.5.2
 Requires:         R-CRAN-httr >= 1.4.6
 Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-doSNOW >= 1.0.20
 
 %description
 A collection of functions designed to retrieve, filter and spatialize data

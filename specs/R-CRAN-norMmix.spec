@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  norMmix
-%global packver   0.1-1
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Direct MLE for Multivariate Normal Mixture Distributions
 
@@ -30,13 +30,11 @@ Requires:         R-CRAN-sfsmisc
 
 %description
 Multivariate Normal (i.e. Gaussian) Mixture Models (S3) Classes. Fitting
-models to data using MLE (maximum likelihood estimation) for multivariate
-normal mixtures via smart parametrization using the LDLt (Cholesky)
-decomposition. McLachlan, G. and Peel, D. (2000, ISBN:9780471006268)
-"Finite Mixture Models". Celeux, G. and Govaert, G. (1995)
-<doi:10.1016/0031-3203(94)00125-6> "Gaussian parsimonious clustering
-models". Marron, S. and Wand, M. (1992) <doi:10.1214/aos/1176348653>
-"Exact Mean Integrated Squared Error".
+models to data using 'MLE' (maximum likelihood estimation) for
+multivariate normal mixtures via smart parametrization using the 'LDL'
+(Cholesky) decomposition, see McLachlan and Peel (2000,
+ISBN:9780471006268), Celeux and Govaert (1995)
+<doi:10.1016/0031-3203(94)00125-6>.
 
 %prep
 %setup -q -c -n %{packname}

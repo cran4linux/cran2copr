@@ -1,38 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ElliptCopulas
-%global packver   0.1.4.1
+%global packname  pedtricks
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference of Elliptical Distributions and Copulas
+Summary:          Visualize, Summarize and Simulate Data from Pedigrees
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-CRAN-wdm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-kinship2 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-kStatistics 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-Runuran 
-Requires:         R-CRAN-wdm 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-MCMCglmm 
+BuildRequires:    R-CRAN-nadiv 
+BuildRequires:    R-CRAN-genetics 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-kinship2 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-kStatistics 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-MCMCglmm 
+Requires:         R-CRAN-nadiv 
+Requires:         R-CRAN-genetics 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
 
 %description
-Provides functions for the simulation and the nonparametric estimation of
-elliptical distributions, meta-elliptical copulas and trans-elliptical
-distributions, following the article Derumigny and Fermanian (2022)
-<doi:10.1016/j.jmva.2022.104962>.
+Sensitivity and power analysis, for calculating statistics describing
+pedigrees from wild populations, and for visualizing pedigrees.
 
 %prep
 %setup -q -c -n %{packname}

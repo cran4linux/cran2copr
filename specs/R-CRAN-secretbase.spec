@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secretbase
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 
 %description
-Fast and memory-efficient streaming hash functions and base64 encoding and
-decoding. Performs direct hashing of strings and raw vectors. Stream
-hashes files potentially larger than memory, as well as in-memory objects
-through R's serialization mechanism. Implementations include the SHA-256,
-SHA-3 and 'Keccak' cryptographic hash functions, SHAKE256
-extendable-output function (XOF), and 'SipHash' pseudo-random function.
+Fast and memory-efficient streaming hash functions and base64 encoding /
+decoding. Hashes strings and raw vectors directly. Stream hashes files
+potentially larger than memory, as well as in-memory objects through R's
+serialization mechanism. Implementations include the SHA-256, SHA-3 and
+'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
+(XOF), and 'SipHash' pseudo-random function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unmconf
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling with Unmeasured Confounding
 
@@ -21,14 +21,16 @@ BuildRequires:    R-CRAN-rjags
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-coda 
 Requires:         R-CRAN-rjags 
 Requires:         R-stats 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-coda 
 
 %description
-Fit and assess Bayesian multi-staged regression models that account for
-unmeasured confounders using JAGS.
+Tools for fitting and assessing Bayesian multilevel regression models that
+account for unmeasured confounders.
 
 %prep
 %setup -q -c -n %{packname}

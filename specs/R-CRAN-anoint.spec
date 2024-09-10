@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ElliptCopulas
-%global packver   0.1.4.1
+%global packname  anoint
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference of Elliptical Distributions and Copulas
+Summary:          Analysis of Interactions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Runuran 
-BuildRequires:    R-CRAN-wdm 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-kStatistics 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-Runuran 
-Requires:         R-CRAN-wdm 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-kStatistics 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
+Requires:         R-grid 
+Requires:         R-methods 
+Requires:         R-CRAN-glmnet 
 
 %description
-Provides functions for the simulation and the nonparametric estimation of
-elliptical distributions, meta-elliptical copulas and trans-elliptical
-distributions, following the article Derumigny and Fermanian (2022)
-<doi:10.1016/j.jmva.2022.104962>.
+The tools in this package are intended to help researchers assess multiple
+treatment-covariate interactions with data from a parallel-group
+randomized controlled clinical trial. The methods implemented in the
+package were proposed in Kovalchik, Varadhan and Weiss (2013) <doi:
+10.1002/sim.5881>.
 
 %prep
 %setup -q -c -n %{packname}

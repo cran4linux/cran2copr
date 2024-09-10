@@ -1,54 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BREADR
-%global packver   1.0.2
+%global packname  vachette
+%global packver   0.40.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.40.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimates Degrees of Relatedness (Up to the Second Degree) for Extreme Low-Coverage Data
+Summary:          A Method for Visualization of Pharmacometric Models
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-prospectr 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-photobiology 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grDevices 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-prospectr 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-photobiology 
 
 %description
-The goal of the package is to provide an easy-to-use method for estimating
-degrees of relatedness (up to the second degree) for extreme low-coverage
-data. The package also allows users to quantify and visualise the level of
-confidence in the estimated degrees of relatedness.
+A method to visualize pharmacometric analyses which are impacted by
+covariate effects. Variability-aligned covariate harmonized-effects and
+time-transformation equivalent ('vachette') facilitates intuitive overlays
+of data and model predictions, allowing for comprehensive comparison
+without dilution effects. 'vachette' improves upon previous methods
+Lommerse et al. (2021) <doi:10.1002/psp4.12679>, enabling its application
+to all pharmacometric models and enhancing Visual Predictive Checks (VPC)
+by integrating data into cohesive plots that can highlight model
+misspecification.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LorenzRegression
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lorenz and Penalized Lorenz Regressions
 
@@ -19,6 +19,10 @@ Requires:         R-core >= 3.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -26,11 +30,14 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-GA 
 BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-CRAN-Rearrangement 
-BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-rsample 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -38,13 +45,13 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-GA 
 Requires:         R-CRAN-locpol 
 Requires:         R-CRAN-Rearrangement 
-Requires:         R-CRAN-knitr 
 
 %description
 Inference for the Lorenz and penalized Lorenz regressions. More broadly,
 the package proposes functions to assess inequality and graphically
 represent it. The Lorenz Regression procedure is introduced in Heuchenne
-and Jacquemain (2022) <doi:10.1016/j.csda.2021.107347>.
+and Jacquemain (2022) <doi:10.1016/j.csda.2021.107347> and in Jacquemain,
+A., C. Heuchenne, and E. Pircalabelu (2024) <doi:10.1214/23-EJS2200>.
 
 %prep
 %setup -q -c -n %{packname}
