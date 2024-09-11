@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  comparer
-%global packver   0.2.3
+%global packname  lulab.utils
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compare Output and Run Time
+Summary:          Supporting Functions Maintained by Zhen Lu
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-descr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-table1 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-descr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-table1 
 
 %description
-Quickly run experiments to compare the run time and output of code blocks.
-The function mbc() can make fast comparisons of code, and will calculate
-statistics comparing the resulting outputs. It can be used to compare
-model fits to the same data or see which function runs faster. The R6
-class ffexp$new() runs a function using all possible combinations of
-selected inputs. This is useful for comparing the effect of different
-parameter values. It can also run in parallel and automatically save
-intermediate results, which is very useful for long computations.
+Miscellaneous functions commonly used by LuLab. This package aims to help
+more researchers on epidemiology to perform data management and
+visualization more efficiently.
 
 %prep
 %setup -q -c -n %{packname}

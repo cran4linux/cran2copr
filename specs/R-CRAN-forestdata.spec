@@ -1,35 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  troopdata
-%global packver   1.0.2
+%global packname  forestdata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Analyzing Cross-National Military Deployment and Basing Data
+Summary:          Download Forestry Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-archive 
+BuildRequires:    R-CRAN-RODBC 
+BuildRequires:    R-CRAN-foreign 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-archive 
+Requires:         R-CRAN-RODBC 
+Requires:         R-CRAN-foreign 
 
 %description
-These functions generate data frames on troop deployments and military
-basing using U.S. Department of Defense data on overseas military
-deployments. This package provides functions for pulling country-year
-troop deployment and basing data. Subsequent versions will hopefully
-include cross-national data on deploying countries.
+Functions for downloading forestry and land use data for use in spatial
+analysis. This packages offers a user-friendly solution to quickly obtain
+datasets such as forest height, forest types, tree species under various
+climate change scenarios, or land use data among others.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epilogi
-%global packver   1.1
+%global packname  outqrf
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
+Summary:          Find the Outlier by Quantile Random Forests
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-missRanger 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-stats 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-missRanger 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 
 %description
-The 'epilogi' variable selection algorithm is implemented for the case of
-continuous response and predictor variables. The relevant paper is:
-Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
-P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
-Genome Wide Association Studies". Bioinformatics.
-<doi:10.1093/bioinformatics/btad545>.
+Provides a method to find the outlier in custom data by quantile random
+forests method. Introduced by Meinshausen Nicolai (2006)
+<https://dl.acm.org/doi/10.5555/1248547.1248582>. It directly calls the
+ranger() function of the 'ranger' package to perform data fitting and
+prediction. We also implement the evaluation of outlier prediction
+results. Compared with random forest detection of outliers, this method
+has higher accuracy and stability on large datasets.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdm
-%global packver   1.5.0-9.1
+%global packver   1.6.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.9.1
+Version:          1.6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Dissimilarity Modeling
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-vegan 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-pbapply 
 Requires:         R-parallel 
 Requires:         R-methods 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-vegan 

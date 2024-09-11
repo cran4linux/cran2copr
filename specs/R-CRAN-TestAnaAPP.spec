@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestAnaAPP
-%global packver   1.0.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' App for Test Analysis and Visualization
 
@@ -26,8 +26,9 @@ BuildRequires:    R-CRAN-rmarkdown >= 2.24
 BuildRequires:    R-CRAN-shiny >= 1.7.5
 BuildRequires:    R-CRAN-EstCRM >= 1.6
 BuildRequires:    R-CRAN-stringr >= 1.5.0
-BuildRequires:    R-CRAN-mirt >= 1.40
+BuildRequires:    R-CRAN-mirt >= 1.42
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-semPlot >= 1.1.6
 BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-cowplot >= 1.1.1
 BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
@@ -36,9 +37,9 @@ BuildRequires:    R-CRAN-shinydashboard >= 0.7.2
 BuildRequires:    R-CRAN-latticeExtra >= 0.6.30
 BuildRequires:    R-CRAN-officer >= 0.6.2
 BuildRequires:    R-CRAN-golem >= 0.4.1
+BuildRequires:    R-CRAN-lordif >= 0.3.3
 BuildRequires:    R-CRAN-officedown >= 0.3.0
 BuildRequires:    R-CRAN-DT >= 0.29
-BuildRequires:    R-CRAN-tidySEM >= 0.2.4
 Requires:         R-CRAN-difR >= 5.1
 Requires:         R-CRAN-openxlsx >= 4.2.5.2
 Requires:         R-CRAN-plotrix >= 3.8.2
@@ -48,8 +49,9 @@ Requires:         R-CRAN-rmarkdown >= 2.24
 Requires:         R-CRAN-shiny >= 1.7.5
 Requires:         R-CRAN-EstCRM >= 1.6
 Requires:         R-CRAN-stringr >= 1.5.0
-Requires:         R-CRAN-mirt >= 1.40
+Requires:         R-CRAN-mirt >= 1.42
 Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-semPlot >= 1.1.6
 Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-cowplot >= 1.1.1
 Requires:         R-CRAN-shinycssloaders >= 1.0.0
@@ -58,9 +60,9 @@ Requires:         R-CRAN-shinydashboard >= 0.7.2
 Requires:         R-CRAN-latticeExtra >= 0.6.30
 Requires:         R-CRAN-officer >= 0.6.2
 Requires:         R-CRAN-golem >= 0.4.1
+Requires:         R-CRAN-lordif >= 0.3.3
 Requires:         R-CRAN-officedown >= 0.3.0
 Requires:         R-CRAN-DT >= 0.29
-Requires:         R-CRAN-tidySEM >= 0.2.4
 
 %description
 This application provides exploratory and confirmatory factor analysis,

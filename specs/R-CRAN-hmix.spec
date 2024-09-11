@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epilogi
-%global packver   1.1
+%global packname  hmix
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
+Summary:          Hidden Markov Model for Predicting Time Sequences with Mixture Sampling
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-gld >= 2.6.6
+BuildRequires:    R-CRAN-cubature >= 2.1.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-glogis >= 1.0.2
+BuildRequires:    R-CRAN-purrr >= 1.0.1
+BuildRequires:    R-CRAN-HMM >= 1.0.1
+BuildRequires:    R-CRAN-normalp >= 0.7.2
+BuildRequires:    R-CRAN-edfun >= 0.2.0
+BuildRequires:    R-CRAN-mc2d >= 0.2.0
+Requires:         R-CRAN-gld >= 2.6.6
+Requires:         R-CRAN-cubature >= 2.1.0
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-glogis >= 1.0.2
+Requires:         R-CRAN-purrr >= 1.0.1
+Requires:         R-CRAN-HMM >= 1.0.1
+Requires:         R-CRAN-normalp >= 0.7.2
+Requires:         R-CRAN-edfun >= 0.2.0
+Requires:         R-CRAN-mc2d >= 0.2.0
 
 %description
-The 'epilogi' variable selection algorithm is implemented for the case of
-continuous response and predictor variables. The relevant paper is:
-Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
-P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
-Genome Wide Association Studies". Bioinformatics.
-<doi:10.1093/bioinformatics/btad545>.
+An algorithm for time series analysis that leverages hidden Markov models,
+cluster analysis, and mixture distributions to segment data, detect
+patterns and predict future sequences.
 
 %prep
 %setup -q -c -n %{packname}

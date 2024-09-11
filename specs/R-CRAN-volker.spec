@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  volker
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Functions for Tabulating, Charting and Reporting Survey Data
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-tibble 
@@ -39,6 +40,7 @@ BuildRequires:    R-CRAN-effectsize
 BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-tibble 

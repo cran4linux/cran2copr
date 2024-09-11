@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epilogi
-%global packver   1.1
+%global packname  CTRing
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
+Summary:          Density Profiles of Wood from CT Scan Images
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-xRing 
+BuildRequires:    R-CRAN-functional 
+BuildRequires:    R-CRAN-oro.dicom 
+Requires:         R-CRAN-xRing 
+Requires:         R-CRAN-functional 
+Requires:         R-CRAN-oro.dicom 
 
 %description
-The 'epilogi' variable selection algorithm is implemented for the case of
-continuous response and predictor variables. The relevant paper is:
-Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
-P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
-Genome Wide Association Studies". Bioinformatics.
-<doi:10.1093/bioinformatics/btad545>.
+Computerized tomography (CT) can be used to assess certain wood properties
+when wood disks or logs are scanned. Wood density profiles (i.e.
+variations of wood density from pith to bark) can yield important
+information used for studies in forest resource assessment, wood quality
+and dendrochronology studies. The first step consists in transforming grey
+values from the scan images to density values. The packages then proposes
+a unique method to automatically locate the pith by combining an adapted
+Hough Transform method and a one-dimensional edge detector. Tree ring
+profiles (average ring density, earlywood and latewood density, ring width
+and percent latewood for each ring) are then obtained.
 
 %prep
 %setup -q -c -n %{packname}

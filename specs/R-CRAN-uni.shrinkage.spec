@@ -1,34 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epilogi
-%global packver   1.1
+%global packname  uni.shrinkage
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
+Summary:          Shrinkage Estimation for Univariate Normal Mean
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-stats 
 
 %description
-The 'epilogi' variable selection algorithm is implemented for the case of
-continuous response and predictor variables. The relevant paper is:
-Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
-P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
-Genome Wide Association Studies". Bioinformatics.
-<doi:10.1093/bioinformatics/btad545>.
+Implement a shrinkage estimation for the univariate normal mean based on a
+preliminary test (pretest) estimator. This package also provides the
+confidence interval based on pivoting the cumulative density function. The
+methodologies are published in Taketomi et al.(2024)
+<doi:10.1007/s42081-023-00221-2> and Taketomi et al.(2024-)(under review).
 
 %prep
 %setup -q -c -n %{packname}

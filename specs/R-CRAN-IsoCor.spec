@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IsoCor
-%global packver   0.1.40
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.40
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Isotope Ratios in a 'Shiny'-App
 
@@ -14,30 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.50
-Requires:         R-core >= 3.50
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bsplus 
+BuildRequires:    R-CRAN-shinyalert >= 3.1
+BuildRequires:    R-CRAN-markdown >= 1.5
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-golem 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-MALDIquant 
-BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyalert 
 BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-CRAN-bsplus 
+Requires:         R-CRAN-shinyalert >= 3.1
+Requires:         R-CRAN-markdown >= 1.5
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-config 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-golem 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-MALDIquant 
-Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyalert 
 Requires:         R-CRAN-shinyjs 
 
 %description
@@ -51,11 +49,9 @@ values. Results are provided as figures and tables and can be exported.
 The App, therefore, facilitates data processing of ICP-MS experiments to
 quickly obtain optimal processing parameters compared to traditional
 'Excel' worksheet based approaches. A more detailed description can be
-found in the corresponding article "Data processing made easy: standalone
-tool for automated calculation of isotope ratio from transient signals –
-IsoCor" by Tukhmetova et al. in Journal of Analytical Atomic Spectrometry
-(JAAS). The most recent version of 'IsoCor' can be tested online at
-<https://jali.shinyapps.io/isocor>.
+found in the corresponding article <doi:10.1039/D2JA00208F>. The most
+recent version of 'IsoCor' can be tested online at
+<https://apps.bam.de/shn00/IsoCor/>.
 
 %prep
 %setup -q -c -n %{packname}

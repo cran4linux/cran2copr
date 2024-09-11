@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LHD
-%global packver   1.3.3
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latin Hypercube Designs (LHDs)
 
@@ -30,9 +31,9 @@ since it is capable of generating maximin distance LHDs, maximum
 projection LHDs, and orthogonal and nearly orthogonal LHDs. Detailed
 comparisons and summary of all the algorithms and construction methods in
 this package can be found at Hongzhi Wang, Qian Xiao and Abhyuday Mandal
-(2021) <arXiv:2010.09154>. This package is particularly useful in the area
-of Design and Analysis of Experiments (DAE). More specifically, design of
-computer experiments.
+(2021) <doi:10.48550/arXiv.2010.09154>. This package is particularly
+useful in the area of Design and Analysis of Experiments (DAE). More
+specifically, design of computer experiments.
 
 %prep
 %setup -q -c -n %{packname}

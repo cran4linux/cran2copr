@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epilogi
-%global packver   1.1
+%global packname  ContourFunctions
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
+Summary:          Create Contour Plots from Data or a Function
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rlang 
 
 %description
-The 'epilogi' variable selection algorithm is implemented for the case of
-continuous response and predictor variables. The relevant paper is:
-Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
-P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
-Genome Wide Association Studies". Bioinformatics.
-<doi:10.1093/bioinformatics/btad545>.
+Provides functions for making contour plots. The contour plot can be
+created from grid data, a function, or a data set. If non-grid data is
+given, then a Gaussian process is fit to the data and used to create the
+contour plot.
 
 %prep
 %setup -q -c -n %{packname}
