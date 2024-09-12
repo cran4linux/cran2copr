@@ -1,28 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  folda
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Forward Stepwise Discriminant Analysis with Pillai's Trace
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+A novel forward stepwise discriminant analysis framework that integrates
+Pillai's trace with Uncorrelated Linear Discriminant Analysis (ULDA),
+providing an improvement over traditional stepwise LDA methods that rely
+on Wilks' Lambda. A stand-alone ULDA implementation is also provided,
+offering a more general solution than the one available in the 'MASS'
+package. It automatically handles missing values and provides
+visualization tools. For more details, see Wang (2024)
+<doi:10.48550/arXiv.2409.03136>.
 
 %prep
 %setup -q -c -n %{packname}

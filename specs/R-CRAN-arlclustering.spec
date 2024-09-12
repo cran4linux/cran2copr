@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  arlclustering
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Exploring Social Network Structures Through Friendship-Driven Community Detection with Association Rules Mining
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-methods 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-arules 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+Implements an innovative approach to community detection in social
+networks using Association Rules Learning. The package provides tools for
+processing graph and rules objects, generating association rules, and
+detecting communities based on node interactions. Designed to facilitate
+advanced research in Social Network Analysis, this package leverages
+association rules learning for enhanced community detection. This approach
+is described in El-Moussaoui et al. (2021)
+<doi:10.1007/978-3-030-66840-2_3>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stacking
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building Predictive Models with Stacking
 
@@ -26,7 +26,8 @@ Requires:         R-parallel
 Building predictive models with stacking which is a type of ensemble
 learning. Learners can be specified from those implemented in 'caret'. For
 more information of the package, see Nukui and Onogi (2023)
-<doi:10.1101/2023.06.06.543970>.
+<doi:10.1101/2023.06.06.543970>. Packages caret, parallel, snow, and
+packages for base and meta learners should be installed.
 
 %prep
 %setup -q -c -n %{packname}

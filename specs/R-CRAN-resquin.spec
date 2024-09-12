@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  resquin
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Response Quality Indicators for Survey Research
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+Calculate common survey data quality indicators for multi-item scales and
+matrix questions. Currently supports the calculation of response style
+indicators and response distribution indicators. For an overview on
+response quality indicators see Bhaktha N, Henning S, Clemens L (2024).
+'Characterizing response quality in surveys with multi-item scales: A
+unified framework' <https://osf.io/9gs67/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  RMX
+%global packver   0.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Rasch Models -- eXtensions
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+Extend Rasch and Item Response Theory (IRT) analyses by providing tools
+for post-processing the output from five major IRT packages (i.e., 'eRm',
+'psychotools', 'ltm', 'mirt', and 'TAM'). The current version provides the
+plotPIccc() function, which extracts from the return object of the
+originating package all information required to draw an extended
+Person-Item-Map (PIccc), showing any combination of * category
+characteristic curves (CCCs), * threshold characteristic curves (TCCs), *
+item characteristic curves (ICCs), * category information functions
+(CIFs), * item information functions (IIFs), * test information function
+(TIF), and the * standard error curve (S.E.). for uni- and
+multidimensional models (as far as supported by each package). It allows
+for selecting dimensions, items, and categories to plot and offers
+numerous options to adapt the output. The return object contains all
+calculated values for further processing.
 
 %prep
 %setup -q -c -n %{packname}

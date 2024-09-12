@@ -1,28 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  corpmetrics
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Tools for Valuation, Financial Metrics and Modeling in Corporate Finance
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+Balance sheet and income statement metrics, investment analysis methods,
+valuation methods, loan amortization schedules, and Capital Asset Pricing
+Model.
 
 %prep
 %setup -q -c -n %{packname}

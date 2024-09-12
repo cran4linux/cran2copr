@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  RJalaliDate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Handling Jalali Date (Persian / Solar Hijri)
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-stringi >= 1.8.3
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-settings >= 0.2.7
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-stringi >= 1.8.3
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-settings >= 0.2.7
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+Jalali calendar, or solar Hijri, is calendar of Iran and Afghanistan
+(<https://en.wikipedia.org/wiki/Solar_Hijri_calendar>). This package is
+designed to working with Jalali date. For this purpose, It defines
+JalaliDate class that is similar to Date class.
 
 %prep
 %setup -q -c -n %{packname}

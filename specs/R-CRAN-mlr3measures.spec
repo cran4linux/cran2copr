@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3measures
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Performance Measures for 'mlr3'
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-PRROC 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-PRROC 
 
 %description

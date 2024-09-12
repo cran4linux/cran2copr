@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  AquaAnalytix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Water Quality Analysis
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+A varied array of mathematical derivations from various titrimetric and
+colorimetric methods for analyzing water quality parameters were condensed
+and integrated for the better physicochemical analysis. It is
+indispensable for managing any aquatic ecosystem, including aquaculture
+facilities. By substituting titrant and spectrophotometric absorbance
+readings, accurate determination of the concentrations of critical
+parameters such as Dissolved Oxygen, Free Carbon Dioxide, Total
+Alkalinity, Water Hardness, Hydrogen Sulfide, Total Ammonia Nitrogen,
+Nitrite, Nitrate, Chlorinity, Salinity, Inorganic Phosphate, and
+Transparency can be facilitated APHA(2017,ISBN:9780875532875).
 
 %prep
 %setup -q -c -n %{packname}

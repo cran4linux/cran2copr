@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imgpalr
-%global packver   0.4.0
+%global packname  NeuralEstimators
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Color Palettes from Images
+Summary:          Likelihood-Free Parameter Estimation using Neural Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-downloader 
-BuildRequires:    R-CRAN-farver 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-JuliaConnectoR 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jpeg 
-Requires:         R-CRAN-downloader 
-Requires:         R-CRAN-farver 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jpeg 
 
 %description
-Provides ability to create color palettes from image files. It offers
-control over the type of color palette to derive from an image
-(qualitative, sequential or divergent) and other palette properties.
-Quantiles of an image color distribution can be trimmed. Near-black or
-near-white colors can be trimmed in RGB color space independent of
-trimming brightness or saturation distributions in HSV color space.
-Creating sequential palettes also offers control over the order of HSV
-color dimensions to sort by. This package differs from other related
-packages like 'RImagePalette' in approaches to quantizing and extracting
-colors in images to assemble color palettes and the level of user control
-over palettes construction.
+An 'R' interface to the 'Julia' package 'NeuralEstimators.jl'. The package
+facilitates the user-friendly development of neural point estimators,
+which are neural networks that map data to a point summary of the
+posterior distribution. These estimators are likelihood-free and
+amortised, in the sense that, after an initial setup cost, inference from
+observed data can be made in a fraction of the time required by
+conventional approaches; see Sainsbury-Dale, Zammit-Mangion, and Huser
+(2024) <doi:10.1080/00031305.2023.2249522> for further details and an
+accessible introduction. The package also enables the construction of
+neural networks that approximate the likelihood-to-evidence ratio in an
+amortised manner, allowing one to perform inference based on the
+likelihood function or the entire posterior distribution; see
+Zammit-Mangion, Sainsbury-Dale, and Huser (2024, Sec. 5.2)
+<doi:10.48550/arXiv.2404.12484>, and the references therein. The package
+accommodates any model for which simulation is feasible by allowing the
+user to implicitly define their model through simulated data.
 
 %prep
 %setup -q -c -n %{packname}

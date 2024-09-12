@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.storage
-%global packver   0.7.0
+%global packname  easy.glmnet
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Amazon Web Services' Storage Services
+Summary:          Functions to Simplify the Use of 'glmnet' for Machine Learning
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,12 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-glmnet 
+Requires:         R-parallel 
+Requires:         R-CRAN-survival 
 
 %description
-Interface to 'Amazon Web Services' storage services, including 'Simple
-Storage Service' ('S3') and more <https://aws.amazon.com/>.
+Provides several functions to simplify using the 'glmnet' package:
+converting data frames into matrices ready for 'glmnet'; b) imputing
+missing variables multiple times; c) fitting and applying prediction
+models straightforwardly; d) assigning observations to folds in a balanced
+way; e) cross-validate the models; f) selecting the most representative
+model across imputations and folds; and g) getting the relevance of the
+model regressors; as described in several publications: Solanes et al.
+(2022) <doi:10.1038/s41537-022-00309-w>, Palau et al. (2023)
+<doi:10.1016/j.rpsm.2023.01.001>, Sobregrau et al. (2024)
+<doi:10.1016/j.jpsychores.2024.111656>.
 
 %prep
 %setup -q -c -n %{packname}

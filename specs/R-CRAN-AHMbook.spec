@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AHMbook
-%global packver   0.2.9
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Data for the Book 'Applied Hierarchical Modeling in Ecology' Vols 1 and 2
 
@@ -23,26 +23,14 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-spdep 
 Requires:         R-CRAN-unmarked >= 0.12.2
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-coda 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-spdep 
 
 %description
 Provides functions to simulate data sets from hierarchical ecological

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rchemo
-%global packver   0.1-2
+%global packver   0.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dimension Reduction, Regression and Discrimination for Chemometrics
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-signal 
 Requires:         R-CRAN-e1071 
+Requires:         R-utils 
 
 %description
 Data exploration and prediction with focus on high dimensional data and
