@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSplots
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stock Status Plots (SSPs)
 
@@ -28,16 +28,18 @@ Requires:         R-CRAN-zoo
 Pauly et al. (2008)
 <http://legacy.seaaroundus.s3.amazonaws.com/doc/Researcher+Publications/dpauly/PDF/2008/Books%%26Chapters/FisheriesInLargeMarineEcosystems.pdf>
 created (and coined the name) 'Stock Status Plots' for a UNEP compendium
-on Large Marine Ecosystems (LMEs, Sherman and Hempel 2008
-<https://agris.fao.org/agris-search/search.do?recordID=XF2015036057>).
+on Large Marine Ecosystems(LMEs, Sherman and Hempel
+(2009)<https://marineinfo.org/imis?module=ref&refid=142061&printversion=1&dropIMIStitle=1>).
 Stock status plots are bivariate graphs summarizing the status (e.g.,
 developing, fully exploited, overexploited, etc.), through time, of the
 multispecies fisheries of a fished area or ecosystem. This package
-contains two functions to generate stock status plots viz.,
-SSplots_pauly() (as per the criteria proposed by Pauly et al.,2008) and
+contains three functions to generate stock status plots viz.,
+SSplots_pauly() (as per the criteria proposed by Pauly et al.,2008),
 SSplots_kleisner() (as per the criteria proposed by Kleisner and Pauly
 (2011) <http://www.ecomarres.com/downloads/regional.pdf> and Kleisner et
-al. (2013) <doi:10.1111/j.1467-2979.2012.00469.x>).
+al. (2013) <doi:10.1111/j.1467-2979.2012.00469.x>)and SSplots_EPI() (as
+per the criteria proposed by Jayasankar et al.,2021
+<https://eprints.cmfri.org.in/11364/>).
 
 %prep
 %setup -q -c -n %{packname}

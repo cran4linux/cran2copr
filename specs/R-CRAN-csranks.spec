@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csranks
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Ranks
 
@@ -37,7 +37,7 @@ confidence sets of various kinds for positions of populations in a ranking
 based on values of a certain feature and their estimation errors. Theory
 based on Mogstad, Romano, Shaikh, and Wilhelm
 (2023)<doi:10.1093/restud/rdad006> and Chetverikov and Wilhelm (2023)
-<arXiv:2310.15512>.
+<doi:10.48550/arXiv.2310.15512>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semEff
-%global packver   0.7.2
+%global packname  cirls
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
+Summary:          Constrained Iteratively Reweighted Least Squares
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-osqp 
+BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-osqp 
+Requires:         R-CRAN-coneproj 
+Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Automatically calculate direct, indirect, and total effects for piecewise
-structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
-intervals are provided via bootstrapping.
+Routines to fit generalized linear models with constrained coefficients,
+along with inference on the coefficients. Designed to be used in
+conjunction with the base glm() function.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lares
-%global packver   5.2.8
+%global packver   5.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.8
+Version:          5.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics & Machine Learning Sidekick
 
@@ -14,10 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -30,9 +31,9 @@ BuildRequires:    R-CRAN-rpart
 BuildRequires:    R-CRAN-rpart.plot 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
@@ -45,15 +46,14 @@ Requires:         R-CRAN-rpart
 Requires:         R-CRAN-rpart.plot 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-yaml 
 
 %description
 Auxiliary package for better/faster analytics, visualization, data mining,
 and machine learning tasks. With a wide variety of family functions, like
-Machine Learning, Data Wrangling, Exploratory, API, and Scrapper, it helps
-the analyst or data scientist to get quick and robust results, without the
-need of repetitive coding or extensive R programming skills.
+Machine Learning, Data Wrangling, MMM, Exploratory, API, and Scrapper, it
+helps the analyst or data scientist to get quick and robust results,
+without the need of repetitive coding or advanced R programming skills.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semEff
-%global packver   0.7.2
+%global packname  noegletalR
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
+Summary:          Tidy Tibbles of Noegletal
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Automatically calculate direct, indirect, and total effects for piecewise
-structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
-intervals are provided via bootstrapping.
+Work with data from <https://noegletal.dk> in a tidy manner. Tidy up
+previously downloaded data or retrieve new data directly from the comfort
+of R. You can also browse an up-to-date list of available data, including
+thorough variable descriptions.
 
 %prep
 %setup -q -c -n %{packname}

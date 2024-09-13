@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semEff
-%global packver   0.7.2
+%global packname  splusTimeDate
+%global packver   2.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          2.5.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
+Summary:          Times and Dates from 'S-PLUS'
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Automatically calculate direct, indirect, and total effects for piecewise
-structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
-intervals are provided via bootstrapping.
+A collection of classes and methods for working with times and dates. The
+code was originally available in 'S-PLUS'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RSEIS
-%global packver   4.2-0
+%global packver   4.2-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seismic Time Series Analysis Tools
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildRequires:    R-CRAN-RPMG 
 BuildRequires:    R-CRAN-Rwave 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-RPMG 
 Requires:         R-CRAN-Rwave 
+Requires:         R-stats 
 
 %description
 Multiple interactive codes to view and analyze seismic data, via spectrum

@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semEff
-%global packver   0.7.2
+%global packname  fastplyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
+Summary:          Fast Alternatives to 'tidyverse' Functions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.6.1
+Requires:         R-core >= 3.6.1
+BuildRequires:    R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-cheapr >= 0.9.3
+BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-collapse >= 2.0.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-cheapr >= 0.9.3
+Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Automatically calculate direct, indirect, and total effects for piecewise
-structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
-intervals are provided via bootstrapping.
+A full set of fast data manipulation tools with a tidy front-end and a
+fast back-end using 'collapse' and 'cheapr'.
 
 %prep
 %setup -q -c -n %{packname}

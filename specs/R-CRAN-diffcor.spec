@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diffcor
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fisher's z-Tests Concerning Differences Between Correlations
 
@@ -22,15 +22,17 @@ Requires:         R-CRAN-MASS
 
 %description
 Computations of Fisher's z-tests concerning different kinds of correlation
-differences. Additionally, approaches to estimating statistical power via
-Monte Carlo simulations are implemented. Important to note, the Pearson
-correlation coefficient is sensitive to linear association, but also to a
-host of statistical issues such as univariate and bivariate outliers,
-range restrictions, and heteroscedasticity (e.g., Duncan & Layard, 1973
-<doi:10.1093/BIOMET/60.3.551>; Wilcox, 2013
+differences. The 'diffpwr' family entails approaches to estimating
+statistical power via Monte Carlo simulations. Important to note, the
+Pearson correlation coefficient is sensitive to linear association, but
+also to a host of statistical issues such as univariate and bivariate
+outliers, range restrictions, and heteroscedasticity (e.g., Duncan &
+Layard, 1973 <doi:10.1093/BIOMET/60.3.551>; Wilcox, 2013
 <doi:10.1016/C2010-0-67044-1>). Thus, every power analysis requires that
 specific statistical prerequisites are fulfilled and can be invalid if the
-prerequisites do not hold.
+prerequisites do not hold. To this end, the 'bootcor' family provides
+bootstrapping confidence intervals for the incorporated correlation
+difference tests.
 
 %prep
 %setup -q -c -n %{packname}

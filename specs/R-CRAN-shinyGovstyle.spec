@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinyGovstyle
-%global packver   0.0.8
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Custom Gov Style Inputs for Shiny
 
@@ -18,12 +19,18 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 0.14
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-shiny >= 0.14
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-stringr 
 
 %description
 Collection of 'shiny' application styling that are the based on the GOV.UK

@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semEff
-%global packver   0.7.2
+%global packname  corbouli
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
+Summary:          Corbae-Ouliaris Frequency Domain Filtering
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Automatically calculate direct, indirect, and total effects for piecewise
-structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
-intervals are provided via bootstrapping.
+Corbae-Ouliaris frequency domain filtering. According to Corbae and
+Ouliaris (2006) <doi:10.1017/CBO9781139164863.008>, this is a solution for
+taking into account characteristics of the time series, like business
+cycles etc. when filtering, both stationary and non-stationary time
+series.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeDS
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometrically Designed Spline Regression
 
@@ -22,6 +22,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mi 
 BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-doParallel 
@@ -39,6 +40,7 @@ Requires:         R-stats
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-mi 
 Requires:         R-CRAN-Rmpfr 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-doParallel 

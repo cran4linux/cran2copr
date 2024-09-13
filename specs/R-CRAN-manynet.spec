@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manynet
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Many Ways to Make, Modify, Map, Mark, and Measure Myriad Networks
 
@@ -19,20 +19,20 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph >= 1.6.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-minMSE 
 Requires:         R-CRAN-igraph >= 1.6.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-minMSE 
 
 %description
 Many tools for making, modifying, mapping, marking, measuring, and motifs

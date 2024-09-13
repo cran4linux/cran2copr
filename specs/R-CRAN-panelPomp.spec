@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  panelPomp
-%global packver   1.1
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference for Panel Partially Observed Markov Processes
 
@@ -18,8 +18,10 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pomp >= 4.5
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-pomp >= 4.5
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 
 %description

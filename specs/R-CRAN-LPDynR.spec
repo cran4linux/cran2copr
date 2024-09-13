@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semEff
-%global packver   0.7.2
+%global packname  LPDynR
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatic Calculation of Effects for Piecewise Structural Equation Models
+Summary:          Land Productivity Dynamics Indicator
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-gsl 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-gsl 
-Requires:         R-CRAN-lme4 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-virtualspecies 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-virtualspecies 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-terra 
 
 %description
-Automatically calculate direct, indirect, and total effects for piecewise
-structural equation models, comprising lists of fitted models representing
-structured equations (Lefcheck, 2016 <doi:10/f8s8rb>). Confidence
-intervals are provided via bootstrapping.
+It uses 'phenological' and productivity-related variables derived from
+time series of vegetation indexes, such as the Normalized Difference
+Vegetation Index, to assess ecosystem dynamics and change, which
+eventually might drive to land degradation. The final result of the Land
+Productivity Dynamics indicator is a categorical map with 5 classes of
+land productivity dynamics, ranging from declining to increasing
+productivity. See
+www.sciencedirect.com/science/article/pii/S1470160X21010517/ for a
+description of the methods used in the package to calculate the indicator.
 
 %prep
 %setup -q -c -n %{packname}
