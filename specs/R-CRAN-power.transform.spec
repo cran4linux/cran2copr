@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dttr2
-%global packver   0.5.1
+%global packname  power.transform
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate Date, POSIXct and hms Vectors
+Summary:          Location and Scale Invariant Power Transformations
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk >= 0.9.1
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-chk >= 0.9.1
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nloptr 
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-data.table 
+Requires:         R-methods 
+Requires:         R-CRAN-nloptr 
 
 %description
-Manipulates date ('Date'), date time ('POSIXct') and time ('hms') vectors.
-Date/times are considered discrete and are floored whenever encountered.
-Times are wrapped and time zones are maintained unless explicitly altered
-by the user.
+Location- and scale-invariant Box-Cox and Yeo-Johnson power
+transformations allow for transforming variables with distributions
+distant from 0 to normality. Transformers are implemented as S4 objects.
+These allow for transforming new instances to normality after optimising
+fitting parameters on other data. A test for central normality allows for
+rejecting transformations that fail to produce a suitably normal
+distribution, independent of sample number.
 
 %prep
 %setup -q -c -n %{packname}

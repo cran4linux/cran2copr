@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compareGroups
-%global packver   4.8.0
+%global packver   4.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.0
+Version:          4.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Analysis by Groups
 
@@ -29,6 +29,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-PMCMRplus 
 Requires:         R-CRAN-survival 
 Requires:         R-tools 
 Requires:         R-CRAN-HardyWeinberg 
@@ -41,6 +42,7 @@ Requires:         R-stats
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
+Requires:         R-CRAN-PMCMRplus 
 
 %description
 Create data summaries for quality control, extensive reports for exploring

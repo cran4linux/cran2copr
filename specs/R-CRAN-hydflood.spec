@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cassowaryr
-%global packver   2.0.2
+%global packname  hydflood
+%global packver   0.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.5.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compute Scagnostics on Pairs of Numeric Variables in a Data Set
+Summary:          Flood Extents and Duration along the Rivers Elbe and Rhine
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-alphahull >= 2.5
-BuildRequires:    R-CRAN-interp >= 1.1.6
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-splancs 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-hyd1d 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-alphahull >= 2.5
-Requires:         R-CRAN-interp >= 1.1.6
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-splancs 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-hyd1d 
 Requires:         R-stats 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-grDevices 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-curl 
 
 %description
-Computes a range of scatterplot diagnostics (scagnostics) on pairs of
-numerical variables in a data set. A range of scagnostics, including graph
-and association-based scagnostics described by Leland Wilkinson and Graham
-Wills (2008) <doi:10.1198/106186008X320465> and association-based
-scagnostics described by Katrin Grimm (2016,ISBN:978-3-8439-3092-5) can be
-computed. Summary and plotting functions are provided.
+Raster based flood modelling internally using 'hyd1d', an R package to
+interpolate 1d water level and gauging data. The package computes flood
+extent and duration through strategies originally developed for 'INFORM',
+an 'ArcGIS'-based hydro-ecological modelling framework. It does not
+provide a full, physical hydraulic modelling algorithm, but a simplified,
+near real time 'GIS' approach for flood extent and duration modelling.
+Computationally demanding annual flood durations have been computed
+already and data products were published by Weber (2022)
+<doi:10.1594/PANGAEA.948042>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dttr2
-%global packver   0.5.1
+%global packname  distfromq
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate Date, POSIXct and hms Vectors
+Summary:          Reconstruct a Distribution from a Collection of Quantiles
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk >= 0.9.1
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-chk >= 0.9.1
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zeallot 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-purrr 
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-zeallot 
 
 %description
-Manipulates date ('Date'), date time ('POSIXct') and time ('hms') vectors.
-Date/times are considered discrete and are floored whenever encountered.
-Times are wrapped and time zones are maintained unless explicitly altered
-by the user.
+Given a set of predictive quantiles from a distribution, estimate the
+distribution and create `d`, `p`, `q`, and `r` functions to evaluate its
+density function, distribution function, and quantile function, and
+generate random samples. On the interior of the provided quantiles, an
+interpolation method such as a monotonic cubic spline is used; the tails
+are approximated by a location-scale family.
 
 %prep
 %setup -q -c -n %{packname}

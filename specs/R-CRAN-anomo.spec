@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dttr2
-%global packver   0.5.1
+%global packname  anomo
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate Date, POSIXct and hms Vectors
+Summary:          Analysis of Moderation with the Monte Carlo Confidence Interval Method
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk >= 0.9.1
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-chk >= 0.9.1
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-graphics >= 4.0.0
+BuildRequires:    R-base >= 4.0.0
+Requires:         R-graphics >= 4.0.0
+Requires:         R-base >= 4.0.0
 
 %description
-Manipulates date ('Date'), date time ('POSIXct') and time ('hms') vectors.
-Date/times are considered discrete and are floored whenever encountered.
-Times are wrapped and time zones are maintained unless explicitly altered
-by the user.
+Analysis of Moderation (anomo) uses the Monte Carlo confidence interval
+(MCCI) method to test the difference and equivalence of two effects with
+summary statistics from two studies.
 
 %prep
 %setup -q -c -n %{packname}

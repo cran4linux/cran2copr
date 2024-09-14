@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dttr2
-%global packver   0.5.1
+%global packname  DEHOGT
+%global packver   0.99.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.99.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate Date, POSIXct and hms Vectors
+Summary:          Differentially Expressed Heterogeneous Overdispersion Gene Test for Count Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk >= 0.9.1
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-chk >= 0.9.1
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-MASS 
 
 %description
-Manipulates date ('Date'), date time ('POSIXct') and time ('hms') vectors.
-Date/times are considered discrete and are floored whenever encountered.
-Times are wrapped and time zones are maintained unless explicitly altered
-by the user.
+Implements a generalized linear model approach for detecting
+differentially expressed genes across treatment groups in count data. The
+package supports both quasi-Poisson and negative binomial models to handle
+over-dispersion, ensuring robust identification of differential
+expression. It allows for the inclusion of treatment effects and gene-wise
+covariates, as well as normalization factors for accurate scaling across
+samples. Additionally, it incorporates statistical significance testing
+with options for p-value adjustment and log2 fold range thresholds, making
+it suitable for RNA-seq analysis as described in by Xu et al., (2024)
+<doi:10.1371/journal.pone.0300565>.
 
 %prep
 %setup -q -c -n %{packname}

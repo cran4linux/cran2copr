@@ -1,50 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  garma
-%global packver   0.9.23
+%global packname  dsld
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.23
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fitting and Forecasting Gegenbauer ARMA Time Series Models
+Summary:          Data Science Looks at Discrimination
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-fairml 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-regtools 
+BuildRequires:    R-CRAN-qeML 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rsolnp 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-forecast 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-freqparcoord 
+BuildRequires:    R-CRAN-fairness 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-fairml 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-regtools 
+Requires:         R-CRAN-qeML 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rsolnp 
-Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-crayon 
-Requires:         R-utils 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-freqparcoord 
+Requires:         R-CRAN-fairness 
+Requires:         R-CRAN-sandwich 
 
 %description
-Methods for estimating univariate long memory-seasonal/cyclical Gegenbauer
-time series processes. See for example (2022)
-<doi:10.1007/s00362-022-01290-3>. Refer to the vignette for details of
-fitting these processes.
+Statistical and graphical tools for detecting and measuring discrimination
+and bias, be it racial, gender, age or other. Detection and remediation of
+bias in machine learning algorithms. 'Python' interfaces available.
 
 %prep
 %setup -q -c -n %{packname}

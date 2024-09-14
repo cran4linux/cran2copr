@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dttr2
-%global packver   0.5.1
+%global packname  sfcurve
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate Date, POSIXct and hms Vectors
+Summary:          2x2, 3x3 and Nxn Space-Filling Curves
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-chk >= 0.9.1
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-chk >= 0.9.1
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-colorRamp2 
+Requires:         R-grid 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-methods 
+Requires:         R-CRAN-colorRamp2 
 
 %description
-Manipulates date ('Date'), date time ('POSIXct') and time ('hms') vectors.
-Date/times are considered discrete and are floored whenever encountered.
-Times are wrapped and time zones are maintained unless explicitly altered
-by the user.
+Implementation of all possible forms of 2x2 and 3x3 space-filling curves,
+i.e., the generalized forms of the Hilbert curve
+<https://en.wikipedia.org/wiki/Hilbert_curve>, the Peano curve
+<https://en.wikipedia.org/wiki/Peano_curve> and the Peano curve in the
+meander type (Figure 5 in <https://eudml.org/doc/141086>). It can
+generates nxn curves expanded from any specific level-1 units. It also
+implements the H-curve and the three-dimensional Hilbert curve.
 
 %prep
 %setup -q -c -n %{packname}
