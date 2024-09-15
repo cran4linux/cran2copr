@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worcs
-%global packver   0.1.14
+%global packver   0.1.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.14
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-prereg >= 0.6.0
-BuildRequires:    R-CRAN-rticles >= 0.25
+BuildRequires:    R-CRAN-rticles >= 0.27
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-renv 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-usethis
 BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-xfun 
 Requires:         R-CRAN-prereg >= 0.6.0
-Requires:         R-CRAN-rticles >= 0.25
+Requires:         R-CRAN-rticles >= 0.27
 Requires:         R-methods 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-renv 

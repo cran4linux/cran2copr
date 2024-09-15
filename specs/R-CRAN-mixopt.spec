@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imf.data
-%global packver   0.1.7
+%global packname  mixopt
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to IMF (International Monetary Fund) Data JSON API
+Summary:          Mixed Variable Optimization
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-splitfngr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-splitfngr 
 
 %description
-A straightforward interface for accessing the IMF (International Monetary
-Fund) data JSON API, available at <https://data.imf.org/>. This package
-offers direct access to the primary API endpoints: Dataflow,
-DataStructure, and CompactData. And, it provides an intuitive interface
-for exploring available dimensions and attributes, as well as querying
-individual time-series datasets. Additionally, the package implements a
-rate limit on API calls to reduce the chances of exceeding service limits
-(limited to 10 calls every 5 seconds) and encountering response errors.
+Mixed variable optimization for non-linear functions. Can optimize
+function whose inputs are a combination of continuous, ordered, and
+unordered variables.
 
 %prep
 %setup -q -c -n %{packname}

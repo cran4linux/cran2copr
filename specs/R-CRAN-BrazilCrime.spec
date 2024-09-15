@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BrazilCrime
-%global packver   0.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accesses Brazilian Public Security Data from SINESP Since 2015
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-geobr
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geobr 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
 Allows access to data from the Brazilian Public Security Information

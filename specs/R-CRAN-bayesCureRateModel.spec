@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesCureRateModel
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cure Rate Modeling for Time-to-Event Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-calculus
 BuildRequires:    R-CRAN-flexsurv 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
@@ -41,17 +43,18 @@ Requires:         R-CRAN-flexsurv
 %description
 A fully Bayesian approach in order to estimate a general family of cure
 rate models under the presence of covariates, see Papastamoulis and
-Milienos (2023) <doi:10.48550/arXiv.2310.06926>. The promotion time can be
-modelled (a) parametrically using typical distributional assumptions for
-time to event data (including the Weibull, Exponential, Gompertz,
+Milienos (2024) <doi:10.1007/s11749-024-00942-w>. The promotion time can
+be modelled (a) parametrically using typical distributional assumptions
+for time to event data (including the Weibull, Exponential, Gompertz,
 log-Logistic distributions), or (b) semiparametrically using finite
-mixtures of Gamma distributions. Posterior inference is carried out by
-constructing a Metropolis-coupled Markov chain Monte Carlo (MCMC) sampler,
-which combines Gibbs sampling for the latent cure indicators and
-Metropolis-Hastings steps with Langevin diffusion dynamics for parameter
-updates. The main MCMC algorithm is embedded within a parallel tempering
-scheme by considering heated versions of the target posterior
-distribution.
+mixtures of distributions. In both cases, user-defined families of
+distributions are allowed under some specific requirements. Posterior
+inference is carried out by constructing a Metropolis-coupled Markov chain
+Monte Carlo (MCMC) sampler, which combines Gibbs sampling for the latent
+cure indicators and Metropolis-Hastings steps with Langevin diffusion
+dynamics for parameter updates. The main MCMC algorithm is embedded within
+a parallel tempering scheme by considering heated versions of the target
+posterior distribution.
 
 %prep
 %setup -q -c -n %{packname}

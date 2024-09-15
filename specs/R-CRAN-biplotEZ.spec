@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biplotEZ
-%global packver   2.0
+%global packver   2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          EZ-to-Use Biplots
 
@@ -31,13 +31,13 @@ Requires:         R-CRAN-withr
 
 %description
 Provides users with an EZ-to-use platform for representing data with
-biplots. Currently principal component analysis (PCA) and canonical
-variate analysis (CVA) biplots are included. This is accompanied by
-various formatting options for the samples and axes. Alpha-bags and
-concentration ellipses are included for visual enhancements and
-interpretation. For an extensive discussion on the topic, see Gower, J.C.,
-Lubbe, S. and le Roux, N.J. (2011, ISBN: 978-0-470-01255-0) Understanding
-Biplots. Wiley: Chichester.
+biplots. Currently principal component analysis (PCA), canonical variate
+analysis (CVA) and simple correspondence analysis (CA) biplots are
+included. This is accompanied by various formatting options for the
+samples and axes. Alpha-bags and concentration ellipses are included for
+visual enhancements and interpretation. For an extensive discussion on the
+topic, see Gower, J.C., Lubbe, S. and le Roux, N.J. (2011, ISBN:
+978-0-470-01255-0) Understanding Biplots. Wiley: Chichester.
 
 %prep
 %setup -q -c -n %{packname}
