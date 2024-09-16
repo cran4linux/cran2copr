@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  timeordered
-%global packver   1.0.1
+%global packname  spectralAnomaly
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time-Ordered and Time-Aggregated Network Analyses
+Summary:          Detect Anomalies Using the Spectral Residual Algorithm
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-plyr 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Approaches for incorporating time into network analysis. Methods include:
-construction of time-ordered networks (temporal graphs); shortest-time and
-shortest-path-length analyses; resource spread calculations; data
-resampling and rarefaction for null model construction; reduction to
-time-aggregated networks with variable window sizes; application of common
-descriptive statistics to these networks; vector clock latencies; and
-plotting functionalities. The package supports
-<doi:10.1371/journal.pone.0020298>.
+Apply the spectral residual algorithm to data, such as a time series, to
+detect anomalies. Anomaly scores can be used to determine outliers based
+upon a threshold or fed into more sophisticated prediction models. Methods
+are based upon "Time-Series Anomaly Detection Service at Microsoft", Ren,
+H., Xu, B., Wang, Y., et al., (2019) <doi:10.48550/arXiv.1906.03821>.
 
 %prep
 %setup -q -c -n %{packname}

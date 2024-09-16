@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TestFunctions
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Functions for Simulation Experiments and Evaluating Optimization and Emulation Algorithms
 
@@ -17,6 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ContourFunctions 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rmarkdown 
+Requires:         R-CRAN-ContourFunctions 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 Test functions are often used to test computer code. They are used in

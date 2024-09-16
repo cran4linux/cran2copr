@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LMest
-%global packver   3.2.2
+%global packname  aftsem
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Latent Markov Models
+Summary:          Semiparametric Accelerated Failure Time Model
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mclust >= 5.4.6
-BuildRequires:    R-CRAN-diagram >= 1.6.4
-BuildRequires:    R-CRAN-Formula >= 1.2.3
-BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MultiLCIRT 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-mix 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-mclust >= 5.4.6
-Requires:         R-CRAN-diagram >= 1.6.4
-Requires:         R-CRAN-Formula >= 1.2.3
-Requires:         R-CRAN-scatterplot3d >= 0.3.41
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MultiLCIRT 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-survival 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-mix 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-optimx 
 
 %description
-Latent Markov models for longitudinal continuous and categorical data. See
-Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
+Implements several basic algorithms for estimating regression parameters
+for semiparametric accelerated failure time (AFT) model. The main methods
+are: Jin rank-based method (Jin (2003) <doi:10.1093/biomet/90.2.341>),
+Heller’s estimating method (Heller (2012)
+<doi:10.1198/016214506000001257>), Polynomial smoothed Gehan function
+method (Chung (2013) <doi:10.1007/s11222-012-9333-9>), Buckley-James
+method (Buckley (1979) <doi:10.2307/2335161>) and Jin`s improved least
+squares method (Jin (2006) <doi:10.1093/biomet/93.1.147>). This package
+can be used for modeling right-censored data and for comparing different
+estimation algorithms.
 
 %prep
 %setup -q -c -n %{packname}

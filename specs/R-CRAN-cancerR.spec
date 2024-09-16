@@ -1,38 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  timeordered
-%global packver   1.0.1
+%global packname  cancerR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time-Ordered and Time-Aggregated Network Analyses
+Summary:          Classification of Cancer Using Administrative Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-plyr 
-Requires:         R-methods 
 
 %description
-Approaches for incorporating time into network analysis. Methods include:
-construction of time-ordered networks (temporal graphs); shortest-time and
-shortest-path-length analyses; resource spread calculations; data
-resampling and rarefaction for null model construction; reduction to
-time-aggregated networks with variable window sizes; application of common
-descriptive statistics to these networks; vector clock latencies; and
-plotting functionalities. The package supports
-<doi:10.1371/journal.pone.0020298>.
+Classifies the type of cancer using routinely collected data commonly
+found in cancer registries from pathology reports. The package implements
+the International Classification of Diseases for Oncology, 3rd Edition
+site (topography), histology (morphology), and behaviour codes of
+neoplasms to classify cancer type
+<https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology>.
+Classification in children utilize the International Classification of
+Childhood Cancer by Steliarova-Foucher et al. (2005)
+<doi:10.1002/cncr.20910>. Adolescent and young adult cancer classification
+is based on Barr et al. (2020) <doi:10.1002/cncr.33041>.
 
 %prep
 %setup -q -c -n %{packname}

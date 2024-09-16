@@ -1,38 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  timeordered
-%global packver   1.0.1
+%global packname  mvcor
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time-Ordered and Time-Aggregated Network Analyses
+Summary:          Correlation Coefficients for Multivariate Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-plyr 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rfast 
+Requires:         R-stats 
 
 %description
-Approaches for incorporating time into network analysis. Methods include:
-construction of time-ordered networks (temporal graphs); shortest-time and
-shortest-path-length analyses; resource spread calculations; data
-resampling and rarefaction for null model construction; reduction to
-time-aggregated networks with variable window sizes; application of common
-descriptive statistics to these networks; vector clock latencies; and
-plotting functionalities. The package supports
-<doi:10.1371/journal.pone.0020298>.
+Correlation coefficients for multivariate data, namely the squared
+correlation coefficient and the RV coefficient (multivariate
+generalization of the squared Pearson correlation coefficient). References
+include Mardia K.V., Kent J.T. and Bibby J.M. (1979). "Multivariate
+Analysis". ISBN: 978-0124712522. London: Academic Press.
 
 %prep
 %setup -q -c -n %{packname}

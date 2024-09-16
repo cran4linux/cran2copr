@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  timeordered
-%global packver   1.0.1
+%global packname  gammi
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time-Ordered and Time-Aggregated Network Analyses
+Summary:          Generalized Additive Mixed Model Interface
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 
 %description
-Approaches for incorporating time into network analysis. Methods include:
-construction of time-ordered networks (temporal graphs); shortest-time and
-shortest-path-length analyses; resource spread calculations; data
-resampling and rarefaction for null model construction; reduction to
-time-aggregated networks with variable window sizes; application of common
-descriptive statistics to these networks; vector clock latencies; and
-plotting functionalities. The package supports
-<doi:10.1371/journal.pone.0020298>.
+An interface for fitting generalized additive models (GAMs) and
+generalized additive mixed models (GAMMs) using the 'lme4' package as the
+computational engine, as described in Helwig (2024)
+<doi:10.3390/stats7010003>. Supports default and formula methods for model
+specification, additive and tensor product splines for capturing nonlinear
+effects, and automatic determination of spline type based on the class of
+each predictor. Includes an S3 plot method for visualizing the (nonlinear)
+model terms, an S3 predict method for forming predictions from a fit
+model, and an S3 summary method for conducting significance testing using
+the Bayesian interpretation of a smoothing spline.
 
 %prep
 %setup -q -c -n %{packname}
