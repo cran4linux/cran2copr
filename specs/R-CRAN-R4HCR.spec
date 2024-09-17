@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelbpp
-%global packver   0.1.5
+%global packname  R4HCR
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model BIC Posterior Probability
+Summary:          R for Health Care Research
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-manymome 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-manymome 
+BuildRequires:    R-CRAN-irr 
+BuildRequires:    R-CRAN-mada 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-irr 
+Requires:         R-CRAN-mada 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-survival 
 
 %description
-Fits the neighboring models of a fitted structural equation model and
-assesses the model uncertainty of the fitted model based on BIC posterior
-probabilities, using the method presented in Wu, Cheung, and Leung (2020)
-<doi:10.1080/00273171.2019.1574546>.
+A collection of datasets that accompany the forthcoming book "R for Health
+Care Research".
 
 %prep
 %setup -q -c -n %{packname}

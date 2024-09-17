@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pks
-%global packver   0.6-1
+%global packname  shrinkTVPVAR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Probabilistic Knowledge Structures
+Summary:          Efficient Bayesian Inference for TVP-VAR-SV Models with Shrinkage
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-sets 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-shrinkTVP 
+BuildRequires:    R-CRAN-stochvol 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-shrinkTVP 
+Requires:         R-CRAN-stochvol 
+Requires:         R-CRAN-coda 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-zoo 
 
 %description
-Fitting and testing probabilistic knowledge structures, especially the
-basic local independence model (BLIM, Doignon & Flamagne, 1999) and the
-simple learning model (SLM), using the minimum discrepancy maximum
-likelihood (MDML) method (Heller & Wickelmaier, 2013
-<doi:10.1016/j.endm.2013.05.145>).
+Efficient Markov chain Monte Carlo (MCMC) algorithms for fully Bayesian
+estimation of time-varying parameter vector autoregressive models with
+shrinkage priors. Details on the algorithms used are provided in Cadonna
+et al. (2020) <doi:10.3390/econometrics8020020> and Knaus et al. (2021)
+<doi:10.18637/jss.v100.i13>.
 
 %prep
 %setup -q -c -n %{packname}

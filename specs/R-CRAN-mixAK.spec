@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixAK
-%global packver   5.7
+%global packver   5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.7
+Version:          5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normal Mixture Models and Mixtures of Generalized Linear Mixed Models Including Model Based Clustering
 
@@ -42,7 +42,16 @@ Contains a mixture of statistical methods including the MCMC methods to
 analyze normal mixtures. Additionally, model based clustering methods are
 implemented to perform classification based on (multivariate) longitudinal
 (or otherwise correlated) data. The basis for such clustering is a mixture
-of multivariate generalized linear mixed models.
+of multivariate generalized linear mixed models. The package is primarily
+related to the publications Komárek (2009, Comp. Stat. and Data Anal.)
+<doi:10.1016/j.csda.2009.05.006> and Komárek and Komárková (2014, J. of
+Stat. Soft.) <doi:10.18637/jss.v059.i12>. It also implements methods
+published in Komárek and Komárková (2013, Ann. of Appl. Stat.)
+<doi:10.1214/12-AOAS580>, Hughes, Komárek, Bonnett, Czanner, García-Fiñana
+(2017, Stat. in Med.) <doi:10.1002/sim.7397>, Jaspers, Komárek, Aerts
+(2018, Biom. J.) <doi:10.1002/bimj.201600253> and Hughes, Komárek,
+Czanner, García-Fiñana (2018, Stat. Meth. in Med. Res)
+<doi:10.1177/0962280216674496>.
 
 %prep
 %setup -q -c -n %{packname}

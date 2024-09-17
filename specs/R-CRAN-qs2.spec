@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelbpp
-%global packver   0.1.5
+%global packname  qs2
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model BIC Posterior Probability
+Summary:          Efficient Serialization of R Objects
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-manymome 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-manymome 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-stringfish >= 0.15.1
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+Requires:         R-CRAN-stringfish >= 0.15.1
+Requires:         R-CRAN-Rcpp 
 
 %description
-Fits the neighboring models of a fitted structural equation model and
-assesses the model uncertainty of the fitted model based on BIC posterior
-probabilities, using the method presented in Wu, Cheung, and Leung (2020)
-<doi:10.1080/00273171.2019.1574546>.
+Streamlines and accelerates the process of saving and loading R objects,
+improving speed and compression compared to other methods. The package
+provides two compression formats: the 'qs2' format, which uses R
+serialization via the C API while optimizing compression and disk I/O, and
+the 'qdata' format, featuring custom serialization for slightly faster
+performance and better compression. Additionally, the 'qs2' format can be
+directly converted to the standard 'RDS' format, ensuring long-term
+compatibility with future versions of R.
 
 %prep
 %setup -q -c -n %{packname}

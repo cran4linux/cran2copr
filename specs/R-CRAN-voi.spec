@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  voi
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Expected Value of Information
 
@@ -42,8 +42,8 @@ decision-analytic model.  This includes the expected value of perfect
 information (EVPI), partial perfect information (EVPPI) and sample
 information (EVSI), and the expected net benefit of sampling (ENBS).  A
 range of alternative computational methods are provided under the same
-user interface.  See Jackson et al. (2022)
-<doi:10.1146/annurev-statistics-040120-010730>.
+user interface.  See Heath et al. (2024) <doi:10.1201/9781003156109>,
+Jackson et al. (2022) <doi:10.1146/annurev-statistics-040120-010730>.
 
 %prep
 %setup -q -c -n %{packname}

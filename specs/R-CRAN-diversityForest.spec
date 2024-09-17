@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diversityForest
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Innovative Complex Split Procedures in Random Forests Through Candidate Split Sampling
 
@@ -31,6 +31,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-patchwork 
 Requires:         R-CRAN-Rcpp >= 0.11.2
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-ggplot2 
@@ -46,27 +47,33 @@ Requires:         R-grDevices
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-RcppEigen 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-patchwork 
 
 %description
-Implements interaction forests [1], which are specific diversity forests
-and the basic form of diversity forests that uses univariable, binary
-splitting [2]. Interaction forests (IFs) are ensembles of decision trees
-that model quantitative and qualitative interaction effects using
-bivariable splitting. IFs come with the Effect Importance Measure (EIM),
-which can be used to identify variable pairs that feature quantitative and
-qualitative interaction effects with high predictive relevance. IFs and
-EIM focus on well interpretable forms of interactions. The package also
-offers plot functions for visualising the estimated forms of interaction
-effects. Categorical, metric, and survival outcomes are supported. This is
-a fork of the R package 'ranger' (main author: Marvin N. Wright) that
-implements random forests using an efficient C++ implementation.
-References: [1] Hornung, R. & Boulesteix, A.-L. (2022) Interaction
-Forests: Identifying and exploiting interpretable quantitative and
-qualitative interaction effects. Computational Statistics & Data Analysis
-171:107460, <doi:10.1016/j.csda.2022.107460>. [2] Hornung, R. (2022)
-Diversity forests: Using split sampling to enable innovative complex split
-procedures in random forests. SN Computer Science 3(2):1,
-<doi:10.1007/s42979-021-00920-1>.
+Implementations of three diversity forest (DF) (Hornung, 2022,
+<doi:10.1007/s42979-021-00920-1>) variants. The DF algorithm is a
+split-finding approach that allows complex split procedures to be realized
+in random forest variants. The three DF variants implemented are: 1.
+interaction forests (IFs) (Hornung & Boulesteix, 2022,
+<doi:10.1016/j.csda.2022.107460>): Model quantitative and qualitative
+interaction effects using bivariable splitting. Come with the Effect
+Importance Measure (EIM), which can be used to identify variable pairs
+that have well-interpretable quantitative and qualitative interaction
+effects with high predictive relevance. 2. multi forests (MuFs) (Hornung &
+Hapfelmeier, 2024, <doi:10.48550/arXiv.2409.08925>): Model multi-class
+outcomes using multi-way and binary splitting. Come with two variable
+importance measures (VIMs): The multi-class VIM measures the degree to
+which the variables are specifically associated with one or more outcome
+classes, and the discriminatory VIM, similar to conventional VIMs,
+measures the overall influence strength of the variables. 3. the basic
+form of diversity forests that uses conventional univariable, binary
+splitting (Hornung, 2022). Except for multi forests, which are tailored
+for multi-class outcomes, all included diversity forest variants support
+categorical, metric, and survival outcomes. The package also includes
+plotting functions that make it possible to learn about the forms of the
+effects identified using IFs and MuFs. This is a fork of the R package
+'ranger' (main author: Marvin N. Wright), which implements random forests
+using an efficient C++ implementation.
 
 %prep
 %setup -q -c -n %{packname}

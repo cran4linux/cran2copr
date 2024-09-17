@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmahalanobis
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Distance Measures for a Given List of Data Frames with Factors
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-mice 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-mice 
 
 %description
 It provides functions that calculate Mahalanobis distance, Euclidean

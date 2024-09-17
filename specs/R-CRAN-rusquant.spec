@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  box.lsp
-%global packver   0.1.2
+%global packname  rusquant
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides 'box' Compatibility for 'languageserver'
+Summary:          Quantitative Trading Framework
 
-License:          LGPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-box 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-box 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-quantmod 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-base64enc 
+Requires:         R-CRAN-quantmod 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-jose 
+Requires:         R-stats 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-base64enc 
 
 %description
-A 'box' compatible custom language parser for the 'languageserver' package
-to provide completion and signature hints in code editors.
+Collection of functions to retrieve financial data from various sources,
+including brokerage and exchange platforms, financial websites, and data
+providers. Includes functions to retrieve account information, portfolio
+information, and place/cancel orders from different brokers. Additionally,
+allows users to download historical data such as earnings, dividends,
+stock splits.
 
 %prep
 %setup -q -c -n %{packname}

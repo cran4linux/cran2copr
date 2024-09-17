@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdverse
-%global packver   1.0.0
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geographical Detector Models
+Summary:          Analysis of Spatial Stratified Heterogeneity
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-scatterpie 
+BuildRequires:    R-CRAN-sdsfun 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -47,8 +47,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-scatterpie 
+Requires:         R-CRAN-sdsfun 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spdep 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

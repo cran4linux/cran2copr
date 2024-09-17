@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelbpp
-%global packver   0.1.5
+%global packname  solaR2
+%global packver   0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model BIC Posterior Probability
+Summary:          Radiation and Photovoltaic Systems
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-manymome 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-manymome 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-latticeExtra 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-latticeExtra 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Fits the neighboring models of a fitted structural equation model and
-assesses the model uncertainty of the fitted model based on BIC posterior
-probabilities, using the method presented in Wu, Cheung, and Leung (2020)
-<doi:10.1080/00273171.2019.1574546>.
+Provides tools for calculating solar geometry, solar radiation on
+horizontal and inclined planes, and simulating the performance of various
+photovoltaic (PV) systems. Supports daily and intradaily irradiation data,
+enabling detailed analysis of grid-connected and water-pumping PV systems,
+including shading effects and solar angle calculations.
 
 %prep
 %setup -q -c -n %{packname}

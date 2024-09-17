@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easyanova
-%global packver   10.0
+%global packver   11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0
+Version:          11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Variance and Other Important Complementary Analyses
 

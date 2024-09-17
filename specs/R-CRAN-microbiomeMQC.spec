@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelbpp
-%global packver   0.1.5
+%global packname  microbiomeMQC
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model BIC Posterior Probability
+Summary:          Calculate 4 Key Reporting Measures
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-manymome 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-manymome 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-vegan 
 
 %description
-Fits the neighboring models of a fitted structural equation model and
-assesses the model uncertainty of the fitted model based on BIC posterior
-probabilities, using the method presented in Wu, Cheung, and Leung (2020)
-<doi:10.1080/00273171.2019.1574546>.
+Perform calculations for the WHO International Reference Reagents for the
+microbiome. Using strain, species or genera abundance tables generated
+through analysis of 16S ribosomal RNA sequencing or shotgun sequencing
+which included a reference reagent. This package will calculate measures
+of sensitivity, False positive relative abundance, diversity, and
+similarity based on mean average abundances with respect to the reference
+reagent.
 
 %prep
 %setup -q -c -n %{packname}

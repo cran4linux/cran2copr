@@ -1,38 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modelbpp
-%global packver   0.1.5
+%global packname  regreplaceR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model BIC Posterior Probability
+Summary:          Match and Replace Strings Based on Named Groups in Regular Expressions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-manymome 
-Requires:         R-CRAN-lavaan 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-manymome 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Fits the neighboring models of a fitted structural equation model and
-assesses the model uncertainty of the fitted model based on BIC posterior
-probabilities, using the method presented in Wu, Cheung, and Leung (2020)
-<doi:10.1080/00273171.2019.1574546>.
+An R6 class "Replacer" provided by the package simplifies working with
+regex patterns containing named groups. It allows easy retrieval of
+matched portions and targeted replacements by group name, improving both
+code clarity and maintainability.
 
 %prep
 %setup -q -c -n %{packname}
