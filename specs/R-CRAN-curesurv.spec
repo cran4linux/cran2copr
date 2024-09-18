@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  curesurv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          Mixture and Non Mixture Parametric Cure Models to Estimate Cure Indicators
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-bbmle 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-statmod 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
-Requires:         R-utils 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-bbmle 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-statmod 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+Fits a variety of cure models using excess hazard modeling methodology
+such as the mixture model proposed by Phillips et al. (2002)
+<doi:10.1002/sim.1101> The Weibull distribution is used to represent the
+survival function of the uncured patients; Fits also non-mixture cure
+model such as the time-to-null excess hazard model proposed by Boussari et
+al. (2020) <doi:10.1111/biom.13361>.
 
 %prep
 %setup -q -c -n %{packname}

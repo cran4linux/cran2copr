@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smof
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scoring Methodology for Ordered Factors
 
@@ -28,8 +28,10 @@ set of model classes) whose linear predictor includes some ordered
 factor(s) among the explanatory variables, a new model is constructed and
 fitted where each named factor is replaced by a single numeric score,
 suitably chosen so that the new variable produces a fit comparable with
-the standard methodology based on a set of polynomial contrasts.
-Reference: Azzalini (2023) <doi:10.1002/sta4.624>.
+the standard methodology based on a set of polynomial contrasts. Two
+variants of the present approach have been developed, one in each of the
+next references: Azzalini (2023) <doi:10.1002/sta4.624>, (2024)
+<doi:10.48550/arXiv.2406.15933>.
 
 %prep
 %setup -q -c -n %{packname}

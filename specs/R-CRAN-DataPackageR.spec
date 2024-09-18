@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DataPackageR
-%global packver   0.16.0
+%global packver   0.16.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.16.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Reproducible Analytic Data Sets as R Packages
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-futile.logger 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-rprojroot
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-futile.logger 

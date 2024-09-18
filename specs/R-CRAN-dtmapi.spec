@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dtmapi
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetching Data from the 'Displacement Tracking Matrix'
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-config 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-config 
+Requires:         R-CRAN-magrittr 
 
 %description
 Allows humanitarian community, academia, media, government, and
 non-governmental organizations to utilize the data collected by the
-`Displacement Tracking Matrix` (<https://dtm.iom.int>), a unit in the
+'Displacement Tracking Matrix' (<https://dtm.iom.int>), a unit in the
 International Organization for Migration. This also provides non-sensitive
 Internally Displaced Person figures, aggregated at the country, Admin 1
 (states, provinces, or equivalent), and Admin 2 (smaller administrative

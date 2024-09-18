@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmacrostrat
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fetch Geologic Data from the 'Macrostrat' Platform
 
@@ -29,10 +29,10 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-sf 
 
 %description
-Work with the 'Macrostrat' Web Service (<https://macrostrat.org/>) to
-fetch geological data relevant to the spatial and temporal distribution of
-sedimentary, igneous, and metamorphic rocks as well as data extracted from
-them.
+Work with the 'Macrostrat' (<https://macrostrat.org/>) Web Service (v.2,
+<https://macrostrat.org/api/v2>) to fetch geological data relevant to the
+spatial and temporal distribution of sedimentary, igneous, and metamorphic
+rocks as well as data extracted from them.
 
 %prep
 %setup -q -c -n %{packname}

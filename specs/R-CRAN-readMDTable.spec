@@ -1,48 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  readMDTable
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          Read Markdown Tables into Tibbles
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
-Requires:         R-utils 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-tibble 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+Functions for reading raw markdown tables from a string, file, or URL into
+tibbles. It includes options to warn users about potential issues with the
+markdown table format, ensuring robust data handling even if the table has
+minor formatting errors.
 
 %prep
 %setup -q -c -n %{packname}

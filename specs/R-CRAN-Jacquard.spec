@@ -1,48 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  Jacquard
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          Estimation of Jacquard's Genetic Identity Coefficients
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
-Requires:         R-utils 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-CRAN-Rsolnp 
+Requires:         R-CRAN-Rsolnp 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+Contains procedures to estimate the nine condensed Jacquard genetic
+identity coefficients (Jacquard, 1974) <doi:10.1007/978-3-642-88415-3> by
+constrained least squares (Graffelman et al., 2024)
+<doi:10.1101/2024.03.25.586682> and by the method of moments (Csuros,
+2014) <doi:10.1016/j.tpb.2013.11.001>. These procedures require previous
+estimation of the allele frequencies. Functions are supplied that estimate
+relationship parameters that derive from the Jacquard coefficients, such
+as individual inbreeding coefficients and kinship coefficients.
 
 %prep
 %setup -q -c -n %{packname}

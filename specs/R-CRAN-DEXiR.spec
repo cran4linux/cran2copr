@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  DEXiR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          'DEXi' Library
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-graphics 
 Requires:         R-utils 
-Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
+Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-graphics 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+A software package for using 'DEXi' models. 'DEXi' models are hierarchical
+qualitative multi-criteria decision models developed according to the
+method DEX (Decision EXpert,
+<https://dex.ijs.si/documentation/DEX_Method/DEX_Method.html>), using the
+program 'DEXi' (<https://kt.ijs.si/MarkoBohanec/dexi.html>) or 'DEXiWin'
+(<https://dex.ijs.si/dexisuite/dexiwin.html>). A typical workflow with
+'DEXiR' consists of: (1) reading a '.dxi' file, previously made using the
+'DEXi' software (function read_dexi()), (2) making a data frame containing
+input values of one or more decision alternatives, (3) evaluating those
+alternatives (function evaluate()), (4) analyzing alternatives
+(selective_explanation(), plus_minus(), compare_alternatives()), (5)
+drawing charts. 'DEXiR' is restricted to using models produced externally
+by the 'DEXi' software and does not provide functionality for creating
+and/or editing 'DEXi' models directly in 'R'.
 
 %prep
 %setup -q -c -n %{packname}

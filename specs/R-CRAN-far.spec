@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  far
-%global packver   0.6-6
+%global packver   0.6-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelization for Functional AutoRegressive Processes
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 

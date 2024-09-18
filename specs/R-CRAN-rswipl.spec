@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rswipl
-%global packver   9.3.7.2
+%global packver   9.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          9.3.7.2
+Version:          9.3.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embed 'SWI'-'Prolog'
 

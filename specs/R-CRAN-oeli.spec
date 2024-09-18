@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.5.2
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          My Utilities for Developing Data Science Software
+Summary:          Utilities for Developing Data Science Software
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-latex2exp
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-SimMultiCorrData 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sysfonts 
 BuildRequires:    R-CRAN-usethis 
@@ -40,16 +41,15 @@ Requires:         R-CRAN-latex2exp
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-SimMultiCorrData 
 Requires:         R-stats 
 Requires:         R-CRAN-sysfonts 
 Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 
 %description
-Some general helper functions that I and maybe others find useful when
-developing data science software. Functionality includes argument
-validation, density calculation, sampling, matrix printing, user
-interaction, storage helpers and more. The vignettes illustrate use cases.
+Some general helper functions that I (and maybe others) find useful when
+developing data science software.
 
 %prep
 %setup -q -c -n %{packname}

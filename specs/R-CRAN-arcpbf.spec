@@ -1,48 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  arcpbf
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          Process ArcGIS Protocol Buffer FeatureCollections
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
-Requires:         R-utils 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-arcgisutils >= 0.3.0
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-arcgisutils >= 0.3.0
+Requires:         R-CRAN-rlang 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+Fast processing of ArcGIS FeatureCollection protocol buffers in R. It is
+designed to work seamlessly with 'httr2' and integrates with 'sf'.
 
 %prep
 %setup -q -c -n %{packname}

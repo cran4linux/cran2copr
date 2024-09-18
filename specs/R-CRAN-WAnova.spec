@@ -1,48 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  WAnova
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          Welch's Anova from Summary Statistics
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SuppDists 
+Requires:         R-CRAN-car 
 Requires:         R-utils 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+Requires:         R-stats 
+Requires:         R-CRAN-SuppDists 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+Provides the functions to perform a Welch's one-way Anova with fixed
+effects based on summary statistics (sample size, means, standard
+deviation) and the Games-Howell post hoc test for multiple comparisons and
+provides the effect size estimator adjusted omega squared. In addition
+sample size estimation can be computed based on Levy's method, and a Monte
+Carlo simulation is included to bootstrap residual normality and
+homoscedasticity Welch, B. L. (1951) <doi:10.1093/biomet/38.3-4.330> Kirk,
+R. E. (1996) <doi:10.1177/0013164496056005002> Carroll, R. M., & Nordholm,
+L. A. (1975) <doi:10.1177/001316447503500304> Albers, C., & Lakens, D.
+(2018) <doi:10.1016/j.jesp.2017.09.004> Games, P. A., & Howell, J. F.
+(1976) <doi:10.2307/1164979> Levy, K. J. (1978a)
+<doi:10.1080/00949657808810246> Show-Li, J., & Gwowen, S. (2014)
+<doi:10.1111/bmsp.12006>.
 
 %prep
 %setup -q -c -n %{packname}

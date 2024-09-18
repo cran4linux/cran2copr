@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CITMIC
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Cell Infiltration Based on Cell Crosstalk
 
@@ -28,13 +28,13 @@ Requires:         R-stats
 
 %description
 A systematic biology tool was developed to identify cell infiltration via
-Individualized Cell-Cell interaction network. 'CITMIC' first constructed a
-weighted cell interaction network through integrating Cell-target
-interaction information, molecular function data from Gene Ontology (GO)
-database and gene transcriptomic data in specific sample, and then, it
-used a network propagation algorithm on the network to identify cell
-infiltration for the sample. Ultimately, cell infiltration in the patient
-dataset was obtained by normalizing the centrality scores of the cells.
+an Individualized Cell crosstalk network. 'CITMIC' first constructed a
+weighted cell crosstalk network by integrating Cell-target interaction
+information, biological process data from the Gene Ontology (GO) database,
+and gene transcriptomic data in a specific sample, and then, it used a
+network propagation algorithm on the network to identify cell infiltration
+for the sample. Ultimately, cell infiltration in the patient dataset was
+obtained by normalizing the centrality scores of the cells.
 
 %prep
 %setup -q -c -n %{packname}

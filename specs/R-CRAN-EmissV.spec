@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EmissV
-%global packver   0.665.6.6
+%global packver   0.665.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.665.6.6
+Version:          0.665.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Create Emissions for Air Quality Models
 
@@ -38,7 +38,7 @@ pollutant inventories (Schuch et al., 2018) <doi:10.30564/jasr.v1i1.347>.
 Functions to process individual point emissions, line emissions and area
 emissions of pollutants are available as well as methods to incorporate
 alternative data for Spatial distribution of emissions such as satellite
-images (Gavidia Calderon et. al, 2018)
+images (Gavidia-Calderon et. al, 2018)
 <doi:10.1016/j.atmosenv.2018.09.026> or openstreetmap data (Andrade et al,
 2015) <doi:10.3389/fenvs.2015.00009>.
 

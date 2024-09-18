@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mRpostman
-%global packver   1.1.4
+%global packname  ColOpenData
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An IMAP Client for R
+Summary:          Download Colombian Demographic, Climate and Geospatial Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-config 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
 
 %description
-An easy-to-use IMAP client that provides tools for message searching,
-selective fetching of message attributes, mailbox management, attachment
-extraction, and several other IMAP features, paving the way for e-mail
-data analysis in R.
+Downloads wrangled Colombian socioeconomic, geospatial,population and
+climate data from DANE <https://www.dane.gov.co/> (National Administrative
+Department of Statistics) and IDEAM <https://ideam.gov.co> (Institute of
+Hydrology, Meteorology and Environmental Studies). It solves the problem
+of Colombian data being issued in different web pages and sources by using
+functions that allow the user to select the desired database and download
+it without having to do the exhausting acquisition process.
 
 %prep
 %setup -q -c -n %{packname}

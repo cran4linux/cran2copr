@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distributional
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vectorised Probability Distributions
 
@@ -24,6 +24,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-generics 
@@ -31,6 +32,7 @@ Requires:         R-stats
 Requires:         R-CRAN-numDeriv 
 Requires:         R-utils 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-pillar 
 
 %description
 Vectorised distribution objects with tools for manipulating, visualising,
