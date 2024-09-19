@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2extra
-%global packver   2.0.10
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD, Extra Support Functions
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-knitr 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-knitr 

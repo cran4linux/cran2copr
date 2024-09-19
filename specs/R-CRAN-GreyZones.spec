@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pbdMPI
-%global packver   0.5-2
+%global packname  GreyZones
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to MPI for HPC Clusters (Programming with Big Data Project)
+Summary:          Detection of Grey Zones in Two-Way Inter-Rater Agreement Tables
 
-License:          Mozilla Public License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openmpi-devel
-Requires:         openmpi%{_isa}
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-float 
-BuildRequires:    R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-float 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-irrCAC >= 1.0
+Requires:         R-CRAN-irrCAC >= 1.0
 
 %description
-A simplified, efficient, interface to MPI for HPC clusters. It is a
-derivation and rethinking of the Rmpi package. pbdMPI embraces the
-prevalent parallel programming style on HPC clusters. Beyond the
-interface, a collection of functions for global work with distributed data
-and resource-independent RNG reproducibility is included. It is based on
-S4 classes and methods.
+Grey zones locally occur in an agreement table due to the subjective
+evaluation of raters based on various factors such as not having uniform
+guidelines, the differences between the raters' level of expertise or low
+variability among the level of the categorical variable. It is important
+to detect grey zones since they cause a negative bias in the estimate of
+the agreement level. This package provides a function for detecting the
+existence of grey zones in two-way inter-rater agreement tables (Demirhan
+and Yilmaz (2023) <doi:10.1186/s12874-022-01759-7>).
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,12 +46,9 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-%{_openmpi_load}
-export MPI_LIB_PATH=$MPI_LIB
-export MPI_TYPE=OPENMPI
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-%{_openmpi_unload}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

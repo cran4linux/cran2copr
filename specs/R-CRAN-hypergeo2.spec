@@ -1,48 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  simer
-%global packver   0.9.0.5
+%global packname  hypergeo2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Simulation for Life Science and Breeding
+Summary:          Generalized Hypergeometric Function with Tunable High Precision
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bigmemory 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-bigmemory 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-jsonlite 
 
 %description
-Data simulator including genotype, phenotype, pedigree, selection and
-reproduction in R. It simulates most of reproduction process of animals or
-plants and provides data for GS (Genomic Selection), GWAS (Genome-Wide
-Association Study), and Breeding. For ADI model, please see Kao C and Zeng
-Z (2002) <doi:10.1093/genetics/160.3.1243>. For build.cov, please see B.
-D. Ripley (1987) <ISBN:9780470009604>.
+Computation of generalized hypergeometric function with tunable high
+precision in a vectorized manner, with the floating-point datatypes from
+'mpfr' or 'gmp' library. The computation is limited to real numbers.
 
 %prep
 %setup -q -c -n %{packname}

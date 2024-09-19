@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pbdMPI
-%global packver   0.5-2
+%global packname  stratifiedyh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to MPI for HPC Clusters (Programming with Big Data Project)
+Summary:          Stratified Sampling and Labeling of Data in R
 
-License:          Mozilla Public License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openmpi-devel
-Requires:         openmpi%{_isa}
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-float 
-BuildRequires:    R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-float 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A simplified, efficient, interface to MPI for HPC clusters. It is a
-derivation and rethinking of the Rmpi package. pbdMPI embraces the
-prevalent parallel programming style on HPC clusters. Beyond the
-interface, a collection of functions for global work with distributed data
-and resource-independent RNG reproducibility is included. It is based on
-S4 classes and methods.
+Provides functions for stratified sampling and assigning custom labels to
+data, ensuring randomness within groups. The package supports various
+sampling methods such as stratified, cluster, and systematic sampling. It
+allows users to apply transformations and customize the sampling process.
+This package can be useful for statistical analysis and data preparation
+tasks.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,12 +42,9 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %build
 
 %install
-%{_openmpi_load}
-export MPI_LIB_PATH=$MPI_LIB
-export MPI_TYPE=OPENMPI
+
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-%{_openmpi_unload}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

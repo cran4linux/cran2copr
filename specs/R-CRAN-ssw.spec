@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssw
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Striped Smith-Waterman Algorithm for Sequence Alignment using SIMD
 
@@ -22,8 +22,8 @@ Requires:         R-CRAN-reticulate
 
 %description
 Provides an R interface for 'SSW' (Striped Smith-Waterman) via its
-'Python' binding 'ssw-py'. 'SSW' is a fast C/C++ implementation of the
-Smith-Waterman algorithm for pairwise sequence alignment using
+'Python' binding 'ssw-py'. 'SSW' is a fast 'C' and 'C++' implementation of
+the Smith-Waterman algorithm for pairwise sequence alignment using
 Single-Instruction-Multiple-Data (SIMD) instructions. 'SSW' enhances the
 standard algorithm by efficiently returning alignment information and
 suboptimal alignment scores. The core 'SSW' library offers performance
@@ -31,8 +31,8 @@ improvements for various bioinformatics tasks, including protein database
 searches, short-read alignments, primary and split-read mapping,
 structural variant detection, and read-overlap graph generation. These
 features make 'SSW' particularly useful for genomic applications. Zhao et
-al. (2013) <doi:10.1371/journal.pone.0082138> developed the original C/C++
-implementation.
+al. (2013) <doi:10.1371/journal.pone.0082138> developed the original 'C'
+and 'C++' implementation.
 
 %prep
 %setup -q -c -n %{packname}

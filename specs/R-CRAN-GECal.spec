@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GeoThinneR
-%global packver   1.0.0
+%global packname  GECal
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Spatial Thinning for Ecological and Spatial Analysis
+Summary:          Generalized Entropy Calibration
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-nabor 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-terra 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-nabor 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-CRAN-terra 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-nleqslv 
+Requires:         R-CRAN-nleqslv 
 
 %description
-Provides efficient geospatial thinning algorithms to reduce the density of
-coordinate data while maintaining spatial relationships. Implements K-D
-Tree Approximate Nearest Neighbors (ANN), R-Tree, and brute force thinning
-methods. It uses a modified version of the R-tree structure from the
-'rtree' package <https://github.com/akoyabio/rtree>. The modified version
-can be downloaded from <https://github.com/jmestret/rtree>. For more
-information on the methods, see Elseberg et al. (2012)
-<https://hdl.handle.net/10446/86202>.
+Generalized Entropy Calibration produces calibration weights using
+generalized entropy as the objective function for optimization. This
+approach, as implemented in the 'GECal' package, is based on Kwon, Kim,
+and Qiu (2024) <doi:10.48550/arXiv.2404.01076>. Unlike traditional
+methods, 'GECal' incorporates design weights into the constraints to
+maintain design consistency, rather than including them in the objective
+function itself.
 
 %prep
 %setup -q -c -n %{packname}

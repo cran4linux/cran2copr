@@ -1,52 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  speccurvieR
-%global packver   0.4.0
+%global packname  hubUtils
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy, Fast, and Pretty Specification Curve Analysis
+Summary:          Core 'hubverse' Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-combinat 
-BuildRequires:    R-CRAN-fixest 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-sandwich 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-combinat 
-Requires:         R-CRAN-fixest 
-Requires:         R-CRAN-pbapply 
-Requires:         R-parallel 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Making specification curve analysis easy, fast, and pretty. It improves
-upon existing offerings with additional features and 'tidyverse'
-integration. Users can easily visualize and evaluate how their models
-behave under different specifications with a high degree of customization.
-For a description and applications of specification curve analysis see
-Simonsohn, Simmons, and Nelson (2020) <doi:10.1038/s41562-020-0912-z>.
+Core set of low-level utilities common across the 'hubverse'. Used to
+interact with 'hubverse' schema, Hub configuration files and model outputs
+and designed to be primarily used internally by other 'hubverse' packages.
+See Reich et al. (2022) <doi:10.2105/AJPH.2022.306831> for an overview of
+Collaborative Hubs.
 
 %prep
 %setup -q -c -n %{packname}
