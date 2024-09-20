@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSinference
-%global packver   0.2.1
+%global packname  staticryptR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Released Plug-in Sampling Single Synthetic Dataset
+Summary:          Encrypt HTML Files Using 'staticrypt'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
 
 %description
-Considering the singly imputed synthetic data generated via plug-in
-sampling under the multivariate normal model, draws inference procedures
-including the generalized variance, the sphericity test, the test for
-independence between two subsets of variables, and the test for the
-regression of one set of variables on the other. For more details see
-Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
+Provides a convenient interface to the 'staticrypt' by Robin Moisson
+<https://github.com/robinmoisson/staticrypt>---'Node.js' package for
+adding a password protection layer to static HTML pages. This package can
+be integrated into the post-render process of 'quarto' documents to secure
+them with a password.
 
 %prep
 %setup -q -c -n %{packname}

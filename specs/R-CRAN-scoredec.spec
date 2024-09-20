@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSinference
-%global packver   0.2.1
+%global packname  scoredec
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Released Plug-in Sampling Single Synthetic Dataset
+Summary:          S-Core Graph Decomposition
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-igraph 
 
 %description
-Considering the singly imputed synthetic data generated via plug-in
-sampling under the multivariate normal model, draws inference procedures
-including the generalized variance, the sphericity test, the test for
-independence between two subsets of variables, and the test for the
-regression of one set of variables on the other. For more details see
-Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
+S-Core Graph Decomposition algorithm for graphs. This is a method for
+decomposition of a weighted graph, as proposed by Eidsaa and Almaas (2013)
+<doi:10.1103/PhysRevE.88.062819>. The high speed and the low memory usage
+make it suitable for large graphs.
 
 %prep
 %setup -q -c -n %{packname}

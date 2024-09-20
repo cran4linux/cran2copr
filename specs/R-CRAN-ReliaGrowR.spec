@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSinference
-%global packver   0.2.1
+%global packname  ReliaGrowR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Released Plug-in Sampling Single Synthetic Dataset
+Summary:          Reliability Growth Analysis
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-segmented 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-segmented 
 
 %description
-Considering the singly imputed synthetic data generated via plug-in
-sampling under the multivariate normal model, draws inference procedures
-including the generalized variance, the sphericity test, the test for
-independence between two subsets of variables, and the test for the
-regression of one set of variables on the other. For more details see
-Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
+Modeling and plotting functions for Reliability Growth Analysis (RGA).
+Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
+Non-Homogeneous Poisson Process (NHPP) by Crow (1975)
+<https://apps.dtic.mil/sti/citations/ADA020296>, Piecewise Weibull NHPP by
+Guo et al. (2010) <doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull
+NHPP with Change Point Detection based on the 'segmented' package by
+Muggeo (2024) <https://cran.r-project.org/package=segmented>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  literanger
-%global packver   0.1.0
+%global packname  splusTimeSeries
+%global packver   1.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.5.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Forests for Multiple Imputation Based on 'ranger'
+Summary:          Time Series from 'S-PLUS'
 
-License:          GPL-3
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcereal >= 1.2.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.7
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-splusTimeDate >= 2.5.2
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-splusTimeDate >= 2.5.2
+Requires:         R-graphics 
+Requires:         R-methods 
 Requires:         R-stats 
 
 %description
-An updated implementation of R package 'ranger' by Wright et al, (2017)
-<doi:10.18637/jss.v077.i01> for training and predicting from random
-forests, particularly suited to high-dimensional data, and for embedding
-in 'Multiple Imputation by Chained Equations' (MICE) by van Buuren (2007)
-<doi:10.1177/0962280206074463>. Ensembles of classification and regression
-trees are currently supported. Sparse data of class 'dgCMatrix' (R package
-'Matrix') can be directly analyzed. Conventional bagged predictions are
-available alongside an efficient prediction for MICE via the algorithm
-proposed by Doove et al (2014) <doi:10.1016/j.csda.2013.10.025>. Survival
-and probability forests are not supported in the update, nor is data of
-class 'gwaa.data' (R package 'GenABEL'); use the original 'ranger' package
-for these analyses.
+A collection of classes and methods for working with indexed rectangular
+data. The index values can be calendar (timeSeries class) or numeric
+(signalSeries class). Methods are included for aggregation, alignment,
+merging, and summaries. The code was originally available in 'S-PLUS'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geoidep
-%global packver   0.2.0
+%global packname  PSIM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Geographic Data on Various Topics Provided and Managed by the Spatial Data Infrastructure of Peru
+Summary:          Preference Selection Index Method (PSIM)
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-archive 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-archive 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Provides R users with easy access to official cartographic data from Peru
-across a range of topics, including society, transport, environment,
-agriculture, climate, and more. It also includes data from regional
-government entities and technical-scientific institutions, all managed by
-Peru's Spatial Data Infrastructure. For more information, please visit:
-<https://www.geoidep.gob.pe/catalogos-de-metadatos>.
+The Preference Selection Index Method was created in (2010) and provides
+an innovative approach to determining the relative importance of criteria
+without pairwise comparisons, unlike the Analytic Hierarchy Process. The
+Preference Selection Index Method uses statistical methods to calculate
+the criteria weights and reflects their relative importance in the final
+decision-making process, offering an objective and non-subjective
+solution. This method is beneficial in multi-criteria decision analysis.
+The 'PSIM' package provides a practical and accessible tool for
+implementing the Preference Selection Index Method in R. It calculates the
+weights of criteria and makes the method available to researchers,
+analysts, and professionals without the need to develop complex
+calculations manually. More details about the Preference Selection Index
+Method can be found in Maniya K. and Bhatt M. G.(2010)
+<doi:10.1016/j.matdes.2009.11.020>.
 
 %prep
 %setup -q -c -n %{packname}

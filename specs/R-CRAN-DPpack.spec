@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPpack
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Differentially Private Statistical Analysis and Machine Learning
 
-License:          GPL-3
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,7 +22,7 @@ BuildRequires:    R-stats >= 4.0.2
 BuildRequires:    R-graphics >= 4.0.2
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-Rdpack >= 2.1
+BuildRequires:    R-CRAN-Rdpack >= 2.1.2
 BuildRequires:    R-CRAN-e1071 >= 1.7.9
 BuildRequires:    R-CRAN-nloptr >= 1.2.2.2
 BuildRequires:    R-CRAN-rmutil >= 1.1.5
@@ -32,7 +32,7 @@ Requires:         R-stats >= 4.0.2
 Requires:         R-graphics >= 4.0.2
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-Rdpack >= 2.1
+Requires:         R-CRAN-Rdpack >= 2.1.2
 Requires:         R-CRAN-e1071 >= 1.7.9
 Requires:         R-CRAN-nloptr >= 1.2.2.2
 Requires:         R-CRAN-rmutil >= 1.1.5
@@ -47,9 +47,11 @@ and contingency tables. It also implements some statistical models and
 machine learning algorithms such as linear regression (Kifer et al., 2012)
 <https://proceedings.mlr.press/v23/kifer12.html> and SVM (Chaudhuri et
 al., 2011) <https://jmlr.org/papers/v12/chaudhuri11a.html>. In addition,
-it implements some popular randomization mechanisms such as the Laplace
+it implements some popular randomization mechanisms, including the Laplace
 mechanism (Dwork et al., 2006a) <doi:10.1007/11681878_14>, Gaussian
-mechanism (Dwork et al., 2006b) <doi:10.1007/11761679_29>, and exponential
+mechanism (Dwork et al., 2006b) <doi:10.1007/11761679_29>, analytic
+Gaussian mechanism (Balle & Wang, 2018)
+<https://proceedings.mlr.press/v80/balle18a.html>, and exponential
 mechanism (McSherry & Talwar, 2007) <doi:10.1109/FOCS.2007.66>.
 
 %prep

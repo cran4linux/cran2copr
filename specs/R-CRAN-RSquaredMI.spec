@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSinference
-%global packver   0.2.1
+%global packname  RSquaredMI
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Released Plug-in Sampling Single Synthetic Dataset
+Summary:          R-Squared with Multiply Imputed Data
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-altR2 >= 1.1.0
+BuildRequires:    R-CRAN-lm.beta 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-mice 
+Requires:         R-CRAN-altR2 >= 1.1.0
+Requires:         R-CRAN-lm.beta 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-stats 
+Requires:         R-CRAN-mice 
 
 %description
-Considering the singly imputed synthetic data generated via plug-in
-sampling under the multivariate normal model, draws inference procedures
-including the generalized variance, the sphericity test, the test for
-independence between two subsets of variables, and the test for the
-regression of one set of variables on the other. For more details see
-Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
+Provides R-squared values and standardized regression coefficients for
+linear models applied to multiply imputed datasets as obtained by 'mice'.
+Confidence intervals, zero-order correlations, and alternative adjusted
+R-squared estimates are also available. The methods are described in Van
+Ginkel and Karch (2024) <doi:10.1111/bmsp.12344> and in Van Ginkel (2020)
+<doi:10.1007/s11336-020-09696-4>.
 
 %prep
 %setup -q -c -n %{packname}
