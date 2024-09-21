@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ff
-%global packver   4.0.12
+%global packver   4.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.12
+Version:          4.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Memory-Efficient Storage of Large Data on Disk and Fast Access Functions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.1
-Requires:         R-core >= 2.10.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-bit >= 4.0.0
 BuildRequires:    R-utils 
 Requires:         R-CRAN-bit >= 4.0.0

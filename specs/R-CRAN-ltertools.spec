@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ltertools
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools Developed by the Long Term Ecological Research Community
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
@@ -34,7 +34,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RJSONIO 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 

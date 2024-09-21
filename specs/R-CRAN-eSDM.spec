@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eSDM
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Tool for Predictions from Species Distribution Models
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 0.9.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-dplyr >= 1.1
+BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-ROCR
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 0.9.0
-Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-dplyr >= 1.1
+Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 

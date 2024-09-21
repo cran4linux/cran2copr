@@ -1,30 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  profvis
-%global packver   0.3.8
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Visualizations for Profiling R Code
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-rlang >= 0.4.9
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-htmlwidgets >= 0.3.2
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang >= 0.4.9
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-htmlwidgets >= 0.3.2
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-vctrs 
 
 %description

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  starnet
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stacked Elastic Net
 
@@ -26,7 +27,7 @@ Requires:         R-CRAN-cornet
 Requires:         R-CRAN-Matrix 
 
 %description
-Implements stacked elastic net regression (Rauschenberger 2020,
+Implements stacked elastic net regression (Rauschenberger 2021,
 <doi:10.1093/bioinformatics/btaa535>). The elastic net generalises ridge
 and lasso regularisation (Zou 2005,
 <doi:10.1111/j.1467-9868.2005.00503.x>). Instead of fixing or tuning the
@@ -41,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

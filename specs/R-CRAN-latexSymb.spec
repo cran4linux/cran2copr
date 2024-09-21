@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  latexSymb
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Use 'R' to Write 'LaTeX' Code
+Summary:          Write Equations in a Way that You Can Read
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,10 +21,10 @@ BuildRequires:    R-CRAN-purrr
 Requires:         R-CRAN-purrr 
 
 %description
-Simplify the task of writing 'LaTeX' code by using 'R'. Instead of using
-'LaTeX' utilities like 'newcommand', write 'R' functions for more
-flexibility and readability. Also, additional support for grouping makes
-it easier to write complicated expressions.
+Utilities to help you write 'LaTeX' in a more readable way. Instead of
+using plain code or a series of 'newcommand' statements, use 'R'
+functions. You will be able to write what you mean and make fewer
+mistakes.
 
 %prep
 %setup -q -c -n %{packname}

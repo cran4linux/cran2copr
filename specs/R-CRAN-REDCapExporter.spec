@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  REDCapExporter
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Construction of R Data Packages from REDCap Projects
 
@@ -17,13 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rjson 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rjson 
 
 %description
 Export all data, including metadata, from a REDCap (Research Electronic
@@ -42,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

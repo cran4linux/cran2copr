@@ -1,40 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rxode2random
-%global packver   2.1.1
+%global packname  bnRep
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Number Generation Functions for 'rxode2'
+Summary:          A Repository of Bayesian Networks from the Academic Literature
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-rxode2parse >= 2.0.19
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lotri 
-BuildRequires:    R-CRAN-sitmo 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-rxode2parse >= 2.0.19
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lotri 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bnlearn 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinythemes 
+Requires:         R-CRAN-bnlearn 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinythemes 
 
 %description
-Provides the random number generation (in parallel) needed for 'rxode2'
-(Wang, Hallow and James (2016) <doi:10.1002/psp4.12052>) and 'nlmixr2'
-(Fidler et al (2019) <doi:10.1002/psp4.12445>). This split will reduce
-computational burden of recompiling 'rxode2'.
+A collection of Bayesian networks (discrete, Gaussian, and conditional
+linear Gaussian) collated from recent academic literature. The
+'bnRep_summary' object provides an overview of the Bayesian networks in
+the repository and the package documentation includes details about the
+variables in each network. A Shiny app to explore the repository can be
+launched with 'bnRep_app()'. For details see
+<https://github.com/manueleleonelli/bnRep>.
 
 %prep
 %setup -q -c -n %{packname}

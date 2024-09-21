@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eha
-%global packver   2.11.4
+%global packver   2.11.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.4
+Version:          2.11.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event History Analysis
 

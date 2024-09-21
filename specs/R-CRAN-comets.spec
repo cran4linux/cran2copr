@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comets
-%global packver   0.0-2
+%global packver   0.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariance Measure Tests for Conditional Independence
 
@@ -35,7 +35,7 @@ Contains versions of the generalised covariance measure test (Shah and
 Peters, 2020, <doi:10.1214/19-aos1857>) and projected covariance measure
 test (Lundborg et al., 2023, <doi:10.48550/arXiv.2211.02039>).
 Applications can be found in Kook and Lundborg (2024,
-<doi:10.48550/arXiv.2402.14416>).
+<doi:10.1093/bib/bbae475>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mclustAddons
-%global packver   0.8
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Addons for the 'mclust' Package
 
@@ -17,23 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-mclust >= 6.1
+BuildRequires:    R-CRAN-doRNG >= 1.6
+BuildRequires:    R-CRAN-knitr >= 1.12
 BuildRequires:    R-CRAN-Rcpp >= 1.0
+BuildRequires:    R-CRAN-rmarkdown >= 0.9
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.10
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-mclust >= 6.1
+Requires:         R-CRAN-doRNG >= 1.6
+Requires:         R-CRAN-knitr >= 1.12
 Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-stats 
+Requires:         R-CRAN-rmarkdown >= 0.9
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
+Requires:         R-parallel 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description

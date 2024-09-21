@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ECOTOXr
-%global packver   1.0.9
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Extract Data from US EPA's ECOTOX Database
 
@@ -59,7 +59,8 @@ The US EPA ECOTOX database is a freely available database with a treasure
 of aquatic and terrestrial ecotoxicological data. As the online search
 interface doesn't come with an API, this package provides the means to
 easily access and search the database in R. To this end, all raw tables
-are downloaded from the EPA website and stored in a local SQLite database.
+are downloaded from the EPA website and stored in a local SQLite database
+<doi:10.1016/j.chemosphere.2024.143078>.
 
 %prep
 %setup -q -c -n %{packname}

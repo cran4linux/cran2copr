@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  refund
-%global packver   0.1-37
+%global packname  conversim
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.37
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression with Functional Data
+Summary:          Conversation Similarity Analysis
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,45 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mgcv >= 1.9
-BuildRequires:    R-CRAN-fda 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-gamm4 
+BuildRequires:    R-CRAN-sentimentr >= 2.7.1
+BuildRequires:    R-CRAN-lsa >= 0.73.2
+BuildRequires:    R-CRAN-tm >= 0.7.8
+BuildRequires:    R-CRAN-topicmodels >= 0.2.12
+BuildRequires:    R-CRAN-word2vec 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-RLRsim 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-grpreg 
+BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pbs 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-mgcv >= 1.9
-Requires:         R-CRAN-fda 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-gamm4 
+Requires:         R-CRAN-sentimentr >= 2.7.1
+Requires:         R-CRAN-lsa >= 0.73.2
+Requires:         R-CRAN-tm >= 0.7.8
+Requires:         R-CRAN-topicmodels >= 0.2.12
+Requires:         R-CRAN-word2vec 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-RLRsim 
-Requires:         R-splines 
-Requires:         R-CRAN-grpreg 
+Requires:         R-CRAN-slam 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-pbs 
-Requires:         R-methods 
 
 %description
-Methods for regression for functional data, including function-on-scalar,
-scalar-on-function, and function-on-function regression. Some of the
-functions are applicable to image data.
+Analyze and compare conversations using various similarity measures
+including topic, lexical, semantic, structural, stylistic, sentiment,
+participant, and timing similarities. Supports both pairwise conversation
+comparisons and analysis of multiple dyads. Methods are based on
+established research: Topic modeling: Blei et al. (2003)
+<doi:10.1162/jmlr.2003.3.4-5.993>; Landauer et al. (1998)
+<doi:10.1080/01638539809545028>; Lexical similarity: Jaccard (1912)
+<doi:10.1111/j.1469-8137.1912.tb05611.x>; Semantic similarity: Salton &
+Buckley (1988) <doi:10.1016/0306-4573(88)90021-0>; Mikolov et al. (2013)
+<doi:10.48550/arXiv.1301.3781>; Pennington et al. (2014)
+<doi:10.3115/v1/D14-1162>; Structural and stylistic analysis: Graesser et
+al. (2004) <doi:10.1075/target.21131.ryu>; Sentiment analysis: Rinker
+(2019) <https://github.com/trinker/sentimentr>.
 
 %prep
 %setup -q -c -n %{packname}

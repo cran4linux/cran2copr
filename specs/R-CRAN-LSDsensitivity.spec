@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LSDsensitivity
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sensitivity Analysis Tools for LSD Simulations
 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-randtoolbox
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rgenoud 
 BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-LSDinterface >= 1.2.1
 Requires:         R-stats 
 Requires:         R-utils 
@@ -46,6 +48,7 @@ Requires:         R-CRAN-randtoolbox
 Requires:         R-parallel 
 Requires:         R-CRAN-rgenoud 
 Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-XML 
 
 %description
 Tools for sensitivity analysis of LSD simulation models. Reads

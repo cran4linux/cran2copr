@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rCNV
-%global packver   1.3.0
+%global packname  sg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detect Copy Number Variants from SNPs Data
+Summary:          'SendGrid' Email API Client
 
-License:          AGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-data.table 
-Requires:         R-graphics 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-mime 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions in this package will import filtered variant call format (VCF)
-files of SNPs data and generate data sets to detect copy number variants,
-visualize them and do downstream analyses with copy number variants(e.g.
-Environmental association analyses).
+Minimalistic 'SendGrid' Email API client for creating and sending emails.
+For more information, visit the official 'SendGrid' Email API
+documentation: <https://sendgrid.com/en-us/solutions/email-api>.
 
 %prep
 %setup -q -c -n %{packname}

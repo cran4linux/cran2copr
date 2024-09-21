@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rCNV
-%global packver   1.3.0
+%global packname  eratosthenes
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detect Copy Number Variants from SNPs Data
+Summary:          Archaeological Synchronism
 
-License:          AGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-data.table 
-Requires:         R-graphics 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
 
 %description
-Functions in this package will import filtered variant call format (VCF)
-files of SNPs data and generate data sets to detect copy number variants,
-visualize them and do downstream analyses with copy number variants(e.g.
-Environmental association analyses).
+Estimates unknown historical or archaeological dates subject to
+relationships with other dates and absolute constraints, derived as
+marginal densities from the full joint conditional distribution. Includes
+rule-based estimation of the production dates of artifact types.
+Collins-Elliott (2024)
+<https://volweb.utk.edu/~scolli46/sceGUTChronology.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcpptimer
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Tic-Toc Timer with 'OpenMP' Support
 
@@ -24,7 +24,7 @@ Provides 'Rcpp' bindings for 'cpptimer', a simple tic-toc timer class for
 benchmarking 'C++' code <https://github.com/BerriJ/cpptimer>. It's not
 just simple, it's blazing fast! This sleek tic-toc timer class supports
 overlapping timers as well as 'OpenMP' parallelism
-<https://www.openmp.org/>. It boasts a microsecond-level time resolution.
+<https://www.openmp.org/>. It boasts a nanosecond-level time resolution.
 We did not find any overhead of the timer itself at this resolution.
 Results (with summary statistics) are automatically passed back to 'R' as
 a data frame.

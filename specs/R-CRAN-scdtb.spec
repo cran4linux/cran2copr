@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scdtb
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single Case Design Tools
 
@@ -20,17 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-broom.mixed 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mmcards 
+BuildRequires:    R-CRAN-mmints 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-sn 
 Requires:         R-CRAN-broom.mixed 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mmcards 
+Requires:         R-CRAN-mmints 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-sn 
 
 %description
 In some situations where researchers would like to demonstrate causal

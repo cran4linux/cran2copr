@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rxode2et
-%global packver   2.0.13
+%global packname  groqR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.13
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Event Table Functions for 'rxode2'
+Summary:          A Coding Assistant using the Fast AI Inference 'Groq'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-rxode2random >= 2.1.1
-BuildRequires:    R-CRAN-rxode2parse >= 2.0.19
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-lotri 
-Requires:         R-CRAN-rxode2random >= 2.1.1
-Requires:         R-CRAN-rxode2parse >= 2.0.19
-Requires:         R-stats 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyWidgets 
 Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-lotri 
 
 %description
-Provides the event table and support functions needed for 'rxode2' (Wang,
-Hallow and James (2016) <doi:10.1002/psp4.12052>) and 'nlmixr2' (Fidler et
-al (2019) <doi:10.1002/psp4.12445>). This split will reduce computational
-burden of recompiling 'rxode2'.
+A comprehensive suite of functions and 'RStudio' Add-ins leveraging the
+capabilities of open-source Large Language Models (LLMs) to support R
+developers. These functions offer a range of utilities, including text
+rewriting, translation, and general query capabilities. Additionally, the
+programming-focused functions provide assistance with debugging,
+translating, commenting, documenting, and unit testing code, as well as
+suggesting variable and function names, thereby streamlining the
+development process.
 
 %prep
 %setup -q -c -n %{packname}
