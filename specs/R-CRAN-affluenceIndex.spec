@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  yaImpute
-%global packver   1.0-34.1
+%global packname  affluenceIndex
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.34.1
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nearest Neighbor Observation Imputation and Evaluation Tools
+Summary:          Affluence (Richness) Indices
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-spatstat.univar 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-spatstat.univar 
 
 %description
-Performs nearest neighbor-based imputation using one or more alternative
-approaches to processing multivariate data. These include methods based on
-canonical correlation: analysis, canonical correspondence analysis, and a
-multivariate adaptation of the random forest classification and regression
-techniques of Leo Breiman and Adele Cutler. Additional methods are also
-offered. The package includes functions for comparing the results from
-running alternative techniques, detecting imputation targets that are
-notably distant from reference observations, detecting and correcting for
-bias, bootstrapping and building ensemble imputations, and mapping
-results.
+Enables to compute the statistical indices of affluence (richness) with
+bootstrap errors, and inequality and polarization indices. Moreover, gives
+the possibility of calculation of affluence line. Some simple errors are
+fixed and it works with new version of Spatial Statistics packaged.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  profoc
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Forecast Combination Using CRPS Learning
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-rcpptimer >= 1.1.0
+BuildRequires:    R-CRAN-rcpptimer >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-splines2 >= 0.4.4
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.5.0
@@ -39,11 +39,11 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Combine probabilistic forecasts using CRPS learning algorithms proposed in
-Berrisch, Ziel (2021) <arXiv:2102.00968>
+Berrisch, Ziel (2021) <doi:10.48550/arXiv.2102.00968>
 <doi:10.1016/j.jeconom.2021.11.008>. The package implements multiple
 online learning algorithms like Bernstein online aggregation; see
-Wintenberger (2014) <arXiv:1404.1356>. Quantile regression is also
-implemented for comparison purposes. Model parameters can be tuned
+Wintenberger (2014) <doi:10.48550/arXiv.1404.1356>. Quantile regression is
+also implemented for comparison purposes. Model parameters can be tuned
 automatically with respect to the loss of the forecast combination.
 Methods like predict(), update(), plot() and print() are available for
 convenience. This package utilizes the optim C++ library for numeric

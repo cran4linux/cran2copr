@@ -1,51 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omopgenerics
-%global packver   0.3.1
+%global packname  otargen
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods and Classes for the OMOP Common Data Model
+Summary:          Access Open Target Genetics
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ghql 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-ggiraphExtra 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ghql 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-ggiraphExtra 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
 
 %description
-Provides definitions of core classes and methods used by analytic
-pipelines that query the OMOP (Observational Medical Outcomes Partnership)
-common data model.
+Interact seamlessly with Open Target Genetics' GraphQL endpoint to query
+and retrieve tidy data tables, facilitating the analysis of genetic data.
+For more information about the Open Target Genetics API
+(<https://genetics.opentargets.org/api>).
 
 %prep
 %setup -q -c -n %{packname}
