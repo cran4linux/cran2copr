@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cv
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validating Regression Models
 
@@ -21,22 +21,34 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-glmmTMB 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-insight 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-nlme 
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Cross-validation methods of regression models that exploit features of

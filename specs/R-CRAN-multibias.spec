@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multibias
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simultaneous Multi-Bias Adjustment
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.3
 BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-dplyr >= 1.1.3
 Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-lifecycle >= 1.0.3
 
 %description
 Quantify the causal effect of a binary exposure on a binary outcome with

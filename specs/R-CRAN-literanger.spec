@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  planr
-%global packver   0.4.2
+%global packname  literanger
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Supply Chain Management, Demand and Supply Planning
+Summary:          Random Forests for Multiple Imputation Based on 'ranger'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RcppRoll 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RcppRoll 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcereal >= 1.3.2
+BuildRequires:    R-CRAN-cpp11 >= 0.4.7
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Perform flexible and quick calculations for Demand and Supply Planning,
-such as projected inventories and coverages, as well as replenishment
-plan. For any time bucket, daily, weekly or monthly, and any granularity
-level, product or group of products.
+An updated implementation of R package 'ranger' by Wright et al, (2017)
+<doi:10.18637/jss.v077.i01> for training and predicting from random
+forests, particularly suited to high-dimensional data, and for embedding
+in 'Multiple Imputation by Chained Equations' (MICE) by van Buuren (2007)
+<doi:10.1177/0962280206074463>. Ensembles of classification and regression
+trees are currently supported. Sparse data of class 'dgCMatrix' (R package
+'Matrix') can be directly analyzed. Conventional bagged predictions are
+available alongside an efficient prediction for MICE via the algorithm
+proposed by Doove et al (2014) <doi:10.1016/j.csda.2013.10.025>. Survival
+and probability forests are not supported in the update, nor is data of
+class 'gwaa.data' (R package 'GenABEL'); use the original 'ranger' package
+for these analyses.
 
 %prep
 %setup -q -c -n %{packname}

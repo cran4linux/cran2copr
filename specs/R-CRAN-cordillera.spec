@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cordillera
-%global packver   1.0-0
+%global packver   1.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of the OPTICS Cordillera
 
@@ -25,7 +25,7 @@ Functions for calculating the OPTICS Cordillera. The OPTICS Cordillera
 measures the amount of 'clusteredness' in a numeric data matrix within a
 distance-density based framework for a given minimum number of points
 comprising a cluster, as described in Rusch, Hornik, Mair (2018)
-<doi:10.1080/10618600.2017.1349664>. There is an R native version with
+<doi:10.1080/10618600.2017.1349664>. We provide an R native version with
 methods for printing, summarizing, and plotting the result.
 
 %prep

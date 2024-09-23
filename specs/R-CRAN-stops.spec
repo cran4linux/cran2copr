@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stops
-%global packver   1.6-2
+%global packver   1.8-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structure Optimized Proximity Scaling
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-minerva
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-pomp 
 BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-CRAN-registry 
 BuildRequires:    R-CRAN-scagnostics 
 BuildRequires:    R-CRAN-smacof 
 BuildRequires:    R-CRAN-tgp 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-minerva
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-pomp 
 Requires:         R-CRAN-pso 
+Requires:         R-CRAN-registry 
 Requires:         R-CRAN-scagnostics 
 Requires:         R-CRAN-smacof 
 Requires:         R-CRAN-tgp 
