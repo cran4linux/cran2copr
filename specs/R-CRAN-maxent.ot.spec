@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  leidenbase
-%global packver   0.1.30
+%global packname  maxent.ot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.30
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R and C/C++ Wrappers to Run the Leiden find_partition() Function
+Summary:          Perform Phonological Analyses using Maximum Entropy Optimality Theory
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-igraph >= 0.9.0
-Requires:         R-CRAN-igraph >= 0.9.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-An R to C/C++ interface that runs the Leiden community detection algorithm
-to find a basic partition (). It runs the equivalent of the 'leidenalg'
-find_partition() function, which is given in the 'leidenalg' distribution
-file 'leiden/src/functions.py'. This package includes the required source
-code files from the official 'leidenalg' distribution and functions from
-the R 'igraph' package.  The 'leidenalg' distribution is available from
-<https://github.com/vtraag/leidenalg/> and the R 'igraph' package is
-available from <https://igraph.org/r/>. The Leiden algorithm is described
-in the article by Traag et al. (2019) <doi:10.1038/s41598-019-41695-z>.
-Leidenbase includes code from the packages: igraph version 0.9.8 with
-license GPL (>= 2), leidenalg version 0.8.10 with license GPL 3.
+Fit Maximum Entropy Optimality Theory models to data sets, generate the
+predictions made by such models for novel data, and compare the fit of
+different models using a variety of metrics. The package is described in
+Mayer, C., Tan, A., Zuraw, K. (in press)
+<https://sites.socsci.uci.edu/~cjmayer/papers/cmayer_et_al_maxent_ot_accepted.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

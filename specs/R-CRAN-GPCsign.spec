@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  GLIDE
-%global packver   1.0.5
+%global __requires_exclude ^libmpi
+%global packname  GPCsign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Global and Individual Tests for Direct Effects
+Summary:          Gaussian Process Classification as Described in Bachoc et al. (2020)
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-TruncatedNormal >= 2.3
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-TruncatedNormal >= 2.3
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-future 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Global and individual tests for pleiotropy and direct effects in Mendelian
-randomization studies. Refer to J. Y. Dai, U. Peters, X. Wang, J. Kocarnik
-et al. AJE (2018) <doi:10.1093/aje/kwy177>.
+Parameter estimation and prediction of Gaussian Process Classifier models
+as described in Bachoc et al. (2020) <doi:10.1007/S10898-020-00920-0>.
+Important functions : gpcm(), predict.gpcm(), update.gpcm().
 
 %prep
 %setup -q -c -n %{packname}

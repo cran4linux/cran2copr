@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  idmc
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Load and Wrangle IDMC Displacement Data
 
@@ -34,8 +34,9 @@ Requires:         R-CRAN-tidyr
 
 %description
 Utilities to work with data from the Internal Displacement Monitoring
-Centre (IDMC), with convenient functions for loading events data from the
-IDMC API and transforming events data to daily displacement estimates.
+Centre (IDMC) (<https://www.internal-displacement.org/>), with convenient
+functions for loading events data from the IDMC API and transforming
+events data to daily displacement estimates.
 
 %prep
 %setup -q -c -n %{packname}

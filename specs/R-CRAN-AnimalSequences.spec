@@ -1,46 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  boiwsa
-%global packver   1.1.2
+%global packname  AnimalSequences
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seasonal Adjustment of Weekly Data
+Summary:          Analyse Animal Sequential Behaviour and Communication
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fpc 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-apcluster 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-naivebayes 
+BuildRequires:    R-CRAN-ranger 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-lubridate 
-Requires:         R-stats 
+Requires:         R-CRAN-fpc 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-apcluster 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-stats 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-naivebayes 
+Requires:         R-CRAN-ranger 
 
 %description
-Perform seasonal adjustment of weekly data. The package provides a
-user-friendly interface for computing seasonally adjusted estimates of
-weekly data and includes functions for the creation of country-specific
-prior adjustment variables, as well as diagnostic tools to assess the
-quality of the adjustments. The method is described in more detail in
-Ginker (2023) <doi:10.13140/RG.2.2.12221.44000>.
+All animal behaviour occurs sequentially. The package has a number of
+functions to format sequence data from different sources, to analyse
+sequential behaviour and communication in animals. It also has functions
+to plot the data and to calculate the entropy of sequences.
 
 %prep
 %setup -q -c -n %{packname}

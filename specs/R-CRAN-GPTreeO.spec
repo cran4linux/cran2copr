@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HKprocess
-%global packver   0.1-1
+%global packname  GPTreeO
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hurst-Kolmogorov Process
+Summary:          Dividing Local Gaussian Processes for Online Learning Regression
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
-BuildRequires:    R-CRAN-gtools >= 3.5.0
-BuildRequires:    R-CRAN-MCMCpack >= 1.3.3
-Requires:         R-CRAN-gtools >= 3.5.0
-Requires:         R-CRAN-MCMCpack >= 1.3.3
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-mlegp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-hash 
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-mlegp 
 
 %description
-Methods to make inference about the Hurst-Kolmogorov (fractional Gaussian
-noise, fGn) and the AR(1) process. Related time series trend tests are
-also included.
+We implement and extend the Dividing Local Gaussian Process algorithm by
+Lederer et al. (2020) <doi:10.48550/arXiv.2006.09446>. Its main use case
+is in online learning where it is used to train a network of local GPs
+(referred to as tree) by cleverly partitioning the input space. In
+contrast to a single GP, 'GPTreeO' is able to deal with larger amounts of
+data. The package includes methods to create the tree and set its
+parameter, incorporating data points from a data stream as well as making
+joint predictions based on all relevant local GPs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LUCIDus
-%global packver   3.0.2
+%global packver   3.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          LUCID with Multiple Omics Data
 
@@ -51,7 +51,7 @@ selection for each LUCID model is available to obtain the optimal number
 of latent clusters, and an integrated imputation approach is implemented
 to handle sporadic and list-wise missingness in multi-omics data.
 Lasso-type regularity for exposure and omics features were added. S3
-methods for summary and plotting functions were fixed.
+methods for summary and plotting functions were fixed. Fixed minor bugs.
 
 %prep
 %setup -q -c -n %{packname}

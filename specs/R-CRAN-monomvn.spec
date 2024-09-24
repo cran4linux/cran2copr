@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  monomvn
-%global packver   1.9-20
+%global packver   1.9-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.20
+Version:          1.9.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation for MVN and Student-t Data with Monotone Missingness
 
@@ -30,7 +30,7 @@ Requires:         R-CRAN-mvtnorm
 %description
 Estimation of multivariate normal (MVN) and student-t data of arbitrary
 dimension where the pattern of missing data is monotone. See Pantaleo and
-Gramacy (2010) <arXiv:0907.2135>. Through the use of
+Gramacy (2010) <doi:10.48550/arXiv.0907.2135>. Through the use of
 parsimonious/shrinkage regressions (plsr, pcr, lasso, ridge, etc.), where
 standard regressions fail, the package can handle a nearly arbitrary
 amount of missing data. The current version supports maximum likelihood

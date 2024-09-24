@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tcplfit2
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Concentration-Response Modeling of HTS or Transcriptomics Data
+Summary:          A Concentration-Response Modeling Utility
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,19 +22,26 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Performs the basic concentration response curve fitting used in the 'tcpl'
-package. It is a substitute for the original tcplFit() function (and
-sub-functions) and allows a wider variety of concentration-response
-models. All of the models included in the 'BMDExpress' package are now
-part of this package, and the output includes a calculation of the bmd
-(Benchmark Dose or concentration) value.
+The tcplfit2 R package performs basic concentration-response curve
+fitting. The original tcplFit() function in the tcpl R package performed
+basic concentration-response curvefitting to 3 models. With tcplfit2, the
+core tcpl concentration-response functionality has been expanded to
+process diverse high-throughput screen (HTS) data generated at the US
+Environmental Protection Agency, including targeted ToxCast,
+high-throughput transcriptomics (HTTr) and high-throughput phenotypic
+profiling (HTPP). tcplfit2 can be used independently to support analysis
+for diverse chemical screening efforts.
 
 %prep
 %setup -q -c -n %{packname}

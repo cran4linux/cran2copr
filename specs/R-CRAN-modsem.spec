@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modsem
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Interaction (and Moderation) Analysis in Structural Equation Models (SEM)
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-lavaan
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-MplusAutomation 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-stats 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-lavaan
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-MplusAutomation 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-stats 

@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ursa
-%global packver   3.10.4
+%global packname  shinycroneditor
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
+Summary:          'shiny' Cron Expression Input Widget
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-sf >= 0.6.1
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-png 
-Requires:         R-CRAN-sf >= 0.6.1
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-png 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-S3 classes and methods for manipulation with georeferenced raster data:
-reading/writing, processing, multi-panel visualization.
+A widget for 'shiny' apps to handle schedule expression input, using the
+'cron-expression-input' JavaScript component. Note that this does not edit
+the 'crontab' file, it is just an input element for the schedules. See
+<https://github.com/DatalabFabriek/shinycroneditor/blob/main/inst/examples/shiny-app.R>
+for an example implementation.
 
 %prep
 %setup -q -c -n %{packname}

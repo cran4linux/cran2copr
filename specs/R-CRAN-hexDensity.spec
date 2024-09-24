@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  onbrand
-%global packver   1.0.6
+%global packname  hexDensity
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templated Reporting Workflows in Word and PowerPoint
+Summary:          Fast Kernel Density Estimation with Hexagonal Grid
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-officer >= 0.3.7
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-officer >= 0.3.7
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-hexbin 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-hexbin 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-grid 
+Requires:         R-grDevices 
+Requires:         R-methods 
 
 %description
-Automated reporting in Word and PowerPoint can require customization for
-each organizational template. This package works around this by adding
-standard reporting functions and an abstraction layer to facilitate
-automated reporting workflows that can be replicated across different
-organizational templates.
+Kernel density estimation with hexagonal grid for bivariate data.
+Hexagonal grid has many beneficial properties like equidistant neighbours
+and less edge bias, making it better for spatial analyses than the more
+commonly used rectangular grid. Carr, D. B. et al. (1987)
+<doi:10.2307/2289444>. Diggle, P. J. (2010) <doi:10.1201/9781420072884>.
+Hill, B. (2017) <https://blog.bruce-hill.com/meandering-triangles>. Jones,
+M. C. (1993) <doi:10.1007/BF00147776>.
 
 %prep
 %setup -q -c -n %{packname}

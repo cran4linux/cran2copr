@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CaseCohortCoxSurvival
-%global packver   0.0.34
+%global packver   0.0.36
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.34
+Version:          0.0.36
 Release:          1%{?dist}%{?buildtag}
 Summary:          Case-Cohort Cox Survival Inference
 
@@ -24,7 +24,8 @@ Requires:         R-CRAN-nnet
 %description
 Cox model inference for relative hazard and covariate-specific pure risk
 estimated from stratified and unstratified case-cohort data as described
-in Etievant, L., Gail, M.H. (2023) <arXiv:2304.03396>.
+in Etievant, L., Gail, M.H. (Lifetime Data Analysis, 2024)
+<doi:10.1007/s10985-024-09621-2>.
 
 %prep
 %setup -q -c -n %{packname}

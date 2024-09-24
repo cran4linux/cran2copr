@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  selenium
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Low-Level Browser Automation Interface
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-processx
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rappdirs 
 Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 

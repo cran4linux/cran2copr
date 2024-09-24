@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maestro
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Orchestration of Data Pipelines
 
@@ -23,8 +23,10 @@ BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-tictoc 
 BuildRequires:    R-CRAN-timechange 
@@ -35,8 +37,10 @@ Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-logger 
 Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-tictoc 
 Requires:         R-CRAN-timechange 

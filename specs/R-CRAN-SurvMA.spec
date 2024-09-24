@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  onbrand
-%global packver   1.0.6
+%global packname  SurvMA
+%global packver   1.6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.6.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Templated Reporting Workflows in Word and PowerPoint
+Summary:          Model Averaging Prediction of Personalized Survival Probabilities
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-officer >= 0.3.7
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-officer >= 0.3.7
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-pec 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-splines 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-pec 
+Requires:         R-CRAN-quadprog 
+Requires:         R-splines 
+Requires:         R-methods 
 
 %description
-Automated reporting in Word and PowerPoint can require customization for
-each organizational template. This package works around this by adding
-standard reporting functions and an abstraction layer to facilitate
-automated reporting workflows that can be replicated across different
-organizational templates.
+Provide model averaging-based approaches that can be used to predict
+personalized survival probabilities. The key underlying idea is to
+approximate the conditional survival function using a weighted average of
+multiple candidate models. Two scenarios of candidate models are allowed:
+(Scenario 1) partial linear Cox model and (Scenario 2) time-varying
+coefficient Cox model. A reference of the underlying methods is Li and
+Wang (2023) <doi:10.1016/j.csda.2023.107759>.
 
 %prep
 %setup -q -c -n %{packname}

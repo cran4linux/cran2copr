@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dde
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Solve Delay Differential Equations
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-ring >= 1.0.0
+BuildRequires:    R-CRAN-ring >= 1.0.6
 
 %description
 Solves ordinary and delay differential equations, where the objective

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  activAnalyzer
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'Shiny' App to Analyze Accelerometer-Measured Daily Physical Behavior Data
 
@@ -17,57 +17,57 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-rmarkdown >= 2.16
-BuildRequires:    R-CRAN-dbplyr >= 2.1.1
-BuildRequires:    R-CRAN-shinyjs >= 2.1.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.3
-BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.3
-BuildRequires:    R-CRAN-plyr >= 1.8.7
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-shiny >= 1.7.2
-BuildRequires:    R-CRAN-stringr >= 1.4.1
-BuildRequires:    R-CRAN-tidyr >= 1.2.1
-BuildRequires:    R-CRAN-hms >= 1.1.2
-BuildRequires:    R-CRAN-patchwork >= 1.1.2
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-shinycssloaders >= 1.0.0
-BuildRequires:    R-CRAN-flextable >= 0.8.2
-BuildRequires:    R-CRAN-shinydashboard >= 0.7.2
-BuildRequires:    R-CRAN-forcats >= 0.5.2
-BuildRequires:    R-CRAN-shinyFeedback >= 0.4.0
-BuildRequires:    R-CRAN-golem >= 0.3.4
-BuildRequires:    R-CRAN-reactable >= 0.3.0
-BuildRequires:    R-CRAN-modelr >= 0.1.9
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-modelr 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-PhysicalActivity 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reactable 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinydashboardPlus 
+BuildRequires:    R-CRAN-shinyFeedback 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-rmarkdown >= 2.16
-Requires:         R-CRAN-dbplyr >= 2.1.1
-Requires:         R-CRAN-shinyjs >= 2.1.0
-Requires:         R-CRAN-magrittr >= 2.0.3
-Requires:         R-CRAN-shinydashboardPlus >= 2.0.3
-Requires:         R-CRAN-plyr >= 1.8.7
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-shiny >= 1.7.2
-Requires:         R-CRAN-stringr >= 1.4.1
-Requires:         R-CRAN-tidyr >= 1.2.1
-Requires:         R-CRAN-hms >= 1.1.2
-Requires:         R-CRAN-patchwork >= 1.1.2
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-shinycssloaders >= 1.0.0
-Requires:         R-CRAN-flextable >= 0.8.2
-Requires:         R-CRAN-shinydashboard >= 0.7.2
-Requires:         R-CRAN-forcats >= 0.5.2
-Requires:         R-CRAN-shinyFeedback >= 0.4.0
-Requires:         R-CRAN-golem >= 0.3.4
-Requires:         R-CRAN-reactable >= 0.3.0
-Requires:         R-CRAN-modelr >= 0.1.9
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-golem 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-modelr 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-PhysicalActivity 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-shinyFeedback 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-zoo 
 
 %description

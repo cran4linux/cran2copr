@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tntpr
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis Tools Customized for TNTP
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2
 Requires:         R-core >= 3.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.3
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-extrafont 
 BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-grDevices 
@@ -38,7 +39,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-ggplot2 >= 3.2.1
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
@@ -47,6 +48,7 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.3
 Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-extrafont 
 Requires:         R-CRAN-formattable 
 Requires:         R-grDevices 

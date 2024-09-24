@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mvPot
-%global packver   0.1.6
+%global packname  robustarima
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Peaks-over-Threshold Modelling for Spatial Extreme Events
+Summary:          Robust ARIMA Modeling
 
-License:          GPL-2
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-evd 
-BuildRequires:    R-CRAN-numbers 
-BuildRequires:    R-CRAN-gmp 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-evd 
-Requires:         R-CRAN-numbers 
-Requires:         R-CRAN-gmp 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-splusTimeDate 
+BuildRequires:    R-CRAN-splusTimeSeries 
+Requires:         R-methods 
+Requires:         R-CRAN-splusTimeDate 
+Requires:         R-CRAN-splusTimeSeries 
 
 %description
-Tools for high-dimensional peaks-over-threshold inference and simulation
-of spatial extremal processes. Key references include de Fondeville and
-Davison (2018) <doi:10.1093/biomet/asy026>, Thibaud and Opitz (2015)
-<doi:10.1093/biomet/asv045>, Wadsworth and Tawn
-<doi:10.1093/biomet/ast042>.
+Functions for fitting a linear regression model with ARIMA errors using a
+filtered tau-estimate. The methodology is described in Maronna et al
+(2017, ISBN:9781119214687).
 
 %prep
 %setup -q -c -n %{packname}

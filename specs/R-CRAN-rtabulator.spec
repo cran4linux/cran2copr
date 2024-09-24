@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  TwoPhaseInd
-%global packver   1.1.2
+%global __requires_exclude ^libmpi
+%global packname  rtabulator
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Gene-Treatment Interaction Exploiting Randomization
+Summary:          R Bindings for 'Tabulator JS'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-shiny 
 
 %description
-Estimation of gene-treatment interactions in randomized clinical trials
-exploiting gene-treatment independence. Methods used in the package refer
-to J. Y. Dai, M. LeBlanc, and C. Kooperberg (2009) Biometrics
-<doi:10.1111/j.1541-0420.2008.01046.x>.
+Provides R bindings for 'Tabulator JS' <https://tabulator.info/>. Makes it
+a breeze to create highly customizable interactive tables in 'rmarkdown'
+documents and 'shiny' applications. It includes filtering, grouping,
+editing, input validation, history recording, column formatters, packaged
+themes and more.
 
 %prep
 %setup -q -c -n %{packname}

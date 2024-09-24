@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brms
-%global packver   2.21.0
+%global packver   2.22.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.0
+Version:          2.22.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models using 'Stan'
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-loo >= 2.3.1
+BuildRequires:    R-CRAN-loo >= 2.8.0
 BuildRequires:    R-CRAN-rstan >= 2.29.0
 BuildRequires:    R-CRAN-rstantools >= 2.1.1
 BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-mgcv >= 1.8.13
+BuildRequires:    R-CRAN-posterior >= 1.6.0
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
 BuildRequires:    R-CRAN-glue >= 1.3.0
 BuildRequires:    R-CRAN-future >= 1.19.0
 BuildRequires:    R-CRAN-Matrix >= 1.1.1
-BuildRequires:    R-CRAN-posterior >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-future.apply >= 1.0.0
 BuildRequires:    R-CRAN-bridgesampling >= 0.3.0
@@ -43,16 +43,16 @@ BuildRequires:    R-parallel
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-loo >= 2.3.1
+Requires:         R-CRAN-loo >= 2.8.0
 Requires:         R-CRAN-rstan >= 2.29.0
 Requires:         R-CRAN-rstantools >= 2.1.1
 Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-mgcv >= 1.8.13
+Requires:         R-CRAN-posterior >= 1.6.0
 Requires:         R-CRAN-bayesplot >= 1.5.0
 Requires:         R-CRAN-glue >= 1.3.0
 Requires:         R-CRAN-future >= 1.19.0
 Requires:         R-CRAN-Matrix >= 1.1.1
-Requires:         R-CRAN-posterior >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-future.apply >= 1.0.0
 Requires:         R-CRAN-bridgesampling >= 0.3.0

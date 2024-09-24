@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rintcal
-%global packver   0.6.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiocarbon Calibration Curves
 
@@ -27,9 +27,8 @@ The IntCal20 radiocarbon calibration curves (Reimer et al. 2020
 <doi:10.1017/RDC.2020.68>) are provided as a data package, together with
 previous IntCal curves (IntCal13, IntCal09, IntCal04, IntCal98) and
 postbomb curves. Also provided are functions to copy the curves into
-memory, to plot the curves and their underlying data, to calibrate
-radiocarbon dates and to transform between different radiocarbon
-'domains'.
+memory, and to read, query and plot the data underlying the IntCal20
+curves.
 
 %prep
 %setup -q -c -n %{packname}

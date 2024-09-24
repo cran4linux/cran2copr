@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babelmixr2
-%global packver   0.1.2
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use 'nlmixr2' to Interact with Open Source and Commercial Software
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-rxode2 >= 3.0.0
 BuildRequires:    R-CRAN-nlmixr2est >= 2.1.6
 BuildRequires:    R-CRAN-nlmixr2 >= 2.0.8
 BuildRequires:    R-CRAN-nonmem2rx >= 0.1.3
@@ -23,14 +24,14 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-lotri 
+BuildRequires:    R-CRAN-monolix2rx 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-rex 
-BuildRequires:    R-CRAN-rxode2 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-rxode2parse 
+Requires:         R-CRAN-rxode2 >= 3.0.0
 Requires:         R-CRAN-nlmixr2est >= 2.1.6
 Requires:         R-CRAN-nlmixr2 >= 2.0.8
 Requires:         R-CRAN-nonmem2rx >= 0.1.3
@@ -38,10 +39,10 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-lotri 
+Requires:         R-CRAN-monolix2rx 
 Requires:         R-methods 
 Requires:         R-CRAN-qs 
 Requires:         R-CRAN-rex 
-Requires:         R-CRAN-rxode2 
 
 %description
 Run other estimation and simulation software via the 'nlmixr2' (Fidler et
@@ -49,7 +50,7 @@ al (2019) <doi:10.1002/psp4.12445>) interface including 'PKNCA', 'NONMEM'
 and 'Monolix'. While not required, you can get/install the
 'lixoftConnectors' package in the 'Monolix' installation, as described at
 the following url
-<https://monolix.lixoft.com/monolix-api/lixoftconnectors_installation/>.
+<https://monolixsuite.slp-software.com/r-functions/2024R1/installation-and-initialization>.
 When 'lixoftConnectors' is available, 'Monolix' can be run directly
 instead of setting up command line usage.
 
