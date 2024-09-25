@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rice
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Radiocarbon Calibration Equations
+Summary:          Radiocarbon Equations
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 0.6.4
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-rintcal >= 0.6.4
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rintcal >= 1.0.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rnaturalearth 
+BuildRequires:    R-CRAN-rnaturalearthdata 
+Requires:         R-CRAN-rintcal >= 1.0.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rnaturalearth 
+Requires:         R-CRAN-rnaturalearthdata 
 
 %description
 Provides functions for the calibration of radiocarbon dates, as well as
 options to calculate different radiocarbon realms (C14 age, F14C, pMC,
-D14C) and estimating the effects of contamination. The methods follow
-long-established recommendations such as Stuiver and Polach (1977)
-<doi:10.1017/S0033822200003672> and Reimer et al. (2004)
+D14C) and estimating the effects of contamination or local reservoir
+offsets (Reimer and Reimer 2001 <doi:10.1017/S0033822200038339>). The
+methods follow long-established recommendations such as Stuiver and Polach
+(1977) <doi:10.1017/S0033822200003672> and Reimer et al. (2004)
 <doi:10.1017/S0033822200033154>. This package accompanies the data package
 'rintcal'.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common TLGs Used in Clinical Trials
 
@@ -25,9 +25,9 @@ BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-gridExtra >= 2.0
 BuildRequires:    R-CRAN-tibble >= 2.0.0
-BuildRequires:    R-CRAN-emmeans >= 1.8.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-scales >= 1.2.0
+BuildRequires:    R-CRAN-emmeans >= 1.10.4
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
@@ -51,9 +51,9 @@ Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-gridExtra >= 2.0
 Requires:         R-CRAN-tibble >= 2.0.0
-Requires:         R-CRAN-emmeans >= 1.8.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-scales >= 1.2.0
+Requires:         R-CRAN-emmeans >= 1.10.4
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0

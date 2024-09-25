@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetaHD
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Multivariate Meta-Analysis Model for Metabolomics Data
+Summary:          A Multivariate Meta-Analysis Model for High-Dimensional Metabolomics Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -29,18 +30,19 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixcalc 
 
 %description
 Performs multivariate meta-analysis for high-dimensional metabolomics data
-for integrating and collectively analysing individual-level metabolomics
-data generated from multiple studies as well as for combining summary
-estimates. This approach accounts for correlation between metabolites,
-considers variability within and between studies, handles missing values
-and uses shrinkage estimation to allow for high dimensionality. A detailed
-vignette with example datasets and code to prepare data and analyses are
-available on <https://bookdown.org/a2delivera/MetaHD/>.
+for integrating and collectively analysing individual-level data generated
+from multiple studies as well as for combining summary estimates. This
+approach accounts for correlation between outcomes, considers variability
+within and between studies, handles missing values and uses shrinkage
+estimation to allow for high dimensionality. A detailed vignette with
+example datasets and code to prepare data and analyses are available on
+<https://bookdown.org/a2delivera/MetaHD/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OlinkAnalyze
-%global packver   3.8.2
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.8.2
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilitate Analysis of Proteomic Data from Olink
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.2
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-generics 
@@ -28,8 +30,6 @@ BuildRequires:    R-CRAN-ggpubr
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readxl 
@@ -42,10 +42,11 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-cli >= 3.6.2
+Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-generics 
@@ -54,8 +55,6 @@ Requires:         R-CRAN-ggpubr
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grDevices 
 Requires:         R-grid 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-readxl 
@@ -68,7 +67,6 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-zip 
 
 %description
 A collection of functions to facilitate analysis of proteomic data from

@@ -1,56 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jstable
-%global packver   1.3.4
+%global packname  AquaBEHER
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Tables from Different Types of Regression
+Summary:          Estimation and Prediction of Wet Season Calendar and Soil Water Balance for Agriculture
 
-License:          Apache License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.0.0
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-tableone 
-BuildRequires:    R-CRAN-coxme 
-BuildRequires:    R-CRAN-survey 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-survival >= 3.0.0
-Requires:         R-CRAN-geepack 
-Requires:         R-CRAN-lme4 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-tableone 
-Requires:         R-CRAN-coxme 
-Requires:         R-CRAN-survey 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-zoo 
 
 %description
-Create regression tables from generalized linear model(GLM), generalized
-estimating equation(GEE), generalized linear mixed-effects model(GLMM),
-Cox proportional hazards model, survey-weighted generalized linear
-model(svyglm) and survey-weighted Cox model results for publication.
+Computes and integrates daily potential evapotranspiration (PET) and a
+soil water balance model. It allows users to estimate and predict the wet
+season calendar, including onset, cessation, and duration, based on an
+agroclimatic approach for a specified period. This functionality helps in
+managing agricultural water resources more effectively. For detailed
+methodologies, users can refer to Allen et al. (1998, ISBN:92-5-104219-5);
+Allen (2005, ISBN:9780784408056); Doorenbos and Pruitt (1975,
+ISBN:9251002797); Guo et al. (2016) <doi:10.1016/j.envsoft.2015.12.019>;
+Hargreaves and Samani (1985) <doi:10.13031/2013.26773>; Priestley and
+Taylor (1972)
+<https://journals.ametsoc.org/view/journals/apme/18/7/1520-0450_1979_018_0898_tptema_2_0_co_2.xml>.
 
 %prep
 %setup -q -c -n %{packname}

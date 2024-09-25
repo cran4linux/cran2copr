@@ -1,58 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  planscorer
-%global packver   0.0.2
+%global packname  geocomplexity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Score Redistricting Plans with 'PlanScore'
+Summary:          Mitigating Spatial Bias Through Geographical Complexity
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sdsfun 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-webshot2 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pander 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sdsfun 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-webshot2 
 
 %description
-Provides access to the 'PlanScore' Application Programming Interface
-(<https://github.com/PlanScore/PlanScore/blob/main/API.md>) for scoring
-redistricting plans. Allows for upload of plans from block assignment
-files and shape files. For shapes in memory, such as from 'sf' or
-'redist', it processes them to save and upload. Includes tools for tidying
-responses and saving output from the website.
+The geographical complexity of individual variables can be characterized
+by the differences in local attribute variables, while the common
+geographical complexity of multiple variables can be represented by
+fluctuations in the similarity of vectors composed of multiple variables.
+In spatial regression tasks, the goodness of fit can be improved by
+incorporating a geographical complexity representation vector during
+modeling, using a geographical complexity-weighted spatial weight matrix,
+or employing local geographical complexity kernel density. Similarly, in
+spatial sampling tasks, samples can be selected more effectively by using
+a method that weights based on geographical complexity. By optimizing
+performance in spatial regression and spatial sampling tasks, the spatial
+bias of the model can be effectively reduced.
 
 %prep
 %setup -q -c -n %{packname}

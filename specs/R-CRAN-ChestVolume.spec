@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppFastAD
-%global packver   0.0.4
+%global packname  ChestVolume
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings to 'FastAD' Auto-Differentiation
+Summary:          Estimate the Chest Volume with Markers Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
-The header-only 'C++' template library 'FastAD' for automatic
-differentiation <https://github.com/JamesYang007/FastAD> is provided by
-this package, along with a few illustrative examples that can all be
-called from R.
+Provides tools to process and analyze chest expansion using 3D marker data
+from motion capture systems. Includes functions for data processing,
+marker position adjustment, volume calculation using convex hulls, and
+visualization in 2D and 3D. Barber et al. (1996)
+<doi:10.1145/235815.235821>. TAMIYA Hiroyuki et al. (2021)
+<doi:10.1038/s41598-021-01033-8>.
 
 %prep
 %setup -q -c -n %{packname}

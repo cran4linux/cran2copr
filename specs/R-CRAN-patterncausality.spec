@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  patterncausality
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern Causality Algorithm
 
@@ -18,7 +18,13 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-plot3D 
 Requires:         R-stats 
+Requires:         R-CRAN-corrplot 
+Requires:         R-graphics 
+Requires:         R-CRAN-plot3D 
 
 %description
 The model proposes a robust methodology for detecting and reconstructing

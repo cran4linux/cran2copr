@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckdb
-%global packver   1.0.0-2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          DBI Package for the DuckDB Database Management System
 
@@ -26,7 +26,7 @@ Requires:         R-utils
 %description
 The DuckDB project is an embedded analytical data management system with
 support for the Structured Query Language (SQL). This package includes all
-of DuckDB and a R Database Interface (DBI) connector.
+of DuckDB and an R Database Interface (DBI) connector.
 
 %prep
 %setup -q -c -n %{packname}

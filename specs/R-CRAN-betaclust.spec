@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaclust
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Family of Beta Mixture Models for Clustering Beta-Valued DNA Methylation Data
 
@@ -36,8 +36,8 @@ Requires:         R-CRAN-pROC
 
 %description
 A family of novel beta mixture models (BMMs) has been developed by
-Majumdar et al. (2022) <arXiv:2211.01938v1> to appositely model the
-beta-valued cytosine-guanine dinucleotide (CpG) sites, to objectively
+Majumdar et al. (2022) <doi:10.48550/arXiv.2211.01938> to appositely model
+the beta-valued cytosine-guanine dinucleotide (CpG) sites, to objectively
 identify methylation state thresholds and to identify the differentially
 methylated CpG (DMC) sites using a model-based clustering approach. The
 family of beta mixture models employs different parameter constraints

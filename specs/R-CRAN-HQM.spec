@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HQM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Superefficient Estimation of Future Conditional Hazards Based on Marker Information
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-survival 
 
 %description
 Provides a nonparametric smoothed kernel density estimator for the future

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bootPLS
-%global packver   0.9.9
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap Hyperparameter Selection for PLS Models and Extensions
 
@@ -43,7 +44,7 @@ chapter (Magnanensi et al. 2016, 'The Multiple Facets of Partial Least
 Squares and Related Methods', <doi:10.1007/978-3-319-40643-5_18>) and two
 articles (Magnanensi et al. 2017, 'Statistics and Computing',
 <doi:10.1007/s11222-016-9651-4>) and (Magnanensi et al. 2021, 'Frontiers
-in Applied Mathematics and Statistics', accepted.).
+in Applied Mathematics and Statistics', <doi:10.3389/fams.2021.693126>).
 
 %prep
 %setup -q -c -n %{packname}

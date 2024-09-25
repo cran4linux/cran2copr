@@ -1,30 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  image.dlib
-%global packver   0.1.1
+%global packname  do3PCA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Image Processing Functionality using the 'dlib' Package
+Summary:          Probabilistic Phylogenetic Principal Component Analysis
 
-License:          BSL-1.0
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.9
-Requires:         R-CRAN-Rcpp >= 0.12.9
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdimtools 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-ratematrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rdimtools 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-ratematrix 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Facility wrappers around the image processing functionality of 'dlib'.
-'Dlib' <http://dlib.net> is a 'C++' toolkit containing machine learning
-algorithms and computer vision tools. Currently the package allows to find
-feature descriptors of digital images, in particular 'SURF' and 'HOG'
-descriptors.
+Estimates probabilistic phylogenetic Principal Component Analysis (PCA)
+and non-phylogenetic probabilistic PCA. Provides methods to implement
+alternative models of trait evolution including Brownian motion (BM),
+Ornstein-Uhlenbeck (OU), Early Burst (EB), and Pagel's lambda. Also
+provides flexible biplot functions.
 
 %prep
 %setup -q -c -n %{packname}

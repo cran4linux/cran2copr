@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppFastAD
-%global packver   0.0.4
+%global packname  fctutils
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Bindings to 'FastAD' Auto-Differentiation
+Summary:          Advanced Factor Manipulation Utilities
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringdist 
+Requires:         R-utils 
+Requires:         R-stats 
 
 %description
-The header-only 'C++' template library 'FastAD' for automatic
-differentiation <https://github.com/JamesYang007/FastAD> is provided by
-this package, along with a few illustrative examples that can all be
-called from R.
+Provides a collection of utility functions for manipulating and analyzing
+factor vectors in R. It offers tools for filtering, splitting, combining,
+and reordering factor levels based on various criteria. The package is
+designed to simplify common tasks in categorical data analysis, making it
+easier to work with factors in a flexible and efficient manner.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GaussSuppression
-%global packver   0.8.8
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tabular Data Suppression using Gaussian Elimination
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.5.2
+BuildRequires:    R-CRAN-SSBtools >= 1.5.4
 BuildRequires:    R-CRAN-RegSDC >= 0.7.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-SSBtools >= 1.5.2
+Requires:         R-CRAN-SSBtools >= 1.5.4
 Requires:         R-CRAN-RegSDC >= 0.7.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
@@ -32,15 +32,16 @@ Requires:         R-utils
 
 %description
 A statistical disclosure control tool to protect tables by suppression
-using the Gaussian elimination secondary suppression algorithm. A
-suggestion is to start by working with functions SuppressSmallCounts() and
-SuppressDominantCells(). These functions use primary suppression functions
-for the minimum frequency rule and the dominance rule, respectively. Novel
-functionality for suppression of disclosive cells is also included.
-General primary suppression functions can be supplied as input to the
-general working horse function, GaussSuppressionFromData(). Suppressed
-frequencies can be replaced by synthetic decimal numbers as described in
-Langsrud (2019) <doi:10.1007/s11222-018-9848-9>.
+using the Gaussian elimination secondary suppression algorithm (Langsrud,
+2024) <doi:10.1007/978-3-031-69651-0_6>. A suggestion is to start by
+working with functions SuppressSmallCounts() and SuppressDominantCells().
+These functions use primary suppression functions for the minimum
+frequency rule and the dominance rule, respectively. Novel functionality
+for suppression of disclosive cells is also included. General primary
+suppression functions can be supplied as input to the general working
+horse function, GaussSuppressionFromData(). Suppressed frequencies can be
+replaced by synthetic decimal numbers as described in Langsrud (2019)
+<doi:10.1007/s11222-018-9848-9>.
 
 %prep
 %setup -q -c -n %{packname}
