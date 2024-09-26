@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powRICLPM
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Power Analysis for the Random Intercept Cross-Lagged Panel Model
+Summary:          Perform Power Analysis for the RI-CLPM and STARTS Model
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,33 +20,32 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-lavaan >= 0.6.7
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-lavaan >= 0.6.7
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-future 
 
 %description
-Perform user-friendly power analyses for the bivariate random intercept
-cross-lagged panel model (RI-CLPM). The strategy as proposed by Mulder
-(2022) <doi:10.1080/10705511.2022.2122467> is implemented. Extended power
-analysis options include the use of bounded estimation, inclusion of
-measurement error in the data generating model and estimation model (i.e.,
-the stable trait autoregressive trait state, STARTS, model), imposing
-various constraints over time on the parameters of the estimation model,
-among others.
+Perform user-friendly power analyses for the random intercept cross-lagged
+panel model (RI-CLPM) and the bivariate stable trait autoregressive trait
+state (STARTS) model. The strategy as proposed by Mulder (2023)
+<doi:10.1080/10705511.2022.2122467> is implemented. Extensions include the
+use of parameter constraints over time, bounded estimation, generation of
+data with skewness and kurtosis, and the option to setup the power
+analysis for Mplus.
 
 %prep
 %setup -q -c -n %{packname}

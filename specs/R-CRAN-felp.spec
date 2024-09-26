@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  felp
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Help for Functions, Objects, and Packages
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-miniUI 
 BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-rstudioapi 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-miniUI 
 Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-rstudioapi 

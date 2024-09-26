@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  readMDTable
-%global packver   0.2.0
+%global packname  fucom
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Markdown Tables into Tibbles
+Summary:          Full Consistency Method (FUCOM)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-nloptr 
+Requires:         R-stats 
 
 %description
-Efficient reading of raw markdown tables into tibbles. Designed to accept
-content from strings, files, and URLs with the ability to extract and read
-multiple tables from markdown for analysis.
+Full Consistency Method (FUCOM) for multi-criteria decision-making (MCDM),
+developed by Dragam Pamucar in 2018 (<doi:10.3390/sym10090393>). The goal
+of the method is to determine the weights of criteria such that the
+deviation from full consistency is minimized. Users provide a character
+vector specifying the ranking of each criterion according to its
+significance, starting from the criterion expected to have the highest
+weight to the least significant one. Additionally, users provide a numeric
+vector specifying the priority values for each criterion. The comparison
+is made with respect to the first-ranked (most significant) criterion. The
+function returns the optimized weights for each criterion (summing to 1),
+the comparative priority (Phi) values, the mathematical transitivity
+condition (w) value, and the minimum deviation from full consistency
+(DFC).
 
 %prep
 %setup -q -c -n %{packname}

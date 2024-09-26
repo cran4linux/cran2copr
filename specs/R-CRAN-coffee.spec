@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coffee
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chronological Ordering for Fossils and Environmental Events
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rice >= 0.1.1
+BuildRequires:    R-CRAN-rintcal >= 1.0.0
+BuildRequires:    R-CRAN-rice >= 0.2.0
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rice >= 0.1.1
+Requires:         R-CRAN-rintcal >= 1.0.0
+Requires:         R-CRAN-rice >= 0.2.0
 Requires:         R-CRAN-data.table 
 
 %description
@@ -33,7 +35,9 @@ exactly known intervals (e.g., 10 annual rings). For methods see Christen
 chronological position of the dates is taken into account - the ages of
 dates further down a site must be older than those of dates further up
 (Buck, Kenworthy, Litton and Smith 1991 <doi:10.1017/S0003598X00080534>;
-Nicholls and Jones 2001 <doi:10.1111/1467-9876.00250>).
+Nicholls and Jones 2001 <doi:10.1111/1467-9876.00250>). The paper
+accompanying this R package is Blaauw et al. 2024
+<doi:10.1017/RDC.2024.56>.
 
 %prep
 %setup -q -c -n %{packname}

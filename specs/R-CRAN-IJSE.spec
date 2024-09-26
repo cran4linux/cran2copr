@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  degreenet
-%global packver   1.3-6
+%global packname  IJSE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Skewed Count Distributions Relevant to Networks
+Summary:          Infinite-Jackknife-Based Standard Errors for 'brms' Models
 
-License:          GPL-3 + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-posterior 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-posterior 
 
 %description
-Likelihood-based inference for skewed count distributions, typically of
-degrees used in network modeling. "degreenet" is a part of the "statnet"
-suite of packages for network analysis. See Jones and Handcock
-<doi:10.1098/rspb.2003.2369>.
+Provides a function to calculate infinite-jackknife-based standard errors
+for fixed effects parameters in 'brms' models, handling both clustered and
+non-clustered data. References: Ji et al. (2024)
+<doi:10.48550/arXiv.2407.09772>; Giordano et al. (2024)
+<doi:10.48550/arXiv.2305.06466>.
 
 %prep
 %setup -q -c -n %{packname}

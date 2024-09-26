@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ocf
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordered Correlation Forest
 
@@ -35,11 +35,13 @@ Requires:         R-CRAN-glmnet
 Requires:         R-CRAN-ranger 
 
 %description
-Nonparametric estimator for ordered non-numeric outcomes. The estimator
-modifies a standard random forest splitting criterion to build a
-collection of forests, each estimating the conditional probability of a
-single class. The package also implements a nonparametric estimator of the
-covariates’ marginal effects.
+Machine learning estimator specifically optimized for predictive modeling
+of ordered non-numeric outcomes. 'ocf' provides forest-based estimation of
+the conditional choice probabilities and the covariates’ marginal effects.
+Under an "honesty" condition, the estimates are consistent and
+asymptotically normal and standard errors can be obtained by leveraging
+the weight-based representation of the random forest predictions. Please
+reference the use as Di Francesco (2023) <doi:10.48550/arXiv.2309.08755>.
 
 %prep
 %setup -q -c -n %{packname}

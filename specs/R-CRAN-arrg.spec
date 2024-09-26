@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  degreenet
-%global packver   1.3-6
+%global packname  arrg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Skewed Count Distributions Relevant to Networks
+Summary:          Flexible Argument Parsing for R Scripts
 
-License:          GPL-3 + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ore 
+Requires:         R-CRAN-ore 
 
 %description
-Likelihood-based inference for skewed count distributions, typically of
-degrees used in network modeling. "degreenet" is a part of the "statnet"
-suite of packages for network analysis. See Jones and Handcock
-<doi:10.1098/rspb.2003.2369>.
+Argument parsing for R scripts, with support for long and short Unix-style
+options including option clustering, positional arguments including those
+of variable length, and multiple usage patterns which may take different
+subsets of options.
 
 %prep
 %setup -q -c -n %{packname}

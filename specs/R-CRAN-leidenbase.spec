@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  degreenet
-%global packver   1.3-6
+%global packname  leidenbase
+%global packver   0.1.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          0.1.31
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Skewed Count Distributions Relevant to Networks
+Summary:          R and C/C++ Wrappers to Run the Leiden find_partition() Function
 
-License:          GPL-3 + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-igraph >= 0.9.0
+Requires:         R-CRAN-igraph >= 0.9.0
 
 %description
-Likelihood-based inference for skewed count distributions, typically of
-degrees used in network modeling. "degreenet" is a part of the "statnet"
-suite of packages for network analysis. See Jones and Handcock
-<doi:10.1098/rspb.2003.2369>.
+An R to C/C++ interface that runs the Leiden community detection algorithm
+to find a basic partition (). It runs the equivalent of the 'leidenalg'
+find_partition() function, which is given in the 'leidenalg' distribution
+file 'leiden/src/functions.py'. This package includes the required source
+code files from the official 'leidenalg' distribution and functions from
+the R 'igraph' package.  The 'leidenalg' distribution is available from
+<https://github.com/vtraag/leidenalg/> and the R 'igraph' package is
+available from <https://igraph.org/r/>. The Leiden algorithm is described
+in the article by Traag et al. (2019) <doi:10.1038/s41598-019-41695-z>.
+Leidenbase includes code from the packages: igraph version 0.9.8 with
+license GPL (>= 2), leidenalg version 0.8.10 with license GPL 3.
 
 %prep
 %setup -q -c -n %{packname}

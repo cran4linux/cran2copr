@@ -1,52 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortConstructor
-%global packver   0.3.0
+%global packname  rix
+%global packver   0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.12.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build and Manipulate Study Cohorts Using a Common Data Model
+Summary:          Reproducible Data Science Environments with 'Nix'
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.5.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
-BuildRequires:    R-CRAN-PatientProfiles >= 1.2.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.2.1
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sys 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dbplyr >= 2.5.0
-Requires:         R-CRAN-CDMConnector >= 1.3.1
-Requires:         R-CRAN-PatientProfiles >= 1.2.0
-Requires:         R-CRAN-omopgenerics >= 0.2.1
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sys 
 Requires:         R-utils 
 
 %description
-Create and manipulate study cohorts in data mapped to the Observational
-Medical Outcomes Partnership Common Data Model.
+Simplifies the creation of reproducible development environments using the
+'Nix' package manager. The included `rix()` function generates a complete
+description of the development environment as a `default.nix` file, which
+can then be built using 'Nix'. This results in project specific software
+environments with pinned versions of R, packages, linked system
+dependencies, and other tools. Additional helpers make it easy to run R
+code in 'Nix' software environments for testing and production.
 
 %prep
 %setup -q -c -n %{packname}

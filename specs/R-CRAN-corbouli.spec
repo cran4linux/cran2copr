@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corbouli
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Corbae-Ouliaris Frequency Domain Filtering
 
@@ -23,9 +23,9 @@ Requires:         R-stats
 %description
 Corbae-Ouliaris frequency domain filtering. According to Corbae and
 Ouliaris (2006) <doi:10.1017/CBO9781139164863.008>, this is a solution for
-taking into account characteristics of the time series, like business
-cycles etc. when filtering, both stationary and non-stationary time
-series.
+extracting cycles from time series, like business cycles etc. when
+filtering. This method is valid for both stationary and non-stationary
+time series.
 
 %prep
 %setup -q -c -n %{packname}

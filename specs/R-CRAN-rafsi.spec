@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  degreenet
-%global packver   1.3-6
+%global packname  rafsi
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Skewed Count Distributions Relevant to Networks
+Summary:          Ranking of Alternatives with the RAFSI Method
 
-License:          GPL-3 + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
 
 %description
-Likelihood-based inference for skewed count distributions, typically of
-degrees used in network modeling. "degreenet" is a part of the "statnet"
-suite of packages for network analysis. See Jones and Handcock
-<doi:10.1098/rspb.2003.2369>.
+Ranking of Alternatives through Functional mapping of criterion
+sub-intervals into a Single Interval Method is designed to perform
+multi-criteria decision-making (MCDM), developed by Mališa Žižovic in 2020
+(<doi:10.3390/math8061015>). It calculates the final sorted rankings based
+on a decision matrix where rows represent alternatives and columns
+represent criteria. The method uses: - A numeric vector of weights for
+each criterion (the sum of weights must be 1). - A numeric vector of ideal
+values for each criterion. - A numeric vector of anti-ideal values for
+each criterion. - Numeric values representing the extent to which the
+ideal value is preferred over the anti-ideal value, and the extent to
+which the anti-ideal value is considered worse. The function standardizes
+the decision matrix, normalizes the data, applies weights, and returns the
+final sorted rankings.
 
 %prep
 %setup -q -c -n %{packname}

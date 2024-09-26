@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pcaone
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Randomized Singular Value Decomposition Algorithms with 'RcppEigen'
+Summary:          Fast and Accurate Randomized Singular Value Decomposition Algorithms with 'PCAone'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,9 @@ BuildRequires:    R-CRAN-Rcpp
 Requires:         R-CRAN-Rcpp 
 
 %description
-Randomized Singular Value Decomposition (RSVD) methods proposed in the
-'PCAone' paper by Li (2022) <doi:10.1101/2022.05.25.493261>, where we
-implement and propose two RSVD methods. One is based on Yu (2017)
-<arXiv:1704.07669> single pass RSVD but with power iteration scheme. The
-other is our new window based RSVD.
+Fast and Accurate Randomized Singular Value Decomposition (RSVD) methods
+proposed in the 'PCAone' paper by Li (2023)
+<https://genome.cshlp.org/content/33/9/1599>.
 
 %prep
 %setup -q -c -n %{packname}

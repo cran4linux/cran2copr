@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clam
-%global packver   2.6.0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classical Age-Depth Modelling of Cores from Deposits
 
@@ -17,18 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rice 
+BuildRequires:    R-CRAN-rice >= 0.2.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rice 
+BuildRequires:    R-CRAN-rintcal 
+Requires:         R-CRAN-rice >= 0.2.0
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rintcal 
 
 %description
 Performs 'classical' age-depth modelling of dated sediment deposits -
@@ -36,7 +38,7 @@ prior to applying more sophisticated techniques such as Bayesian age-depth
 modelling. Any radiocarbon dated depths are calibrated. Age-depth models
 are constructed by sampling repeatedly from the dated levels, each time
 drawing age-depth curves. Model types include linear interpolation, linear
-or polynomial regression, and a range of splines. See Blaauw (2010).
+or polynomial regression, and a range of splines. See Blaauw (2010)
 <doi:10.1016/j.quageo.2010.01.002>.
 
 %prep

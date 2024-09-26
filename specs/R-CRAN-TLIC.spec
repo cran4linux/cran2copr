@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TLIC
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The LIC for T Distribution Regression Analysis
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-fBasics 
 Requires:         R-stats 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-fBasics 
 
 %description
 This comprehensive toolkit for T-distribution regression, known as the

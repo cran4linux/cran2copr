@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  manymome
-%global packver   0.2.3
+%global packname  SSNbler
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediation, Moderation and Moderated-Mediation After Model Fitting
+Summary:          Assemble 'SSN' Objects
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,38 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-pdist 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-boot 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-SSN2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-pdist 
 Requires:         R-stats 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-SSN2 
 
 %description
-Computes indirect effects, conditional effects, and conditional indirect
-effects in a structural equation model or path model after model fitting,
-with no need to define any user parameters or label any paths in the model
-syntax, using the approach presented in Cheung and Cheung (2023)
-<doi:10.3758/s13428-023-02224-z>. Can also form bootstrap confidence
-intervals by doing bootstrapping only once and reusing the bootstrap
-estimates in all subsequent computations. Supports bootstrap confidence
-intervals for standardized (partially or completely) indirect effects,
-conditional effects, and conditional indirect effects as described in
-Cheung (2009) <doi:10.3758/BRM.41.2.425> and Cheung, Cheung, Lau, Hui, and
-Vong (2022) <doi:10.1037/hea0001188>. Model fitting can be done by
-structural equation modeling using lavaan() or regression using lm().
+Import, create and assemble data needed to fit spatial-statistical
+stream-network models using the 'SSN2' package for 'R'. Streams,
+observations, and prediction locations are represented as simple features
+and specific tools provided to define topological relationships between
+features; calculate the hydrologic distances (with flow-direction
+preserved) and the spatial additive function used to weight converging
+stream segments; and export the topological, spatial, and attribute
+information to an `SSN` (spatial stream network) object, which can be
+efficiently stored, accessed and analysed in 'R'. A detailed description
+of methods used to calculate and format the spatial data can be found in
+Peterson, E.E. and Ver Hoef, J.M., (2014) <doi:10.18637/jss.v056.i02>.
 
 %prep
 %setup -q -c -n %{packname}

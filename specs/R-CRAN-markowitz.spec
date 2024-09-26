@@ -1,52 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortConstructor
-%global packver   0.3.0
+%global packname  markowitz
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build and Manipulate Study Cohorts Using a Common Data Model
+Summary:          Markowitz Criterion
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.5.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
-BuildRequires:    R-CRAN-PatientProfiles >= 1.2.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.2.1
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dbplyr >= 2.5.0
-Requires:         R-CRAN-CDMConnector >= 1.3.1
-Requires:         R-CRAN-PatientProfiles >= 1.2.0
-Requires:         R-CRAN-omopgenerics >= 0.2.1
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyverse 
 
 %description
-Create and manipulate study cohorts in data mapped to the Observational
-Medical Outcomes Partnership Common Data Model.
+The Markowitz criterion is a multicriteria decision-making method that
+stands out in risk and uncertainty analysis in contexts where
+probabilities are known. This approach represents an evolution of Pascal's
+criterion by incorporating the dimension of variability. In this
+framework, the expected value reflects the anticipated return, while the
+standard deviation serves as a measure of risk. The 'markowitz' package
+provides a practical and accessible tool for implementing this method,
+enabling researchers and professionals to perform analyses without complex
+calculations. Thus, the package facilitates the application of the
+Markowitz criterion. More details on the method can be found in Octave
+Jokung-Nguéna (2001, ISBN 2100055372).
 
 %prep
 %setup -q -c -n %{packname}

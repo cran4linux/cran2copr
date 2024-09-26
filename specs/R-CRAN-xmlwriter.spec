@@ -1,31 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  degreenet
-%global packver   1.3-6
+%global packname  xmlwriter
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models for Skewed Count Distributions Relevant to Networks
+Summary:          Fast and Elegant XML Generation
 
-License:          GPL-3 + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-network 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-network 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Likelihood-based inference for skewed count distributions, typically of
-degrees used in network modeling. "degreenet" is a part of the "statnet"
-suite of packages for network analysis. See Jones and Handcock
-<doi:10.1098/rspb.2003.2369>.
+Provides a fast and elegant interface for generating XML fragments and
+documents. It can be used in companion with R packages 'XML' or 'xml2' to
+generate XML documents. The fast XML generation is implemented using the
+'Rcpp' package.
 
 %prep
 %setup -q -c -n %{packname}
