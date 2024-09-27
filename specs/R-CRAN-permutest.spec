@@ -1,50 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  permutest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Run Permutation Tests and Construct Associated Confidence Intervals
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Implements permutation tests for any test statistic and randomization
+scheme and constructs associated confidence intervals as described in
+Glazer and Stark (2024) <doi:10.48550/arXiv.2405.05238>.
 
 %prep
 %setup -q -c -n %{packname}

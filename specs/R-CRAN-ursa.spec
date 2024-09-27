@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IJSE
-%global packver   0.1.1
+%global packname  ursa
+%global packver   3.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Infinite-Jackknife-Based Standard Errors for 'brms' Models
+Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-brms 
-BuildRequires:    R-CRAN-posterior 
-Requires:         R-CRAN-brms 
-Requires:         R-CRAN-posterior 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-sf >= 0.6.1
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-sf >= 0.6.1
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
-Provides a function to calculate infinite-jackknife-based standard errors
-for fixed effects parameters in 'brms' models, handling both clustered and
-independent data. References: Ji et al. (2024)
-<doi:10.48550/arXiv.2407.09772>; Giordano et al. (2024)
-<doi:10.48550/arXiv.2305.06466>.
+S3 classes and methods for manipulation with georeferenced raster data:
+reading/writing, processing, multi-panel visualization.
 
 %prep
 %setup -q -c -n %{packname}

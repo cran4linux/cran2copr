@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EBcoBART
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Co-Data Learning for Bayesian Additive Regression Trees
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-loo
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-univariateML 
 BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-dbarts 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-univariateML 
 Requires:         R-CRAN-extraDistr 
+Requires:         R-graphics 
 
 %description
 Estimate prior variable weights for Bayesian Additive Regression Trees

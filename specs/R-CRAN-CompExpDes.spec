@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompExpDes
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computer Experiment Designs
 
@@ -28,8 +28,9 @@ provided algorithms for generate efficient LHDs and UDs. Here, generated
 LHDs are efficient as they possess lower value of Maxpro measure, Phi_p
 value and Maximum Absolute Correlation (MAC) value based on the weightage
 given to each criterion. On the other hand, the produced UDs are having
-good space-filling property as they attained the lower bound of Discrete
-Discrepancy measure.
+good space-filling property as they always attain the lower bound of
+Discrete Discrepancy measure. Further, some useful functions added in this
+package for adding more value to this package.
 
 %prep
 %setup -q -c -n %{packname}

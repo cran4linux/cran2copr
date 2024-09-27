@@ -1,50 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  mafR
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Interface for Masked Autoregressive Flows
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-reticulate 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Interfaces the Python library 'zuko' implementing Masked Autoregressive
+Flows. See Rozet, Divo and Schnake (2023) <doi:10.5281/zenodo.7625672> and
+Papamakarios, Pavlakou and Murray (2017) <doi:10.48550/arXiv.1705.07057>.
 
 %prep
 %setup -q -c -n %{packname}

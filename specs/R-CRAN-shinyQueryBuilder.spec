@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  shinyQueryBuilder
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Construct Complex Filtering Queries in 'Shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-queryBuilder 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-queryBuilder 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Input widget that allows to construct complex filtering queries in
+'Shiny'. It's a wrapper for 'JavaScript' library 'jQuery-QueryBuilder',
+check <https://querybuilder.js.org/>.
 
 %prep
 %setup -q -c -n %{packname}

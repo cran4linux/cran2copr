@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  palasso
-%global packver   0.0.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paired Lasso Regression
+Summary:          Sparse Regression with Paired Covariates
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,10 +25,12 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-survival 
 
 %description
-Implements sparse regression with paired covariates (Rauschenberger et al.
-2020 <doi:10.1007/s11634-019-00375-6>). For the optional shrinkage,
-install ashr (<https://github.com/stephens999/ashr>) and CorShrink
-(<https://github.com/kkdey/CorShrink>) from GitHub (see README).
+Implements sparse regression with paired covariates
+(<doi:10.1007/s11634-019-00375-6>). The paired lasso is designed for
+settings where each covariate in one set forms a pair with a covariate in
+the other set (one-to-one correspondence). For the optional correlation
+shrinkage, install ashr (<https://github.com/stephens999/ashr>) and
+CorShrink (<https://github.com/kkdey/CorShrink>) from GitHub (see README).
 
 %prep
 %setup -q -c -n %{packname}

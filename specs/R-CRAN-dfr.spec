@@ -1,56 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prior3D
-%global packver   0.1.1
+%global packname  dfr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          3D Prioritization Algorithm
+Summary:          Dual Feature Reduction for SGL
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-prioritizr >= 8.0.4
-BuildRequires:    R-CRAN-maps >= 3.4.2
-BuildRequires:    R-CRAN-readxl >= 1.4.3
-BuildRequires:    R-CRAN-geodiv >= 1.1.0
-BuildRequires:    R-CRAN-viridis >= 0.6.5
-BuildRequires:    R-CRAN-rasterdiv >= 0.3.4
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-highs 
+BuildRequires:    R-CRAN-sgs 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-prioritizr >= 8.0.4
-Requires:         R-CRAN-maps >= 3.4.2
-Requires:         R-CRAN-readxl >= 1.4.3
-Requires:         R-CRAN-geodiv >= 1.1.0
-Requires:         R-CRAN-viridis >= 0.6.5
-Requires:         R-CRAN-rasterdiv >= 0.3.4
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-highs 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-faux 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-sgs 
+Requires:         R-CRAN-caret 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-faux 
+Requires:         R-CRAN-Matrix 
 
 %description
-Three-dimensional systematic conservation planning, conducting nested
-prioritization analyses across multiple depth levels and ensuring
-efficient resource allocation throughout the water column (Doxa et al.
-2024 <doi:10.1111/gcb.16268>). It provides a structured workflow designed
-to address biodiversity conservation and management challenges in the 3
-dimensions, while facilitating users’ choices and parameterization.
+Implementation of the Dual Feature Reduction (DFR) approach for the Sparse
+Group Lasso (SGL) and the Adaptive Sparse Group Lasso (aSGL) (Feser and
+Evangelou (2024) <doi:10.48550/arXiv.2405.17094>). The DFR approach is a
+feature reduction approach that applies strong screening to reduce the
+feature space before optimisation, leading to speed-up improvements for
+fitting SGL (Simon et al. (2013) <doi:10.1080/10618600.2012.681250>) and
+aSGL (Mendez-Civieta et al. (2020) <doi:10.1007/s11634-020-00413-8> and
+Poignard (2020) <doi:10.1007/s10463-018-0692-7>) models. DFR is
+implemented using the Adaptive Three Operator Splitting (ATOS) (Pedregosa
+and Gidel (2018) <doi:10.48550/arXiv.1804.02339>) algorithm, with linear
+and logistic SGL models supported, both of which can be fit using k-fold
+cross-validation. Dense and sparse input matrices are supported.
 
 %prep
 %setup -q -c -n %{packname}

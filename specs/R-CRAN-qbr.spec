@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qbr
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the 'Quickbase' JSON API
 
@@ -23,18 +23,20 @@ BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-httr >= 1.4.3
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-httr2 >= 0.2.3
 Requires:         R-CRAN-tibble >= 3.1.7
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-httr >= 1.4.3
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-tidyr >= 1.2.0
+Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-httr2 >= 0.2.3
 
 %description
 Programmatically access the 'Quickbase' JSON API

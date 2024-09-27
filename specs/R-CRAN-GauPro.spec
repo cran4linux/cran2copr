@@ -1,50 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  GauPro
+%global packver   0.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Gaussian Process Fitting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-mixopt > 0.1.0
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-CRAN-lbfgs 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-mixopt > 0.1.0
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-lbfgs 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Fits a Gaussian process model to data. Gaussian processes are commonly
+used in computer experiments to fit an interpolating model. The model is
+stored as an 'R6' object and can be easily updated with new data. There
+are options to run in parallel, and 'Rcpp' has been used to speed up
+calculations. For more info about Gaussian process software, see Erickson
+et al. (2018) <doi:10.1016/j.ejor.2017.10.002>.
 
 %prep
 %setup -q -c -n %{packname}

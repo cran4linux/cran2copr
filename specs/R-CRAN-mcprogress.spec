@@ -1,50 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  mcprogress
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Progress Bars and Messages for Parallel Processes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-parallel 
+Requires:         R-parallel 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Tools for monitoring progress during parallel processing. Lightweight
+package which acts as a wrapper around mclapply() and adds a progress bar
+to it in 'RStudio' or 'Linux' environments. Simply replace your original
+call to mclapply() with pmclapply(). A progress bar can also be displayed
+during parallelisation via the 'foreach' package. Also included are
+functions to safely print messages (including error messages) from within
+parallelised code, which can be useful for debugging parallelised R code.
 
 %prep
 %setup -q -c -n %{packname}

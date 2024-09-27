@@ -1,50 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  roadoi
-%global packver   0.7.3
+%global packname  OmopSketch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Find Free Versions of Scholarly Publications via Unpaywall
+Summary:          Characterise Tables of an OMOP Common Data Model Instance
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.0.3
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
+BuildRequires:    R-CRAN-visOmopResults >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
+BuildRequires:    R-CRAN-omock >= 0.3.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-CohortCharacteristics 
+BuildRequires:    R-CRAN-CohortConstructor 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-PatientProfiles 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-shiny >= 1.0.3
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-CDMConnector >= 1.3.0
+Requires:         R-CRAN-visOmopResults >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.3.1
+Requires:         R-CRAN-omock >= 0.3.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clock 
+Requires:         R-CRAN-CohortCharacteristics 
+Requires:         R-CRAN-CohortConstructor 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-PatientProfiles 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-This web client interfaces Unpaywall <https://unpaywall.org/products/api>,
-formerly oaDOI, a service finding free full-texts of academic papers by
-linking DOIs with open access journals and repositories. It provides
-unified access to various data sources for open access full-text links
-including Crossref and the Directory of Open Access Journals (DOAJ). API
-usage is free and no registration is required.
+Summarises key information in data mapped to the Observational Medical
+Outcomes Partnership (OMOP) common data model. Assess suitability to
+perform specific epidemiological studies and explore the different domains
+to obtain feasibility counts and trends.
 
 %prep
 %setup -q -c -n %{packname}

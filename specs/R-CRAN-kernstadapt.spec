@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  kernstadapt
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Adaptive Kernel Estimators for Point Process Intensities on Linear Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,34 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-CRAN-misc3d 
+BuildRequires:    R-CRAN-sparr 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.univar 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-spatstat.utils 
+BuildRequires:    R-CRAN-spatstat.linnet 
+Requires:         R-CRAN-misc3d 
+Requires:         R-CRAN-sparr 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.univar 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat.utils 
+Requires:         R-CRAN-spatstat.linnet 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+Adaptive estimation of the first-order intensity function of a
+spatio-temporal point process using kernels and variable bandwidths. The
+methodology used for estimation is presented in González and Moraga
+(2022). <doi:10.48550/arXiv.2208.12026>.
 
 %prep
 %setup -q -c -n %{packname}

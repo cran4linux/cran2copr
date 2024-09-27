@@ -1,50 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httr2
-%global packver   1.0.5
+%global packname  NaileR
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform HTTP Requests and Process the Responses
+Summary:          Interpreting Latent Variables with AI
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.2.2
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ollamar 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-curl >= 5.2.2
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.6.3
+BuildRequires:    R-CRAN-SensoMineR 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-ollamar 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-SensoMineR 
 
 %description
-Tools for creating and modifying HTTP requests, then performing them and
-processing the results. 'httr2' is a modern re-imagining of 'httr' that
-uses a pipe-based interface and solves more of the problems that API
-wrapping packages face.
+A small package designed for interpreting continuous and categorical
+latent variables. You provide a data set with a latent variable you want
+to understand and some other explanatory variables. It provides a
+description of the latent variable based on the explanatory variables. It
+also provides a name to the latent variable.
 
 %prep
 %setup -q -c -n %{packname}

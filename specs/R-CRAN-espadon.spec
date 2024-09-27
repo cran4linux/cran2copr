@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  espadon
-%global packver   1.7.4
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.4
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Study of Patient DICOM Data in Oncology
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-mathjaxr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-misc3d 
-BuildRequires:    R-CRAN-Morpho 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-qs 
@@ -51,7 +50,6 @@ Requires:         R-CRAN-mathjaxr
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-misc3d 
-Requires:         R-CRAN-Morpho 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-qs 
