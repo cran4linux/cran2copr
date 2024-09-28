@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AirMonitor
-%global packver   0.4.0
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Air Quality Data Analysis
 
@@ -53,7 +53,7 @@ A 'data' dataframe contains a 'datetime' column followed by columns of
 measurements associated with each "device-deployment". Algorithms to
 calculate NowCast and the associated Air Quality Index (AQI) are defined
 at the US Environmental Projection Agency AirNow program:
-<https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf>.
+<https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

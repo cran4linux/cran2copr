@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  car
-%global packver   3.1-2
+%global packver   3.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion to Applied Regression
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-carData >= 3.0.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.27.1
 BuildRequires:    R-CRAN-pbkrtest >= 0.4.4
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-nnet 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-carData >= 3.0.0
 Requires:         R-CRAN-lme4 >= 1.1.27.1
 Requires:         R-CRAN-pbkrtest >= 0.4.4
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nnet 

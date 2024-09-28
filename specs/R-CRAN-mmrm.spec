@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmrm
-%global packver   0.3.13
+%global packver   0.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.13
+Version:          0.3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mixed Models for Repeated Measures
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-nlme
 Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 

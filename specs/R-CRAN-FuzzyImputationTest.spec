@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyImputationTest
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation Procedures and Quality Tests for Fuzzy Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-FuzzyNumbers
 BuildRequires:    R-CRAN-missForest 
 BuildRequires:    R-CRAN-miceRanger 
 BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-utils 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-FuzzySimRes 
@@ -31,16 +32,17 @@ Requires:         R-CRAN-FuzzyNumbers
 Requires:         R-CRAN-missForest 
 Requires:         R-CRAN-miceRanger 
 Requires:         R-CRAN-VIM 
+Requires:         R-utils 
 
 %description
 Special procedures for the imputation of missing fuzzy numbers are still
 underdeveloped. The goal of the package is to provide the new d-imputation
-method (DIMP for short, Romaniuk, M. and Grzegorzewski, P. "Fuzzy Data
-Imputation with DIMP and FGAIN" RB/23/2023 (2023)) and covert some
-classical ones applied in R packages ('missForest','miceRanger','knn') for
-use with fuzzy datasets. Additionally, specially tailored benchmarking
-tests are provided to check and compare these imputation procedures with
-fuzzy datasets.
+method (DIMP for short, Romaniuk, M. and Grzegorzewski, P. (2023) "Fuzzy
+Data Imputation with DIMP and FGAIN" RB/23/2023) and covert some classical
+ones applied in R packages ('missForest','miceRanger','knn') for use with
+fuzzy datasets. Additionally, specially tailored benchmarking tests are
+provided to check and compare these imputation procedures with fuzzy
+datasets.
 
 %prep
 %setup -q -c -n %{packname}

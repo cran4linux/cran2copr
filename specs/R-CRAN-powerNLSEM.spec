@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powerNLSEM
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Power Estimation (MSPE) for Nonlinear SEM
 
@@ -47,7 +47,8 @@ adaptive search algorithm to find the optimal N for given effect sizes and
 type I error rates. Plots can be used to visualize the power relation to N
 for different parameters of interest (POI). Theoretical justifications are
 given in Irmer et al. (2024a) <doi:10.31219/osf.io/pe5bj> and detailed
-description are given in Irmer et al. (2024b).
+description are given in Irmer et al. (2024b)
+<doi:10.3758/s13428-024-02476-3>.
 
 %prep
 %setup -q -c -n %{packname}

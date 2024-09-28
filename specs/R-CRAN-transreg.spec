@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transreg
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Penalised Regression with Multiple Sets of Prior Effects
+Summary:          Penalised Regression with Multiple Sets of Prior Effects ('Transfer Learning')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-starnet 
@@ -28,8 +28,9 @@ Requires:         R-CRAN-joinet
 Improves the predictive performance of ridge and lasso regression
 exploiting one or more sources of prior information on the importance and
 direction of effects (Rauschenberger and others 2023,
-<doi:10.1093/bioinformatics/btad680>). For running the vignette, install
-'fwelnet' from 'GitHub' <https://github.com/kjytay/fwelnet>.
+<doi:10.1093/bioinformatics/btad680>). For running the vignette
+(optional), install 'fwelnet' from 'GitHub'
+<https://github.com/kjytay/fwelnet>.
 
 %prep
 %setup -q -c -n %{packname}

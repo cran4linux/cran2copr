@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasstr
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Summarize, and Visualize Daily Streamflow Data
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-openxlsx >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-e1071 >= 1.7.0.1
+BuildRequires:    R-CRAN-fitdistrplus >= 1.2.1
 BuildRequires:    R-CRAN-PearsonDS >= 1.1
-BuildRequires:    R-CRAN-fitdistrplus >= 1.0.14
 BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
@@ -36,8 +36,8 @@ Requires:         R-CRAN-openxlsx >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.1.0
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-e1071 >= 1.7.0.1
+Requires:         R-CRAN-fitdistrplus >= 1.2.1
 Requires:         R-CRAN-PearsonDS >= 1.1
-Requires:         R-CRAN-fitdistrplus >= 1.0.14
 Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.1

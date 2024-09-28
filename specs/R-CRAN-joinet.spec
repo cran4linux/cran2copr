@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  joinet
-%global packver   0.0.10
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Elastic Net Regression
+Summary:          Penalised Multivariate Regression ('Multi-Target Learning')
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,13 +25,14 @@ Requires:         R-CRAN-palasso
 Requires:         R-CRAN-cornet 
 
 %description
-Implements high-dimensional multivariate regression by stacked
-generalisation (Rauschenberger 2021 <doi:10.1093/bioinformatics/btab576>).
-For positively correlated outcomes, a single multivariate regression is
-typically more predictive than multiple univariate regressions. Includes
-functions for model fitting, extracting coefficients, outcome prediction,
-and performance measurement. If required, install MRCE or remMap from
-GitHub (<https://github.com/cran/MRCE>, <https://github.com/cran/remMap>).
+Implements penalised multivariate regression (i.e., for multiple outcomes
+and many features) by stacked generalisation
+(<doi:10.1093/bioinformatics/btab576>). For positively correlated
+outcomes, a single multivariate regression is typically more predictive
+than multiple univariate regressions. Includes functions for model
+fitting, extracting coefficients, outcome prediction, and performance
+measurement. For optional comparisons, install 'remMap' from GitHub
+(<https://github.com/cran/remMap>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gastempt
-%global packver   0.5.5
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Gastric Emptying from MRI or Scintigraphy
 
@@ -16,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-rstan >= 2.21.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.21.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.1.0
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.72.0.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.7.0
@@ -31,9 +32,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-utf8 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-ggplot2 >= 3.2.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-rstan >= 2.21.0
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.1.0
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-dplyr 

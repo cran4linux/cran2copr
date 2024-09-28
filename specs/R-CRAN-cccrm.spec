@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cccrm
-%global packver   2.2.2
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concordance Correlation Coefficient for Repeated (and Non-Repeated) Measures
 
@@ -21,10 +21,26 @@ BuildRequires:    R-CRAN-nlme
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Deriv 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-nlmeU 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Deriv 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-nlmeU 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-future 
 
 %description
 Estimates the Concordance Correlation Coefficient to assess agreement. The

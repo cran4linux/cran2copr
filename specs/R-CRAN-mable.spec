@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mable
-%global packver   3.1.3
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Approximate Bernstein/Beta Likelihood Estimation
 
@@ -25,6 +25,10 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-LowRankQP 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-survival 
 Requires:         R-graphics 
 Requires:         R-stats 
@@ -34,6 +38,10 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
 Requires:         R-tcltk 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-LowRankQP 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-rlang 
 
 %description
 Fit data from a continuous population with a smooth density on finite
