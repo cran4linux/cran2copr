@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbacon
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Depth Modelling using Bayesian Statistics
 
@@ -16,22 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-rice >= 0.2.0
 BuildRequires:    R-CRAN-coda >= 0.19.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-rice 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rintcal 
+Requires:         R-CRAN-rice >= 0.2.0
 Requires:         R-CRAN-coda >= 0.19.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-rice 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rintcal 
 
 %description
 An approach to age-depth modelling that uses Bayesian statistics to

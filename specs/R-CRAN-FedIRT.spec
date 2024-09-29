@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FedIRT
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Federated Item Response Theory Models
 
@@ -39,10 +39,7 @@ Integrate Item Response Theory (IRT) and Federated Learning to estimate
 traditional IRT models, including the 2-Parameter Logistic (2PL) and the
 Graded Response Models, with enhanced privacy. It allows for the
 estimation in a distributed manner without compromising accuracy. A
-user-friendly 'shiny' application is included. For more details, see
-Biying Zhou, Feng Ji (2024) "'FedIRT': An R package and 'shiny' app for
-estimating federated item response theory models"
-<https://github.com/Feng-Ji-Lab/FedIRT/blob/main/paper/paper.pdf>.
+user-friendly 'shiny' application is included.
 
 %prep
 %setup -q -c -n %{packname}

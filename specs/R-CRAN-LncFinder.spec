@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LncFinder
-%global packver   1.1.5
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          LncRNA Identification and Analysis Using Heterologous Features
 
@@ -31,7 +32,7 @@ trained with human, mouse and wheat datasets by employing SVM. Features
 are based on intrinsic composition of sequence, EIIP value (electron-ion
 interaction pseudopotential), and secondary structure. This package can
 also extract other classic features and build new classifiers. Reference:
-Han SY., Liang YC., Li Y., et al. (2018) <doi:10.1093/bib/bby065>.
+Han S., et al. (2019) <doi:10.1093/bib/bby065>.
 
 %prep
 %setup -q -c -n %{packname}

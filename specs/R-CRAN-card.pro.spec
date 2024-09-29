@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  card.pro
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Modern & Responsive Card Component for 'shiny'
 
@@ -27,10 +27,10 @@ Requires:         R-CRAN-htmltools
 %description
 Responsive and modern 'HTML' card essentials for 'shiny' dashboard. This
 novel card component in 'Bootstrap' provides a flexible and extensible
-content container with multiple variants and options for build robust apps
-e.g for graph build or machine learning projects. The features rely on a
-combine 'JQuery' <https://jquery.com> and 'CSS' styles to improve the card
-functionality.
+content container with multiple variants and options for building robust
+'R' based apps e.g for graph build or machine learning projects. The
+features rely on a combination of 'JQuery' <https://jquery.com> and 'CSS'
+styles to improve the card functionality.
 
 %prep
 %setup -q -c -n %{packname}
