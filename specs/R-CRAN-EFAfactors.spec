@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EFAfactors
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determining the Number of Factors in Exploratory Factor Analysis
 
@@ -62,7 +62,7 @@ such as the Empirical Kaiser Criterion (EKC) by Braeken and van Assen
 (2011) <doi:10.1080/00273171.2011.564527>, as well as some AI-based
 methods like Comparison Data Forest (CDF) by Goretzko and Ruscio (2024)
 <doi:10.3758/s13428-023-02122-4> and Factor Forest (FF) by Goretzko and
-Buhner (2020) <doi:10.1037/met0000262 >. Additionally, it includes a deep
+Buhner (2020) <doi:10.1037/met0000262>. Additionally, it includes a deep
 neural network (DNN) trained on large-scale datasets that can efficiently
 and reliably determine the number of factors.
 

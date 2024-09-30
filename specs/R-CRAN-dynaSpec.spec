@@ -1,32 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  katex
-%global packver   1.5.0
+%global packname  dynaSpec
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rendering Math to HTML, 'MathML', or R-Documentation Format
+Summary:          Dynamic Spectrogram Visualizations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-V8 
-Requires:         R-CRAN-V8 
+BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ari 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-warbleR 
+Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-tuneR 
+Requires:         R-grid 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ari 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-warbleR 
 
 %description
-Convert latex math expressions to HTML and 'MathML' for use in markdown
-documents or package manual pages. The rendering is done in R using the V8
-engine (i.e. server-side), which eliminates the need for embedding the
-'MathJax' library into your web pages. In addition a 'math-to-rd' wrapper
-is provided to automatically render beautiful math in R documentation
-files.
+A set of tools to generate dynamic spectrogram visualizations in video
+format.
 
 %prep
 %setup -q -c -n %{packname}

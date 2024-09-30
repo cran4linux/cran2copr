@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nodbi
-%global packver   0.10.6
+%global packver   0.10.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.6
+Version:          0.10.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'NoSQL' Database Connector
 

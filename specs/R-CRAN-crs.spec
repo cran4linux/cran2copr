@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crs
-%global packver   0.15-37
+%global packver   0.15-38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.37
+Version:          0.15.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          Categorical Regression Splines
 
