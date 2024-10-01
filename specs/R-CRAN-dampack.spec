@@ -1,53 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vectorsurvR
-%global packver   1.2.1
+%global packname  dampack
+%global packver   1.0.2.1000
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.2.1000
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Access and Analytical Tools for 'VectorSurv' Users
+Summary:          Decision-Analytic Modeling Package
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-triangle 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-triangle 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-rlang 
 
 %description
-Allows registered 'VectorSurv' <https://vectorsurv.org/> users access to
-data through the 'VectorSurv API' <https://api.vectorsurv.org/>.
-Additionally provides functions for analysis and visualization.
+A suite of functions for analyzing and visualizing the health economic
+outputs of mathematical models. This package was developed with funding
+from the National Institutes of Allergy and Infectious Diseases of the
+National Institutes of Health under award no. R01AI138783. The content of
+this package is solely the responsibility of the authors and does not
+necessarily represent the official views of the National Institutes of
+Health. The theoretical underpinnings of 'dampack''s functionality are
+detailed in Hunink et al. (2014) <doi:10.1017/CBO9781139506779>.
 
 %prep
 %setup -q -c -n %{packname}

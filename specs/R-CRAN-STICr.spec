@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  STICr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Process Stream Temperature, Intermittency, and Conductivity (STIC) Sensor Data
 
-License:          GPL-3 | file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+A collection of functions for processing raw data from Stream Temperature,
+Intermittency, and Conductivity (STIC) loggers. 'STICr' (pronounced
+"sticker") includes functions for tidying, calibrating, classifying, and
+doing quality checks on data from STIC sensors. Some package functionality
+is described in Wheeler/Zipper et al. (2023) <doi:10.31223/X5636K>.
 
 %prep
 %setup -q -c -n %{packname}

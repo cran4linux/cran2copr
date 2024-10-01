@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simaerep
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Clinical Trial Sites Under-Reporting Adverse Events
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-RColorBrewer
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dbplyr 
 Requires:         R-CRAN-tidyr >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-furrr >= 0.2.1
@@ -45,6 +46,7 @@ Requires:         R-CRAN-RColorBrewer
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dbplyr 
 
 %description
 Monitoring of Adverse Event (AE) reporting in clinical trials is important

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MixMatrix
-%global packver   0.2.6
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classification with Matrix Variate Normal and t Distributions
 
@@ -18,10 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-CholWishart 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-CRAN-CholWishart 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-glue 
 
 %description
 Provides sampling and density functions for matrix variate normal, t, and

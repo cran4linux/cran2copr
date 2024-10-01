@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPostgreSQL
-%global packver   0.7-6
+%global packver   0.7-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'PostgreSQL' Database System
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libpq-devel
-BuildRequires:    R-devel >= 2.9.0
-Requires:         R-core >= 2.9.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-DBI >= 0.3
 BuildRequires:    R-methods 
 Requires:         R-CRAN-DBI >= 0.3

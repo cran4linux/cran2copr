@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  seq2R
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Simple Method to Detect Compositional Changes in Genomic Sequences
 
-License:          GPL-3 | file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.15.1
+Requires:         R-core >= 2.15.1
+BuildRequires:    R-CRAN-seqinr 
+Requires:         R-CRAN-seqinr 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+This software is useful for loading '.fasta' or '.gbk' files, and for
+retrieving sequences from 'GenBank' dataset
+<https://www.ncbi.nlm.nih.gov/genbank/>. This package allows to detect
+differences or asymmetries based on nucleotide composition by using local
+linear kernel smoothers. Also, it is possible to draw inference about
+critical points (i. e. maximum or minimum points) related with the
+derivative curves. Additionally, bootstrap methods have been used for
+estimating confidence intervals and speed computational techniques
+(binning techniques) have been implemented in 'seq2R'.
 
 %prep
 %setup -q -c -n %{packname}

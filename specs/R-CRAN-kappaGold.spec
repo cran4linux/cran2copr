@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  kappaGold
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Agreement of Nominal Scale Raters with a Gold Standard
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-future.apply >= 1.6
+BuildRequires:    R-CRAN-purrr >= 0.3
 BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-future.apply >= 1.6
+Requires:         R-CRAN-purrr >= 0.3
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+Estimate agreement of a group of raters with a gold standard rating on a
+nominal scale. For a single gold standard rater the average pairwise
+agreement of raters with this gold standard is provided. For a group of
+gold standard raters the approach of S. Vanbelle, A. Albert (2009)
+<doi:10.1007/s11336-009-9116-1> is implemented. Bias and standard error
+are estimated via delete-1 jackknife.
 
 %prep
 %setup -q -c -n %{packname}

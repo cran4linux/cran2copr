@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swdpwr
-%global packver   1.9
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Calculation for Stepped Wedge Cluster Randomized Trials
 
@@ -25,14 +25,15 @@ cluster randomized trials, we developed this software. Different
 parameters can be specified by users for different scenarios, including:
 cross-sectional and cohort designs, binary and continuous outcomes,
 marginal (GEE) and conditional models (mixed effects model), three link
-functions (identity, log, logit links), with and without time effects
-under exchangeable, nested exchangeable and block exchangeable correlation
-structures. Unequal numbers of clusters per sequence are also allowed. The
-methods included in this package: Zhou et al. (2020)
-<doi:10.1093/biostatistics/kxy031>, Li et al. (2018)
-<doi:10.1111/biom.12918>. Supplementary documents can be found at:
-<https://ysph.yale.edu/cmips/research/software/swdpwr/>. The Shiny app for
-swdpwr can be accessed at:
+functions (identity, log, logit links), with and without time effects (the
+default specification assumes no-time-effect) under exchangeable, nested
+exchangeable and block exchangeable correlation structures. Unequal
+numbers of clusters per sequence are also allowed. The methods included in
+this package: Zhou et al. (2020) <doi:10.1093/biostatistics/kxy031>, Li et
+al. (2018) <doi:10.1111/biom.12918>. Supplementary documents can be found
+at:
+<https://ysph.yale.edu/cmips/research/software/study-design-power-calculation/swdpwr/>.
+The Shiny app for swdpwr can be accessed at:
 <https://jiachenchen322.shinyapps.io/swdpwr_shinyapp/>. The package also
 includes functions that perform calculations for the intra-cluster
 correlation coefficients based on the random effects variances as input

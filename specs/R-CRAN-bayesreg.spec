@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesreg
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Regression Models with Global-Local Shrinkage Priors
 
@@ -17,8 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.0
+BuildRequires:    R-CRAN-foreach >= 1.5.1
+BuildRequires:    R-CRAN-doParallel >= 1.0.16
 BuildRequires:    R-CRAN-pgdraw >= 1.0
 Requires:         R-stats >= 3.0
+Requires:         R-CRAN-foreach >= 1.5.1
+Requires:         R-CRAN-doParallel >= 1.0.16
 Requires:         R-CRAN-pgdraw >= 1.0
 
 %description
@@ -28,7 +33,7 @@ global-local shrinkage prior hierarchies as described in Polson and Scott
 efficient implementation of ridge, lasso, horseshoe and horseshoe+
 regression with logistic, Gaussian, Laplace, Student-t, Poisson or
 geometric distributed targets using the algorithms summarized in Makalic
-and Schmidt (2016) <arXiv:1611.06649>.
+and Schmidt (2016) <doi:10.48550/arXiv.1611.06649>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +43,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

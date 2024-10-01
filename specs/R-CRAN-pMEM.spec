@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  pMEM
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Predictive Moran's Eigenvector Maps
 
-License:          GPL-3 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-Rcpp >= 1.0.11
+Requires:         R-CRAN-sf 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+Calculation of Predictive Moran's eigenvector maps (pMEM), as defined by
+Guénard and Legendre (In Press) "Spatially-explicit predictions using
+spatial eigenvector maps" <doi:10.5281/zenodo.13356457>. Methods in
+Ecology and Evolution. This method enables scientists to predict the
+values of spatially-structured environmental variables. Multiple types of
+pMEM are defined, each one implemented on the basis of spatial weighting
+function taking a range parameter, and sometimes also a shape parameter.
+The code's modular nature enables programers to implement new pMEM by
+defining new spatial weighting functions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  usaidplot
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Make Graphs with US Agency for International Development Colors
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-extrafont 
+BuildRequires:    R-CRAN-extrafontdb 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-extrafont 
+Requires:         R-CRAN-extrafontdb 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+Automatically apply the United States Agency for International
+Development's color palette and fonts for either discrete or continuous
+variables.
 
 %prep
 %setup -q -c -n %{packname}

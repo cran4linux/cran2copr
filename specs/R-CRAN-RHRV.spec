@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RHRV
-%global packver   4.2.7
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.7
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heart Rate Variability Analysis of ECG Data
 
@@ -18,10 +18,36 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-waveslim >= 1.6.4
 BuildRequires:    R-CRAN-lomb >= 1.0
-BuildRequires:    R-CRAN-nonlinearTseries >= 0.2.3
+BuildRequires:    R-CRAN-nonlinearTseries >= 0.3.0
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-PMCMRplus 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-waveslim >= 1.6.4
 Requires:         R-CRAN-lomb >= 1.0
-Requires:         R-CRAN-nonlinearTseries >= 0.2.3
+Requires:         R-CRAN-nonlinearTseries >= 0.3.0
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-iterators 
+Requires:         R-parallel 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-PMCMRplus 
+Requires:         R-CRAN-segmented 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-writexl 
 
 %description
 Allows users to import data files containing heartbeat positions in the

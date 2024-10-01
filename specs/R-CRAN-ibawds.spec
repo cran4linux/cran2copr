@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibawds
-%global packver   0.6.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions and Datasets for the Data Science Course at IBAW
 
@@ -22,25 +22,29 @@ BuildRequires:    R-CRAN-dslabs
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-dslabs 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-cli 
 
 %description
 A collection of useful functions and datasets for the Data Science Course
-at IBAW in Lucerne.
+at IBAW.
 
 %prep
 %setup -q -c -n %{packname}

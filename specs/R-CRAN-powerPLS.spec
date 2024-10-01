@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powerPLS
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analysis for PLS Classification
 
@@ -18,23 +18,27 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-compositions 
-BuildRequires:    R-CRAN-ks 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-simukde 
+BuildRequires:    R-CRAN-FKSUM 
 BuildRequires:    R-CRAN-nipals 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-simukde 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-mvtnorm 
 Requires:         R-CRAN-compositions 
-Requires:         R-CRAN-ks 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-simukde 
+Requires:         R-CRAN-FKSUM 
 Requires:         R-CRAN-nipals 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-simukde 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 It estimates power and sample size for Partial Least Squares-based methods
-described in Andreella, et al., (2024) <arXiv:2403.10289>.
+described in Andreella, et al., (2024), <doi:10.48550/arXiv.2403.10289>.
 
 %prep
 %setup -q -c -n %{packname}

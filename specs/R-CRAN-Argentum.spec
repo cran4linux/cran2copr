@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  Argentum
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Access and Import WMS and WFS Data from Argentine Organizations
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readr 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+Provides functions to retrieve information from Web Feature Service (WFS)
+and Web Map Service (WMS) layers from various Argentine organizations and
+import them into R for further analysis. WFS and WMS are standardized
+protocols for serving georeferenced map data over the internet. For more
+information on these services, see <https://www.ogc.org/standard/wfs/> and
+<https://www.ogc.org/standard/wms/>.
 
 %prep
 %setup -q -c -n %{packname}

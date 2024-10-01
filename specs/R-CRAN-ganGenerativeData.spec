@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ganGenerativeData
-%global packver   2.0.2
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Generative Data for a Data Source
 
@@ -29,10 +29,9 @@ for a data source. A generative model consisting of a generator and a
 discriminator network is trained. During iterative training the
 distribution of generated data is converging to that of the data source.
 Direct applications of generative data are the created functions for data
-classifying and missing data completion. A software service for
-accelerated training of generative models on graphics processing units is
-available. Reference: Goodfellow et al. (2014)
-<doi:10.48550/arXiv.1406.2661>.
+evaluation and missing data completion. A software service for accelerated
+training of generative models on graphics processing units is available.
+Reference: Goodfellow et al. (2014) <doi:10.48550/arXiv.1406.2661>.
 
 %prep
 %setup -q -c -n %{packname}

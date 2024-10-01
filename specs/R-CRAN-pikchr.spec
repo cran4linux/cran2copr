@@ -1,31 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  pikchr
+%global packver   0.97
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.97
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          R Wrapper for 'pikchr' (PIC) Diagram Language
 
-License:          GPL-3 | file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rsvg 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-brio 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rsvg 
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+An 'R' interface to 'pikchr' (<https://pikchr.org>, pronounced “picture”),
+a 'PIC'-like markup language for creating diagrams within technical
+documentation. Originally developed by Brian Kernighan, 'PIC' has been
+adapted into 'pikchr' by D. Richard Hipp, the creator of 'SQLite'.
+'pikchr' is designed to be embedded in fenced code blocks of Markdown or
+other documentation markup languages, making it ideal for generating
+diagrams in text-based formats. This package allows R users to seamlessly
+integrate the descriptive syntax of 'pikchr' for diagram creation directly
+within the 'R' environment.
 
 %prep
 %setup -q -c -n %{packname}

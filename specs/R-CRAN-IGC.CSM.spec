@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coRanking
-%global packver   0.2.5
+%global packname  IGC.CSM
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Ranking Matrix
+Summary:          Simulate Impact of Different Urban Policies Through a General Equilibrium Model
 
-License:          GPL-3 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildArch:        noarch
 
 %description
-Calculates the co-ranking matrix to assess the quality of a dimensionality
-reduction.
+Develops a General Equilibrium (GE) Model, which estimates key variables
+such as wages, the number of residents and workers, the prices of the
+floor space, and its distribution between commercial and residential use,
+as in Ahlfeldt et al., (2015) <doi:10.3982/ECTA10876>. By doing so, the
+model allows understanding the economic influence of different urban
+policies.
 
 %prep
 %setup -q -c -n %{packname}
