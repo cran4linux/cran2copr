@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  catsim
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Binary and Categorical Image Similarity Index
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp 
@@ -26,7 +27,7 @@ accuracy (simple matching), Cohen's kappa, Rand index, adjusted Rand
 index, Jaccard index, Dice index, normalized mutual information, or
 adjusted mutual information. In addition, has fast computation of Cohen's
 kappa, the Rand indices, and the two mutual informations. Implements the
-methods of Thompson and Maitra (2020) <arXiv:2004.09073>.
+methods of Thompson and Maitra (2020) <doi:10.48550/arXiv.2004.09073>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

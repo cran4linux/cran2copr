@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  helminthR
-%global packver   1.0.10
+%global packname  webdav
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access London Natural History Museum Host-Helminth Record Database
+Summary:          A Simple Interface for Interacting with 'WebDAV' Servers
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-plyr 
-Requires:         R-utils 
-Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-tibble 
 
 %description
-Access to large host-parasite data is often hampered by the availability
-of data and difficulty in obtaining it in a programmatic way to encourage
-analyses. 'helminthR' provides a programmatic interface to the London
-Natural History Museum's host-parasite database, one of the largest
-host-parasite databases existing currently
-<https://www.nhm.ac.uk/research-curation/scientific-resources/taxonomy-systematics/host-parasites/>.
-The package allows the user to query by host species, parasite species,
-and geographic location.
+An easy-to-use interface for interacting with 'WebDAV' servers, including
+'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MKCOL,
+MOVE, and others. With built-in authentication and request handling, it
+allows for easy management of files and directories over the 'WebDAV'
+protocol.
 
 %prep
 %setup -q -c -n %{packname}

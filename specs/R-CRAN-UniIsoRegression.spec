@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  insectDisease
-%global packver   1.2.2
+%global packname  UniIsoRegression
+%global packver   0.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ecological Database of the World's Insect Pathogens
+Summary:          Unimodal and Isotonic L1, L2 and Linf Regression
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-taxize 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-taxize 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.12.11
+Requires:         R-CRAN-Rcpp >= 0.12.11
 
 %description
-David Onstad provided us with this insect disease database, sometimes
-referred to as the 'Ecological Database of the Worlds Insect Pathogens' or
-EDWIP. Files have been converted from 'SQL' to csv, and ported into 'R'
-for easy exploration and analysis. Thanks to the Macroecology of
-Infectious Disease Research Coordination Network (RCN) for funding and
-support. Data are also served online in a static format at
-<https://edwip.ecology.uga.edu/>.
+Perform L1 or L2 isotonic and unimodal regression on 1D weighted or
+unweighted input vector and isotonic regression on 2D weighted or
+unweighted input vector. It also performs L infinity isotonic and unimodal
+regression on 1D unweighted input vector. Reference: Quentin F. Stout
+(2008) <doi:10.1016/j.csda.2008.08.005>. Spouge, J., Wan, H. & Wilbur,
+W.(2003) <doi:10.1023/A:1023901806339>. Q.F. Stout (2013)
+<doi:10.1007/s00453-012-9628-4>.
 
 %prep
 %setup -q -c -n %{packname}

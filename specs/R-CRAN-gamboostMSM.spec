@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  gamboostMSM
 %global packver   1.1.88
 %global rlibdir   /usr/local/lib/R/library

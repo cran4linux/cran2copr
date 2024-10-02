@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RLumShiny
 %global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library

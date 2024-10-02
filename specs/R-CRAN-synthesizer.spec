@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  synthesizer
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthesize Data Based on Emperical Multivariate Distributions and Rank Order Matching
+Summary:          Synthesize Data Based on Empirical Quantile Functions and Rank Order Matching
 
-License:          GPL (>= 3)
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-randomForest
 
 %description
 Data is synthesized using a combination of inverse transform sampling from
-the emperical quantile functions for each variable, and then copying the
+the empirical quantile functions for each variable, and then copying the
 rank order structure from the original dataset. The package also includes
 a number of functions to measure the utility of synthesized datasets.
 

@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GetBCBData
 %global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library

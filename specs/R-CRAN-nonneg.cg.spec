@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  nonneg.cg
 %global packver   0.1.6-1
 %global rlibdir   /usr/local/lib/R/library

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compareMCMCs
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare MCMC Efficiency from 'nimble' and/or Other MCMC Engines
 
@@ -24,6 +24,8 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-ggplot2 
@@ -31,6 +33,8 @@ Requires:         R-grid
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-coda 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
 Manages comparison of MCMC performance metrics from multiple MCMC

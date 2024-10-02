@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  huxtable
-%global packver   5.5.6
+%global packver   5.5.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.5.6
+Version:          5.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create and Style Tables for LaTeX, HTML and Other Formats
 
@@ -34,6 +34,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.2.0
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-commonmark 
 BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-generics 
@@ -49,6 +50,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-stringr >= 1.2.0
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-commonmark 
 Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-generics 

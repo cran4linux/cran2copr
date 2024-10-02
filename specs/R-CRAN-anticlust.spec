@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anticlust
-%global packver   0.8.5
+%global packver   0.8.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.5
+Version:          0.8.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subset Partitioning via Anticlustering
 
@@ -19,8 +19,10 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-RANN >= 2.6.0
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-RANN >= 2.6.0
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lpSolve 
 
 %description
 The method of anticlustering partitions a pool of elements into groups
@@ -31,27 +33,31 @@ homogeneity and clear separation between groups.  Computationally,
 anticlustering is accomplished by maximizing instead of minimizing a
 clustering objective function, such as the intra-cluster variance (used in
 k-means clustering) or the sum of pairwise distances within clusters. The
-main function anticlustering() gives access to exact and heuristic
+main function anticlustering() gives access to optimal and heuristic
 anticlustering methods described in Papenberg and Klau (2021;
 <doi:10.1037/met0000301>), Brusco et al. (2020; <doi:10.1111/bmsp.12186>),
-and Papenberg (2024; <doi:10.1111/bmsp.12315>). The exact algorithms
-require that an integer linear programming solver is installed, either the
-GNU linear programming kit (<https://www.gnu.org/software/glpk/glpk.html>)
-together with the interface package 'Rglpk'
-(<https://cran.R-project.org/package=Rglpk>), or the SYMPHONY ILP solver
-(<https://github.com/coin-or/SYMPHONY>) together with the interface
-package 'Rsymphony' (<https://cran.r-project.org/package=Rsymphony>). Full
-access to the bicriterion anticlustering method proposed by Brusco et al.
-(2020) is given via the function bicriterion_anticlustering(), while
-kplus_anticlustering() implements the full functionality of the k-plus
-anticlustering approach proposed by Papenberg (2024). Some other functions
-are available to solve classical clustering problems. The function
-balanced_clustering() applies a cluster analysis under size constraints,
-i.e., creates equal-sized clusters. The function matching() can be used
-for (unrestricted, bipartite, or K-partite) matching. The function wce()
-can be used optimally solve the (weighted) cluster editing problem, also
-known as correlation clustering, clique partitioning problem or
-transitivity clustering.
+and Papenberg (2024; <doi:10.1111/bmsp.12315>). The optimal algorithms
+require that an integer linear programming solver is installed. This
+package will install 'lpSolve'
+(<https://cran.r-project.org/package=lpSolve>) as a default solver, but it
+is also possible to use the package 'Rglpk'
+(<https://cran.r-project.org/package=Rglpk>), which requires the GNU
+linear programming kit (<https://www.gnu.org/software/glpk/glpk.html>), or
+the package 'Rsymphony' (<https://cran.r-project.org/package=Rsymphony>),
+which requires the SYMPHONY ILP solver
+(<https://github.com/coin-or/SYMPHONY>). 'Rglpk' and 'Rsymphony' have to
+be manually installed by the user because they are only "suggested"
+dependencies. Full access to the bicriterion anticlustering method
+proposed by Brusco et al. (2020) is given via the function
+bicriterion_anticlustering(), while kplus_anticlustering() implements the
+full functionality of the k-plus anticlustering approach proposed by
+Papenberg (2024). Some other functions are available to solve classical
+clustering problems. The function balanced_clustering() applies a cluster
+analysis under size constraints, i.e., creates equal-sized clusters. The
+function matching() can be used for (unrestricted, bipartite, or
+K-partite) matching. The function wce() can be used optimally solve the
+(weighted) cluster editing problem, also known as correlation clustering,
+clique partitioning problem or transitivity clustering.
 
 %prep
 %setup -q -c -n %{packname}

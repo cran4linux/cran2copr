@@ -1,49 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdvis
-%global packver   0.2.37
+%global packname  apt
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.37
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Biodiversity Data Visualizations
+Summary:          Asymmetric Price Transmission
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-taxize 
-BuildRequires:    R-CRAN-treemap 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-chron 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-taxize 
-Requires:         R-CRAN-treemap 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-chron 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-erer 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-urca 
+Requires:         R-CRAN-erer 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-urca 
 
 %description
-Provides a set of functions to create basic visualizations to quickly
-preview different aspects of biodiversity information such as inventory
-completeness, extent of coverage (taxonomic, temporal and geographic),
-gaps and biases. Barve & Otegui (2016)
-<DOI:10.1093/bioinformatics/btw333>.
+The transmission between two time-series prices is assessed. It contains
+several functions for linear and nonlinear threshold co-integration, and
+furthermore, symmetric and asymmetric error correction models.
 
 %prep
 %setup -q -c -n %{packname}

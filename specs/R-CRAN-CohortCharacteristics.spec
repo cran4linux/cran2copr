@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortCharacteristics
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
 
@@ -18,29 +18,29 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CDMConnector >= 1.3.2
-BuildRequires:    R-CRAN-PatientProfiles >= 1.0.0
-BuildRequires:    R-CRAN-visOmopResults >= 0.3.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.2.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.2.0
+BuildRequires:    R-CRAN-visOmopResults >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-CDMConnector >= 1.3.2
-Requires:         R-CRAN-PatientProfiles >= 1.0.0
-Requires:         R-CRAN-visOmopResults >= 0.3.0
-Requires:         R-CRAN-omopgenerics >= 0.2.0
+Requires:         R-CRAN-PatientProfiles >= 1.2.0
+Requires:         R-CRAN-visOmopResults >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
 
 %description
 Summarise and visualise the characteristics of patients in data mapped to

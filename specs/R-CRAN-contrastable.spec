@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
-%global packname  OpenTreeChronograms
-%global packver   2022.1.28
+%global __requires_exclude ^libmpi
+%global packname  contrastable
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.1.28
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Tree of Life Chronograms
+Summary:          Consistent Contrast Coding for Factors
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-geiger 
-BuildRequires:    R-CRAN-knitcitations 
-BuildRequires:    R-CRAN-paleotree 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-rotl 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-taxize 
-BuildRequires:    R-CRAN-treebase 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-geiger 
-Requires:         R-CRAN-knitcitations 
-Requires:         R-CRAN-paleotree 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-rotl 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-taxize 
-Requires:         R-CRAN-treebase 
-Requires:         R-CRAN-usethis 
+BuildRequires:    R-CRAN-rlang >= 0.1.2
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang >= 0.1.2
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Chronogram database constructed from Open Tree of Life's phylogenetic
-store.
+Quickly set and summarize contrasts for factors prior to regression
+analyses. Intended comparisons, baseline conditions, and intercepts can be
+explicitly set and documented without the user needing to directly
+manipulate matrices. Reviews and introductions for contrast coding are
+available in Brehm and Alday (2022)<doi:10.1016/j.jml.2022.104334> and
+Schad et al. (2020)<doi:10.1016/j.jml.2019.104038>.
 
 %prep
 %setup -q -c -n %{packname}

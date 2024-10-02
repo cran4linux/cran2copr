@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ubms
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Models for Data from Unmarked Animals using 'Stan'
 
@@ -28,10 +28,10 @@ BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-unmarked 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-stats 
@@ -43,10 +43,10 @@ Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-unmarked 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-loo 
 Requires:         R-methods 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-stats 

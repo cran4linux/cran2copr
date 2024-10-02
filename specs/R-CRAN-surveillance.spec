@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveillance
-%global packver   1.23.1
+%global packver   1.24.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.1
+Version:          1.24.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Temporal and Spatio-Temporal Modeling and Monitoring of Epidemic Phenomena
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-sp >= 2.1.4
 BuildRequires:    R-CRAN-xtable >= 1.7.0
-BuildRequires:    R-CRAN-sp >= 1.0.15
 BuildRequires:    R-CRAN-polyCub >= 0.8.0
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-sp >= 2.1.4
 Requires:         R-CRAN-xtable >= 1.7.0
-Requires:         R-CRAN-sp >= 1.0.15
 Requires:         R-CRAN-polyCub >= 0.8.0
 Requires:         R-methods 
 Requires:         R-grDevices 

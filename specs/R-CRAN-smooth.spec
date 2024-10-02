@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smooth
-%global packver   4.0.2
+%global packver   4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.2
+Version:          4.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Using State Space Models
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-greybox >= 1.0.8
+BuildRequires:    R-CRAN-greybox >= 2.0.2
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.100.0.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-generics >= 0.1.2
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-greybox >= 1.0.8
+Requires:         R-CRAN-greybox >= 2.0.2
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
