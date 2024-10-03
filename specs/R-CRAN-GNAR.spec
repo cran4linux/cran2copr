@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GNAR
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Fitting Network Time Series Models
 
@@ -44,7 +44,7 @@ Simulation of, and fitting models for, Generalised Network Autoregressive
 potentially with exogenous variables.  Such models are described in Knight
 et al. (2020) <doi:10.18637/jss.v096.i05> and Nason and Wei (2021)
 <doi:10.1111/rssa.12875>.  Diagnostic tools for GNAR(X) models can be
-found in Nason et al (2023) <arXiv:2312.00530>.
+found in Nason et al. (2023) <doi:10.48550/arXiv.2312.00530>.
 
 %prep
 %setup -q -c -n %{packname}

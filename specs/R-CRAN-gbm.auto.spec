@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gbm.auto
-%global packver   2023.08.31
+%global packver   2024.10.01
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.08.31
+Version:          2024.10.01
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Boosted Regression Tree Modelling and Mapping Suite
 
@@ -67,7 +67,7 @@ built around 'gbm' (gradient boosting machine) functions in 'dismo'
 around 'gbm' (Greenwell, Boehmke, Cunningham & Metcalfe, 2020 & ongoing,
 originally by Ridgeway). Indebted to Elith/Leathwick/Hastie 2008 'Working
 Guide' <doi:10.1111/j.1365-2656.2008.01390.x>; workflow follows Appendix
-S3. See <http://www.simondedman.com/> for published guides and papers
+S3. See <https://www.simondedman.com/> for published guides and papers
 using this package.
 
 %prep

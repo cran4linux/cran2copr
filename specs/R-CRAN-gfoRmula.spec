@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gfoRmula
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric G-Formula
 
@@ -45,18 +45,21 @@ Requires:         R-CRAN-truncreg
 Requires:         R-utils 
 
 %description
-Implements the parametric g-formula algorithm of Robins (1986)
-<doi:10.1016/0270-0255(86)90088-6>. The g-formula can be used to estimate
-the causal effects of hypothetical time-varying treatment interventions on
-the mean or risk of an outcome from longitudinal data with time-varying
-confounding. This package allows: 1) binary or continuous/multi-level
-time-varying treatments; 2) different types of outcomes (survival or
-continuous/binary end of follow-up); 3) data with competing events or
-truncation by death and loss to follow-up and other types of censoring
-events; 4) different options for handling competing events in the case of
-survival outcomes; 5) a random measurement/visit process; 6) joint
-interventions on multiple treatments; and 7) general incorporation of a
-priori knowledge of the data structure.
+Implements the non-iterative conditional expectation (NICE) algorithm of
+the g-formula algorithm (Robins (1986) <doi:10.1016/0270-0255(86)90088-6>,
+Hernán and Robins (2024, ISBN:9781420076165)). The g-formula can estimate
+an outcome's counterfactual mean or risk under hypothetical treatment
+strategies (interventions) when there is sufficient information on
+time-varying treatments and confounders. This package can be used for
+discrete or continuous time-varying treatments and for failure time
+outcomes or continuous/binary end of follow-up outcomes. The package can
+handle a random measurement/visit process and a priori knowledge of the
+data structure, as well as censoring (e.g., by loss to follow-up) and two
+options for handling competing events for failure time outcomes.
+Interventions can be flexibly specified, both as interventions on a single
+treatment or as joint interventions on multiple treatments. See McGrath et
+al. (2020) <doi:10.1016/j.patter.2020.100008> for a guide on how to use
+the package.
 
 %prep
 %setup -q -c -n %{packname}

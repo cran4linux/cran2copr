@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PKbioanalysis
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pharmacokinetic Bioanalysis Experiments Design and Exploration
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-duckdb >= 1.0.0
 BuildRequires:    R-CRAN-ggforce >= 0.4.1
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-bsicons 
@@ -42,6 +41,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-shiny >= 1.9.1
 Requires:         R-CRAN-glue >= 1.6.2
@@ -52,7 +52,6 @@ Requires:         R-CRAN-duckdb >= 1.0.0
 Requires:         R-CRAN-ggforce >= 0.4.1
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-bsicons 
@@ -67,6 +66,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-rlang 
 Requires:         R-grDevices 
 Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
 Automate pharmacokinetic/pharmacodynamic bioanalytical procedures based on

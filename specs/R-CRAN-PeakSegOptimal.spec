@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PeakSegOptimal
-%global packver   2024.1.24
+%global packver   2024.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.24
+Version:          2024.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Segmentation Subject to Up-Down Constraints
 
@@ -23,8 +23,9 @@ Requires:         R-CRAN-penaltyLearning
 Computes optimal changepoint models using the Poisson likelihood for
 non-negative count data, subject to the PeakSeg constraint: the first
 change must be up, second change down, third change up, etc. For more info
-about the models and algorithms, read "A log-linear time algorithm for
-constrained changepoint detection" <arXiv:1703.03352> by TD Hocking et al.
+about the models and algorithms, read "Constrained Dynamic Programming and
+Supervised Penalty Learning Algorithms for Peak Detection"
+<https://jmlr.org/papers/v21/18-843.html> by TD Hocking et al.
 
 %prep
 %setup -q -c -n %{packname}

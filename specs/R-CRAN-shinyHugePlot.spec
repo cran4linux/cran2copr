@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyHugePlot
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Plotting of Large-Sized Data
 
@@ -25,11 +25,13 @@ BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-DBI >= 1.2.2
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.14.2
 BuildRequires:    R-CRAN-tidyselect >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.9
 BuildRequires:    R-CRAN-rlang >= 1.0.5
+BuildRequires:    R-CRAN-duckdb >= 1.0.0
 BuildRequires:    R-CRAN-htmltools >= 0.5.2
 BuildRequires:    R-CRAN-nanotime >= 0.3.6
 BuildRequires:    R-CRAN-purrr >= 0.3.4
@@ -43,11 +45,13 @@ Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-jsonlite >= 1.8.0
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-DBI >= 1.2.2
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.14.2
 Requires:         R-CRAN-tidyselect >= 1.1.2
 Requires:         R-CRAN-dplyr >= 1.0.9
 Requires:         R-CRAN-rlang >= 1.0.5
+Requires:         R-CRAN-duckdb >= 1.0.0
 Requires:         R-CRAN-htmltools >= 0.5.2
 Requires:         R-CRAN-nanotime >= 0.3.6
 Requires:         R-CRAN-purrr >= 0.3.4

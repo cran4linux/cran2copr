@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  secr
-%global packver   4.6.10
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.10
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Explicit Capture-Recapture
 
@@ -26,6 +26,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-RcppNumerical 
@@ -46,6 +47,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-RcppNumerical 

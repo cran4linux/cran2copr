@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cctest
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Canonical Correlations and Tests of Independence
 
@@ -24,7 +24,7 @@ Requires:         R-stats
 A simple interface for multivariate correlation analysis that unifies
 various classical statistical procedures including t-tests, tests in
 univariate and multivariate linear models, parametric and nonparametric
-tests for correlation, Kruskal-Wallis tests, standard non-exact versions
+tests for correlation, Kruskal-Wallis tests, common approximate versions
 of Wilcoxon rank-sum and signed rank tests, chi-squared tests of
 independence, score tests of particular hypotheses in generalized linear
 models, canonical correlation analysis and linear discriminant analysis.

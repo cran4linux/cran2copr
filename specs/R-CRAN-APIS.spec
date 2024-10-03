@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  APIS
-%global packver   2.0.4
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Auto-Adaptive Parentage Inference Software Tolerant to Missing Parents
 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-shinythemes
 Parentage assignment package. Parentage assignment is performed based on
 observed average Mendelian transmission probability distributions or
 Exclusion. The main functions of this package are the function APIS_2n(),
-APIS_3n and launch_APIShiny(), which perform parentage assignment.
+APIS_3n() and launch_APIShiny(), which perform parentage assignment.
 
 %prep
 %setup -q -c -n %{packname}

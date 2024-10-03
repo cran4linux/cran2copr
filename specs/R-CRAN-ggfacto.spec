@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfacto
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphs for Correspondence Analysis
 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-magrittr >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-data.table >= 1.12.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-tabxplor >= 1.0.3
+BuildRequires:    R-CRAN-tabxplor >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-ggrepel >= 0.9.0
@@ -45,7 +45,7 @@ Requires:         R-CRAN-magrittr >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-tabxplor >= 1.0.3
+Requires:         R-CRAN-tabxplor >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-ggrepel >= 0.9.0

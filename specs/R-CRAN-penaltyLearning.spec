@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  penaltyLearning
-%global packver   2024.1.25
+%global packver   2024.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.25
+Version:          2024.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Penalty Learning
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disaggregation
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disaggregation Modelling
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-TMB
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rSPDE 
 BuildRequires:    R-CRAN-sparseMVN 
 BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-CRAN-tidyterra 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-TMB
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rSPDE 
 Requires:         R-CRAN-sparseMVN 
 Requires:         R-CRAN-fmesher 
 Requires:         R-CRAN-tidyterra 

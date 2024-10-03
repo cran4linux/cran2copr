@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RandomForestsGLS
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forests for Dependent Data
 
@@ -31,7 +32,7 @@ Requires:         R-CRAN-pbapply
 %description
 Fits non-linear regression models on dependant data with Generalised Least
 Square (GLS) based Random Forest (RF-GLS) detailed in Saha, Basu and Datta
-(2020) <arXiv:2007.15421>.
+(2021) <doi:10.1080/01621459.2021.1950003>.
 
 %prep
 %setup -q -c -n %{packname}

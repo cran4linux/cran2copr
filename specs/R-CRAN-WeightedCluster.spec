@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeightedCluster
-%global packver   1.6-4
+%global packver   1.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Weighted Data
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-CRAN-vegclust 
 Requires:         R-CRAN-TraMineR >= 2.0.6
 Requires:         R-CRAN-cluster 
 Requires:         R-utils 
@@ -34,6 +36,8 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-fastcluster 
+Requires:         R-CRAN-vegclust 
 
 %description
 Clusters state sequences and weighted data. It provides an optimized
@@ -41,6 +45,8 @@ weighted PAM algorithm as well as functions for aggregating replicated
 cases, computing cluster quality measures for a range of clustering
 solutions and plotting (fuzzy) clusters of state sequences. Parametric
 bootstraps methods to validate typology of sequences are also provided.
+Finally, it provides a fuzzy and crisp CLARA algorithm to cluster large
+database with sequence analysis.
 
 %prep
 %setup -q -c -n %{packname}

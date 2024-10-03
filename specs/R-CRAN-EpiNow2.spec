@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiNow2
-%global packver   1.5.2
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Real-Time Case Counts and Time-Varying Epidemiological Parameters
 
@@ -27,16 +27,14 @@ BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-runner 
 BuildRequires:    R-CRAN-scales 
@@ -51,16 +49,14 @@ Requires:         R-CRAN-futile.logger >= 1.4
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-runner 
 Requires:         R-CRAN-scales 
