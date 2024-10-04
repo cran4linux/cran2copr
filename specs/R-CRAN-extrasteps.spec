@@ -1,55 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swfscAirDAS
-%global packver   0.3.1
+%global packname  extrasteps
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Southwest Fisheries Science Center Aerial DAS Data Processing
+Summary:          More Miscellaneous Steps for the 'recipes' Package
 
-License:          Apache License (== 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-recipes >= 1.0.7
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-swfscMisc 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-recipes >= 1.0.7
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-swfscMisc 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
-Process and summarize aerial survey 'DAS' data (AirDAS)
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-185.PDF>
-collected using an aerial survey program from the Southwest Fisheries
-Science Center (SWFSC)
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
-PDF files detailing the relevant AirDAS data formats are included in this
-package.
+Contains additional miscellaneous steps for the 'recipes' package. These
+steps are useful, but doesn't have a good home in other 'recipes' packages
+or its extensions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,65 +1,69 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyfit
-%global packver   0.7.2
+%global packname  r6qualitytools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regularized Linear Modeling with Tidy Data
+Summary:          R6-Based Statistical Methods for Quality Science
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-EnvStats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-yardstick 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-EnvStats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-yardstick 
 
 %description
-An extension to the 'R' tidy data environment for automated machine
-learning. The package allows fitting and cross validation of linear
-regression and classification algorithms on grouped data.
+A comprehensive suite of statistical tools for Quality Management,
+designed around the Define, Measure, Analyze, Improve, and Control (DMAIC)
+cycle used in Six Sigma methodology. Based on the discontinued CRAN
+package 'qualitytools', this package refactors its original design by
+incorporating 'R6' object-oriented programming for increased flexibility
+and performance. It replaces traditional graphics with modern, interactive
+visualizations using 'ggplot2' and 'plotly'. Built on 'tidyverse'
+principles, it simplifies data manipulation and visualization, offering an
+intuitive approach to quality science.
 
 %prep
 %setup -q -c -n %{packname}

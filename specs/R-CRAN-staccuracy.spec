@@ -1,55 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swfscAirDAS
-%global packver   0.3.1
+%global packname  staccuracy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Southwest Fisheries Science Center Aerial DAS Data Processing
+Summary:          Standardized Accuracy and Other Model Performance Metrics
 
-License:          Apache License (== 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-swfscMisc 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-swfscMisc 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Process and summarize aerial survey 'DAS' data (AirDAS)
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-185.PDF>
-collected using an aerial survey program from the Southwest Fisheries
-Science Center (SWFSC)
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
-PDF files detailing the relevant AirDAS data formats are included in this
-package.
+Standardized accuracy (staccuracy) is framework for expressing accuracy
+scores such that 50%% represents a reference level of performance and 100%%
+is perfect prediction. The 'staccuracy' package provides tools for
+creating staccuracy functions as well as some recommended staccuracy
+measures. It also provides functions for some classic performance metrics
+such as mean absolute error (MAE), root mean squared error (RMSE), and
+area under the receiver operating characteristic curve (AUCROC), as well
+as their winsorized versions when applicable.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3cluster
-%global packver   0.1.10
+%global packname  conditionalProbNspades
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cluster Extension for 'mlr3'
+Summary:          Conditional Probabilities of Distributions Across Hearts Hands
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-backports >= 1.1.10
-BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3 >= 0.21.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.14.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-clue 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-backports >= 1.1.10
-Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3 >= 0.21.0
-Requires:         R-CRAN-mlr3misc >= 0.14.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-clue 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-R6 
-Requires:         R-stats 
 
 %description
-Extends the 'mlr3' package with cluster analysis.
+Provides some tabulated data to be be referred to in a discussion in a
+vignette accompanying my upcoming R package
+'playWholeHandDriverPassParams'. In addition to that specific purpose,
+these may also provide data and illustrate some computational approaches
+that are relevant to card games like hearts or bridge.This package refers
+to authentic data from Gregory Stoll
+<https://gregstoll.com/~gregstoll/bridge/math.html>, and details of
+performing the probability calculations from Jeremy L. Martin
+<https://jlmartin.ku.edu/~jlmartin/bridge/basics.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

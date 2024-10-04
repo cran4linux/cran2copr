@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depCensoring
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Survival Data with Dependent Censoring
 
@@ -63,7 +63,7 @@ methods, refer to Deresa and Van Keilegom (2021)
 <doi:10.1093/biomet/asaa095>, Czado and Van Keilegom (2023)
 <doi:10.1093/biomet/asac067>, Crommen et al. (2024)
 <doi:10.1007/s11749-023-00903-9> and Willems et al. (2024+)
-<https:arxiv.org/abs/2403.11860>.
+<doi:10.48550/arXiv.2403.11860>.
 
 %prep
 %setup -q -c -n %{packname}

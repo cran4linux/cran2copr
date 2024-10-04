@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlpwr
-%global packver   1.1.1
+%global packname  RLoptimal
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Power Analysis Toolbox to Find Cost-Efficient Study Designs
+Summary:          Optimal Adaptive Allocation Using Deep Reinforcement Learning
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-DoseFinding 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-rgenoud 
-Requires:         R-utils 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-DoseFinding 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-reticulate 
 Requires:         R-stats 
-Requires:         R-CRAN-DiceKriging 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-rgenoud 
+Requires:         R-utils 
 
 %description
-We implement a surrogate modeling algorithm to guide simulation-based
-sample size planning. The method is described in detail in our paper
-(Zimmer & Debelak (2023) <doi:10.1037/met0000611>). It supports multiple
-study design parameters and optimization with respect to a cost function.
-It can find optimal designs that correspond to a desired statistical power
-or that fulfill a cost constraint. We also provide a tutorial paper
-(Zimmer et al. (2023) <doi:10.3758/s13428-023-02269-0>).
+An implementation to compute an optimal adaptive allocation rule using
+deep reinforcement learning in a dose-response study (Matsuura et al.
+(2022) <doi:10.1002/sim.9247>). The adaptive allocation rule can directly
+optimize a performance metric, such as power, accuracy of the estimated
+target dose, or mean absolute error over the estimated dose-response
+curve.
 
 %prep
 %setup -q -c -n %{packname}

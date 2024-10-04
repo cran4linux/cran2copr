@@ -1,55 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swfscAirDAS
-%global packver   0.3.1
+%global packname  PvSTATEM
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Southwest Fisheries Science Center Aerial DAS Data Processing
+Summary:          Reading, Quality Control and Preprocessing of MBA (Multiplex Bead Assay) Data
 
-License:          Apache License (== 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscDAS >= 0.3.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-nplr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-swfscMisc 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-swfscDAS >= 0.3.0
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-nplr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-swfscMisc 
-Requires:         R-CRAN-tidyr 
+Requires:         R-grid 
+Requires:         R-CRAN-png 
+Requires:         R-tools 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Process and summarize aerial survey 'DAS' data (AirDAS)
-<https://swfsc-publications.fisheries.noaa.gov/publications/TM/SWFSC/NOAA-TM-NMFS-SWFSC-185.PDF>
-collected using an aerial survey program from the Southwest Fisheries
-Science Center (SWFSC)
-<https://www.fisheries.noaa.gov/west-coast/science-data/california-current-marine-mammal-assessment-program>.
-PDF files detailing the relevant AirDAS data formats are included in this
-package.
+Speeds up the process of loading raw data from MBA (Multiplex Bead Assay)
+examinations, performs quality control checks, and automatically
+normalizes the data, preparing it for more advanced, downstream tasks. The
+main objective of the package is to create a simple environment for a
+user, who does not necessarily have experience with R language. The
+package is developed within the project of the same name - 'PvSTATEM',
+which is an international project aiming for malaria elimination.
 
 %prep
 %setup -q -c -n %{packname}

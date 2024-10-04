@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlpwr
-%global packver   1.1.1
+%global packname  FTSgof
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Power Analysis Toolbox to Find Cost-Efficient Study Designs
+Summary:          White Noise and Goodness-of-Fit Tests for Functional Time Series
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sde 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-rgenoud 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-sfsmisc 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-sde 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-DiceKriging 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-sfsmisc 
+Requires:         R-CRAN-MASS 
 
 %description
-We implement a surrogate modeling algorithm to guide simulation-based
-sample size planning. The method is described in detail in our paper
-(Zimmer & Debelak (2023) <doi:10.1037/met0000611>). It supports multiple
-study design parameters and optimization with respect to a cost function.
-It can find optimal designs that correspond to a desired statistical power
-or that fulfill a cost constraint. We also provide a tutorial paper
-(Zimmer et al. (2023) <doi:10.3758/s13428-023-02269-0>).
+It offers comprehensive tools for the analysis of functional time series
+data, focusing on white noise hypothesis testing and goodness-of-fit
+evaluations, alongside functions for simulating data and advanced
+visualization techniques, such as 3D rainbow plots. These methods are
+described in Kokoszka, Rice, and Shang (2017)
+<doi:10.1016/j.jmva.2017.08.004>, Yeh, Rice, and Dubin (2023)
+<doi:10.1214/23-EJS2112>, Kim, Kokoszka, and Rice (2023)
+<doi:10.1214/23-ss143>, and Rice, Wirjanto, and Zhao (2020)
+<doi:10.1111/jtsa.12532>.
 
 %prep
 %setup -q -c -n %{packname}

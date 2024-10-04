@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlpwr
-%global packver   1.1.1
+%global packname  GeoThinneR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Power Analysis Toolbox to Find Cost-Efficient Study Designs
+Summary:          Simple Spatial Thinning for Ecological and Spatial Analysis
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-nabor 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-DiceKriging 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-rgenoud 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-nabor 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-DiceKriging 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-terra 
 
 %description
-We implement a surrogate modeling algorithm to guide simulation-based
-sample size planning. The method is described in detail in our paper
-(Zimmer & Debelak (2023) <doi:10.1037/met0000611>). It supports multiple
-study design parameters and optimization with respect to a cost function.
-It can find optimal designs that correspond to a desired statistical power
-or that fulfill a cost constraint. We also provide a tutorial paper
-(Zimmer et al. (2023) <doi:10.3758/s13428-023-02269-0>).
+Provides efficient geospatial thinning algorithms to reduce the density of
+coordinate data while maintaining spatial relationships. Implements K-D
+Tree and brute-force distance-based thinning, as well as grid-based and
+precision-based thinning methods. For more information on the methods, see
+Elseberg et al. (2012) <https://hdl.handle.net/10446/86202>.
 
 %prep
 %setup -q -c -n %{packname}
