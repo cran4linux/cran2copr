@@ -1,28 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcrypt
-%global packver   1.2.0
+%global packname  AlignLV
+%global packver   0.1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Blowfish' Key Derivation and Password Hashing
+Summary:          Multiple Group Item Response Theory Alignment Helpers for 'lavaan' and 'mirt'
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-openssl 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-mirt 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-mirt 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Bindings to the 'blowfish' password hashing algorithm
-<https://www.openbsd.org/papers/bcrypt-paper.pdf> derived from the
-'OpenBSD' implementation.
+Allows for multiple group item response theory alignment a la 'Mplus' to
+be applied to lists of single-group models estimated in 'lavaan' or
+'mirt'. Allows item sets that are overlapping but not identical,
+facilitating alignment in secondary data analysis where not all items may
+be shared across assessments.
 
 %prep
 %setup -q -c -n %{packname}

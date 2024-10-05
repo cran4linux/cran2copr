@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aion
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archaeological Time Series
 
@@ -17,22 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3
 Requires:         R-core >= 3.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.6.0
+BuildRequires:    R-CRAN-arkhe >= 1.7.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-arkhe >= 1.6.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-arkhe >= 1.7.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-A toolkit for archaeological time series. This package provides a system
-of classes and methods to represent and work with archaeological time
-series. Dates are represented as "rata die" and can be converted to
-(virtually) any calendar defined by Reingold and Dershowitz (2018)
-<doi:10.1017/9781107415058>. This packages offers a simple API that can be
-used by other specialized packages.
+A toolkit for archaeological time series and time intervals. This package
+provides a system of classes and methods to represent and work with
+archaeological time series and time intervals. Dates are represented as
+"rata die" and can be converted to (virtually) any calendar defined by
+Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
+offers a simple API that can be used by other specialized packages.
 
 %prep
 %setup -q -c -n %{packname}

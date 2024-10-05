@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qpdf
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split, Combine and Compress PDF Files
 
@@ -27,9 +27,9 @@ Requires:         R-CRAN-curl
 %description
 Content-preserving transformations transformations of PDF files such as
 split, combine, and compress. This package interfaces directly to the
-'qpdf' C++ API and does not require any command line utilities. Note that
-'qpdf' does not read actual content from PDF files: to extract text and
-data you need the 'pdftools' package.
+'qpdf' C++ library <https://qpdf.sourceforge.io/> and does not require any
+command line utilities. Note that 'qpdf' does not read actual content from
+PDF files: to extract text and data you need the 'pdftools' package.
 
 %prep
 %setup -q -c -n %{packname}

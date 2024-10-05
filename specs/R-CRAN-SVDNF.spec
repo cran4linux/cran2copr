@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVDNF
-%global packver   0.1.9
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discrete Nonlinear Filtering for Stochastic Volatility Models
 
@@ -29,17 +29,17 @@ Requires:         R-CRAN-xts
 Implements the discrete nonlinear filter (DNF) of Kitagawa (1987)
 <doi:10.1080/01621459.1987.10478534> to a wide class of stochastic
 volatility (SV) models with return and volatility jumps following the work
-of Bégin and Boudreault (2021) <doi:10.1080/10618600.2020.1840995>. Offers
-several built-in SV models and a flexible framework for users to create
-customized models by specifying drift and diffusion functions along with a
-jump arrival distribution for the return and volatility dynamics. Allows
+of Bégin and Boudreault (2021) <doi:10.1080/10618600.2020.1840995> to
+obtain likelihood evaluations and maximum likelihood parameter estimates.
+Offers several built-in SV models and a flexible framework for users to
+create customized models by specifying drift and diffusion functions along
+with an arrival distribution for the return and volatility jumps. Allows
 for the estimation of factor models with stochastic volatility (e.g.,
 heteroskedastic volatility CAPM) by incorporating expected return
-predictors. `Includes functions to compute likelihood evaluations,
-filtering and prediction distribution estimates, maximum likelihood
-parameter estimates, to simulate data from built-in and custom SV models
-with jumps, and to forecast future returns and volatility values using
-Monte Carlo simulation from a given SV model.
+predictors. Also includes functions to compute filtering and prediction
+distribution estimates, to simulate data from built-in and custom SV
+models with jumps, and to forecast future returns and volatility values
+using Monte Carlo simulation from a given SV model.
 
 %prep
 %setup -q -c -n %{packname}

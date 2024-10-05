@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcrypt
-%global packver   1.2.0
+%global packname  extrememix
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Blowfish' Key Derivation and Password Hashing
+Summary:          Bayesian Estimation of Extreme Value Mixture Models
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-mixtools 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-threshr 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-mixtools 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppProgress 
+Requires:         R-stats 
+Requires:         R-CRAN-threshr 
 
 %description
-Bindings to the 'blowfish' password hashing algorithm
-<https://www.openbsd.org/papers/bcrypt-paper.pdf> derived from the
-'OpenBSD' implementation.
+Fits extreme value mixture models, which are models for tails not
+requiring selection of a threshold, for continuous data. It includes
+functions for model comparison, estimation of quantity of interest in
+extreme value analysis and plotting. Reference: CN Behrens, HF Lopes, D
+Gamerman (2004) <doi:10.1191/1471082X04st075oa>. FF do Nascimento, D.
+Gamerman, HF Lopes <doi:10.1007/s11222-011-9270-z>.
 
 %prep
 %setup -q -c -n %{packname}

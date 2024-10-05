@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survHE
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis in Health Economic Evaluation
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-rms
 BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-methods 
 Requires:         R-CRAN-flexsurv 
 Requires:         R-CRAN-dplyr 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-rms
 Requires:         R-CRAN-xlsx 
 Requires:         R-tools 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 Contains a suite of functions for survival analysis in health economics.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bivariatemaps
-%global packver   1.3
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creates Bivariate Maps
 
@@ -22,16 +22,26 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-base 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-caper 
+BuildRequires:    R-CRAN-picante 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-betapart 
+BuildRequires:    R-CRAN-CommEcol 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-terra 
 Requires:         R-base 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-caper 
+Requires:         R-CRAN-picante 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-betapart 
+Requires:         R-CRAN-CommEcol 
+Requires:         R-grDevices 
 
 %description
-Contains functions to plot bivariate maps. For more info, see:
-Hidasi-Neto, J (2015)
-<https://rfunctions.blogspot.com/2015/03/bivariate-maps-bivariatemap-function.html>.
+Contains functions mainly focused to plotting bivariate maps.
 
 %prep
 %setup -q -c -n %{packname}

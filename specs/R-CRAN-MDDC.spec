@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcrypt
-%global packver   1.2.0
+%global packname  MDDC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Blowfish' Key Derivation and Password Hashing
+Summary:          Modified Detecting Deviating Cells Algorithm in Pharmacovigilance
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Bindings to the 'blowfish' password hashing algorithm
-<https://www.openbsd.org/papers/bcrypt-paper.pdf> derived from the
-'OpenBSD' implementation.
+Methods for detecting signals related to (adverse event, medical product
+e.g. drugs, vaccines) pairs, a data generation function for simulating
+pharmacovigilance datasets, and various utility functions. For more
+details please see Liu A., Mukhopadhyay R., and Markatou M.
+<doi:10.48550/arXiv.2410.01168>.
 
 %prep
 %setup -q -c -n %{packname}

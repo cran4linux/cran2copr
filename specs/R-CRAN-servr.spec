@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  servr
-%global packver   0.31
+%global packver   0.32
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.31
+Version:          0.32
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple HTTP Server to Serve Static Files or Dynamic Documents
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httpuv >= 1.5.2
-BuildRequires:    R-CRAN-xfun >= 0.42
+BuildRequires:    R-CRAN-xfun >= 0.48
 BuildRequires:    R-CRAN-mime >= 0.2
 BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-httpuv >= 1.5.2
-Requires:         R-CRAN-xfun >= 0.42
+Requires:         R-CRAN-xfun >= 0.48
 Requires:         R-CRAN-mime >= 0.2
 Requires:         R-CRAN-jsonlite 
 

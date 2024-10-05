@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DirectEffects
-%global packver   0.2.1
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Controlled Direct Effects for Explaining Causal Findings
 
@@ -17,20 +18,27 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Matching 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-broom 
 Requires:         R-stats 
-Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Matching 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-broom 
 
 %description
 A set of functions to estimate the controlled direct effect of treatment
 fixing a potential mediator to a specific value. Implements the sequential
 g-estimation estimator described in Vansteelandt (2009)
 <doi:10.1097/EDE.0b013e3181b6f4c9> and Acharya, Blackwell, and Sen (2016)
-<doi:10.1017/S0003055416000216>.
+<doi:10.1017/S0003055416000216> and the telescope matching estimator
+described in Blackwell and Strezhnev (2020) <doi:10.1111/rssa.12759>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +48,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastplyr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Alternatives to 'tidyverse' Functions
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.6.1
 Requires:         R-core >= 3.6.1
 BuildRequires:    R-CRAN-collapse >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-cheapr >= 0.9.3
+BuildRequires:    R-CRAN-cheapr >= 0.9.8
 BuildRequires:    R-CRAN-vctrs >= 0.6.0
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-collapse >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-cheapr >= 0.9.3
+Requires:         R-CRAN-cheapr >= 0.9.8
 Requires:         R-CRAN-vctrs >= 0.6.0
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proffer
-%global packver   0.1.6
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile R Code and Visualize with 'Pprof'
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         graphviz
-Requires:         pprof
+Recommends:       graphviz
+Recommends:       pprof
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
@@ -45,8 +45,7 @@ package converts native Rprof() data to a protocol buffer that 'pprof'
 understands. For the documentation of 'proffer', visit
 <https://r-prof.github.io/proffer/>. To learn about the implementations
 and methodologies of 'pprof', 'profile', and protocol buffers, visit
-<https://github.com/google/pprof>.
-<https://developers.google.com/protocol-buffers>, and
+<https://github.com/google/pprof>. <https://protobuf.dev>, and
 <https://github.com/r-prof/profile>, respectively.
 
 %prep

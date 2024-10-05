@@ -1,38 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ResIN
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Response Item Networks ('ResIN')
+Summary:          Response Item Networks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-wCorr >= 1.9.6
-BuildRequires:    R-CRAN-qgraph >= 1.9.4
-BuildRequires:    R-CRAN-fastDummies >= 1.6.3
-BuildRequires:    R-CRAN-igraph >= 1.4.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-DirectedClustering >= 0.1.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-dplyr >= 1.1.3
+BuildRequires:    R-CRAN-shadowtext >= 0.1.4
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-wCorr 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-wCorr >= 1.9.6
-Requires:         R-CRAN-qgraph >= 1.9.4
-Requires:         R-CRAN-fastDummies >= 1.6.3
-Requires:         R-CRAN-igraph >= 1.4.2
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-DirectedClustering >= 0.1.1
+BuildRequires:    R-CRAN-DirectedClustering 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-shadowtext >= 0.1.4
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-wCorr 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-DirectedClustering 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-parallelly 
+Requires:         R-parallel 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-readr 
 
 %description
 Contains various tools to perform and visualize Response Item Networks

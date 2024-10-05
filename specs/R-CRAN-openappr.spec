@@ -1,28 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcrypt
-%global packver   1.2.0
+%global packname  openappr
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Blowfish' Key Derivation and Password Hashing
+Summary:          Retrieve App Data from 'OpenAppBuilder'
 
-License:          BSD_2_clause + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-openssl 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Bindings to the 'blowfish' password hashing algorithm
-<https://www.openbsd.org/papers/bcrypt-paper.pdf> derived from the
-'OpenBSD' implementation.
+Provides an interface to connect R with the
+<https://github.com/IDEMSInternational/open-app-builder> 'OpenAppBuilder'
+platform, enabling users to retrieve and work with user and notification
+data for analysis and processing. It is designed for developers and
+analysts to seamlessly integrate data from 'OpenAppBuilder' into R
+workflows via a 'Postgres' database connection, allowing direct querying
+and import of app data into R.
 
 %prep
 %setup -q -c -n %{packname}

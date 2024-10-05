@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trinROC
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests for Assessing Trinormal ROC Data
 
@@ -30,7 +30,9 @@ data analysis to investigate classifiers allocating individuals to one of
 three disjoint and ordered classes. In a single classifier assessment the
 discriminatory power is compared to classification by chance. In a
 comparison of two classifiers the null hypothesis corresponds to equal
-discriminatory power of the two classifiers.
+discriminatory power of the two classifiers. See also "ROC Analysis for
+Classification and Prediction in Practice" by Nakas, Bantis and Gatsonis
+(2023), ISBN 9781482233704.
 
 %prep
 %setup -q -c -n %{packname}

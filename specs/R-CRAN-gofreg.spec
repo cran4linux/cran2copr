@@ -1,28 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bcrypt
-%global packver   1.2.0
+%global packname  gofreg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Blowfish' Key Derivation and Password Hashing
+Summary:          Bootstrap-Based Goodness-of-Fit Tests for Parametric Regression
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-openssl 
-Requires:         R-CRAN-openssl 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-survival 
 
 %description
-Bindings to the 'blowfish' password hashing algorithm
-<https://www.openbsd.org/papers/bcrypt-paper.pdf> derived from the
-'OpenBSD' implementation.
+Provides statistical methods to check if a parametric family of
+conditional density functions fits to some given dataset of covariates and
+response variables. Different test statistics can be used to determine the
+goodness-of-fit of the assumed model, see Andrews (1997)
+<doi:10.2307/2171880>, Bierens & Wang (2012)
+<doi:10.1017/S0266466611000168>, Dikta & Scheer (2021)
+<doi:10.1007/978-3-030-73480-0> and Kremling & Dikta (2024)
+<doi:10.48550/arXiv.2409.20262>. As proposed in these papers, the
+corresponding p-values are approximated using a parametric bootstrap
+method.
 
 %prep
 %setup -q -c -n %{packname}

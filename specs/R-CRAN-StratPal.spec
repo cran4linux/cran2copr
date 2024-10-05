@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StratPal
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratigraphic Paleobiology Modeling Pipelines
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-admtools >= 0.3.0
-Requires:         R-CRAN-admtools >= 0.3.0
+BuildRequires:    R-CRAN-admtools >= 0.4.0
+BuildRequires:    R-CRAN-paleoTS 
+Requires:         R-CRAN-admtools >= 0.4.0
+Requires:         R-CRAN-paleoTS 
 
 %description
 The fossil record is a joint expression of ecological, taphonomic,

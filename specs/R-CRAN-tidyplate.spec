@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyplate
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transform Microplate Data into Tidy Dataframes
+Summary:          Transform Microplate Data into Tibbles
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-openxlsx 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-openxlsx 
 
 %description
 The goal of 'tidyplate' is to help researchers convert different types of
-microplates into tidy dataframes which can be used in data analysis. It
-accepts xlsx and csv files formatted in a specific way as input. It
-supports all types of standard microplate formats such as 6-well, 12-well,
-24-well, 48-well, 96-well, 384-well, and, 1536-well plates.
+microplates into tibbles which can be used in data analysis. It accepts
+xlsx and csv files formatted in a specific way as input. It supports all
+types of standard microplate formats such as 6-well, 12-well, 24-well,
+48-well, 96-well, 384-well, and, 1536-well plates.
 
 %prep
 %setup -q -c -n %{packname}

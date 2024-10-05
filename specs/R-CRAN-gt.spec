@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gt
-%global packver   0.11.0
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Create Presentation-Ready Display Tables
 
@@ -17,42 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.0
-BuildRequires:    R-CRAN-magrittr >= 2.0.2
-BuildRequires:    R-CRAN-commonmark >= 1.8.1
-BuildRequires:    R-CRAN-glue >= 1.6.2
-BuildRequires:    R-CRAN-fs >= 1.6.1
-BuildRequires:    R-CRAN-htmlwidgets >= 1.6.1
-BuildRequires:    R-CRAN-markdown >= 1.5
-BuildRequires:    R-CRAN-xml2 >= 1.3.3
-BuildRequires:    R-CRAN-scales >= 1.2.1
-BuildRequires:    R-CRAN-tidyselect >= 1.2.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-commonmark >= 1.9.1
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-fs >= 1.6.4
+BuildRequires:    R-CRAN-htmlwidgets >= 1.6.4
+BuildRequires:    R-CRAN-xml2 >= 1.3.6
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-markdown >= 1.13
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-bitops >= 1.0.7
-BuildRequires:    R-CRAN-htmltools >= 0.5.4
-BuildRequires:    R-CRAN-sass >= 0.4.5
-BuildRequires:    R-CRAN-reactable >= 0.4.3
+BuildRequires:    R-CRAN-htmltools >= 0.5.8.1
+BuildRequires:    R-CRAN-sass >= 0.4.9
+BuildRequires:    R-CRAN-reactable >= 0.4.4
 BuildRequires:    R-CRAN-bigD >= 0.2
 BuildRequires:    R-CRAN-base64enc >= 0.1.3
 BuildRequires:    R-CRAN-juicyjuice >= 0.1.0
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cli >= 3.6.0
-Requires:         R-CRAN-magrittr >= 2.0.2
-Requires:         R-CRAN-commonmark >= 1.8.1
-Requires:         R-CRAN-glue >= 1.6.2
-Requires:         R-CRAN-fs >= 1.6.1
-Requires:         R-CRAN-htmlwidgets >= 1.6.1
-Requires:         R-CRAN-markdown >= 1.5
-Requires:         R-CRAN-xml2 >= 1.3.3
-Requires:         R-CRAN-scales >= 1.2.1
-Requires:         R-CRAN-tidyselect >= 1.2.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-commonmark >= 1.9.1
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-fs >= 1.6.4
+Requires:         R-CRAN-htmlwidgets >= 1.6.4
+Requires:         R-CRAN-xml2 >= 1.3.6
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-markdown >= 1.13
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-bitops >= 1.0.7
-Requires:         R-CRAN-htmltools >= 0.5.4
-Requires:         R-CRAN-sass >= 0.4.5
-Requires:         R-CRAN-reactable >= 0.4.3
+Requires:         R-CRAN-htmltools >= 0.5.8.1
+Requires:         R-CRAN-sass >= 0.4.9
+Requires:         R-CRAN-reactable >= 0.4.4
 Requires:         R-CRAN-bigD >= 0.2
 Requires:         R-CRAN-base64enc >= 0.1.3
 Requires:         R-CRAN-juicyjuice >= 0.1.0

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  commonmark
-%global packver   1.9.1
+%global packver   1.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          1.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance CommonMark and Github Markdown Rendering in R
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-The CommonMark specification defines a rationalized version of markdown
-syntax. This package uses the 'cmark' reference implementation for
-converting markdown text into various formats including html, latex and
-groff man. In addition it exposes the markdown parse tree in xml format.
-Also includes opt-in support for GFM extensions including tables,
-autolinks, and strikethrough text.
+The CommonMark specification <https://github.github.com/gfm/> defines a
+rationalized version of markdown syntax. This package uses the 'cmark'
+reference implementation for converting markdown text into various formats
+including html, latex and groff man. In addition it exposes the markdown
+parse tree in xml format. Also includes opt-in support for GFM extensions
+including tables, autolinks, and strikethrough text.
 
 %prep
 %setup -q -c -n %{packname}

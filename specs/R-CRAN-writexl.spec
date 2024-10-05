@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  writexl
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Export Data Frames to Excel 'xlsx' Format
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 
 %description
-Zero-dependency data frame to xlsx exporter based on 'libxlsxwriter'. Fast
-and no Java or Excel required.
+Zero-dependency data frame to xlsx exporter based on 'libxlsxwriter'
+<https://libxlsxwriter.github.io>. Fast and no Java or Excel required.
 
 %prep
 %setup -q -c -n %{packname}
