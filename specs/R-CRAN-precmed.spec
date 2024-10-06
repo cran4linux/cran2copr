@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  precmed
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precision Medicine
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MESS 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MESS 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmvjoint
-%global packver   0.4.0
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Models of Survival and Multivariate Longitudinal Data
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-statmod 
 BuildRequires:    R-CRAN-xtable 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-reformulas 
 Requires:         R-stats 
 Requires:         R-CRAN-statmod 
 Requires:         R-CRAN-xtable 

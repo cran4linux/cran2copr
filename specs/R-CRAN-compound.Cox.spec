@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  compound.Cox
-%global packver   3.30
+%global packver   3.31
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.30
+Version:          3.31
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate Feature Selection and Compound Covariate for Predicting Survival
+Summary:          Univariate Feature Selection and Compound Covariate for Predicting Survival, Including Copula-Based Analyses for Dependent Censoring
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -35,8 +35,10 @@ Res) <DOI:10.1177/0962280214533378>, and Emura et al
 (2019)<DOI:10.1016/j.cmpb.2018.10.020>. Algorithms for generating
 correlated gene expressions are also available. Estimation of survival
 functions via copula-graphic (CG) estimators is also implemented, which is
-useful for sensitivity analyses under dependent censoring (Yeh et al 2023)
-<DOI:10.3390/biomedicines11030797>.
+useful for sensitivity analyses under dependent censoring (Yeh et al 2023
+Biomedicines) <DOI:10.3390/biomedicines11030797> and factorial survival
+analyses (Emura et al 2024 Stat Methods Med Res)
+<DOI:10.1177/09622802231215805>.
 
 %prep
 %setup -q -c -n %{packname}

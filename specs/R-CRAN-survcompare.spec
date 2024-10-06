@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survcompare
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compares Cox and Survival Random Forests to Quantify Nonlinearity
+Summary:          Nested Cross-Validation to Compare Cox-PH, Cox-Lasso, Survival Random Forests
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}

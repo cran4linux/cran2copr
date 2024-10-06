@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gplots
-%global packver   3.1.3.1
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various R Programming Tools for Plotting Data
 
@@ -38,12 +38,12 @@ and plotting locally smoothed summary function as ('bandplot', 'wapply'),
 ('ci2d', 'hist2d'), - enhanced regression diagnostic plots ('lmplot2',
 'residplot'), - formula-enabled interface to 'stats::lowess' function
 ('lowess'), - displaying textual data in plots ('textplot', 'sinkplot'), -
-plotting a matrix where each cell contains a dot whose size reflects the
-relative magnitude of the elements ('balloonplot'), - plotting "Venn"
-diagrams ('venn'), - displaying Open-Office style plots ('ooplot'), -
-plotting multiple data on same region, with separate axes ('overplot'), -
-plotting means and confidence intervals ('plotCI', 'plotmeans'), - spacing
-points in an x-y plot so they don't overlap ('space').
+plotting dots whose size reflects the relative magnitude of the elements
+('balloonplot', 'bubbleplot'), - plotting "Venn" diagrams ('venn'), -
+displaying Open-Office style plots ('ooplot'), - plotting multiple data on
+same region, with separate axes ('overplot'), - plotting means and
+confidence intervals ('plotCI', 'plotmeans'), - spacing points in an x-y
+plot so they don't overlap ('space').
 
 %prep
 %setup -q -c -n %{packname}
