@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SGP
-%global packver   2.1-0.0
+%global packver   2.2-0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0.0
+Version:          2.2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Student Growth Percentiles & Percentile Growth Trajectories
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       tex(pdfpages.sty)
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-equate >= 2.0.5
 BuildRequires:    R-CRAN-rngtools >= 1.5
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-sn >= 1.0.0
 BuildRequires:    R-CRAN-randomNames >= 0.0.5
 BuildRequires:    R-CRAN-Cairo 
 BuildRequires:    R-CRAN-callr 
+BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-datasets 
@@ -41,7 +42,6 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-splines 
@@ -56,6 +56,7 @@ Requires:         R-CRAN-sn >= 1.0.0
 Requires:         R-CRAN-randomNames >= 0.0.5
 Requires:         R-CRAN-Cairo 
 Requires:         R-CRAN-callr 
+Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-crayon 
 Requires:         R-datasets 
@@ -72,7 +73,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-parallel 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-quantreg 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-splines 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ExtremalDep
-%global packver   0.0.4-1
+%global packver   0.0.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.1
+Version:          0.0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extremal Dependence Models
 
@@ -46,11 +46,11 @@ A set of procedures for parametric and non-parametric modelling of the
 dependence structure of multivariate extreme-values is provided. The
 statistical inference is performed with non-parametric estimators,
 likelihood-based estimators and Bayesian techniques. It adapts the
-methodologies of Beranger and Padoan (2015) <arxiv:1508.05561>, Marcon et
-al. (2016) <doi:10.1214/16-EJS1162>, Marcon et al. (2017)
-<doi:10.1002/sta4.145>, Marcon et al. (2017)
-<doi:10.1016/j.jspi.2016.10.004> and Beranger et al. (2021)
-<doi:10.1007/s10687-019-00364-0>. This package also allows for the
+methodologies of Beranger and Padoan (2015)
+<doi:10.48550/arXiv.1508.05561>, Marcon et al. (2016)
+<doi:10.1214/16-EJS1162>, Marcon et al. (2017) <doi:10.1002/sta4.145>,
+Marcon et al. (2017) <doi:10.1016/j.jspi.2016.10.004> and Beranger et al.
+(2021) <doi:10.1007/s10687-019-00364-0>. This package also allows for the
 modelling of spatial extremes using flexible max-stable processes. It
 provides simulation algorithms and fitting procedures relying on the
 Stephenson-Tawn likelihood as per Beranger at al. (2021)

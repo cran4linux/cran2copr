@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statnet.common
-%global packver   4.9.0
+%global packver   4.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.9.0
+Version:          4.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common R Scripts and Utilities Used by the Statnet Project Software
 
@@ -21,11 +21,13 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-parallel 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-coda 
 Requires:         R-parallel 
 Requires:         R-tools 
+Requires:         R-CRAN-Matrix 
 
 %description
 Non-statistical utilities used by the software developed by the Statnet

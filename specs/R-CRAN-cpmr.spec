@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cpmr
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connectome Predictive Modelling in R
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
 Connectome Predictive Modelling (CPM) (Shen et al. (2017)
