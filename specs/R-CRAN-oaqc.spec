@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.3.0
+%global packname  oaqc
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Computation of the Orbit-Aware Quad Census
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global, local, and group L1 centrality/prestige are provided.
-Routines for visual inspection of a graph/network are also provided.
-Details are in Kang and Oh (2024a) <doi:10.48550/arXiv.2404.13233> and
-Kang and Oh (2024b) <doi:10.48550/arXiv.2408.12078>.
+Implements the efficient algorithm by Ortmann and Brandes (2017)
+<doi:10.1007/s41109-017-0027-2> to compute the orbit-aware frequency
+distribution of induced and non-induced quads, i.e. subgraphs of size
+four. Given an edge matrix, data frame, or a graph object (e.g.,
+'igraph'), the orbit-aware counts are computed respective each of the
+edges and nodes.
 
 %prep
 %setup -q -c -n %{packname}

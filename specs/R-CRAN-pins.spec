@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pins
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pin, Discover and Share Resources
+Summary:          Pin, Discover, and Share Resources
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
@@ -56,7 +54,7 @@ Requires:         R-CRAN-yaml
 Publish data sets, models, and other R objects, making it easy to share
 them across projects and with your colleagues. You can pin objects to a
 variety of "boards", including local folders (to share on a networked
-drive or with 'DropBox'), 'RStudio' connect, Amazon S3, and more.
+drive or with 'DropBox'), 'Posit Connect', 'AWS S3', and more.
 
 %prep
 %setup -q -c -n %{packname}

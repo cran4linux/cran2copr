@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.3.0
+%global packname  GTbasedIM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Game Theory-Based Influence Measures
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-CoopGame 
+BuildRequires:    R-CRAN-RWeka 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-CoopGame 
+Requires:         R-CRAN-RWeka 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global, local, and group L1 centrality/prestige are provided.
-Routines for visual inspection of a graph/network are also provided.
-Details are in Kang and Oh (2024a) <doi:10.48550/arXiv.2404.13233> and
-Kang and Oh (2024b) <doi:10.48550/arXiv.2408.12078>.
+Understanding how features influence a specific response variable becomes
+crucial in classification problems, with applications ranging from medical
+diagnosis to customer behavior analysis. This packages provides tools to
+compute such an influence measure grounded on game theory concepts. In
+particular, the influence measures presented in Davila-Pena,
+Saavedra-Nieves, and Casas-Méndez (2024) <doi:10.48550/arXiv.2408.02481>
+can be obtained.
 
 %prep
 %setup -q -c -n %{packname}

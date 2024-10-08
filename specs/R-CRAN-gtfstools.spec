@@ -1,40 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.3.0
+%global packname  gtfstools
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          General Transit Feed Specification (GTFS) Editing and Analysing Tools
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gtfsio >= 1.0.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sfheaders 
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-gtfsio >= 1.0.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-units 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-zip 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global, local, and group L1 centrality/prestige are provided.
-Routines for visual inspection of a graph/network are also provided.
-Details are in Kang and Oh (2024a) <doi:10.48550/arXiv.2404.13233> and
-Kang and Oh (2024b) <doi:10.48550/arXiv.2408.12078>.
+Utility functions to read, manipulate, analyse and write transit feeds in
+the General Transit Feed Specification (GTFS) data format.
 
 %prep
 %setup -q -c -n %{packname}

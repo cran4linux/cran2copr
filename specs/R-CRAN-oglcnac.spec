@@ -1,44 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hhh4contacts
-%global packver   0.13.4
+%global packname  oglcnac
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Age-Structured Spatio-Temporal Models for Infectious Disease Counts
+Summary:          Processing and Analysis of O-GlcNAcAtlas Data
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-surveillance >= 1.14.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sp 
-Requires:         R-CRAN-surveillance >= 1.14.0
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-glue 
 
 %description
-Meyer and Held (2017) <doi:10.1093/biostatistics/kxw051> present an
-age-structured spatio-temporal model for infectious disease counts. The
-approach is illustrated in a case study on norovirus gastroenteritis in
-Berlin, 2011-2015, by age group, city district and week, using additional
-contact data from the POLYMOD survey. This package contains the data and
-code to reproduce the results from the paper, see 'demo("hhh4contacts")'.
+Provides tools for processing and analyzing data from the 'O-GlcNAcAtlas'
+database <https://oglcnac.org/>, as described in Ma (2021)
+<doi:10.1093/glycob/cwab003>. It integrates 'UniProt'
+<https://www.uniprot.org/> API calls to retrieve additional information.
+It is specifically designed for research workflows involving
+'O-GlcNAcAtlas' data, providing a flexible and user-friendly interface for
+customizing and downloading processed results. Interactive elements allow
+users to easily adjust parameters and handle various biological datasets.
 
 %prep
 %setup -q -c -n %{packname}

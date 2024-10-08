@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.3.0
+%global packname  FRB
+%global packver   2.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Fast and Robust Bootstrap
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,25 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rrcov 
+BuildRequires:    R-CRAN-corpcor 
+Requires:         R-CRAN-rrcov 
+Requires:         R-CRAN-corpcor 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global, local, and group L1 centrality/prestige are provided.
-Routines for visual inspection of a graph/network are also provided.
-Details are in Kang and Oh (2024a) <doi:10.48550/arXiv.2404.13233> and
-Kang and Oh (2024b) <doi:10.48550/arXiv.2408.12078>.
+Perform robust inference based on applying Fast and Robust Bootstrap on
+robust estimators (Van Aelst and Willems (2013)
+<doi:10.18637/jss.v053.i03>). This method constitutes an alternative to
+ordinary bootstrap or asymptotic inference. procedures when using robust
+estimators such as S-, MM- or GS-estimators. The available methods are
+multivariate regression, principal component analysis and one-sample and
+two-sample Hotelling tests. It provides both the robust point estimates
+and uncertainty measures based on the fast and robust bootstrap.
 
 %prep
 %setup -q -c -n %{packname}

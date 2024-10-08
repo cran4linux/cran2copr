@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lessR
-%global packver   4.3.7
+%global packver   4.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.7
+Version:          4.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Less Code, More Results
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
@@ -45,17 +47,19 @@ Requires:         R-CRAN-openxlsx
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
 
 %description
-Each function accomplishes the work of multiple standard R functions. For
-example, two function calls, Read() and CountAll(), read the data and
-generate summary statistics for all variables in the data frame, plus
-histograms and bar charts as appropriate. Other functions provide for
-comprehensive summary statistics via pivot tables, a comprehensive
-regression analysis, ANOVA and t-test, visualizations including the
-Violin/Box/Scatter plot for a numerical variable, bar chart, histogram,
-box plot, density curves, calibrated power curve, reading multiple data
-formats with the same function call, variable labels, color themes, and
+Each function replaces multiple standard R functions. For example, two
+function calls, Read() and CountAll(), generate summary statistics for all
+variables in the data frame, plus histograms and bar charts as
+appropriate. Other functions provide for summary statistics via pivot
+tables, a comprehensive regression analysis, ANOVA and t-test,
+visualizations including the Violin/Box/Scatter plot for a numerical
+variable, bar chart, histogram, box plot, density curves, calibrated power
+curve, reading multiple data formats with the same function call, variable
+labels, time series with aggregation and forecasting, color themes, and
 Trellis graphics. Also includes a confirmatory factor analysis of multiple
 indicator measurement models, pedagogical routines for data simulation
 such as for the Central Limit Theorem, generation and rendering of

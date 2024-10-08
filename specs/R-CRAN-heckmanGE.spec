@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  L1centrality
-%global packver   0.3.0
+%global packname  heckmanGE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph/Network Analysis Based on L1 Centrality
+Summary:          Estimation and Inference for Heckman Selection Models with Cluster-Robust Variance
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glm2 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-miscTools 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-glm2 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-miscTools 
+Requires:         R-CRAN-vctrs 
 
 %description
-Analyze graph/network data using L1 centrality and prestige. Functions for
-deriving global, local, and group L1 centrality/prestige are provided.
-Routines for visual inspection of a graph/network are also provided.
-Details are in Kang and Oh (2024a) <doi:10.48550/arXiv.2404.13233> and
-Kang and Oh (2024b) <doi:10.48550/arXiv.2408.12078>.
+Tools for the estimation of Heckman selection models with robust
+variance-covariance matrices. It includes functions for computing the
+bread and meat matrices, as well as clustered standard errors for
+generalized Heckman models, see Fernando de Souza Bastos and Wagner
+Barreto-Souza and Marc G. Genton (2022, ISSN:
+<https://www.jstor.org/stable/27164235>). The package also offers
+cluster-robust inference with sandwich estimators, and tools for handling
+issues related to eigenvalues in covariance matrices.
 
 %prep
 %setup -q -c -n %{packname}

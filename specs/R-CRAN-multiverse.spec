@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiverse
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Explorable Multiverse' Data Analysis and Reports
+Summary:          Create 'multiverse analysis' in R
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-knitr >= 1.3
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
 BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
@@ -32,12 +32,16 @@ BuildRequires:    R-CRAN-collections
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-berryFunctions 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-knitr >= 1.3
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.1
 Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-R6 
 Requires:         R-methods 
 Requires:         R-CRAN-tibble 
@@ -48,21 +52,23 @@ Requires:         R-CRAN-collections
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-berryFunctions 
-Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-styler 
+Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 
 %description
 Implement 'multiverse' style analyses (Steegen S., Tuerlinckx F, Gelman
-A., Vanpaemal, W., 2016) <doi:10.1177/1745691616658637>, (Dragicevic P.,
-Jansen Y., Sarma A., Kay M., Chevalier F., 2019)
-<doi:10.1145/3290605.3300295> to show the robustness of statistical
-inference. 'Multiverse analysis' is a philosophy of statistical reporting
-where paper authors report the outcomes of many different statistical
-analyses in order to show how fragile or robust their findings are. The
-'multiverse' package (Sarma A., Kale A., Moon M., Taback N., Chevalier F.,
-Hullman J., Kay M., 2021) <doi:10.31219/osf.io/yfbwm> allows users to
-concisely and flexibly implement 'multiverse-style' analysis, which
-involve declaring alternate ways of performing an analysis step, in R and
-R Notebooks.
+A., Vanpaemal, W., 2016) <doi:10.1177/1745691616658637> to show the
+robustness of statistical inference. 'Multiverse analysis' is a philosophy
+of statistical reporting where paper authors report the outcomes of many
+different statistical analyses in order to show how fragile or robust
+their findings are. The 'multiverse' package (Sarma A., Kale A., Moon M.,
+Taback N., Chevalier F., Hullman J., Kay M., 2021)
+<doi:10.31219/osf.io/yfbwm> allows users to concisely and flexibly
+implement 'multiverse-style' analysis, which involve declaring alternate
+ways of performing an analysis step, in R and R Notebooks.
 
 %prep
 %setup -q -c -n %{packname}

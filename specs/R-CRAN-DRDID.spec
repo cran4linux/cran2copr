@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DRDID
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Doubly Robust Difference-in-Differences Estimators
 
@@ -18,13 +18,11 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-BMisc >= 1.4.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-parglm >= 0.1.7
 BuildRequires:    R-CRAN-fastglm >= 0.0.3
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-trust 
 Requires:         R-CRAN-BMisc >= 1.4.1
 Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-CRAN-parglm >= 0.1.7
 Requires:         R-CRAN-fastglm >= 0.0.3
 Requires:         R-stats 
 Requires:         R-CRAN-trust 

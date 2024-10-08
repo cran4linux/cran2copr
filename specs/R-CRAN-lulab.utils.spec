@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lulab.utils
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Supporting Functions Maintained by Zhen Lu
 
@@ -21,20 +21,26 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-descr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-table1 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-descr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-table1 
+Requires:         R-utils 
 
 %description
 Miscellaneous functions commonly used by LuLab. This package aims to help

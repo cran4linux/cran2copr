@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doBy
-%global packver   4.6.22
+%global packver   4.6.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.22
+Version:          4.6.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
 
