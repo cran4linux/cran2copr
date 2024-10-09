@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cata
-%global packver   0.1.0.6
+%global packver   0.1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.6
+Version:          0.1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Check-All-that-Apply (CATA) Data
 
@@ -25,16 +25,16 @@ Requires:         R-utils
 Requires:         R-graphics 
 
 %description
-Functions for analyzing check-all-that-apply (CATA) data from consumer and
-sensory tests. Cochran's Q test, McNemar's test, and Penalty-Lift analysis
-provided, as described in for CATA data analysis by Meyners, Castura &
+Package contains functions for analyzing check-all-that-apply (CATA) data
+from consumer and sensory tests. Cochran's Q test, McNemar's test, and
+Penalty-Lift analysis are provided; for details, see Meyners, Castura &
 Carr (2013) <doi:10.1016/j.foodqual.2013.06.010>. Cluster analysis can be
-performed using b-cluster analysis. The quality of cluster analysis
-solutions can be evaluated using various measures. The methods related to
-b-cluster analysis are described in a manuscript by Castura, Meyners,
-Varela & Næs (2022) <doi:10.1016/j.foodqual.2022.104564>. Methods are
-adapted to product-related hedonic responses by Castura, Meyners,
-Pohjanheimo, Varela & Næs (2023) <doi:10.1111/joss.12860>.
+performed using b-cluster analysis, then evaluated using various measures;
+for details, see Castura, Meyners, Varela & Næs (2022)
+<doi:10.1016/j.foodqual.2022.104564>. Methods are adapted to cluster
+consumers based on their product-related hedonic responses; for details,
+see Castura, Meyners, Pohjanheimo, Varela & Næs (2023)
+<doi:10.1111/joss.12860>.
 
 %prep
 %setup -q -c -n %{packname}

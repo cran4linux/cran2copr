@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tseriesTARMA
-%global packver   0.3-4
+%global packver   0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Nonlinear Time Series Through TARMA Models
+Summary:          Analysis of Nonlinear Time Series Through Threshold Autoregressive Moving Average Models (TARMA) Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-rugarch 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-fitdistrplus 
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-Rsolnp 
@@ -34,12 +35,19 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-rugarch 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-fitdistrplus 
 
 %description
 Routines for nonlinear time series analysis based on Threshold
-Autoregressive Moving Average models. It provides functions and methods
-for: TARMA model fitting and forecasting, tests for threshold effects,
-unit-root tests based on TARMA models.
+Autoregressive Moving Average (TARMA) models. It provides functions and
+methods for: TARMA model fitting and forecasting, including robust
+estimators, see Goracci et al. JBES (2025)
+<doi:10.1080/07350015.2024.2412011>; tests for threshold effects, see
+Giannerini et al. JoE (2024) <doi:10.1016/j.jeconom.2023.01.004>, Goracci
+et al. Statistica Sinica (2023) <doi:10.5705/ss.202021.0120>, Angelini et
+al. (2024) <doi:10.48550/arXiv.2308.00444>; unit-root tests based on TARMA
+models, see Chan et al. Statistica Sinica (2024)
+<doi:10.5705/ss.202022.0125>.
 
 %prep
 %setup -q -c -n %{packname}

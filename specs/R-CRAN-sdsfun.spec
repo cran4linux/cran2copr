@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdsfun
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Science Complementary Features
 
@@ -19,15 +19,18 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pander 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 

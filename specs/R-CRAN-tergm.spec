@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tergm
-%global packver   4.2.0
+%global packver   4.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.0
+Version:          4.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Models for Network Evolution Based on Exponential-Family Random Graph Models
 
@@ -16,30 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-MASS >= 7.3.51.4
-BuildRequires:    R-CRAN-statnet.common >= 4.9.0
-BuildRequires:    R-CRAN-ergm >= 4.5.0
-BuildRequires:    R-CRAN-nlme >= 3.1.139
-BuildRequires:    R-CRAN-network >= 1.18.0
-BuildRequires:    R-CRAN-robustbase >= 0.93.5
-BuildRequires:    R-CRAN-ergm.multi >= 0.2.0
-BuildRequires:    R-CRAN-coda >= 0.19.2
-BuildRequires:    R-CRAN-networkDynamic >= 0.11.3
+BuildRequires:    R-CRAN-ergm >= 4.7.0
+BuildRequires:    R-CRAN-statnet.common >= 4.10.0
+BuildRequires:    R-CRAN-network >= 1.18.2
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-robustbase >= 0.95
+BuildRequires:    R-CRAN-ergm.multi >= 0.2.1
+BuildRequires:    R-CRAN-coda >= 0.19.4.1
+BuildRequires:    R-CRAN-networkDynamic >= 0.11.4
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-MASS >= 7.3.51.4
-Requires:         R-CRAN-statnet.common >= 4.9.0
-Requires:         R-CRAN-ergm >= 4.5.0
-Requires:         R-CRAN-nlme >= 3.1.139
-Requires:         R-CRAN-network >= 1.18.0
-Requires:         R-CRAN-robustbase >= 0.93.5
-Requires:         R-CRAN-ergm.multi >= 0.2.0
-Requires:         R-CRAN-coda >= 0.19.2
-Requires:         R-CRAN-networkDynamic >= 0.11.3
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-ergm >= 4.7.0
+Requires:         R-CRAN-statnet.common >= 4.10.0
+Requires:         R-CRAN-network >= 1.18.2
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-robustbase >= 0.95
+Requires:         R-CRAN-ergm.multi >= 0.2.1
+Requires:         R-CRAN-coda >= 0.19.4.1
+Requires:         R-CRAN-networkDynamic >= 0.11.4
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-MASS 
 
 %description
 An integrated set of extensions to the 'ergm' package to analyze and

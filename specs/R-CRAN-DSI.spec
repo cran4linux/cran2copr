@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DSI
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' Interface
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-cli 
 
 %description
 'DataSHIELD' is an infrastructure and series of R packages that enables

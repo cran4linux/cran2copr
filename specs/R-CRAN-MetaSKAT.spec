@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MetaSKAT
-%global packver   0.82
+%global packver   0.90
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.82
+Version:          0.90
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta Analysis for SNP-Set (Sequence) Kernel Association Test
 

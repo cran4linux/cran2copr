@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JuliaConnectoR
-%global packver   1.1.4
+%global packname  tvtools
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Functionally Oriented Interface for Integrating 'Julia' with R
+Summary:          Comprehensive Tools for Panel Data Analysis - 'tvtools'
 
-License:          MIT + file LICENCE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       julia
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-DTwrappers 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-DTwrappers 
 
 %description
-Allows to import functions and whole packages from 'Julia' in R. Imported
-'Julia' functions can directly be called as R functions. Data structures
-can be translated between 'Julia' and R. More details can also be found in
-the corresponding article <doi:10.18637/jss.v101.i06>.
+Longitudinal data offers insights into population changes over time but
+often requires a flexible structure, especially with varying follow-up
+intervals. Panel data is one way to store such records, though it adds
+complexity to analysis. The 'tvtools' package for R simplifies exploring
+and analyzing panel data.
 
 %prep
 %setup -q -c -n %{packname}

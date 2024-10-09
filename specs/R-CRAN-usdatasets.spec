@@ -1,29 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JuliaConnectoR
-%global packver   1.1.4
+%global packname  usdatasets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Functionally Oriented Interface for Integrating 'Julia' with R
+Summary:          A Comprehensive Collection of U.S. Datasets
 
-License:          MIT + file LICENCE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       julia
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Allows to import functions and whole packages from 'Julia' in R. Imported
-'Julia' functions can directly be called as R functions. Data structures
-can be translated between 'Julia' and R. More details can also be found in
-the corresponding article <doi:10.18637/jss.v101.i06>.
+Provides a diverse collection of U.S. datasets encompassing various fields
+such as crime, economics, education, finance, energy, healthcare, and
+more. It serves as a valuable resource for researchers and analysts
+seeking to perform in-depth analyses and derive insights from
+U.S.-specific data.
 
 %prep
 %setup -q -c -n %{packname}

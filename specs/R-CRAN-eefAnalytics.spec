@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eefAnalytics
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Analytical Methods for Evaluating Educational Interventions using Randomised Controlled Trials Designs
 
@@ -14,23 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.1.2
+BuildRequires:    R-CRAN-lme4 >= 1.1.0
+BuildRequires:    R-CRAN-R2jags >= 0.7
+BuildRequires:    R-CRAN-coda >= 0.19
+BuildRequires:    R-CRAN-MCMCvis >= 0.15
+BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rstanarm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-mvtnorm >= 1.1.2
+Requires:         R-CRAN-lme4 >= 1.1.0
+Requires:         R-CRAN-R2jags >= 0.7
+Requires:         R-CRAN-coda >= 0.19
+Requires:         R-CRAN-MCMCvis >= 0.15
+Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-rstanarm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
 
 %description
 Analysing data from evaluations of educational interventions using a

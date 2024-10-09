@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  wordpredictor
-%global packver   0.0.3
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Develop Text Prediction Models Based on N-Grams
 
@@ -34,8 +35,8 @@ A framework for developing n-gram models for text prediction. It provides
 data cleaning, data sampling, extracting tokens from text, model
 generation, model evaluation and word prediction. For information on how
 n-gram models work we referred to: "Speech and Language Processing"
-<https://web.stanford.edu/~jurafsky/slp3/3.pdf>. For optimizing R code and
-using R6 classes we referred to "Advanced R"
+<https://web.archive.org/web/20240919222934/https%%3A%%2F%%2Fweb.stanford.edu%%2F~jurafsky%%2Fslp3%%2F3.pdf>.
+For optimizing R code and using R6 classes we referred to "Advanced R"
 <https://adv-r.hadley.nz/r6.html>. For writing R extensions we referred to
 "R Packages", <https://r-pkgs.org/index.html>.
 
