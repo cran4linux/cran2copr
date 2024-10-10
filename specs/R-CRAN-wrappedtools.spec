@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wrappedtools
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Wrappers Around Commonly Used Functions
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-broom
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-nortest 
 Requires:         R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-knitr 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-broom
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-nortest 
 
 %description
 The main functionalities of 'wrappedtools' are: adding backticks to

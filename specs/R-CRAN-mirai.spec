@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirai
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimalist Async Evaluation Framework for R
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 1.2.0
-Requires:         R-CRAN-nanonext >= 1.2.0
+BuildRequires:    R-CRAN-nanonext >= 1.3.0
+Requires:         R-CRAN-nanonext >= 1.3.0
 
 %description
 Designed for simplicity, a 'mirai' evaluates an R expression
 asynchronously in a parallel process, locally or distributed over the
 network, with the result automatically available upon completion. Modern
 networking and concurrency built on 'nanonext' and 'NNG' (Nanomsg Next
-Gen) ensures reliable and efficient scheduling, over fast inter-process
+Gen) ensure reliable and efficient scheduling, over fast inter-process
 communications or TCP/IP secured by TLS. Advantages include being
 inherently queued thus handling many more tasks than available processes,
 no storage on the file system, support for otherwise non-exportable

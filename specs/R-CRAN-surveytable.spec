@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveytable
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formatted Survey Estimates
 
@@ -20,11 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-huxtable 
 BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-survey 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-huxtable 
 Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-survey 
 

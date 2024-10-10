@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   7.0
+%global packver   7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0
+Version:          7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bigstatsr 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-emplik 
@@ -40,6 +41,7 @@ BuildRequires:    R-CRAN-Rfast2
 BuildRequires:    R-CRAN-Rnanoflann 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-bigstatsr 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-emplik 

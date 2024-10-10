@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdverse
-%global packver   1.0-3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Spatial Stratified Heterogeneity
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-sdsfun >= 0.4.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-geosphere 
@@ -28,14 +28,13 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-scatterpie 
-BuildRequires:    R-CRAN-sdsfun 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-sdsfun >= 0.4.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-geosphere 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-scatterpie 
-Requires:         R-CRAN-sdsfun 
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 

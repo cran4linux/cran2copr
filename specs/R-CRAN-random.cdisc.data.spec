@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  random.cdisc.data
-%global packver   0.3.15
+%global packver   0.3.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.15
+Version:          0.3.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Random ADaM Datasets
 
@@ -40,7 +40,7 @@ Requires:         R-CRAN-lifecycle >= 1.0.3
 
 %description
 A set of functions to create random Analysis Data Model (ADaM) datasets
-and cached dataset. ADaM dataset specifications are described by the
+and cached dataset.  ADaM dataset specifications are described by the
 Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model
 Team.
 

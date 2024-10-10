@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  insurancerating
-%global packver   0.7.4
+%global packver   0.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytic Insurance Rating Techniques
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-scam 
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-ciTools 
 Requires:         R-CRAN-classInt 
@@ -46,18 +47,15 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-scam 
 Requires:         R-CRAN-stringr 
 
 %description
-Methods for insurance rating. It helps actuaries to implement GLMs within
-all relevant steps needed to construct a risk premium from raw data. It
-provides a data driven strategy for the construction of insurance tariff
-classes. This strategy is based on the work by Antonio and Valdez (2012)
-<doi:10.1007/s10182-011-0152-7>. It also provides recipes on how to easily
-perform one-way, or univariate, analyses on an insurance portfolio. In
-addition it adds functionality to include reference categories in the
-levels of the coefficients in the output of a generalized linear
-regression analysis.
+Functions to build, evaluate, and visualize insurance rating models. It
+simplifies the process of modeling premiums, and allows to analyze
+insurance risk factors effectively. The package employs a data-driven
+strategy for constructing insurance tariff classes, drawing on the work of
+Antonio and Valdez (2012) <doi:10.1007/s10182-011-0152-7>.
 
 %prep
 %setup -q -c -n %{packname}

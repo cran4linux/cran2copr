@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smacof
-%global packver   2.1-6
+%global packver   2.1-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multidimensional Scaling
 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-weights 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-CRAN-wordcloud 
-BuildRequires:    R-CRAN-candisc 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-weights 
 Requires:         R-CRAN-ellipse 
 Requires:         R-CRAN-wordcloud 
-Requires:         R-CRAN-candisc 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
