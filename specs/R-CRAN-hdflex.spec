@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdflex
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Aggregate Density Forecasts
 
@@ -16,30 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-parallel >= 4.3.0
-BuildRequires:    R-stats >= 4.3.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-checkmate >= 2.3.1
-BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-roll >= 1.1.6
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-reshape2 >= 1.4.4
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-parallel >= 4.3.0
-Requires:         R-stats >= 4.3.0
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-checkmate >= 2.3.1
-Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-roll >= 1.1.6
-Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-reshape2 >= 1.4.4
+Requires:         R-parallel 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a forecasting method that maps vast numbers of (scalar-valued)
-signals of any type into an aggregate density forecast in a time-varying
-and computationally fast manner. The method proceeds in two steps: First,
-it transforms a predictive signal into a density forecast. Second, it
-combines the generated candidate density forecasts into an ultimate
-density forecast. The methods are explained in detail in Adaemmer et al.
-(2023) <doi:10.2139/ssrn.4342487>.
+Provides a forecasting method that efficiently maps vast numbers of
+(scalar-valued) signals into an aggregate density forecast in a
+time-varying and computationally fast manner. The method proceeds in two
+steps: First, it transforms a predictive signal into a density forecast
+and, second, it combines the resulting candidate density forecasts into an
+ultimate aggregate density forecast. For a detailed explanation of the
+method, please refer to Adaemmer et al. (2023) <doi:10.2139/ssrn.4342487>.
 
 %prep
 %setup -q -c -n %{packname}

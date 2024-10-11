@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QWDAP
-%global packver   1.1.18
+%global packver   1.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.18
+Version:          1.1.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantum Walk-Based Data Analysis and Prediction
 
@@ -31,7 +31,8 @@ The modeling and prediction of graph-associated time series(GATS) based on
 continuous time quantum walk. This software is mainly used for feature
 extraction, modeling, prediction and result evaluation of GATS, including
 continuous time quantum walk simulation, feature selection, regression
-analysis, time series prediction, and series fit calculation.
+analysis, time series prediction, and series fit calculation. A paper is
+attached to the package for reference.
 
 %prep
 %setup -q -c -n %{packname}

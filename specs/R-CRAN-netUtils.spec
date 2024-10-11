@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netUtils
-%global packver   0.8.2
+%global packver   0.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Tools for Network Analysis
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-igraph 
 Requires:         R-stats 
 
 %description

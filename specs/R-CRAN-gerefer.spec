@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PwrGSD
-%global packver   2.3.8
+%global packname  gerefer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power in a Group Sequential Design
+Summary:          Preparer of Main Scientific References for Automatic Insertion in Academic Papers
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bibliorefer 
+Requires:         R-CRAN-bibliorefer 
 
 %description
-Tools for the evaluation of interim analysis plans for sequentially
-monitored trials on a survival endpoint; tools to construct efficacy and
-futility boundaries, for deriving power of a sequential design at a
-specified alternative, template for evaluating the performance of
-candidate plans at a set of time varying alternatives. See Izmirlian, G.
-(2014) <doi:10.4310/SII.2014.v7.n1.a4>.
+Generates a file, containing the main scientific references, prepared to
+be automatically inserted into an academic paper. The articles present in
+the list are chosen from the main references generated, by function
+principal_lister(), of the package 'bibliorefer'. The generated file
+contains the list of metadata of the principal references in 'BibTex'
+format. Massimo Aria, Corrado Cuccurullo. (2017)
+<doi:10.1016/j.joi.2017.08.007>. Caibo Zhou, Wenyan Song. (2021)
+<doi:10.1016/j.jclepro.2021.126943>. Hamid Derviş. (2019)
+<doi:10.5530/jscires.8.3.32>.
 
 %prep
 %setup -q -c -n %{packname}

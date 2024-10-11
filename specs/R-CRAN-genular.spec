@@ -1,31 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PwrGSD
-%global packver   2.3.8
+%global packname  genular
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power in a Group Sequential Design
+Summary:          'Genular' Database API
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
 
 %description
-Tools for the evaluation of interim analysis plans for sequentially
-monitored trials on a survival endpoint; tools to construct efficacy and
-futility boundaries, for deriving power of a sequential design at a
-specified alternative, template for evaluating the performance of
-candidate plans at a set of time varying alternatives. See Izmirlian, G.
-(2014) <doi:10.4310/SII.2014.v7.n1.a4>.
+Provides an interface to the 'Genular' database API
+(<https://genular.atomic-lab.org>), allowing efficient retrieval and
+integration of genomic, proteomic, and single-cell data. It supports
+operations like fetching gene annotations, cell expression profiles, and
+other information as defined in the 'Genular' database, enabling seamless
+incorporation of biological data into R workflows. With functions tailored
+for bioinformatics and machine learning, the package facilitates
+exploration of cellular heterogeneity, gene-disease relationships, and
+pathway analysis, streamlining multi-omics data analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PwrGSD
-%global packver   2.3.8
+%global packname  autometric
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.8
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power in a Group Sequential Design
+Summary:          Background Resource Logging
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Tools for the evaluation of interim analysis plans for sequentially
-monitored trials on a survival endpoint; tools to construct efficacy and
-futility boundaries, for deriving power of a sequential design at a
-specified alternative, template for evaluating the performance of
-candidate plans at a set of time varying alternatives. See Izmirlian, G.
-(2014) <doi:10.4310/SII.2014.v7.n1.a4>.
+Intense parallel workloads can be difficult to monitor. Packages
+'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds
+of worker processes over multiple computers. If a worker process exhausts
+its available memory, it may terminate silently, leaving the underlying
+problem difficult to detect or troubleshoot. Using the 'autometric'
+package, a worker can proactively monitor itself in a detached background
+thread. The worker process itself runs normally, and the thread writes to
+a log every few seconds. If the worker terminates unexpectedly,
+'autometric' can read and visualize the log file to reveal potential
+resource-related reasons for the crash. The 'autometric' package borrows
+heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
+and 'psutil'.
 
 %prep
 %setup -q -c -n %{packname}
