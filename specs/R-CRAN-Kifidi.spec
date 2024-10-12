@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grpnet
-%global packver   0.6
+%global packname  Kifidi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Elastic Net Regularized GLMs and GAMs
+Summary:          Summary Table and Means Plots
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Efficient algorithms for fitting generalized linear and additive models
-with group elastic net penalties as described in Helwig (2024)
-<doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
-and group SCAD with an optional group ridge penalty. Computes the
-regularization path for linear regression (gaussian), logistic regression
-(binomial), multinomial logistic regression (multinomial), log-linear
-count regression (poisson and negative.binomial), and log-linear
-continuous regression (gamma and inverse gaussian). Supports default and
-formula methods for model specification, k-fold cross-validation for
-tuning the regularization parameters, and nonparametric regression via
-tensor product reproducing kernel (smoothing spline) basis function
-expansion.
+Optimized for handling complex datasets in environmental and ecological
+research, this package offers functionality that is not fully met by
+general-purpose packages. It provides two key functions,
+'summarize_data()', which summarizes datasets, and 'plot_means()', which
+creates plots with error bars. The 'plot_means()' function incorporates
+error bars by default, allowing quick visualization of uncertainties,
+crucial in ecological studies. It also streamlines workflows for grouped
+datasets (e.g., by species or treatment), making it particularly
+user-friendly and reducing the complexity and time required for data
+summarization and visualization.
 
 %prep
 %setup -q -c -n %{packname}

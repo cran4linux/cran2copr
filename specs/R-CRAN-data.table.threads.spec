@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sacRebleu
-%global packver   0.1.3
+%global packname  data.table.threads
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Metrics for Assessing the Quality of Generated Text
+Summary:          Analyze Multi-Threading Performance for 'data.table' Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-tok 
-Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-tok 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-microbenchmark 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-microbenchmark 
 
 %description
-Implementation of the BLEU-Score in 'C++' to evaluate the quality of
-generated text. The BLEU-Score, introduced by Papineni et al. (2002)
-<doi:10.3115/1073083.1073135>, is a metric for evaluating the quality of
-generated text. It is based on the n-gram overlap between the generated
-text and reference texts. Additionally, the package provides some
-smoothing methods as described in Chen and Cherry (2014)
-<doi:10.3115/v1/W14-3346>.
+Assists in finding the most suitable thread count for the various
+'data.table' routines that support parallel processing.
 
 %prep
 %setup -q -c -n %{packname}

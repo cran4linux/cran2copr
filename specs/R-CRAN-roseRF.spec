@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atime
-%global packver   2024.10.5
+%global packname  roseRF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.10.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Asymptotic Timing
+Summary:          ROSE Random Forests for Robust Semiparametric Efficient Estimation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-bench 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-caret >= 6.0.93
+BuildRequires:    R-CRAN-glmnet >= 4.1.6
+BuildRequires:    R-CRAN-mlr >= 2.19.1
+BuildRequires:    R-CRAN-tuneRanger >= 0.5
+BuildRequires:    R-CRAN-ranger >= 0.14.1
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-ParamHelpers 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-bench 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-git2r 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-caret >= 6.0.93
+Requires:         R-CRAN-glmnet >= 4.1.6
+Requires:         R-CRAN-mlr >= 2.19.1
+Requires:         R-CRAN-tuneRanger >= 0.5
+Requires:         R-CRAN-ranger >= 0.14.1
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-ParamHelpers 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-rpart 
 Requires:         R-stats 
-Requires:         R-grDevices 
+Requires:         R-CRAN-xgboost 
 
 %description
-Computing and visualizing comparative asymptotic timings of different
-algorithms and code versions. Also includes functionality for comparing
-empirical timings with expected references such as linear or quadratic,
-<https://en.wikipedia.org/wiki/Asymptotic_computational_complexity> Also
-includes functionality for measuring asymptotic memory and other
-quantities.
+ROSE (RObust Semiparametric Efficient) random forests for robust
+semiparametric efficient estimation in partially parametric models
+(containing generalised partially linear models). Details can be found in
+the paper by Young and Shah (2024) <doi:10.48550/arXiv.2410.03471>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grpnet
-%global packver   0.6
+%global packname  pPCA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Elastic Net Regularized GLMs and GAMs
+Summary:          Partial Principal Component Analysis of Partitioned Large Sparse Matrices
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Matrix >= 1.1.0
+BuildRequires:    R-CRAN-RSpectra >= 0.16.1
+BuildRequires:    R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix >= 1.1.0
+Requires:         R-CRAN-RSpectra >= 0.16.1
+Requires:         R-CRAN-Rcpp >= 0.11.5
+Requires:         R-methods 
 
 %description
-Efficient algorithms for fitting generalized linear and additive models
-with group elastic net penalties as described in Helwig (2024)
-<doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
-and group SCAD with an optional group ridge penalty. Computes the
-regularization path for linear regression (gaussian), logistic regression
-(binomial), multinomial logistic regression (multinomial), log-linear
-count regression (poisson and negative.binomial), and log-linear
-continuous regression (gamma and inverse gaussian). Supports default and
-formula methods for model specification, k-fold cross-validation for
-tuning the regularization parameters, and nonparametric regression via
-tensor product reproducing kernel (smoothing spline) basis function
-expansion.
+Performs partial principal component analysis of a large sparse matrix.
+The matrix may be stored as a list of matrices to be concatenated
+(implicitly) horizontally. Useful application includes cases where the
+number of total nonzero entries exceed the capacity of 32 bit integers
+(e.g., with large Single Nucleotide Polymorphism data).
 
 %prep
 %setup -q -c -n %{packname}

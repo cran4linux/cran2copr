@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  synthesizer
-%global packver   0.3.1
+%global packname  WQM
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthesize Data Based on Empirical Quantile Functions and Rank Order Matching
+Summary:          Wavelet-Based Quantile Mapping for Postprocessing Numerical Weather Predictions
 
-License:          EUPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-randomForest 
-Requires:         R-stats 
-Requires:         R-CRAN-randomForest 
+BuildRequires:    R-CRAN-MBC 
+BuildRequires:    R-CRAN-WaveletComp 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-MBC 
+Requires:         R-CRAN-WaveletComp 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Data is synthesized using a combination of inverse transform sampling from
-the empirical quantile functions for each variable, and then copying the
-rank order structure from the original dataset. The package also includes
-a number of functions to measure the utility of synthesized datasets.
+The wavelet-based quantile mapping (WQM) technique is designed to correct
+biases in spatio-temporal precipitation forecasts across multiple time
+scales. The WQM method effectively enhances forecast accuracy by
+generating an ensemble of precipitation forecasts that account for
+uncertainties in the prediction process. For a comprehensive overview of
+the methodologies employed in this package, please refer to Jiang, Z., and
+Johnson, F. (2023) <doi:10.1029/2022EF003350>. The package relies on two
+packages for continuous wavelet transforms: 'WaveletComp', which can be
+installed automatically, and 'wmtsa', which is optional and available from
+the CRAN archive <https://cran.r-project.org/src/contrib/Archive/wmtsa/>.
+Users need to manually install 'wmtsa' from this archive if they prefer to
+use 'wmtsa' based decomposition.
 
 %prep
 %setup -q -c -n %{packname}

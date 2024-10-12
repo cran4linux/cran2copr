@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grpnet
-%global packver   0.6
+%global packname  pwr4exp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Elastic Net Regularized GLMs and GAMs
+Summary:          Power Analysis for Research Experiments
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-lmerTest >= 3.1.3
+BuildRequires:    R-CRAN-car >= 3.1.2
+BuildRequires:    R-CRAN-emmeans >= 1.10.3
+BuildRequires:    R-CRAN-lme4 >= 1.1.35.4
+BuildRequires:    R-methods 
+Requires:         R-CRAN-lmerTest >= 3.1.3
+Requires:         R-CRAN-car >= 3.1.2
+Requires:         R-CRAN-emmeans >= 1.10.3
+Requires:         R-CRAN-lme4 >= 1.1.35.4
+Requires:         R-methods 
 
 %description
-Efficient algorithms for fitting generalized linear and additive models
-with group elastic net penalties as described in Helwig (2024)
-<doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
-and group SCAD with an optional group ridge penalty. Computes the
-regularization path for linear regression (gaussian), logistic regression
-(binomial), multinomial logistic regression (multinomial), log-linear
-count regression (poisson and negative.binomial), and log-linear
-continuous regression (gamma and inverse gaussian). Supports default and
-formula methods for model specification, k-fold cross-validation for
-tuning the regularization parameters, and nonparametric regression via
-tensor product reproducing kernel (smoothing spline) basis function
-expansion.
+Provides tools for calculating statistical power and determining sample
+size for a variety of experimental designs used in agricultural and
+biological research, including completely randomized, block, and
+split-plot designs. Supports customized designs and allows specification
+of main effects, interactions, and contrasts for accurate power analysis.
 
 %prep
 %setup -q -c -n %{packname}

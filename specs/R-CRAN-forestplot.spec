@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestplot
-%global packver   3.1.3
+%global packver   3.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.3
+Version:          3.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced Forest Plot Using 'grid' Graphics
 
@@ -25,12 +25,13 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-abind 
 
 %description
-A forest plot that allows for multiple confidence intervals per row,
-custom fonts for each text element, custom confidence intervals, text
-mixed with expressions, and more. The aim is to extend the use of forest
-plots beyond meta-analyses. This is a more general version of the original
-'rmeta' package's forestplot() function and relies heavily on the 'grid'
-package.
+Allows the creation of forest plots with advanced features, such as
+multiple confidence intervals per row, customizable fonts for individual
+text elements, and flexible confidence interval drawing. It also supports
+mixing text with mathematical expressions. The package extends the
+application of forest plots beyond traditional meta-analyses, offering a
+more general version of the original 'rmeta' package’s forestplot()
+function. It relies heavily on the 'grid' package for rendering the plots.
 
 %prep
 %setup -q -c -n %{packname}

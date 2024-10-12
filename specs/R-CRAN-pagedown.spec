@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pagedown
-%global packver   0.20
+%global packver   0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.20
+Version:          0.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Paginate the HTML Output of R Markdown with CSS for Print
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rmarkdown >= 2.13
 BuildRequires:    R-CRAN-later >= 1.0.0
 BuildRequires:    R-CRAN-bookdown >= 0.8
-BuildRequires:    R-CRAN-servr >= 0.23
+BuildRequires:    R-CRAN-servr >= 0.31
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-processx 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-websocket
 Requires:         R-CRAN-rmarkdown >= 2.13
 Requires:         R-CRAN-later >= 1.0.0
 Requires:         R-CRAN-bookdown >= 0.8
-Requires:         R-CRAN-servr >= 0.23
+Requires:         R-CRAN-servr >= 0.31
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-processx 

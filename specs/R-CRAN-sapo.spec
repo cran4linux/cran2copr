@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tok
-%global packver   0.1.4
+%global packname  sapo
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Text Tokenization
+Summary:          Spatial Association of Different Types of Polygon
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-sf 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Interfaces with the 'Hugging Face' tokenizers library to provide
-implementations of today's most used tokenizers such as the 'Byte-Pair
-Encoding' algorithm <https://huggingface.co/docs/tokenizers/index>. It's
-extremely fast for both training new vocabularies and tokenizing texts.
+In ecology, spatial data is often represented using polygons. These
+polygons can represent a variety of spatial entities, such as ecological
+patches, animal home ranges, or gaps in the forest canopy.  Researchers
+often need to determine if two spatial processes, represented by these
+polygons, are independent of each other. For instance, they might want to
+test if the home range of a particular animal species is influenced by the
+presence of a certain type of vegetation.  To address this, Godoy et al.
+(2022) (<doi:10.1016/j.spasta.2022.100695>) developed conditional Monte
+Carlo tests. These tests are designed to assess spatial independence while
+taking into account the shape and size of the polygons.
 
 %prep
 %setup -q -c -n %{packname}

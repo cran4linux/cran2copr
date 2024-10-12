@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tfrmtbuilder
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' App Companion to the 'tfrmt' Package
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-tfrmt >= 0.1.0
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
@@ -42,7 +41,6 @@ Requires:         R-CRAN-tfrmt >= 0.1.0
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 

@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grpnet
-%global packver   0.6
+%global packname  openrouteservice
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Elastic Net Regularized GLMs and GAMs
+Summary:          An 'openrouteservice' API Client
 
-License:          GPL (>= 2)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-jsonvalidate 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-V8 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonvalidate 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-leaflet 
+Requires:         R-utils 
+Requires:         R-CRAN-V8 
+Requires:         R-CRAN-xml2 
 
 %description
-Efficient algorithms for fitting generalized linear and additive models
-with group elastic net penalties as described in Helwig (2024)
-<doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
-and group SCAD with an optional group ridge penalty. Computes the
-regularization path for linear regression (gaussian), logistic regression
-(binomial), multinomial logistic regression (multinomial), log-linear
-count regression (poisson and negative.binomial), and log-linear
-continuous regression (gamma and inverse gaussian). Supports default and
-formula methods for model specification, k-fold cross-validation for
-tuning the regularization parameters, and nonparametric regression via
-tensor product reproducing kernel (smoothing spline) basis function
-expansion.
+The client streamlines access to the services provided by
+<https://api.openrouteservice.org>. It allows you to painlessly query for
+directions, isochrones, time-distance matrices, geocoding, elevation,
+points of interest, and more.
 
 %prep
 %setup -q -c -n %{packname}

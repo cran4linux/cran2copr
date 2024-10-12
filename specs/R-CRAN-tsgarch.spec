@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsgarch
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate GARCH Models
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-TMB >= 1.7.20
+BuildRequires:    R-CRAN-tsmethods >= 1.0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.10.6
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tsmethods 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-numDeriv 
@@ -35,11 +35,10 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-tsdistributions 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.7.20
+Requires:         R-CRAN-tsmethods >= 1.0.2
 Requires:         R-methods 
-Requires:         R-CRAN-tsmethods 
 Requires:         R-CRAN-Rcpp >= 0.10.6
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-Rdpack 
