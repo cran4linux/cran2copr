@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggalign
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Align Multiple 'ggplot' Objects
+Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-data.table 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 A 'ggplot2' extension offers various tools for organizing and arranging

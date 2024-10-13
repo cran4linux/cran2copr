@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spheredata
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Students' Performance Dataset in Physics Education Research (SPHERE)
 
@@ -22,13 +22,13 @@ BuildArch:        noarch
 A multidimensional dataset of students' performance assessment in high
 school physics. The SPHERE dataset was collected from 497 students in four
 public high schools specifically measuring their conceptual understanding,
-scientific ability, and attitude toward physics from Santoso et al. (2024)
-<doi:10.17632/88d7m2fv7p.1>. The data collection was conducted using some
-research based assessments (RBAs) developed by the physics education
-research (PER) community. They include the Force Concept Inventory, the
-Force and Motion Conceptual Evaluation, the Rotational and Rolling Motion
-Conceptual Survey, the Fluid Mechanics Concept Inventory, the Mechanical
-Waves Conceptual Survey, the Thermal Concept Evaluation, the Survey of
+scientific ability, and attitude toward physics [see Santoso et al. (2024)
+<doi:10.17632/88d7m2fv7p.1>]. The data collection was conducted using some
+research based assessments established by the physics education research
+community. They include the Force Concept Inventory, the Force and Motion
+Conceptual Evaluation, the Rotational and Rolling Motion Conceptual
+Survey, the Fluid Mechanics Concept Inventory, the Mechanical Waves
+Conceptual Survey, the Thermal Concept Evaluation, the Survey of
 Thermodynamic Processes and First and Second Laws, the Scientific
 Abilities Assessment Rubrics, and the Colorado Learning Attitudes about
 Science Survey. Students' attributes related to gender, age, socioeconomic

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spmoran
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Spatial and Spatio-Temporal Regression using Moran Eigenvectors
 
@@ -45,10 +45,19 @@ Requires:         R-CRAN-FNN
 Requires:         R-methods 
 
 %description
-Functions for estimating spatio-temporally varying coefficient models,
-mixed models, and other spatial regression models for Gaussian and
-non-Gaussian data. Moran eigenvectors are used to approximate spatial and
-spatio-temporal processes in residuals and regression coefficients.
+A collection of functions for estimating spatial and spatio-temporal
+regression models. Moran eigenvectors are used as spatial basis functions
+to efficiently approximate spatially dependent Gaussian processes (i.e.,
+random effects eigenvector spatial filtering; see Murakami and Griffith
+2015 <doi: 10.1007/s10109-015-0213-7>). The implemented models include
+linear regression with residual spatial dependence,
+spatially/spatio-temporally varying coefficient models (Murakami et al.,
+2017, 2024;
+<doi:10.1016/j.spasta.2016.12.001>,<doi:10.48550/arXiv.2410.07229>),
+spatially filtered unconditional quantile regression (Murakami and Seya,
+2019 <doi:10.1002/env.2556>), Gaussian and non-Gaussian spatial mixed
+models through compositionally-warping (Murakami et al. 2021,
+<doi:10.1016/j.spasta.2021.100520>).
 
 %prep
 %setup -q -c -n %{packname}
