@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BuyseTest
-%global packver   3.0.4
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Pairwise Comparisons
 
@@ -54,12 +54,11 @@ Buyse (2010) <doi:10.1002/sim.3923> for complete observations, and
 extended in Peron (2018) <doi:10.1177/0962280216658320> to deal with
 right-censoring. GPC compare two groups of observations (intervention vs.
 control group) regarding several prioritized endpoints to estimate the
-probability that a random observation drawn from one group performs better
-than a random observation drawn from the other group (Mann-Whitney
-parameter). The net benefit and win ratio statistics, i.e. the difference
-and ratio between the probabilities relative to the intervention and
-control groups, can then also be estimated. Confidence intervals and
-p-values are obtained based on asymptotic results (Ozenne 2021
+probability that a random observation drawn from one group performs
+better/worse/equivalently than a random observation drawn from the other
+group. Summary statistics such as the net treatment benefit, win ratio, or
+win odds are then deduced from these probabilities. Confidence intervals
+and p-values are obtained based on asymptotic results (Ozenne 2021
 <doi:10.1177/09622802211037067>), non-parametric bootstrap, or
 permutations. The software enables the use of thresholds of minimal
 importance difference, stratification, non-prioritized endpoints (O Brien
