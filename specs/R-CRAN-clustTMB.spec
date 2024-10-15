@@ -1,49 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nda
-%global packver   0.1.15
+%global packname  clustTMB
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Network-Based Dimensionality Reduction and Analysis
+Summary:          Spatio-Temporal Finite Mixture Model using 'TMB'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.00
-Requires:         R-core >= 4.00
-BuildArch:        noarch
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-TMB >= 1.9.0
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-clustMixType 
+BuildRequires:    R-CRAN-fmesher 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ppcor 
-BuildRequires:    R-CRAN-leidenAlg 
-BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-psych 
-Requires:         R-stats 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-reformulas 
+BuildRequires:    R-CRAN-MoEClust 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB >= 1.9.0
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-clustMixType 
+Requires:         R-CRAN-fmesher 
+Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mclust 
 Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ppcor 
-Requires:         R-CRAN-leidenAlg 
-Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-reformulas 
+Requires:         R-CRAN-MoEClust 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
 
 %description
-Non-parametric dimensionality reduction function. Reduction with and
-without feature selection. Plot functions. Automated feature selections.
-Kosztyan et. al. (2024) <doi:10.1016/j.eswa.2023.121779>.
+Fits a spatio-temporal finite mixture model using 'TMB'. Covariate,
+spatial and temporal random effects can be incorporated into the gating
+formula using multinomial logistic regression, the expert formula using a
+generalized linear mixed model framework, or both.
 
 %prep
 %setup -q -c -n %{packname}

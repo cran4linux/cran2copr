@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergeo2
-%global packver   0.2.0
+%global packname  dendrometeR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Hypergeometric Function with Tunable High Precision
+Summary:          Analyzing Dendrometer Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-pspline 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-forecast 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-pspline 
+Requires:         R-stats 
+Requires:         R-CRAN-zoo 
+Requires:         R-methods 
 
 %description
-Computation of generalized hypergeometric function with tunable high
-precision in a vectorized manner, with the floating-point datatypes from
-'mpfr' or 'gmp' library. The computation is limited to real numbers.
+Various functions to import, verify, process and plot high-resolution
+dendrometer data using daily and stem-cycle approaches as described in
+Deslauriers et al, 2007 <doi:10.1016/j.dendro.2007.05.003>. For more
+details about the package please see: Van der Maaten et al. 2016
+<doi:10.1016/j.dendro.2016.06.001>.
 
 %prep
 %setup -q -c -n %{packname}

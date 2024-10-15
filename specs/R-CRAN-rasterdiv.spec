@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rasterdiv
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity Indices for Numerical Matrices
 
@@ -25,6 +25,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-twdtw 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -34,6 +35,7 @@ Requires:         R-methods
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-twdtw 
 Requires:         R-CRAN-viridis 
 
 %description

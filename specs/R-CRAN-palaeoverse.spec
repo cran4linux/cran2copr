@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  palaeoverse
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare and Explore Data for Palaeobiological Analyses
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-stringdist
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-h3jsr >= 1.3.0
 Requires:         R-stats 
 Requires:         R-utils 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-stringdist
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provides functionality to support data preparation and exploration for

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corrplot
-%global packver   0.94
+%global packver   0.95
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.94
+Version:          0.95
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of a Correlation Matrix
 

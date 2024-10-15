@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncdfCF
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Access to NetCDF Files with CF Metadata Conventions
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CFtime 
+BuildRequires:    R-CRAN-CFtime >= 1.4.1
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-CFtime 
+Requires:         R-CRAN-CFtime >= 1.4.1
 Requires:         R-methods 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-stringr 
 
 %description
-Network Common Data Form (NetCDF) files are widely used for scientific
+Network Common Data Form ('netCDF') files are widely used for scientific
 data. Library-level access in R is provided through packages 'RNetCDF' and
 'ncdf4'. Package 'ncdfCF' is built on top of 'RNetCDF' and makes the data
-and its attributes available as a set of S4 classes that are informed by
+and its attributes available as a set of R6 classes that are informed by
 the Climate and Forecasting Metadata Conventions. Access to the data uses
 standard R subsetting operators and common function forms.
 

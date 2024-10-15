@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  traits
-%global packver   0.5.1
+%global packname  affiner
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Trait Data from Around the Web
+Summary:          A Finer Way to Render 3D Illustrated Objects in 'grid' Using Affine Transformations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-tibble >= 1.3.4
-BuildRequires:    R-CRAN-readr >= 1.1.1
-BuildRequires:    R-CRAN-httr >= 1.1.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.19
-BuildRequires:    R-CRAN-taxize >= 0.7.4
-BuildRequires:    R-CRAN-crul >= 0.6.0
-BuildRequires:    R-CRAN-rvest >= 0.3.1
-BuildRequires:    R-CRAN-xml2 >= 0.1.2
-BuildRequires:    R-CRAN-hoardr 
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-tibble >= 1.3.4
-Requires:         R-CRAN-readr >= 1.1.1
-Requires:         R-CRAN-httr >= 1.1.0
-Requires:         R-CRAN-jsonlite >= 0.9.19
-Requires:         R-CRAN-taxize >= 0.7.4
-Requires:         R-CRAN-crul >= 0.6.0
-Requires:         R-CRAN-rvest >= 0.3.1
-Requires:         R-CRAN-xml2 >= 0.1.2
-Requires:         R-CRAN-hoardr 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-R6 
+Requires:         R-utils 
 
 %description
-Species trait data from many different sources, including sequence data
-from 'NCBI' (<https://www.ncbi.nlm.nih.gov/>), plant trait data from
-'BETYdb', data from 'EOL' 'Traitbank', 'Birdlife' International, and more.
+Dilate, permute, project, reflect, rotate, shear, and translate 2D and 3D
+points.  Supports parallel projections including oblique projections such
+as the cabinet projection as well as axonometric projections such as the
+isometric projection.  Use 'grid's "affine transformation" feature to
+render illustrated flat surfaces.
 
 %prep
 %setup -q -c -n %{packname}

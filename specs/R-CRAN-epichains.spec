@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergeo2
-%global packver   0.2.0
+%global packname  epichains
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Hypergeometric Function with Tunable High Precision
+Summary:          Simulating and Analysing Transmission Chain Statistics Using Branching Process Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Computation of generalized hypergeometric function with tunable high
-precision in a vectorized manner, with the floating-point datatypes from
-'mpfr' or 'gmp' library. The computation is limited to real numbers.
+Provides methods to simulate and analyse the size and length of branching
+processes with an arbitrary offspring distribution. These can be used, for
+example, to analyse the distribution of chain sizes or length of
+infectious disease outbreaks, as discussed in Farrington et al. (2003)
+<doi:10.1093/biostatistics/4.2.279>.
 
 %prep
 %setup -q -c -n %{packname}

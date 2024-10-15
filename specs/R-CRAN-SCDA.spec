@@ -1,49 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nda
-%global packver   0.1.15
+%global packname  SCDA
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Network-Based Dimensionality Reduction and Analysis
+Summary:          Spatially-Clustered Data Analysis
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.00
-Requires:         R-core >= 4.00
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-spatialreg 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ppcor 
-BuildRequires:    R-CRAN-leidenAlg 
-BuildRequires:    R-CRAN-visNetwork 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-psych 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-spatialreg 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-spdep 
+Requires:         R-utils 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-performance 
 Requires:         R-stats 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ppcor 
-Requires:         R-CRAN-leidenAlg 
-Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-dplyr 
 
 %description
-Non-parametric dimensionality reduction function. Reduction with and
-without feature selection. Plot functions. Automated feature selections.
-Kosztyan et. al. (2024) <doi:10.1016/j.eswa.2023.121779>.
+Contains functions for statistical data analysis based on
+spatially-clustered techniques. The package allows estimating the
+spatially-clustered spatial regression models presented in Cerqueti,
+Maranzano & Mattera (2024), "Spatially-clustered spatial autoregressive
+models with application to agricultural market concentration in Europe",
+arXiv preprint 2407.15874 <doi:10.48550/arXiv.2407.15874>. Specifically,
+the current release allows the estimation of the spatially-clustered
+linear regression model (SCLM), the spatially-clustered spatial
+autoregressive model (SCSAR), the spatially-clustered spatial Durbin model
+(SCSEM), and the spatially-clustered linear regression model with
+spatially-lagged exogenous covariates (SCSLX).
 
 %prep
 %setup -q -c -n %{packname}

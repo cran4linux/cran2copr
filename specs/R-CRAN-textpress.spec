@@ -1,29 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergeo2
-%global packver   0.2.0
+%global packname  textpress
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Hypergeometric Function with Tunable High Precision
+Summary:          A Lightweight and Versatile NLP Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
 
 %description
-Computation of generalized hypergeometric function with tunable high
-precision in a vectorized manner, with the floating-point datatypes from
-'mpfr' or 'gmp' library. The computation is limited to real numbers.
+A simple Natural Language Processing (NLP) toolkit focused on
+search-centric workflows with minimal dependencies. The package offers key
+features for web scraping, text processing, corpus search, and text
+embedding generation via the 'HuggingFace API'
+<https://huggingface.co/docs/api-inference/index>.
 
 %prep
 %setup -q -c -n %{packname}

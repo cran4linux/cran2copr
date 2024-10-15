@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  arcgisplaces
-%global packver   0.1.0
+%global packname  NetSci
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search for POIs using ArcGIS 'Places Service'
+Summary:          Calculates Basic Network Measures Commonly Used in Network Medicine
 
-License:          Apache License (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-arcgisutils >= 0.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-wk 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-arcgisutils >= 0.3.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-wk 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-wTO 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-binr 
+BuildRequires:    R-CRAN-cubature 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-wTO 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rfast 
+Requires:         R-utils 
+Requires:         R-CRAN-binr 
+Requires:         R-CRAN-cubature 
 
 %description
-The ArcGIS 'Places service' is a ready-to-use location service that can
-search for businesses and geographic locations around the world. It allows
-you to find, locate, and discover detailed information about each place.
-Query for places near a point, within a bounding box, filter based on
-categories, or provide search text. 'arcgisplaces' integrates with 'sf'
-for out of the box compatibility with other spatial libraries. Learn more
-in the 'Places service' API reference
-<https://developers.arcgis.com/rest/places/>.
+Calculates network measures commonly used in Network Medicine. Measures
+such as the Largest Connected Component, the Relative Largest Connected
+Component, Proximity and Separation are calculated along with their
+statistical significance. Significance can be computed both using a
+degree-preserving randomization and non-degree preserving.
 
 %prep
 %setup -q -c -n %{packname}

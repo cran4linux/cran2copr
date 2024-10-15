@@ -1,29 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergeo2
-%global packver   0.2.0
+%global packname  rquest
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Hypergeometric Function with Tunable High Precision
+Summary:          Hypothesis Tests for Quantiles and Quantile-Based Measures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Computation of generalized hypergeometric function with tunable high
-precision in a vectorized manner, with the floating-point datatypes from
-'mpfr' or 'gmp' library. The computation is limited to real numbers.
+Functions to conduct hypothesis tests and derive confidence intervals for
+quantiles, linear combinations of quantiles, ratios of dependent linear
+combinations and differences and ratios of all of the above for
+comparisons between independent samples. Additionally, quantile-based
+measures of inequality are also considered.
 
 %prep
 %setup -q -c -n %{packname}

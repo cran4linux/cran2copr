@@ -1,29 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hypergeo2
-%global packver   0.2.0
+%global packname  phylotypr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Hypergeometric Function with Tunable High Precision
+Summary:          Classifying DNA Sequences to Taxonomic Groupings
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-CRAN-readr >= 2.1.0
+BuildRequires:    R-CRAN-Rfast >= 2.1.0
+BuildRequires:    R-CRAN-stringi >= 1.8.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
+Requires:         R-stats >= 4.0.0
+Requires:         R-CRAN-readr >= 2.1.0
+Requires:         R-CRAN-Rfast >= 2.1.0
+Requires:         R-CRAN-stringi >= 1.8.0
 Requires:         R-CRAN-Rcpp 
 
 %description
-Computation of generalized hypergeometric function with tunable high
-precision in a vectorized manner, with the floating-point datatypes from
-'mpfr' or 'gmp' library. The computation is limited to real numbers.
+Classification based analysis of DNA sequences to taxonomic groupings.
+This package primarily implements Naive Bayesian Classifier from the
+Ribosomal Database Project. This approach has traditionally been used to
+classify 16S rRNA gene sequences to bacterial taxonomic outlines; however,
+it can be used for any type of gene sequence. The method was originally
+described by Wang, Garrity, Tiedje, and Cole in Applied and Environmental
+Microbiology 73(16):5261-7 <doi:10.1128/AEM.00062-07>. The package also
+provides functions to read in 'FASTA'-formatted sequence data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SWTools
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Tools for Australian Hydrologists
 
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-forcats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-CRAN-prettymapr 
 BuildRequires:    R-CRAN-magrittr 
@@ -47,8 +47,8 @@ Requires:         R-CRAN-forcats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggspatial 
 Requires:         R-CRAN-prettymapr 
 Requires:         R-CRAN-magrittr 

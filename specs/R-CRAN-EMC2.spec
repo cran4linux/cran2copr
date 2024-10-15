@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMC2
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Analysis of Cognitive Models of Choice
 
@@ -24,7 +24,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-rtdists 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -38,6 +37,7 @@ BuildRequires:    R-CRAN-colorspace
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-WienR 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-corpcor 
@@ -46,7 +46,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-rtdists 
 Requires:         R-methods 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-mvtnorm 
@@ -60,6 +59,7 @@ Requires:         R-CRAN-colorspace
 Requires:         R-CRAN-psych 
 Requires:         R-utils 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-WienR 
 
 %description
 Fit Bayesian (hierarchical) cognitive models using a linear modeling
