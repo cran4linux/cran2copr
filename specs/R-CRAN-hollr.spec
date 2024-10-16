@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slam
-%global packver   0.1-54
+%global packname  hollr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.54
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Lightweight Arrays and Matrices
+Summary:          Chat Completion and Text Annotation with Local and OpenAI Models
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-reticulate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-reticulate 
 
 %description
-Data structures and algorithms for sparse arrays and matrices, based on
-index arrays and simple triplet representations, respectively.
+Enables chat completion and text annotation with local and 'OpenAI'
+<https://openai.com/> language models, supporting batch processing,
+multiple annotators, and consistent output formats.
 
 %prep
 %setup -q -c -n %{packname}

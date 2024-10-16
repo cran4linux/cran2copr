@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CFO
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          CFO-Type Designs in Phase I/II Clinical Trials
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Iso 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Iso 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-scales 
 
 %description
 In phase I clinical trials, the primary objective is to ascertain the
@@ -37,24 +41,26 @@ with the aim of identifying the optimal biological dose (OBD). The 'CFO'
 package facilitates the implementation of dose-finding trials by utilizing
 calibration-free odds type (CFO-type) designs. Specifically, it
 encompasses the calibration-free odds (CFO) (Jin and Yin (2022)
-<doi:10.1177/09622802221079353>), two-dimensional CFO (2dCFO) (Wang et al.
-(2023) <doi:10.3389/fonc.2023.1294258>), time-to-event CFO (TITE-CFO) (Jin
-and Yin (2023) <doi:10.1002/pst.2304>), fractional CFO (fCFO),
-accumulative CFO (aCFO), TITE-aCFO, and f-aCFO designs (Fang and Yin
-(2024) <doi: 10.1002/sim.10127>). It supports phase I/II trials for the
-CFO design and only phase I trials for the other CFO-type designs. The
-‘CFO' package accommodates diverse CFO-type designs, allowing users to
-tailor the approach based on factors such as dose information inclusion,
-handling of late-onset toxicity, and the nature of the target drug
-(single-drug or drug-combination). The functionalities embedded in 'CFO'
-package include the determination of the dose level for the next cohort,
-the selection of the MTD for a real trial, and the execution of single or
-multiple simulations to obtain operating characteristics. Moreover, these
-functions are equipped with early stopping and dose elimination rules to
-address safety considerations. Users have the flexibility to choose
-different distributions, thresholds, and cohort sizes among others for
-their specific needs. The output of the 'CFO' package can be summary
-statistics as well as various plots for better visualization.
+<doi:10.1177/09622802221079353>), randomized CFO (rCFO), two-dimensional
+CFO (2dCFO) (Wang et al. (2023) <doi:10.3389/fonc.2023.1294258>),
+time-to-event CFO (TITE-CFO) (Jin and Yin (2023) <doi:10.1002/pst.2304>),
+fractional CFO (fCFO), accumulative CFO (aCFO), TITE-aCFO, and f-aCFO
+designs (Fang and Yin (2024) <doi: 10.1002/sim.10127>). It supports phase
+I/II trials for the CFO design and only phase I trials for the other
+CFO-type designs. The ‘CFO' package accommodates diverse CFO-type designs,
+allowing users to tailor the approach based on factors such as dose
+information inclusion, handling of late-onset toxicity, and the nature of
+the target drug (single-drug or drug-combination). The functionalities
+embedded in 'CFO' package include the determination of the dose level for
+the next cohort, the selection of the MTD for a real trial, and the
+execution of single or multiple simulations to obtain operating
+characteristics. Moreover, these functions are equipped with early
+stopping and dose elimination rules to address safety considerations.
+Users have the flexibility to choose different distributions, thresholds,
+and cohort sizes among others for their specific needs. The output of the
+'CFO' package can be summary statistics as well as various plots for
+better visualization. An interactive web application for CFO is available
+at the provided URL.
 
 %prep
 %setup -q -c -n %{packname}

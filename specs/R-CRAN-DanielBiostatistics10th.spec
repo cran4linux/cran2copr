@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DanielBiostatistics10th
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Wayne W. Daniel's Biostatistics, Tenth Edition
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-vcd 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-e1071 
 Requires:         R-methods 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-vcd 
 
 %description
 Functions to accompany Wayne W. Daniel's Biostatistics: A Foundation for

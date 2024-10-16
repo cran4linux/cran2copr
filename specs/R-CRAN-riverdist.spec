@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riverdist
-%global packver   0.16.3
+%global packver   0.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.3
+Version:          0.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          River Network Distance Computation and Applications
 

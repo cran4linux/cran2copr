@@ -1,27 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slam
-%global packver   0.1-54
+%global packname  MDPIexploreR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.54
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Lightweight Arrays and Matrices
+Summary:          Web Scraping and Bibliometric Analysis of MDPI Journals
 
-License:          GPL-2
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
 
 %description
-Data structures and algorithms for sparse arrays and matrices, based on
-index arrays and simple triplet representations, respectively.
+Provides comprehensive tools to scrape and analyze data from the MDPI
+journals. It allows users to extract metrics such as
+submission-to-acceptance times, article types, and whether articles are
+part of special issues. The package can also visualize this information
+through plots. Additionally, 'MDPIexploreR' offers tools to explore
+patterns of self-citations within articles and provides insights into
+guest-edited special issues.
 
 %prep
 %setup -q -c -n %{packname}

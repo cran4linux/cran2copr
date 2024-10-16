@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  puremoe
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pubmed Unified REtrieval for Multi-Output Exploration
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-rentrez 
 Requires:         R-CRAN-textshape 
 Requires:         R-CRAN-xml2 
@@ -34,7 +33,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-curl 
 
 %description
 Access a variety of 'PubMed' data through a single, user-friendly

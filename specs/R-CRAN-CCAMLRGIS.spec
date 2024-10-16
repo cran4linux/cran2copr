@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CCAMLRGIS
-%global packver   4.1.1
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.1
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Antarctic Spatial Data Manipulation
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-isoband 
 BuildRequires:    R-CRAN-bezier 
 BuildRequires:    R-CRAN-lwgeom 
 Requires:         R-CRAN-sf 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-terra
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stars 
+Requires:         R-CRAN-isoband 
 Requires:         R-CRAN-bezier 
 Requires:         R-CRAN-lwgeom 
 

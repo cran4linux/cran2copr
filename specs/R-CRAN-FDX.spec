@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FDX
-%global packver   1.0.6
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          False Discovery Exceedance Controlling Multiple Testing Procedures
 
@@ -16,22 +16,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.00
 Requires:         R-core >= 3.00
+BuildRequires:    R-CRAN-DiscreteFDR >= 2.0.0
 BuildRequires:    R-CRAN-PoissonBinomial >= 1.2.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-CRAN-DiscreteFDR 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-DiscreteFDR >= 2.0.0
 Requires:         R-CRAN-PoissonBinomial >= 1.2.0
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-CRAN-DiscreteFDR 
-Requires:         R-methods 
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 
 %description
 Multiple testing procedures for heterogeneous and discrete tests as
-described in Döhler and Roquain (2019) <arXiv:1912.04607v1>. The main
+described in Döhler and Roquain (2020) <doi:10.1214/20-EJS1771>. The main
 algorithms of the paper are available as continuous, discrete and weighted
-versions.
+versions. They take as input the results of a test procedure from package
+'DiscreteTests', or a set of observed p-values and their discrete support
+under their nulls. A shortcut function to obtain such p-values and
+supports is also provided, along with wrappers allowing to apply discrete
+procedures directly to data.
 
 %prep
 %setup -q -c -n %{packname}

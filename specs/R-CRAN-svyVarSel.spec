@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slam
-%global packver   0.1-54
+%global packname  svyVarSel
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.54
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Lightweight Arrays and Matrices
+Summary:          Variable Selection for Complex Survey Data
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-glmnet 
 
 %description
-Data structures and algorithms for sparse arrays and matrices, based on
-index arrays and simple triplet representations, respectively.
+Fit design-based linear and logistic elastic nets with complex survey data
+considering the sampling design when defining training and test sets using
+replicate weights. Methods implemented in this package are described in:
+A. Iparragirre, T. Lumley, I. Barrio, I. Arostegui (2024)
+<doi:10.1002/sta4.578>.
 
 %prep
 %setup -q -c -n %{packname}
