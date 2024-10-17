@@ -24,7 +24,7 @@ jobs:
         git config --local user.email "enchufa2@users.noreply.github.com"
         sudo apt-get update -y && sudo apt-get install -y libkrb5-dev
         mkdir -p $HOME/.config && echo "$TOKEN" > $HOME/.config/copr
-        pip install --break-system-packages copr-cli
+        pip install copr-cli
       env:
         TOKEN: ${{ secrets.COPR_TOKEN }}
     - name: Sync with CRAN
