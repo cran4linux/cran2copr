@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  charlatan
-%global packver   0.5.1
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make Fake Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.2.0
 BuildRequires:    R-CRAN-tibble >= 1.2
@@ -25,10 +25,10 @@ Requires:         R-CRAN-tibble >= 1.2
 Requires:         R-CRAN-whisker 
 
 %description
-Make fake data, supporting addresses, person names, dates, times, colors,
-coordinates, currencies, digital object identifiers ('DOIs'), jobs, phone
-numbers, 'DNA' sequences, doubles and integers from distributions and
-within a range.
+Make fake data that looks realistic, supporting addresses, person names,
+dates, times, colors, coordinates, currencies, digital object identifiers
+('DOIs'), jobs, phone numbers, 'DNA' sequences, doubles and integers from
+distributions and within a range.
 
 %prep
 %setup -q -c -n %{packname}

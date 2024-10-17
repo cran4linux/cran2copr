@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3mbo
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayesian Optimization
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-bbotk >= 1.0.0
-BuildRequires:    R-CRAN-mlr3tuning >= 1.0.0
+BuildRequires:    R-CRAN-bbotk >= 1.1.1
+BuildRequires:    R-CRAN-mlr3tuning >= 1.0.2
 BuildRequires:    R-CRAN-paradox >= 1.0.0
 BuildRequires:    R-CRAN-lgr >= 0.3.4
 BuildRequires:    R-CRAN-mlr3 >= 0.21.0
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-spacefillr 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-bbotk >= 1.0.0
-Requires:         R-CRAN-mlr3tuning >= 1.0.0
+Requires:         R-CRAN-bbotk >= 1.1.1
+Requires:         R-CRAN-mlr3tuning >= 1.0.2
 Requires:         R-CRAN-paradox >= 1.0.0
 Requires:         R-CRAN-lgr >= 0.3.4
 Requires:         R-CRAN-mlr3 >= 0.21.0

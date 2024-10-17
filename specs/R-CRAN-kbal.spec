@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.3
+%global packname  kbal
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentile Ranks
+Summary:          Kernel Balancing
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RSpectra 
+Requires:         R-CRAN-RcppParallel >= 4.4.4
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-RSpectra 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Provides a weighting approach that employs kernels to make one group have
+a similar distribution to another group on covariates. This method matches
+not only means or marginal distributions but also higher-order
+transformations implied by the choice of kernel. 'kbal' is applicable to
+both treatment effect estimation and survey reweighting problems. Based on
+Hazlett, C. (2020) "Kernel Balancing: A flexible non-parametric weighting
+procedure for estimating causal effects." Statistica Sinica.
+<https://www.researchgate.net/publication/299013953_Kernel_Balancing_A_flexible_non-parametric_weighting_procedure_for_estimating_causal_effects/stats>.
 
 %prep
 %setup -q -c -n %{packname}

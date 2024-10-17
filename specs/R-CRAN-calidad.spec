@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calidad
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assesses the Quality of Estimates Made by Complex Sample Designs
 
@@ -39,8 +39,8 @@ Assesses the quality of estimates made by complex sample designs,
 following the methodology developed by the National Institute of
 Statistics Chile (2020,
 <https://www.ine.cl/docs/default-source/institucionalidad/buenas-pr%%C3%%A1cticas/clasificaciones-y-estandares/est%%C3%%A1ndar-evaluaci%%C3%%B3n-de-calidad-de-estimaciones-publicaci%%C3%%B3n-27022020.pdf>)
-and by Economic Commission for Latin America and Caribbean (2020,
-<https://repositorio.cepal.org/bitstream/handle/11362/45681/1/S2000293_es.pdf>).
+and by Economic Commission for Latin America and Caribbean (2024,
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://repositorio.cepal.org/server/api/core/bitstreams/f04569e6-4f38-42e7-a32b-e0b298e0ab9c/content).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cols4all
-%global packver   0.7-1
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colors for all
 
@@ -40,8 +40,9 @@ deficiency. Popular color palette series have been organized by type and
 have been scored on several properties such as color-blind-friendliness
 and fairness (i.e. do colors stand out equally?). Own palettes can also be
 loaded and analysed. Besides the common palette types (categorical,
-sequential, and diverging) it also includes bivariate color palettes.
-Furthermore, a color for missing values is assigned to each palette.
+sequential, and diverging) it also includes cyclic and bivariate color
+palettes. Furthermore, a color for missing values is assigned to each
+palette.
 
 %prep
 %setup -q -c -n %{packname}

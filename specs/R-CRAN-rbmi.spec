@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbmi
-%global packver   1.2.6
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Based Multiple Imputation
 
@@ -16,31 +16,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstan >= 2.26.0
-BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-mmrm 
 BuildRequires:    R-CRAN-pkgload 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-tools 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstan >= 2.26.0
-Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-CRAN-mmrm 
 Requires:         R-CRAN-pkgload 
 Requires:         R-CRAN-Matrix 
+Requires:         R-tools 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-rstantools
 
 %description
 Implements standard and reference based multiple imputation methods for

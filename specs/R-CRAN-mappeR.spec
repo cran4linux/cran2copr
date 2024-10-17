@@ -1,50 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.3
+%global packname  mappeR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentile Ranks
+Summary:          Construct and Visualize TDA Mapper Graphs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+BuildRequires:    R-CRAN-fastcluster 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fastcluster 
+Requires:         R-grDevices 
+Requires:         R-CRAN-igraph 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Topological data analysis (TDA) is a method of data analysis that uses
+techniques from topology to analyze high-dimensional data. Here we
+implement Mapper, an algorithm from this area developed by Singh, Mémoli
+and Carlsson (2007) which generalizes the concept of a Reeb graph
+<https://en.wikipedia.org/wiki/Reeb_graph>. The output graph is able to be
+visualized in R using 'igraph' or using a free network analysis software
+called 'Cytoscape', available for download from at
+<https://cytoscape.org/>.
 
 %prep
 %setup -q -c -n %{packname}

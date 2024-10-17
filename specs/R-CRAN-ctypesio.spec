@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  codecountR
-%global packver   0.0.4.5
+%global packname  ctypesio
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Counting Codes in a Text and Preparing Data for Analysis
+Summary:          Read and Write Standard C Types from Files, Connections and Raw Vectors
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Data analysis often requires coding, especially when data are collected
-through interviews, observations, or questionnaires. As a result, code
-counting and data preparation are essential steps in the analysis process.
-Analysts may need to count the codes in a text (tokenization and counting
-of pre-established codes) and prepare the data (e.g., min-max
-normalization, Z-score, robust scaling, Box-Cox transformation, and
-non-parametric bootstrap). For the Box-Cox transformation (Box & Cox,
-1964, <https://www.jstor.org/stable/2984418>), the optimal Lambda is
-determined using the log-likelihood method. Non-parametric bootstrap
-involves randomly sampling data with replacement. Two random number
-generators are also integrated: a Lehmer congruential generator for
-uniform distribution and a Box-Muller generator for normal distribution.
-Package for educational purposes.
+Interacting with binary files can be difficult because R's types are a
+subset of what is generally supported by 'C'.  This package provides a
+suite of functions for reading and writing binary data (with files,
+connections, and raw vectors) using 'C' type descriptions.  These
+functions convert data between 'C' types and R types while checking for
+values outside the type limits, 'NA' values, etc.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,50 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  packageRank
-%global packver   0.9.3
+%global packname  trtswitch
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Computation and Visualization of Package Download Counts and Percentile Ranks
+Summary:          Treatment Switching
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.12.2
-BuildRequires:    R-CRAN-cranlogs 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-pkgsearch 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rversions 
-BuildRequires:    R-CRAN-sugrrants 
-Requires:         R-CRAN-data.table >= 1.12.2
-Requires:         R-CRAN-cranlogs 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-pkgsearch 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rversions 
-Requires:         R-CRAN-sugrrants 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-Rcpp >= 1.0.9
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Implements rank-preserving structural failure time model (RPSFTM),
+iterative parameter estimation (IPE), inverse probability of censoring
+weights (IPCW), and two-stage estimation (TSE) methods for treatment
+switching in randomized clinical trials.
 
 %prep
 %setup -q -c -n %{packname}

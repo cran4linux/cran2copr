@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lavaangui
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical User Interface with Integrated 'Diagrammer' for 'Lavaan'
 
@@ -24,11 +24,9 @@ BuildRequires:    R-CRAN-haven >= 2.5.3
 BuildRequires:    R-CRAN-readr >= 2.1.4
 BuildRequires:    R-CRAN-colorspace >= 2.1.0
 BuildRequires:    R-CRAN-igraph >= 2.0.3
-BuildRequires:    R-CRAN-qgraph >= 1.9.8
 BuildRequires:    R-CRAN-plyr >= 1.8.9
 BuildRequires:    R-CRAN-jsonlite >= 1.8.4
 BuildRequires:    R-CRAN-shiny >= 1.7.4
-BuildRequires:    R-CRAN-htmlwidgets >= 1.6.4
 BuildRequires:    R-CRAN-readxl >= 1.4.3
 BuildRequires:    R-CRAN-future >= 1.33.0
 BuildRequires:    R-CRAN-promises >= 1.2.0.1
@@ -43,11 +41,9 @@ Requires:         R-CRAN-haven >= 2.5.3
 Requires:         R-CRAN-readr >= 2.1.4
 Requires:         R-CRAN-colorspace >= 2.1.0
 Requires:         R-CRAN-igraph >= 2.0.3
-Requires:         R-CRAN-qgraph >= 1.9.8
 Requires:         R-CRAN-plyr >= 1.8.9
 Requires:         R-CRAN-jsonlite >= 1.8.4
 Requires:         R-CRAN-shiny >= 1.7.4
-Requires:         R-CRAN-htmlwidgets >= 1.6.4
 Requires:         R-CRAN-readxl >= 1.4.3
 Requires:         R-CRAN-future >= 1.33.0
 Requires:         R-CRAN-promises >= 1.2.0.1
@@ -61,9 +57,9 @@ Provides a graphical user interface with an integrated diagrammer for
 latent variables from the 'lavaan' package. It offers two core functions:
 first, lavaangui() launches a web application that allows users to specify
 models by drawing path diagrams, fitting them, assessing model fit, and
-more; second, plot_interactive() creates interactive path diagrams from
-models specified in 'lavaan'. Karch (2024) <doi: 10.31234/osf.io/f4ary>
-contains a tutorial.
+more; second, plot_lavaan() creates interactive path diagrams from models
+specified in 'lavaan'. Karch (2024) <doi: 10.31234/osf.io/f4ary> contains
+a tutorial.
 
 %prep
 %setup -q -c -n %{packname}

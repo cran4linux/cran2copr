@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hce
-%global packver   0.6.3
+%global packver   0.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
@@ -25,10 +25,10 @@ Requires:         R-stats
 %description
 Simulate and analyze hierarchical composite endpoints. Win odds is the
 main analysis method, but other win statistics (win ratio, net benefit)
-are implemented as well in case of no censoring. See Gasparyan SB et al
-(2023) "Hierarchical Composite Endpoints in COVID-19: The DARE-19 Trial."
-Case Studies in Innovative Clinical Trials, 95-148. Chapman; Hall/CRC.
-<doi:10.1201/9781003288640-7>.
+are also implemented, provided there is no censoring. See Gasparyan SB et
+al (2023) "Hierarchical Composite Endpoints in COVID-19: The DARE-19
+Trial." Case Studies in Innovative Clinical Trials, 95-148. Chapman;
+Hall/CRC. <doi:10.1201/9781003288640-7>.
 
 %prep
 %setup -q -c -n %{packname}
