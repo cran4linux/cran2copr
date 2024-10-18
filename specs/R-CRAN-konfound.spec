@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  konfound
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantify the Robustness of Causal Inferences
 
@@ -54,14 +54,15 @@ by considering the characteristics of omitted variables or unobserved
 cases that would change an inference if such variables or cases were
 observed. These analyses generate statements such as "an omitted variable
 would have to be correlated at xx with the predictor of interest (e.g.,
-treatment) and outcome to invalidate an inference of a treatment effect".
-Or "one would have to replace pp percent of the observed data with null
-hypothesis cases to invalidate the inference". We implement these recent
-developments of sensitivity analysis and provide modules to calculate
-these two robustness indices and generate such statements in R. In
-particular, the functions konfound(), pkonfound() and mkonfound() allow
-users to calculate the robustness of inferences for a user's own model, a
-single published study and multiple studies respectively.
+the treatment) and outcome to invalidate an inference of a treatment
+effect". Or "one would have to replace pp percent of the observed data
+with nor which the treatment had no effect to invalidate the inference".
+We implement these recent developments of sensitivity analysis and provide
+modules to calculate these two robustness indices and generate such
+statements in R. In particular, the functions konfound(), pkonfound() and
+mkonfound() allow users to calculate the robustness of inferences for a
+user's own model, a single published study and multiple studies
+respectively.
 
 %prep
 %setup -q -c -n %{packname}

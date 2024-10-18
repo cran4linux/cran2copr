@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cbbinom
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Analog of a Beta-Binomial Distribution
 
@@ -16,7 +16,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-hypergeo2 >= 0.2.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-hypergeo2 >= 0.2.0
 Requires:         R-CRAN-Rcpp 
 
 %description

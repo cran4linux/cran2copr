@@ -1,39 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openxlsx2
-%global packver   1.10
+%global packname  TensorTools
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Write and Edit 'xlsx' Files
+Summary:          Multilinear Algebra
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
-Requires:         R-utils 
-Requires:         R-CRAN-zip 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-wavethresh 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
+Requires:         R-methods 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-png 
+Requires:         R-CRAN-wavethresh 
+Requires:         R-CRAN-gsignal 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-Simplifies the creation of 'xlsx' files by providing a high level
-interface to writing, styling and editing worksheets.
+A set of tools for basic tensor operators.  A tensor in the context of
+data analysis in a multidimensional array. The tools in this package rely
+on using any discrete transformation (e.g. Fast Fourier Transform (FFT)).
+Standard tools included are the Eigenvalue decomposition of a tensor, the
+QR decomposition and LU decomposition.  Other functionality includes the
+inverse of a tensor and the transpose of a symmetric tensor. Functionality
+in the package is outlined in Kernfeld, E., Kilmer, M., and Aeron, S.
+(2015) <doi:10.1016/j.laa.2015.07.021>.
 
 %prep
 %setup -q -c -n %{packname}

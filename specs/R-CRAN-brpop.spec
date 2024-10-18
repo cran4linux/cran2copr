@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brpop
-%global packver   0.3.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Brazilian Population Estimatives
 
@@ -17,22 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-dtplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-multidplyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-zendown 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
+Requires:         R-CRAN-dtplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-multidplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-zendown 
 
 %description
-Datasets with yearly (2000 to 2021) Brazilian population estimates from
-DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex,
-and age groups. The data in this package is manually downloaded from the
-DataSUS website and converted to tibbles.
+Functions to handle and aggregate population estimates for Brazilian
+municipalities by sex and age groups.
 
 %prep
 %setup -q -c -n %{packname}

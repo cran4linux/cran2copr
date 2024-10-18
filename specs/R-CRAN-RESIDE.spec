@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  highlightr
-%global packver   1.0.2
+%global packname  RESIDE
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Conserved Edits Across Versions of a Document
+Summary:          Rapid Easy Synthesis to Inform Data Extraction
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,36 +18,32 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fuzzyjoin 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-quanteda 
-BuildRequires:    R-CRAN-quanteda.textstats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-bestNormalize 
+BuildRequires:    R-CRAN-RDP 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-simstudy 
+BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fuzzyjoin 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-quanteda 
-Requires:         R-CRAN-quanteda.textstats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-bestNormalize 
+Requires:         R-CRAN-RDP 
+Requires:         R-methods 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tm 
+Requires:         R-CRAN-simstudy 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-Input multiple versions of a source document, and receive HTML code for a
-highlighted version of the source document indicating the frequency of
-occurrence of phrases in the different versions. This method is described
-in Chapter 3 of Rogers (2024)
-<https://digitalcommons.unl.edu/dissertations/AAI31240449/>.
+Developed to assist researchers with planning analysis, prior to obtaining
+data from Trusted Research Environments (TREs) also known as safe havens.
+With functionality to export and import marginal distributions as well as
+synthesise data, both with and without correlations from these marginal
+distributions. Using a multivariate cumulative distribution (COPULA).
+Additionally the International Stroke Trial (IST) is included as an
+example dataset under ODC-By licence Sandercock et al. (2011)
+<doi:10.7488/ds/104>, Sandercock et al. (2011)
+<doi:10.1186/1745-6215-12-101>.
 
 %prep
 %setup -q -c -n %{packname}

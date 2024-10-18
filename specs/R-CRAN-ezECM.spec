@@ -1,39 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  openxlsx2
-%global packver   1.10
+%global packname  ezECM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read, Write and Edit 'xlsx' Files
+Summary:          Event Categorization Matrix Classification for Nuclear Detonations
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-klaR 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mvnfast 
+Requires:         R-CRAN-ellipse 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-klaR 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-zip 
+Requires:         R-CRAN-mvnfast 
 
 %description
-Simplifies the creation of 'xlsx' files by providing a high level
-interface to writing, styling and editing worksheets.
+Implementation of an Event Categorization Matrix (ECM) detonation
+detection model and a Bayesian variant. Functions are provided for
+importing and exporting data, fitting models, and applying decision
+criteria for categorizing new events. This package implements methods
+described in the paper "Bayesian Event Categorization Matrix Approach for
+Nuclear Detonations" Koermer, Carmichael, and Williams (2024) available on
+arXiv at <doi:10.48550/arXiv.2409.18227>.
 
 %prep
 %setup -q -c -n %{packname}

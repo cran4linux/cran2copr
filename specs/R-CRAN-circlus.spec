@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigrquerystorage
-%global packver   1.2.1
+%global packname  circlus
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Google's 'BigQuery Storage' API
+Summary:          Clustering and Simulation of Spherical Cauchy and PKBD Models
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.6.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-nanoarrow >= 0.6.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-Tinflex >= 1.8
+BuildRequires:    R-CRAN-Rcpp >= 0.12.18
+BuildRequires:    R-CRAN-flexmix 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Tinflex >= 1.8
+Requires:         R-CRAN-Rcpp >= 0.12.18
+Requires:         R-CRAN-flexmix 
+Requires:         R-CRAN-torch 
+Requires:         R-methods 
 
 %description
-Easily talk to Google's 'BigQuery Storage' API from R
-(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
+Provides tools for estimation and clustering of spherical data, seamlessly
+integrated with the 'flexmix' package. Includes the necessary M-step
+implementations for both Poisson Kernel-Based Distribution (PKBD) and
+spherical Cauchy distribution. Additionally, the package provides random
+number generators for PKBD and spherical Cauchy distribution. Methods are
+based on Golzy M., Markatou M. (2020) <doi:10.1080/10618600.2020.1740713>,
+Kato S., McCullagh P. (2020) <doi:10.3150/20-bej1222> and Sablica L.,
+Hornik K., Leydold J. (2023) <doi:10.1214/23-ejs2149>.
 
 %prep
 %setup -q -c -n %{packname}

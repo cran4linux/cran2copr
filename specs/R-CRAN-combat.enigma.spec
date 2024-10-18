@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  combat.enigma
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit and Apply ComBat Harmonization for ENIGMA
+Summary:          Fit and Apply ComBat, LMM, or Prescaling Harmonization for ENIGMA and Other Multisite MRI Data
 
 License:          Artistic License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-nlme 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nlme 
 
 %description
-Fit and apply ComBat to harmonize magnetic resonance imaging (MRI) data
-from different sites. Briefly, ComBat is a batch adjustment method that
-removes additive and multiplicative differences between sites due to the
-use of different scanning devices. As detailed in the manual, the original
-function was first modified for the harmonization of MRI data (Fortin et
-al. (2017) <doi:10.1016/j.neuroimage.2017.11.024>) and then modified again
-to create separate functions for fitting and applying the harmonization
-and allow missing values and constant rows for its use within the
-Enhancing Neuro Imaging Genetics through Meta-Analysis (ENIGMA) Consortium
-(Radua et al. (2020) <doi:10.1016/j.neuroimage.2017.11.024>). This package
-includes the latter version.
+Fit and apply ComBat, linear mixed-effects models (LMM), or prescaling to
+harmonize magnetic resonance imaging (MRI) data from different sites.
+Briefly, these methods remove differences between sites due to using
+different scanning devices, and LMM additionally tests linear hypotheses.
+As detailed in the manual, the original ComBat function was first modified
+for the harmonization of MRI data (Fortin et al. (2017)
+<doi:10.1016/j.neuroimage.2017.11.024>) and then modified again to create
+separate functions for fitting and applying the harmonization and allow
+missing values and constant rows for its use within the Enhancing Neuro
+Imaging Genetics through Meta-Analysis (ENIGMA) Consortium (Radua et al.
+(2020) <doi:10.1016/j.neuroimage.2017.11.024>); this package includes the
+latter version. LMM calls "lme" massively considering specific brain
+imaging details. Finally, prescaling is a good option for fMRI, where
+different devices can have varying units of measurement.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigrquerystorage
-%global packver   1.2.1
+%global packname  diceplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Google's 'BigQuery Storage' API
+Summary:          High Dimensional Categorical Data Visualization
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.6.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-bit64 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-nanoarrow >= 0.6.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-bit64 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-rlang 
 
 %description
-Easily talk to Google's 'BigQuery Storage' API from R
-(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
+Easy visualization for datasets with more than two categorical variables
+and additional continuous variables. 'diceplot' is particularly useful for
+exploring complex categorical data in the context of pathway analysis
+across multiple conditions. For a detailed documentation please visit
+<https://dice-and-domino-plot.readthedocs.io/en/latest/>.
 
 %prep
 %setup -q -c -n %{packname}

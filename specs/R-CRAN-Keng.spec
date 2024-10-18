@@ -1,39 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigrquerystorage
-%global packver   1.2.1
+%global packname  Keng
+%global packver   2024.10.16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2024.10.16
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Google's 'BigQuery Storage' API
+Summary:          Keng's Axe and Firewood
 
-License:          Apache License (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.6.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-nanoarrow >= 0.6.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-tibble 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Easily talk to Google's 'BigQuery Storage' API from R
-(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
+Miscellaneous functions and data used in Qingyao's psychological research
+and teaching.
 
 %prep
 %setup -q -c -n %{packname}

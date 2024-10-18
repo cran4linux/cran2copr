@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopulaREMADA
-%global packver   1.6.2
+%global packver   1.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula Mixed Models for Multivariate Meta-Analysis of Diagnostic Test Accuracy Studies
 
@@ -43,9 +43,12 @@ D-vine copula mixed model for meta-analysis of diagnostic tests with
 non-evaluable subjects in Nikoloulopoulos (2020)
 <doi:10.1177/0962280220913898>. The one-factor copula mixed model for
 joint meta-analysis of multiple diagnostic tests in Nikoloulopoulos (2022)
-<doi:10.1111/rssa.12838>. The multinomial six-variate 1-truncated vine
+<doi:10.1111/rssa.12838>. The multinomial six-variate 1-truncated D-vine
 copula mixed model for meta-analysis of two diagnostic tests accounting
-for within and between studies dependence in Nikoloulopoulos (2024).
+for within and between studies dependence in Nikoloulopoulos (2024)
+<doi:10.1177/09622802241269645>. The 1-truncated D-vine copula mixed
+models for meta-analysis of diagnostic accuracy studies without a gold
+standard (Nikoloulopoulos, 2024).
 
 %prep
 %setup -q -c -n %{packname}

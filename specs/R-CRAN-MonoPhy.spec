@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigrquerystorage
-%global packver   1.2.1
+%global packname  MonoPhy
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Google's 'BigQuery Storage' API
+Summary:          Explore Monophyly of Taxonomic Groups in a Phylogeny
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.6.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-nanoarrow >= 0.6.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-tibble 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Easily talk to Google's 'BigQuery Storage' API from R
-(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
+Requires rooted phylogeny as input and creates a table of genera, their
+monophyly-status, which taxa cause problems in monophyly etc. Different
+information can be extracted from the output and a plot function allows
+visualization of the results in a number of ways. "MonoPhy: a simple R
+package to find and visualize monophyly issues." Schwery, O. & O'Meara,
+B.C. (2016) <doi:10.7717/peerj-cs.56>.
 
 %prep
 %setup -q -c -n %{packname}

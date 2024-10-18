@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bigrquerystorage
-%global packver   1.2.1
+%global packname  imuf
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to Google's 'BigQuery Storage' API
+Summary:          Estimate Orientation of an Inertial Measurement Unit
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.6.0
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-nanoarrow >= 0.6.0
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-tibble 
 
 %description
-Easily talk to Google's 'BigQuery Storage' API from R
-(<https://cloud.google.com/bigquery/docs/reference/storage/rpc>).
+Estimate the orientation of an inertial measurement unit (IMU) with a
+3-axis accelerometer and a 3-axis gyroscope using a complementary filter.
+'imuf' takes an IMU's accelerometer and gyroscope readings, time duration,
+its initial orientation, and a gain factor as inputs, and returns an
+estimate of the IMU's final orientation.
 
 %prep
 %setup -q -c -n %{packname}
