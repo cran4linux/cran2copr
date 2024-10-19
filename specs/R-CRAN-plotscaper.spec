@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  stepR
-%global packver   2.1-10
+%global packname  plotscaper
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.10
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiscale Change-Point Inference
+Summary:          Explore Your Data with Interactive Figures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-lowpassFilter >= 1.0.0
-BuildRequires:    R-CRAN-digest >= 0.6.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-R.cache >= 0.10.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.8
+BuildRequires:    R-CRAN-htmlwidgets >= 1.6
+BuildRequires:    R-CRAN-httpuv >= 1.6
+BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lowpassFilter >= 1.0.0
-Requires:         R-CRAN-digest >= 0.6.10
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-R.cache >= 0.10.0
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-jsonlite >= 1.8
+Requires:         R-CRAN-htmlwidgets >= 1.6
+Requires:         R-CRAN-httpuv >= 1.6
+Requires:         R-CRAN-knitr 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-uuid 
 
 %description
-Allows fitting of step-functions to univariate serial data where neither
-the number of jumps nor their positions is known by implementing the
-multiscale regression estimators SMUCE, simulataneous multiscale
-changepoint estimator, (K. Frick, A. Munk and H. Sieling, 2014)
-<doi:10.1111/rssb.12047> and HSMUCE, heterogeneous SMUCE, (F. Pein, H.
-Sieling and A. Munk, 2017) <doi:10.1111/rssb.12202>. In addition,
-confidence intervals for the change-point locations and bands for the
-unknown signal can be obtained.
+A framework for creating interactive figures for data exploration. All
+plots are automatically linked and support several kinds of interactive
+features, including selection, zooming, panning, and parameter
+manipulation. The figures can be interacted with either manually, using a
+mouse and a keyboard, or by running code from inside an active R session.
 
 %prep
 %setup -q -c -n %{packname}

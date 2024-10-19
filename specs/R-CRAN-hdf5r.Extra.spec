@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdf5r.Extra
-%global packver   0.0.6
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions for 'HDF5' R Interfaces
 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-checkmate
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-easy.utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MatrixExtra 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-hdf5r >= 1.3.8
 Requires:         R-methods 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-checkmate
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-easy.utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MatrixExtra 
 Requires:         R-CRAN-rlang 
 
 %description

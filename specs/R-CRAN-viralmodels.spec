@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viralmodels
-%global packver   1.2.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Viral Load and CD4 Lymphocytes Regression Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-earth 
-BuildRequires:    R-CRAN-kknn 
-BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tune 
-BuildRequires:    R-CRAN-vdiffr 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-workflowsets 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-earth 
-Requires:         R-CRAN-kknn 
-Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-hardhat 
 Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tune 
-Requires:         R-CRAN-vdiffr 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-workflowsets 
 

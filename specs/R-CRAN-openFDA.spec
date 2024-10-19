@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iai
-%global packver   1.10.2
+%global packname  openFDA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Interpretable AI' Modules
+Summary:          'openFDA' API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaCall >= 0.17.5
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-CRAN-JuliaCall >= 0.17.5
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-vctrs 
 
 %description
-An interface to the algorithms of 'Interpretable AI'
-<https://www.interpretable.ai> from the R programming language.
-'Interpretable AI' provides various modules, including 'Optimal Trees' for
-classification, regression, prescription and survival analysis, 'Optimal
-Imputation' for missing data imputation and outlier detection, and
-'Optimal Feature Selection' for exact sparse regression. The 'iai' package
-is an open-source project. The 'Interpretable AI' software modules are
-proprietary products, but free academic and evaluation licenses are
-available.
+The 'openFDA' API facilitates access to Federal Drug Agency (FDA) data on
+drugs, devices, foodstuffs, tobacco, and more with 'httr2'. This package
+makes the API easily accessible, returning objects which the user can
+convert to JSON data and parse. Kass-Hout TA, Xu Z, Mohebbi M et al.
+(2016) <doi:10.1093/jamia/ocv153>.
 
 %prep
 %setup -q -c -n %{packname}

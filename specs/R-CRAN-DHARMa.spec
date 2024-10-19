@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DHARMa
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models
 
@@ -44,9 +44,10 @@ Requires:         R-CRAN-lme4
 The 'DHARMa' package uses a simulation-based approach to create readily
 interpretable scaled (quantile) residuals for fitted (generalized) linear
 mixed models. Currently supported are linear and generalized linear
-(mixed) models from 'lme4' (classes 'lmerMod', 'glmerMod'), 'glmmTMB'
-'GLMMadaptive' and 'spaMM', generalized additive models ('gam' from
-'mgcv'), 'glm' (including 'negbin' from 'MASS', but excluding
+(mixed) models from 'lme4' (classes 'lmerMod', 'glmerMod'), 'glmmTMB',
+'GLMMadaptive', and 'spaMM'; phylogenetic linear models from 'phylolm'
+(classes 'phylolm' and 'phyloglm'); generalized additive models ('gam'
+from 'mgcv'); 'glm' (including 'negbin' from 'MASS', but excluding
 quasi-distributions) and 'lm' model classes. Moreover, externally created
 simulations, e.g. posterior predictive simulations from Bayesian software
 such as 'JAGS', 'STAN', or 'BUGS' can be processed as well. The resulting
@@ -54,7 +55,8 @@ residuals are standardized to values between 0 and 1 and can be
 interpreted as intuitively as residuals from a linear regression. The
 package also provides a number of plot and test functions for typical
 model misspecification problems, such as over/underdispersion,
-zero-inflation, and residual spatial and temporal autocorrelation.
+zero-inflation, and residual spatial, phylogenetic and temporal
+autocorrelation.
 
 %prep
 %setup -q -c -n %{packname}
