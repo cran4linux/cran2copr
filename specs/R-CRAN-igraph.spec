@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  igraph
-%global packver   2.0.3
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Analysis and Visualization
 
@@ -20,7 +20,7 @@ BuildRequires:    libxml2-devel
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-pkgconfig >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.4.7
+BuildRequires:    R-CRAN-cpp11 >= 0.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-graphics 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PMwR
-%global packver   0.19-5
+%global packver   1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.19.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portfolio Management with R
 
@@ -39,7 +39,7 @@ Tools for the practical management of financial portfolios: backtesting
 investment and trading strategies, computing profit/loss and returns,
 analysing trades, handling lists of transactions, reporting, and more.
 The package provides a small set of reliable, efficient and convenient
-tools for processing and analysing trade/portfolio data.  The Manual
+tools for processing and analysing trade/portfolio data.  The manual
 provides all the details; it is available from
 <https://enricoschumann.net/R/packages/PMwR/manual/PMwR.html>. Examples
 and descriptions of new features are provided at
