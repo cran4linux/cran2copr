@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bgms
-%global packver   0.1.3.1
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Analysis of Networks of Binary and/or Ordinal Variables
 
@@ -27,8 +27,8 @@ Requires:         R-methods
 %description
 Bayesian variable selection methods for analyzing the structure of a
 Markov Random Field model for a network of binary and/or ordinal
-variables. Details of the implemented methods can be found in: Marsman and
-Haslbeck (2023) <doi:10.31234/osf.io/ukwrf>.
+variables. Details of the implemented methods can be found in: Marsman,
+van den Bergh, and Haslbeck (in press) <doi:10.31234/osf.io/ukwrf>.
 
 %prep
 %setup -q -c -n %{packname}

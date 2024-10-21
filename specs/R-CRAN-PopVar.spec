@@ -1,40 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xVA
-%global packver   1.1
+%global packname  PopVar
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates Credit Risk Valuation Adjustments
+Summary:          Genomic Breeding Tools: Genetic Variance Prediction and Cross-Validation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BGLR 
+BuildRequires:    R-CRAN-qtl 
+BuildRequires:    R-CRAN-rrBLUP 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-SACCR 
-BuildRequires:    R-CRAN-Trading 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-BGLR 
+Requires:         R-CRAN-qtl 
+Requires:         R-CRAN-rrBLUP 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-SACCR 
-Requires:         R-CRAN-Trading 
-Requires:         R-CRAN-data.table 
+Requires:         R-parallel 
 
 %description
-Calculates a number of valuation adjustments including CVA, DVA, FBA, FCA,
-MVA and KVA. A two-way margin agreement has been implemented. For the KVA
-calculation three regulatory frameworks are supported: CEM, (simplified)
-SA-CCR, OEM and IMM. The probability of default is implied through the
-credit spreads curve. The package supports an exposure calculation based
-on SA-CCR which includes several trade types and a simulated path which is
-currently available only for IRSwaps. The latest regulatory capital charge
-methodologies have been implementing including BA-CVA & SA-CVA.
+The main attribute of 'PopVar' is the prediction of genetic variance in
+bi-parental populations, from which the package derives its name. 'PopVar'
+contains a set of functions that use phenotypic and genotypic data from a
+set of candidate parents to 1) predict the mean, genetic variance, and
+superior progeny value of all, or a defined set of pairwise bi-parental
+crosses, and 2) perform cross-validation to estimate genome-wide
+prediction accuracy of multiple statistical models. More details are
+available in Mohammadi, Tiede, and Smith (2015,
+<doi:10.2135/cropsci2015.01.0030>). A dataset 'think_barley.rda' is
+included for reference and examples.
 
 %prep
 %setup -q -c -n %{packname}

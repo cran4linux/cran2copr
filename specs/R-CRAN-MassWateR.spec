@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MassWateR
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Control and Analysis of Massachusetts Water Quality Data
 
@@ -25,13 +25,13 @@ BuildRequires:    R-CRAN-ggrepel
 BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-prettymapr 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-maptiles 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyterra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-writexl 
@@ -43,13 +43,13 @@ Requires:         R-CRAN-ggrepel
 Requires:         R-CRAN-ggspatial 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-prettymapr 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-maptiles 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyterra 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-writexl 
