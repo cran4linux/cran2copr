@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   3.0.2
+%global packname  VDPO
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Working with and Analyzing Functional Data of Varying Lengths
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,27 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sampling 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sampling 
-Requires:         R-CRAN-ecp 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-SOP 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-SOP 
+Requires:         R-splines 
+Requires:         R-stats 
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+Comprehensive set of tools for analyzing and manipulating functional data
+with non-uniform lengths. This package addresses two common scenarios in
+functional data analysis: Variable Domain Data, where the observation
+domain differs across samples, and Partially Observed Data, where
+observations are incomplete over the domain of interest. 'VDPO' enhances
+the flexibility and applicability of functional data analysis in 'R'. See
+Amaro et al. (2024) <doi:10.48550/arXiv.2401.05839>.
 
 %prep
 %setup -q -c -n %{packname}

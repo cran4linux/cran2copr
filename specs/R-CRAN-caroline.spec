@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  caroline
-%global packver   0.9.2
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Database, Data Structure, Visualization, and Utility Functions for R
 
@@ -23,13 +23,14 @@ Requires:         R-methods
 %description
 The caroline R library contains dozens of functions useful for: database
 migration (dbWriteTable2), database style joins & aggregation (nerge,
-groupBy & bestBy), data structure conversion (nv, tab2df), legend table
-making (sstable & leghead), plot annotation (labsegs & mvlabs), data
-visualization (pies, sparge, & raPlot), character string manipulation (m &
-pad), file I/O (write.delim), batch scripting and more.  The package's
-greatest contributions lie in the database style merge, aggregation and
-interface functions as well as in it's extensive use and propagation of
-row, column and vector names in most functions.
+groupBy, & bestBy), data structure conversion (nv, tab2df), legend table
+making (sstable & leghead), automatic legend positioning for scatter and
+box plots (), plot annotation (labsegs & mvlabs), data visualization
+(pies, sparge, confound.grid & raPlot), character string manipulation (m &
+pad), file I/O (write.delim), batch scripting, data exploration, and more.
+The package's greatest contributions lie in the database style merge,
+aggregation and interface functions as well as in it's extensive use and
+propagation of row, column and vector names in most functions.
 
 %prep
 %setup -q -c -n %{packname}

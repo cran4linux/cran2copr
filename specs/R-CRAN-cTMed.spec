@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   3.0.2
+%global packname  cTMed
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Continuous Time Mediation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sampling 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sampling 
-Requires:         R-CRAN-ecp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ctsem 
+BuildRequires:    R-CRAN-simStateSpace 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-parallel 
+Requires:         R-CRAN-ctsem 
+Requires:         R-CRAN-simStateSpace 
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+Calculates standard errors and confidence intervals for effects in
+continuous-time mediation models. This package extends the work of Deboeck
+and Preacher (2015) <doi:10.1080/10705511.2014.973960> and Ryan and
+Hamaker (2021) <doi:10.1007/s11336-021-09767-0> by providing methods to
+generate standard errors and confidence intervals for the total, direct,
+and indirect effects in these models.
 
 %prep
 %setup -q -c -n %{packname}

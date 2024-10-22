@@ -1,43 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   3.0.2
+%global packname  redatam
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Import 'REDATAM' Files
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sampling 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sampling 
-Requires:         R-CRAN-ecp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-stringi 
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+Import 'REDATAM' files into R. 'REDATAM' is a software for the
+manipulation of microdata from censuses and surveys. This package provides
+functions to import 'REDATAM' files into R. It is based on De Grande
+(2016) <https://www.jstor.org/stable/24890658>.
 
 %prep
 %setup -q -c -n %{packname}

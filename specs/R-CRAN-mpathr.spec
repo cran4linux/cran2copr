@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   3.0.2
+%global packname  mpathr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Easily Handling Data from the ‘m-Path’ Platform
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sampling 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sampling 
-Requires:         R-CRAN-ecp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+Provides tools for importing and cleaning Experience Sampling Method (ESM)
+data collected via the 'm-Path' platform. The goal is to provide with a
+few utility functions to be able to read and perform some common
+operations in ESM data collected through the 'm-Path' platform
+(<https://m-path.io/landing/>). Functions include raw data handling,
+format standardization, and basic data checks, as well as to calculate the
+response rate in data from ESM studies.
 
 %prep
 %setup -q -c -n %{packname}

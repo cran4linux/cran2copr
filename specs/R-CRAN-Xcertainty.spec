@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   3.0.2
+%global packname  Xcertainty
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Estimating Lengths and Uncertainty from Photogrammetric Imagery
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-nimble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sampling 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-coda 
+Requires:         R-CRAN-nimble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sampling 
-Requires:         R-CRAN-ecp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-coda 
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+Implementation of Bayesian models for estimating object lengths and
+morphological relationships between object lengths using photographic data
+collected from drones.  The Bayesian model is described in "Bayesian
+approach for predicting photogrammetric uncertainty in morphometric
+measurements derived from drones" (Bierlich et al., 2021,
+<doi:10.3354/meps13814>).
 
 %prep
 %setup -q -c -n %{packname}

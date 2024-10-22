@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyPovertyR
-%global packver   3.0.2
+%global packname  COveR
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Fuzzy Poverty Measures
+Summary:          Clustering with Overlaps
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sampling 
-BuildRequires:    R-CRAN-ecp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sampling 
-Requires:         R-CRAN-ecp 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 
 %description
-Estimates fuzzy measures of poverty and deprivation. It also estimates the
-sampling variance of these measures using bootstrap or jackknife repeated
-replications.
+Provide functions for overlaps clustering, fuzzy clustering and
+interval-valued data manipulation. The package implement the following
+algorithms: OKM (Overlapping Kmeans) from Cleuziou, G. (2007)
+<doi:10.1109/icpr.2008.4761079> ; NEOKM (Non-exhaustive overlapping
+Kmeans) from Whang, J. J., Dhillon, I. S., and Gleich, D. F. (2015)
+<doi:10.1137/1.9781611974010.105> ; Fuzzy Cmeans from Bezdek, J. C. (1981)
+<doi:10.1007/978-1-4757-0450-1> ; Fuzzy I-Cmeans from de A.T. De Carvalho,
+F. (2005) <doi:10.1016/j.patrec.2006.08.014>.
 
 %prep
 %setup -q -c -n %{packname}

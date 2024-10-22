@@ -1,48 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oglcnac
-%global packver   0.1.2
+%global packname  Poly4AT
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing and Analysis of O-GlcNAcAtlas Data
+Summary:          Access 'INVEKOS' API for Field Polygons
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-leaflet.extras 
 BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-leaflet.extras 
 Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-glue 
+Requires:         R-utils 
 
 %description
-Provides tools for processing and analyzing data from the 'O-GlcNAcAtlas'
-database <https://oglcnac.org/>, as described in Ma (2021)
-<doi:10.1093/glycob/cwab003>. It integrates 'UniProt'
-<https://www.uniprot.org/> API calls to retrieve additional information.
-It is specifically designed for research workflows involving
-'O-GlcNAcAtlas' data, providing a flexible and user-friendly interface for
-customizing and downloading processed results. Interactive elements allow
-users to easily adjust parameters and handle various biological datasets.
+A 'shiny' app that allows to access and use the 'INVEKOS' API for field
+polygons in Austria. API documentation is available at
+<https://gis.lfrz.gv.at/api/geodata/i009501/ogc/features/v1/>.
 
 %prep
 %setup -q -c -n %{packname}

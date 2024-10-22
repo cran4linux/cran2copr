@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dtrackr
-%global packver   0.4.6
+%global packname  OmopViewer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Track your Data Pipelines
+Summary:          Visualise OMOP Results using 'shiny' Applications
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,45 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-visOmopResults >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rsvg 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-V8 
-BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-visOmopResults >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.3.1
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rsvg 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-V8 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-styler 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-yaml 
 
 %description
-Track and document 'dplyr' data pipelines. As you filter, mutate, and join
-your way through a data set, 'dtrackr' seamlessly keeps track of your data
-flow and makes publication ready documentation of a data pipeline simple.
+Visualise results obtained from analysing data mapped to the Observational
+Medical Outcomes Partnership (OMOP) common data model using 'shiny'
+applications.
 
 %prep
 %setup -q -c -n %{packname}
