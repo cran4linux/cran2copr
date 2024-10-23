@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmdfiltr
-%global packver   0.1.5
+%global packname  MRCV
+%global packver   0.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Lua'-Filters for R Markdown
+Summary:          Methods for Analyzing Multiple Response Categorical Variables (MRCVs)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.12
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rmarkdown >= 1.12
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tables 
+Requires:         R-CRAN-tables 
 
 %description
-A collection of 'Lua' filters that extend the functionality of R Markdown
-templates (e.g., count words or post-process citations).
+Provides functions for analyzing the association between one single
+response categorical variable (SRCV) and one multiple response categorical
+variable (MRCV), or between two or three MRCVs.  A modified Pearson
+chi-square statistic can be used to test for marginal independence for the
+one or two MRCV case, or a more general loglinear modeling approach can be
+used to examine various other structures of association for the two or
+three MRCV case.  Bootstrap- and asymptotic-based standardized residuals
+and model-predicted odds ratios are available, in addition to other
+descriptive information. Statisical methods implemented are described in
+Bilder et al. (2000) <doi:10.1080/03610910008813665>, Bilder and Loughin
+(2004) <doi:10.1111/j.0006-341X.2004.00147.x>, Bilder and Loughin (2007)
+<doi:10.1080/03610920600974419>, and Koziol and Bilder (2014)
+<https://journal.r-project.org/articles/RJ-2014-014/>.
 
 %prep
 %setup -q -c -n %{packname}

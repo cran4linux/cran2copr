@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmdfiltr
-%global packver   0.1.5
+%global packname  ECG
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Lua'-Filters for R Markdown
+Summary:          Center of Gravity Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.12
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rmarkdown >= 1.12
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-utils 
+BuildRequires:    R-CRAN-MASS >= 7.3
+BuildRequires:    R-graphics >= 3.4
+BuildRequires:    R-stats >= 3.4
+Requires:         R-CRAN-MASS >= 7.3
+Requires:         R-graphics >= 3.4
+Requires:         R-stats >= 3.4
 
 %description
-A collection of 'Lua' filters that extend the functionality of R Markdown
-templates (e.g., count words or post-process citations).
+Implementation of the Centre of Gravity method and the Extrapolated Centre
+of Gravity method. It supports replicated observations. Cameron, D.G., et
+al (1982) <doi:10.1366/0003702824638610> JCGM (2008)
+<doi:10.59161/JCGM100-2008E>.
 
 %prep
 %setup -q -c -n %{packname}

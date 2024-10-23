@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmdfiltr
-%global packver   0.1.5
+%global packname  iccmult
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Lua'-Filters for R Markdown
+Summary:          Intracluster Correlation Coefficient (ICC) in Clustered Categorical Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.12
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rmarkdown >= 1.12
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dirmult 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-ICCbin 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dirmult 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-ICCbin 
+Requires:         R-CRAN-lme4 
+Requires:         R-stats 
 
 %description
-A collection of 'Lua' filters that extend the functionality of R Markdown
-templates (e.g., count words or post-process citations).
+Assists in generating categorical clustered outcome data, estimating the
+Intracluster Correlation Coefficient (ICC) for nominal or ordinal data
+with 2+ categories under the resampling and method of moments (MoM)
+methods, with confidence intervals.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,32 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmdfiltr
-%global packver   0.1.5
+%global packname  biglmm
+%global packver   0.9-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.9.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Lua'-Filters for R Markdown
+Summary:          Bounded Memory Linear and Generalized Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.12
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rmarkdown >= 1.12
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-DBI 
+Requires:         R-methods 
 
 %description
-A collection of 'Lua' filters that extend the functionality of R Markdown
-templates (e.g., count words or post-process citations).
+Regression for data too large to fit in memory. This package functions
+exactly like the 'biglm' package, but works with later versions of R.
 
 %prep
 %setup -q -c -n %{packname}

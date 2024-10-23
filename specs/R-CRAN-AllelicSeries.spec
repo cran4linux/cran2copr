@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AllelicSeries
-%global packver   0.0.4.1
+%global packver   0.1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.1
+Version:          0.1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Allelic Series Test
 
@@ -16,10 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RNOmni 
 BuildRequires:    R-CRAN-SKAT 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RNOmni 
 Requires:         R-CRAN-SKAT 
@@ -34,8 +40,8 @@ gene. COAST uses a set of adjustable weights that tailor the test towards
 rejecting the null hypothesis for genes where the average magnitude of
 effect increases monotonically from BMVs to DMVs to PTVs. See McCaw ZR,
 O’Dushlaine C, Somineni H, Bereket M, Klein C, Karaletsos T, Casale FP,
-Koller D, Soare TW. (2022) "An allelic series rare variant association
-test for candidate gene discovery" <doi:10.1101/2022.12.23.521658>.
+Koller D, Soare TW. (2023) "An allelic series rare variant association
+test for candidate gene discovery" <doi:10.1016/j.ajhg.2023.07.001>.
 
 %prep
 %setup -q -c -n %{packname}

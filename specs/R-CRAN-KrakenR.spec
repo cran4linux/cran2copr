@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmdfiltr
-%global packver   0.1.5
+%global packname  KrakenR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Lua'-Filters for R Markdown
+Summary:          Comprehensive R Interface for Accessing Kraken Cryptocurrency Exchange REST API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.12
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rmarkdown >= 1.12
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 
 %description
-A collection of 'Lua' filters that extend the functionality of R Markdown
-templates (e.g., count words or post-process citations).
+A comprehensive R interface to access data from the Kraken cryptocurrency
+exchange REST API <https://docs.kraken.com/api/>. It allows users to
+retrieve various market data, such as asset information, trading pairs,
+and price data. The package is designed to facilitate efficient data
+access for analysis, strategy development, and monitoring of
+cryptocurrency market trends.
 
 %prep
 %setup -q -c -n %{packname}

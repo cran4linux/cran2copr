@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmdfiltr
-%global packver   0.1.5
+%global packname  MonotoneHazardRatio
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Lua'-Filters for R Markdown
+Summary:          Nonparametric Estimation and Inference of a Monotone Hazard Ratio Function
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.12
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-utils 
-Requires:         R-CRAN-rmarkdown >= 1.12
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-utils 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-survival 
 
 %description
-A collection of 'Lua' filters that extend the functionality of R Markdown
-templates (e.g., count words or post-process citations).
+Nonparametric estimation and inference of a non-decreasing monotone hazard
+ratio from a right censored survival dataset.  The estimator is based on a
+generalized Grenander typed estimator, and the inference procedure relies
+on direct plugin estimation of a first order derivative.  More details
+please refer to the paper "Nonparametric inference under a monotone hazard
+ratio order" by Y. Wu and T. Westling (2023) <doi:10.1214/23-EJS2173>.
 
 %prep
 %setup -q -c -n %{packname}

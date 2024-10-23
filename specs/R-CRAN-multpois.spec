@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multpois
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Nominal Response Data with the Multinomial-Poisson Trick
 
@@ -35,14 +35,14 @@ Unfortunately, polytomous responses with three or more unordered
 categories cannot be analyzed similarly because there is no analogous
 family=multinomial option. For between-subjects data, nnet::multinom() can
 address this need, but it cannot handle random factors and therefore
-cannot handle repeated measures. To address this gap, we implement the
-multinomial-Poisson trick (Baker 1994) <doi:10.2307/2348134>, which
-transforms nominal response data into counts for each categorical
-alternative. These counts are then analyzed using (mixed) Poisson
-regression. Omnibus analyses of variance can be run along with post hoc
-pairwise comparisons. For users wishing to analyze nominal responses from
-surveys or experiments, the functions in this package essentially act as
-though stats::glm() or lme4::glmer() had a family=multinomial option.
+cannot handle repeated measures. To address this gap, we transform nominal
+response data into counts for each categorical alternative. These counts
+are then analyzed using (mixed) Poisson regression as per Baker (1994)
+<doi:10.2307/2348134>. Omnibus analyses of variance can be run along with
+post hoc pairwise comparisons. For users wishing to analyze nominal
+responses from surveys or experiments, the functions in this package
+essentially act as though stats::glm() or lme4::glmer() had a
+family=multinomial option.
 
 %prep
 %setup -q -c -n %{packname}

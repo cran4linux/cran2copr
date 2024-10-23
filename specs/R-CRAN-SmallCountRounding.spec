@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SmallCountRounding
-%global packver   1.0.5
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Count Rounding of Tabular Data
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.3.4
+BuildRequires:    R-CRAN-SSBtools >= 1.5.5
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.3.4
+Requires:         R-CRAN-SSBtools >= 1.5.5
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 

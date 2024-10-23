@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SCDA
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially-Clustered Data Analysis
 
@@ -26,6 +26,10 @@ BuildRequires:    R-CRAN-performance
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-NbClust 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggspatial 
 Requires:         R-CRAN-spatialreg 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-spdep 
@@ -35,6 +39,10 @@ Requires:         R-CRAN-performance
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-NbClust 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggspatial 
 
 %description
 Contains functions for statistical data analysis based on
@@ -47,7 +55,11 @@ the current release allows the estimation of the spatially-clustered
 linear regression model (SCLM), the spatially-clustered spatial
 autoregressive model (SCSAR), the spatially-clustered spatial Durbin model
 (SCSEM), and the spatially-clustered linear regression model with
-spatially-lagged exogenous covariates (SCSLX).
+spatially-lagged exogenous covariates (SCSLX). From release 0.0.2, the
+library contains functions to estimate spatial clustering based on
+Adiajacent Matrix K-Means (AMKM) as described in Zhou, Liu & Zhu (2019),
+"Weighted adjacent matrix for K-means clustering", Multimedia Tools and
+Applications, 78 (23) <doi:10.1007/s11042-019-08009-x>.
 
 %prep
 %setup -q -c -n %{packname}
