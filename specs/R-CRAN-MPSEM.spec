@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MPSEM
-%global packver   0.4-4
+%global packver   0.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling Phylogenetic Signals using Eigenvector Maps
 
@@ -17,8 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 
 %description

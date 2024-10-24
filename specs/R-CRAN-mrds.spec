@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrds
-%global packver   2.3.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mark-Recapture Distance Sampling
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-optimx >= 2013.8.6
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Rsolnp 
 Requires:         R-CRAN-optimx >= 2013.8.6
 Requires:         R-CRAN-mgcv 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-Rsolnp 
 
 %description

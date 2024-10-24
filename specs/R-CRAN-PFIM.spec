@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PFIM
-%global packver   6.0.3
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0.3
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Population Fisher Information Matrix
 
@@ -30,8 +30,10 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-inline 
 Requires:         R-utils 
 Requires:         R-methods 
@@ -45,8 +47,10 @@ Requires:         R-CRAN-pracma
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-kableExtra 
+Requires:         R-stats 
 
 %description
 Evaluate or optimize designs for nonlinear mixed effects models using the

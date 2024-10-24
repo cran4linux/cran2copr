@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openCR
-%global packver   2.2.6
+%global packver   2.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.6
+Version:          2.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Open Population Capture-Recapture
 

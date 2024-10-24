@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kml3d
-%global packver   2.4.6.1
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.6.1
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          K-Means for Joint Longitudinal Data
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-longitudinalData >= 2.4.2
-BuildRequires:    R-CRAN-kml >= 2.4.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-clv 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-misc3d 
-Requires:         R-CRAN-longitudinalData >= 2.4.2
-Requires:         R-CRAN-kml >= 2.4.1
+BuildRequires:    R-CRAN-longitudinalData 
+BuildRequires:    R-CRAN-kml 
 Requires:         R-methods 
 Requires:         R-CRAN-clv 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-misc3d 
+Requires:         R-CRAN-longitudinalData 
+Requires:         R-CRAN-kml 
 
 %description
 An implementation of k-means specifically design to cluster joint

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLE
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation of Various Univariate and Multivariate Distributions
 
@@ -40,16 +40,16 @@ Requires:         R-CRAN-skellam
 
 %description
 Several functions for maximum likelihood estimation of various univariate
-and multivariate distributions. The list includes more than 100 univariate
-continuous and discrete distributions, distributions that lie on the real
-line, the positive line, interval restricted, circular distributions.
-Further, multivariate continuous and discrete distributions, distributions
-for compositional and directional data, etc. Some references include
-Johnson N. L., Kotz S. and Balakrishnan N. (1994). "Continuous Univariate
-Distributions, Volume 1" <ISBN:978-0-471-58495-7>, Johnson, Norman L.
-Kemp, Adrianne W. Kotz, Samuel (2005). "Univariate Discrete
-Distributions". <ISBN:978-0-471-71580-1> and Mardia, K. V. and Jupp, P. E.
-(2000). "Directional Statistics". <ISBN:978-0-471-95333-3>.
+and multivariate distributions. The list includes more than 100 functions
+for univariate continuous and discrete distributions, distributions that
+lie on the real line, the positive line, interval restricted, circular
+distributions. Further, multivariate continuous and discrete
+distributions, distributions for compositional and directional data, etc.
+Some references include Johnson N. L., Kotz S. and Balakrishnan N. (1994).
+"Continuous Univariate Distributions, Volume 1" <ISBN:978-0-471-58495-7>,
+Johnson, Norman L. Kemp, Adrianne W. Kotz, Samuel (2005). "Univariate
+Discrete Distributions". <ISBN:978-0-471-71580-1> and Mardia, K. V. and
+Jupp, P. E. (2000). "Directional Statistics". <ISBN:978-0-471-95333-3>.
 
 %prep
 %setup -q -c -n %{packname}

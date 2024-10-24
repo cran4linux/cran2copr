@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pointblank
-%global packver   0.12.1
+%global packver   0.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.12.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Validation and Organization of Metadata for Local and Remote Tables
 

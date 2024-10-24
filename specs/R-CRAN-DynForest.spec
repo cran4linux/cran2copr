@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DynForest
-%global packver   1.1.3
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forest with Multivariate Longitudinal Predictors
 
@@ -14,10 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-cmprsk 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doRNG 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-cmprsk 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-doRNG 
