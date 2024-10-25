@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Distance
-%global packver   2.0.0
+%global packname  cascadess
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          A Style Pronoun for 'htmltools' Tags
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 3.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-htmltools >= 0.4.0
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 3.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-htmltools >= 0.4.0
 Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+Apply styles to tag elements directly and with the .style pronoun. Using
+the pronoun, styles are created within the context of a tag element.
+Change borders, backgrounds, text, margins, layouts, and more.
 
 %prep
 %setup -q -c -n %{packname}

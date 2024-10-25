@@ -1,40 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Distance
-%global packver   2.0.0
+%global packname  spotifyr
+%global packver   2.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          R Wrapper for the 'Spotify' Web API
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 3.0.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 3.0.0
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-xml2 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+An R wrapper for pulling data from the 'Spotify' Web API
+<https://developer.spotify.com/documentation/web-api/> in bulk, or post
+items on a 'Spotify' user's playlist.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeoda
-%global packver   0.0.10-4
+%global packname  ipd
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.10.4
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Library for Spatial Data Analysis
+Summary:          Inference on Predicted Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-methods 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-gam 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-gam 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ranger 
+Requires:         R-splines 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-randomForest 
 
 %description
-Provides spatial data analysis functionalities including Exploratory
-Spatial Data Analysis, Spatial Cluster Detection and Clustering Analysis,
-Regionalization, etc. based on the C++ source code of 'GeoDa', which is an
-open-source software tool that serves as an introduction to spatial data
-analysis. The 'GeoDa' software and its documentation are available at
-<https://geodacenter.github.io>.
+Performs valid statistical inference on predicted data (IPD) using recent
+methods, where for a subset of the data, the outcomes have been predicted
+by an algorithm. Provides a wrapper function with specified defaults for
+the type of model and method to be used for estimation and inference.
+Further provides methods for tidying and summarizing results. Salerno et
+al., (2024) <doi:10.48550/arXiv.2410.09665>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admix
-%global packver   2.1-3
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Admix for Admixture (aka Contamination) Models
 
@@ -18,26 +18,28 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-base 
 BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Iso 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-orthopolynom 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-base 
 Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-fdrtool 
 Requires:         R-graphics 
 Requires:         R-CRAN-Iso 
 Requires:         R-CRAN-MASS 
-Requires:         R-methods 
 Requires:         R-CRAN-orthopolynom 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
 Requires:         R-utils 
 
@@ -46,15 +48,18 @@ Implements techniques to estimate the unknown quantities related to
 two-component admixture models, where the two components can belong to any
 distribution (note that in the case of multinomial mixtures, the two
 components must belong to the same family). Estimation methods depend on
-the assumptions made on the unknown component density (see Bordes and
-Vandekerkhove (2010) <doi:10.3103/S1066530710010023>; Patra and Sen (2016)
-<doi:10.1111/rssb.12148>); Milhaud, Pommeret, Salhi and Vandekerkhove
-(2022) <doi:10.1016/j.jspi.2021.05.010>). In practice, one can estimate
-both the mixture weight and the unknown component density in a wide
-variety of frameworks. On top of that, hypothesis tests can be performed
-in one and two-sample contexts to test the unknown component density (see
-Milhaud, Pommeret, Salhi, Vandekerkhove (2023)). Finally, clustering of
-unknown mixture components is also feasible in a K-samples setting.
+the assumptions made on the unknown component density; see Bordes and
+Vandekerkhove (2010) <doi:10.3103/S1066530710010023>, Patra and Sen (2016)
+<doi:10.1111/rssb.12148>, and Milhaud, Pommeret, Salhi, Vandekerkhove
+(2024) <doi:10.3150/23-BEJ1593>. In practice, one can estimate both the
+mixture weight and the unknown component density in a wide variety of
+frameworks. On top of that, hypothesis tests can be performed in one and
+two-sample contexts to test the unknown component density (see Milhaud,
+Pommeret, Salhi and Vandekerkhove (2022) <doi:10.1016/j.jspi.2021.05.010>,
+and Milhaud, Pommeret, Salhi, Vandekerkhove (2024)
+<doi:10.3150/23-BEJ1593>). Finally, clustering of unknown mixture
+components is also feasible in a K-sample setting (see Milhaud, Pommeret,
+Salhi, Vandekerkhove (2024) <https://jmlr.org/papers/v25/23-0914.html>).
 
 %prep
 %setup -q -c -n %{packname}

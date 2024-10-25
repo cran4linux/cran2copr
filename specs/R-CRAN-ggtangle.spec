@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtangle
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Network with Data
 
@@ -17,14 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggfun >= 0.1.6
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.6
+BuildRequires:    R-CRAN-ggfun >= 0.1.7
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggfun >= 0.1.6
-Requires:         R-CRAN-yulab.utils >= 0.1.6
+Requires:         R-CRAN-ggfun >= 0.1.7
+Requires:         R-CRAN-yulab.utils >= 0.1.7
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-rlang 
 

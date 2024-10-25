@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  papaja
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prepare American Psychological Association Journal Articles with R Markdown
 
@@ -14,31 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.4
-BuildRequires:    R-CRAN-glue >= 1.4.0
-BuildRequires:    R-CRAN-knitr >= 1.26
-BuildRequires:    R-CRAN-bookdown >= 0.9
-BuildRequires:    R-CRAN-broom >= 0.7.0
-BuildRequires:    R-CRAN-rmdfiltr >= 0.1.3
-BuildRequires:    R-CRAN-tinylabels >= 0.1.0
+BuildRequires:    R-CRAN-yaml >= 2.3.10
+BuildRequires:    R-CRAN-zip >= 2.3.1
+BuildRequires:    R-CRAN-rmarkdown >= 2.28
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-knitr >= 1.48
+BuildRequires:    R-CRAN-broom >= 1.0.7
+BuildRequires:    R-CRAN-bookdown >= 0.41
+BuildRequires:    R-CRAN-tinylabels >= 0.2.4
+BuildRequires:    R-CRAN-rmdfiltr >= 0.1.5
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-rmarkdown >= 2.4
-Requires:         R-CRAN-glue >= 1.4.0
-Requires:         R-CRAN-knitr >= 1.26
-Requires:         R-CRAN-bookdown >= 0.9
-Requires:         R-CRAN-broom >= 0.7.0
-Requires:         R-CRAN-rmdfiltr >= 0.1.3
-Requires:         R-CRAN-tinylabels >= 0.1.0
+Requires:         R-CRAN-yaml >= 2.3.10
+Requires:         R-CRAN-zip >= 2.3.1
+Requires:         R-CRAN-rmarkdown >= 2.28
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-knitr >= 1.48
+Requires:         R-CRAN-broom >= 1.0.7
+Requires:         R-CRAN-bookdown >= 0.41
+Requires:         R-CRAN-tinylabels >= 0.2.4
+Requires:         R-CRAN-rmdfiltr >= 0.1.5
 Requires:         R-methods 
 Requires:         R-utils 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-zip 
 
 %description
 Tools to create dynamic, submission-ready manuscripts, which conform to

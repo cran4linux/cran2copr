@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.logger
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logging Setup for the 'teal' Family of Packages
 
@@ -20,15 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-withr >= 2.1.0
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-glue >= 1.0.0
+BuildRequires:    R-CRAN-logger >= 0.3.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-CRAN-logger >= 0.2.0
 BuildRequires:    R-methods 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-withr >= 2.1.0
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-glue >= 1.0.0
+Requires:         R-CRAN-logger >= 0.3.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-CRAN-logger >= 0.2.0
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
 Utilizing the 'logger' framework to record events within a package,

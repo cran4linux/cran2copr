@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Distance
-%global packver   2.0.0
+%global packname  ARTtransfer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          Adaptive and Robust Pipeline for Transfer Learning
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 3.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 3.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-stats 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+Adaptive and Robust Transfer Learning (ART) is a flexible framework for
+transfer learning that integrates information from auxiliary data sources
+to improve model performance on primary tasks. It is designed to be robust
+against negative transfer by including the non-transfer model in the
+candidate pool, ensuring stable performance even when auxiliary datasets
+are less informative. See the paper, Wang, Wu, and Ye (2023)
+<doi:10.1002/sta4.582>.
 
 %prep
 %setup -q -c -n %{packname}

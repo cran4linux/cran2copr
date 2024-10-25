@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  preferably
-%global packver   0.4.1
+%global __requires_exclude ^libmpi
+%global packname  icesDatsu
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'pkgdown' Template
+Summary:          Functions to Interact with the ICES Data Submission Utility (DATSU)
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pkgdown 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-pkgdown 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-icesConnect >= 1.0.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-icesConnect >= 1.0.0
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-This is an accessible template for 'pkgdown'. It uses two bootstrap
-themes, Flatly and Darkly and utilizes the 'prefers-color-scheme' CSS
-variable to automatically serve either of the two based on user’s
-operating system setting, or allowing them to manually toggle between
-them.
+Functions to Interact with the ICES Data Submission Utility (DATSU)
+<https://datsu.ices.dk/web/index.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

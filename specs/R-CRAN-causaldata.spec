@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  causaldata
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Example Data Sets for Causal Inference Textbooks
 
@@ -21,10 +22,11 @@ Requires:         R-CRAN-tibble
 
 %description
 Example data sets to run the example problems from causal inference
-textbooks. Currently, contains data sets for Huntington-Klein, Nick (2021)
-"The Effect" <https://theeffectbook.net>, Cunningham, Scott (2021,
-ISBN-13: 978-0-300-25168-5) "Causal Inference: The Mixtape", and Hernán,
-Miguel and James Robins (2020) "Causal Inference: What If"
+textbooks. Currently, contains data sets for Huntington-Klein, Nick (2021
+and 2025) "The Effect" <https://theeffectbook.net>, first and second
+edition, Cunningham, Scott (2021 and 2025, ISBN-13: 978-0-300-25168-5)
+"Causal Inference: The Mixtape", and Hernán, Miguel and James Robins
+(2020) "Causal Inference: What If"
 <https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>.
 
 %prep

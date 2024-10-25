@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Distance
-%global packver   2.0.0
+%global packname  mall
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance Sampling Detection Function and Abundance Estimation
+Summary:          Run Multiple Large Language Model Predictions Against a Table, or Vectors
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 3.0.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ollamar 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 3.0.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ollamar 
 Requires:         R-CRAN-rlang 
 
 %description
-A simple way of fitting detection functions to distance sampling data for
-both line and point transects. Adjustment term selection, left and right
-truncation as well as monotonicity constraints and binning are supported.
-Abundance and density estimates can also be calculated (via a
-Horvitz-Thompson-like estimator) if survey area information is provided.
-See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+Run multiple 'Large Language Model' predictions against a table. The
+predictions run row-wise over a specified column. It works using a
+one-shot prompt, along with the current row's content. The prompt that is
+used will depend of the type of analysis needed.
 
 %prep
 %setup -q -c -n %{packname}

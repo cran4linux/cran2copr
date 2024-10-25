@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BoundaryStats
-%global packver   2.2.0
+%global packname  AutoWMM
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boundary Overlap Statistics
+Summary:          Perform the Weighted Multiplier Method on Trees
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-pdqr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-pdqr 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Analysis workflow for finding geographic boundaries of ecological or
-landscape traits and comparing the placement of geographic boundaries of
-two traits. If data are trait values, trait data are transformed to
-boundary intensities based on approximate first derivatives across
-latitude and longitude. The package includes functions to create custom
-null models based on the input data. The boundary statistics are described
-in: Fortin, Drapeau, and Jacquez (1996) <doi:10.2307/3545584>.
+When many possible multiplier method estimates of a target population are
+available, a weighted sum of estimates from each back-calculated path can
+be achieved with this package.  Variance-minimizing weights are used and
+with any admissible tree-structured data.  The methodological basis used
+to create this package can be found in Flynn (2023)
+<http://hdl.handle.net/2429/86174>.
 
 %prep
 %setup -q -c -n %{packname}

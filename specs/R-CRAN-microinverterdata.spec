@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  microinverterdata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collect your Microinverter Data
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
@@ -38,8 +40,8 @@ Requires:         R-CRAN-units
 
 %description
 Collect and normalize local microinverter energy and power production data
-through off-cloud API requests. Currently supports 'APSystems'
-microinverters.
+through off-cloud API requests. Currently supports 'APSystems', 'Enphase',
+and 'Fronius' microinverters.
 
 %prep
 %setup -q -c -n %{packname}
