@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slider
-%global packver   0.3.2
+%global packname  psvd
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Eigendecomposition, Singular-Values and the Power Method
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+For a data matrix with m rows and n columns (m>=n), the power method is
+used to compute, simultaneously, the eigendecomposition of a square
+symmetric matrix. This result is used to obtain the singular value
+decomposition (SVD) and the principal component analysis (PCA) results.
+Compared to the classical SVD method, the first r singular values can be
+computed.
 
 %prep
 %setup -q -c -n %{packname}

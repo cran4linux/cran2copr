@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ntdr
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve Data from the National Transit Database
 
@@ -17,20 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 0.2.3
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-httr2 >= 0.2.3
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-tidyr 
 

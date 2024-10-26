@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gMOIP
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for 2D and 3D Plots of Single and Multi-Objective Linear/Integer Programming Models
 
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-eaf 
+BuildRequires:    R-CRAN-moocore 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-geometry 
 Requires:         R-CRAN-ggplot2 
@@ -54,7 +54,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-eaf 
+Requires:         R-CRAN-moocore 
 
 %description
 Make 2D and 3D plots of linear programming (LP), integer linear

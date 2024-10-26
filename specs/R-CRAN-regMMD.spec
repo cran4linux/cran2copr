@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pharmaversesdtm
-%global packver   1.1.0
+%global packname  regMMD
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          SDTM Test Data for the 'Pharmaverse' Family of Packages
+Summary:          Robust Regression and Estimation Through Maximum Mean Discrepancy Minimization
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-Rdpack >= 0.7
 
 %description
-A set of Study Data Tabulation Model (SDTM) datasets from the Clinical
-Data Interchange Standards Consortium (CDISC) pilot project used for
-testing and developing Analysis Data Model (ADaM) datasets inside the
-pharmaverse family of packages. SDTM dataset specifications are described
-in the CDISC SDTM implementation guide, accessible by creating a free
-account on <https://www.cdisc.org/>.
+The functions in this package compute robust estimators by minimizing a
+kernel-based distance known as MMD (Maximum Mean Discrepancy) between the
+sample and a statistical model. Recent works proved that these estimators
+enjoy a universal consistency property, and are extremely robust to
+outliers. Various optimization algorithms are implemented: stochastic
+gradient is available for most models, but the package also allows
+gradient descent in a few models for which an exact formula is available
+for the gradient. In terms of distribution fit, a large number of
+continuous and discrete distributions are available: Gaussian,
+exponential, uniform, gamma, Poisson, geometric, etc. In terms of
+regression, the models available are: linear, logistic, gamma, beta and
+Poisson. Alquier, P. and Gerber, M. (2024) <doi:10.1093/biomet/asad031>
+Cherief-Abdellatif, B.-E. and Alquier, P. (2022) <doi:10.3150/21-BEJ1338>.
 
 %prep
 %setup -q -c -n %{packname}

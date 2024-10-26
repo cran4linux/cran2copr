@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slider
-%global packver   0.3.2
+%global packname  UnplanSimon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Methods for Managing Enrollment Deviation in Simon's Two-Stage Design
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Methods for managing under- and over-enrollment in Simon's Two-Stage
+Design are offered by providing adaptive threshold adjustments and sample
+size recalibration. It also includes post-inference analysis tools to
+support clinical trial design and evaluation. The package is designed to
+enhance flexibility and accuracy in trial design, ensuring better outcomes
+in oncology and other clinical studies. Yunhe Liu, Haitao Pan (2024).
+Submitted.
 
 %prep
 %setup -q -c -n %{packname}

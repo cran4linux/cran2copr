@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slider
-%global packver   0.3.2
+%global packname  leafletZH
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Adds a Chinese Choropleth Leaflet Map
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-warp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leaflet.extras 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leaflet.extras 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Provides 'sf' data for Chinese provinces and cities, methods for plotting
+shape maps of Chinese provinces and cities, and a layer for 'leaflet' with
+Gaode tiles. It is designed to facilitate geographical data visualization
+in China.
 
 %prep
 %setup -q -c -n %{packname}

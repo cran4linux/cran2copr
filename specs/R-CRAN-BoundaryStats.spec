@@ -1,55 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdss
-%global packver   1.0.12
+%global packname  BoundaryStats
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.12
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
+Summary:          Boundary Overlap Statistics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-pdqr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dataverse 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-marginaleffects 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-randomizr 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-pdqr 
+Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dataverse 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-marginaleffects 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-randomizr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-scales 
 
 %description
-Helper functions to accompany the Blair, Coppock, and Humphreys (2022)
-"Research Design in the Social Sciences: Declaration, Diagnosis, and
-Redesign" <https://book.declaredesign.org>. 'rdss' includes datasets,
-helper functions, and plotting components to enable use and replication of
-the book.
+Analysis workflow for finding geographic boundaries of ecological or
+landscape traits and comparing the placement of geographic boundaries of
+two traits. If data are trait values, trait data are transformed to
+boundary intensities based on approximate first derivatives across
+latitude and longitude. The package includes functions to create custom
+null models based on the input data. The boundary statistics are described
+in: Fortin, Drapeau, and Jacquez (1996) <doi:10.2307/3545584>.
 
 %prep
 %setup -q -c -n %{packname}

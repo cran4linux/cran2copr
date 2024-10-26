@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsurv
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Generation of Survival Data
 
@@ -17,10 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bellreg >= 0.0.2.2
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-stabledist 
+Requires:         R-CRAN-bellreg >= 0.0.2.2
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-stabledist 
 

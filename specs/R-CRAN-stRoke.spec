@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stRoke
-%global packver   23.9.1
+%global packver   24.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          23.9.1
+Version:          24.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Stroke Research
 
@@ -28,6 +28,8 @@ BuildRequires:    R-CRAN-rankinPlot
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-calendar 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
@@ -39,15 +41,16 @@ Requires:         R-CRAN-rankinPlot
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-This is an R-toolbox of custom functions for convenient data management
-and analysis in clinical health research and teaching. The package is
-mainly collected for personal use, but any use beyond that is encouraged.
-This package has migrated functions from 'agdamsbo/daDoctoR', and new
-functions has been added. Version follows months and year. See
-NEWS/Changelog for release notes. This package includes sampled data from
-the TALOS trial (Kraglund et al (2018)
+A collection of tools for clinical trial data management and analysis in
+research and teaching. The package is mainly collected for personal use,
+but any use beyond that is encouraged. This package has migrated functions
+from 'agdamsbo/daDoctoR', and new functions has been added. Version
+follows months and year. See NEWS/Changelog for release notes. This
+package includes sampled data from the TALOS trial (Kraglund et al (2018)
 <doi:10.1161/STROKEAHA.117.020067>). The win_prob() function is based on
 work by Zou et al (2022) <doi:10.1161/STROKEAHA.121.037744>. The
 age_calc() function is based on work by Becker (2020)

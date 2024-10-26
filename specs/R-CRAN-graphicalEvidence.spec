@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slider
-%global packver   0.3.2
+%global packname  graphicalEvidence
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Graphical Evidence
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Computes marginal likelihood in Gaussian graphical models through a novel
+telescoping block decomposition of the precision matrix which allows
+estimation of model evidence. The top level function used to estimate
+marginal likelihood is called evidence, which expects the prior name,
+data, and relevant prior specific parameters. This package also provides
+an MCMC prior sampler using the same underlying approach, implemented in
+prior_sampling, which expects a prior name and prior specific parameters.
+Both functions also expect the number of burn-in iterations and the number
+of sampling iterations for the underlying MCMC sampler.
 
 %prep
 %setup -q -c -n %{packname}

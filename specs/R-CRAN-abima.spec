@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slider
-%global packver   0.3.2
+%global packname  abima
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Adaptive Bootstrap Inference for Mediation Analysis with Enhanced Statistical Power
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-boot 
+Requires:         R-stats 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+Assess whether and how a specific continuous or categorical exposure
+affects the outcome of interest through one- or multi-dimensional
+mediators using an adaptive bootstrap (AB) approach. The AB method allows
+to make inference for composite null hypotheses of no mediation effect,
+providing valid type I error control and thus optimizes statistical power.
+For more technical details, refer to He, Song and Xu (2024)
+<doi:10.1093/jrsssb/qkad129>.
 
 %prep
 %setup -q -c -n %{packname}

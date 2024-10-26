@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pharmaversesdtm
-%global packver   1.1.0
+%global packname  clustcurv
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          SDTM Test Data for the 'Pharmaverse' Family of Packages
+Summary:          Determining Groups in Multiples Curves
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggfortify 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Gmedian 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-npregfast 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggfortify 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Gmedian 
+Requires:         R-grDevices 
+Requires:         R-CRAN-npregfast 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-survival 
 
 %description
-A set of Study Data Tabulation Model (SDTM) datasets from the Clinical
-Data Interchange Standards Consortium (CDISC) pilot project used for
-testing and developing Analysis Data Model (ADaM) datasets inside the
-pharmaverse family of packages. SDTM dataset specifications are described
-in the CDISC SDTM implementation guide, accessible by creating a free
-account on <https://www.cdisc.org/>.
+A method for determining groups in multiple curves with an automatic
+selection of their number based on k-means or k-medians algorithms. The
+selection of the optimal number is provided by bootstrap methods. The
+methodology can be applied both in regression and survival framework.
+Implemented methods are: Grouping multiple survival curves described by
+Villanueva et al. (2018) <doi:10.1002/sim.8016>.
 
 %prep
 %setup -q -c -n %{packname}

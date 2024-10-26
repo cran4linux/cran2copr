@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kerntools
-%global packver   1.1.0
+%global packname  spBPS
+%global packver   0.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Functions and Tools for Machine Learning Applications
+Summary:          Bayesian Predictive Stacking for Scalable Geospatial Transfer Learning
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kernlab 
-Requires:         R-methods 
-Requires:         R-CRAN-reshape2 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-devel >= 1.8.0
+Requires:         R-core >= 1.8.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-mniw 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-mniw 
 
 %description
-Kernel functions for diverse types of data (including, but not restricted
-to: nonnegative and real vectors, real matrices, categorical and ordinal
-variables, sets, strings), plus other utilities like kernel similarity,
-kernel Principal Components Analysis (PCA) and features' importance for
-Support Vector Machines (SVMs), which expand other 'R' packages like
-'kernlab'.
+Provides functions for Bayesian Predictive Stacking within the Bayesian
+transfer learning framework for geospatial artificial systems, as
+introduced in "Bayesian Transfer Learning for Artificially Intelligent
+Geospatial Systems: A Predictive Stacking Approach" (Presicce and
+Banerjee, 2024) <doi:10.48550/arXiv.2410.09504>. This methodology enables
+efficient Bayesian geostatistical modeling, utilizing predictive stacking
+to improve inference across spatial datasets. The core functions leverage
+'C++' for high-performance computation, making the framework well-suited
+for large-scale spatial data analysis in parallel and distributed
+computing environments. Designed for scalability, it allows seamless
+application in computationally demanding scenarios.
 
 %prep
 %setup -q -c -n %{packname}

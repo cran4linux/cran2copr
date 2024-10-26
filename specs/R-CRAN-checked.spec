@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  checked
-%global packver   0.2.0
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematically Run R CMD Checks
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-callr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-options 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rcmdcheck 
 BuildRequires:    R-tools 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-callr
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-options 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rcmdcheck 
 Requires:         R-tools 

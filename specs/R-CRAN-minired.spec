@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  trampoline
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  minired
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Functions that Can Recurse Infinitely
+Summary:          R Interface to 'Redatam' Library
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.1.2
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-fastmap 
-Requires:         R-CRAN-rlang >= 0.1.2
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-fastmap 
+BuildRequires:    R-CRAN-cpp11 
 
 %description
-Implements a trampoline algorithm for R that let's users write recursive
-functions that get around R's stack call limitations, enabling
-theoretically infinite recursion. The algorithm is based around generator
-function as implemented in the 'coro' package, and is based almost
-completely on the 'trampoline' module from Python
-<https://gitlab.com/ferreum/trampoline>.
+Provides an API to work with 'Redatam' (see <https://www.redatam.org>)
+databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
+running 'Redatam' programs written in 'SPC' language. It's a wrapper
+around 'Redatam' core and provides functions to open a database
+('redatam_open()'), list entities and variables from the database
+('redatam_entities()', 'redatam_variables()') and execute a 'SPC' program
+and gets the results as data frames ('redatam_query()'/'redatam_run()').
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slider
-%global packver   0.3.2
+%global packname  CTxCC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sliding Window Functions
+Summary:          Multivariate Normal Mean Monitoring Through Critical-to-X Control Chart
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.6.1
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-warp 
-Requires:         R-CRAN-cli >= 3.6.1
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-warp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-CompQuadForm 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
-Provides type-stable rolling window functions over any R data type.
-Cumulative and expanding windows are also supported. For more advanced
-usage, an index can be used as a secondary vector that defines how sliding
-windows are to be created.
+A comprehensive set of functions designed for multivariate mean monitoring
+using the Critical-to-X Control Chart. These functions enable the
+determination of optimal control limits based on a specified in-control
+Average Run Length (ARL), the calculation of out-of-control ARL for a
+given control limit, and post-signal analysis to identify the specific
+variable responsible for a detected shift in the mean. This suite of tools
+provides robust support for precise and effective process monitoring and
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pharmaverseadam
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          ADaM Test Data for the 'Pharmaverse' Family of Packages
 
@@ -22,9 +22,8 @@ BuildArch:        noarch
 A set of Analysis Data Model (ADaM) datasets constructed using the Study
 Data Tabulation Model (SDTM) datasets contained in the 'pharmaversesdtm'
 package and the template scripts from the 'admiral' family of packages.
-ADaM dataset specifications are described in: CDISC Analysis Data Model
-Team (2021)
-<https://www.cdisc.org/system/files/members/standard/foundational/ADaMIG_v1.3.pdf>.
+ADaM dataset specifications are described in the CDISC ADaM implementation
+guide, accessible by creating a free account on <https://www.cdisc.org/>.
 
 %prep
 %setup -q -c -n %{packname}

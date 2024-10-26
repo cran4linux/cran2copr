@@ -1,32 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rngSetSeed
-%global packver   0.3-3
+%global packname  atlasapprox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Seeding the Default RNG with a Numeric Vector
+Summary:          Cell Atlas Approximations
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-httr 
 
 %description
-A function setVectorSeed() is provided. Its argument is a numeric vector
-of an arbitrary nonzero length, whose components have integer values from
-[0, 2^32-1]. The input vector is transformed using AES (Advanced
-Encryption Standard) algorithm into an initial state of Mersenne-Twister
-random number generator. The function provides a better alternative to the
-R base function set.seed(), if the input vector is a single integer.
-Initializing a stream of random numbers with a vector is a convenient way
-to obtain several streams, each of which is identified by several integer
-indices.
+Provides an interface in R to cell atlas approximations. See the vignette
+under "Getting started" for instructions. You can also explore the
+reference documentation for specific functions. Additional interfaces and
+resources are available at <https://atlasapprox.readthedocs.io>.
 
 %prep
 %setup -q -c -n %{packname}
