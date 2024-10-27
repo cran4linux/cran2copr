@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DynareR
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bringing the Power of 'Dynare' to 'R', 'R Markdown', and 'Quarto'
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.2.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-knitr >= 1.20
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-magick 
 Requires:         R-CRAN-knitr >= 1.20
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-magick 
 
 %description
 It allows running 'Dynare' program from base R, R Markdown and Quarto.

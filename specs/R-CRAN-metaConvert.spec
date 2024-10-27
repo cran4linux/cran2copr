@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaConvert
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Automatic Suite for Estimation of Various Effect Size Measures
 
@@ -20,17 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-compareDF 
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-estimraw 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-rio 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-compareDF 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-estimraw 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-rio 
-Requires:         R-utils 
 
 %description
 Automatically estimate 11 effect size measures from a well-formatted
