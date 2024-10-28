@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidycountries
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Manipulate Comprehensive Country Level Data in Tidy Format
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
 
 %description
 A comprehensive and user-friendly interface for accessing, manipulating,

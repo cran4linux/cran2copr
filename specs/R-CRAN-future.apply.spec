@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.apply
-%global packver   1.11.2
+%global packver   1.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.2
+Version:          1.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Apply Function to Elements in Parallel using Futures
 
@@ -30,10 +30,10 @@ Requires:         R-utils
 Implementations of apply(), by(), eapply(), lapply(), Map(), .mapply(),
 mapply(), replicate(), sapply(), tapply(), and vapply() that can be
 resolved using any future-supported backend, e.g. parallel on the local
-machine or distributed on a compute cluster.  These future_*apply()
+machine or distributed on a compute cluster. These future_*apply()
 functions come with the same pros and cons as the corresponding base-R
 *apply() functions but with the additional feature of being able to be
-processed via the future framework.
+processed via the future framework <doi:10.32614/RJ-2021-048>.
 
 %prep
 %setup -q -c -n %{packname}

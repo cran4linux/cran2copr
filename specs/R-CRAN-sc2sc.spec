@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sc2sc
-%global packver   0.0.1-12
+%global packver   0.0.1-14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.12
+Version:          0.0.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Transfer of Statistics among Spanish Census Sections
 
@@ -30,10 +30,12 @@ transferred to the census sections of another partition/division employing
 the geometric approach (also known as areal weighting or polygon overlay).
 References: Goerlich (2022) <doi:10.12842/WPIVIE_0322>. Pavía and
 Cantarino (2017a, b) <doi:10.1111/gean.12112>,
-<doi:10.1016/j.apgeog.2017.06.021>. Acknowledgements: The authors wish to
-thank Consellería de Educación, Universidades y Empleo, Generalitat
-Valenciana (grant AICO/2021/257) and Ministerio de Economía e Innovación
-(grant PID2021-128228NB-I00) for supporting this research.
+<doi:10.1016/j.apgeog.2017.06.021>. Pérez and Pavía (2024a, b)
+<doi:10.4995/CARMA2024.2024.17796>, <doi:10.38191/iirr-jorr.24.057>.
+Acknowledgements: The authors wish to thank Consellería de Educación,
+Universidades y Empleo, Generalitat Valenciana (grant AICO/2021/257),
+Ministerio de Economía e Innovación (grant PID2021-128228NB-I00) and
+Fundación Mapfre for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}
