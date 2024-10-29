@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastcmprsk
-%global packver   1.24.10
+%global packname  icmstate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fine-Gray Regression via Forward-Backward Scan
+Summary:          Interval Censored Multi-State Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dynpred 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dynpred 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-igraph >= 1.3.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-mstate 
+BuildRequires:    R-CRAN-prodlim 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-msm 
+Requires:         R-CRAN-igraph >= 1.3.0
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-mstate 
+Requires:         R-CRAN-prodlim 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-msm 
 
 %description
-In competing risks regression, the proportional subdistribution hazards
-(PSH) model is popular for its direct assessment of covariate effects on
-the cumulative incidence function. This package allows for both penalized
-and unpenalized PSH regression in linear time using a novel
-forward-backward scan. Penalties include Ridge, Lease Absolute Shrinkage
-and Selection Operator (LASSO), Smoothly Clipped Absolute Deviation
-(SCAD), Minimax Concave Plus (MCP), and elastic net <doi:
-10.32614/RJ-2021-010>.
+Allows for the non-parametric estimation of transition intensities in
+interval-censored multi-state models using the approach of Gomon and
+Putter (2024) <doi:10.48550/arXiv.2409.07176> or Gu et al. (2023)
+<doi:10.1093/biomet/asad073>.
 
 %prep
 %setup -q -c -n %{packname}

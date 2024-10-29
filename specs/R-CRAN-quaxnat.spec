@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quaxnat
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Natural Regeneration Potential
 
@@ -27,7 +27,7 @@ Functions for estimating the potential dispersal of tree species using
 regeneration densities and dispersal distances to nearest seed trees. A
 quantile regression is implemented to determine the dispersal potential.
 Spatial prediction can be used to identify natural regeneration potential
-for forest restoration as described in Axer et al. (2021)
+for forest restoration as described in Axer et al (2021)
 <doi:10.1016/j.foreco.2020.118802>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gge
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genotype Plus Genotype-by-Environment Biplots
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-reshape2
 
 %description
 Create biplots for GGE (genotype plus genotype-by-environment) and GGB
-(genotype plus genotype-by-block-of-environments) models. See Laffont et
+(genotype plus genotype-by-block-of-environments) models.  See Laffont et
 al. (2013) <doi:10.2135/cropsci2013.03.0178>.
 
 %prep

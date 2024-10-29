@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  combat.enigma
-%global packver   1.1
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit and Apply ComBat, LMM, or Prescaling Harmonization for ENIGMA and Other Multisite MRI Data
 
@@ -37,7 +37,7 @@ for the harmonization of MRI data (Fortin et al. (2017)
 separate functions for fitting and applying the harmonization and allow
 missing values and constant rows for its use within the Enhancing Neuro
 Imaging Genetics through Meta-Analysis (ENIGMA) Consortium (Radua et al.
-(2020) <doi:10.1016/j.neuroimage.2017.11.024>); this package includes the
+(2020) <doi:10.1016/j.neuroimage.2020.116956>); this package includes the
 latter version. LMM calls "lme" massively considering specific brain
 imaging details. Finally, prescaling is a good option for fMRI, where
 different devices can have varying units of measurement.

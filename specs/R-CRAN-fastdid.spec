@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastcmprsk
-%global packver   1.24.10
+%global packname  fastdid
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.10
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fine-Gray Regression via Forward-Backward Scan
+Summary:          Fast Staggered Difference-in-Difference Estimators
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dynpred 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dynpred 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dreamerr >= 1.4.0
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-BMisc 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-parglm 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-dreamerr >= 1.4.0
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-BMisc 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-parglm 
+Requires:         R-CRAN-ggplot2 
 
 %description
-In competing risks regression, the proportional subdistribution hazards
-(PSH) model is popular for its direct assessment of covariate effects on
-the cumulative incidence function. This package allows for both penalized
-and unpenalized PSH regression in linear time using a novel
-forward-backward scan. Penalties include Ridge, Lease Absolute Shrinkage
-and Selection Operator (LASSO), Smoothly Clipped Absolute Deviation
-(SCAD), Minimax Concave Plus (MCP), and elastic net <doi:
-10.32614/RJ-2021-010>.
+A fast and flexible implementation of Callaway and Sant'Anna's
+(2021)<doi:10.1016/j.jeconom.2020.12.001> staggered
+Difference-in-Differences (DiD) estimators, 'fastdid' reduces the
+computation time from hours to seconds, and incorporates extensions such
+as time-varying covariates and multiple events.
 
 %prep
 %setup -q -c -n %{packname}

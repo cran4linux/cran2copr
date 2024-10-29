@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  diceplot
+%global packname  ggpca
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Dimensional Categorical Data Visualization
+Summary:          Publication-Ready PCA, t-SNE, and UMAP Plots
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,31 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.0
-BuildRequires:    R-CRAN-data.table >= 1.14.8
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny >= 1.8.1.1
+BuildRequires:    R-CRAN-golem >= 0.4.1
+BuildRequires:    R-CRAN-config >= 0.3.2
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-tidyr >= 1.3.0
-Requires:         R-CRAN-data.table >= 1.14.8
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-tibble 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-umap 
+Requires:         R-CRAN-shiny >= 1.8.1.1
+Requires:         R-CRAN-golem >= 0.4.1
+Requires:         R-CRAN-config >= 0.3.2
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-umap 
 
 %description
-Easy visualization for datasets with more than two categorical variables
-and additional continuous variables. 'diceplot' is particularly useful for
-exploring complex categorical data in the context of pathway analysis
-across multiple conditions. For a detailed documentation please visit
-<https://dice-and-domino-plot.readthedocs.io/en/latest/>.
+Provides tools for creating publication-ready dimensionality reduction
+plots, including Principal Component Analysis (PCA), t-Distributed
+Stochastic Neighbor Embedding (t-SNE), and Uniform Manifold Approximation
+and Projection (UMAP). This package helps visualize high-dimensional data
+with options for custom labels, density plots, and faceting, using the
+'ggplot2' framework Wickham (2016) <doi:10.1007/978-3-319-24277-4>.
 
 %prep
 %setup -q -c -n %{packname}

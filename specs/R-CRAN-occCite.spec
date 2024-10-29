@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  occCite
-%global packver   0.5.8
+%global packver   0.5.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Querying and Managing Large Biodiversity Occurrence Datasets
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rgbif >= 3.1
+BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-bib2df 
 BuildRequires:    R-CRAN-BIEN 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RefManageR 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-leaflet 
@@ -37,12 +39,14 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-waffle 
 Requires:         R-CRAN-rgbif >= 3.1
+Requires:         R-CRAN-ape 
 Requires:         R-CRAN-bib2df 
 Requires:         R-CRAN-BIEN 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-RefManageR 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-CRAN-leaflet 

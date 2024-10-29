@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRG
-%global packver   0.2.14
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.14
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Non-Confidential Multi-Resolution Grids
 

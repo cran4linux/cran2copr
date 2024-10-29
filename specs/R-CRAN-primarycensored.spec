@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastcmprsk
-%global packver   1.24.10
+%global packname  primarycensored
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fine-Gray Regression via Forward-Backward Scan
+Summary:          Primary Event Censored Distributions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dynpred 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dynpred 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-In competing risks regression, the proportional subdistribution hazards
-(PSH) model is popular for its direct assessment of covariate effects on
-the cumulative incidence function. This package allows for both penalized
-and unpenalized PSH regression in linear time using a novel
-forward-backward scan. Penalties include Ridge, Lease Absolute Shrinkage
-and Selection Operator (LASSO), Smoothly Clipped Absolute Deviation
-(SCAD), Minimax Concave Plus (MCP), and elastic net <doi:
-10.32614/RJ-2021-010>.
+Provides functions for working with primary event censored distributions
+and 'Stan' implementations for use in Bayesian modeling. Primary event
+censored distributions are useful for modeling delayed reporting scenarios
+in epidemiology and other fields (Charniga et al. (2024)
+<doi:10.48550/arXiv.2405.08841>). It also provides support for arbitrary
+delay distributions, a range of common primary distributions, and allows
+for truncation and secondary event censoring to be accounted for (Park et
+al. (2024) <doi:10.1101/2024.01.12.24301247>). A subset of common
+distributions also have analytical solutions implemented, allowing for
+faster computation. In addition, it provides multiple methods for fitting
+primary event censored distributions to data via optional dependencies.
 
 %prep
 %setup -q -c -n %{packname}

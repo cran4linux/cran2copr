@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nixtlar
-%global packver   0.6.2
+%global packname  eyetools
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Software Development Kit for 'Nixtla''s 'TimeGPT'
+Summary:          Analyse Eye Data
 
-License:          Apache License (>= 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hdf5r 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-rdist 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hdf5r 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-rdist 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
-A Software Development Kit for working with 'Nixtla''s 'TimeGPT', a
-foundation model for time series forecasting. 'API' is an acronym for
-'application programming interface'; this package allows users to interact
-with 'TimeGPT' via the 'API'. You can set and validate 'API' keys and
-generate forecasts via 'API' calls. It is compatible with 'tsibble' and
-base R. For more details visit <https://docs.nixtla.io/>.
+Enables the automation of actions across the pipeline, including initial
+steps of transforming binocular data and gap repair to event-based
+processing such as fixations, saccades, and entry/duration in Areas of
+Interest (AOIs). It also offers visualisation of eye movement and AOI
+entries. These tools take relatively raw (trial, time, x, and y form) data
+and can be used to return fixations, saccades, and AOI entries and time
+spent in AOIs. As the tools rely on this basic data format, the functions
+can work with data from any eye tracking device. Implements fixation and
+saccade detection using methods proposed by Salvucci and Goldberg (2000)
+<doi:10.1145/355017.355028>.
 
 %prep
 %setup -q -c -n %{packname}

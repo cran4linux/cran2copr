@@ -1,41 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastcmprsk
-%global packver   1.24.10
+%global packname  ShinyWizard
+%global packver   1.1.3.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.10
+Version:          1.1.3.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fine-Gray Regression via Forward-Backward Scan
+Summary:          An Interactive Wizard to Design, Build, and Deploy R Packages Demo Presentation
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dynpred 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-dynpred 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-base 
+Requires:         R-CRAN-rstudioapi 
 
 %description
-In competing risks regression, the proportional subdistribution hazards
-(PSH) model is popular for its direct assessment of covariate effects on
-the cumulative incidence function. This package allows for both penalized
-and unpenalized PSH regression in linear time using a novel
-forward-backward scan. Penalties include Ridge, Lease Absolute Shrinkage
-and Selection Operator (LASSO), Smoothly Clipped Absolute Deviation
-(SCAD), Minimax Concave Plus (MCP), and elastic net <doi:
-10.32614/RJ-2021-010>.
+Design, build, and deploy R packages demo presentations by an interactive
+wizard. Set up unique title, logo and themes. Add personalized tabs
+exposing applicability. And deploy as a part of a package or an
+independent app.
 
 %prep
 %setup -q -c -n %{packname}

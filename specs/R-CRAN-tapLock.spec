@@ -1,29 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pingr
-%global packver   2.0.4
+%global packname  tapLock
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Check if a Remote Computer is Up
+Summary:          Seamless Single Sign-on for 'shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-processx 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tower >= 0.2.0
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-tower >= 0.2.0
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-shiny 
 
 %description
-Check if a remote computer is up. It can either just call the system ping
-command, or check a specified TCP port.
+Swift and seamless Single Sign-On (SSO) integration. Designed for
+effortless compatibility with popular Single Sign-On providers like Google
+and Microsoft, it streamlines authentication, enhancing both user
+experience and application security. Elevate your 'shiny' applications for
+a simplified, unified, and secure authentication process.
 
 %prep
 %setup -q -c -n %{packname}
