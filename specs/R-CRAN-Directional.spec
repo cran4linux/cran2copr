@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Directional
-%global packver   6.8
+%global packver   6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.8
+Version:          6.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Functions for Directional Data Analysis
 
@@ -50,7 +50,7 @@ with millions of observations) analysis. Hypothesis testing, discriminant
 and regression analysis, MLE of distributions and more are included. The
 standard textbook for such data is the "Directional Statistics" by Mardia,
 K. V. and Jupp, P. E. (2000). Other references include a) Phillip J.
-Paine, Simon P. Preston Michail Tsagris and Andrew T. A. Wood (2018). "An
+Paine, Simon P. Preston, Michail Tsagris and Andrew T. A. Wood (2018). "An
 elliptically symmetric angular Gaussian distribution". Statistics and
 Computing 28(3): 689-697. <doi:10.1007/s11222-017-9756-4>. b) Tsagris M.
 and Alenazi A. (2019). "Comparison of discriminant analysis methods on the
@@ -62,15 +62,16 @@ Statistics and Computing 30(1): 153--165.
 <doi:10.1007/s11222-019-09872-2>. d) Tsagris M. and Alenazi A. (2024). "An
 investigation of hypothesis testing procedures for circular and spherical
 mean vectors". Communications in Statistics-Simulation and Computation,
-53(3): 1387--1408. <doi:10.1080/03610918.2022.2045499>. e) Tsagris M. and
-Alzeley O. (2023). "Circular and spherical projected Cauchy distributions:
-A Novel Framework for Circular and Directional Data Modeling".
-<doi:10.48550/arXiv.2302.02468>. f) Zehao Yu and Xianzheng Huang (2024). A
-new parameterization for elliptically symmetric angular Gaussian
-distributions of arbitrary dimension. Electronic Journal of Statistics,
-18(1): 301--334. <doi:10.1214/23-EJS2210>. g) Tsagris M. (2024).
-"Directional data analysis using the spherical Cauchy and the
-Poisson-kernel based distribution". <doi:10.48550/arXiv.2409.03292>.
+53(3): 1387--1408. <doi:10.1080/03610918.2022.2045499>. e) Zehao Yu and
+Xianzheng Huang (2024). A new parameterization for elliptically symmetric
+angular Gaussian distributions of arbitrary dimension. Electronic Journal
+of Statistics, 18(1): 301--334. <doi:10.1214/23-EJS2210>. f) Tsagris M.
+and Alzeley O. (2024). "Circular and spherical projected Cauchy
+distributions: A Novel Framework for Circular and Directional Data
+Modeling". <doi:10.48550/arXiv.2302.02468>. g) Tsagris M. and
+Papastamoulis P. (2024). "Directional data analysis using the spherical
+Cauchy and the Poisson kernel-based distribution".
+<doi:10.48550/arXiv.2409.03292>.
 
 %prep
 %setup -q -c -n %{packname}

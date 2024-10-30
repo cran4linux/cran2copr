@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TLIC
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The LIC for T Distribution Regression Analysis
 
@@ -25,14 +25,11 @@ Requires:         R-CRAN-LaplacesDemon
 Requires:         R-CRAN-fBasics 
 
 %description
-This comprehensive toolkit for T-distribution regression, known as the
-analysis of "TLIC" (T-distribution Linear regression Integrated
-Corrector), adopts ordinary least squares method and assumes that errors
-follow a T-distribution. This approach gives it an advantage when dealing
-with small samples or non-normal error distributions, and can provide more
-robust parameter estimation and hypothesis testing results.The philosophy
-of the package is described in Guo G. (2020)
-<doi:10.1080/02664763.2022.2053949>.
+This comprehensive toolkit for T-distributed regression is designated as
+"TLIC" (The LIC for T Distribution Regression Analysis) analysis. It is
+predicated on the assumption that the error term adheres to a
+T-distribution. The philosophy of the package is described in Guo G.
+(2020) <doi:10.1080/02664763.2022.2053949>.
 
 %prep
 %setup -q -c -n %{packname}

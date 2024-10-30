@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rminer
-%global packver   1.4.7
+%global packver   1.4.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7
+Version:          1.4.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Mining Classification and Regression Methods
 
@@ -55,13 +55,14 @@ Requires:         R-CRAN-xgboost
 %description
 Facilitates the use of data mining algorithms in classification and
 regression (including time series forecasting) tasks by presenting a short
-and coherent set of functions. Versions: 1.4.7 improved Importance
-function and examples, minor error fixes; 1.4.6 / 1.4.5 / 1.4.4 new
-automated machine learning (AutoML) and ensembles, via improved fit(),
-mining() and mparheuristic() functions, and new categorical preprocessing,
-via improved delevels() function; 1.4.3 new metrics (e.g., macro
-precision, explained variance), new "lssvm" model and improved
-mparheuristic() function; 1.4.2 new "NMAE" metric, "xgboost" and
+and coherent set of functions. Versions: 1.4.8 improved help, several
+warning and error code fixes (more stable version, all examples run
+correctly); 1.4.7 improved Importance function and examples, minor error
+fixes; 1.4.6 / 1.4.5 / 1.4.4 new automated machine learning (AutoML) and
+ensembles, via improved fit(), mining() and mparheuristic() functions, and
+new categorical preprocessing, via improved delevels() function; 1.4.3 new
+metrics (e.g., macro precision, explained variance), new "lssvm" model and
+improved mparheuristic() function; 1.4.2 new "NMAE" metric, "xgboost" and
 "cv.glmnet" models (16 classification and 18 regression models); 1.4.1 new
 tutorial and more robust version; 1.4 - new classification and regression
 models, with a total of 14 classification and 15 regression methods,

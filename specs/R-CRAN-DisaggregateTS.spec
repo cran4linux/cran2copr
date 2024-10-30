@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  DisaggregateTS
-%global packver   2.0.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Temporal Disaggregation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-lars 
+Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-withr 
 
 %description
-First - Generates (potentially high-dimensional) high-frequency and
-low-frequency series for simulation studies in temporal disaggregation;
-Second - a toolkit utilizing temporal disaggregation and benchmarking
-techniques with a low-dimensional matrix of indicator series previously
-proposed in Dagum and Cholette (2006, ISBN:978-0-387-35439-2) ; and Third
-- novel techniques proposed by Mosley, Gibberd and Eckley (2021)
-<arXiv:2108.05783> for disaggregating low-frequency series in the presence
-of high-dimensional indicator matrices.
+Provides tools for temporal disaggregation, including: (1)
+High-dimensional and low-dimensional series generation for simulation
+studies; (2) A toolkit for temporal disaggregation and benchmarking using
+low-dimensional indicator series as proposed by Dagum and Cholette (2006,
+ISBN:978-0-387-35439-2); (3) Novel techniques by Mosley, Gibberd, and
+Eckley (2022, <doi:10.1111/rssa.12952>) for disaggregating low-frequency
+series in the presence of high-dimensional indicator matrices.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtfsrouter
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Routing with 'GTFS' (General Transit Feed Specification) Data
 
@@ -19,11 +19,13 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 0.12.6
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-geodist 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 0.12.6
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-geodist 
 Requires:         R-methods 
 

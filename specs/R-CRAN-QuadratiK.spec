@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QuadratiK
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Methods Constructed using Kernel-Based Quadratic Distances
 
@@ -16,55 +16,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-clusterRepro 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggpp 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-movMF 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-rlecuyer 
-BuildRequires:    R-CRAN-rrcov 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Tinflex 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-clusterRepro 
+BuildRequires:    R-CRAN-rrcov 
+BuildRequires:    R-CRAN-scatterplot3d 
+Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggpp 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-mclust 
 Requires:         R-methods 
 Requires:         R-CRAN-moments 
-Requires:         R-CRAN-movMF 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppEigen 
-Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-rlecuyer 
-Requires:         R-CRAN-rrcov 
 Requires:         R-CRAN-sn 
 Requires:         R-stats 
-Requires:         R-CRAN-Tinflex 
+Requires:         R-CRAN-rrcov 
+Requires:         R-CRAN-scatterplot3d 
 
 %description
 It includes test for multivariate normality, test for uniformity on the
-Sphere, non-parametric two- and k-sample tests, random generation of
-points from the Poisson kernel-based density and clustering algorithm for
-spherical data. For more information see Saraceno, G., Markatou, M.,
-Mukhopadhyay, R., Golzy, M. (2024) <doi:10.48550/arXiv.2402.02290>, Ding,
-Y., Markatou, M., Saraceno, G. (2023) <doi:10.5705/ss.202022.0347>, and
-Golzy, M., Markatou, M. (2020) <doi:10.1080/10618600.2020.1740713>.
+d-dimensional Sphere, non-parametric two- and k-sample tests, random
+generation of points from the Poisson kernel-based density and clustering
+algorithm for spherical data. For more information see Saraceno G.,
+Markatou M., Mukhopadhyay R. and Golzy M. (2024)
+<doi:10.48550/arXiv.2402.02290> Markatou, M. and Saraceno, G. (2024)
+<doi:10.48550/arXiv.2407.16374>, Ding, Y., Markatou, M. and Saraceno, G.
+(2023) <doi:10.5705/ss.202022.0347>, and Golzy, M. and Markatou, M. (2020)
+<doi:10.1080/10618600.2020.1740713>.
 
 %prep
 %setup -q -c -n %{packname}

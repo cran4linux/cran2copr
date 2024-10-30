@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dapper
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Augmentation for Private Posterior Estimation
 
@@ -42,7 +42,7 @@ privacy mechanisms by only swapping out the relevant modules. Probability
 mass functions for the discrete Gaussian and discrete Laplacian are
 provided to facilitate analyses dealing with privatized count data. The
 output of dapper_sample() can be analyzed using many of the same tools
-from the `rstan` ecosystem. For methodological details on the sampler see
+from the 'rstan' ecosystem. For methodological details on the sampler see
 Ju et al. (2022) <doi:10.48550/arXiv.2206.00710>, and for details on the
 discrete Gaussian and discrete Laplacian distributions see Canonne et al.
 (2020) <doi:10.48550/arXiv.2004.00010>.

@@ -1,41 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modEvA
-%global packver   3.20
+%global packname  TMTI
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.20
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Evaluation and Analysis
+Summary:          Too Many, Too Improbable (TMTI) Test Procedures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra > 1.5.50
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-terra > 1.5.50
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Analyses species distribution models and evaluates their performance. It
-includes functions for variation partitioning, extracting variable
-importance, computing several metrics of model discrimination and
-calibration performance, optimizing prediction thresholds based on a
-number of criteria, performing multivariate environmental similarity
-surface (MESS) analysis, and displaying various analytical plots.
-Initially described in Barbosa et al. (2013) <doi:10.1111/ddi.12100>.
+Methods for computing joint tests, controlling the Familywise Error Rate
+(FWER) and getting lower bounds on the number of false hypotheses in a
+set. The methods implemented here are described in Mogensen and Markussen
+(2021) <doi:10.48550/arXiv.2108.04731>.
 
 %prep
 %setup -q -c -n %{packname}

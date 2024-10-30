@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FinNet
-%global packver   0.1.2
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quickly Build and Manipulate Financial Networks
 
@@ -16,13 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Providing classes, methods, and functions to deal with financial networks.
@@ -33,7 +34,9 @@ creating various types of financial networks depending on the type of
 relation between its units depending on the relation under scrutiny
 (ownership, board interlocks, etc.), the desired tie type (valued or
 binary), and renders them in the most common formats (adjacency matrix,
-incidence matrix, edge list, 'igraph', 'network').
+incidence matrix, edge list, 'igraph', 'network'). There are also ad-hoc
+functions for the Fiedler value, global network efficiency, and
+cascade-failure analysis.
 
 %prep
 %setup -q -c -n %{packname}

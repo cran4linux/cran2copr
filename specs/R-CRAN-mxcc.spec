@@ -1,41 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modEvA
-%global packver   3.20
+%global packname  mxcc
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.20
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Evaluation and Analysis
+Summary:          Maxwell Control Charts
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra > 1.5.50
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-chi 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-terra > 1.5.50
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-shotGroups 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-chi 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-shotGroups 
+Requires:         R-graphics 
 
 %description
-Analyses species distribution models and evaluates their performance. It
-includes functions for variation partitioning, extracting variable
-importance, computing several metrics of model discrimination and
-calibration performance, optimizing prediction thresholds based on a
-number of criteria, performing multivariate environmental similarity
-surface (MESS) analysis, and displaying various analytical plots.
-Initially described in Barbosa et al. (2013) <doi:10.1111/ddi.12100>.
+Computes Control limits, coefficients of control limits, various
+performance metrics and depicts control charts for monitoring
+Maxwell-distributed quality characteristics.
 
 %prep
 %setup -q -c -n %{packname}
