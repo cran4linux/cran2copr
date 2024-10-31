@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PEPBVS
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Variable Selection using Power-Expected-Posterior Prior
 
@@ -17,25 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-CRAN-BAS 
+BuildRequires:    R-CRAN-BayesVarSel 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mcmcse 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppGSL 
 Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-BAS 
+Requires:         R-CRAN-BayesVarSel 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mcmcse 
+Requires:         R-CRAN-mvtnorm 
 
 %description
 Performs Bayesian variable selection under normal linear models for the
-data with the model parameters following as prior either the
+data with the model parameters following as prior distributions either the
 power-expected-posterior (PEP) or the intrinsic (a special case of the
 former) (Fouskakis and Ntzoufras (2022) <doi: 10.1214/21-BA1288>,
 Fouskakis and Ntzoufras (2020) <doi: 10.3390/econometrics8020017>). The
-prior distribution on model space is the uniform on model space or the
+prior distribution on model space is the uniform over all models or the
 uniform on model dimension (a special case of the beta-binomial prior).
-The selection can be done either with full enumeration of all possible
-models or using the Markov Chain Monte Carlo Model Composition (MC3)
-algorithm (Madigan and York (1995) <doi: 10.2307/1403615>). Complementary
-functions for making predictions, as well as plotting and printing the
-results are also provided.
+The selection is performed by either implementing a full enumeration and
+evaluation of all possible models or using the Markov Chain Monte Carlo
+Model Composition (MC3) algorithm (Madigan and York (1995) <doi:
+10.2307/1403615>). Complementary functions for hypothesis testing,
+estimation and predictions under Bayesian model averaging, as well as,
+plotting and printing the results are also provided. The results can be
+compared to the ones obtained under other well-known priors on model
+parameters and model spaces.
 
 %prep
 %setup -q -c -n %{packname}

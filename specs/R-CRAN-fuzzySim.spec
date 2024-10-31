@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fuzzySim
-%global packver   4.10.7
+%global packver   4.26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.10.7
+Version:          4.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Similarity in Species Distributions
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-modEvA > 3.9
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-modEvA > 3.9
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-utils 
 
 %description

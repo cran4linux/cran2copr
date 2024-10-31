@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MSCquartets
-%global packver   2.0.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing Gene Tree Quartets under the Multi-Species Coalescent
 
@@ -51,10 +51,12 @@ tree inference methods based on quartet distances of Rhodes (2019)
 <doi:10.1109/TCBB.2019.2917204> and Yourdkhani and Rhodes (2019)
 <doi:10.1007/s11538-020-00773-4>, the NANUQ algorithm for inference of
 level-1 species networks of Allman et al. (2019)
-<doi:10.1186/s13015-019-0159-2>, and the TINNIK algorithm for inference of
-the tree of blobs of an arbitrary network of Allman et al.(2022)
-<doi:10.1007/s00285-022-01838-9>. Software announcement by Rhodes et al.
-(2020) <doi:10.1093/bioinformatics/btaa868>.
+<doi:10.1186/s13015-019-0159-2>, the TINNIK algorithm for inference of the
+tree of blobs of an arbitrary network of Allman et al.(2022)
+<doi:10.1007/s00285-022-01838-9>, and NANUQ+ routines for resolving
+multifurcations in the tree of blobs to cycles as in Allman et al.(2024)
+(forthcoming). Software announcement by Rhodes et al. (2020)
+<doi:10.1093/bioinformatics/btaa868>.
 
 %prep
 %setup -q -c -n %{packname}

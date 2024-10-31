@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smof
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scoring Methodology for Ordered Factors
 
@@ -24,7 +24,7 @@ Requires:         R-methods
 
 %description
 Starting from a given object representing a fitted model (within a certain
-set of model classes) whose linear predictor includes some ordered
+set of model classes) whose (non-)linear predictor includes some ordered
 factor(s) among the explanatory variables, a new model is constructed and
 fitted where each named factor is replaced by a single numeric score,
 suitably chosen so that the new variable produces a fit comparable with
