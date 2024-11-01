@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miniPCH
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Distributions with Piece-Wise Constant Hazards
 
@@ -25,7 +25,9 @@ Requires:         R-CRAN-checkmate
 %description
 Density, distribution function, ... hazard function, cumulative hazard
 function, survival function for survival distributions with piece-wise
-constant hazards and multiple states.
+constant hazards and multiple states and methods to plot and summarise
+those distributions. A derivation of the used algorithms can be found in
+my masters thesis <doi:10.25365/thesis.76098>.
 
 %prep
 %setup -q -c -n %{packname}

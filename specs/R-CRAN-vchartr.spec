@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iForecast
-%global packver   1.0.9
+%global packname  vchartr
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Time Series Forecasting
+Summary:          Interactive Charts with the 'JavaScript' 'VChart' Library
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-caret 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Compute static, onestep and multistep time series forecasts for machine
-learning models.
+Provides an 'htmlwidgets' interface to 'VChart.js'. 'VChart', more than
+just a cross-platform charting library, but also an expressive data
+storyteller. 'VChart' examples and documentation are available here:
+<https://www.visactor.io/vchart>.
 
 %prep
 %setup -q -c -n %{packname}

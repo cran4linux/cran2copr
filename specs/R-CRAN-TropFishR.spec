@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TropFishR
-%global packver   1.6.4
+%global packver   1.6.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.4
+Version:          1.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tropical Fisheries Analysis
 
@@ -45,7 +45,7 @@ A compilation of fish stock assessment methods for the analysis of
 length-frequency data in the context of data-poor fisheries. Includes
 methods and examples included in the FAO Manual by P. Sparre and S.C.
 Venema (1998), "Introduction to tropical fish stock assessment"
-(<https://www.fao.org/documents/card/en/c/9bb12a06-2f05-5dcb-a6ca-2d6dd3080f65/>),
+(<https://openknowledge.fao.org/server/api/core/bitstreams/bc7c37b6-30df-49c0-b5b4-8367a872c97e/content>),
 as well as other more recent methods.
 
 %prep

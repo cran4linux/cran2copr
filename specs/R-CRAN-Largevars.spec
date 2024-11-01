@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iForecast
-%global packver   1.0.9
+%global packname  Largevars
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Time Series Forecasting
+Summary:          Testing Large VARs for the Presence of Cointegration
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Compute static, onestep and multistep time series forecasts for machine
-learning models.
+Conducts a cointegration test for high-dimensional vector autoregressions
+(VARs) of order k based on the large N,T asymptotics of Bykhovskaya and
+Gorin, 2022 (<doi:10.48550/arXiv.2202.07150>). The implemented test is a
+modification of the Johansen likelihood ratio test. In the absence of
+cointegration the test converges to the partial sum of the Airy-1 point
+process. This package contains simulated quantiles of the first ten
+partial sums of the Airy-1 point process that are precise up to the first
+three digits.
 
 %prep
 %setup -q -c -n %{packname}

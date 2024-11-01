@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iForecast
-%global packver   1.0.9
+%global packname  CADF
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Time Series Forecasting
+Summary:          Customer Analytics Data Formatting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Compute static, onestep and multistep time series forecasts for machine
-learning models.
+Converts customer transaction data (ID, purchase date) into a R6 class
+called customer.  The class stores various customer analytics calculations
+at the customer level. The package also contains functionality to convert
+data in the R6 class to data.frames that can serve as inputs for various
+customer analytics models.
 
 %prep
 %setup -q -c -n %{packname}

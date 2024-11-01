@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scicomptools
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools Developed by the NCEAS Scientific Computing Support Team
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chromote 
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gitcreds 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-tidyxl 
+Requires:         R-CRAN-chromote 
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gitcreds 

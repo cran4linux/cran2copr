@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsDyn
-%global packver   11.0.4.1
+%global packver   11.0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.0.4.1
+Version:          11.0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Time Series Models with Regime Switching
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-generics 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nnet 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-foreach 
 Requires:         R-methods 
+Requires:         R-CRAN-generics 
 
 %description
 Implements nonlinear autoregressive (AR) time series models. For

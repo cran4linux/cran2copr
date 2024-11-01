@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predictoR
-%global packver   3.0.10
+%global packver   4.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.10
+Version:          4.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Data Analysis System
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-rpart.plot >= 3.1.1
 BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-traineR >= 2.0.4
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.3
-BuildRequires:    R-CRAN-xtable >= 1.8.4
 BuildRequires:    R-CRAN-shiny >= 1.7.4
 BuildRequires:    R-CRAN-xgboost >= 1.7.3.1
 BuildRequires:    R-CRAN-colourpicker >= 1.1.1
@@ -42,7 +41,6 @@ Requires:         R-CRAN-rpart.plot >= 3.1.1
 Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-traineR >= 2.0.4
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.3
-Requires:         R-CRAN-xtable >= 1.8.4
 Requires:         R-CRAN-shiny >= 1.7.4
 Requires:         R-CRAN-xgboost >= 1.7.3.1
 Requires:         R-CRAN-colourpicker >= 1.1.1

@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GLMMcosinor
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit a Cosinor Model Using a Generalised Mixed Modelling Framework
+Summary:          Fit a Cosinor Model Using a Generalized Mixed Modeling Framework
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-cowplot 
@@ -38,7 +38,7 @@ Requires:         R-stats
 
 %description
 Allows users to fit a cosinor model using the 'glmmTMB' framework. This
-extends on existing cosinor modelling packages, including 'cosinor' and
+extends on existing cosinor modeling packages, including 'cosinor' and
 'circacompare', by including a wide range of available link functions and
 the capability to fit mixed models. The cosinor model is described by
 Cornelissen (2014) <doi:10.1186/1742-4682-11-16>.

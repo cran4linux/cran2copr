@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scoringutils
-%global packver   1.2.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Scoring and Assessing Predictions
 
@@ -14,43 +14,38 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-ggdist >= 3.2.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-scoringRules 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-ggdist >= 3.2.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-scoringRules 
 Requires:         R-stats 
 
 %description
-Provides a collection of metrics and proper scoring rules (Tilmann
-Gneiting & Adrian E Raftery (2007) <doi:10.1198/016214506000001437>,
-Jordan, A., Krüger, F., & Lerch, S. (2019) <doi:10.18637/jss.v090.i12>)
-within a consistent framework for evaluation, comparison and visualisation
-of forecasts. In addition to proper scoring rules, functions are provided
-to assess bias, sharpness and calibration (Sebastian Funk, Anton Camacho,
-Adam J. Kucharski, Rachel Lowe, Rosalind M. Eggo, W. John Edmunds (2019)
-<doi:10.1371/journal.pcbi.1006785>) of forecasts. Several types of
-predictions (e.g. binary, discrete, continuous) which may come in
-different formats (e.g. forecasts represented by predictive samples or by
-quantiles of the predictive distribution) can be evaluated. Scoring
-metrics can be used either through a convenient data.frame format, or can
-be applied as individual functions in a vector / matrix format. All
-functionality has been implemented with a focus on performance and is
-robustly tested. Find more information about the package in the
-accompanying paper (<doi:10.48550/arXiv.2205.07090>).
+Facilitate the evaluation of forecasts in a convenient framework based on
+data.table. It allows user to to check their forecasts and diagnose
+issues, to visualise forecasts and missing data, to transform data before
+scoring, to handle missing forecasts, to aggregate scores, and to
+visualise the results of the evaluation. The package mostly focuses on the
+evaluation of probabilistic forecasts and allows evaluating several
+different forecast types and input formats. Find more information about
+the package in the Vignettes as well as in the accompanying paper,
+<doi:10.48550/arXiv.2205.07090>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  imuf
-%global packver   0.2.1
+%global packname  dawaR
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Orientation of an Inertial Measurement Unit
+Summary:          An API Wrapper for 'DAWA' - 'The Danish Address Web API'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyRSS 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyRSS 
+Requires:         R-CRAN-rlang 
 
 %description
-Estimate the orientation of an inertial measurement unit (IMU) with a
-3-axis accelerometer and a 3-axis gyroscope using a complementary filter.
-'imuf' takes an IMU's accelerometer and gyroscope readings, time duration,
-its initial orientation, and a gain factor as inputs, and returns an
-estimate of the IMU's final orientation.
+Functions for interacting with all sections of the official 'Danish
+Address Web API' (also known as 'DAWA') <https://api.dataforsyningen.dk>.
+The development of this package is completely independent from the
+government agency, Klimadatastyrelsen, who maintains the API.
 
 %prep
 %setup -q -c -n %{packname}

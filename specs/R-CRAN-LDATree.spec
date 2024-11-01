@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LDATree
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classification Trees with Linear Discriminant Analysis at Terminal Nodes
+Summary:          Oblique Classification Trees with Uncorrelated Linear Discriminant Analysis Splits
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-folda 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-folda 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-visNetwork 
 
 %description
-A classification tree method that uses LDA (Linear Discriminant Analysis)
-for variable selection, split determination, and model fitting in terminal
-nodes.  It automatically handles missing values and offers visualization
-tools.
+A classification tree method that uses Uncorrelated Linear Discriminant
+Analysis (ULDA) for variable selection, split determination, and model
+fitting in terminal nodes.  It automatically handles missing values and
+offers visualization tools. For more details, see Wang (2024)
+<doi:10.48550/arXiv.2410.23147>.
 
 %prep
 %setup -q -c -n %{packname}

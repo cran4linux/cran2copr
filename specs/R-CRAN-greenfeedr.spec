@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greenfeedr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process and Report 'GreenFeed' Data
 
@@ -41,17 +41,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tidyr 
 
 %description
-Downloading, Processing, and Reporting 'GreenFeed' Data. The 'GreenFeed'
-system generates substantial amounts of daily data, which can be
-overwhelming for users. This package facilitates data retrieval and
-reporting from the 'GreenFeed' system using a streamlined process. Users
-can retrieve data from the 'C-Lock Inc.' system via an 'API' using the
-get_gfdata() function. Additionally, the report_gfdata() function allows
-users to generate both daily and final reports from 'GreenFeed' data. The
-process_gfdata() function further processes this data for analysis. For
-pellet intake processing and visit checks, the package also provides the
-pellin() and viseat() functions, ensuring a comprehensive toolset for
-managing and analyzing 'GreenFeed' data.
+Provides tools for downloading, processing, and reporting daily and
+finalized 'GreenFeed' data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  inlamemi
-%global packver   1.1.0
+%global packname  BSTZINB
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Missing Data and Measurement Error Modelling in INLA
+Summary:          Association Among Disease Counts and Socio-Environmental Factors
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-maps 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-msm 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-viridis 
+Requires:         R-CRAN-BayesLogit 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-maps 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-msm 
+Requires:         R-CRAN-reshape 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-viridis 
 
 %description
-Facilitates fitting measurement error and missing data imputation models
-using integrated nested Laplace approximations, according to the method
-described in Skarstein, Martino and Muff (2023)
-<doi:10.1002/bimj.202300078>. See Skarstein and Muff (2024)
-<doi:10.48550/arXiv.2406.08172> for details on using the package.
+Estimation of association between disease or death counts (e.g. COVID-19)
+and socio-environmental risk factors using a zero-inflated Bayesian
+spatiotemporal model. Non-spatiotemporal models and/or models without
+zero-inflation are also included for comparison. Functions to produce
+corresponding maps are also included. See Chakraborty et al. (2022)
+<doi:10.1007/s13253-022-00487-1> for more details on the method.
 
 %prep
 %setup -q -c -n %{packname}

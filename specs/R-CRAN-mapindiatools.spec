@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iForecast
-%global packver   1.0.9
+%global packname  mapindiatools
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machine Learning Time Series Forecasting
+Summary:          Mapping Data for 'mapindia' Package
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Compute static, onestep and multistep time series forecasts for machine
-learning models.
+Provides a container for data used by the 'mapindia' package. The data
+used by 'mapindia' has been extracted into this package so that the file
+size of the 'mapindia' package can be reduced considerably. The data in
+this package will be updated when latest data is available.
 
 %prep
 %setup -q -c -n %{packname}
