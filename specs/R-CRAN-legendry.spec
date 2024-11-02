@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PakPC2023
-%global packver   0.2.0
+%global packname  legendry
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pakistan Population Census 2023
+Summary:          Extended Legends and Axes for 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-grid >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-scales >= 1.1.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-grid >= 4.1.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-scales >= 1.1.1
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Provides data sets and functions for exploration of Pakistan Population
-Census 2023 (<https://www.pbs.gov.pk/>).
+A 'ggplot2' extension that focusses on expanding the plotter's arsenal of
+guides. Guides in 'ggplot2' include axes and legends. 'legendry' offers
+new axes and annotation options, as well as new legends and colour
+displays.
 
 %prep
 %setup -q -c -n %{packname}

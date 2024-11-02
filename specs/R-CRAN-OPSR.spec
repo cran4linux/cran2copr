@@ -1,38 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDGHMM
-%global packver   0.1.1
+%global packname  OPSR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Models for Multivariate Panel Data
+Summary:          Ordinal Probit Switching Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack >= 0.7
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ramify 
-BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-texreg 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rdpack >= 0.7
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-maxLik 
+Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ramify 
-Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
+Requires:         R-CRAN-texreg 
+Requires:         R-utils 
 
 %description
-Estimates hidden Markov models from the family of Cholesky-decomposed
-Gaussian hidden Markov models (CDGHMM) under various missingness schemes.
-This family improves upon estimation of traditional Gaussian HMMs by
-introducing parsimony, as well as, controlling for dropped out
-observations and non-random missingness. See Neal, Sochaniwsky and
-McNicholas (2024) <DOI:10.1007/s11222-024-10462-0>.
+Estimates ordinal probit switching regression models - a Heckman type
+selection model with an ordinal selection and continuous outcomes.
+Different model specifications are allowed for each treatment/regime. For
+more details on the method, see Wang & Mokhtarian (2024)
+<doi:10.1016/j.tra.2024.104072> or Chiburis & Lokshin (2007)
+<doi:10.1177/1536867X0700700202>.
 
 %prep
 %setup -q -c -n %{packname}

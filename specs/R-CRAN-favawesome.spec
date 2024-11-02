@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PakPC2023
-%global packver   0.2.0
+%global packname  favawesome
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pakistan Population Census 2023
+Summary:          'Font Awesome' Icons as 'shiny' 'favicons'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsvg 
+Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsvg 
 
 %description
-Provides data sets and functions for exploration of Pakistan Population
-Census 2023 (<https://www.pbs.gov.pk/>).
+Easily use 'Font Awesome' icons as 'shiny' 'favicons' (the icons that
+appear on browser tabs).  'Font Awesome' (<https://fontawesome.com/>) is a
+popular set of icons that can be used in web pages.  'favawesome' provides
+a simple way to use these icons as 'favicons' in 'shiny' applications and
+other HTML pages.
 
 %prep
 %setup -q -c -n %{packname}

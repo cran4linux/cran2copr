@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PakPC2023
-%global packver   0.2.0
+%global packname  StabilityApp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pakistan Population Census 2023
+Summary:          Stability Analysis App for GEI in Multi-Environment Trials
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-stability 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyBS 
+BuildRequires:    R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-stability 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyBS 
+Requires:         R-CRAN-shinydashboardPlus 
 
 %description
-Provides data sets and functions for exploration of Pakistan Population
-Census 2023 (<https://www.pbs.gov.pk/>).
+Provides tools for Genotype by Environment Interaction (GEI) analysis,
+using statistical models and visualizations to assess genotype performance
+across environments. It helps researchers explore interaction effects,
+stability, and adaptability in multi-environment trials, identifying the
+best-performing genotypes in different conditions. Which Win Where!
 
 %prep
 %setup -q -c -n %{packname}

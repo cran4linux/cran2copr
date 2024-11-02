@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PakPC2023
-%global packver   0.2.0
+%global packname  rcollectadhd
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pakistan Population Census 2023
+Summary:          Collection of Data Sets Containing ADHD Related Data
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
 
 %description
-Provides data sets and functions for exploration of Pakistan Population
-Census 2023 (<https://www.pbs.gov.pk/>).
+A collection of data sets relating to ADHD (Attention Deficit
+Hyperactivity Disorder) which have been sourced from other packages on
+CRAN or from publications on other websites such as Kaggle
+<http://www.kaggle.com/>.The package also includes some simple functions
+for analysing data sets. The data sets and descriptions of the data sets
+may differ from what is on CRAN or other source websites. The aim of this
+package is to bring together data sets from a variety of ADHD research
+publications. This package would be useful for those interested in finding
+out what research has been done on the topic of ADHD, or those interested
+in comparing the results from different existing works. I started this
+project because I wanted to put together a collection of the data sets
+relevant to ADHD research, which I have a personal interest in. This work
+was conducted with the support of my mentor within the Global Talent
+Mentoring platform. <https://globaltalentmentoring.org/>.
 
 %prep
 %setup -q -c -n %{packname}

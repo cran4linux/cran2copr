@@ -1,50 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  priorsense
-%global packver   1.0.4
+%global packname  SensIAT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prior Diagnostics and Sensitivity Analysis
+Summary:          Sensitivity Analysis for Irregular Assessment Times
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
-BuildRequires:    R-CRAN-ggdist >= 3.3.2
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-checkmate >= 2.3.1
-BuildRequires:    R-CRAN-posterior >= 1.6.0
-BuildRequires:    R-CRAN-matrixStats >= 1.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.4
-BuildRequires:    R-CRAN-ggh4x >= 0.2.5
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-orthogonalsplinebasis 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.5.1
-Requires:         R-CRAN-ggdist >= 3.3.2
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-checkmate >= 2.3.1
-Requires:         R-CRAN-posterior >= 1.6.0
-Requires:         R-CRAN-matrixStats >= 1.3.0
-Requires:         R-CRAN-rlang >= 1.1.4
-Requires:         R-CRAN-ggh4x >= 0.2.5
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
+Requires:         R-CRAN-orthogonalsplinebasis 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-splines 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Provides functions for prior and likelihood sensitivity analysis in
-Bayesian models. Currently it implements methods to determine the
-sensitivity of the posterior to power-scaling perturbations of the prior
-and likelihood.
+Sensitivity analysis for trials with irregular and informative assessment
+times, based on a new influence function-based, augmented inverse
+intensity-weighted estimator.
 
 %prep
 %setup -q -c -n %{packname}

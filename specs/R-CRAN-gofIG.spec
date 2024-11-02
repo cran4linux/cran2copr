@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PakPC2023
-%global packver   0.2.0
+%global packname  gofIG
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pakistan Population Census 2023
+Summary:          Goodness-of-Fit Tests for the Inverse Gaussian Distribution
 
-License:          GPL-2
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-htmltools 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rmutil 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rmutil 
 
 %description
-Provides data sets and functions for exploration of Pakistan Population
-Census 2023 (<https://www.pbs.gov.pk/>).
+We implement various tests for the composite hypothesis of testing the fit
+to the family of inverse Gaussian distributions. Included are methods
+presented by Allison, J.S., Betsch, S., Ebner, B., and Visagie, I.J.H.
+(2022) <doi:10.48550/arXiv.1910.14119>, as well as two tests from Henze
+and Klar (2002) <doi:10.1023/A:1022442506681>. Additionally, the package
+implements a test proposed by Baringhaus and Gaigall (2015)
+<doi:10.1016/j.jmva.2015.05.013>. For each test a parametric bootstrap
+procedure is implemented.
 
 %prep
 %setup -q -c -n %{packname}

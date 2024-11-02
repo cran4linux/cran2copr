@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R.oo
-%global packver   1.26.0
+%global packver   1.27.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.26.0
+Version:          1.27.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Object-Oriented Programming with or without References
 
