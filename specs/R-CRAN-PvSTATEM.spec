@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PvSTATEM
-%global packver   0.0.4
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading, Quality Control and Preprocessing of MBA (Multiplex Bead Assay) Data
 
@@ -29,6 +29,9 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-svglite 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nplr 
@@ -41,11 +44,14 @@ Requires:         R-grid
 Requires:         R-CRAN-png 
 Requires:         R-tools 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-svglite 
 
 %description
 Speeds up the process of loading raw data from MBA (Multiplex Bead Assay)
 examinations, performs quality control checks, and automatically
-normalizes the data, preparing it for more advanced, downstream tasks. The
+normalises the data, preparing it for more advanced, downstream tasks. The
 main objective of the package is to create a simple environment for a
 user, who does not necessarily have experience with R language. The
 package is developed within the project of the same name - 'PvSTATEM',
