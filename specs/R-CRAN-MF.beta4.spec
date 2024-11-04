@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MF.beta4
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Ecosystem Multi-Functionality and Its Decomposition
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-ggplot2 
@@ -43,16 +44,18 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-lmerTest 
 Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-reshape2 
 
 %description
 Provide simple functions to (i) compute a class of multi-functionality
 measures for a single ecosystem for given function weights, (ii) decompose
-gamma multi-functionality for multiple ecosystems into a within-ecosystem
-component (alpha multi-functionality) and an among-ecosystem component
-(beta multi-functionality). In each case, the correlation between
-functions can be corrected for. Based on biodiversity and ecosystem
-function data, this software also facilitates graphics for assessing
-biodiversity-ecosystem functioning relationships across scales.
+gamma multi-functionality for pairs of ecosystems and K ecosystems (K can
+be greater than 2) into a within-ecosystem component (alpha
+multi-functionality) and an among-ecosystem component (beta
+multi-functionality). In each case, the correlation between functions can
+be corrected for. Based on biodiversity and ecosystem function data, this
+software also facilitates graphics for assessing biodiversity-ecosystem
+functioning relationships across scales.
 
 %prep
 %setup -q -c -n %{packname}

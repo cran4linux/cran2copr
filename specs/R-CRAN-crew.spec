@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Distributed Worker Launcher Framework
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.1.0
 BuildRequires:    R-CRAN-mirai >= 1.3.0
 BuildRequires:    R-CRAN-nanonext >= 1.3.0
-BuildRequires:    R-CRAN-autometric 
+BuildRequires:    R-CRAN-autometric >= 0.1.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-getip 
 BuildRequires:    R-CRAN-later 
@@ -37,7 +37,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-mirai >= 1.3.0
 Requires:         R-CRAN-nanonext >= 1.3.0
-Requires:         R-CRAN-autometric 
+Requires:         R-CRAN-autometric >= 0.1.0
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-getip 
 Requires:         R-CRAN-later 

@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  reformulas
-%global packver   0.4.0
+%global packname  spconf
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machinery for Processing Random Effect Formulas
+Summary:          Computing Scales of Spatial Smoothing for Confounding Adjustment
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-flexclust 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-flexclust 
+Requires:         R-CRAN-mgcv 
 
 %description
-Takes formulas including random-effects components (formatted as in
-'lme4', 'glmmTMB', etc.) and processes them. Includes various helper
-functions.
+Computes the effective range of a smoothing matrix, which is a measure of
+the distance to which smoothing occurs. This is motivated by the
+application of spatial splines for adjusting for unmeasured spatial
+confounding in regression models, but the calculation of effective range
+can be applied to smoothing matrices in other contexts. For algorithmic
+details, see Rainey and Keller (2024) "spconfShiny: an R Shiny
+application..." <doi:10.1371/journal.pone.0311440> and Keller and Szpiro
+(2020) "Selecting a Scale for Spatial Confounding Adjustment"
+<doi:10.1111/rssa.12556>.
 
 %prep
 %setup -q -c -n %{packname}

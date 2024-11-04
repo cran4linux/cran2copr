@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  reformulas
-%global packver   0.4.0
+%global packname  handwriterRF
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Machinery for Processing Random Effect Formulas
+Summary:          Handwriting Analysis with Random Forests
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-handwriter 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-handwriter 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Takes formulas including random-effects components (formatted as in
-'lme4', 'glmmTMB', etc.) and processes them. Includes various helper
-functions.
+Perform forensic handwriting analysis of two scanned handwritten
+documents. This package implements the statistical method described by
+Madeline Johnson and Danica Ommen (2021) <doi:10.1002/sam.11566>.
+Similarity measures and a random forest produce a score-based likelihood
+ratio that quantifies the strength of the evidence in favor of the
+documents being written by the same writer or different writers.
 
 %prep
 %setup -q -c -n %{packname}
