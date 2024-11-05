@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Keng
-%global packver   2024.10.16
+%global packver   2024.11.02
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.10.16
+Version:          2024.11.02
 Release:          1%{?dist}%{?buildtag}
-Summary:          Keng's Axe and Firewood
+Summary:          Knock Errors Off Nice Guesses
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,7 +22,10 @@ Requires:         R-stats
 
 %description
 Miscellaneous functions and data used in Qingyao's psychological research
-and teaching.
+and teaching. Keng currently could test the significance and compute the
+cut-off values of Pearson's r without raw data. Keng could also compare
+lm()'s fitted outputs using R-squared and PRE (Proportional Reduction in
+Error, also called partial R-squared or partial Eta-squared).
 
 %prep
 %setup -q -c -n %{packname}

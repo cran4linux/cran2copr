@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datagovsgR
-%global packver   1.0.1
+%global packname  dpkg
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Call Real Time APIs from Data Gov Singapore
+Summary:          Create, Stow, and Read Data Packages
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,24 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-A wrapper for the Data.gov.sg developer resources, which provide real time
-and historical information, ranging from carpark availability to weather
-forecasts. The functions makes the API calls for a given date and time,
-before returning the relevant information in a data frame. All APIs are
-supported, less the IPOS one which is not returning any data. Relevant
-information can be found here <https://data.gov.sg/developer>.
+Data frame, tibble, or tbl objects are converted to data package objects
+using specific metadata labels (name, version, title, homepage,
+description). A data package object ('dpkg') can be written to disk as a
+'parquet' file or released to a 'GitHub' repository. Data package objects
+can be read into R from online repositories and downloaded files are
+cached locally across R sessions.
 
 %prep
 %setup -q -c -n %{packname}

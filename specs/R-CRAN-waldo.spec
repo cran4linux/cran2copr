@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  waldo
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Differences Between R Objects
 
@@ -14,23 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-diffobj >= 0.3.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rematch2 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-diffobj >= 0.3.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 
-Requires:         R-CRAN-rematch2 
-Requires:         R-CRAN-tibble 
 
 %description
 Compare complex R objects and reveal the key differences. Designed

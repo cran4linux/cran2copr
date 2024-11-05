@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redatam
-%global packver   2.0.0
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import 'REDATAM' Files
 
@@ -16,19 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-stringi 
+BuildArch:        noarch
 
 %description
-Import 'REDATAM' files into R. 'REDATAM' is a software for the
-manipulation of microdata from censuses and surveys. This package provides
-functions to import 'REDATAM' files into R. It is based on De Grande
-(2016) <https://www.jstor.org/stable/24890658>.
+Read 'REDATAM' microdata exported into R native format (RDS). This is
+based on the Open Redatam initiative that provides a set of tools to read
+'REDATAM' files and convert them into open formats.
 
 %prep
 %setup -q -c -n %{packname}

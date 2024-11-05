@@ -1,41 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  enrichR
-%global packver   3.2
+%global packname  sicure
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides an R Interface to 'Enrichr'
+Summary:          Single-Index Mixture Cure Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-WriteXLS 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-WriteXLS 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-doBy 
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-CRAN-npcure 
+BuildRequires:    R-CRAN-StatMatch 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-fda 
+Requires:         R-CRAN-npcure 
+Requires:         R-CRAN-StatMatch 
+Requires:         R-stats 
 
 %description
-Provides an R interface to all 'Enrichr' databases. 'Enrichr' is a
-web-based tool for analysing gene sets and returns any enrichment of
-common annotated biological features. Quoting from their website
-'Enrichment analysis is a computational method for inferring knowledge
-about an input gene set by comparing it to annotated gene sets
-representing prior biological knowledge.' See
-<https://maayanlab.cloud/Enrichr/> for further details.
+Single-index mixture cure models allow estimating the probability of cure
+and the latency depending on a vector (or functional) covariate, avoiding
+the curse of dimensionality. The vector of parameters that defines the
+model can be estimated by maximum likelihood. A nonparametric estimator
+for the conditional density of the susceptible population is provided. For
+more details, see Piñeiro-Lamas (2024)
+(<https://ruc.udc.es/dspace/handle/2183/37035>).
 
 %prep
 %setup -q -c -n %{packname}

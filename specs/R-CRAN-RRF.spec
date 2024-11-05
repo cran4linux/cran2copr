@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RRF
-%global packver   1.9.4
+%global packver   1.9.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.4
+Version:          1.9.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularized Random Forest
 
@@ -25,7 +26,7 @@ function that builds a regularized random forest. Fortran original by Leo
 Breiman and Adele Cutler, R port by Andy Liaw and Matthew Wiener,
 Regularized random forest for classification by Houtao Deng, Regularized
 random forest for regression by Xin Guan. Reference: Houtao Deng (2013)
-<arXiv:1306.0237>.
+<doi:10.48550/arXiv.1306.0237>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BioPred
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Biomarkers Analysis in Precision Medicine
 
@@ -38,9 +38,8 @@ Requires:         R-CRAN-car
 
 %description
 Provides functions for training extreme gradient boosting model using
-propensity score A-learning and weight-learning methods. For details on
-the A-learning and weight-learning methods, see Chen et al. (2017)
-<doi:10.1111/biom.12676>.
+propensity score A-learning and weight-learning methods. For further
+details, see Liu et al. (2024) <doi:10.1093/bioinformatics/btae592>.
 
 %prep
 %setup -q -c -n %{packname}

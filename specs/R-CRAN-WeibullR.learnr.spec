@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WeibullR.learnr
-%global packver   0.1.3
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interactive Introduction to Life Data Analysis
 
@@ -18,9 +18,13 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-learnr 
+BuildRequires:    R-CRAN-ReliaGrowR 
 BuildRequires:    R-CRAN-WeibullR 
+BuildRequires:    R-CRAN-WeibullR.ALT 
 Requires:         R-CRAN-learnr 
+Requires:         R-CRAN-ReliaGrowR 
 Requires:         R-CRAN-WeibullR 
+Requires:         R-CRAN-WeibullR.ALT 
 
 %description
 An interactive introduction to Life Data Analysis that depends on

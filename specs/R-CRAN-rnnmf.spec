@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CoronaNetR
+%global packname  rnnmf
 %global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          API Access to 'CoronaNet' Data
+Summary:          Regularized Non-Negative Matrix Factorization
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-readr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-Offers access to a database on government responses to the COVID-19
-pandemic. To date, the 'CoronaNet' dataset provides the most comprehensive
-and granular documentation of such government policies in the world,
-capturing data for 20 broad policy categories alongside many other
-dimensions, including the initiator, target, and timing of a policy. This
-package is a programmatic front-end to up-to-date 'CoronaNet' policy
-records and the 'CoronaNet' policy intensity index scores. For more
-information, see Cheng et al. (2020) <doi:10.1038/s41562-020-0909-7>.
+A proof of concept implementation of regularized non-negative matrix
+factorization optimization. A non-negative matrix factorization factors
+non-negative matrix Y approximately as L R, for non-negative matrices L
+and R of reduced rank. This package supports such factorizations with
+weighted objective and regularization penalties. Allowable regularization
+penalties include L1 and L2 penalties on L and R, as well as
+non-orthogonality penalties. This package provides multiplicative update
+algorithms, which are a modification of the algorithm of Lee and Seung
+(2001)
+<http://papers.nips.cc/paper/1861-algorithms-for-non-negative-matrix-factorization.pdf>,
+as well as an additive update derived from that multiplicative update.
+See also Pav (2004) <doi:10.48550/arXiv.2410.22698>.
 
 %prep
 %setup -q -c -n %{packname}

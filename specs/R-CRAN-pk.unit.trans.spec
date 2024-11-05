@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neuronorm
-%global packver   1.0.2
+%global packname  pk.unit.trans
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Preprocessing of Structural MRI for Multiple Neurodegenerative Diseases
+Summary:          Achieve Numerical Conversion Between Units Commonly Used in Pharmacokinetics
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-oro.nifti 
-BuildRequires:    R-CRAN-fslr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-oro.nifti 
-Requires:         R-CRAN-fslr 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringi >= 1.8.4
+BuildRequires:    R-CRAN-maditr >= 0.8.4
+Requires:         R-CRAN-stringi >= 1.8.4
+Requires:         R-CRAN-maditr >= 0.8.4
 
 %description
-Preprocessing pipeline for normalizing and cleaning T1-weighted,
-T2-weighted and FLAIR MRI images coming from different sources, diseases,
-patients, scanners and sites.
+Achieve internal conversions of mass units, molar units, and volume units
+commonly used in pharmacokinetics, as well as conversions between mass
+units and molar units.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SecDim
-%global packver   3.2
+%global packname  mcmapper
+%global packver   0.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          0.0.11
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Second Dimension of Spatial Association
+Summary:          Mapping First Moment and C-Statistic to the Parameters of Distributions for Risk
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-geosphere 
-Requires:         R-stats 
-Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-methods 
-Requires:         R-CRAN-geosphere 
 
 %description
-Most of the current methods explore spatial association using observations
-at sample locations, which are defined as the first dimension of spatial
-association (FDA). The proposed concept of the second dimension of spatial
-association (SDA), as described in Yongze Song (2022)
-<doi:10.1016/j.jag.2022.102834>, aims to extract in-depth information
-about the geographical environment from locations outside sample locations
-for exploring spatial association.
+Provides a series of numerical methods for extracting parameters of
+distributions for risks based on knowing the expected value and
+c-statistics (e.g., from a published report on the performance of a risk
+prediction model). This package implements the methodology described in
+Sadatsafavi et al (2024) <doi:10.48550/arXiv.2409.09178>. The core of the
+package is mcmap(), which takes a pair of (mean, c-statistic) and the
+distribution type requested. This function provides a generic interface to
+more customized functions (mcmap_beta(), mcmap_logitnorm(),
+mcmap_probitnorm()) for specific distributions.
 
 %prep
 %setup -q -c -n %{packname}

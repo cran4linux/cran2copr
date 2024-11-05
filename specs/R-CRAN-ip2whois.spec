@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blockTools
-%global packver   0.6.5
+%global packname  ip2whois
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Block, Assign, and Diagnose Potential Interference in Randomized Experiments
+Summary:          Lookup 'WHOIS' Information for a Particular Domain
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.6
+BuildRequires:    R-CRAN-reticulate >= 1.13
+Requires:         R-CRAN-jsonlite >= 1.6
+Requires:         R-CRAN-reticulate >= 1.13
 
 %description
-Blocks units into experimental blocks, with one unit per treatment
-condition, by creating a measure of multivariate distance between all
-possible pairs of units. Maximum, minimum, or an allowable range of
-differences between units on one variable can be set. Randomly assign
-units to treatment conditions. Diagnose potential interference between
-units assigned to different treatment conditions.  Write outputs to .tex
-and .csv files. For more information on the methods implemented, see Moore
-(2012) <doi:10.1093/pan/mps025>.
+Easily implement the checking of 'WHOIS' information for a particular
+domain. 'IP2WHOIS' supports the query for 1113 Top-level Domains(TLDs) and
+634 Country Code Top-level Domains(ccTLDs). To get started with a free API
+key, you may sign up at here <https://www.ip2whois.com/register>.
 
 %prep
 %setup -q -c -n %{packname}
