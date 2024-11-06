@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmertree
-%global packver   0.2-5
+%global packver   0.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Mixed Model Trees
 
@@ -35,7 +35,9 @@ Recursive partitioning based on (generalized) linear mixed models (GLMMs)
 combining lmer()/glmer() from 'lme4' and lmtree()/glmtree() from
 'partykit'. The fitting algorithm is described in more detail in Fokkema,
 Smits, Zeileis, Hothorn & Kelderman (2018;
-<DOI:10.3758/s13428-017-0971-x>).
+<DOI:10.3758/s13428-017-0971-x>). For detecting and modeling subgroups in
+growth curves with GLMM trees see Fokkema & Zeileis (2024;
+<DOI:10.3758/s13428-024-02389-1>).
 
 %prep
 %setup -q -c -n %{packname}

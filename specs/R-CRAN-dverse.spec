@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  COveR
-%global packver   1.0.4
+%global packname  dverse
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering with Overlaps
+Summary:          Document a Universe of Packages
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provide functions for overlaps clustering, fuzzy clustering and
-interval-valued data manipulation. The package implement the following
-algorithms: OKM (Overlapping Kmeans) from Cleuziou, G. (2007)
-<doi:10.1109/icpr.2008.4761079> ; NEOKM (Non-exhaustive overlapping
-Kmeans) from Whang, J. J., Dhillon, I. S., and Gleich, D. F. (2015)
-<doi:10.1137/1.9781611974010.105> ; Fuzzy Cmeans from Bezdek, J. C. (1981)
-<doi:10.1007/978-1-4757-0450-1> ; Fuzzy I-Cmeans from de A.T. De Carvalho,
-F. (2005) <doi:10.1016/j.patrec.2006.08.014>.
+Creates a data frame containing the metadata associated with the
+documentation of a collection of R packages. It allows for linking topic
+names to their corresponding documentation online. If you maintain a
+universe meta-package, it helps create a comprehensive reference for its
+website.
 
 %prep
 %setup -q -c -n %{packname}

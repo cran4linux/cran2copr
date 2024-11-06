@@ -1,40 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  faux
-%global packver   1.2.1
+%global packname  tidywater
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation for Factorial Designs
+Summary:          Water Quality Models for Drinking Water Treatment Processes
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2) | MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-furrr 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 
 %description
-Create datasets with factorial structure through simulation by specifying
-variable parameters. Extended documentation at
-<https://debruine.github.io/faux/>. Described in DeBruine (2020)
-<doi:10.5281/zenodo.2669586>.
+Provides multiple water chemistry-based models and published empirical
+models in one standard format. Functions can be chained together to model
+a complete treatment process and are designed to work in a 'tidyverse'
+workflow. Models are primarily based on these sources: Benjamin, M. M.
+(2002, ISBN:147862308X), Crittenden, J. C., Trussell, R., Hand, D., Howe,
+J. K., & Tchobanoglous, G., Borchardt, J. H. (2012, ISBN:9781118131473),
+USEPA. (2001)
+<https://www.epa.gov/sites/default/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

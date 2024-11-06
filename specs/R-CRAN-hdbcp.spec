@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  infoelectoral
-%global packver   1.0.2
+%global packname  hdbcp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Spanish Election Results
+Summary:          Bayesian Change Point Detection for High-Dimensional Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-stringr >= 1.0.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-stringr >= 1.0.0
-Requires:         R-CRAN-httr >= 1.0.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 
 %description
-Download official election results for Spain at polling station,
-municipality and province level from the Ministry of Interior
-(<https://infoelectoral.interior.gob.es/es/elecciones-celebradas/area-de-descargas/>),
-format them and import them to the R environment.
+Functions implementing change point detection methods using the maximum
+pairwise Bayes factor approach. Additionally, the package includes tools
+for generating simulated datasets for comparing and evaluating change
+point detection techniques.
 
 %prep
 %setup -q -c -n %{packname}

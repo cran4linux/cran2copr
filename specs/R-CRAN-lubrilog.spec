@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RAFS
-%global packver   0.2.4
+%global packname  lubrilog
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Aggregative Feature Selection
+Summary:          Get Insights on 'lubridate' Operations
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MDFS >= 1.5.3
-BuildRequires:    R-CRAN-fastcluster 
-BuildRequires:    R-CRAN-splitTools 
-Requires:         R-CRAN-MDFS >= 1.5.3
-Requires:         R-CRAN-fastcluster 
-Requires:         R-CRAN-splitTools 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lubridate 
 
 %description
-A cross-validated minimal-optimal feature selection algorithm. It utilises
-popularity counting, hierarchical clustering with feature dissimilarity
-measures, and prefiltering with all-relevant feature selection method to
-obtain the minimal-optimal set of features.
+Provides a set of tools designed to enhance transparency and understanding
+of date-time manipulation functions from the 'lubridate' package. It
+provides detailed feedback about the operations performed by 'lubridate'
+functions, allowing users to better comprehend and debug their code. These
+insights serve as both a learning tool for newcomers and a debugging aid
+for programmers working with date-time data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MVar.pt
-%global packver   2.2.3
+%global packname  cocoon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analise multivariada (brazilian portuguese)
+Summary:          Extract, Format, and Print Statistical Output
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Analise multivariada, tendo funcoes que executam analise de
-correspondencia simples (CA) e multipla (MCA), analise de componentes
-principais (PCA), analise de correlacao canonica (CCA), analise fatorial
-(FA), escalonamento multidimensional (MDS), analise discriminante linear
-(LDA) e quadratica (QDA), analise de cluster hierarquico e nao
-hierarquico, regressao linear simples e multipla, analise de multiplos
-fatores (MFA) para dados quantitativos, qualitativos, de frequencia
-(MFACT) e dados mistos, biplot, scatter plot, projection pursuit (PP),
-grant tour e outras funcoes uteis para a analise multivariada.
+Provides functions that format statistical output in a way that can be
+inserted into R Markdown documents. This is analogous to the apa_print()
+functions in the 'papaja' package but prints Markdown or LaTeX syntax.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MVar.pt
-%global packver   2.2.3
+%global packname  speedyBBT
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analise multivariada (brazilian portuguese)
+Summary:          Efficient Bayesian Inference for the Bradley--Terry Model
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-base 
+BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-utils 
+Requires:         R-base 
+Requires:         R-CRAN-BayesLogit 
+Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Analise multivariada, tendo funcoes que executam analise de
-correspondencia simples (CA) e multipla (MCA), analise de componentes
-principais (PCA), analise de correlacao canonica (CCA), analise fatorial
-(FA), escalonamento multidimensional (MDS), analise discriminante linear
-(LDA) e quadratica (QDA), analise de cluster hierarquico e nao
-hierarquico, regressao linear simples e multipla, analise de multiplos
-fatores (MFA) para dados quantitativos, qualitativos, de frequencia
-(MFACT) e dados mistos, biplot, scatter plot, projection pursuit (PP),
-grant tour e outras funcoes uteis para a analise multivariada.
+A suite of functions that allow a full, fast, and efficient Bayesian
+treatment of the Bradley--Terry model. Prior assumptions about the model
+parameters can be encoded through a multivariate normal prior
+distribution. Inference is performed using a latent variable
+representation of the model.
 
 %prep
 %setup -q -c -n %{packname}

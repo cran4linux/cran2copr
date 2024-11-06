@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
-%global packname  Corbi
-%global packver   0.6-2
+%global __requires_exclude ^libmpi
+%global packname  subsampling
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of Rudimentary Bioinformatics Tools
+Summary:          Optimal Subsampling Methods for Statistical Models
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-CRF 
-BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
-Requires:         R-CRAN-CRF 
-Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-survey 
 
 %description
-Provides a bundle of basic and fundamental bioinformatics tools, such as
-network querying and alignment, subnetwork extraction and search, network
-biomarker identification.
+Balancing computational and statistical efficiency, subsampling techniques
+offer a practical solution for handling large-scale data analysis.
+Subsampling methods enhance statistical modeling for massive datasets by
+efficiently drawing representative subsamples from full dataset based on
+tailored sampling probabilities. These probabilities are optimized for
+specific goals, such as minimizing the variance of coefficient estimates
+or reducing prediction error.
 
 %prep
 %setup -q -c -n %{packname}

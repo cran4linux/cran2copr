@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  curl
-%global packver   5.2.3
+%global packver   6.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.3
+Version:          6.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modern and Flexible Web Client for R
 
@@ -19,15 +19,12 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 
 %description
-The curl() and curl_download() functions provide highly configurable
-drop-in replacements for base url() and download.file() with better
-performance, support for encryption (https, ftps), gzip compression,
-authentication, and other 'libcurl' goodies. The core of the package
-implements a framework for performing fully customized requests where data
-can be processed either in memory, on disk, or streaming via the callback
-or connection interfaces. Some knowledge of 'libcurl' is recommended; for
-a more-user-friendly web client see the 'httr' package which builds on
-this package with http specific tools and logic.
+Bindings to 'libcurl' <https://curl.se/libcurl/> for performing fully
+configurable HTTP/FTP requests where responses can be processed in memory,
+on disk, or streaming via the callback or connection interfaces. Some
+knowledge of 'libcurl' is recommended; for a more-user-friendly web client
+see the 'httr2' package which builds on this package with http specific
+tools and logic.
 
 %prep
 %setup -q -c -n %{packname}

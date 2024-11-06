@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readODS
-%global packver   2.3.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write ODS Files
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-cpp11 >= 0.5.0
 BuildRequires:    R-CRAN-vctrs >= 0.4.2
 BuildRequires:    R-CRAN-cellranger 
 BuildRequires:    R-CRAN-minty 

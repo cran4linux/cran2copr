@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mtdesign
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mander and Thompson Designs
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
@@ -27,8 +27,8 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-logger 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 

@@ -1,28 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MDFS
-%global packver   1.5.3
+%global packname  ggsem
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          MultiDimensional Feature Selection
+Summary:          Interactively Visualize Structural Equation Modeling Diagrams
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-colourpicker 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-svglite 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lavaan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-colourpicker 
+Requires:         R-grid 
+Requires:         R-CRAN-svglite 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-lavaan 
 
 %description
-Functions for MultiDimensional Feature Selection (MDFS): calculating
-multidimensional information gains, scoring variables, finding important
-variables, plotting selection results. This package includes an optional
-CUDA implementation that speeds up information gain calculation using
-NVIDIA GPGPUs. R. Piliszek et al. (2019) <doi:10.32614/RJ-2019-019>.
+It allows users to perform interactive and reproducible visualizations of
+path diagrams for structural equation modeling (SEM) and small-to-medium
+sized networks using the 'ggplot2' engine. Its 'shiny' app provides an
+interface that allows extensive customization, and creates CSV outputs,
+which can then be used to recreate the figures either using the 'shiny'
+app or in a typical 'ggplot2' workflow.
 
 %prep
 %setup -q -c -n %{packname}
