@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minired
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Redatam' Library
 
@@ -19,13 +19,15 @@ Requires:         R-core
 BuildRequires:    R-CRAN-cpp11 
 
 %description
-Provides an API to work with 'Redatam' (see <https://www.redatam.org>)
-databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
-running 'Redatam' programs written in 'SPC' language. It's a wrapper
-around 'Redatam' core and provides functions to open a database
-('redatam_open()'), list entities and variables from the database
-('redatam_entities()', 'redatam_variables()') and execute a 'SPC' program
-and gets the results as data frames ('redatam_query()'/'redatam_run()').
+This package is deprecated. Please use 'redatamx' instead. Provides an API
+to work with 'Redatam' (see <https://redatam.org>) databases in both
+formats: 'RXDB' (new format) and 'DICX' (old format) and running 'Redatam'
+programs written in 'SPC' language. It's a wrapper around 'Redatam' core
+and provides functions to open/close a database
+(redatam_open()/redatam_close()), list entities and variables from the
+database (redatam_entities(), redatam_variables()) and execute a 'SPC'
+program and gets the results as data frames (redatam_query(),
+redatam_run()).
 
 %prep
 %setup -q -c -n %{packname}

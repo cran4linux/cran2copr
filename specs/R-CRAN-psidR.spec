@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spmodel
-%global packver   0.9.0
+%global packname  psidR
+%global packver   2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Statistical Modeling and Prediction
+Summary:          Build Panel Data Sets from PSID Raw Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,30 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-parallel 
-Requires:         R-graphics 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-SAScii 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-futile.logger 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-SAScii 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-futile.logger 
 
 %description
-Fit, summarize, and predict for a variety of spatial statistical models
-applied to point-referenced and areal (lattice) data. Parameters are
-estimated using various methods. Additional modeling features include
-anisotropy, non-spatial random effects, partition factors, big data
-approaches, and more. Model-fit statistics are used to summarize,
-visualize, and compare models. Predictions at unobserved locations are
-readily obtainable. For additional details, see Dumelle et al. (2023)
-<doi:10.1371/journal.pone.0282524>.
+Makes it easy to build panel data in wide format from Panel Survey of
+Income Dynamics (PSID) delivered raw data. Downloads data directly from
+the PSID server using the 'SAScii' package. 'psidR' takes care of merging
+data from each wave onto a cross-period index file, so that individuals
+can be followed over time. The user must specify which years they are
+interested in, and the 'PSID' variable names (e.g. ER21003) for each year
+(they differ in each year). The package offers helper functions to
+retrieve variable names from different waves. There are different panel
+data designs and sample subsetting criteria implemented ("SRC", "SEO",
+"immigrant" and "latino" samples). More information about the PSID can be
+obtained at <https://simba.isr.umich.edu/data/data.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

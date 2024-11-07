@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  babelmixr2
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use 'nlmixr2' to Interact with Open Source and Commercial Software
 
@@ -16,30 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-rxode2 >= 3.0.0
-BuildRequires:    R-CRAN-nlmixr2est >= 2.1.6
-BuildRequires:    R-CRAN-nlmixr2 >= 2.0.8
-BuildRequires:    R-CRAN-nonmem2rx >= 0.1.3
+BuildRequires:    R-CRAN-rxode2 >= 3.0.2
+BuildRequires:    R-CRAN-nlmixr2 >= 3.0.1
+BuildRequires:    R-CRAN-nlmixr2est >= 3.0.1
+BuildRequires:    R-CRAN-nonmem2rx >= 0.1.5
+BuildRequires:    R-CRAN-monolix2rx >= 0.0.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-lotri 
-BuildRequires:    R-CRAN-monolix2rx 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-qs 
 BuildRequires:    R-CRAN-rex 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-rxode2 >= 3.0.0
-Requires:         R-CRAN-nlmixr2est >= 2.1.6
-Requires:         R-CRAN-nlmixr2 >= 2.0.8
-Requires:         R-CRAN-nonmem2rx >= 0.1.3
+Requires:         R-CRAN-rxode2 >= 3.0.2
+Requires:         R-CRAN-nlmixr2 >= 3.0.1
+Requires:         R-CRAN-nlmixr2est >= 3.0.1
+Requires:         R-CRAN-nonmem2rx >= 0.1.5
+Requires:         R-CRAN-monolix2rx >= 0.0.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-lotri 
-Requires:         R-CRAN-monolix2rx 
 Requires:         R-methods 
 Requires:         R-CRAN-qs 
 Requires:         R-CRAN-rex 

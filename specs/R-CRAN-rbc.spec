@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  redatam
-%global packver   2.0.2
+%global packname  rbc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import 'REDATAM' Files
+Summary:          Regression by Composition
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-R6 
 
 %description
-Read 'REDATAM' microdata exported into R native format (RDS). This is
-based on the Open Redatam initiative that provides a set of tools to read
-'REDATAM' files and convert them into open formats.
+Flexible statistical modelling using a modular framework for regression,
+in which groups of transformations are composed together and act on
+probability distributions.
 
 %prep
 %setup -q -c -n %{packname}

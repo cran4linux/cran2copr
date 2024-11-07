@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pliman
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Plant Image Analysis
 
@@ -16,29 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
 Requires:         R-CRAN-terra 
 
 %description
-Tools for single or batch image manipulation and analysis as described by
-Olivoto (2022) <doi:10.1111/2041-210X.13803> that can be used to quantify
-plant leaf area, assess disease severity, count objects, obtain shape
-measures, object landmarks, and compute Elliptical Fourier Analysis of the
-object outline, as described by Claude (2008)
-<doi:10.1007/978-0-387-77789-4>. Additionally, the package includes tools
-for analyzing grids, which enables high throughput field phenotyping using
-RGB imagery captured by unmanned aerial vehicles.
+Tools for both single and batch image manipulation and analysis (Olivoto,
+2022 <doi:10.1111/2041-210X.13803>) and phytopathometry (Olivoto et al.,
+2022 <doi:10.1007/S40858-021-00487-5>). The tools can be used for the
+quantification of leaf area, object counting, extraction of image indexes,
+shape measurement, object landmark identification, and Elliptical Fourier
+Analysis of object outlines (Claude (2008)
+<doi:10.1007/978-0-387-77789-4>). The package also provides a
+comprehensive pipeline for generating shapefiles with complex layouts and
+supports high-throughput phenotyping of RGB, multispectral, and
+hyperspectral orthomosaics. This functionality facilitates field
+phenotyping using UAV- or satellite-based imagery.
 
 %prep
 %setup -q -c -n %{packname}

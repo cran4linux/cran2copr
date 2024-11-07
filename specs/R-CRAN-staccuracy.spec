@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  staccuracy
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Standardized Accuracy and Other Model Performance Metrics
 
@@ -21,17 +21,19 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Standardized accuracy (staccuracy) is framework for expressing accuracy
 scores such that 50%% represents a reference level of performance and 100%%
-is perfect prediction. The 'staccuracy' package provides tools for
+is a perfect prediction. The 'staccuracy' package provides tools for
 creating staccuracy functions as well as some recommended staccuracy
 measures. It also provides functions for some classic performance metrics
 such as mean absolute error (MAE), root mean squared error (RMSE), and

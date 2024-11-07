@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterdiv
-%global packver   0.3.6
+%global packname  card
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diversity Indices for Numerical Matrices
+Summary:          Cardiovascular Applications in Research Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-twdtw 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggforce 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-hardhat 
+Requires:         R-stats 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-twdtw 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-hardhat 
 
 %description
-Provides methods to calculate diversity indices on numerical matrices
-based on information theory, as described in Rocchini, Marcantonio and
-Ricotta (2017) <doi:10.1016/j.ecolind.2016.07.039>, and Rocchini et al.
-(2021) <doi:10.1101/2021.01.23.427872>.
+A collection of cardiovascular research datasets and analytical tools,
+including methods for cardiovascular procedural data, such as
+electrocardiography, echocardiography, and catheterization data.
+Additional methods exist for analysis of procedural billing codes.
 
 %prep
 %setup -q -c -n %{packname}

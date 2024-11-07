@@ -1,40 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  MOSS
-%global packver   0.2.2
+%global __requires_exclude ^libmpi
+%global packname  afcharts
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Omic Integration via Sparse Singular Value Decomposition
+Summary:          Produce Charts Following UK Government Analysis Function Guidance
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
 
 %description
-High dimensionality, noise and heterogeneity among samples and features
-challenge the omic integration task. Here we present an omic integration
-method based on sparse singular value decomposition (SVD) to deal with
-these limitations, by: a. obtaining the main axes of variation of the
-combined omics, b. imposing sparsity constraints at both subjects (rows)
-and features (columns) levels using Elastic Net type of shrinkage, and c.
-allowing both linear and non-linear projections (via t-Stochastic Neighbor
-Embedding) of the omic data to detect clusters in very convoluted data
-(Gonzalez-Reymundez et. al, 2022) <doi:10.1093/bioinformatics/btac179>.
+Colour palettes and a 'ggplot2' theme to follow the UK Government Analysis
+Function best practice guidance for producing data visualisations,
+available at
+<https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/>.
+Includes continuous and discrete colour and fill scales, as well as a
+'ggplot2' theme.
 
 %prep
 %setup -q -c -n %{packname}

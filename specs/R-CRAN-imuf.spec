@@ -1,48 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterdiv
-%global packver   0.3.6
+%global packname  imuf
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diversity Indices for Numerical Matrices
+Summary:          Estimate Orientation of an Inertial Measurement Unit
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-twdtw 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-twdtw 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides methods to calculate diversity indices on numerical matrices
-based on information theory, as described in Rocchini, Marcantonio and
-Ricotta (2017) <doi:10.1016/j.ecolind.2016.07.039>, and Rocchini et al.
-(2021) <doi:10.1101/2021.01.23.427872>.
+Estimate the orientation of an inertial measurement unit (IMU) with a
+3-axis accelerometer and a 3-axis gyroscope using a complementary filter.
+'imuf' takes an IMU's accelerometer and gyroscope readings, time duration,
+its initial orientation, and a gain factor as inputs, and returns an
+estimate of the IMU's final orientation.
 
 %prep
 %setup -q -c -n %{packname}

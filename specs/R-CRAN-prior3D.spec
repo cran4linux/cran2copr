@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prior3D
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          3D Prioritization Algorithm
 
@@ -47,10 +47,11 @@ Requires:         R-grDevices
 %description
 Three-dimensional systematic conservation planning, conducting nested
 prioritization analyses across multiple depth levels and ensuring
-efficient resource allocation throughout the water column (Doxa et al.
-2024 <doi:10.1111/gcb.16268>). It provides a structured workflow designed
-to address biodiversity conservation and management challenges in the 3
-dimensions, while facilitating users’ choices and parameterization.
+efficient resource allocation throughout the water column. It provides a
+structured workflow designed to address biodiversity conservation and
+management challenges in the 3 dimensions, while facilitating users’
+choices and parameterization (Doxa et al. 2024
+<doi:10.1016/j.ecolmodel.2024.110919>).
 
 %prep
 %setup -q -c -n %{packname}

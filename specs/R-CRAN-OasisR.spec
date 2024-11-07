@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterdiv
-%global packver   0.3.6
+%global packname  OasisR
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diversity Indices for Numerical Matrices
+Summary:          Outright Tool for the Analysis of Spatial Inequalities and Segregation
 
-License:          GPL (>= 2)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-twdtw 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-twdtw 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-methods >= 4.4.0
+BuildRequires:    R-CRAN-measurements >= 1.5.1
+BuildRequires:    R-CRAN-spdep >= 1.3.6
+BuildRequires:    R-CRAN-sf >= 1.0.18
+BuildRequires:    R-CRAN-outliers >= 0.15
+Requires:         R-methods >= 4.4.0
+Requires:         R-CRAN-measurements >= 1.5.1
+Requires:         R-CRAN-spdep >= 1.3.6
+Requires:         R-CRAN-sf >= 1.0.18
+Requires:         R-CRAN-outliers >= 0.15
 
 %description
-Provides methods to calculate diversity indices on numerical matrices
-based on information theory, as described in Rocchini, Marcantonio and
-Ricotta (2017) <doi:10.1016/j.ecolind.2016.07.039>, and Rocchini et al.
-(2021) <doi:10.1101/2021.01.23.427872>.
+A comprehensive set of indexes and tests for social segregation analysis,
+as described in Tivadar (2019) - 'OasisR': An R Package to Bring Some
+Order to the World of Segregation Measurement <doi:10.18637/jss.v089.i07>.
+The package is the most complete existing tool and it clarifies many
+ambiguities and errors regarding the definition of segregation indices.
+Additionally, 'OasisR' introduces several resampling methods that enable
+testing their statistical significance (randomization tests,
+bootstrapping, and jackknife methods).
 
 %prep
 %setup -q -c -n %{packname}

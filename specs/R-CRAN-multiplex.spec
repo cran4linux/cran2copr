@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiplex
-%global packver   3.7
+%global packver   3.8-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.7
+Version:          3.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Algebraic Tools for the Analysis of Multiple Social Networks
 

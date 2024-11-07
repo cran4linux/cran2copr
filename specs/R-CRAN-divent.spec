@@ -1,48 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterdiv
-%global packver   0.3.6
+%global packname  divent
+%global packver   0.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diversity Indices for Numerical Matrices
+Summary:          Entropy Partitioning to Measure Diversity
 
-License:          GPL (>= 2)
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-twdtw 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggforce 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-EntropyEstimation 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-twdtw 
-Requires:         R-CRAN-viridis 
+Requires:         R-graphics 
+Requires:         R-CRAN-EntropyEstimation 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-vegan 
 
 %description
-Provides methods to calculate diversity indices on numerical matrices
-based on information theory, as described in Rocchini, Marcantonio and
-Ricotta (2017) <doi:10.1016/j.ecolind.2016.07.039>, and Rocchini et al.
-(2021) <doi:10.1101/2021.01.23.427872>.
+Measurement and partitioning of diversity, based on Tsallis entropy,
+following Marcon and Herault (2015) <doi:10.18637/jss.v067.i08>. 'divent'
+provides functions to estimate alpha, beta and gamma diversity of
+communities, including phylogenetic and functional diversity.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sts
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Structural Topic and Sentiment-Discourse Model for Text Analysis
 
@@ -27,6 +27,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-stm 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-glmnet 
@@ -38,6 +39,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-stm 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
 
 %description
 The Structural Topic and Sentiment-Discourse (STS) model allows
@@ -48,8 +50,8 @@ each topic that modulates the word frequency within a topic. These latent
 topic sentiment-discourse variables are controlled by the document-level
 metadata. The STS model can be useful for regression analysis with text
 data in addition to topic modeling’s traditional use of descriptive
-analysis. The method was developed in Li and Mankad (2024)
-<doi:10.2139/ssrn.4020651>.
+analysis. The method was developed in Chen and Mankad (2024)
+<doi:10.1287/mnsc.2022.00261>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  salesforcer
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of 'Salesforce' APIs Using Tidy Principles
 
@@ -64,7 +65,7 @@ Requires:         R-CRAN-base64enc >= 0.1.3
 %description
 Functions connecting to the 'Salesforce' Platform APIs (REST, SOAP, Bulk
 1.0, Bulk 2.0, Metadata, Reports and Dashboards)
-<https://trailhead.salesforce.com/en/content/learn/modules/api_basics/api_basics_overview>.
+<https://trailhead.salesforce.com/content/learn/modules/api_basics/api_basics_overview>.
 "API" is an acronym for "application programming interface". Most all
 calls from these APIs are supported as they use CSV, XML or JSON data that
 can be parsed into R data structures. For more details please see the

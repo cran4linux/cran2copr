@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Xplortext
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Analysis of Textual Data
 
@@ -14,47 +14,57 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.58.4
-BuildRequires:    R-graphics >= 4.3.0
-BuildRequires:    R-methods >= 4.3.0
-BuildRequires:    R-stats >= 4.3.0
-BuildRequires:    R-utils >= 4.3.0
-BuildRequires:    R-CRAN-plotly >= 4.10.1
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
-BuildRequires:    R-CRAN-FactoMineR >= 2.8
-BuildRequires:    R-CRAN-vegan >= 2.6.4
-BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-stringi >= 1.7.12
-BuildRequires:    R-CRAN-stringr >= 1.5.0
-BuildRequires:    R-CRAN-flexclust >= 1.4.1
-BuildRequires:    R-CRAN-flashClust >= 1.01.2
-BuildRequires:    R-CRAN-ggrepel >= 0.9.3
-BuildRequires:    R-CRAN-tm >= 0.7.11
-BuildRequires:    R-CRAN-ggforce >= 0.4.1
-BuildRequires:    R-CRAN-slam >= 0.1.50
-BuildRequires:    R-CRAN-ggdendro >= 0.1.23
-Requires:         R-CRAN-MASS >= 7.3.58.4
-Requires:         R-graphics >= 4.3.0
-Requires:         R-methods >= 4.3.0
-Requires:         R-stats >= 4.3.0
-Requires:         R-utils >= 4.3.0
-Requires:         R-CRAN-plotly >= 4.10.1
-Requires:         R-CRAN-ggplot2 >= 3.4.2
-Requires:         R-CRAN-FactoMineR >= 2.8
-Requires:         R-CRAN-vegan >= 2.6.4
-Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-stringi >= 1.7.12
-Requires:         R-CRAN-stringr >= 1.5.0
-Requires:         R-CRAN-flexclust >= 1.4.1
-Requires:         R-CRAN-flashClust >= 1.01.2
-Requires:         R-CRAN-ggrepel >= 0.9.3
-Requires:         R-CRAN-tm >= 0.7.11
-Requires:         R-CRAN-ggforce >= 0.4.1
-Requires:         R-CRAN-slam >= 0.1.50
-Requires:         R-CRAN-ggdendro >= 0.1.23
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-FactoMineR >= 2.11
+BuildRequires:    R-CRAN-tm >= 0.7.14
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-dendextend 
+BuildRequires:    R-CRAN-flexclust 
+BuildRequires:    R-CRAN-flashClust 
+BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-slam 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-FactoMineR >= 2.11
+Requires:         R-CRAN-tm >= 0.7.14
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-dendextend 
+Requires:         R-CRAN-flexclust 
+Requires:         R-CRAN-flashClust 
+Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-graphics 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-slam 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-vegan 
 
 %description
 Provides a set of functions devoted to multivariate exploratory statistics

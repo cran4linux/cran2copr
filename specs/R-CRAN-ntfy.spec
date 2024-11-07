@@ -1,48 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rasterdiv
-%global packver   0.3.6
+%global packname  ntfy
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diversity Indices for Numerical Matrices
+Summary:          Lightweight Wrapper to the 'ntfy.sh' Service
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-twdtw 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-proxy 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-twdtw 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Provides methods to calculate diversity indices on numerical matrices
-based on information theory, as described in Rocchini, Marcantonio and
-Ricotta (2017) <doi:10.1016/j.ecolind.2016.07.039>, and Rocchini et al.
-(2021) <doi:10.1101/2021.01.23.427872>.
+The 'ntfy' (pronounce: notify) service is a simple HTTP-based pub-sub
+notification service. It allows you to send notifications to your phone or
+desktop via scripts from any computer, entirely without signup, cost or
+setup. It's also open source if you want to run your own. Visit
+<https://ntfy.sh> for more details.
 
 %prep
 %setup -q -c -n %{packname}
