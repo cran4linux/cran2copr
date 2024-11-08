@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rnest
-%global packver   0.0.0.1
+%global packver   0.0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.1
+Version:          0.0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Next Eigenvalue Sufficiency Test
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.58.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-psych >= 2.4.6.25
 BuildRequires:    R-CRAN-fungible >= 2.3
 BuildRequires:    R-CRAN-crayon >= 1.4.0
 BuildRequires:    R-CRAN-EFA.MRFA >= 1.1.2
 BuildRequires:    R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-MASS >= 7.3.58.1
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-psych >= 2.4.6.25
 Requires:         R-CRAN-fungible >= 2.3
 Requires:         R-CRAN-crayon >= 1.4.0
 Requires:         R-CRAN-EFA.MRFA >= 1.1.2

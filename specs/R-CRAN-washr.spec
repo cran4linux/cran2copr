@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  table.glue
-%global packver   0.0.4
+%global packname  washr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make and Apply Customized Rounding Specifications for Tables
+Summary:          Publication Toolkit for Water, Sanitation and Hygiene (WASH) Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-utils >= 4.3.3
+BuildRequires:    R-CRAN-devtools >= 2.4.5
+BuildRequires:    R-CRAN-usethis >= 2.2.3
+BuildRequires:    R-CRAN-pkgdown >= 2.0.7
+BuildRequires:    R-CRAN-desc >= 1.4.3
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-cffr >= 1.0.1
+Requires:         R-utils >= 4.3.3
+Requires:         R-CRAN-devtools >= 2.4.5
+Requires:         R-CRAN-usethis >= 2.2.3
+Requires:         R-CRAN-pkgdown >= 2.0.7
+Requires:         R-CRAN-desc >= 1.4.3
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-cffr >= 1.0.1
 
 %description
-Translate double and integer valued data into character values formatted
-for tabulation in manuscripts or other types of academic reports.
+A toolkit to set up an R data package in a consistent structure. Automates
+tasks like tidy data export, data dictionary documentation, README and
+website creation, and citation management.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vglmer
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variational Inference for Hierarchical Generalized Linear Models
 
@@ -41,12 +41,12 @@ Requires:         R-splines
 Requires:         R-CRAN-mgcv 
 
 %description
-Estimates hierarchical models using mean-field variational Bayes. At
-present, it can estimate logistic, linear, and negative binomial models.
-It can accommodate models with an arbitrary number of random effects and
-requires no integration to estimate. It also provides the ability to
-improve the quality of the approximation using marginal augmentation.
-Goplerud (2022) <doi:10.1214/21-BA1266> and Goplerud (2024)
+Estimates hierarchical models using variational inference. At present, it
+can estimate logistic, linear, and negative binomial models. It can
+accommodate models with an arbitrary number of random effects and requires
+no integration to estimate. It also provides the ability to improve the
+quality of the approximation using marginal augmentation. Goplerud (2022)
+<doi:10.1214/21-BA1266> and Goplerud (2024)
 <doi:10.1017/S0003055423000035> provide details on the variational
 algorithms.
 

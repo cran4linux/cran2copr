@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cryptoQuotes
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Streamlined Access to Cryptocurrency OHLC-V Market Data and Sentiment Indicators
+Summary:          Open Access to Cryptocurrency Market Data, Sentiment Indicators and Interactive Charts
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,32 +19,31 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.2.1
 BuildRequires:    R-CRAN-plotly >= 4.10.4
-BuildRequires:    R-CRAN-cli >= 3.6.2
+BuildRequires:    R-CRAN-cli >= 3.6.3
 BuildRequires:    R-CRAN-jsonlite >= 1.8.8
 BuildRequires:    R-CRAN-zoo >= 1.8.12
 BuildRequires:    R-CRAN-lifecycle >= 1.0.4
 BuildRequires:    R-CRAN-TTR >= 0.24.4
-BuildRequires:    R-CRAN-xts >= 0.13.2
+BuildRequires:    R-CRAN-xts >= 0.14.0
 BuildRequires:    R-utils 
 Requires:         R-CRAN-curl >= 5.2.1
 Requires:         R-CRAN-plotly >= 4.10.4
-Requires:         R-CRAN-cli >= 3.6.2
+Requires:         R-CRAN-cli >= 3.6.3
 Requires:         R-CRAN-jsonlite >= 1.8.8
 Requires:         R-CRAN-zoo >= 1.8.12
 Requires:         R-CRAN-lifecycle >= 1.0.4
 Requires:         R-CRAN-TTR >= 0.24.4
-Requires:         R-CRAN-xts >= 0.13.2
+Requires:         R-CRAN-xts >= 0.14.0
 Requires:         R-utils 
 
 %description
-This high-level API client offers a streamlined access to public
-cryptocurrency market data and sentiment indicators. It features OHLC-V
-(Open, High, Low, Close, Volume) that comes with granularity ranging from
-seconds to months and essential sentiment indicators to develop and
-backtest trading strategies, or conduct detailed market analysis. By
-interacting directly with the major cryptocurrency exchanges this package
-ensures a reliable, and stable, flow of market information, eliminating
-the need for complex, low-level API interactions or webcrawlers.
+This high-level API client provides open access to cryptocurrency market
+data, sentiment indicators, and interactive charting tools. The data is
+sourced from major cryptocurrency exchanges via 'curl' and returned in
+'xts'-format. The data comes in open, high, low, and close (OHLC) format
+with flexible granularity, ranging from seconds to months. This
+flexibility makes it ideal for developing and backtesting trading
+strategies or conducting detailed market analysis.
 
 %prep
 %setup -q -c -n %{packname}

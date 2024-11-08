@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hgwrr
-%global packver   0.5-0
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical and Geographically Weighted Regression
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-MASS 
 
 %description
 This model divides coefficients into three types, i.e., local fixed

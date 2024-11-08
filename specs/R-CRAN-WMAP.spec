@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  good
-%global packver   1.0.2
+%global packname  WMAP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Good Regression
+Summary:          Weighted Meta-Analysis with Pseudo-Populations
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-maxLik 
-BuildRequires:    R-CRAN-plyr 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-maxLik 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-pkgcond 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-zeallot 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-pkgcond 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-forcats 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-grDevices 
 
 %description
-Fit Good regression models to count data (Tur et al., 2021)
-<doi:10.48550/arXiv.2105.01557>. The package provides functions for model
-estimation and model prediction. Density, distribution function, quantile
-function and random generation for the Good distribution are also
-provided.
+Implementation of integrative weighting approaches for multiple
+observational studies and causal inferences. The package features three
+weighting approaches, each representing a special case of the unified
+weighting framework, introduced by Guha and Li (2024)
+<doi:10.1093/biomtc/ujae070>, which includes an extension of inverse
+probability weights for data integration settings.
 
 %prep
 %setup -q -c -n %{packname}

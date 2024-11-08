@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stars
-%global packver   0.6-6
+%global packver   0.6-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.6
+Version:          0.6.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Arrays, Raster and Vector Data Cubes
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf >= 1.0.15
+BuildRequires:    R-CRAN-sf >= 1.0.19
 BuildRequires:    R-CRAN-classInt >= 0.4.1
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-units 
-Requires:         R-CRAN-sf >= 1.0.15
+Requires:         R-CRAN-sf >= 1.0.19
 Requires:         R-CRAN-classInt >= 0.4.1
 Requires:         R-CRAN-abind 
 Requires:         R-methods 

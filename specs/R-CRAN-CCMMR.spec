@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CCMMR
-%global packver   0.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimization of the Convex Clustering Loss Function
 
@@ -21,19 +21,18 @@ BuildRequires:    R-graphics >= 4.1.0
 BuildRequires:    R-stats >= 4.1
 BuildRequires:    R-CRAN-RANN >= 2.6.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-r2r >= 0.1.1
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods >= 4.1.0
 Requires:         R-graphics >= 4.1.0
 Requires:         R-stats >= 4.1
 Requires:         R-CRAN-RANN >= 2.6.1
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-r2r >= 0.1.1
 
 %description
 Implements the convex clustering through majorization-minimization (CCMM)
-algorithm described in Touw, Groenen, and Terada (2022) <arXiv:2211.01877>
-to perform minimization of the convex clustering loss function.
+algorithm described in Touw, Groenen, and Terada (2022)
+<doi:10.48550/arXiv.2211.01877> to perform minimization of the convex
+clustering loss function.
 
 %prep
 %setup -q -c -n %{packname}

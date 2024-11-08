@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  graphicalEvidence
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Evidence
 
@@ -32,12 +32,12 @@ Requires:         R-CRAN-mvtnorm
 Computes marginal likelihood in Gaussian graphical models through a novel
 telescoping block decomposition of the precision matrix which allows
 estimation of model evidence. The top level function used to estimate
-marginal likelihood is called evidence, which expects the prior name,
+marginal likelihood is called evidence(), which expects the prior name,
 data, and relevant prior specific parameters. This package also provides
 an MCMC prior sampler using the same underlying approach, implemented in
-prior_sampling, which expects a prior name and prior specific parameters.
-Both functions also expect the number of burn-in iterations and the number
-of sampling iterations for the underlying MCMC sampler.
+prior_sampling(), which expects a prior name and prior specific
+parameters. Both functions also expect the number of burn-in iterations
+and the number of sampling iterations for the underlying MCMC sampler.
 
 %prep
 %setup -q -c -n %{packname}
