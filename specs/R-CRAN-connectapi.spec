@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  connectapi
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Interacting with the 'Posit Connect' Server API
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-bit64
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-bit64
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-mime 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 

@@ -1,34 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aebdata
-%global packver   0.1.2
+%global packname  FGRepo
+%global packver   1.3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.3.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the Atlas do Estado Brasileiro
+Summary:          Functional Genomics Repository for POST-GWAS Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
 
 %description
-Facilitates access to the data from the Atlas do Estado Brasileiro
-(<https://www.ipea.gov.br/atlasestado/>), maintained by the Instituto de
-Pesquisa Econômica Aplicada (Ipea). It allows users to search for specific
-series, list series or themes, and download data when available.
+A collection of datasets essential for functional genomic analysis. Gene
+names, gene positions, cytoband information, sourced from Ensembl and
+phenotypes association graph prepared from GWAScatalog are included. Data
+is available in both GRCh37 and 38 builds. These datasets facilitate a
+wide range of genomic studies, including the identification of genetic
+variants, exploration of genomic features, and post-GWAS functional
+analysis.
 
 %prep
 %setup -q -c -n %{packname}

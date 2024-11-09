@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ravetools
-%global packver   0.1.8
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Signal and Image Processing Toolbox for Analyzing Intracranial Electroencephalography Data
 
@@ -47,10 +47,9 @@ discrete wavelet spectrogram for minutes of high-resolution signals, fast
 3D convolution, image registration, 3D mesh manipulation; providing
 fundamental toolbox for intracranial Electroencephalography (iEEG)
 pipelines. Documentation and examples about 'RAVE' project are provided at
-<https://openwetware.org/wiki/RAVE>, and the paper by John F. Magnotti,
-Zhengjia Wang, Michael S. Beauchamp (2020)
-<doi:10.1016/j.neuroimage.2020.117341>; see 'citation("ravetools")' for
-details.
+<https://rave.wiki>, and the paper by John F. Magnotti, Zhengjia Wang,
+Michael S. Beauchamp (2020) <doi:10.1016/j.neuroimage.2020.117341>; see
+'citation("ravetools")' for details.
 
 %prep
 %setup -q -c -n %{packname}

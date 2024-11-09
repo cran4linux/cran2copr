@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rTwig
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Realistic Quantitative Structure Models
 
@@ -21,10 +21,6 @@ BuildRequires:    R-CRAN-rmatio
 BuildRequires:    R-CRAN-tidytable 
 BuildRequires:    R-CRAN-cobs 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rgl 
 BuildRequires:    R-CRAN-colourvalues 
 BuildRequires:    R-CRAN-Rdpack 
@@ -32,15 +28,12 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppSimdJson 
 BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-R.matlab 
 Requires:         R-CRAN-rmatio 
 Requires:         R-CRAN-tidytable 
 Requires:         R-CRAN-cobs 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-colourvalues 
 Requires:         R-CRAN-Rdpack 
@@ -54,8 +47,8 @@ Real Twig is a method to correct branch overestimation in quantitative
 structure models. Overestimated cylinders are correctly tapered using
 measured twig diameters of corresponding tree species. Supported
 quantitative structure modeling software includes 'TreeQSM',
-'SimpleForest' and 'Treegraph'. Also included is a novel database of twig
-diameters and tools for fractal analysis of point clouds.
+'SimpleForest', 'Treegraph', and 'aRchi'. Also included is a novel
+database of twig diameters and tools for fractal analysis of point clouds.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aebdata
+%global packname  ineAtlas
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the Atlas do Estado Brasileiro
+Summary:          Access to Spanish Household Income Distribution Atlas Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-zip 
 
 %description
-Facilitates access to the data from the Atlas do Estado Brasileiro
-(<https://www.ipea.gov.br/atlasestado/>), maintained by the Instituto de
-Pesquisa Econômica Aplicada (Ipea). It allows users to search for specific
-series, list series or themes, and download data when available.
+Provides access to granular socioeconomic indicators from the Spanish
+Statistical Office (INE) Household Income Distribution Atlas. The package
+downloads and processes data from a companion 'GitHub' repository
+(<https://github.com/pablogguz/ineAtlas.data/>) which contains processed
+versions of the official INE Atlas data. Functions are provided to fetch
+data at multiple geographic levels (municipalities, districts, and census
+tracts), including income indicators, demographic characteristics, and
+inequality metrics. The data repository is updated every year when new
+releases are published by INE.
 
 %prep
 %setup -q -c -n %{packname}

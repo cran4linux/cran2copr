@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  svydiags
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Model Diagnostics for Survey Data
 
@@ -25,16 +25,16 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-survey 
 
 %description
-Diagnostics for fixed effects linear regression models fitted with survey
-data. Extensions of standard diagnostics to complex survey data are
-included: standardized residuals, leverages, Cook's D, dfbetas, dffits,
-condition indexes, and variance inflation factors as found in Li and
-Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of Off. Stat., 2011,
-27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp. 61-75); Liao and
-Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv. Meth., 2012, 38(2),
-pp. 189-202).  Variance inflation factors are also computed for some
-general linear models (binomial, gaussian, poisson, quasibinomial, and
-quasipoisson) as described in Liao (U. Maryland thesis, 2010).
+Diagnostics for fixed effects linear and general linear regression models
+fitted with survey data. Extensions of standard diagnostics to complex
+survey data are included: standardized residuals, leverages, Cook's D,
+dfbetas, dffits, condition indexes, and variance inflation factors as
+found in Li and Valliant (Surv. Meth., 2009, 35(1), pp. 15-24; Jnl. of
+Off. Stat., 2011, 27(1), pp. 99-119; Jnl. of Off. Stat., 2015, 31(1), pp.
+61-75); Liao and Valliant (Surv. Meth., 2012, 38(1), pp. 53-62; Surv.
+Meth., 2012, 38(2), pp. 189-202).  Variance inflation factors and
+condition indexes are also computed for some general linear models as
+described in Liao (U. Maryland thesis, 2010).
 
 %prep
 %setup -q -c -n %{packname}

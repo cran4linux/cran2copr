@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minty
-%global packver   0.0.1
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimal Type Guesser
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-cpp11 >= 0.5.0
 BuildRequires:    R-CRAN-tzdb >= 0.1.1
-BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-tzdb >= 0.1.1
 
 %description

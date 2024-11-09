@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aebdata
-%global packver   0.1.2
+%global packname  DTSR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from the Atlas do Estado Brasileiro
+Summary:          Distributed Trimmed Scores Regression for Handling Missing Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rvest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rvest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvdalab 
+BuildRequires:    R-CRAN-DMwR2 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-mvdalab 
+Requires:         R-CRAN-DMwR2 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-MASS 
 
 %description
-Facilitates access to the data from the Atlas do Estado Brasileiro
-(<https://www.ipea.gov.br/atlasestado/>), maintained by the Instituto de
-Pesquisa Econômica Aplicada (Ipea). It allows users to search for specific
-series, list series or themes, and download data when available.
+Provides functions for handling missing data using Distributed Trimmed
+Scores Regression and other imputation methods. It includes facilities for
+data imputation, evaluation metrics, and clustering analysis. It is
+designed to work in distributed computing environments to handle large
+datasets efficiently. The philosophy of the package is described in Guo G.
+(2024) <doi:10.1080/03610918.2022.2091779>.
 
 %prep
 %setup -q -c -n %{packname}

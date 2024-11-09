@@ -1,43 +1,69 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  descriptr
-%global packver   0.6.0
+%global packname  epicmodel
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Descriptive Statistics
+Summary:          Causal Modeling in Epidemiology
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dagitty 
+BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-prompter 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyalert 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-spsUtil 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dagitty 
+Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-prompter 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyalert 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-spsUtil 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 
 %description
-Generate descriptive statistics such as measures of location, dispersion,
-frequency tables, cross tables, group summaries and multiple one/two way
-tables.
+Create causal models for use in epidemiological studies, including
+sufficient-component cause models as introduced by Rothman (1976)
+<doi:10.1093/oxfordjournals.aje.a112335>.
 
 %prep
 %setup -q -c -n %{packname}

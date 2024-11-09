@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TestGenerator
-%global packver   0.3.3
+%global packname  AIscreenR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
+Summary:          AI Screening Tools in R for Systematic Reviewing
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-CDMConnector 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-CDMConnector 
-Requires:         R-CRAN-DBI 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-askpass 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-askpass 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Push a sample population for unit testing on data mapped to the
-Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+Provides functions to conduct title and abstract screening in systematic
+reviews using large language models, such as the Generative Pre-trained
+Transformer (GPT) models from 'OpenAI' <https://platform.openai.com/>.
+These functions can enhance the quality of title and abstract screenings
+while reducing the total screening time significantly. In addition, the
+package includes tools for quality assessment of title and abstract
+screenings, as described in Vembye, Christensen, Mølgaard, and Schytt
+(2024) <DOI:10.31219/osf.io/yrhzm>.
 
 %prep
 %setup -q -c -n %{packname}

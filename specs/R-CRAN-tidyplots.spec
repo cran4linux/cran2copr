@@ -1,43 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  descriptr
-%global packver   0.6.0
+%global packname  tidyplots
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Descriptive Statistics
+Summary:          Tidy Plots for Scientific Papers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-ggrastr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-ggrastr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Generate descriptive statistics such as measures of location, dispersion,
-frequency tables, cross tables, group summaries and multiple one/two way
-tables.
+The goal of 'tidyplots' is to streamline the creation of publication-ready
+plots for scientific papers. It allows to gradually add, remove and adjust
+plot components using a consistent and intuitive syntax.
 
 %prep
 %setup -q -c -n %{packname}

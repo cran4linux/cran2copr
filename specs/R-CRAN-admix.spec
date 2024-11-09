@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admix
-%global packver   2.3.2
+%global packver   2.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.2
+Version:          2.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Package Admix for Admixture (aka Contamination) Models
 
