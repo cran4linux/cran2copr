@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GofCens
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness-of-Fit Methods for Complete and Right-Censored Data
 
@@ -37,12 +37,13 @@ Requires:         R-methods
 %description
 Graphical tools and goodness-of-fit tests for complete and right-censored
 data: 1. Kolmogorov-Smirnov, Cramér-von Mises, and Anderson-Darling tests,
-which use the empirical distribution function for complete data and are
-extended for right-censored data. 2. Generalized chi-squared-type test,
-which is based on the squared differences between observed and expected
-counts using random cells with right-censored data. 3. A series of
-graphical tools such as probability or cumulative hazard plots to guide
-the decision about the most suitable parametric model for the data.
+which utilize the empirical distribution function for complete data and
+are extended to handle right-censored data. 2. Generalized
+chi-squared-type test, which is based on the squared differences between
+observed and expected counts using random cells with right-censored data.
+3. Graphical tools, such as probability and cumulative hazard plots, to
+help guide decisions about the most appropriate parametric model for the
+data.
 
 %prep
 %setup -q -c -n %{packname}

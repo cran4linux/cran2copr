@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesMig
-%global packver   0.4-6
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Projection of Migration
 
@@ -17,14 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bayesTFR 
+BuildRequires:    R-CRAN-bayesTFR >= 7.4.4
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-wpp2019 
-Requires:         R-CRAN-bayesTFR 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-bayesTFR >= 7.4.4
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-wpp2019 
+Requires:         R-CRAN-data.table 
 
 %description
 Producing probabilistic projections of net migration rate for all

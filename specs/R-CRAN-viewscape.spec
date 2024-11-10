@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viewscape
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Viewscape Analysis
 
@@ -16,6 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-ForestTools >= 1.0.1
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
@@ -23,9 +24,9 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-ForestTools 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbmcapply 
+Requires:         R-CRAN-ForestTools >= 1.0.1
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
@@ -33,7 +34,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-ForestTools 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbmcapply 
 
