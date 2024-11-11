@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CodelistGenerator
-%global packver   3.2.1
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Relevant Clinical Codes and Evaluate Their Use
 
@@ -32,9 +32,8 @@ BuildRequires:    R-CRAN-visOmopResults >= 0.3.0
 BuildRequires:    R-CRAN-omopgenerics >= 0.2.2
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-RJSONIO 
 Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-magrittr >= 2.0.0
@@ -50,9 +49,8 @@ Requires:         R-CRAN-visOmopResults >= 0.3.0
 Requires:         R-CRAN-omopgenerics >= 0.2.2
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-RJSONIO 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-RJSONIO 
 
 %description
 Generate a candidate code list for the Observational Medical Outcomes

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  isopam
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Sites with Species Data
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-fastkmedoids 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
@@ -31,9 +33,11 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-fastkmedoids 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
+Requires:         R-CRAN-ps 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 

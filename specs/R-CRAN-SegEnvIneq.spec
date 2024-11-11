@@ -1,39 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ottr
-%global packver   1.5.1
+%global packname  SegEnvIneq
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Autograding Extension for Otter-Grader
+Summary:          Environmental Inequality Indices Based on Segregation Measures
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-testthat 
-Requires:         R-tools 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-zip 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-OasisR >= 3.1.1
+BuildRequires:    R-CRAN-spdep >= 1.3.6
+BuildRequires:    R-CRAN-sf >= 1.0.16
+BuildRequires:    R-CRAN-outliers >= 0.15
+Requires:         R-CRAN-OasisR >= 3.1.1
+Requires:         R-CRAN-spdep >= 1.3.6
+Requires:         R-CRAN-sf >= 1.0.16
+Requires:         R-CRAN-outliers >= 0.15
 
 %description
-An R autograding extension for Otter-Grader
-(<https://otter-grader.readthedocs.io>). It supports grading R scripts, R
-Markdown documents, and R Jupyter Notebooks.
+A set of segregation-based indices and randomization methods to make
+robust environmental inequality assessments, as described in Schaeffer and
+Tivadar (2019) "Measuring Environmental Inequalities: Insights from the
+Residential Segregation Literature" <doi:10.1016/j.ecolecon.2019.05.009>.
 
 %prep
 %setup -q -c -n %{packname}

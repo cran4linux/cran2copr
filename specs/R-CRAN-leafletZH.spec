@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leafletZH
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adds a Chinese Choropleth Leaflet Map
+Summary:          Chinese Leaflet Map Relate Operation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,27 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-leaflet.extras 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-geosphere 
+Requires:         R-grDevices 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-leaflet.extras 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
 
 %description
 Provides 'sf' data for Chinese provinces and cities, methods for plotting
-shape maps of Chinese provinces and cities, and a layer for 'leaflet' with
-Gaode tiles. It is designed to facilitate geographical data visualization
-in China.
+shape maps of Chinese provinces and cities, Convert Coordinates Between
+Different Systems, and a layer for 'leaflet' with Gaode tiles. It is
+designed to facilitate geographical data visualization in China.
 
 %prep
 %setup -q -c -n %{packname}

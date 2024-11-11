@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ottr
-%global packver   1.5.1
+%global packname  laminr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Autograding Extension for Otter-Grader
+Summary:          Interface for 'LaminDB'
 
-License:          BSD_3_clause + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-testthat 
-Requires:         R-tools 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-zip 
-Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-An R autograding extension for Otter-Grader
-(<https://otter-grader.readthedocs.io>). It supports grading R scripts, R
-Markdown documents, and R Jupyter Notebooks.
+Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
+biology. This package allows you to query and download data from 'LaminDB'
+instances.
 
 %prep
 %setup -q -c -n %{packname}

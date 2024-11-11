@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sampcompR
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparing and Visualizing Differences Between Surveys
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-boot.pval 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
@@ -39,7 +38,6 @@ BuildRequires:    R-CRAN-svrep
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-boot.pval 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
@@ -75,7 +73,7 @@ plotted and outputted as a table. For more detailed information on the
 methods and example use see Rohr, B., Silber, H., & Felderer, B. (2024).
 „Comparing the Accuracy of Univariate, Bivariate, and Multivariate
 Estimates across Probability and Non-Probability Surveys with Population
-Benchmarks“ <doi:10.31235/osf.io/n6ehf> .
+Benchmarks“ <doi:10.31235/osf.io/n6ehf>.
 
 %prep
 %setup -q -c -n %{packname}

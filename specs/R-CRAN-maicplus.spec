@@ -1,39 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ottr
-%global packver   1.5.1
+%global packname  maicplus
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Autograding Extension for Otter-Grader
+Summary:          Matching Adjusted Indirect Comparison
 
-License:          BSD_3_clause + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-testthat 
-Requires:         R-tools 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-zip 
-Requires:         R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-sandwich 
 
 %description
-An R autograding extension for Otter-Grader
-(<https://otter-grader.readthedocs.io>). It supports grading R scripts, R
-Markdown documents, and R Jupyter Notebooks.
+Facilitates performing matching adjusted indirect comparison (MAIC)
+analysis where the endpoint of interest is either time-to-event (e.g.
+overall survival) or binary (e.g. objective tumor response). The method is
+described by Signorovitch et al (2012) <doi:10.1016/j.jval.2012.05.004>.
 
 %prep
 %setup -q -c -n %{packname}

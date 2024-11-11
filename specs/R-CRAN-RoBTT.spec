@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBTT
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian T-Test
 
@@ -41,17 +41,19 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-rstantools
 
 %description
-An implementation of Bayesian model-averaged t-test that allows users to
-draw inference about the presence vs absence of the effect, heterogeneity
-of variances, and outliers. The 'RoBTT' packages estimates model ensembles
-of models created as a combination of the competing hypotheses and uses
-Bayesian model-averaging to combine the models using posterior model
-probabilities. Users can obtain the model-averaged posterior distributions
-and inclusion Bayes factors which account for the uncertainty in the data
-generating process (Maier et al., 2022, <doi:10.31234/osf.io/d5zwc>).
-Users can define a wide range of informative priors for all parameters of
-interest. The package provides convenient functions for summary,
-visualizations, and fit diagnostics.
+An implementation of Bayesian model-averaged t-tests that allows users to
+draw inferences about the presence versus absence of an effect, variance
+heterogeneity, and potential outliers. The 'RoBTT' package estimates
+ensembles of models created by combining competing hypotheses and applies
+Bayesian model averaging using posterior model probabilities. Users can
+obtain model-averaged posterior distributions and inclusion Bayes factors,
+accounting for uncertainty in the data-generating process (Maier et al.,
+2024, <doi:10.3758/s13423-024-02590-5>). The package also provides a
+truncated likelihood version of the model-averaged t-test, enabling users
+to exclude potential outliers without introducing bias (Godmann et al.,
+2024, <doi:10.31234/osf.io/j9f3s>). Users can specify a wide range of
+informative priors for all parameters of interest. The package offers
+convenient functions for summary, visualization, and fit diagnostics.
 
 %prep
 %setup -q -c -n %{packname}

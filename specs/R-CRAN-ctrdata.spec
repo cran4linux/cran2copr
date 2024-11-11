@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.19.4
+%global packver   1.19.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.19.4
+Version:          1.19.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieve and Analyze Clinical Trials in Public Registers
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.1.0
-BuildRequires:    R-CRAN-nodbi >= 0.10.0
+BuildRequires:    R-CRAN-nodbi >= 0.10.7
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-clipr 
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-countrycode 
 Requires:         R-CRAN-curl >= 5.1.0
-Requires:         R-CRAN-nodbi >= 0.10.0
+Requires:         R-CRAN-nodbi >= 0.10.7
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-clipr 
