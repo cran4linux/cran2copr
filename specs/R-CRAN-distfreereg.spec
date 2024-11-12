@@ -1,25 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  kdpee
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  distfreereg
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Multidimensional Entropy Estimation by k-d Partitioning
+Summary:          Distribution-Free Goodness-of-Fit Testing for Regression
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-numDeriv 
+Requires:         R-CRAN-clue 
+Requires:         R-methods 
+Requires:         R-CRAN-numDeriv 
 
 %description
-Estimate entropy of multidimensional data set.
+Implements distribution-free goodness-of-fit regression testing for the
+mean structure of parametric models introduced in Khmaladze (2021)
+<doi:10.1007/s10463-021-00786-3>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -29,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

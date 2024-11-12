@@ -1,28 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  topmodel
-%global packver   0.7.5
+%global packname  forestSAS
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Hydrological Model TOPMODEL in R
+Summary:          Forest Spatial Structure Analysis Systems
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-methods 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat 
+BuildRequires:    R-CRAN-spatstat.data 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat 
+Requires:         R-CRAN-spatstat.data 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.random 
 
 %description
-Set of hydrological functions including an R implementation of the
-hydrological model TOPMODEL, which is based on the 1995 FORTRAN version by
-Keith Beven. From version 0.7.0, the package is put into maintenance mode.
+Recent years have seen significant interest in neighborhood-based
+structural parameters that effectively represent the spatial
+characteristics of tree populations and forest communities, and possess
+strong applicability for guiding forestry practices. This package provides
+valuable information that enhances our understanding and analysis of the
+fine-scale spatial structure of tree populations and forest stands.
+Reference: Yan L, Tan W, Chai Z, et al (2019)
+<doi:10.13323/j.cnki.j.fafu(nat.sci.).2019.03.007>.
 
 %prep
 %setup -q -c -n %{packname}

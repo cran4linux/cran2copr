@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortConstructor
-%global packver   0.3.2
+%global packname  PakNAcc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Build and Manipulate Study Cohorts Using a Common Data Model
+Summary:          'shiny' App for National Accounts
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.5.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
-BuildRequires:    R-CRAN-PatientProfiles >= 1.2.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.2.1
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dbplyr >= 2.5.0
-Requires:         R-CRAN-CDMConnector >= 1.3.1
-Requires:         R-CRAN-PatientProfiles >= 1.2.0
-Requires:         R-CRAN-omopgenerics >= 0.2.1
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-clock 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-rpivotTable 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-rpivotTable 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinydashboardPlus 
 
 %description
-Create and manipulate study cohorts in data mapped to the Observational
-Medical Outcomes Partnership Common Data Model.
+Provides a comprehensive suite of tools for analyzing Pakistan's Quarterly
+National Accounts data. Users can gain detailed insights into Pakistan's
+economic performance, visualize quarterly trends, and detect patterns and
+anomalies in key economic indicators. Compare sector
+contributions—including agriculture, industry, and services—to understand
+their influence on economic growth or decline. Customize analyses by
+filtering and manipulating data to focus on specific areas of interest.
+Ideal for policymakers, researchers, and analysts aiming to make informed,
+data-driven decisions based on timely and detailed economic insights.
 
 %prep
 %setup -q -c -n %{packname}

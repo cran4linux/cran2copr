@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  treats
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trees and Traits Simulations
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-ape
 BuildRequires:    R-CRAN-dispRity 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-ape
 Requires:         R-CRAN-dispRity 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-utils 
@@ -41,7 +43,8 @@ changing starting parameters or algorithm rules). Traits can be simulated
 in any way designed by the user. The growth of the tree and the traits can
 influence each other through modifiers objects providing rules for
 affecting each other. Finally, events can be created to modify both the
-tree and the traits under specific conditions.
+tree and the traits under specific conditions ( Guillerme, 2024
+<DOI:10.1111/2041-210X.14306>).
 
 %prep
 %setup -q -c -n %{packname}

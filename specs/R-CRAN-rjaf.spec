@@ -1,46 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sdsfun
-%global packver   0.4.2
+%global packname  rjaf
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Data Science Complementary Features
+Summary:          Regularized Joint Assignment Forest with Treatment Arm Clustering
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spdep 
-Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-MASS 
 
 %description
-Wrapping and supplementing commonly used functions in the R ecosystem
-related to spatial data science, while serving as a basis for other
-packages maintained by Wenbo Lv.
+Personalized assignment to one of many treatment arms via regularized and
+clustered joint assignment forests as described in Ladhania, Spiess,
+Ungar, and Wu (2023) <doi:10.48550/arXiv.2311.00577>. The algorithm pools
+information across treatment arms: it considers a regularized forest-based
+assignment algorithm based on greedy recursive partitioning that shrinks
+effect estimates across arms; and it incorporates a clustering scheme that
+combines treatment arms with consistently similar outcomes.
 
 %prep
 %setup -q -c -n %{packname}

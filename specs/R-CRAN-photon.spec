@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  stochvolTMB
-%global packver   0.2.0
+%global __requires_exclude ^libmpi
+%global packname  photon
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Likelihood Estimation of Stochastic Volatility Models
+Summary:          High-Performance Geocoding using 'photon'
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sn 
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-countrycode 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-processx 
+Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-countrycode 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-processx 
 
 %description
-Parameter estimation for stochastic volatility models using maximum
-likelihood. The latent log-volatility is integrated out of the likelihood
-using the Laplace approximation. The models are fitted via 'TMB' (Template
-Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
-<doi:10.18637/jss.v070.i05>).
+Features unstructured, structured and reverse geocoding using the 'photon'
+geocoding API <https://photon.komoot.io/>. Facilitates the setup of local
+'photon' instances to enable offline geocoding.
 
 %prep
 %setup -q -c -n %{packname}

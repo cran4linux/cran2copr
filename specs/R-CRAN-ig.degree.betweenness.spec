@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  approxOT
-%global packver   1.1.1
+%global packname  ig.degree.betweenness
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Approximate and Exact Optimal Transport Methods
+Summary:          "Smith-Pittman Community Detection Algorithm for 'igraph' Objects (2024)"
 
-License:          GPL (== 3.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.3
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 1.0.3
-Requires:         R-stats 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-igraphdata 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-qgraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-igraphdata 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-qgraph 
 
 %description
-R and C++ functions to perform exact and approximate optimal transport.
-All C++ methods can be linked to other R packages via their header files.
+Implements the "Smith-Pittman" community detection algorithm for network
+analysis using 'igraph' objects. This algorithm combines node degree and
+betweenness centrality measures to identify communities within networks,
+with a gradient evident in social partitioning. The package provides
+functions for community detection, visualization, and analysis of the
+resulting community structure. Methods are based on results from Smith,
+Pittman and Xu (2024) <doi:10.48550/arXiv.2411.01394>.
 
 %prep
 %setup -q -c -n %{packname}

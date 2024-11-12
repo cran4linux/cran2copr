@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  interpret
-%global packver   0.1.33
+%global packname  betaselectr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.33
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit Interpretable Machine Learning Models
+Summary:          Betas-Select in Structural Equation Models and Linear Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-manymome 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-lavaan.printer 
+Requires:         R-CRAN-boot 
+Requires:         R-stats 
+Requires:         R-CRAN-lavaan 
+Requires:         R-methods 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-manymome 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-lavaan.printer 
 
 %description
-Package for training interpretable machine learning models. Historically,
-the most interpretable machine learning models were not very accurate, and
-the most accurate models were not very interpretable. Microsoft Research
-has developed an algorithm called the Explainable Boosting Machine (EBM)
-which has both high accuracy and interpretable characteristics. EBM uses
-machine learning techniques like bagging and boosting to breathe new life
-into traditional GAMs (Generalized Additive Models). This makes them as
-accurate as random forests and gradient boosted trees, and also enhances
-their intelligibility and editability. Details on the EBM algorithm can be
-found in the paper by Rich Caruana, Yin Lou, Johannes Gehrke, Paul Koch,
-Marc Sturm, and Noemie Elhadad (2015, <doi:10.1145/2783258.2788613>).
+It computes betas-select, coefficients after standardization in structural
+equation models and regression models, standardizing only selected
+variables. Supports models with moderation, with product terms formed
+after standardization. It also offers confidence intervals that account
+for standardization, including bootstrap confidence intervals as proposed
+by Cheung et al. (2022) <doi:10.1037/hea0001188>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blorr
-%global packver   0.3.1
+%global packname  forestPSD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Developing Binary Logistic Regression Models
+Summary:          Forest Population Structure and Numeric Dynamics
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-TTR 
+BuildRequires:    R-CRAN-modelr 
+BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-TTR 
+Requires:         R-CRAN-modelr 
+Requires:         R-CRAN-minpack.lm 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Tools designed to make it easier for beginner and intermediate users to
-build and validate binary logistic regression models. Includes bivariate
-analysis, comprehensive regression output, model fit statistics, variable
-selection procedures, model validation techniques and a 'shiny' app for
-interactive model building.
+Analysis of forest population structure and quantitative dynamics is the
+research and evaluation of the composition, distribution, age structure
+and changes in quantity over time of various populations in the forest. By
+deeply understanding these characteristics of forest populations,
+scientific basis can be provided for the management, protection and
+sustainable utilization of forest resources. This R package conducts a
+systematic analysis of forest population structure and quantitative
+dynamics through analyzing age structure, compiling life tables,
+population quantitative dynamic change indices and time series models, in
+order to provide support for forest population protection and sustainable
+management. References: Zhang Y, Wang J, Wang X, et
+al(2024)<doi:10.3390/plants13070946>. Yuan G, Guo Q, Xie N, et
+al(2023)<doi:10.1007/s11629-022-7429-z>.
 
 %prep
 %setup -q -c -n %{packname}

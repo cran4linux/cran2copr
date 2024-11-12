@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  twowaytests
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Way Tests in Independent Groups Designs
 
@@ -35,13 +35,12 @@ Requires:         R-CRAN-MASS
 %description
 Performs two-way tests in independent groups designs. These are two-way
 ANOVA, two-way ANOVA under heteroscedasticity: parametric bootstrap based
-generalized test and generalized pivotal quantity based generalized test
-(Ananda et al., 2022) <doi:10.1080/03610926.2022.2059682>, two-way ANOVA
-for medians, trimmed means, M-estimators (Wilcox, 2011;
-ISBN:978-0-12-386983-8). The package performs descriptive statistics and
-graphical approaches. Moreover, it assesses variance homogeneity and
-normality of data in each group via tests and plots. All 'twowaytests'
-functions are designed for two-way layout.
+generalized test and generalized pivotal quantity based generalized test,
+two-way ANOVA for medians, trimmed means, M-estimators. The package
+performs descriptive statistics and graphical approaches. Moreover, it
+assesses variance homogeneity and normality of data in each group via
+tests and plots. All 'twowaytests' functions are designed for two-way
+layout (Dag et al., 2024, <doi:10.1016/j.softx.2024.101862>).
 
 %prep
 %setup -q -c -n %{packname}
