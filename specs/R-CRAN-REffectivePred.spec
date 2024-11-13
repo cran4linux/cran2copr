@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REffectivePred
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pandemic Prediction Model in an SIRS Framework
 
@@ -41,8 +41,9 @@ the best fitting curve to observed data. The easiest way to pass arguments
 to the functions is via a config file, which contains input settings
 required for prediction, and the package offers two methods,
 navigate_to_config() which points the user to the configuration file, and
-re_predict() for starting the fit-predict process. Razvan G. Romanescu et
-al. (2023) <doi:10.1016/j.epidem.2023.100708>.
+re_predict() for starting the fit-predict process. The main model was
+published in Razvan G. Romanescu et al.
+<doi:10.1016/j.epidem.2023.100708>.
 
 %prep
 %setup -q -c -n %{packname}

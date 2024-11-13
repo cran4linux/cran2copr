@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeneNMF
-%global packver   0.6.0
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Negative Matrix Factorization for Single-Cell Omics
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-lsa 
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-Seurat >= 4.3.0
 Requires:         R-CRAN-RcppML 
@@ -38,6 +39,7 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-lsa 
 Requires:         R-CRAN-irlba 
 Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-viridis 
 
 %description

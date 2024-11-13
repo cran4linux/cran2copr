@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GitStats
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Statistics from 'GitHub' and 'GitLab'
+Summary:          Standardized Git Repository Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,10 +39,10 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-stringr 
 
 %description
-Obtain statistics in a standardized way from multiple 'Git' services:
-'GitHub' and 'GitLab' for the time-being. Its main purpose is to help
-teams, whose activities are spread across multiple git platforms, get
-their repository metadata in a standardized way from all these platforms.
+Obtain standardized data from multiple 'Git' services, including 'GitHub'
+and 'GitLab'. Designed to be 'Git' service-agnostic, this package assists
+teams with activities spread across various 'Git' platforms by providing a
+unified way to access repository data.
 
 %prep
 %setup -q -c -n %{packname}

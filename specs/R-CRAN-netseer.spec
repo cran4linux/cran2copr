@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netseer
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Prediction from a Graph Time Series
 
@@ -20,24 +20,26 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fable 
 BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tsibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fable 
 Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tsibble 
 
 %description

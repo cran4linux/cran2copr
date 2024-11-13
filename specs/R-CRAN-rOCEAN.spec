@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bgms
-%global packver   0.1.4.1
+%global packname  rOCEAN
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Networks of Binary and/or Ordinal Variables
+Summary:          Two-Way Feature Set Testing for Multi-Omics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Rdpack 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ff 
+Requires:         R-CRAN-ff 
 
 %description
-Bayesian variable selection methods for analyzing the structure of a
-Markov Random Field model for a network of binary and/or ordinal
-variables. Details of the implemented methods can be found in: Marsman,
-van den Bergh, and Haslbeck (in press) <doi:10.31234/osf.io/ukwrf>.
+For any two way feature-set from a pair of pre-processed omics data, 3
+different true discovery proportions (TDP), namely pairwise-TDP,
+column-TDP and row-TDP are calculated. Due to embedded closed testing
+procedure, the choice of feature-sets can be changed infinite times and
+even after seeing the data without any change in type I error rate. For
+more details refer to Ebrahimpoor et al., (2024)
+<doi:10.48550/arXiv.2410.19523>.
 
 %prep
 %setup -q -c -n %{packname}

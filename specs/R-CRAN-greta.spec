@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  greta
-%global packver   0.4.5
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.5
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple and Scalable Statistical Modelling in R
 
@@ -14,34 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-tensorflow >= 2.7.0
+BuildRequires:    R-CRAN-cli >= 3.4.1
 BuildRequires:    R-CRAN-glue >= 1.5.1
 BuildRequires:    R-CRAN-parallelly >= 1.29.0
 BuildRequires:    R-CRAN-future >= 1.22.1
 BuildRequires:    R-CRAN-progress >= 1.2.0
 BuildRequires:    R-CRAN-reticulate >= 1.19.0
+BuildRequires:    R-CRAN-tensorflow == 2.16.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-yesno 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-tensorflow >= 2.7.0
+Requires:         R-CRAN-cli >= 3.4.1
 Requires:         R-CRAN-glue >= 1.5.1
 Requires:         R-CRAN-parallelly >= 1.29.0
 Requires:         R-CRAN-future >= 1.22.1
 Requires:         R-CRAN-progress >= 1.2.0
 Requires:         R-CRAN-reticulate >= 1.19.0
+Requires:         R-CRAN-tensorflow == 2.16.0
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-coda 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-yesno 
 
 %description

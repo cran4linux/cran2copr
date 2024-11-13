@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bootcluster
-%global packver   0.3.2
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrapping Estimates of Clustering Stability
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.1
 Requires:         R-core >= 3.5.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 1.2.0
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-flexclust 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-grid 
@@ -34,7 +34,9 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-intergraph 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-sna 
+Requires:         R-CRAN-igraph >= 1.2.0
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-flexclust 
@@ -43,7 +45,6 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-igraph 
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-grid 
@@ -52,6 +53,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-intergraph 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-network 
+Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-sna 
 
 %description
@@ -63,7 +65,11 @@ non-parametric bootstrap approach to assessing the stability of module
 detection in a graph, the extension for the selection of a parameter set
 that defines a graph from data in a way that optimizes stability and the
 corresponding visualization functions, as introduced by Tian et al (2021)
-<doi:10.1002/sam.11495>.
+<doi:10.1002/sam.11495>. Implemented out-of-bag stability estimation
+function and k-select Smin-based k-selection function as introduced by Liu
+et al (2022) <doi:10.1002/sam.11593>. Implemented ensemble clustering
+method based-on k-means clustering method, spectral clustering method and
+hierarchical clustering method.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LearnNonparam
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R6-Based Flexible Framework for Permutation Tests
+Summary:          'R6'-Based Flexible Framework for Permutation Tests
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,11 +29,11 @@ Requires:         R-compiler
 
 %description
 Implements non-parametric tests from Higgins (2004, ISBN:0534387756),
-including tests for one-sample, two-sample, k-sample, paired, randomized
-complete block design, correlation and contingency tables. Built with
-'Rcpp' for efficiency and 'R6' for flexible, object-oriented design, the
-package provides a unified framework for performing or creating custom
-permutation tests.
+including tests for one sample, two samples, k samples, paired
+comparisons, blocked designs, trends and association. Built with 'Rcpp'
+for efficiency and 'R6' for flexible, object-oriented design, the package
+provides a unified framework for performing or creating custom permutation
+tests.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bgms
-%global packver   0.1.4.1
+%global packname  Virusparies
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Networks of Binary and/or Ordinal Variables
+Summary:          Visualize and Process Output from 'VirusHunterGatherer'
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Rdpack 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-chromote 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-chromote 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gt 
+Requires:         R-parallel 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Bayesian variable selection methods for analyzing the structure of a
-Markov Random Field model for a network of binary and/or ordinal
-variables. Details of the implemented methods can be found in: Marsman,
-van den Bergh, and Haslbeck (in press) <doi:10.31234/osf.io/ukwrf>.
+A collection of tools for downstream analysis of 'VirusHunterGatherer'
+output. Processing of hittables and plotting of results, enabling better
+interpretation, is made easier with the provided functions.
 
 %prep
 %setup -q -c -n %{packname}

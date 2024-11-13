@@ -1,48 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DiceView
-%global packver   3.1-0
+%global packname  textAnnotatoR
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for Visualization of Computer Experiments Design and Surrogate
+Summary:          Interactive Text Annotation Tool with 'shiny' GUI
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-readtext 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-DiceDesign 
-BuildRequires:    R-CRAN-R.cache 
-BuildRequires:    R-CRAN-geometry 
-BuildRequires:    R-CRAN-scatterplot3d 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-methods 
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-shinydashboard 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-readtext 
+Requires:         R-CRAN-magrittr 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-DiceDesign 
-Requires:         R-CRAN-R.cache 
-Requires:         R-CRAN-geometry 
-Requires:         R-CRAN-scatterplot3d 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
 
 %description
-View 2D/3D sections, contour plots, mesh of excursion sets for computer
-experiments designs, surrogates or test functions.
+A comprehensive text annotation tool built with 'shiny'. Provides an
+interactive graphical user interface for coding text documents, managing
+code hierarchies, creating memos, and analyzing coding patterns. Features
+include code co-occurrence analysis, visualization of coding patterns,
+comparison of multiple coding sets, and export capabilities. Supports
+collaborative qualitative research through standardized annotation formats
+and analysis tools.
 
 %prep
 %setup -q -c -n %{packname}

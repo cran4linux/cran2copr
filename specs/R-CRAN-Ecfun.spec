@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Ecfun
-%global packver   0.3-2
+%global packver   0.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for 'Ecdat'
 
@@ -21,24 +21,26 @@ BuildRequires:    R-CRAN-fda
 BuildRequires:    R-CRAN-tis 
 BuildRequires:    R-CRAN-jpeg 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-TeachingDemos 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-BMA 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rworldmap 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-tis 
 Requires:         R-CRAN-jpeg 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-TeachingDemos 
 Requires:         R-CRAN-stringi 
 Requires:         R-methods 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-BMA 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rworldmap 
 
 %description
 Functions and vignettes to update data sets in 'Ecdat' and to create,

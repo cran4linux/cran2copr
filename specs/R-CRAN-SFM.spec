@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bgms
-%global packver   0.1.4.1
+%global packname  SFM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Networks of Binary and/or Ordinal Variables
+Summary:          A Package for Analyzing Skew Factor Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Rdpack 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-SOPC 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-SOPC 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-sn 
+Requires:         R-stats 
 
 %description
-Bayesian variable selection methods for analyzing the structure of a
-Markov Random Field model for a network of binary and/or ordinal
-variables. Details of the implemented methods can be found in: Marsman,
-van den Bergh, and Haslbeck (in press) <doi:10.31234/osf.io/ukwrf>.
+Generates Skew Factor Models data and applies Sparse Online Principal
+Component (SOPC) method to estimate model parameters. It includes
+capabilities for calculating mean squared error, relative error, and
+sparsity of the loading matrix. Additionally, it includes robust
+regression methods such as adaptive Huber regression.The philosophy of the
+package is described in Guo G. (2023) <doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}

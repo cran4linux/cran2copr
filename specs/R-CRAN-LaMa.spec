@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LaMa
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Numerical Maximum Likelihood Estimation for Latent Markov Models
 
@@ -16,34 +16,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RTMB 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-splines 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-CircStats 
+BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RTMB 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-splines 
+Requires:         R-methods 
+Requires:         R-CRAN-CircStats 
+Requires:         R-CRAN-circular 
 
 %description
-The class of latent Markov models, including hidden Markov models, hidden
-semi-Markov models, state space models, and point processes, is a very
-popular and powerful framework for inference of time series driven by
-latent processes. Furthermore, all these models can be fitted using direct
-numerical maximum likelihood estimation using the so-called forward
-algorithm as discussed in Zucchini et al. (2016) <doi:10.1201/b20790>.
-However, due to their great flexibility, researchers using these models in
-applied work often need to build highly customized models for which
-standard software implementation is lacking, or the construction of such
-models in said software is as complicated as writing fully tailored 'R'
-code. While providing greater flexibility and control, the latter suffers
-from slow estimation speeds that make custom solutions inconvenient. We
-address the above issues in two ways. First, standard blocks of code,
-common to all these model classes, are implemented as simple-to-use
-functions that can be added like Lego blocks to an otherwise fully custom
-likelihood function, making writing custom code much easier. Second, under
-the hood, these functions are written in 'C++', allowing for 10-20 times
-faster evaluation time, and thus drastically speeding up model estimation.
-To aid in building fully custom likelihood functions, several vignettes
-are included that show how to simulate data from and estimate all the
-above model classes.
+A variety of latent Markov models, including hidden Markov models, hidden
+semi-Markov models, state-space models and continuous-time variants can be
+formulated and estimated within the same framework via directly maximising
+the likelihood function using the so-called forward algorithm. Applied
+researchers often need custom models that standard software does not
+easily support. Writing tailored 'R' code offers flexibility but suffers
+from slow estimation speeds. We address these issues by providing
+easy-to-use functions (written in 'C++' for speed) for common tasks like
+the forward algorithm. These functions can be combined into custom models
+in a Lego-type approach, offering up to 10-20 times faster estimation via
+standard numerical optimisers. To aid in building fully custom likelihood
+functions, several vignettes are included that show how to simulate data
+from and estimate all the above model classes.
 
 %prep
 %setup -q -c -n %{packname}

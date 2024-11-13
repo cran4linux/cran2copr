@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MBC
-%global packver   0.10-7
+%global packname  forestGYM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate Bias Correction of Climate Model Outputs
+Summary:          Forest Growth and Yield Model Based on Clutter Model
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-energy 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-energy 
-Requires:         R-CRAN-FNN 
+BuildRequires:    R-stats >= 4.3.1
+BuildRequires:    R-CRAN-gtools >= 3.8.5
+Requires:         R-stats >= 4.3.1
+Requires:         R-CRAN-gtools >= 3.8.5
 
 %description
-Calibrate and apply multivariate bias correction algorithms for climate
-model simulations of multiple climate variables. Three methods described
-by Cannon (2016) <doi:10.1175/JCLI-D-15-0679.1> and Cannon (2018)
-<doi:10.1007/s00382-017-3580-6> are implemented — (i) MBC Pearson
-correlation (MBCp), (ii) MBC rank correlation (MBCr), and (iii) MBC
-N-dimensional PDF transform (MBCn) — as is the Rank Resampling for
-Distributions and Dependences (R2D2) method.
+The Clutter model is a significant forest growth simulation tool. Grounded
+on individual trees and comprehensively considering factors such as
+competition among trees and the impact of environmental elements on
+growth, it can accurately reflect the growth process of forest stands. It
+can be applied in areas like forest resource management, harvesting
+planning, and ecological research. With the help of the Clutter model,
+people can better understand the dynamic changes of forests and provide a
+scientific basis for rational forest management and protecting the
+ecological environment. This R package can effectively realize the
+construction of forest growth and harvest models based on the Clutter
+model and achieve optimized forest management.References: Farias A, Soares
+C, Leite H et al(2021)<doi:10.1007/s10342-021-01380-1>. Guera O, Silva J,
+Ferreira R, et al(2019)<doi:10.1590/2179-8087.038117>.
 
 %prep
 %setup -q -c -n %{packname}

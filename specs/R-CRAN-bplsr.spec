@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bgms
-%global packver   0.1.4.1
+%global packname  bplsr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Networks of Binary and/or Ordinal Variables
+Summary:          Bayesian partial least squares regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-Rdpack 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-statmod 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Bayesian variable selection methods for analyzing the structure of a
-Markov Random Field model for a network of binary and/or ordinal
-variables. Details of the implemented methods can be found in: Marsman,
-van den Bergh, and Haslbeck (in press) <doi:10.31234/osf.io/ukwrf>.
+Fits the Bayesian partial least squares regression model introduced in
+Urbas et al. (2024) <doi:10.1214/24-AOAS1947>. Suitable for univariate and
+multivariate regression with high-dimensional data.
 
 %prep
 %setup -q -c -n %{packname}
