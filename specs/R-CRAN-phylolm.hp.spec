@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NLP
-%global packver   0.3-1
+%global packname  phylolm.hp
+%global packver   0.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Language Processing Infrastructure
+Summary:          Hierarchical Partitioning of R2 for Phylogenetic Linear Regression
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rr2 
+BuildRequires:    R-CRAN-phylolm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-rr2 
+Requires:         R-CRAN-phylolm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-vegan 
 
 %description
-Basic classes and methods for Natural Language Processing.
+Conducts hierarchical partitioning to calculate individual contributions
+of phylogenetic tree and predictors towards total R2 for phylogenetic
+linear regression models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aLBI
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Length-Based Indicators for Fish Stock
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
 Provides tools for estimating length-based indicators from length
@@ -24,14 +26,19 @@ frequency data to assess fish stock status and manage fisheries
 sustainably. Implements methods from Cope and Punt (2009)
 <doi:10.1577/C08-025.1> for data-limited stock assessment and Froese
 (2004) <doi:10.1111/j.1467-2979.2004.00144.x> for detecting overfishing
-using simple indicators. Key functions include: CalPar(): Calculates
-various lengths used in fish stock assessment as biological length
-indicators such as asymptotic length (Linf), maximum length (Lmax), length
-at sexual maturity (Lm), and optimal length (Lopt). FishPar(): Calculates
-length-based indicators (LBIs) proposed by Froese (2004)
-<doi:10.1111/j.1467-2979.2004.00144.x> such as the percentage of mature
-fish (Pmat), percentage of optimal length fish (Popt), percentage of mega
-spawners (Pmega), and the sum of these as Pobj. This function also
+using simple indicators. Key functions include: FrequencyTable():
+Calculate the frequency table from the collected and also the extract the
+length frequency data from the frequency table with the upper
+length_range. A numeric value specifying the bin width for class
+intervals. If not provided, the bin width is automatically calculated
+using Sturges (1926) <doi:10.1080/01621459.1926.10502161> formula.
+CalPar(): Calculates various lengths used in fish stock assessment as
+biological length indicators such as asymptotic length (Linf), maximum
+length (Lmax), length at sexual maturity (Lm), and optimal length (Lopt).
+FishPar(): Calculates length-based indicators (LBIs) proposed by Froese
+(2004) <doi:10.1111/j.1467-2979.2004.00144.x> such as the percentage of
+mature fish (Pmat), percentage of optimal length fish (Popt), percentage
+of mega spawners (Pmega), and the sum of these as Pobj. This function also
 estimates confidence intervals for different lengths, visualizes length
 frequency distributions, and provides data frames containing calculated
 values. FishSS(): Makes decisions based on input from Cope and Punt (2009)

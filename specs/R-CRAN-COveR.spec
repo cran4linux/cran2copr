@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NLP
-%global packver   0.3-1
+%global packname  COveR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Language Processing Infrastructure
+Summary:          Clustering with Overlaps
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.2.3
+Requires:         R-core >= 3.2.3
 
 %description
-Basic classes and methods for Natural Language Processing.
+Provide functions for overlaps clustering, fuzzy clustering and
+interval-valued data manipulation. The package implement the following
+algorithms: OKM (Overlapping Kmeans) from Cleuziou, G. (2007)
+<doi:10.1109/icpr.2008.4761079> ; NEOKM (Non-exhaustive overlapping
+Kmeans) from Whang, J. J., Dhillon, I. S., and Gleich, D. F. (2015)
+<doi:10.1137/1.9781611974010.105> ; Fuzzy Cmeans from Bezdek, J. C. (1981)
+<doi:10.1007/978-1-4757-0450-1> ; Fuzzy I-Cmeans from de A.T. De Carvalho,
+F. (2005) <doi:10.1016/j.patrec.2006.08.014>.
 
 %prep
 %setup -q -c -n %{packname}

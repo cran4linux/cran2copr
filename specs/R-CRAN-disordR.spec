@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  disordR
-%global packver   0.9-8.2
+%global packver   0.9-8-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8.2
+Version:          0.9.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Ordered Vectors
 
@@ -26,11 +26,11 @@ Requires:         R-CRAN-digest
 
 %description
 Functionality for manipulating values of associative maps.  The package is
-designed to be used with the 'mvp' class of packages that use the STL map
-class: its purpose is to trap plausible idiom that is ill-defined
-(implementation-specific) and return an informative error, rather than
-returning a possibly incorrect result.  To cite the package in
-publications please use Hankin (2022) <doi:10.48550/ARXIV.2210.03856>.
+a dependency for mvp-type packages that use the STL map class: it traps
+plausible idiom that is ill-defined (implementation-specific) and returns
+an informative error, rather than returning a possibly incorrect result.
+To cite the package in publications please use Hankin (2022)
+<doi:10.48550/ARXIV.2210.03856>.
 
 %prep
 %setup -q -c -n %{packname}

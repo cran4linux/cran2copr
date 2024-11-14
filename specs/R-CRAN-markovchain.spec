@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markovchain
-%global packver   0.9.5
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Handling Discrete Time Markov Chains
 
@@ -46,9 +46,7 @@ more easily. In addition functions to perform statistical (fitting and
 drawing random variates) and probabilistic (analysis of their structural
 proprieties) analysis are provided. See Spedicato (2017)
 <doi:10.32614/RJ-2017-036>. Some functions for continuous times Markov
-chains depends on the suggested ctmcd package, that, as May 2023, can be
-retrieved from
-<https://cran.r-project.org/src/contrib/Archive/ctmcd/ctmcd_1.4.2.tar.gz>.
+chains depend on the suggested ctmcd package.
 
 %prep
 %setup -q -c -n %{packname}

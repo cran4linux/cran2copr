@@ -1,27 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NLP
-%global packver   0.3-1
+%global packname  RCognito
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Language Processing Infrastructure
+Summary:          A Simplified Interface for 'Amazon Cognito'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-paws 
+Requires:         R-CRAN-paws 
 
 %description
-Basic classes and methods for Natural Language Processing.
+Simplifies integration with 'Amazon Cognito'
+(<https://aws.amazon.com/cognito/>) for R developers, enabling easy
+management of user authentication, registration, and password flows.
 
 %prep
 %setup -q -c -n %{packname}

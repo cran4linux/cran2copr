@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NLP
-%global packver   0.3-1
+%global packname  CBRT
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Language Processing Infrastructure
+Summary:          CBRT Data on Turkish Economy
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,11 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-curl 
 
 %description
-Basic classes and methods for Natural Language Processing.
+The Central Bank of the Republic of Turkey (CBRT) provides one of the most
+comprehensive time series databases on the Turkish economy. The 'CBRT'
+package provides functions for accessing the CBRT's electronic data
+delivery system <https://evds2.tcmb.gov.tr/>. It contains the lists of all
+data categories and data groups for searching the available variables
+(data series). As of November 3, 2024, there were 40,826 variables in the
+dataset. The lists of data categories and data groups can be updated by
+the user at any time. A specific variable, a group of variables, or all
+variables in a data group can be downloaded at different frequencies using
+a variety of aggregation methods.
 
 %prep
 %setup -q -c -n %{packname}

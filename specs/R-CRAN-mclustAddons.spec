@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mclustAddons
-%global packver   0.9
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Addons for the 'mclust' Package
 
@@ -52,7 +52,9 @@ mixture modeling by including: density estimation for data with bounded
 support (Scrucca, 2019 <doi:10.1002/bimj.201800174>); modal clustering
 using MEM (Modal EM) algorithm for Gaussian mixtures (Scrucca, 2021
 <doi:10.1002/sam.11527>); entropy estimation via Gaussian mixture modeling
-(Robin & Scrucca, 2023 <doi:10.1016/j.csda.2022.107582>).
+(Robin & Scrucca, 2023 <doi:10.1016/j.csda.2022.107582>); Gaussian
+mixtures modeling of financial log-returns (Scrucca, 2024
+<doi:10.3390/e26110907>).
 
 %prep
 %setup -q -c -n %{packname}

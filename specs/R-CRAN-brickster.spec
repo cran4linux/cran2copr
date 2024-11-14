@@ -1,63 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OmopViewer
-%global packver   0.1.0
+%global packname  brickster
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualise OMOP Results using 'shiny' Applications
+Summary:          R Toolkit for 'Databricks'
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visOmopResults >= 0.4.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.3.1
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-ini 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-visOmopResults >= 0.4.0
-Requires:         R-CRAN-omopgenerics >= 0.3.1
-Requires:         R-CRAN-bslib 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-ini 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-styler 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Visualise results obtained from analysing data mapped to the Observational
-Medical Outcomes Partnership (OMOP) common data model using 'shiny'
-applications.
+Collection of utilities that improve using 'Databricks' from R. Primarily
+functions that wrap specific 'Databricks' APIs
+(<https://docs.databricks.com/api>), 'RStudio' connection pane support,
+quality of life functions to make 'Databricks' simpler to use.
 
 %prep
 %setup -q -c -n %{packname}

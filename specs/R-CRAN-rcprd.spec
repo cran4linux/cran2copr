@@ -1,27 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NLP
-%global packver   0.3-1
+%global packname  rcprd
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Natural Language Processing Infrastructure
+Summary:          Extraction and Management of Clinical Practice Research Datalink Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-stringr 
 
 %description
-Basic classes and methods for Natural Language Processing.
+Simplify the process of extracting and processing Clinical Practice
+Research Datalink (CPRD) data in order to build datasets ready for
+statistical analysis. This process is difficult in 'R', as the raw data is
+very large and cannot be read into the R workspace. 'rcprd' utilises
+'RSQLite' to create 'SQLite' databases which are stored on the hard disk.
+These are then queried to extract the required information for a cohort of
+interest, and create datasets ready for statistical analysis. The
+processes follow closely that from the 'rEHR' package, see Springate et
+al., (2017) <doi:10.1371/journal.pone.0171784>.
 
 %prep
 %setup -q -c -n %{packname}

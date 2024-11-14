@@ -1,60 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EDCimport
-%global packver   0.5.1
+%global packname  PlotFTIR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Data from EDC Software
+Summary:          Plot FTIR Spectra
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3
+Requires:         R-core >= 3.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
 
 %description
-A convenient toolbox to import data exported from Electronic Data Capture
-(EDC) software 'TrialMaster'.
+The goal of 'PlotFTIR' is to easily and quickly kick-start the production
+of journal-quality Fourier Transform Infra-Red (FTIR) spectral plots in R
+using 'ggplot2'. The produced plots can be published directly or further
+modified by 'ggplot2' functions. L'objectif de 'PlotFTIR' est de démarrer
+facilement et rapidement la production des tracés spectraux de
+spectroscopie infrarouge à transformée de Fourier (IRTF) de qualité
+journal dans R à l'aide de 'ggplot2'. Les tracés produits peuvent être
+publiés directement ou modifiés davantage par les fonctions 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  amadeus
-%global packver   1.1.3
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing and Analyzing Large-Scale Environmental Data
 
@@ -70,12 +70,12 @@ scale, publicly available environmental data in R. The package contains
 functions for downloading raw data files from web URLs (download_data()),
 processing the raw data files into clean spatial objects
 (process_covariates()), and extracting values from the spatial data
-objects at point and polygon locations (calc_covariates()). These
+objects at point and polygon locations (calculate_covariates()). These
 functions call a series of source-specific functions which are tailored to
 each data sources/datasets particular URL structure, data format, and
 spatial/temporal resolution. The functions are tested, versioned, and open
-source and open access. For calc_sedc() method details, see Messier,
-Akita, and Serre (2012) <doi:10.1021/es203152a>.
+source and open access. For sum_edc() method details, see Messier, Akita,
+and Serre (2012) <doi:10.1021/es203152a>.
 
 %prep
 %setup -q -c -n %{packname}
