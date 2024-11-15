@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rvif
-%global packver   2.0
+%global packname  mapindia
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection using Redefined Variance Inflation Factor and Graphical Methods
+Summary:          Plot Map of the Indian Subcontinent
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiColl 
-Requires:         R-CRAN-multiColl 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mapindiatools 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-vdiffr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mapindiatools 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-vdiffr 
 
 %description
-The detection of troubling approximate collinearity in a multiple linear
-regression model is a classical problem in Econometrics. The objective of
-this package is to detect it using the variance inflation factor redefined
-and the scatterplot between the variance inflation factor and the
-coefficient of variation. For more details see Salmerón R., García C.B.
-and García J. (2018) <doi:10.1080/00949655.2018.1463376>, Salmerón, R.,
-Rodríguez, A. and García C. (2020) <doi:10.1007/s00180-019-00922-x>,
-Salmerón, R., García, C.B, Rodríguez, A. and García, C. (2022)
-<doi:10.32614/RJ-2023-010>, Salmerón, R., García, C.B. and García, J.
-(2024) <doi:10.1007/s10614-024-10575-8> and Salmerón, R., García, C.B,
-García J. (2023, working paper) <doi:10.48550/arXiv.2005.02245>.
+Get map data frames for the Indian subcontinent with different region
+levels (e.g., district, state). The package also offers convenience
+functions for plotting choropleths, visualizing spatial data, and handling
+state/district codes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chillR
-%global packver   0.75
+%global packver   0.76
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.75
+Version:          0.76
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Phenology Analysis in Temperate Fruit Trees
 
@@ -27,6 +27,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-metR 
@@ -60,6 +61,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-metR 

@@ -1,63 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SchoolDataIT
-%global packver   0.2.2
+%global packname  sivirep
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve, Harmonise and Map Open Data Regarding the Italian School System
+Summary:          Data Wrangling and Automated Reports from 'SIVIGILA' Source
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-leafpop 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mapview 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-epitrix 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-showtext 
+BuildRequires:    R-CRAN-kableExtra 
+Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-leafpop 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mapview 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-epitrix 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-showtext 
+Requires:         R-CRAN-kableExtra 
 
 %description
-Compiles and displays the available data sets regarding the Italian school
-system, with a focus on the infrastructural aspects. Input datasets are
-downloaded from the web, with the aim of updating everything to real time.
-The functions are divided in four main modules, namely 'Get', to scrape
-raw data from the web 'Util', various utilities needed to process raw data
-'Group', to aggregate data at the municipality or province level 'Map', to
-visualize the output datasets.
+Data wrangling, pre-processing, and generating automated reports from
+Colombia's epidemiological surveillance system, 'SIVIGILA'
+<https://portalsivigila.ins.gov.co/>. It provides a customizable R
+Markdown template for analysis and automatic generation of epidemiological
+reports that can be adapted to local, regional, and national contexts.
+This tool offers a standardized and reproducible workflow that helps to
+reduce manual labor and potential errors in report generation, improving
+their efficiency and consistency.
 
 %prep
 %setup -q -c -n %{packname}

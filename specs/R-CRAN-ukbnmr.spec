@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ukbnmr
-%global packver   2.2
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Removal of Unwanted Technical Variation from UK Biobank NMR Metabolomics Biomarker Data
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-MASS 
 
 %description

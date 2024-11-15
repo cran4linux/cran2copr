@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  svMisc
-%global packver   1.2.3
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SciViews' - Miscellaneous Functions
+Summary:          Miscellaneous Functions for 'SciViews::R'
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-Requires:         R-utils 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-tools 
+BuildRequires:    R-methods >= 4.2.0
+BuildRequires:    R-stats >= 4.2.0
+BuildRequires:    R-tools >= 4.2.0
+BuildRequires:    R-utils >= 4.2.0
+BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+Requires:         R-methods >= 4.2.0
+Requires:         R-stats >= 4.2.0
+Requires:         R-tools >= 4.2.0
+Requires:         R-utils >= 4.2.0
+Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-rlang >= 1.1.1
 
 %description
-Miscellaneous functions for 'SciViews' or general use: manage a temporary
-environment attached to the search path for temporary variables you do not
-want to save() or load(), test if 'Aqua', 'Mac', 'Win', ... Show progress
-bar, etc.
+Functions required for the 'SciViews::R' dialect or for general use:
+manage a temporary environment attached to the search path, define
+synonyms for R functions using aka(), test if 'Aqua', 'Mac', 'Win' ...
+Show progress bar, etc.
 
 %prep
 %setup -q -c -n %{packname}

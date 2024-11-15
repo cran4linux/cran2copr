@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpcde
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boundary Adaptive Local Polynomial Conditional Density Estimator
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -39,7 +39,7 @@ Requires:         R-stats
 %description
 Tools for estimation and inference of conditional densities, derivatives
 and functions. This is the companion software for Cattaneo, Chandak,
-Jansson and Ma (2024) <doi:10.48550/arXiv.2204.10359>.
+Jansson and Ma (2024) <doi:10.3150/23-BEJ1711>.
 
 %prep
 %setup -q -c -n %{packname}

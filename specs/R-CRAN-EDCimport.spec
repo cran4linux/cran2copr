@@ -1,49 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggalign
-%global packver   0.0.5
+%global packname  EDCimport
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
+Summary:          Import Data from EDC Software
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli 
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
 
 %description
-A 'ggplot2' extension offers various tools for organizing and arranging
-plots. It is designed to consistently align a specific axis across
-multiple 'ggplot' objects, making it especially useful for plots requiring
-data order manipulation. A typical use case includes organizing
-combinations like a dendrogram and a heatmap.
+A convenient toolbox to import data exported from Electronic Data Capture
+(EDC) software 'TrialMaster'.
 
 %prep
 %setup -q -c -n %{packname}

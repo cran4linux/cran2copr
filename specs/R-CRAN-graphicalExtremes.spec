@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  graphicalExtremes
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methodology for Graphical Extreme Value Models
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-corpcor
 BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-glassoFast 
-BuildRequires:    R-CRAN-edmcr 
 BuildRequires:    R-CRAN-CVXR 
 Requires:         R-stats >= 3.6.0
 Requires:         R-CRAN-igraph >= 1.2.4.1
@@ -37,7 +36,6 @@ Requires:         R-CRAN-corpcor
 Requires:         R-CRAN-osqp 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-glassoFast 
-Requires:         R-CRAN-edmcr 
 Requires:         R-CRAN-CVXR 
 
 %description

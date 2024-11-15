@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggalign
-%global packver   0.0.5
+%global packname  powertools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
+Summary:          Power and Sample Size Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-PowerTOST 
+BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-CRAN-cli 
-Requires:         R-grid 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-knitr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-PowerTOST 
+Requires:         R-CRAN-Hmisc 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-knitr 
 
 %description
-A 'ggplot2' extension offers various tools for organizing and arranging
-plots. It is designed to consistently align a specific axis across
-multiple 'ggplot' objects, making it especially useful for plots requiring
-data order manipulation. A typical use case includes organizing
-combinations like a dendrogram and a heatmap.
+Power and sample size calculations for a variety of study designs and
+outcomes. Methods include t tests, ANOVA (including tests for
+interactions, simple effects and contrasts), proportions, categorical data
+(chi-square tests and proportional odds), linear, logistic and Poisson
+regression, alternative and coprimary endpoints, power for confidence
+intervals, correlation coefficient tests, cluster randomized trials,
+individually randomized group treatment trials, multisite trials,
+treatment-by-covariate interaction effects and nonparametric tests of
+location. Utilities are provided for computing various effect sizes.
+Companion package to the book "Power and Sample Size in R", Crespi (2025,
+ISBN:9781138591622).
 
 %prep
 %setup -q -c -n %{packname}

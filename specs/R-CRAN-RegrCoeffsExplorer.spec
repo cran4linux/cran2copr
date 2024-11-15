@@ -1,60 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iClusterVB
-%global packver   0.1.2
+%global packname  RegrCoeffsExplorer
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Integrative Clustering and Feature Selection for High Dimensional Data
+Summary:          Efficient Visualization of Regression Coefficients for lm(), glm(), and glmnet() Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-clustMixType 
-BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-MCMCpack 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-pheatmap 
-BuildRequires:    R-CRAN-poLCA 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-VarSelLCM 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-clustMixType 
-Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
 Requires:         R-grDevices 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-MCMCpack 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-pheatmap 
-Requires:         R-CRAN-poLCA 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-VarSelLCM 
 
 %description
-A variational Bayesian approach for fast integrative clustering and
-feature selection, facilitating the analysis of multi-view, mixed type,
-high-dimensional datasets with applications in fields like cancer
-research, genomics, and more.
+The visualization tool offers a nuanced understanding of regression
+dynamics, going beyond traditional per-unit interpretation of continuous
+variables versus categorical ones. It highlights the impact of unit
+changes as well as larger shifts like interquartile changes, acknowledging
+the distribution of empirical data. Furthermore, it generates
+visualizations depicting alterations in Odds Ratios for predictors across
+minimum, first quartile, median, third quartile, and maximum values,
+aiding in comprehending predictor-outcome interplay within empirical data
+distributions, particularly in logistic regression frameworks.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rvif
-%global packver   2.0
+%global packname  RobustPrediction
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collinearity Detection using Redefined Variance Inflation Factor and Graphical Methods
+Summary:          Robust Tuning and Training for Cross-Source Prediction
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-multiColl 
-Requires:         R-CRAN-multiColl 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-mlr 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-pROC 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-mlr 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-pROC 
 
 %description
-The detection of troubling approximate collinearity in a multiple linear
-regression model is a classical problem in Econometrics. The objective of
-this package is to detect it using the variance inflation factor redefined
-and the scatterplot between the variance inflation factor and the
-coefficient of variation. For more details see Salmerón R., García C.B.
-and García J. (2018) <doi:10.1080/00949655.2018.1463376>, Salmerón, R.,
-Rodríguez, A. and García C. (2020) <doi:10.1007/s00180-019-00922-x>,
-Salmerón, R., García, C.B, Rodríguez, A. and García, C. (2022)
-<doi:10.32614/RJ-2023-010>, Salmerón, R., García, C.B. and García, J.
-(2024) <doi:10.1007/s10614-024-10575-8> and Salmerón, R., García, C.B,
-García J. (2023, working paper) <doi:10.48550/arXiv.2005.02245>.
+Provides robust parameter tuning and model training for predictive models
+across data sources. This package implements three primary tuning methods:
+cross-validation-based internal tuning, external tuning, and the
+'RobustTuneC' method. It supports Lasso, Ridge, Random Forest, Boosting,
+and Support Vector Machine classifiers. The tuning methods are based on
+the paper by Nicole Ellenbach, Anne-Laure Boulesteix, Bernd Bischl,
+Kristian Unger, and Roman Hornung (2021) "Improved Outcome Prediction
+Across Data Sources Through Robust Parameter Tuning"
+<doi:10.1007/s00357-020-09368-z>.
 
 %prep
 %setup -q -c -n %{packname}
