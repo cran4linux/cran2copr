@@ -1,41 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dendextend
-%global packver   1.19.0
+%global packname  quicR
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.19.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extending 'dendrogram' Functionality in R
+Summary:          RT-QuIC Data Formatting and Analysis
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr >= 1.0.1
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-magrittr >= 1.0.1
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-datasets 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-slider 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-slider 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Offers a set of functions for extending 'dendrogram' objects in R, letting
-you visualize and compare trees of 'hierarchical clusterings'. You can (1)
-Adjust a tree's graphical parameters - the color, size, type, etc of its
-branches, nodes and labels. (2) Visually and statistically compare
-different 'dendrograms' to one another.
+Designed for the curation and analysis of data generated from real-time
+quaking-induced conversion (RT-QuIC) assays first described by Atarashi et
+al. (2011) <doi:10.1038/nm.2294>. 'quicR' calculates useful metrics such
+as maxpoint ratio: Rowden et al. (2023) <doi:10.1099/vir.0.069906-0>;
+time-to-threshold: Shi et al. (2013) <doi:10.1186/2051-5960-1-44>; and
+maximum slope. Integration with the output from plate readers allows for
+seamless input of raw data into the R environment.
 
 %prep
 %setup -q -c -n %{packname}

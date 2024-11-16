@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  regressoR
-%global packver   3.0.2
+%global packver   4.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          4.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Data Analysis System
 
@@ -20,6 +20,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 4.1.6
 BuildRequires:    R-CRAN-rpart.plot >= 3.1.1
 BuildRequires:    R-CRAN-pls >= 2.8.1
+BuildRequires:    R-CRAN-psych >= 2.4.6
+BuildRequires:    R-CRAN-gbm >= 2.2.2
 BuildRequires:    R-CRAN-shinyjs >= 2.1.0
 BuildRequires:    R-CRAN-traineR >= 2.0.4
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.3
@@ -37,6 +39,8 @@ BuildRequires:    R-CRAN-DT >= 0.27
 Requires:         R-CRAN-glmnet >= 4.1.6
 Requires:         R-CRAN-rpart.plot >= 3.1.1
 Requires:         R-CRAN-pls >= 2.8.1
+Requires:         R-CRAN-psych >= 2.4.6
+Requires:         R-CRAN-gbm >= 2.2.2
 Requires:         R-CRAN-shinyjs >= 2.1.0
 Requires:         R-CRAN-traineR >= 2.0.4
 Requires:         R-CRAN-shinydashboardPlus >= 2.0.3

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreeRingShape
-%global packver   3.0.3
+%global packver   3.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.3
+Version:          3.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recording Tree-Ring Shapes of Tree Disks with Manual Digitizing and Interpolating Model
 
@@ -18,14 +18,15 @@ BuildRequires:    R-devel >= 3.6.2
 Requires:         R-core >= 3.6.2
 BuildArch:        noarch
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-sf 
 Requires:         R-methods 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-sf 
 
 %description
-Record all tree-ring Shapefile of tree disk with GIS soft
-('Qgis'<https://www.qgis.org/en/site/>) and interpolating model from high
-resolution tree disk image.
+Record all tree-ring Shapefile of tree disk with GIS soft 'Qgis' and
+interpolating model from high resolution tree disk image.
 
 %prep
 %setup -q -c -n %{packname}

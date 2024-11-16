@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autometric
-%global packver   0.1.2
+%global packname  redatam
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Background Resource Logging
+Summary:          Import 'REDATAM' Files
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Intense parallel workloads can be difficult to monitor. Packages
-'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds
-of worker processes over multiple computers. If a worker process exhausts
-its available memory, it may terminate silently, leaving the underlying
-problem difficult to detect or troubleshoot. Using the 'autometric'
-package, a worker can proactively monitor itself in a detached background
-thread. The worker process itself runs normally, and the thread writes to
-a log every few seconds. If the worker terminates unexpectedly,
-'autometric' can read and visualize the log file to reveal potential
-resource-related reasons for the crash. The 'autometric' package borrows
-heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
-and 'psutil'.
+Import 'REDATAM' formats into R via the 'Open REDATAM' C++ library
+<https://github.com/litalbarkai/open-redatam> based on De Grande (2016)
+<https://www.jstor.org/stable/24890658>.
 
 %prep
 %setup -q -c -n %{packname}

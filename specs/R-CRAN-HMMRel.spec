@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autometric
-%global packver   0.1.2
+%global packname  HMMRel
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Background Resource Logging
+Summary:          Hidden Markov Models for Reliability and Maintenance
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildArch:        noarch
 
 %description
-Intense parallel workloads can be difficult to monitor. Packages
-'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds
-of worker processes over multiple computers. If a worker process exhausts
-its available memory, it may terminate silently, leaving the underlying
-problem difficult to detect or troubleshoot. Using the 'autometric'
-package, a worker can proactively monitor itself in a detached background
-thread. The worker process itself runs normally, and the thread writes to
-a log every few seconds. If the worker terminates unexpectedly,
-'autometric' can read and visualize the log file to reveal potential
-resource-related reasons for the crash. The 'autometric' package borrows
-heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
-and 'psutil'.
+Reliability Analysis and Maintenance Optimization using Hidden Markov
+Models (HMM). The use of HMMs to model the state of a system which is not
+directly observable and instead certain indicators (signals) of the true
+situation are provided via a control system. A hidden model can provide
+key information about the system dependability, such as the reliability of
+the system and related measures. An estimation procedure is implemented
+based on the Baum-Welch algorithm. Classical structures such as K-out-of-N
+systems and Shock models are illustrated. Finally, the maintenance of the
+system is considered in the HMM context and two functions for new
+preventive maintenance strategies are considered. Maintenance efficiency
+is measured in terms of expected cost.  Maintenance efficiency is measured
+in terms of expected cost. Methods are described in Gamiz, Limnios, and
+Segovia-Garcia (2023) <doi:10.1016/j.ejor.2022.05.006>.
 
 %prep
 %setup -q -c -n %{packname}

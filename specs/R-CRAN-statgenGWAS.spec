@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenGWAS
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genome Wide Association Studies
 
@@ -20,12 +20,14 @@ BuildRequires:    R-CRAN-sommer >= 3.7.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-sommer >= 3.7.3
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-data.table 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
 
 %description

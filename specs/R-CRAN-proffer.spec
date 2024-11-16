@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proffer
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Profile R Code and Visualize with 'Pprof'
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-cli >= 2.0.0
 BuildRequires:    R-CRAN-parallelly >= 1.26.0
 BuildRequires:    R-CRAN-profile >= 1.0
 BuildRequires:    R-CRAN-RProtoBuf >= 0.4.14
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-processx >= 3.4.0
 Requires:         R-CRAN-withr >= 2.1.2
@@ -34,6 +35,7 @@ Requires:         R-CRAN-cli >= 2.0.0
 Requires:         R-CRAN-parallelly >= 1.26.0
 Requires:         R-CRAN-profile >= 1.0
 Requires:         R-CRAN-RProtoBuf >= 0.4.14
+Requires:         R-CRAN-R.utils 
 Requires:         R-utils 
 
 %description

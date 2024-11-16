@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tarchetypes
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archetypes for Targets
 
@@ -47,8 +47,8 @@ science are supported in the 'targets' R package. As an extension to
 functions to make 'targets' easier to use. By establishing reusable
 archetypes for common kinds of targets and pipelines, these functions help
 express complicated reproducible pipelines concisely and compactly. The
-methods in this package were influenced by the 'drake' R package by Will
-Landau (2018) <doi:10.21105/joss.00550>.
+methods in this package were influenced by the 'targets' R package. by
+Will Landau (2018) <doi:10.21105/joss.00550>.
 
 %prep
 %setup -q -c -n %{packname}

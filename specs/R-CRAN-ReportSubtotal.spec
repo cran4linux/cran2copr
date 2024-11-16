@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autometric
-%global packver   0.1.2
+%global packname  ReportSubtotal
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Background Resource Logging
+Summary:          Adds Subtotals to Data Reports
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-magrittr 
 
 %description
-Intense parallel workloads can be difficult to monitor. Packages
-'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds
-of worker processes over multiple computers. If a worker process exhausts
-its available memory, it may terminate silently, leaving the underlying
-problem difficult to detect or troubleshoot. Using the 'autometric'
-package, a worker can proactively monitor itself in a detached background
-thread. The worker process itself runs normally, and the thread writes to
-a log every few seconds. If the worker terminates unexpectedly,
-'autometric' can read and visualize the log file to reveal potential
-resource-related reasons for the crash. The 'autometric' package borrows
-heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
-and 'psutil'.
+Adds subtotal rows / sections (a la the SAS "Proc Tabulate" "All" option)
+to a Group By output by running a series of Group By functions with
+partial sets of the same variables and combining the results with the
+original. Can be used to add comprehensive information to a data report or
+to quickly aggregate Group By outputs used to gain a greater understanding
+of data.
 
 %prep
 %setup -q -c -n %{packname}

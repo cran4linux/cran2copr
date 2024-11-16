@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flowmapper
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Flows (Migration, Goods, Money, Information) on 'ggplot2' Plots
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-purrr 
 
 %description
 Adds flow maps to 'ggplot2' plots. The flow maps consist of 'ggplot2'

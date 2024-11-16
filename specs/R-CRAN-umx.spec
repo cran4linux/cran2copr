@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  umx
-%global packver   4.20.0
+%global packver   4.21.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.20.0
+Version:          4.21.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Equation Modeling and Twin Modeling in R
 
@@ -39,12 +39,12 @@ BuildRequires:    R-CRAN-xtable
 BuildRequires:    R-CRAN-gert 
 BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-paran 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-psychTools 
 BuildRequires:    R-CRAN-pwr 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-psychTools 
-BuildRequires:    R-CRAN-paran 
 Requires:         R-CRAN-OpenMx >= 2.19.0
 Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-DiagrammeR 
@@ -67,12 +67,12 @@ Requires:         R-CRAN-xtable
 Requires:         R-CRAN-gert 
 Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-paran 
+Requires:         R-CRAN-psych 
 Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-psychTools 
 Requires:         R-CRAN-pwr 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-psychTools 
-Requires:         R-CRAN-paran 
 
 %description
 Quickly create, run, and report structural equation models, and twin

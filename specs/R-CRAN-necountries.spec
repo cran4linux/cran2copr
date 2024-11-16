@@ -1,39 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autometric
-%global packver   0.1.2
+%global packname  necountries
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Background Resource Logging
+Summary:          Countries of the World
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-classInt 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-classInt 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringi 
 
 %description
-Intense parallel workloads can be difficult to monitor. Packages
-'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds
-of worker processes over multiple computers. If a worker process exhausts
-its available memory, it may terminate silently, leaving the underlying
-problem difficult to detect or troubleshoot. Using the 'autometric'
-package, a worker can proactively monitor itself in a detached background
-thread. The worker process itself runs normally, and the thread writes to
-a log every few seconds. If the worker terminates unexpectedly,
-'autometric' can read and visualize the log file to reveal potential
-resource-related reasons for the crash. The 'autometric' package borrows
-heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
-and 'psutil'.
+Based on Natural Earth <https://www.naturalearthdata.com/>, a subset of
+countries can easily be selected with their administrative boundaries,
+joined with an external data frame and plotted as a thematic map.
 
 %prep
 %setup -q -c -n %{packname}

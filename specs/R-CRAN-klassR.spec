@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  klassR
-%global packver   0.2.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classifications and Codelists for Statistics Norway
 
@@ -14,21 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-igraph 
+Requires:         R-methods 
 
 %description
-Functions to search, retrieve and apply classifications and codelists
-using Statistics Norway's API <https://www.ssb.no/klass> from the system
-'KLASS'. Retrieves classifications by date with options to choose
-language, hierarchical level and formatting.
+Functions to search, retrieve, apply and update classifications and
+codelists using Statistics Norway's API <https://www.ssb.no/klass> from
+the system 'KLASS'. Retrieves classifications by date with options to
+choose language, hierarchical level and formatting.
 
 %prep
 %setup -q -c -n %{packname}

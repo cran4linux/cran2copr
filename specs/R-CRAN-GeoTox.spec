@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autometric
-%global packver   0.1.2
+%global packname  GeoTox
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Background Resource Logging
+Summary:          Spatiotemporal Mixture Risk Assessment
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-utils 
-Requires:         R-graphics 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-truncnorm 
 Requires:         R-utils 
 
 %description
-Intense parallel workloads can be difficult to monitor. Packages
-'crew.cluster', 'clustermq', and 'future.batchtools' distribute hundreds
-of worker processes over multiple computers. If a worker process exhausts
-its available memory, it may terminate silently, leaving the underlying
-problem difficult to detect or troubleshoot. Using the 'autometric'
-package, a worker can proactively monitor itself in a detached background
-thread. The worker process itself runs normally, and the thread writes to
-a log every few seconds. If the worker terminates unexpectedly,
-'autometric' can read and visualize the log file to reveal potential
-resource-related reasons for the crash. The 'autometric' package borrows
-heavily from the methods of packages 'ps' <doi:10.32614/CRAN.package.ps>
-and 'psutil'.
+Connecting spatiotemporal exposure to individual and population-level risk
+via source-to-outcome continuum modeling. The package, methods, and
+case-studies are described in Messier, Reif, and Marvel (2024)
+<doi:10.1101/2024.09.23.24314096> and Eccles et al. (2023)
+<doi:10.1016/j.scitotenv.2022.158905>.
 
 %prep
 %setup -q -c -n %{packname}
