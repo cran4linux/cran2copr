@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.1.3
+%global packname  dfr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Dual Feature Reduction for SGL
 
-License:          CC BY 4.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-sgs 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-sgs 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-Matrix 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975)
-<https://apps.dtic.mil/sti/citations/ADA020296>, Piecewise Weibull NHPP by
-Guo et al. (2010) <doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull
-NHPP with Change Point Detection based on the 'segmented' package by
-Muggeo (2024) <https://cran.r-project.org/package=segmented>.
+Implementation of the Dual Feature Reduction (DFR) approach for the Sparse
+Group Lasso (SGL) and the Adaptive Sparse Group Lasso (aSGL) (Feser and
+Evangelou (2024) <doi:10.48550/arXiv.2405.17094>). The DFR approach is a
+feature reduction approach that applies strong screening to reduce the
+feature space before optimisation, leading to speed-up improvements for
+fitting SGL (Simon et al. (2013) <doi:10.1080/10618600.2012.681250>) and
+aSGL (Mendez-Civieta et al. (2020) <doi:10.1007/s11634-020-00413-8> and
+Poignard (2020) <doi:10.1007/s10463-018-0692-7>) models. DFR is
+implemented using the Adaptive Three Operator Splitting (ATOS) (Pedregosa
+and Gidel (2018) <doi:10.48550/arXiv.1804.02339>) algorithm, with linear
+and logistic SGL models supported, both of which can be fit using k-fold
+cross-validation. Dense and sparse input matrices are supported.
 
 %prep
 %setup -q -c -n %{packname}

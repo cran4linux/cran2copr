@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forsearch
-%global packver   6.2.0
+%global packver   6.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.0
+Version:          6.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
 
@@ -34,11 +34,13 @@ Requires:         R-CRAN-Cairo >= 1.6.0
 
 %description
 Identifies potential data outliers and their impact on estimates and
-analyses. Uses the forward search approach of Atkinson and Riani, "Robust
-Diagnostic Regression Analysis", 2000,<ISBN: o-387-95017-6> to prepare
-descriptive statistics of a dataset that is to be analyzed by stats::lm(),
-stats::glm(), stats::nls(), nlme::lme() or survival::coxph().  Includes
-graphics functions to display the descriptive statistics.
+analyses. Tool for evaluation of study credibility. Uses the forward
+search approach of Atkinson and Riani, "Robust Diagnostic Regression
+Analysis", 2000,<ISBN: o-387-95017-6> to prepare descriptive statistics of
+a dataset that is to be analyzed by functions lm {stats}, glm {stats}, nls
+{stats}, lme {nlme}, or coxph {survival}, or their equivalent in another
+language.  Includes graphics functions to display the descriptive
+statistics.
 
 %prep
 %setup -q -c -n %{packname}

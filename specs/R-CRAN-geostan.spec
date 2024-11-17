@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geostan
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spatial Analysis
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-spData 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-truncnorm 
 BuildRequires:    R-CRAN-signs 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-Rcpp >= 0.12.0
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-spData 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-truncnorm 
 Requires:         R-CRAN-signs 
@@ -56,10 +58,10 @@ Requires:         R-CRAN-rstantools
 
 %description
 For spatial data analysis; provides exploratory spatial analysis tools,
-spatial regression models, disease mapping models, model diagnostics, and
-special methods for inference with small area survey data (e.g., the
-America Community Survey (ACS)) and censored population health
-surveillance data. Models are pre-specified using the Stan programming
+spatial regression, spatial econometric, and disease mapping models, model
+diagnostics, and special methods for inference with small area survey data
+(e.g., the America Community Survey (ACS)) and censored population health
+monitoring data. Models are pre-specified using the Stan programming
 language, a platform for Bayesian inference using Markov chain Monte Carlo
 (MCMC). References: Carpenter et al. (2017) <doi:10.18637/jss.v076.i01>;
 Donegan (2021) <doi:10.31219/osf.io/3ey65>; Donegan (2022)

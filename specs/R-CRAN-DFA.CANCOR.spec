@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DFA.CANCOR
-%global packver   0.2.8
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Discriminant Function and Canonical Correlation Analysis
 
@@ -19,14 +19,20 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-BayesFactor 
-BuildRequires:    R-CRAN-MVN 
 BuildRequires:    R-utils 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvoutlier 
+BuildRequires:    R-CRAN-MVN 
 Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-BayesFactor 
-Requires:         R-CRAN-MVN 
 Requires:         R-utils 
+Requires:         R-grDevices 
+Requires:         R-CRAN-BayesFactor 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvoutlier 
+Requires:         R-CRAN-MVN 
 
 %description
 Produces SPSS- and SAS-like output for linear discriminant function

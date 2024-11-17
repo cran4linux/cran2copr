@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdverse
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Spatial Stratified Heterogeneity
 
@@ -16,10 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-sdsfun >= 0.4.0
+BuildRequires:    R-CRAN-sdsfun >= 0.4.3
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-parallel 
@@ -34,10 +33,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-sdsfun >= 0.4.0
+Requires:         R-CRAN-sdsfun >= 0.4.3
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-parallel 
@@ -54,10 +52,11 @@ Requires:         R-utils
 
 %description
 Analyzing spatial factors and exploring spatial associations based on the
-concept of spatial stratified heterogeneity, and also takes into account
-local spatial dependencies, spatial interpretability, potential spatial
-interactions, and robust spatial stratification. Additionally, it supports
-geographical detector models established in academic literature.
+concept of spatial stratified heterogeneity, while also taking into
+account local spatial dependencies, spatial interpretability, complex
+spatial interactions, and robust spatial stratification. Additionally, it
+supports the spatial stratified heterogeneity family established in
+academic literature.
 
 %prep
 %setup -q -c -n %{packname}

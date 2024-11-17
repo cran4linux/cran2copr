@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HGNChelper
-%global packver   0.8.14
+%global packver   0.8.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.14
+Version:          0.8.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify and Correct Invalid HGNC Human Gene Symbols and MGI Mouse Gene Symbols
 
