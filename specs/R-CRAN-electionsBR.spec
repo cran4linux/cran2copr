@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  electionsBR
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Functions to Download and Clean Brazilian Electoral Data
 
@@ -34,10 +34,10 @@ Requires:         R-CRAN-curl
 
 %description
 Offers a set of functions to easily download and clean Brazilian electoral
-data from the Superior Electoral Court website. Among others, the package
-retrieves data on local and federal elections for all positions (city
-councilor, mayor, state deputy, federal deputy, governor, and president)
-aggregated by state, city, and electoral zones.
+data from the Superior Electoral Court and 'CepespData' websites. Among
+other features, the package retrieves data on local and federal elections
+for all positions (city councilor, mayor, state deputy, federal deputy,
+governor, and president) aggregated by state, city, and electoral zones.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hgutils
-%global packver   0.2.11
+%global packver   0.2.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.11
+Version:          0.2.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Utility Functions
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
@@ -36,7 +36,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 
 %description

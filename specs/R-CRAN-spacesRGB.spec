@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spacesRGB
-%global packver   1.5-0
+%global packver   1.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Standard and User-Defined RGB Color Spaces, with Conversion Between RGB and CIE XYZ
+Summary:          Standard and User-Defined RGB Color Spaces, with Conversion Between RGB and CIE XYZ and Lab
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.13.0
-Requires:         R-core >= 2.13.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 
 %description

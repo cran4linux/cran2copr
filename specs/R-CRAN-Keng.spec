@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Keng
-%global packver   2024.11.02
+%global packver   2024.11.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.11.02
+Version:          2024.11.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knock Errors Off Nice Guesses
 
@@ -14,18 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
 Requires:         R-stats 
 
 %description
 Miscellaneous functions and data used in Qingyao's psychological research
-and teaching. Keng currently could test the significance and compute the
-cut-off values of Pearson's r without raw data. Keng could also compare
-lm()'s fitted outputs using R-squared and PRE (Proportional Reduction in
-Error, also called partial R-squared or partial Eta-squared).
+and teaching. Keng currently has a built-in dataset depress, and could (1)
+scale a vector, (2) test the significance and compute the cut-off values
+of Pearson's r without raw data, (3) compare lm()'s fitted outputs using
+R-squared and PRE (Proportional Reduction in Error, also called partial
+R-squared or partial Eta-squared).
 
 %prep
 %setup -q -c -n %{packname}
