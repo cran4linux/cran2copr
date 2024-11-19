@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pmlbr
-%global packver   0.2.2
+%global packname  bfboinet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the Penn Machine Learning Benchmarks Data Repository
+Summary:          Backfill Bayesian Optimal Interval Design Using Efficacy and Toxicity
 
-License:          GPL-2 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-FNN 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Iso 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Iso 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-magrittr 
 
 %description
-Check available classification and regression data sets from the PMLB
-repository and download them. The PMLB repository
-(<https://github.com/EpistasisLab/pmlbr>) contains a curated collection of
-data sets for evaluating and comparing machine learning algorithms. These
-data sets cover a range of applications, and include binary/multi-class
-classification problems and regression problems, as well as combinations
-of categorical, ordinal, and continuous features. There are currently over
-150 datasets included in the PMLB repository.
+The backfill Bayesian optimal interval design using efficacy and toxicity
+outcomes for dose optimization (BF-BOIN-ET) design is a novel clinical
+trial design to allow patients to be backfilled at lower doses during a
+dose-finding trial while prioritizing the dose-escalation cohort to
+explore a higher dose. The advantages compared to the other designs in
+terms of the percentage of correct optimal dose (OD) selection, reducing
+the sample size, and shortening the duration of the trial, in various
+realistic setting.
 
 %prep
 %setup -q -c -n %{packname}

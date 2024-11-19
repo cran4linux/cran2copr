@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rmpfr
-%global packver   0.9-5
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R MPFR - Multiple Precision Floating-Point Reliable
+Summary:          Interface R to MPFR - Multiple Precision Floating-Point Reliable
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

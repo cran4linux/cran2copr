@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  autovi
-%global packver   0.4.1
+%global packname  effectplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Auto Visual Inference with Computer Vision Models
+Summary:          Effect Plots
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bandicoot 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-cassowaryr 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-bandicoot 
+Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-tools 
-Requires:         R-CRAN-reticulate 
-Requires:         R-utils 
-Requires:         R-CRAN-cassowaryr 
-Requires:         R-CRAN-cli 
 
 %description
-Provides automated visual inference of residual plots using computer
-vision models, facilitating diagnostic checks for classical normal linear
-regression models.
+High-performance implementation of various effect plots useful for
+regression and probabilistic classification tasks.  The package includes
+partial dependence plots (Friedman, 2021, <doi:10.1214/aos/1013203451>),
+accumulated local effect plots and M-plots (both from Apley and Zhu, 2016,
+<doi:10.1111/rssb.12377>), as well as plots that describe the statistical
+associations between model response and features.  It supports
+visualizations with either 'ggplot2' or 'plotly', and is compatible with
+most models, including 'Tidymodels', models wrapped in 'DALEX' explainers,
+or models with case weights.
 
 %prep
 %setup -q -c -n %{packname}

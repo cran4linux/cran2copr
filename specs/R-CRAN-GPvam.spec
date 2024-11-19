@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GPvam
-%global packver   3.1-1
+%global packver   3.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Likelihood Estimation of Multiple Membership Mixed Models Used in Value-Added Modeling
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.2.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.2
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
@@ -31,6 +32,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 0.11.2
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-rlang 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyplate
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transform Microplate Data into Tibbles
 
@@ -18,15 +18,21 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 The goal of 'tidyplate' is to help researchers convert different types of

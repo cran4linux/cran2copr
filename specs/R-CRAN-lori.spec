@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lori
-%global packver   2.2.2
+%global packver   2.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.2
+Version:          2.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation of High-Dimensional Count Data using Side Information
 
@@ -34,7 +35,7 @@ the Poisson loss penalized by a Lasso type penalty and a nuclear norm.
 LORI returns estimates of main effects, covariate effects and
 interactions, as well as an imputed count table. The package also contains
 a multiple imputation procedure. The methods are described in Robin,
-Josse, Moulines and Sardy (2019) <arXiv:1703.02296v4>.
+Josse, Moulines and Sardy (2019) <doi:10.1016/j.jmva.2019.04.004>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -44,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dhis2r
-%global packver   0.2.1
+%global packname  CareDensity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'DHIS2' Web API
+Summary:          Calculate the Care Density or Fragmented Care Density Given a Patient-Sharing Network
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3.3
-BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-BuildRequires:    R-CRAN-attempt >= 0.3.1
-BuildRequires:    R-CRAN-httr2 >= 0.2.2
-Requires:         R-CRAN-curl >= 4.3.3
-Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-attempt >= 0.3.1
-Requires:         R-CRAN-httr2 >= 0.2.2
+BuildRequires:    R-CRAN-igraph >= 2.0.0
+BuildRequires:    R-CRAN-MatrixExtra 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-igraph >= 2.0.0
+Requires:         R-CRAN-MatrixExtra 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
 
 %description
-Connect and pull data from a 'DHIS2 (District Health Information Software
-2)' instance into R.
+Given a patient-sharing network, calculate either the classic care density
+as proposed by Pollack et al. (2013) <doi:10.1007/s11606-012-2104-7> or
+the fragmented care density as proposed by Engels et al. (2024)
+<doi:10.1186/s12874-023-02106-0>. By utilizing the 'igraph' and
+'data.table' packages, the provided functions scale well for very large
+graphs.
 
 %prep
 %setup -q -c -n %{packname}

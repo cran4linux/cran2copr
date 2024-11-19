@@ -1,24 +1,24 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BalancedSampling
-%global packver   2.0.6
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.6
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Balanced and Spatially Balanced Sampling
 
-License:          GPL (>= 2)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-Rcpp >= 1.0.13
 
 %description
 Select balanced and spatially balanced probability samples in

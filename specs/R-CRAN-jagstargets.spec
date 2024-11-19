@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jagstargets
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Targets for JAGS Pipelines
 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-R2jags >= 0.6.1
 BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-secretbase >= 0.4.0
 BuildRequires:    R-CRAN-purrr >= 0.3.4
-BuildRequires:    R-CRAN-qs >= 0.23.2
 BuildRequires:    R-CRAN-coda >= 0.19.4
+BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-tools 
@@ -45,8 +45,8 @@ Requires:         R-CRAN-R2jags >= 0.6.1
 Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-secretbase >= 0.4.0
 Requires:         R-CRAN-purrr >= 0.3.4
-Requires:         R-CRAN-qs >= 0.23.2
 Requires:         R-CRAN-coda >= 0.19.4
+Requires:         R-CRAN-qs2 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-tools 

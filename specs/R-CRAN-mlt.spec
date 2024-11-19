@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlt
-%global packver   1.6-0
+%global packver   1.6-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Most Likely Transformations
 
@@ -53,7 +53,9 @@ most likely transformation approach described in Hothorn et al. (2018)
 <DOI:10.1111/sjos.12291> and Hothorn (2020) <DOI:10.18637/jss.v092.i01>.
 Shift-scale (Siegfried et al, 2023, <DOI:10.1080/00031305.2023.2203177>)
 and multivariate (Klein et al, 2022, <DOI:10.1111/sjos.12501>)
-transformation models are part of this package.
+transformation models are part of this package. A package vignette is
+available from <DOI:10.32614/CRAN.package.mlt.docreg> and more convenient
+user interfaces to many models from <DOI:10.32614/CRAN.package.tram>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  osmapiR
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'OpenStreetMap' API
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.6
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-httr2 >= 1.0.6
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-xml2 
 
 %description

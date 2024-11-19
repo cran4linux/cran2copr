@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew.cluster
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Crew Launcher Plugins for Traditional High-Performance Computing Clusters
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crew >= 0.9.5
+BuildRequires:    R-CRAN-crew >= 0.10.2
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
@@ -26,7 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-crew >= 0.9.5
+Requires:         R-CRAN-crew >= 0.10.2
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 

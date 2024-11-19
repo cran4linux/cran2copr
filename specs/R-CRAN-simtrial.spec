@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simtrial
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Trial Simulation
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-data.table >= 1.12.4
+BuildRequires:    R-CRAN-gsDesign2 >= 1.1.3
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table >= 1.12.4
+Requires:         R-CRAN-gsDesign2 >= 1.1.3
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
 Requires:         R-methods 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-utils 

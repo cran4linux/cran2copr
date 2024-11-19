@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RadEro
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cs-137 Conversion Model
 
@@ -51,9 +51,10 @@ density, effective volume) to accurately capture the 137Cs distribution
 within the soil profile. The model simulates annual 137Cs fallout,
 radioactive decay, and vertical diffusion, with the diffusion coefficient
 calculated from 137Cs reference inventory profiles. Additionally, it
-allows users to input custom parameters as calibration coefficients. This
-tool and its code are openly accessible, facilitating usage in soil
-erosion studies.
+allows users to input custom parameters as calibration coefficients. The
+RadEro user manual and protocol, including detailed instructions on how to
+format input data and configuration files, can be found at the following
+link: <https://github.com/eead-csic-eesa/RadEro>.
 
 %prep
 %setup -q -c -n %{packname}
