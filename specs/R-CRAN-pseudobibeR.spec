@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HMMRel
-%global packver   0.1.1
+%global packname  pseudobibeR
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Models for Reliability and Maintenance
+Summary:          Aggregate Counts of Linguistic Features
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-quanteda.textstats 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-quanteda.textstats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
 
 %description
-Reliability Analysis and Maintenance Optimization using Hidden Markov
-Models (HMM). The use of HMMs to model the state of a system which is not
-directly observable and instead certain indicators (signals) of the true
-situation are provided via a control system. A hidden model can provide
-key information about the system dependability, such as the reliability of
-the system and related measures. An estimation procedure is implemented
-based on the Baum-Welch algorithm. Classical structures such as K-out-of-N
-systems and Shock models are illustrated. Finally, the maintenance of the
-system is considered in the HMM context and two functions for new
-preventive maintenance strategies are considered. Maintenance efficiency
-is measured in terms of expected cost. Methods are described in Gamiz,
-Limnios, and Segovia-Garcia (2023) <doi:10.1016/j.ejor.2022.05.006>.
+Calculates the lexicogrammatical and functional features described by
+Biber (1985) <doi:10.1515/ling.1985.23.2.337> and widely used for
+text-type, register, and genre classification tasks.
 
 %prep
 %setup -q -c -n %{packname}

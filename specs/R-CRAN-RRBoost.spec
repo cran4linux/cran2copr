@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RRBoost
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Robust Boosting Algorithm
 
@@ -20,19 +20,20 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-RobStatTM 
+BuildRequires:    R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-RobStatTM 
+Requires:         R-methods 
 
 %description
 An implementation of robust boosting algorithms for regression in R. This
 includes the RRBoost method proposed in the paper "Robust Boosting for
 Regression Problems" (Ju X and Salibian-Barrera M. 2020)
-<doi:10.1016/j.csda.2020.107065> (to appear in Computational Statistics
-and Data Science). It also implements previously proposed boosting
-algorithms in the simulation section of the paper: L2Boost, LADBoost,
-MBoost (Friedman, J. H. (2001) <doi:10.1214/aos/1013203451>) and Robloss
-(Lutz et al. (2008) <doi:10.1016/j.csda.2007.11.006>).
+<doi:10.1016/j.csda.2020.107065>. It also implements previously proposed
+boosting algorithms in the simulation section of the paper: L2Boost,
+LADBoost, MBoost (Friedman, J. H. (2001) <doi:10.1214/aos/1013203451>) and
+Robloss (Lutz et al. (2008) <doi:10.1016/j.csda.2007.11.006>).
 
 %prep
 %setup -q -c -n %{packname}

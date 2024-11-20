@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  assertions
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Assertions for Beautiful and Customisable Error Messages
 
@@ -19,9 +19,11 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 
 %description

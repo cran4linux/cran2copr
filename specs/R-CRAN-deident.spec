@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  hdar
-%global packver   1.0.4
+%global packname  deident
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'REST' API Client for Accessing Data on 'WEkEO HDA V2'
+Summary:          Persistent Data Anonymization Pipeline
 
-License:          EUPL (>= 1.2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 0.4.11
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-humanize 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-lemon 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-fs 
+Requires:         R-CRAN-rlang >= 0.4.11
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-humanize 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-lemon 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-fs 
 
 %description
-Provides seamless access to the WEkEO Harmonised Data Access (HDA) API,
-enabling users to query, download, and process data efficiently from the
-HDA platform. With 'hdar', researchers and data scientists can integrate
-the extensive HDA datasets into their R workflows, enhancing their data
-analysis capabilities. Comprehensive information on the API functionality
-and usage is available at
-<https://gateway.prod.wekeo2.eu/hda-broker/docs>.
+A framework for the replicable removal of personally identifiable data
+(PID) in data sets.  The package implements a suite of methods to suit
+different data types based on the suggestions of Garfinkel (2015)
+<doi:10.6028/NIST.IR.8053> and the ICO "Guidelines on Anonymization"
+(2012) <https://ico.org.uk/media/1061/anonymisation-code.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

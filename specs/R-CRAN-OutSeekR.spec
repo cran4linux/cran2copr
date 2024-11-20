@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metaumbrella
-%global packver   1.0.11
+%global packname  OutSeekR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.11
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Umbrella Review Package for R
+Summary:          Statistical Approach to Outlier Detection in RNA-Seq and Related Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta 
-BuildRequires:    R-CRAN-pwr 
-BuildRequires:    R-CRAN-powerSurvEpi 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-xtable 
-Requires:         R-CRAN-meta 
-Requires:         R-CRAN-pwr 
-Requires:         R-CRAN-powerSurvEpi 
-Requires:         R-CRAN-readxl 
-Requires:         R-tcltk 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-xtable 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-lsa 
+BuildRequires:    R-CRAN-truncnorm 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-lsa 
+Requires:         R-CRAN-truncnorm 
 
 %description
-A comprehensive range of facilities to perform umbrella reviews with
-stratification of the evidence in R. The package accomplishes this aim by
-building on three core functions that: (i) automatically perform all
-required calculations in an umbrella review (including but not limited to
-meta-analyses), (ii) stratify evidence according to various classification
-criteria, and (iii) generate a visual representation of the results. Note
-that if you are not familiar with R, the core features of this package are
-available from a web browser (<https://www.metaumbrella.org/>).
+An approach to outlier detection in RNA-seq and related data based on five
+statistics. 'OutSeekR' implements an outlier test by comparing the
+distributions of these statistics in observed data with those of simulated
+null data.
 
 %prep
 %setup -q -c -n %{packname}

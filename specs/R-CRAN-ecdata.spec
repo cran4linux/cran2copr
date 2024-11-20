@@ -1,36 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HMMRel
-%global packver   0.1.1
+%global packname  ecdata
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Models for Reliability and Maintenance
+Summary:          Loads Data from the Executive Communications Dataset
 
-License:          GPL-2
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-memoise >= 2.0.0
+BuildRequires:    R-CRAN-arrow >= 16.1.0
+BuildRequires:    R-CRAN-glue >= 1.4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cachem >= 1.0.0
+BuildRequires:    R-CRAN-piggyback >= 0.1.5
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-memoise >= 2.0.0
+Requires:         R-CRAN-arrow >= 16.1.0
+Requires:         R-CRAN-glue >= 1.4.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cachem >= 1.0.0
+Requires:         R-CRAN-piggyback >= 0.1.5
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-curl 
 
 %description
-Reliability Analysis and Maintenance Optimization using Hidden Markov
-Models (HMM). The use of HMMs to model the state of a system which is not
-directly observable and instead certain indicators (signals) of the true
-situation are provided via a control system. A hidden model can provide
-key information about the system dependability, such as the reliability of
-the system and related measures. An estimation procedure is implemented
-based on the Baum-Welch algorithm. Classical structures such as K-out-of-N
-systems and Shock models are illustrated. Finally, the maintenance of the
-system is considered in the HMM context and two functions for new
-preventive maintenance strategies are considered. Maintenance efficiency
-is measured in terms of expected cost. Methods are described in Gamiz,
-Limnios, and Segovia-Garcia (2023) <doi:10.1016/j.ejor.2022.05.006>.
+A minimal package for downloading data from 'GitHub' repositories of the
+Executive Communications Database.
 
 %prep
 %setup -q -c -n %{packname}

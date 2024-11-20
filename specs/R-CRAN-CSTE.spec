@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HMMRel
-%global packver   0.1.1
+%global packname  CSTE
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hidden Markov Models for Reliability and Maintenance
+Summary:          Covariate Specific Treatment Effect (CSTE) Curve
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-fda 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-locpol 
+BuildRequires:    R-CRAN-dfoptim 
+Requires:         R-CRAN-Rcpp >= 1.0.4
+Requires:         R-CRAN-fda 
+Requires:         R-splines 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-locpol 
+Requires:         R-CRAN-dfoptim 
 
 %description
-Reliability Analysis and Maintenance Optimization using Hidden Markov
-Models (HMM). The use of HMMs to model the state of a system which is not
-directly observable and instead certain indicators (signals) of the true
-situation are provided via a control system. A hidden model can provide
-key information about the system dependability, such as the reliability of
-the system and related measures. An estimation procedure is implemented
-based on the Baum-Welch algorithm. Classical structures such as K-out-of-N
-systems and Shock models are illustrated. Finally, the maintenance of the
-system is considered in the HMM context and two functions for new
-preventive maintenance strategies are considered. Maintenance efficiency
-is measured in terms of expected cost. Methods are described in Gamiz,
-Limnios, and Segovia-Garcia (2023) <doi:10.1016/j.ejor.2022.05.006>.
+A uniform statistical inferential tool in making individualized treatment
+decisions, which implements the methods of Ma et al.
+(2017)<DOI:10.1177/0962280214541724> and Guo et al.
+(2021)<DOI:10.1080/01621459.2020.1865167>. It uses a flexible
+semiparametric modeling strategy for heterogeneous treatment effect
+estimation in high-dimensional settings and can gave valid confidence
+bands. Based on it, one can find the subgroups of patients that benefit
+from each treatment, thereby making individualized treatment selection.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cmstatr
-%global packver   0.9.3
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Composite Material Data
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 An implementation of the statistical methods commonly used for advanced

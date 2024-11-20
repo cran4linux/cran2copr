@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sgapi
-%global packver   1.0.2
+%global packname  talkr
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Aid Querying 'nomis' and 'Office for National Statistics Open Geography' APIs
+Summary:          Plotting Conversation Data
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-xml2 
-Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-knitr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Facilitates extraction of geospatial data from the 'Office for National
-Statistics Open Geography' and 'nomis' Application Programming Interfaces
-(APIs). Simplifies process of querying 'nomis' datasets
-<https://www.nomisweb.co.uk/> and extracting desired datasets in dataframe
-format. Extracts area shapefiles at chosen resolution from 'Office for
-National Statistics Open Geography'
-<https://geoportal.statistics.gov.uk/>.
+Visualisation, analysis and quality control of conversational data. Rapid
+and visual insights into the nature, timing and quality of time-aligned
+annotations in conversational corpora. For more details, see Dingemanse et
+al., (2022) <doi:10.18653/v1/2022.acl-long.385>.
 
 %prep
 %setup -q -c -n %{packname}
