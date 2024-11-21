@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vaxpmx
-%global packver   0.0.6
+%global packname  cellularautomata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vaccines Pharmacometrics
+Summary:          Cellular Automata
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-methods >= 3.5.2
-BuildRequires:    R-CRAN-survival >= 3.2.11
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-methods >= 3.5.2
-Requires:         R-CRAN-survival >= 3.2.11
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-stats 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 
 %description
-Estimate vaccine efficacy (VE) using immunogenicity data. The inclusion of
-immunogenicity data in regression models can increase precision in VE. The
-methods are described in the publications "Elucidating vaccine efficacy
-using a correlate of protection, demographics, and logistic regression"
-and "Improving precision of vaccine efficacy evaluation using immune
-correlate data in time-to-event models" by Julie Dudasova, Zdenek Valenta,
-and Jeffrey R. Sachs (2024).
+Create cellular automata from 'Wolfram' rules. Allows the creation of
+'Wolfram' style plots, as well as of animations. Easy to create multiple
+plots, for example the output of a rule with different initial states, or
+the output of many different rules from the same state. The output of a
+cellular automaton is given as a matrix, making it easy to try to explore
+the possibility of predicting its time evolution using various statistical
+tools available in R. Wolfram S. (2002, ISBN:1579550088) "A New Kind of
+Science".
 
 %prep
 %setup -q -c -n %{packname}

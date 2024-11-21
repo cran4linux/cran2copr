@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vaxpmx
-%global packver   0.0.6
+%global packname  Certara.RsNLME
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vaccines Pharmacometrics
+Summary:          Pharmacometric Modeling
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-methods >= 3.5.2
-BuildRequires:    R-CRAN-survival >= 3.2.11
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-methods >= 3.5.2
-Requires:         R-CRAN-survival >= 3.2.11
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-stats 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-Certara.NLME8 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ssh 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-Certara.NLME8 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-ssh 
 
 %description
-Estimate vaccine efficacy (VE) using immunogenicity data. The inclusion of
-immunogenicity data in regression models can increase precision in VE. The
-methods are described in the publications "Elucidating vaccine efficacy
-using a correlate of protection, demographics, and logistic regression"
-and "Improving precision of vaccine efficacy evaluation using immune
-correlate data in time-to-event models" by Julie Dudasova, Zdenek Valenta,
-and Jeffrey R. Sachs (2024).
+Facilitate Pharmacokinetic (PK) and Pharmacodynamic (PD) modeling and
+simulation with powerful tools for Nonlinear Mixed-Effects (NLME)
+modeling. The package provides access to the same advanced Maximum
+Likelihood algorithms used by the NLME-Engine in the Phoenix platform.
+These tools support a range of analyses, from parametric methods to
+individual and pooled data analysis
+<https://www.certara.com/app/uploads/2020/06/BR_PhoenixNLME-v4.pdf>.
+Execution is supported both locally or on remote machines.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vaxpmx
-%global packver   0.0.6
+%global packname  SVEMnet
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vaccines Pharmacometrics
+Summary:          Self-Validated Ensemble Models with Elastic Net Regression
 
-License:          GPL-3
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-methods >= 3.5.2
-BuildRequires:    R-CRAN-survival >= 3.2.11
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-methods >= 3.5.2
-Requires:         R-CRAN-survival >= 3.2.11
-Requires:         R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lhs 
+Requires:         R-CRAN-glmnet 
 Requires:         R-stats 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lhs 
 
 %description
-Estimate vaccine efficacy (VE) using immunogenicity data. The inclusion of
-immunogenicity data in regression models can increase precision in VE. The
-methods are described in the publications "Elucidating vaccine efficacy
-using a correlate of protection, demographics, and logistic regression"
-and "Improving precision of vaccine efficacy evaluation using immune
-correlate data in time-to-event models" by Julie Dudasova, Zdenek Valenta,
-and Jeffrey R. Sachs (2024).
+Implements Self-Validated Ensemble Models (SVEM, Lemkus et al. (2021)
+<doi:10.1016/j.chemolab.2021.104439>) using Elastic Net regression via
+'glmnet' (Friedman et al. <doi:10.18637/jss.v033.i01>). SVEM averages
+predictions from multiple models fitted to fractionally weighted
+bootstraps of the data, tuned with anti-correlated validation weights.
+Also implements the randomized permutation whole model test for SVEM (Karl
+(2024) <doi:10.1016/j.chemolab.2024.105122>). Code for the whole model
+test was taken from the supplementary material of Karl (2024). Development
+of this package was assisted by 'GPT o1-preview' for code structure and
+documentation.
 
 %prep
 %setup -q -c -n %{packname}

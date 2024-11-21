@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  LCCR
-%global packver   1.3
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Class Capture-Recapture Models
 
@@ -21,8 +22,9 @@ Requires:         R-CRAN-MASS
 
 %description
 Estimation of latent class models with individual covariates for
-capture-recapture data. See Forcina and Bartolucci
-(2021)<arxiv:2106.03811>.
+capture-recapture data. See Bartolucci, F. and Forcina, A. (2022),
+Estimating the size of a closed population by modeling latent and observed
+heterogeneity, Biometrics, 80(2), ujae017.
 
 %prep
 %setup -q -c -n %{packname}

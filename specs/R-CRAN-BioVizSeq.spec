@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vaxpmx
-%global packver   0.0.6
+%global packname  BioVizSeq
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vaccines Pharmacometrics
+Summary:          Visualizing the Elements Within Bio-Sequences
 
-License:          GPL-3
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-methods >= 3.5.2
-BuildRequires:    R-CRAN-survival >= 3.2.11
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-stats 
-Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-methods >= 3.5.2
-Requires:         R-CRAN-survival >= 3.2.11
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-seqinr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Estimate vaccine efficacy (VE) using immunogenicity data. The inclusion of
-immunogenicity data in regression models can increase precision in VE. The
-methods are described in the publications "Elucidating vaccine efficacy
-using a correlate of protection, demographics, and logistic regression"
-and "Improving precision of vaccine efficacy evaluation using immune
-correlate data in time-to-event models" by Julie Dudasova, Zdenek Valenta,
-and Jeffrey R. Sachs (2024).
+Visualizing the types and distribution of elements within bio-sequences.
+At the same time, We have developed a geom layer, geom_rrect(), that can
+generate rounded rectangles. No external references are used in the
+development of this package.
 
 %prep
 %setup -q -c -n %{packname}

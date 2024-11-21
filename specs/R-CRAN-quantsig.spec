@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ResearchAssociate
-%global packver   1.0.1
+%global packname  quantsig
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieving Publications from PubMed Database Based on User Query
+Summary:          Sigmoidal Quantile Function Estimator
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rentrez 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-rentrez 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-ggplot2 
 
 %description
-Connects to Pubmed <https://pubmed.ncbi.nlm.nih.gov/> to retrieve
-publications related to user-defined search query.
+A sigmoidal quantile function estimator based on a newly defined
+generalized expectile function. The generalized sigmoidal quantile
+function can estimate quantiles beyond the range of the data, which is
+important for certain applications given smaller sample sizes. The package
+is based on the method introduced in Hutson (2024)
+<doi:10.1080/03610918.2022.2032161>.
 
 %prep
 %setup -q -c -n %{packname}

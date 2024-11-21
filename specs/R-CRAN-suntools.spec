@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  suntools
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Sun Position, Sunrise, Sunset, Solar Noon and Twilight
 
@@ -31,9 +31,7 @@ times of sunrise, sunset, solar noon, and twilight for any given
 geographical location on Earth. These calculations are based on equations
 provided by the National Oceanic & Atmospheric Administration (NOAA)
 <https://gml.noaa.gov/grad/solcalc/calcdetails.html> as described in
-"Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4). A
-resource for researchers and professionals working in fields such as
-climatology, biology, and renewable energy.
+"Astronomical Algorithms" by Jean Meeus (1991, ISBN: 978-0-943396-35-4).
 
 %prep
 %setup -q -c -n %{packname}

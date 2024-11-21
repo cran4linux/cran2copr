@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cfda
-%global packver   0.11.0
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Categorical Functional Data Analysis
 
@@ -24,6 +24,9 @@ BuildRequires:    R-CRAN-diagram
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-fda 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-msm 
@@ -31,6 +34,9 @@ Requires:         R-CRAN-diagram
 Requires:         R-CRAN-mgcv 
 Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
 Package for the analysis of categorical functional data. The main purpose

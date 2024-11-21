@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prnsamplr
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Permanent Random Number Sampling
 
@@ -14,11 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-stats >= 4.2
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+Requires:         R-stats >= 4.2
+Requires:         R-CRAN-rlang >= 1.1.0
 
 %description
 Survey sampling using permanent random numbers (PRN's). A solution to the
@@ -27,7 +29,7 @@ precision in estimates when the survey is repeated or combined with other
 surveys. The PRN solution is to supply the U(0, 1) random numbers to the
 sampling procedure, instead of having the sampling procedure generate
 them. In Lindblom (2014) <doi:10.2478/jos-2014-0047>, and therein cited
-articles, it is shown how this is carried out and how it improves the
+papers, it is shown how this is carried out and how it improves the
 estimates. This package supports two common fixed-size sampling procedures
 (simple random sampling and probability-proportional-to-size sampling) and
 includes a function for transforming the PRN's in order to control the
