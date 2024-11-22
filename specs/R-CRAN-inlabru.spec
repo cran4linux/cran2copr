@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inlabru
-%global packver   2.11.1
+%global packver   2.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11.1
+Version:          2.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Latent Gaussian Modelling using INLA and Extensions
 
@@ -17,8 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sp >= 1.4.5
-BuildRequires:    R-CRAN-fmesher >= 0.1.2
+BuildRequires:    R-CRAN-fmesher >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
@@ -29,12 +28,10 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-sp >= 1.4.5
-Requires:         R-CRAN-fmesher >= 0.1.2
+Requires:         R-CRAN-fmesher >= 0.2.0
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -45,7 +42,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 

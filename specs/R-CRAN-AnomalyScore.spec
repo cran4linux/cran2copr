@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  AnomalyScore
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Anomaly Scoring for Multivariate Time Series
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-class 
+BuildRequires:    R-CRAN-astsa 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-marima 
+BuildRequires:    R-CRAN-TSA 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvLSW 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-class 
+Requires:         R-CRAN-astsa 
+Requires:         R-CRAN-transport 
+Requires:         R-CRAN-marima 
+Requires:         R-CRAN-TSA 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvLSW 
+Requires:         R-stats 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Compute an anomaly score for multivariate time series based on the
+k-nearest neighbors algorithm. Different computations of distances between
+time series are provided.
 
 %prep
 %setup -q -c -n %{packname}

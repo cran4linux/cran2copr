@@ -1,26 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  CTTvis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Visualize Item Metrics of the Classical Test Theory Framework
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CTT >= 2.3.3
+Requires:         R-CRAN-CTT >= 2.3.3
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Visualizes results of item analysis such as item difficulty, item
+discrimination, and coefficient alpha for ease of result communication.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  transDA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Transformation Discriminant Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Performs transformation discrimination analysis and non-transformation
+discrimination analysis. It also includes functions for Linear
+Discriminant Analysis, Quadratic Discriminant Analysis, and Mixture
+Discriminant Analysis. In the context of mixture discriminant analysis, it
+offers options for both common covariance matrix (common sigma) and
+individual covariance matrices (uncommon sigma) for the mixture
+components.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataCompare
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' App to Compare Two Data Frames
 
@@ -23,40 +23,36 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-devtools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-explore 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-pins 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinydashboardPlus 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-skimr 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vroom 
 Requires:         R-CRAN-arsenal 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-devtools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-explore 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-pins 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinydashboardPlus 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-skimr 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-vroom 
 
 %description
 A tool developed with the 'Golem' framework which provides an easier way

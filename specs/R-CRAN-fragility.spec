@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fragility
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing and Visualizing Fragility of Clinical Results with Binary Outcomes
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-meta >= 8.0.1
 BuildRequires:    R-CRAN-plotrix >= 3.7.5
 BuildRequires:    R-graphics >= 3.5.0
 BuildRequires:    R-grDevices >= 3.5.0
 BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-CRAN-metafor >= 2.0.0
 BuildRequires:    R-CRAN-netmeta >= 1.0.0
+Requires:         R-CRAN-meta >= 8.0.1
 Requires:         R-CRAN-plotrix >= 3.7.5
 Requires:         R-graphics >= 3.5.0
 Requires:         R-grDevices >= 3.5.0

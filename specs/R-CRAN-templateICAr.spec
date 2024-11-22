@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  templateICAr
-%global packver   0.8.8
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Brain Networks and Connectivity with ICA and Empirical Priors
 
@@ -16,10 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-fMRItools >= 0.4.4
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-excursions 
-BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-fMRIscrub 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ica 
@@ -27,14 +26,11 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pesel 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-fMRItools >= 0.4.4
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-excursions 
-Requires:         R-CRAN-expm 
 Requires:         R-CRAN-fMRIscrub 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ica 
@@ -42,9 +38,9 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-matrixStats 
 Requires:         R-methods 
 Requires:         R-CRAN-pesel 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-SQUAREM 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Implements the template ICA (independent components analysis) model

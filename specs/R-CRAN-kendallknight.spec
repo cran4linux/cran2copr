@@ -1,26 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  kendallknight
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Efficient Implementation of Kendall's Correlation Coefficient Computation
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-stats 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+The computational complexity of the implemented algorithm for Kendall's
+correlation is O(n log(n)), which is faster than the base R implementation
+with a computational complexity of O(n^2). For small vectors (i.e., less
+than 100 observations), the time difference is negligible. However, for
+larger vectors, the speed difference can be substantial and the numerical
+difference is minimal. The references are Knight (1966)
+<doi:10.2307/2282833>, Abrevaya (1999)
+<doi:10.1016/S0165-1765(98)00255-9>, Christensen (2005)
+<doi:10.1007/BF02736122> and Emara (2024) <https://learningcpp.org/>. This
+implementation is described in Vargas Sepulveda (2024)
+<doi:10.48550/arXiv.2408.09618>.
 
 %prep
 %setup -q -c -n %{packname}

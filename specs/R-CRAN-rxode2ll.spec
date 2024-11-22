@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2ll
-%global packver   2.0.11
+%global packver   2.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.11
+Version:          2.0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log-Likelihood Functions for 'rxode2'
 
@@ -28,11 +28,12 @@ Requires:         R-CRAN-RcppParallel
 
 %description
 Provides the log-likelihoods with gradients from 'stan' (Carpenter et al
-(2015), <arXiv:1509.07164>) needed for generalized log-likelihood
-estimation in 'nlmixr2' (Fidler et al (2019) <doi:10.1002/psp4.12445>).
-This is split of to reduce computational burden of recompiling 'rxode2'
-(Wang, Hallow and James (2016) <doi:10.1002/psp4.12052>) which runs the
-'nlmixr2' models during estimation.
+(2015), <doi:10.48550/arXiv.1509.07164>) needed for generalized
+log-likelihood estimation in 'nlmixr2' (Fidler et al (2019)
+<doi:10.1002/psp4.12445>). This is split of to reduce computational burden
+of recompiling 'rxode2' (Wang, Hallow and James (2016)
+<doi:10.1002/psp4.12052>) which runs the 'nlmixr2' models during
+estimation.
 
 %prep
 %setup -q -c -n %{packname}

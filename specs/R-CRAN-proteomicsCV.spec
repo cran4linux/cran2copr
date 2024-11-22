@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proteomicsCV
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates the Percentage CV for Mass Spectrometry-Based Proteomics Data
 
@@ -24,8 +24,7 @@ Requires:         R-stats
 Calculates the percentage coefficient of variation (CV) for mass
 spectrometry-based proteomic data. The CV can be calculated with the
 traditional formula for raw (non log transformed) intensity data, or log
-transformed data. This package currently does not reference any academic
-publication.
+transformed data.
 
 %prep
 %setup -q -c -n %{packname}

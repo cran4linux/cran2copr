@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  OutcomeWeights
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Outcome Weights of Treatment Effect Estimators
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-grf 
+Requires:         R-methods 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Many treatment effect estimators can be written as weighted outcomes.
+These weights have established use cases like checking covariate balancing
+via packages like 'cobalt'. This package takes the original estimator
+objects and outputs these outcome weights. It builds on the general
+framework of Knaus (2024) <doi:10.48550/arXiv.2411.11559>. This version is
+compatible with the 'grf' package and provides an internal implementation
+of Double Machine Learning.
 
 %prep
 %setup -q -c -n %{packname}

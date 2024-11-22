@@ -1,26 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  table.glue
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Make and Apply Customized Rounding Specifications for Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-stringi 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Translate double and integer valued data into character values formatted
+for tabulation in manuscripts or other types of academic reports.
 
 %prep
 %setup -q -c -n %{packname}

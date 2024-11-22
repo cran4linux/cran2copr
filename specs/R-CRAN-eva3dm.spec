@@ -1,26 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  eva3dm
+%global packver   0.99
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.99
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Evaluation of 3D Meteorological and Air Quality Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-utils 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Provides tools for post-process, evaluate and visualize results from 3d
+Meteorological and Air Quality models against point observations (i.e.
+surface stations) and grid (i.e. satellite) observations.
 
 %prep
 %setup -q -c -n %{packname}

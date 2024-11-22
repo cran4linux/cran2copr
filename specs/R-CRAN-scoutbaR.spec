@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  scoutbaR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          A Spotlight 'React' Widget for 'shiny' Apps
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,10 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-reactR 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-reactR 
+Requires:         R-CRAN-shiny 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Creates a contextual menu that can be triggered with keyboard shortcuts or
+programmatically. This can replace traditional sidebars or navigation
+bars, thereby enhancing the user experience with lighter user interfaces.
 
 %prep
 %setup -q -c -n %{packname}

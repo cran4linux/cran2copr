@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  matchedcc
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          'Stata'-Like Matched Case-Control Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-binom 
+Requires:         R-CRAN-checkmate 
+Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-binom 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Calculate multiple statistics with confidence intervals for matched
+case-control data including risk difference, risk ratio, relative
+difference, and the odds ratio. Results are equivalent to those from
+'Stata', and you can choose how to format your input data. Methods used
+are those described on page 56 the 'Stata' documentation for "Epitab -
+Tables for Epidemologists" <https://www.stata.com/manuals/repitab.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

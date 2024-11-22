@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bindr
-%global packver   0.1.2
+%global packname  cohetsurr
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametrized Active Bindings
+Summary:          Assessing Complex Heterogeneity in Surrogacy
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,10 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-stats 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides a simple interface for creating active bindings where the bound
-function accepts additional arguments.
+Provides functions to assess and test for complex heterogeneity in the
+utility of a surrogate marker with respect to multiple baseline
+covariates, using both a parametric model and a semiparametric two-step
+model. More details will be available in the future in: Knowlton, R.,
+Tian, L., Parast, L. (2024) ``A General Framework to Assess Complex
+Heterogeneity in the Strength of a Surrogate Marker."
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARDECO
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Annual Regional Database of the European Commission (ARDECO)
 
@@ -19,14 +19,12 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-ghql 
-BuildRequires:    R-CRAN-rjstat 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ghql 
-Requires:         R-CRAN-rjstat 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
@@ -40,9 +38,11 @@ completely transparent to the user and the provided functions provide a
 direct access to the 'ARDECO' data. The 'ARDECO' database is a collection
 of variables related to demography, employment, labour market, domestic
 product, capital formation. Each variable can be exposed in one or more
-units of measure as well as refers to total values plus economic sectors.
-The description of the 'ARDECO' database can be found at the following URL
-<https://urban.jrc.ec.europa.eu/ardeco>.
+units of measure as well as refers to total values plus additional
+dimensions like economic sectors, gender, age classes. Data can be also
+aggregated at country level according to the tercet classes as defined by
+EUROSTAT. The description of the 'ARDECO' database can be found at the
+following URL <https://urban.jrc.ec.europa.eu/ardeco>.
 
 %prep
 %setup -q -c -n %{packname}

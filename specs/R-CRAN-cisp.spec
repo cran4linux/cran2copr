@@ -1,36 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ceterisParibus
-%global packver   0.6
+%global packname  cisp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ceteris Paribus Profiles
+Summary:          A Correlation Indicator Based on Spatial Patterns
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gdverse >= 1.3
+BuildRequires:    R-CRAN-sdsfun >= 0.4.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gower 
-BuildRequires:    R-CRAN-DALEX 
+BuildRequires:    R-CRAN-ggraph 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-gdverse >= 1.3
+Requires:         R-CRAN-sdsfun >= 0.4.3
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gower 
-Requires:         R-CRAN-DALEX 
+Requires:         R-CRAN-ggraph 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Ceteris Paribus Profiles (What-If Plots) are designed to present model
-responses around selected points in a feature space. For example around a
-single prediction for an interesting observation. Plots are designed to
-work in a model-agnostic fashion, they are working for any predictive
-Machine Learning model and allow for model comparisons. Ceteris Paribus
-Plots supplement the Break Down Plots from 'breakDown' package.
+Use the spatial association marginal contributions derived from spatial
+stratified heterogeneity to capture the degree of correlation between
+spatial patterns.
 
 %prep
 %setup -q -c -n %{packname}
