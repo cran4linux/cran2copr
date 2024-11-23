@@ -1,62 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vDiveR
-%global packver   2.0.1
+%global packname  GWlasso
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization of Viral Protein Sequence Diversity Dynamics
+Summary:          Geographically Weighted Lasso
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gghalves 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-ggside 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-GWmodel 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rentrez 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-maps 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gghalves 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-grid 
-Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-ggside 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-GWmodel 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-methods 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rentrez 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-maps 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyr 
 
 %description
-To ease the visualization of outputs from Diversity Motif Analyser
-('DiMA'; <https://github.com/BVU-BILSAB/DiMA>). 'vDiveR' allows
-visualization of the diversity motifs (index and its variants – major,
-minor and unique) for elucidation of the underlying inherent dynamics.
-Please refer <https://vdiver-manual.readthedocs.io/en/latest/> for more
-information.
+Performs geographically weighted Lasso regressions. Find optimal
+bandwidth, fit a geographically weighted lasso or ridge regression, and
+make predictions. These methods are specially well suited for ecological
+inferences. Bandwidth selection algorithm is from A. Comber and P. Harris
+(2018) <doi:10.1007/s10109-018-0280-7>.
 
 %prep
 %setup -q -c -n %{packname}

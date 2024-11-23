@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sparta
-%global packver   0.8.4
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sparse Tables
 
@@ -20,7 +21,8 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Fast Multiplication and Marginalization of Sparse Tables.
+Fast Multiplication and Marginalization of Sparse Tables
+<doi:10.18637/jss.v111.i02>.
 
 %prep
 %setup -q -c -n %{packname}

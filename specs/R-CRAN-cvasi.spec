@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvasi
-%global packver   1.2.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration, Validation, and Simulation of TKTD Models
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
@@ -34,13 +33,10 @@ BuildRequires:    R-CRAN-gridExtra
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-lemna 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-attempt 
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
@@ -57,9 +53,7 @@ Requires:         R-CRAN-gridExtra
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-lemna 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-attempt 
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-lifecycle 
 

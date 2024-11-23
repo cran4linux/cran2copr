@@ -1,55 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  care4cmodel
-%global packver   1.0.3
+%global packname  topics
+%global packver   0.20.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.20.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Carbon-Related Assessment of Silvicultural Concepts
+Summary:          Creating and Significance Testing Language Features for Visualisation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-text 
+BuildRequires:    R-CRAN-textmineR 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-mallet 
+BuildRequires:    R-CRAN-rJava 
+BuildRequires:    R-CRAN-ggwordcloud 
+BuildRequires:    R-CRAN-effsize 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ngram 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-text 
+Requires:         R-CRAN-textmineR 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-mallet 
+Requires:         R-CRAN-rJava 
+Requires:         R-CRAN-ggwordcloud 
+Requires:         R-CRAN-effsize 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-methods 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ngram 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-Rdpack 
 
 %description
-A simulation model and accompanying functions that support assessing
-silvicultural concepts on the forest estate level with a focus on the CO2
-uptake by wood growth and CO2 emissions by forest operations. For
-achieving this, a virtual forest estate area is split into the areas
-covered by typical phases of the silvicultural concept of interest. Given
-initial area shares of these phases, the dynamics of these areas is
-simulated. The typical carbon stocks and flows which are known for all
-phases are attributed post-hoc to the areas and upscaled to the estate
-level. CO2 emissions by forest operations are estimated based on the
-amounts and dimensions of the harvested timber. Probabilities of damage
-events are taken into account.
+Implements differential language analysis with statistical tests and
+offers various language visualization techniques for n-grams and topics.
+It also supports the 'text' package. For more information, visit
+<https://r-topics.org/> and <https://www.r-text.org/>.
 
 %prep
 %setup -q -c -n %{packname}

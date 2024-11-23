@@ -1,37 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NGLVieweR
-%global packver   1.4.0
+%global packname  anominate
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive 3D Visualization of Molecular Structures
+Summary:          Alpha-NOMINATE Ideal Point Estimator
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-wnominate 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-MCMCpack 
+Requires:         R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-wnominate 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-MCMCpack 
 
 %description
-Provides an 'htmlwidgets' <https://www.htmlwidgets.org/> interface to
-'NGL.js' <http://nglviewer.org/ngl/api/>. 'NGLvieweR' can be used to
-visualize and interact with protein databank ('PDB') and structural files
-in R and Shiny applications. It includes a set of API functions to
-manipulate the viewer after creation in Shiny.
+Provides functions to estimate and interpret the alpha-NOMINATE ideal
+point model developed in Carroll et al. (2013, <doi:10.1111/ajps.12029>).
+alpha-NOMINATE extends traditional spatial voting frameworks by allowing
+for a mixture of Gaussian and quadratic utility functions, providing
+flexibility in modeling political actors' preferences. The package uses
+Markov Chain Monte Carlo (MCMC) methods for parameter estimation,
+supporting robust inference about individuals' ideological positions and
+the shape of their utility functions. It also contains functions to
+simulate data from the model and to calculate the probability of a vote
+passing given the ideal points of the legislators/voters and the estimated
+location of the choice alternatives.
 
 %prep
 %setup -q -c -n %{packname}

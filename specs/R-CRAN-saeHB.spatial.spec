@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IRISMustangMetrics
-%global packver   2.4.6
+%global packname  saeHB.spatial
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics and Metrics for Seismic Data
+Summary:          Small Area Estimation Hierarchical Bayes For Spatial Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IRISSeismic >= 1.3.0
-BuildRequires:    R-CRAN-seismicRoll >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 0.4.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-IRISSeismic >= 1.3.0
-Requires:         R-CRAN-seismicRoll >= 1.1.4
-Requires:         R-CRAN-dplyr >= 0.4.3
-Requires:         R-methods 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-signal 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rjags 
 Requires:         R-stats 
-Requires:         R-CRAN-pracma 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 
 %description
-Classes and functions for metrics calculation as part of the 'IRIS DMC
-MUSTANG' project. The functionality in this package builds upon the base
-classes of the 'IRISSeismic' package. Metrics include basic statistics as
-well as higher level 'health' metrics that can help identify problematic
-seismometers.
+Provides several functions and datasets for area level of Small Area
+Estimation under Spatial Model using Hierarchical Bayesian (HB) Method.
+Model-based estimators include the HB estimators based on a Spatial
+Fay-Herriot model with univariate normal distribution for variable of
+interest.The 'rjags' package is employed to obtain parameter estimates.
+For the reference, see Rao and Molina (2015) <doi:10.1002/9781118735855>.
 
 %prep
 %setup -q -c -n %{packname}

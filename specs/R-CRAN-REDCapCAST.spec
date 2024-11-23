@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapCAST
-%global packver   24.10.3
+%global packver   24.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.10.3
+Version:          24.11.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          REDCap Castellated Data Handling
+Summary:          REDCap Metadata Casting and Castellated Data Handling
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -31,6 +31,12 @@ BuildRequires:    R-CRAN-zip
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-openxlsx2 
 BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-REDCapR 
 Requires:         R-CRAN-tidyr 
@@ -45,21 +51,28 @@ Requires:         R-CRAN-zip
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-openxlsx2 
 Requires:         R-CRAN-readODS 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-glue 
 
 %description
-Originally forked from the R part of 'REDCapRITS' by Paul Egeler. See
-<https://github.com/pegeler/REDCapRITS>. 'REDCap' database casting and
-handling of castellated data when using repeated instruments and
-longitudinal projects. Keeps a focused data export approach, by allowing
-to only export required data from the database. 'REDCap' (Research
-Electronic Data Capture) is a secure, web-based software platform designed
-to support data capture for research studies, providing 1) an intuitive
-interface for validated data capture; 2) audit trails for tracking data
-manipulation and export procedures; 3) automated export procedures for
-seamless data downloads to common statistical packages; and 4) procedures
-for data integration and interoperability with external sources (Harris et
-al (2009) <doi:10.1016/j.jbi.2008.08.010>; Harris et al (2019)
-<doi:10.1016/j.jbi.2019.103208>).
+Casting metadata for REDCap database creation and handling of castellated
+data using repeated instruments and longitudinal projects in 'REDCap'.
+Keeps a focused data export approach, by allowing to only export required
+data from the database. Also for casting new REDCap databases based on
+datasets from other sources. Originally forked from the R part of
+'REDCapRITS' by Paul Egeler. See <https://github.com/pegeler/REDCapRITS>.
+'REDCap' (Research Electronic Data Capture) is a secure, web-based
+software platform designed to support data capture for research studies,
+providing 1) an intuitive interface for validated data capture; 2) audit
+trails for tracking data manipulation and export procedures; 3) automated
+export procedures for seamless data downloads to common statistical
+packages; and 4) procedures for data integration and interoperability with
+external sources (Harris et al (2009) <doi:10.1016/j.jbi.2008.08.010>;
+Harris et al (2019) <doi:10.1016/j.jbi.2019.103208>).
 
 %prep
 %setup -q -c -n %{packname}

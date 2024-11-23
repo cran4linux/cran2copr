@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LTFHPlus
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of LT-FH++
 
@@ -52,12 +52,12 @@ Implementation of LT-FH++, an extension of the liability threshold family
 history (LT-FH) model. LT-FH++ uses a Gibbs sampler for sampling from the
 truncated multivariate normal distribution and allows for flexible family
 structures. LT-FH++ was first described in Pedersen, Emil M., et al.
-(2022) <https://pure.au.dk/ws/portalfiles/portal/353346245/> as an
-extension to LT-FH with more flexible family structures, and again as the
-age-dependent liability threshold (ADuLT) model Pedersen, Emil M., et al.
-(2023) <https://www.nature.com/articles/s41467-023-41210-z> as an
-alternative to traditional time-to-event genome-wide association studies,
-where family history was not considered.
+(2022) <doi:10.1016/j.ajhg.2022.01.009> as an extension to LT-FH with more
+flexible family structures, and again as the age-dependent liability
+threshold (ADuLT) model Pedersen, Emil M., et al. (2023)
+<doi:10.1038/s41467-023-41210-z> as an alternative to traditional
+time-to-event genome-wide association studies, where family history was
+not considered.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dad
-%global packver   4.1.2
+%global packver   4.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.2
+Version:          4.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Three-Way / Multigroup Data Analysis Through Densities
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggblanket
-%global packver   10.0.0
+%global packver   11.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0.0
+Version:          11.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify 'ggplot2' Visualisation
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.8
 BuildRequires:    R-CRAN-scales >= 1.3.0
 BuildRequires:    R-CRAN-stringr >= 1.3.0
@@ -35,7 +35,7 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-lubridate >= 1.7.8
 Requires:         R-CRAN-scales >= 1.3.0
 Requires:         R-CRAN-stringr >= 1.3.0

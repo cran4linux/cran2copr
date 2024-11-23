@@ -1,44 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IRISSeismic
-%global packver   1.6.6
+%global packname  super
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.6
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classes and Methods for Seismic Data Analysis
+Summary:          Interpreted String Literals
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-seismicRoll >= 1.1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-signal 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-seismicRoll >= 1.1.0
-Requires:         R-methods 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-signal 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-XML 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 
 %description
-Provides classes and methods for seismic data analysis. The base classes
-and methods are inspired by the python code found in the 'ObsPy' python
-toolbox <https://github.com/obspy/obspy>. Additional classes and methods
-support data returned by web services provided by the 'IRIS DMC'
-<http://service.iris.edu/>.
+An implementation of interpreted string literals. Based on the 'glue'
+package by Hester & Bryan (2024) <doi:10.32614/CRAN.package.glue> but with
+a focus on efficiency and simplicity at a cost of flexibility.
 
 %prep
 %setup -q -c -n %{packname}

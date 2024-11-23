@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jointVIP
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prioritize Variables with Joint Variable Importance Plot in Observational Study Design
 
@@ -33,11 +33,11 @@ omitted variable bias framework. The plots translate variable importance
 into recommended values for tuning parameters in existing methods.
 Post-matching and/or weighting plots can also be used to visualize and
 assess the quality of the observational study design. The method
-motivation and derivation is presented in "Using Joint Variable Importance
-Plots to Prioritize Variables in Assessing the Impact of Glyburide on
-Adverse Birth Outcomes" by Liao et al. (2023) <arXiv:2301.09754>. See the
-package paper by Liao and Pimentel (2023) <arxiv:2302.10367> for a
-beginner friendly user introduction.
+motivation and derivation is presented in "Prioritizing Variables for
+Observational Study Design using the Joint Variable Importance Plot" by
+Liao et al. (2024) <doi:10.1080/00031305.2024.2303419>. See the package
+paper by Liao and Pimentel (2024) <doi:10.21105/joss.06093> for a beginner
+friendly user introduction.
 
 %prep
 %setup -q -c -n %{packname}

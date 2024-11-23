@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVMMaj
-%global packver   0.2.9.2
+%global packver   0.2.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.9.2
+Version:          0.2.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of the SVM-Maj Algorithm
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 2.13.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-gridExtra 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-kernlab 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-parallel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-gridExtra 

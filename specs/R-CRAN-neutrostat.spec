@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  neutrostat
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neutrosophic Statistics
 
@@ -17,6 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.00
 Requires:         R-core >= 4.00
 BuildArch:        noarch
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-ntsDists 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-ntsDists 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
 Analyzes data involving imprecise and vague information. Provides summary
