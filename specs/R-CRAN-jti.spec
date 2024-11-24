@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jti
-%global packver   0.8.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Junction Tree Inference
 
@@ -26,7 +27,8 @@ Requires:         R-CRAN-sparta
 %description
 Minimal and memory efficient implementation of the junction tree algorithm
 using the Lauritzen-Spiegelhalter scheme; S. L. Lauritzen and D. J.
-Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>.
+Spiegelhalter (1988) <https://www.jstor.org/stable/2345762?seq=1>. The jti
+package is part of the paper <doi:10.18637/jss.v111.i02>.
 
 %prep
 %setup -q -c -n %{packname}

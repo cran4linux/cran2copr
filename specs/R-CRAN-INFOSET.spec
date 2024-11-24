@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  INFOSET
-%global packver   4.0.6
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.6
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computing a New Informative Distribution Set of Asset Returns
 
@@ -45,7 +45,15 @@ the distribution occurs below the median of the financial returns, with
 their boundary termed as the “change point" of the mixture. The process
 concludes when no further change points are detected. The outcome
 encompasses parameters of the leftmost mixture distributions and change
-points of the analyzed financial time series.
+points of the analyzed financial time series. The functionalities of the
+INFOSET package include: (i) modelling asset distribution detecting the
+parameters which describe left tail behaviour (infoset function), (ii)
+clustering, (iii) labeling of the financial series for predictive and
+classification purposes through a Left Risk measure based on the first
+change point (LR_cp function) (iv) portfolio construction
+(ptf_construction function). The package also provide a specific function
+to construct rolling windows of different length size and overlapping
+time.
 
 %prep
 %setup -q -c -n %{packname}

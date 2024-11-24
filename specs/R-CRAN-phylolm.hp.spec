@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylolm.hp
-%global packver   0.0-1
+%global packver   0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Partitioning of R2 for Phylogenetic Linear Regression
 
@@ -28,8 +28,8 @@ Requires:         R-CRAN-vegan
 
 %description
 Conducts hierarchical partitioning to calculate individual contributions
-of phylogenetic tree and predictors towards total R2 for phylogenetic
-linear regression models.
+of phylogenetic tree and predictors (groups) towards total R2 for
+phylogenetic linear regression models.
 
 %prep
 %setup -q -c -n %{packname}

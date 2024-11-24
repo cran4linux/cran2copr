@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forestdata
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Forestry Data
 
@@ -28,8 +28,9 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-archive 
-BuildRequires:    R-CRAN-RODBC 
 BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-stringr 
@@ -41,8 +42,9 @@ Requires:         R-CRAN-terra
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-archive 
-Requires:         R-CRAN-RODBC 
 Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Functions for downloading forestry and land use data for use in spatial
