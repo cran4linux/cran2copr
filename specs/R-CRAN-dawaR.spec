@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dawaR
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          An API Wrapper for 'DAWA' - 'The Danish Address Web API'
 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-httr2
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyRSS 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-memoise >= 2.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyRSS 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-curl 
+Requires:         R-utils 
 
 %description
 Functions for interacting with all sections of the official 'Danish

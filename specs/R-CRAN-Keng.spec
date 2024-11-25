@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Keng
-%global packver   2024.11.17
+%global packver   2024.11.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.11.17
+Version:          2024.11.25
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knock Errors Off Nice Guesses
 
@@ -25,8 +25,12 @@ Miscellaneous functions and data used in Qingyao's psychological research
 and teaching. Keng currently has a built-in dataset depress, and could (1)
 scale a vector, (2) test the significance and compute the cut-off values
 of Pearson's r without raw data, (3) compare lm()'s fitted outputs using
-R-squared and PRE (Proportional Reduction in Error, also called partial
-R-squared or partial Eta-squared).
+R-squared, f_squared, post-hoc power, and PRE (Proportional Reduction in
+Error, also called partial R-squared or partial Eta-squared). (4)
+Calculate PRE from partial correlation, Cohen's f, or f_squared. (5)
+Compute the post-hoc power for one or a set of predictors in regression
+analysis without raw data, (6) Plan the sample size for one or a set of
+predictors in regression analysis.
 
 %prep
 %setup -q -c -n %{packname}

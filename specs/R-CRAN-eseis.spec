@@ -1,41 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modEvA
-%global packver   3.23
+%global packname  eseis
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.23
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Evaluation and Analysis
+Summary:          Environmental Seismology Toolbox
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra > 1.5.50
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-fftw 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-terra > 1.5.50
+BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-fftw 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-CRAN-XML 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Analyses species distribution models and evaluates their performance. It
-includes functions for variation partitioning, extracting variable
-importance, computing several metrics of model discrimination and
-calibration performance, optimizing prediction thresholds based on a
-number of criteria, performing multivariate environmental similarity
-surface (MESS) analysis, and displaying various analytical plots.
-Initially described in Barbosa et al. (2013) <doi:10.1111/ddi.12100>.
+Environmental seismology is a scientific field that studies the seismic
+signals, emitted by Earth surface processes. This package provides all
+relevant functions to read/write seismic data files, prepare, analyse and
+visualise seismic data, and generate reports of the processing history.
 
 %prep
 %setup -q -c -n %{packname}
