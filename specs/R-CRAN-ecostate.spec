@@ -1,29 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dietr
-%global packver   1.1.5-1
+%global packname  ecostate
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diet Estimated Trophic Levels
+Summary:          State-Space Mass-Balance Model for Marine Ecosystems
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rfishbase >= 5.0
-Requires:         R-CRAN-rfishbase >= 5.0
+BuildRequires:    R-CRAN-RTMB >= 1.5
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggnetwork 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-RTMB >= 1.5
+Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggnetwork 
+Requires:         R-CRAN-igraph 
 
 %description
-Estimates fractional trophic level from quantitative and qualitative diet
-data and calculates electivity indices in R. Borstein (2020)
-<doi:10.1007/s10750-020-04417-5>.
+Fits a state-space mass-balance model for marine ecosystems, which
+implements dynamics derived from 'Ecopath with Ecosim'
+<https://ecopath.org/> while fitting to time-series of fishery catch,
+biomass indices, age-composition samples, and weight-at-age data. Package
+'ecostate' fits biological parameters (e.g., equilibrium mass) and
+measurement parameters (e.g., catchability coefficients) jointly with
+residual variation in process errors, and can include Bayesian priors for
+parameters.
 
 %prep
 %setup -q -c -n %{packname}

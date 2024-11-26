@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dismo
-%global packver   1.3-14
+%global packver   1.3-16
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.14
+Version:          1.3.16
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling
 
@@ -14,7 +14,7 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         R-java
+Recommends:       R-java
 BuildRequires:    R-devel >= 3.6.3
 Requires:         R-core >= 3.6.3
 BuildRequires:    R-CRAN-raster >= 3.5.21

@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prais
-%global packver   1.1.3
+%global packname  Blend
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prais-Winsten Estimator for AR(1) Serial Correlation
+Summary:          Bayesian Longitudinal Regularized Semiparametric Quantile Mixed Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sandwich 
-BuildRequires:    R-CRAN-pcse 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-splines 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-sandwich 
-Requires:         R-CRAN-pcse 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-splines 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
-The Prais-Winsten estimator (Prais & Winsten, 1954) takes into account
-AR(1) serial correlation of the errors in a linear regression model. The
-procedure recursively estimates the coefficients and the error
-autocorrelation of the specified model until sufficient convergence of the
-AR(1) coefficient is attained.
+Our recently developed fully Bayesian semiparametric quantile mixed-effect
+model for high-dimensional longitudinal studies with heterogeneous
+observations can be implemented through this package. This model can
+distinguish between time-varying interactions and constant-effect-only
+cases to avoid model misspecifications. Facilitated by spike-and-slab
+priors, this model leads to superior performance in estimation,
+identification and statistical inference. In particular, robust Bayesian
+inferences in terms of valid Bayesian credible intervals on both
+parametric and nonparametric effects can be validated on finite samples.
+The Markov chain Monte Carlo algorithms of the proposed and alternative
+models are efficiently implemented in 'C++'.
 
 %prep
 %setup -q -c -n %{packname}

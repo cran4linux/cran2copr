@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  beyondWhittle
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Spectral Inference for Time Series
 
@@ -33,8 +33,8 @@ procedures for univariate and multivariate time series. The package is
 based on the methods presented in C. Kirch et al (2018)
 <doi:10.1214/18-BA1126>, A. Meier (2018)
 <https://opendata.uni-halle.de//handle/1981185920/13470> and Y. Tang et al
-(2023) <arXiv:2303.11561>. It was supported by DFG grants KI 1443/3-1 and
-KI 1443/3-2.
+(2023) <doi:10.48550/arXiv.2303.11561>. It was supported by DFG grants KI
+1443/3-1 and KI 1443/3-2.
 
 %prep
 %setup -q -c -n %{packname}

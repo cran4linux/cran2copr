@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  serp
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Smooth Effects on Response Penalty for CLM
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ordinal >= 2016.12.12
 BuildRequires:    R-CRAN-crayon 
@@ -24,21 +25,20 @@ Requires:         R-CRAN-crayon
 Requires:         R-stats 
 
 %description
-A regularization method for the cumulative link models.  The
-smooth-effect-on-response penalty (SERP) provides flexible modelling of
-the ordinal model by enabling the smooth transition from the general
-cumulative link model to a coarser form of the same model. In other words,
-as the tuning parameter goes from zero to infinity, the subject-specific
-effects associated with each variable in the model tend to a unique global
-effect. The parameter estimates of the general cumulative model are mostly
-unidentifiable or at least only identifiable within a range of the entire
-parameter space. Thus, by maximizing a penalized rather than the usual
-non-penalized log-likelihood, this and other numerical problems common
-with the general model are to a large extent eliminated. Fitting is via a
-modified Newton's method. Several standard model performance and
-descriptive methods are also available. For more details on the penalty
-implemented here, see, Ugba (2021) <doi:10.21105/joss.03705> and Ugba et
-al. (2021) <doi:10.3390/stats4030037>.
+Implements a regularization method for cumulative link models using the
+Smooth-Effect-on-Response Penalty (SERP). This method allows flexible
+modeling of ordinal data by enabling a smooth transition from a general
+cumulative link model to a simplified version of the same model. As the
+tuning parameter increases from zero to infinity, the subject-specific
+effects for each variable converge to a single global effect. The approach
+addresses common issues in cumulative link models, such as parameter
+unidentifiability and numerical instability, by maximizing a penalized
+log-likelihood instead of the standard non-penalized version. Fitting is
+performed using a modified Newton's method. Additionally, the package
+includes various model performance metrics and descriptive tools. For
+details on the implemented penalty method, see Ugba (2021)
+<doi:10.21105/joss.03705> and Ugba et al. (2021)
+<doi:10.3390/stats4030037>.
 
 %prep
 %setup -q -c -n %{packname}

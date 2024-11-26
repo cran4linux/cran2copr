@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PlaneGeometry
-%global packver   1.6.0
+%global packname  ClinTrialPredict
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plane Geometry
+Summary:          Predicting and Simulating Clinical Trial with Time-to-Event Endpoint
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,34 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Carlson 
-BuildRequires:    R-CRAN-CVXR 
-BuildRequires:    R-CRAN-fitConic 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rcdd 
-BuildRequires:    R-CRAN-sdpt3r 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-uniformly 
-Requires:         R-CRAN-Carlson 
-Requires:         R-CRAN-CVXR 
-Requires:         R-CRAN-fitConic 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rcdd 
-Requires:         R-CRAN-sdpt3r 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-uniformly 
 
 %description
-An extensive set of plane geometry routines. Provides R6 classes
-representing triangles, circles, circular arcs, ellipses, elliptical arcs,
-lines, hyperbolae, and their plot methods. Also provides R6 classes
-representing transformations: rotations, reflections, homotheties,
-scalings, general affine transformations, inversions, Möbius
-transformations.
+Predict the course of clinical trial with a time-to-event endpoint for
+both two-arm and single-arm design. Each of the four primary study design
+parameters (the expected number of observed events, the number of subjects
+enrolled, the observation time, and the censoring parameter) can be
+derived analytically given the other three parameters. And the simulation
+datasets can be generated based on the design settings.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BEKKs
-%global packver   1.4.4
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.4
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Conditional Volatility Modelling and Forecasting
 
@@ -60,7 +60,8 @@ Requires:         R-CRAN-moments
 Methods and tools for estimating, simulating and forecasting of so-called
 BEKK-models (named after Baba, Engle, Kraft and Kroner) based on the fast
 Berndt–Hall–Hall–Hausman (BHHH) algorithm described in Hafner and Herwartz
-(2008) <doi:10.1007/s00184-007-0130-y>.
+(2008) <doi:10.1007/s00184-007-0130-y>. For an overview, we refer the
+reader to Fülle et al. (2024) <doi:10.18637/jss.v111.i04>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveydown
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markdown-Based Surveys Using 'Quarto' and 'shiny'
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-pool 
@@ -32,8 +33,10 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-pool 
@@ -47,6 +50,7 @@ Requires:         R-CRAN-shinyWidgets
 Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-yaml 
 
 %description
 Generate surveys using markdown and R code chunks. Surveys are composed of
@@ -60,7 +64,9 @@ on an answer to a question), conditional display logic (display a question
 based on an answer to a question), a customizable progress bar, and a wide
 variety of question types, including multiple choice (single choice and
 multiple choices), select, text, numeric, multiple choice buttons, text
-area, and dates.
+area, and dates. Because the surveys render into a 'shiny' app, designers
+can also leverage the reactive capabilities of 'shiny' to create dynamic
+and interactive surveys.
 
 %prep
 %setup -q -c -n %{packname}
