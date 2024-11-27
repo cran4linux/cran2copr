@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ctv
-%global packver   0.9-6
+%global packname  PurpleAirAPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CRAN Task Views
+Summary:          Historical Data Retrieval from 'PurpleAir' Sensors via API
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Infrastructure for task views to CRAN-style repositories: Querying task
-views and installing the associated packages (client-side tools),
-generating HTML pages and storing task view information in the repository
-(server-side tools).
+Provides tools for retrieving and analyzing air quality data from
+'PurpleAir' sensors through their API. Functions enable downloading
+historical measurements, accessing sensor metadata, and managing API
+request limitations through chunked data retrieval. For more information
+about the 'PurpleAir' API, see <https://api.purpleair.com/>.
 
 %prep
 %setup -q -c -n %{packname}

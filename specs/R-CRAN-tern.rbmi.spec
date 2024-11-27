@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  promises
-%global packver   1.3.1
+%global packname  tern.rbmi
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Abstractions for Promise-Based Asynchronous Programming
+Summary:          Create Interface for 'RBMI' and 'tern'
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-fastmap >= 1.1.0
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-rbmi >= 1.2.5
+BuildRequires:    R-CRAN-tern >= 0.9.4
+BuildRequires:    R-CRAN-rtables >= 0.6.7
+BuildRequires:    R-CRAN-formatters >= 0.5.6
+BuildRequires:    R-CRAN-broom >= 0.5.4
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-fastmap >= 1.1.0
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
+Requires:         R-CRAN-rbmi >= 1.2.5
+Requires:         R-CRAN-tern >= 0.9.4
+Requires:         R-CRAN-rtables >= 0.6.7
+Requires:         R-CRAN-formatters >= 0.5.6
+Requires:         R-CRAN-broom >= 0.5.4
+Requires:         R-CRAN-lifecycle >= 0.2.0
 
 %description
-Provides fundamental abstractions for doing asynchronous programming in R
-using promises. Asynchronous programming is useful for allowing a single R
-process to orchestrate multiple tasks in the background while also
-attending to something else. Semantics are similar to 'JavaScript'
-promises, but with a syntax that is idiomatic R.
+'RBMI' implements standard and reference based multiple imputation methods
+for continuous longitudinal endpoints (Gower-Page et al. (2022)
+<doi:10.21105/joss.04251>). This package provides an interface for 'RBMI'
+uses the 'tern' <https://cran.r-project.org/package=tern> framework by Zhu
+et al. (2023) and tabulate results easily using 'rtables'
+<https://cran.r-project.org/package=rtables> by Becker et al. (2023).
 
 %prep
 %setup -q -c -n %{packname}

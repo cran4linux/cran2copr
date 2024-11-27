@@ -1,60 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  handwriter
-%global packver   3.2.3
+%global packname  MultiTraits
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Handwriting Analysis in R
+Summary:          Analyzing and Visualizing Multidimensional Plant Traits
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtern 
 BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-mc2d 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-corrplot 
+BuildRequires:    R-CRAN-scatterplot3d 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtern 
 Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-mc2d 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-corrplot 
+Requires:         R-CRAN-scatterplot3d 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Perform statistical writership analysis of scanned handwritten documents.
-Webpage provided at: <https://github.com/CSAFE-ISU/handwriter>.
+Implements analytical methods for multidimensional plant traits, including
+Competitors-Stress tolerators-Ruderals strategy analysis using leaf
+traits, Leaf-Height-Seed strategy analysis, Niche Periodicity Table
+analysis, and Trait Network analysis. Provides functions for data
+analysis, visualization, and network metrics calculation. Methods are
+based on Grime (1974) <doi:10.1038/250026a0>, Pierce et al. (2017)
+<doi:10.1111/1365-2435.12882>, Westoby (1998)
+<doi:10.1023/A:1004327224729>, Yang et al. (2022)
+<doi:10.1016/j.foreco.2022.120540>, Winemiller et al. (2015)
+<doi:10.1111/ele.12462>, He et al. (2020)
+<doi:10.1016/j.tree.2020.06.003>.
 
 %prep
 %setup -q -c -n %{packname}

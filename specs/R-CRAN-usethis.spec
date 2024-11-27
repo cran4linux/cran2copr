@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  usethis
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate Package and Project Setup
 
@@ -35,6 +35,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-whisker 
 BuildRequires:    R-CRAN-yaml 
@@ -56,6 +57,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-whisker 
 Requires:         R-CRAN-yaml 

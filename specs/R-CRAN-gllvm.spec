@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gllvm
-%global packver   1.4.3
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Linear Latent Variable Models
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-mvabund 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-statmod 
@@ -28,7 +27,6 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-mvabund 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-statmod 
@@ -40,11 +38,10 @@ Requires:         R-methods
 
 %description
 Analysis of multivariate data using generalized linear latent variable
-models (gllvm). Estimation is performed using either Laplace approximation
-method or variational approximation method implemented via TMB (Kristensen
-et al., (2016), <doi:10.18637/jss.v070.i05>). For details see Niku et al.
-(2019a) <doi:10.1371/journal.pone.0216129> and Niku et al. (2019b)
-<doi:10.1111/2041-210X.13303>.
+models (gllvm). Estimation is performed using either the Laplace method,
+variational approximations, or extended variational approximations,
+implemented via TMB (Kristensen et al. (2016),
+<doi:10.18637/jss.v070.i05>).
 
 %prep
 %setup -q -c -n %{packname}

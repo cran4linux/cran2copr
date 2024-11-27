@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rgeoboundaries
-%global packver   1.3
+%global packname  DIRMR
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          geoBoundaries Client
+Summary:          Distributed Imputation for Random Effects Models with Missing Responses
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 1.4.0
-BuildRequires:    R-CRAN-countrycode >= 1.2.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-hoardr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-crul >= 1.4.0
-Requires:         R-CRAN-countrycode >= 1.2.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-hoardr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lava 
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lava 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides access to the geoBoundaries international boundary database
-<https://www.geoboundaries.org>, a NSF and foundation supported dataset of
-subnational boundaries around the globe.  Methods allow you to access data
-directly from the API <https://www.geoboundaries.org/api/current/> to
-query for the geometric boundaries for any country, globally. For more
-details, refer to the publication by Runfola et al. (2020)
-<doi:10.1371/journal.pone.0231866>.
+By adding over-relaxation factor to PXEM (Parameter Expanded Expectation
+Maximization) method, the MOPXEM (Monotonically Overrelaxed Parameter
+Expanded Expectation Maximization) method is obtained. Compare it with the
+existing EM (Expectation-Maximization)-like methods. Then, distribute and
+process five methods and compare them, achieving good performance in
+convergence speed and result quality.The philosophy of the package is
+described in Guo G. (2022) <doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}

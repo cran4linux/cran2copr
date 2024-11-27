@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  innsight
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get the Insights of Your Neural Network
 
@@ -38,10 +38,12 @@ the results. Implemented methods are, e.g., 'Connection Weights' described
 by Olden et al. (2004) <doi:10.1016/j.ecolmodel.2004.03.013>, layer-wise
 relevance propagation ('LRP') described by Bach et al. (2015)
 <doi:10.1371/journal.pone.0130140>, deep learning important features
-('DeepLIFT') described by Shrikumar et al.  (2017) <arXiv:1704.02685> and
-gradient-based methods like 'SmoothGrad' described by Smilkov et al.
-(2017) <arXiv:1706.03825>, 'Gradient x Input' described by Baehrens et al.
-(2009) <arXiv:0912.1128> or 'Vanilla Gradient'.
+('DeepLIFT') described by Shrikumar et al.  (2017)
+<doi:10.48550/arXiv.1704.02685> and gradient-based methods like
+'SmoothGrad' described by Smilkov et al. (2017)
+<doi:10.48550/arXiv.1706.03825>, 'Gradient x Input' or 'Vanilla Gradient'.
+Details can be found in the accompanying scientific paper: Koenen & Wright
+(2024, Journal of Statistical Software, <doi:10.18637/jss.v111.i08>).
 
 %prep
 %setup -q -c -n %{packname}

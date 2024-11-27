@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nflfastR
-%global packver   4.6.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.1
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Efficiently Access NFL Play by Play Data
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-tibble >= 3.0
-BuildRequires:    R-CRAN-stringr >= 1.3.0
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-nflreadr >= 1.2.0
-BuildRequires:    R-CRAN-data.table >= 1.14.0
+BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
 BuildRequires:    R-CRAN-xgboost >= 1.1
 BuildRequires:    R-CRAN-fastrmodels >= 1.0.1
@@ -34,12 +34,13 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-mgcv 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-tibble >= 3.0
-Requires:         R-CRAN-stringr >= 1.3.0
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-nflreadr >= 1.2.0
-Requires:         R-CRAN-data.table >= 1.14.0
+Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
 Requires:         R-CRAN-xgboost >= 1.1
 Requires:         R-CRAN-fastrmodels >= 1.0.1
@@ -52,6 +53,7 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-mgcv 
 
 %description

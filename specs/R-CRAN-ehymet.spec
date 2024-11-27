@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ehymet
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methodologies for Functional Data Based on the Epigraph and Hypograph Indices
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-clusterCrit 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tf 
+Requires:         R-CRAN-clusterCrit 
 Requires:         R-CRAN-kernlab 
 Requires:         R-stats 
 Requires:         R-CRAN-tf 
@@ -36,7 +38,9 @@ dimensions in multidimensional cases. This approach extends traditional
 multivariate data analysis techniques to the functional data setting. A
 key application of this package is the EHyClus method, which enhances
 clustering analysis for functional data across one or multiple dimensions
-using the epigraph and hypograph indices.
+using the epigraph and hypograph indices. See Pulido et al. (2023)
+<doi:10.1007/s11222-023-10213-7> and Pulido et al. (2024)
+<doi:10.48550/arXiv.2307.16720>.
 
 %prep
 %setup -q -c -n %{packname}

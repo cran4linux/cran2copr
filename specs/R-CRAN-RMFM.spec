@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ctv
-%global packver   0.9-6
+%global packname  RMFM
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CRAN Task Views
+Summary:          Robust Matrix Factor Model
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-MixMatrix 
+BuildRequires:    R-CRAN-COAP 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-irlba 
+Requires:         R-stats 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-MixMatrix 
+Requires:         R-CRAN-COAP 
 
 %description
-Infrastructure for task views to CRAN-style repositories: Querying task
-views and installing the associated packages (client-side tools),
-generating HTML pages and storing task view information in the repository
-(server-side tools).
+We introduce a robust matrix factor model that explicitly incorporates
+tail behavior and employs a mean-shift term to avoid efficiency losses
+through pre-centering of observed matrices. More details on the methods
+related to our paper are currently under submission. A full reference to
+the paper will be provided in future versions once the paper is published.
 
 %prep
 %setup -q -c -n %{packname}
