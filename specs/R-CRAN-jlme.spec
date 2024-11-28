@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jlme
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Modelling with 'GLM.jl' and 'MixedModels.jl' in 'Julia'
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-JuliaConnectoR >= 1.1.4
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-JuliaConnectoR 
 BuildRequires:    R-CRAN-JuliaFormulae 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-JuliaConnectoR >= 1.1.4
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-JuliaFormulae 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 

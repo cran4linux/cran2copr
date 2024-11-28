@@ -1,46 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.24.0
+%global packname  strata
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Simple Framework for Simple Automation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.0.0
-BuildRequires:    R-CRAN-bayestestR >= 0.15.0
-BuildRequires:    R-CRAN-datawizard >= 0.13.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.0.0
-Requires:         R-CRAN-bayestestR >= 0.15.0
-Requires:         R-CRAN-datawizard >= 0.13.0
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-checkmate >= 2.3.2
+BuildRequires:    R-CRAN-readr >= 2.0.0
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-fs >= 1.6.4
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-checkmate >= 2.3.2
+Requires:         R-CRAN-readr >= 2.0.0
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-fs >= 1.6.4
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-lifecycle >= 1.0.0
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+A tool suite for building project frameworks for users with access to only
+the most basic of automation tools.
 
 %prep
 %setup -q -c -n %{packname}

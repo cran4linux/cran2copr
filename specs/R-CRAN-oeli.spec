@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Developing Data Science Software
 
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-showtext
 BuildRequires:    R-CRAN-SimMultiCorrData 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sysfonts 
-BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-testthat 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-showtext
 Requires:         R-CRAN-SimMultiCorrData 
 Requires:         R-stats 
 Requires:         R-CRAN-sysfonts 
-Requires:         R-CRAN-usethis 
 Requires:         R-utils 
 
 %description

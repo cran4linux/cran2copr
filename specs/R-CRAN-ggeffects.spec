@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggeffects
-%global packver   1.7.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tidy Data Frames of Marginal Effects for 'ggplot' from Model Outputs
 
@@ -17,11 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 0.19.8
+BuildRequires:    R-CRAN-insight >= 1.0.0
+BuildRequires:    R-CRAN-datawizard >= 0.13.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 0.19.8
+Requires:         R-CRAN-insight >= 1.0.0
+Requires:         R-CRAN-datawizard >= 0.13.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 

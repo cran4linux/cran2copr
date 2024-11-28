@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Indicator
-%global packver   0.1.3
+%global packname  DiscreteFWER
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Composite 'Indicator' Construction and Imputation Data
+Summary:          FWER-Based Multiple Testing Procedures with Adaptation for Discrete Tests
 
-License:          Unlimited
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-missMethods 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-norm 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-missMethods 
-Requires:         R-stats 
-Requires:         R-CRAN-norm 
+BuildRequires:    R-CRAN-DiscreteFDR >= 2.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-DiscreteFDR >= 2.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-checkmate 
 
 %description
-Different functions includes constructing composite indicators, imputing
-missing data, and evaluating imputation techniques. Additionally,
-different tools for data normalization. Detailed methodologies of
-'Indicator' package are: OECD/European Union/EC-JRC (2008), "Handbook on
-Constructing Composite Indicators: Methodology and User Guide", OECD
-Publishing, Paris, <DOI:10.1787/533411815016>, Matteo Mazziotta & Adriano
-Pareto, (2018) "Measuring Well-Being Over Time: The Adjusted
-Mazziotta–Pareto Index Versus Other Non-compensatory Indices"
-<DOI:10.1007/s11205-017-1577-5> and De Muro P., Mazziotta M., Pareto A.
-(2011), "Composite Indices of Development and Poverty: An Application to
-MDGs" <DOI:10.1007/s11205-010-9727-z>.
+Implementations of several multiple testing procedures that control the
+family-wise error rate (FWER) designed specifically for discrete tests.
+Included are discrete adaptations of the Bonferroni, Holm, Hochberg and
+Šidák procedures as described in the papers Döhler (2010) "Validation of
+credit default probabilities using multiple-testing procedures"
+<doi:10.21314/JRMV.2010.062> and Zhu & Guo (2019) "Family-Wise Error Rate
+Controlling Procedures for Discrete Data"
+<doi:10.1080/19466315.2019.1654912>. The main procedures of this package
+take as input the results of a test procedure from package 'DiscreteTests'
+or a set of observed p-values and their discrete support under their
+nulls. A shortcut function to apply discrete procedures directly to data
+is also provided.
 
 %prep
 %setup -q -c -n %{packname}

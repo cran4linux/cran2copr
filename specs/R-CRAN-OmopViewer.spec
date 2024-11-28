@@ -1,56 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ShinyItemAnalysis
-%global packver   1.5.2
+%global packname  OmopViewer
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test and Item Analysis via Shiny
+Summary:          Visualise OMOP Results using 'shiny' Applications
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-difR >= 5.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-psych >= 2.1.9
-BuildRequires:    R-CRAN-mirt >= 1.43
+BuildRequires:    R-CRAN-visOmopResults >= 0.5.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-styler 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-difR >= 5.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-psych >= 2.1.9
-Requires:         R-CRAN-mirt >= 1.43
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-visOmopResults >= 0.5.0
+Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-styler 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-yaml 
 
 %description
-Package including functions and interactive shiny application for the
-psychometric analysis of educational tests, psychological assessments,
-health-related and other types of multi-item measurements, or ratings from
-multiple raters.
+Visualise results obtained from analysing data mapped to the Observational
+Medical Outcomes Partnership (OMOP) common data model using 'shiny'
+applications.
 
 %prep
 %setup -q -c -n %{packname}

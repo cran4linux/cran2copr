@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mice
-%global packver   3.16.0
+%global packver   3.17.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.16.0
+Version:          3.17.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Imputation by Chained Equations
 
@@ -18,34 +18,28 @@ BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mitml 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glmnet 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lattice 
-Requires:         R-methods 
 Requires:         R-CRAN-mitml 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 

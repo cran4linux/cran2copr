@@ -1,54 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DQAstats
-%global packver   0.3.6
+%global packname  fastVoteR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Core Functions for Data Quality Assessment
+Summary:          Efficient Voting Methods for Committee Selection
 
-License:          GPL-3
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-quarto >= 1.4
-BuildRequires:    R-CRAN-DIZutils >= 0.1.2
-BuildRequires:    R-CRAN-DIZtools >= 0.0.8
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-kableExtra 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parsedate 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tinytex 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-quarto >= 1.4
-Requires:         R-CRAN-DIZutils >= 0.1.2
-Requires:         R-CRAN-DIZtools >= 0.0.8
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-kableExtra 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parsedate 
-Requires:         R-stats 
-Requires:         R-CRAN-tinytex 
-Requires:         R-utils 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Perform data quality assessment ('DQA') of electronic health records
-('EHR'). Publication: Kapsner et al. (2021) <doi:10.1055/s-0041-1733847>.
+A fast 'Rcpp'-based implementation of polynomially-computable voting
+theory methods for committee ranking and scoring. The package includes
+methods such as Approval Voting (AV), Satisfaction Approval Voting (SAV),
+sequential Proportional Approval Voting (PAV), and sequential Phragmen's
+Rule. Weighted variants of these methods are also provided, allowing for
+differential voter influence.
 
 %prep
 %setup -q -c -n %{packname}

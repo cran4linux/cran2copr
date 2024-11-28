@@ -1,46 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.24.0
+%global packname  VICatMix
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.24.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Variational Mixture Models for Clustering Categorical Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.0.0
-BuildRequires:    R-CRAN-bayestestR >= 0.15.0
-BuildRequires:    R-CRAN-datawizard >= 0.13.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-klaR 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-mcclust 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.0.0
-Requires:         R-CRAN-bayestestR >= 0.15.0
-Requires:         R-CRAN-datawizard >= 0.13.0
-Requires:         R-graphics 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-klaR 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-mcclust 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-gtools 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+A variational Bayesian finite mixture model for the clustering of
+categorical data, and can implement variable selection and semi-supervised
+outcome guiding if desired. Incorporates an option to perform model
+averaging over multiple initialisations to reduce the effects of local
+optima and improve the automatic estimation of the true number of
+clusters. For further details, see the paper by Rao and Kirk (2024)
+<doi:10.48550/arXiv.2406.16227>.
 
 %prep
 %setup -q -c -n %{packname}

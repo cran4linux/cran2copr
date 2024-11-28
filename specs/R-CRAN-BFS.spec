@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFS
-%global packver   0.5.10
+%global packver   0.5.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.10
+Version:          0.5.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data from the Swiss Federal Statistical Office
 

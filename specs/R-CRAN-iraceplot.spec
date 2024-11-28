@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iraceplot
-%global packver   1.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plots for Visualizing the Data Produced by the 'irace' Package
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-irace >= 3.5
+BuildRequires:    R-CRAN-irace >= 4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
 BuildRequires:    R-CRAN-rmarkdown >= 2.7
 BuildRequires:    R-CRAN-matrixStats >= 0.55
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-knitr 
@@ -38,14 +40,16 @@ BuildRequires:    R-CRAN-truncnorm
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-irace >= 3.5
+Requires:         R-CRAN-irace >= 4.0
 Requires:         R-CRAN-ggplot2 >= 3.3.6
 Requires:         R-CRAN-rmarkdown >= 2.7
 Requires:         R-CRAN-matrixStats >= 0.55
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-knitr 

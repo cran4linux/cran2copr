@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestedcv
-%global packver   0.7.10
+%global packver   0.7.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.10
+Version:          0.7.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross-Validation with 'glmnet' and 'caret'
 
@@ -51,14 +51,15 @@ Requires:         R-CRAN-ROCR
 %description
 Implements nested k*l-fold cross-validation for lasso and elastic-net
 regularised linear models via the 'glmnet' package and other machine
-learning models via the 'caret' package. Cross-validation of 'glmnet'
-alpha mixing parameter and embedded fast filter functions for feature
-selection are provided. Described as double cross-validation by Stone
-(1977) <doi:10.1111/j.2517-6161.1977.tb01603.x>. Also implemented is a
-method using outer CV to measure unbiased model performance metrics when
-fitting Bayesian linear and logistic regression shrinkage models using the
-horseshoe prior over parameters to encourage a sparse model as described
-by Piironen & Vehtari (2017) <doi:10.1214/17-EJS1337SI>.
+learning models via the 'caret' package <doi:10.1093/bioadv/vbad048>.
+Cross-validation of 'glmnet' alpha mixing parameter and embedded fast
+filter functions for feature selection are provided. Described as double
+cross-validation by Stone (1977) <doi:10.1111/j.2517-6161.1977.tb01603.x>.
+Also implemented is a method using outer CV to measure unbiased model
+performance metrics when fitting Bayesian linear and logistic regression
+shrinkage models using the horseshoe prior over parameters to encourage a
+sparse model as described by Piironen & Vehtari (2017)
+<doi:10.1214/17-EJS1337SI>.
 
 %prep
 %setup -q -c -n %{packname}
