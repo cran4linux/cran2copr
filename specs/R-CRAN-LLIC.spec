@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PatientProfiles
-%global packver   1.2.2
+%global packname  LLIC
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
+Summary:          Likelihood Criterion (LIC) Analysis for Laplace Regression Model
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-relliptical 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-CDMConnector >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-stats 
+Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-relliptical 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Identify the characteristics of patients in data mapped to the
-Observational Medical Outcomes Partnership (OMOP) common data model.
+Performs likelihood criterion analysis using the Laplace regression model
+to determine its optimal subset of variables. The methodology is based on
+Guo et al. (2023), LIC criterion for optimal subset selection in
+distributed interval estimation <doi:10.1080/02331888.2020.1823979>.
 
 %prep
 %setup -q -c -n %{packname}

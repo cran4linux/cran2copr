@@ -1,52 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dfr
+%global packname  saeHB.twofold
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dual Feature Reduction for SGL
+Summary:          Hierarchical Bayes Twofold Subarea Level Model SAE
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sgs 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-sgs 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-rjags 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-stringr 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-data.table 
+Requires:         R-utils 
 
 %description
-Implementation of the Dual Feature Reduction (DFR) approach for the Sparse
-Group Lasso (SGL) and the Adaptive Sparse Group Lasso (aSGL) (Feser and
-Evangelou (2024) <doi:10.48550/arXiv.2405.17094>). The DFR approach is a
-feature reduction approach that applies strong screening to reduce the
-feature space before optimisation, leading to speed-up improvements for
-fitting SGL (Simon et al. (2013) <doi:10.1080/10618600.2012.681250>) and
-aSGL (Mendez-Civieta et al. (2020) <doi:10.1007/s11634-020-00413-8> and
-Poignard (2020) <doi:10.1007/s10463-018-0692-7>) models. DFR is
-implemented using the Adaptive Three Operator Splitting (ATOS) (Pedregosa
-and Gidel (2018) <doi:10.48550/arXiv.1804.02339>) algorithm, with linear
-and logistic SGL models supported, both of which can be fit using k-fold
-cross-validation. Dense and sparse input matrices are supported.
+We designed this package to provides several functions for area and
+subarea level of small area estimation under Twofold Subarea Level Model
+using hierarchical Bayesian (HB) method with Univariate Normal
+distribution for variables of interest. Some dataset simulated by a data
+generation are also provided. The 'rjags' package is employed to obtain
+parameter estimates using Gibbs Sampling algorithm. Model-based estimators
+involves the HB estimators which include the mean, the variation of mean,
+and the quantile. For the reference, see Rao and Molina (2015)
+<doi:10.1002/9781118735855>, Torabi and Rao (2014)
+<doi:10.1016/j.jmva.2014.02.001>, Leyla Mohadjer et al.(2007)
+<http://www.asasrms.org/Proceedings/y2007/Files/JSM2007-000559.pdf>, and
+Erciulescu et al.(2019) <doi:10.1111/rssa.12390>.
 
 %prep
 %setup -q -c -n %{packname}

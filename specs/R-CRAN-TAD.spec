@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  verification
-%global packver   1.44
+%global packname  TAD
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.44
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weather Forecast Verification Utilities
+Summary:          Realize the Trait Abundance Distribution
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mblm >= 0.12
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-CircStats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-dtw 
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-mblm >= 0.12
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-foreach 
 Requires:         R-methods 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-CircStats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-dtw 
-Requires:         R-graphics 
 Requires:         R-stats 
 
 %description
-Utilities for verifying discrete, continuous and probabilistic forecasts,
-and forecasts expressed as parametric distributions are included.
+This analytical framework is based on an analysis of the shape of the
+trait abundance distributions to better understand community assembly
+processes, and predict community dynamics under environmental changes.
+This framework mobilized a study of the relationship between the moments
+describing the shape of the distributions: the skewness and the kurtosis
+(SKR). The SKR allows the identification of commonalities in the shape of
+trait distributions across contrasting communities. Derived from the SKR,
+we developed mathematical parameters that summarise the complex pattern of
+distributions by assessing (i) the R², (ii) the Y-intercept, (iii) the
+slope, (iv) the functional stability of community (TADstab), and, (v) the
+distance from specific distribution families (i.e., the distance from the
+skew-uniform family a limit to the highest degree of evenness: TADeve).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  drape
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Doubly Robust Average Partial Effects
 
@@ -23,7 +23,7 @@ Doubly robust average partial effect estimation. This implementation
 contains methods for adding additional smoothness to plug-in regression
 procedures and for estimating score functions using smoothing splines.
 Details of the method can be found in Harvey Klyne and Rajen D. Shah
-(2023) <arXiv:2308.09207>.
+(2023) <doi:10.48550/arXiv.2308.09207>.
 
 %prep
 %setup -q -c -n %{packname}
