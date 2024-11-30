@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sstvars
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolkit for Reduced Form and Structural Smooth Transition Vector Autoregressive Models
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-parallel >= 4.0.0
 BuildRequires:    R-stats >= 4.0.0
 BuildRequires:    R-graphics >= 4.0.0
+BuildRequires:    R-utils >= 4.0.0
 BuildRequires:    R-CRAN-pbapply >= 1.7.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.0
 BuildRequires:    R-CRAN-RcppArmadillo >= 0.12.0.0.0
 Requires:         R-parallel >= 4.0.0
 Requires:         R-stats >= 4.0.0
 Requires:         R-graphics >= 4.0.0
+Requires:         R-utils >= 4.0.0
 Requires:         R-CRAN-pbapply >= 1.7.0
 Requires:         R-CRAN-Rcpp >= 1.0.0
 Requires:         R-CRAN-RcppArmadillo >= 0.12.0.0.0

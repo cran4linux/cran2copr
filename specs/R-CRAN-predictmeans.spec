@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  predictmeans
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predicted Means for Linear and Semiparametric Models
 
@@ -36,6 +36,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-pbkrtest 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -58,6 +59,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-pbkrtest 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-reformulas 
 Requires:         R-CRAN-splines2 
 Requires:         R-stats 
 Requires:         R-utils 

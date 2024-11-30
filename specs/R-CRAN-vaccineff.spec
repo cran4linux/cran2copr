@@ -1,44 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extRemes
-%global packver   2.2
+%global packname  vaccineff
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extreme Value Analysis
+Summary:          Estimate Vaccine Effectiveness Based on Different Study Designs
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10.0
-Requires:         R-core >= 2.10.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-distillery >= 1.0.4
-BuildRequires:    R-CRAN-Lmoments 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-linelist 
+BuildRequires:    R-CRAN-MatchIt 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-distillery >= 1.0.4
-Requires:         R-CRAN-Lmoments 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-linelist 
+Requires:         R-CRAN-MatchIt 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-survival 
 
 %description
-General functions for performing extreme value analysis.  In particular,
-allows for inclusion of covariates into the parameters of the
-extreme-value distributions, as well as estimation through MLE, L-moments,
-generalized (penalized) MLE (GMLE), as well as Bayes.  Inference methods
-include parametric normal approximation, profile-likelihood, Bayes, and
-bootstrapping.  Some bivariate functionality and dependence checking
-(e.g., auto-tail dependence function plot, extremal index estimation) is
-also included.  For a tutorial, see Gilleland and Katz (2016) <doi:
-10.18637/jss.v072.i08> and for bootstrapping, please see Gilleland (2020)
-<doi: 10.1175/JTECH-D-20-0070.1>.
+Provides tools for estimating vaccine effectiveness and related metrics.
+The 'vaccineff_data' class manages key features for preparing,
+visualizing, and organizing cohort data, as well as estimating vaccine
+effectiveness. The results and model performance are assessed using the
+'vaccineff' class.
 
 %prep
 %setup -q -c -n %{packname}

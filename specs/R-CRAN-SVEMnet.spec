@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SVEMnet
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Validated Ensemble Models with Elastic Net Regression
 
@@ -37,7 +37,7 @@ Implements Self-Validated Ensemble Models (SVEM, Lemkus et al. (2021)
 predictions from multiple models fitted to fractionally weighted
 bootstraps of the data, tuned with anti-correlated validation weights.
 Also implements the randomized permutation whole model test for SVEM (Karl
-(2024) <doi:10.1016/j.chemolab.2024.105122>). Code for the whole model
+(2024) <doi:10.1016/j.chemolab.2024.105122>). \Code for the whole model
 test was taken from the supplementary material of Karl (2024). Development
 of this package was assisted by 'GPT o1-preview' for code structure and
 documentation.

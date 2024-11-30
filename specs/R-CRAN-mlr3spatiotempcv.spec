@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3spatiotempcv
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Resampling Methods for 'mlr3'
 
@@ -35,10 +35,11 @@ Requires:         R-CRAN-R6
 Requires:         R-utils 
 
 %description
-Extends the mlr3 ML framework with spatio-temporal resampling methods to
-account for the presence of spatiotemporal autocorrelation (STAC) in
-predictor variables. STAC may cause highly biased performance estimates in
-cross-validation if ignored.
+Extends the mlr3 machine learning framework with spatio-temporal
+resampling methods to account for the presence of spatiotemporal
+autocorrelation (STAC) in predictor variables. STAC may cause highly
+biased performance estimates in cross-validation if ignored. A JSS article
+is available at <doi:10.18637/jss.v111.i07>.
 
 %prep
 %setup -q -c -n %{packname}

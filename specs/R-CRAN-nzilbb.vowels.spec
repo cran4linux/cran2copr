@@ -1,55 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortSymmetry
-%global packver   0.2.0
+%global packname  nzilbb.vowels
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sequence Symmetry Analysis Using the Observational Medical Outcomes Partnership Common Data Model
+Summary:          Vowel Covariation Tools
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CodelistGenerator >= 3.1.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
-BuildRequires:    R-CRAN-DrugUtilisation >= 0.7.0
-BuildRequires:    R-CRAN-visOmopResults >= 0.4.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-omock >= 0.3.1
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-PatientProfiles 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-here 
-Requires:         R-CRAN-CodelistGenerator >= 3.1.0
-Requires:         R-CRAN-CDMConnector >= 1.3.0
-Requires:         R-CRAN-DrugUtilisation >= 0.7.0
-Requires:         R-CRAN-visOmopResults >= 0.4.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-omock >= 0.3.1
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-gghalves 
+BuildRequires:    R-CRAN-smacof 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-PatientProfiles 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-here 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gghalves 
+Requires:         R-CRAN-smacof 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Calculating crude sequence ratio, adjusted sequence ratio and confidence
-intervals using data mapped to the Observational Medical Outcomes
-Partnership Common Data Model.
+Tools to support research on vowel covariation. Methods are provided to
+support Principal Component Analysis workflows (as in Brand et al. (2021)
+<doi:10.1016/j.wocn.2021.101096> and Wilson Black et al. (2023)
+<doi:10.1515/lingvan-2022-0086>).
 
 %prep
 %setup -q -c -n %{packname}

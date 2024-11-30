@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  marlod
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Marginal Modeling for Exposure Data with Values Below the LOD
 
@@ -31,8 +31,9 @@ Requires:         R-CRAN-knitr
 %description
 Functions of marginal mean and quantile regression models are used to
 analyze environmental exposure and biomonitoring data with repeated
-measurements and non-detects, as well as longitudinal exposure data that
-include non-detects and time-dependent covariates.
+measurements and non-detects (i.e., values below the limit of detection
+(LOD)), as well as longitudinal exposure data that include non-detects and
+time-dependent covariates.
 
 %prep
 %setup -q -c -n %{packname}

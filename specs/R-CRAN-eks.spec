@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eks
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy and Geospatial Kernel Smoothing
 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-sf
 %description
 Extensions of the kernel smoothing functions from the 'ks' package for
 compatibility with the tidyverse and geospatial ecosystems
-<doi:10.48550/arXiv.2203.01686>.
+<doi:10.1007/s00180-024-01543-9>.
 
 %prep
 %setup -q -c -n %{packname}
