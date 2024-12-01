@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastml
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Machine Learning Model Training and Evaluation
 
@@ -17,18 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-workflows 
+BuildRequires:    R-CRAN-yardstick 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-tune 
+Requires:         R-CRAN-workflows 
+Requires:         R-CRAN-yardstick 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-dials 
+Requires:         R-CRAN-magrittr 
 
 %description
 Streamlines the training, evaluation, and comparison of multiple machine
