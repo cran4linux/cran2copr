@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lightr
-%global packver   1.7.1
+%global packver   1.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Spectrometric Data and Metadata
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-xml2 >= 1.0.0
 BuildRequires:    R-CRAN-future.apply 
@@ -29,8 +29,8 @@ Parse various reflectance/transmittance/absorbance spectra file formats to
 extract spectral data and metadata, as described in Gruson, White & Maia
 (2019) <doi:10.21105/joss.01857>. Among other formats, it can import files
 from 'Avantes' <https://www.avantes.com/>, 'CRAIC'
-<https://www.microspectra.com/>, and 'OceanInsight' (formerly
-'OceanOptics') <https://www.oceaninsight.com/> brands.
+<https://www.microspectra.com/>, and 'OceanOptics'/'OceanInsight'
+<https://www.oceanoptics.com/> brands.
 
 %prep
 %setup -q -c -n %{packname}
