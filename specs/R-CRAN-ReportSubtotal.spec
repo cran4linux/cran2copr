@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ReportSubtotal
-%global packver   0.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adds Subtotals to Data Reports
 
@@ -27,7 +27,7 @@ Requires:         R-utils
 Requires:         R-CRAN-magrittr 
 
 %description
-Adds subtotal rows / sections (a la the SAS "Proc Tabulate" "All" option)
+Adds subtotal rows / sections (a la the 'SAS' 'Proc Tabulate' All option)
 to a Group By output by running a series of Group By functions with
 partial sets of the same variables and combining the results with the
 original. Can be used to add comprehensive information to a data report or

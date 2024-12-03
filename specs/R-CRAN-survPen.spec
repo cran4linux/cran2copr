@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survPen
-%global packver   1.6.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multidimensional Penalized Splines for Survival and Net Survival Models
+Summary:          Multidimensional Penalized Splines for (Excess) Hazard Models, Relative Mortality Ratio Models and Marginal Intensity Models
 
 License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,27 +25,32 @@ Requires:         R-CRAN-statmod
 Requires:         R-stats 
 
 %description
-Fits hazard and excess hazard models with multidimensional penalized
-splines allowing for time-dependent effects, non-linear effects and
-interactions between several continuous covariates. In survival and net
-survival analysis, in addition to modelling the effect of time (via the
-baseline hazard), one has often to deal with several continuous covariates
-and model their functional forms, their time-dependent effects, and their
-interactions. Model specification becomes therefore a complex problem and
-penalized regression splines represent an appealing solution to that
-problem as splines offer the required flexibility while penalization
-limits overfitting issues. Current implementations of penalized survival
-models can be slow or unstable and sometimes lack some key features like
-taking into account expected mortality to provide net survival and excess
-hazard estimates. In contrast, survPen provides an automated, fast, and
-stable implementation (thanks to explicit calculation of the derivatives
-of the likelihood) and offers a unified framework for multidimensional
-penalized hazard and excess hazard models. survPen may be of interest to
-those who 1) analyse any kind of time-to-event data: mortality, disease
-relapse, machinery breakdown, unemployment, etc 2) wish to describe the
-associated hazard and to understand which predictors impact its dynamics.
-See Fauvernier et al. (2019a) <doi:10.21105/joss.01434> for an overview of
-the package and Fauvernier et al. (2019b) <doi:10.1111/rssc.12368> for the
+Fits (excess) hazard, relative mortality ratio or marginal intensity
+models with multidimensional penalized splines allowing for time-dependent
+effects, non-linear effects and interactions between several continuous
+covariates. In survival and net survival analysis, in addition to
+modelling the effect of time (via the baseline hazard), one has often to
+deal with several continuous covariates and model their functional forms,
+their time-dependent effects, and their interactions. Model specification
+becomes therefore a complex problem and penalized regression splines
+represent an appealing solution to that problem as splines offer the
+required flexibility while penalization limits overfitting issues. Current
+implementations of penalized survival models can be slow or unstable and
+sometimes lack some key features like taking into account expected
+mortality to provide net survival and excess hazard estimates. In
+contrast, survPen provides an automated, fast, and stable implementation
+(thanks to explicit calculation of the derivatives of the likelihood) and
+offers a unified framework for multidimensional penalized hazard and
+excess hazard models. Later versions (>2.0.0) include penalized models for
+relative mortality ratio, and marginal intensity in recurrent event
+setting. survPen may be of interest to those who 1) analyse any kind of
+time-to-event data: mortality, disease relapse, machinery breakdown,
+unemployment, etc 2) wish to describe the associated hazard and to
+understand which predictors impact its dynamics, 3) wish to model the
+relative mortality ratio between a cohort and a reference population, 4)
+wish to describe the marginal intensity for recurrent event data. See
+Fauvernier et al. (2019a) <doi:10.21105/joss.01434> for an overview of the
+package and Fauvernier et al. (2019b) <doi:10.1111/rssc.12368> for the
 method.
 
 %prep

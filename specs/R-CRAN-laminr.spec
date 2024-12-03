@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  laminr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface for 'LaminDB'
+Summary:          Client for 'LaminDB'
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 

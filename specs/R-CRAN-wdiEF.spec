@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  affiner
-%global packver   0.1.3
+%global packname  wdiEF
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Finer Way to Render 3D Illustrated Objects in 'grid' Using Affine Transformations
+Summary:          Calculation of the Water Deficit Index (WDI) and the Evaporative Fraction (EF) on Rasters
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 
 %description
-Dilate, permute, project, reflect, rotate, shear, and translate 2D and 3D
-points.  Supports parallel projections including oblique projections such
-as the cabinet projection as well as axonometric projections such as the
-isometric projection.  Use 'grid's "affine transformation" feature to
-render illustrated flat surfaces.
+Calculates the Water Deficit Index (WDI) and the Evaporative Fraction (EF)
+using geospatial data, such as fractional vegetation cover (FVC) and
+surface-air temperature difference (TS-TA). Terms like "raster", "CRS" are
+part of standard geospatial terminology.
 
 %prep
 %setup -q -c -n %{packname}

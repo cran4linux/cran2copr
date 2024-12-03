@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clinicalsignificance
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolbox for Clinical Significance Analyses in Intervention Studies
 
@@ -44,7 +44,8 @@ Requires:         R-CRAN-tidyr
 A clinical significance analysis can be used to determine if an
 intervention has a meaningful or practical effect for patients. You
 provide a tidy data set plus a few more metrics and this package will take
-care of it to make your results publication ready.
+care of it to make your results publication ready. Accompanying package to
+Claus et al. <doi:10.18637/jss.v111.i01>.
 
 %prep
 %setup -q -c -n %{packname}

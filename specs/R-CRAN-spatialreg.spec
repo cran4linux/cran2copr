@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatialreg
-%global packver   1.3-5
+%global packver   1.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Regression Analysis
 
@@ -64,7 +64,9 @@ provided by 'Bivand', 'Millo' and 'Piras' (2021)
 <doi:10.3390/math9111276>. 'spatialreg' >= 1.1-* corresponded to 'spdep'
 >= 1.1-1, in which the model fitting functions were deprecated and passed
 through to 'spatialreg', but masked those in 'spatialreg'. From versions
-1.2-*, the functions have been made defunct in 'spdep'.
+1.2-*, the functions have been made defunct in 'spdep'. From version
+1.3-6, add Anselin-Kelejian (1997) test to `stsls` for residual spatial
+autocorrelation <doi:10.1177/016001769702000109>.
 
 %prep
 %setup -q -c -n %{packname}

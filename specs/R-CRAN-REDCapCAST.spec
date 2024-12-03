@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapCAST
-%global packver   24.11.2
+%global packver   24.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.11.2
+Version:          24.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          REDCap Metadata Casting and Castellated Data Handling
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-gt
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-gtsummary 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-REDCapR 
 Requires:         R-CRAN-tidyr 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-gt
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-gtsummary 
 
 %description
 Casting metadata for REDCap database creation and handling of castellated

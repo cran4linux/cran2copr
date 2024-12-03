@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multiDoE
-%global packver   0.9.2
+%global packname  scR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Criteria Design of Experiments for Optimal Design
+Summary:          Estimate Vapnik-Chervonenkis Dimension and Sample Complexity
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-pracma 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-pracma 
 
 %description
-Multi-criteria design of experiments algorithm that simultaneously
-optimizes up to six different criteria ('I', 'Id', 'D', 'Ds', 'A' and
-'As'). The algorithm finds the optimal Pareto front and, if requested,
-selects a possible symmetrical design on it. The symmetrical design is
-selected based on two techniques: minimum distance with the Utopia point
-or the 'TOPSIS' approach.
+We provide a suite of tools for estimating the sample complexity of a
+chosen model through theoretical bounds and simulation. The package
+incorporates methods for estimating the Vapnik-Chervonenkis dimension
+(VCD) of a chosen algorithm, which can be used to estimate its sample
+complexity. Alternatively, we provide simulation methods to estimate
+sample complexity directly. For more details, see Carter, P & Choi, D
+(2024). "Learning from Noise: Applying Sample Complexity for Political
+Science Research" <doi:10.31219/osf.io/evrcj>.
 
 %prep
 %setup -q -c -n %{packname}

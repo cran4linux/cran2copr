@@ -1,39 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  affiner
-%global packver   0.1.3
+%global packname  crimedatasets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Finer Way to Render 3D Illustrated Objects in 'grid' Using Affine Transformations
+Summary:          A Comprehensive Collection of Crime-Related Datasets
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
 
 %description
-Dilate, permute, project, reflect, rotate, shear, and translate 2D and 3D
-points.  Supports parallel projections including oblique projections such
-as the cabinet projection as well as axonometric projections such as the
-isometric projection.  Use 'grid's "affine transformation" feature to
-render illustrated flat surfaces.
+A comprehensive collection of datasets exclusively focused on crimes,
+criminal activities, and related topics. This package serves as a valuable
+resource for researchers, analysts, and students interested in crime
+analysis, criminology, social and economic studies related to criminal
+behavior. Datasets span global and local contexts, with a mix of tabular
+and spatial data.
 
 %prep
 %setup -q -c -n %{packname}

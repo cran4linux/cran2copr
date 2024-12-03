@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  affiner
-%global packver   0.1.3
+%global packname  MEDesigns
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Finer Way to Render 3D Illustrated Objects in 'grid' Using Affine Transformations
+Summary:          Mating Environmental Designs
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-R6 
-Requires:         R-utils 
 
 %description
-Dilate, permute, project, reflect, rotate, shear, and translate 2D and 3D
-points.  Supports parallel projections including oblique projections such
-as the cabinet projection as well as axonometric projections such as the
-isometric projection.  Use 'grid's "affine transformation" feature to
-render illustrated flat surfaces.
+In breeding experiments, mating environmental (ME) designs are very
+popular as mating designs are directly implemented in the field
+environment using block or row-column designs. Here, three functions are
+given related to three new methods which will generate mating diallel
+cross designs (Hinkelmann and Kempthorne, 1963<doi:10.2307/2333899>) or
+mating environmental (ME) designs along with design parameters, C matrix,
+eigenvalues (EVs), degree of fractionations (DF) and canonical efficiency
+factor (CEF). Another one function is added to check the properties of a
+given ME diallel cross design.
 
 %prep
 %setup -q -c -n %{packname}
