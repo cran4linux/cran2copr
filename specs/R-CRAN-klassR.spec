@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  klassR
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classifications and Codelists for Statistics Norway
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.1.1
 BuildRequires:    R-CRAN-tm 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
+Requires:         R-CRAN-igraph >= 2.1.1
 Requires:         R-CRAN-tm 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-igraph 
 Requires:         R-methods 
 
 %description

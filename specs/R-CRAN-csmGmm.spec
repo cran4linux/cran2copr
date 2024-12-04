@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  particles
-%global packver   0.2.4
+%global packname  csmGmm
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Graph Based Particle Simulator Based on D3-Force
+Summary:          Conditionally Symmetric Multidimensional Gaussian Mixture Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-digest 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-magrittr 
 
 %description
-Simulating particle movement in 2D space has many application. The
-'particles' package implements a particle simulator based on the ideas
-behind the 'd3-force' 'JavaScript' library. 'particles' implements all
-forces defined in 'd3-force' as well as others such as vector fields,
-traps, and attractors.
+Implements the conditionally symmetric multidimensional Gaussian mixture
+model (csmGmm) for large-scale testing of composite null hypotheses in
+genetic association applications such as mediation analysis, pleiotropy
+analysis, and replication analysis. In such analyses, we typically have J
+sets of K test statistics where K is a small number (e.g. 2 or 3) and J is
+large (e.g. 1 million). For each one of the J sets, we want to know if we
+can reject all K individual nulls. Please see the vignette for a
+quickstart guide. The paper describing these methods is "Testing a Large
+Number of Composite Null Hypotheses Using Conditionally Symmetric
+Multidimensional Gaussian Mixtures in Genome-Wide Studies" by Sun R, McCaw
+Z, & Lin X (2024, <doi:10.1080/01621459.2024.2422124>). The paper is
+accepted and published online (but not yet in print) in the Journal of the
+American Statistical Association as of Dec 1 2024.
 
 %prep
 %setup -q -c -n %{packname}

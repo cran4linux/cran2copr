@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deeptrafo
-%global packver   0.1-1
+%global packver   1.0-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Deep Conditional Transformation Models
 
@@ -19,27 +19,29 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tensorflow >= 2.2.0
 BuildRequires:    R-CRAN-keras >= 2.2.0
+BuildRequires:    R-CRAN-deepregression >= 2.2.0
 BuildRequires:    R-CRAN-tfprobability >= 0.15
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-deepregression 
 BuildRequires:    R-CRAN-mlt 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-variables 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-tensorflow >= 2.2.0
 Requires:         R-CRAN-keras >= 2.2.0
+Requires:         R-CRAN-deepregression >= 2.2.0
 Requires:         R-CRAN-tfprobability >= 0.15
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-deepregression 
 Requires:         R-CRAN-mlt 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-variables 
 Requires:         R-stats 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-reticulate 
 
 %description
@@ -47,9 +49,10 @@ Allows for the specification of deep conditional transformation models
 (DCTMs) and ordinal neural network transformation models, as described in
 Baumann et al (2021) <doi:10.1007/978-3-030-86523-8_1> and Kook et al
 (2022) <doi:10.1016/j.patcog.2021.108263>. Extensions such as
-autoregressive DCTMs (Ruegamer et al, 2022,
-<doi:10.48550/arXiv.2110.08248>) and transformation ensembles (Kook et al,
-2022, <doi:10.48550/arXiv.2205.12729>) are implemented.
+autoregressive DCTMs (Ruegamer et al, 2023,
+<doi:10.1007/s11222-023-10212-8>) and transformation ensembles (Kook et
+al, 2022, <doi:10.48550/arXiv.2205.12729>) are implemented. The software
+package is described in Kook et al (2024, <doi:10.18637/jss.v111.i10>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  W4MRUtils
-%global packver   1.0.0
+%global packname  basicspace
+%global packver   0.25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.25
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utils List for W4M - Workflow for Metabolomics
+Summary:          Recovering a Basic Space from Issue Scales
 
-License:          AGPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-tools 
+Requires:         R-tools 
 
 %description
-Provides a set of utility function to prevent the spread of utilities
-script in W4M (Workflow4Metabolomics) scripts, and centralize them in a
-single package. Some are meant to be replaced by real packages in a near
-future, like the parse_args() function: it is here only to prepare the
-ground for more global changes in W4M scripts and tools.
+Provides functions to estimate latent dimensions of choice and judgment
+using Aldrich-McKelvey and Blackbox scaling methods, as described in Poole
+et al. (2016, <doi:10.18637/jss.v069.i07>). These techniques allow
+researchers (particularly those analyzing political attitudes, public
+opinion, and legislative behavior) to recover spatial estimates of
+political actors' ideal points and stimuli from issue scale data,
+accounting for perceptual bias, multidimensional spaces, and missing data.
+The package uses singular value decomposition and alternating least
+squares (ALS) procedures to scale self-placement and perceptual data into
+a common latent space for the analysis of ideological or evaluative
+dimensions. Functionality also include tools for assessing model fit,
+handling complex survey data structures, and reproducing simulated
+datasets for methodological validation.
 
 %prep
 %setup -q -c -n %{packname}

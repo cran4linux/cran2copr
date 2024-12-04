@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFpack
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -28,6 +28,9 @@ BuildRequires:    R-CRAN-ergm
 BuildRequires:    R-CRAN-Bergm 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-QRM 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-metaBMA 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-bain 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -40,6 +43,9 @@ Requires:         R-CRAN-ergm
 Requires:         R-CRAN-Bergm 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-QRM 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-metaBMA 
+Requires:         R-methods 
 
 %description
 Implementation of default Bayes factors for testing statistical hypotheses
@@ -53,17 +59,17 @@ that can be tested are location parameters (e.g., group means, regression
 coefficients), variances (e.g., group variances), and measures of
 association (e.g,. polychoric/polyserial/biserial/tetrachoric/product
 moments correlations), among others. The statistical underpinnings are
-described in Mulder and Xin (2019) <DOI:10.1080/00273171.2021.1904809>,
+described in Mulder and Xin (2022) <DOI:10.1080/00273171.2021.1904809>,
 Mulder and Gelissen (2019) <DOI:10.1080/02664763.2021.1992360>, Mulder
 (2016) <DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
 <DOI:10.1214/18-BA1115>, Mulder and Fox (2013)
 <DOI:10.1007/s11222-011-9295-3>, Boeing-Messing, van Assen, Hofman,
 Hoijtink, and Mulder (2017) <DOI:10.1037/met0000116>, Hoijtink, Mulder,
-van Lissa, and Gu, (2018) <DOI:10.31234/osf.io/v3shc>, Gu, Mulder, and
-Hoijtink, (2018) <DOI:10.1111/bmsp.12110>, Hoijtink, Gu, and Mulder,
-(2018) <DOI:10.1111/bmsp.12145>, and Hoijtink, Gu, Mulder, and Rosseel,
-(2018) <DOI:10.1037/met0000187>. When using the packages, please refer to
-Mulder et al. (2021) <DOI:10.18637/jss.v100.i18>.
+van Lissa, and Gu (2018) <DOI:10.1037/met0000201>, Gu, Mulder, and
+Hoijtink (2018) <DOI:10.1111/bmsp.12110>, Hoijtink, Gu, and Mulder (2018)
+<DOI:10.1111/bmsp.12145>, and Hoijtink, Gu, Mulder, and Rosseel (2018)
+<DOI:10.1037/met0000187>. When using the packages, please refer to Mulder
+et al. (2021) <DOI:10.18637/jss.v100.i18>.
 
 %prep
 %setup -q -c -n %{packname}

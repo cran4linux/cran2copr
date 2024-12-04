@@ -1,53 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidysynth
-%global packver   0.2.0
+%global packname  resourcecode
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Implementation of the Synthetic Control Method
+Summary:          Access to the 'RESOURCECODE' Hindcast Database
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-kernlab 
-BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-kernlab 
-Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-A synthetic control offers a way of evaluating the effect of an
-intervention in comparative case studies. The package makes a number of
-improvements when implementing the method in R. These improvements allow
-users to inspect, visualize, and tune the synthetic control more easily. A
-key benefit of a tidy implementation is that the entire preparation
-process for building the synthetic control can be accomplished in a single
-pipe.
+Utility functions to download data from the 'RESOURCECODE' hindcast
+database of sea-states, time series of sea-state parameters and time
+series of 1D and 2D wave spectra.  See <https://resourcecode.ifremer.fr>
+for more details about the available data.  Also provides facilities to
+plot and analyse downloaded data, such as computing the sea-state
+parameters from both the 1D and 2D surface elevation variance spectral
+density.
 
 %prep
 %setup -q -c -n %{packname}

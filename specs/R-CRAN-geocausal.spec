@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocausal
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference with Spatio-Temporal Data
 
@@ -59,7 +59,8 @@ Spatio-temporal causal inference based on point process data. You provide
 the raw data of locations and timings of treatment and outcome events,
 specify counterfactual scenarios, and the package estimates causal effects
 over specified spatial and temporal windows. See Papadogeorgou, et al.
-(2022) <doi:10.1111/rssb.12548>.
+(2022) <doi:10.1111/rssb.12548> and Mukaigawara, et al. (2024)
+<doi:10.31219/osf.io/5kc6f>.
 
 %prep
 %setup -q -c -n %{packname}

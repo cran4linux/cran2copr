@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyStatTraEOO
-%global packver   1.0
+%global packname  sshicm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package 'FuzzyStatTra' in Encapsulated Object Oriented Programming
+Summary:          Information Consistency-Based Measures for Spatial Stratified Heterogeneity
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-sdsfun >= 0.5.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-sdsfun >= 0.5.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
 
 %description
-The aim of the package is to contain the package 'FuzzyStatTra' in
-Encapsulated Object Oriented Programming using R6. 'FuzzyStatTra' contains
-Statistical Methods for Trapezoidal Fuzzy Numbers, whose aim is to provide
-some basic functions for doing statistical analysis with trapezoidal fuzzy
-numbers. For more details, you can visit the website of the SMIRE+CoDiRE
-(Statistical Methods with Imprecise Random Elements and Comparison of
-Distributions of Random Elements) Research Group
-(<https://bellman.ciencias.uniovi.es/smire+codire/>). The most related
-paper can be found in References. Now, those functions are organized in
-specific classes and methods. This object-based approach is an important
-step in making statistical computing more accessible to users.
+Spatial stratified heterogeneity (SSH) denotes the coexistence of
+within-strata homogeneity and between-strata heterogeneity. Information
+consistency-based methods provide a rigorous approach to quantify SSH and
+evaluate its role in spatial processes, grounded in principles of
+geographical stratification and information theory (Bai, H. et al. (2023)
+<doi:10.1080/24694452.2023.2223700>; Wang, J. et al. (2024)
+<doi:10.1080/24694452.2023.2289982>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sivirep
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Wrangling and Automated Reports from 'SIVIGILA' Source
 
@@ -19,32 +19,36 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-config 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-epitrix 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-epitrix 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-showtext 
-BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sysfonts 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-config 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-epitrix 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-epitrix 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-tools 
-Requires:         R-CRAN-sysfonts 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-showtext 
-Requires:         R-CRAN-kableExtra 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sysfonts 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 Data wrangling, pre-processing, and generating automated reports from

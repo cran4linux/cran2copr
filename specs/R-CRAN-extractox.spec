@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opendataformat
-%global packver   2.1.0
+%global packname  extractox
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading and Writing Open Data Format Files
+Summary:          Extract Tox Info from Various Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-pingr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-webchem 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-zip 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-pingr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-webchem 
 
 %description
-The Open Data Format (ODF) is a new, non-proprietary, multilingual,
-metadata enriched, and zip-compressed data format with metadata structured
-in the Data Documentation Initiative (DDI) Codebook standard. This package
-allows reading and writing of data files in the Open Data Format (ODF) in
-R, and displaying metadata in different languages. For further information
-on the Open Data Format, see <https://opendataformat.github.io/>.
+Extract toxicological and chemical information from databases maintained
+by scientific agencies and resources, including the Comparative
+Toxicogenomics Database <https://ctdbase.org/>, the Integrated Chemical
+Environment <https://ice.ntp.niehs.nih.gov/>, the Integrated Risk
+Information System <https://cfpub.epa.gov/ncea/iris/>, the CompTox
+Chemicals Dashboard Resource Hub
+<https://www.epa.gov/comptox-tools/comptox-chemicals-dashboard-resource-hub>,
+and PubChem <https://pubchem.ncbi.nlm.nih.gov/>.
 
 %prep
 %setup -q -c -n %{packname}

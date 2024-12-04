@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bit
-%global packver   4.5.0
+%global packver   4.5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.0
+Version:          4.5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classes and Methods for Fast Memory-Efficient Boolean Selections
 

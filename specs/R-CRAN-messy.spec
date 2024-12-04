@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opendataformat
-%global packver   2.1.0
+%global packname  messy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading and Writing Open Data Format Files
+Summary:          Create Messy Data from Clean Data Frames
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-zip 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-zip 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 
 %description
-The Open Data Format (ODF) is a new, non-proprietary, multilingual,
-metadata enriched, and zip-compressed data format with metadata structured
-in the Data Documentation Initiative (DDI) Codebook standard. This package
-allows reading and writing of data files in the Open Data Format (ODF) in
-R, and displaying metadata in different languages. For further information
-on the Open Data Format, see <https://opendataformat.github.io/>.
+For the purposes of teaching, it is often desirable to show examples of
+working with messy data and how to clean it. This R package creates messy
+data from clean, tidy data frames so that students have a clean example to
+work towards.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppEnsmallen
-%global packver   0.2.21.1.1
+%global packver   0.2.22.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.21.1.1
+Version:          0.2.22.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Header-Only C++ Mathematical Optimization Library for 'Armadillo'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.9.800.0.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.8.2.0
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-Rcpp 
 
@@ -34,8 +34,8 @@ Note that 'Ensmallen' is licensed under 3-Clause BSD, 'Armadillo' starting
 from 7.800.0 is licensed under Apache License 2, 'RcppArmadillo' (the
 'Rcpp' bindings/bridge to 'Armadillo') is licensed under the GNU GPL
 version 2 or later. Thus, 'RcppEnsmallen' is also licensed under similar
-terms. Note that 'Ensmallen' requires a compiler that supports 'C++11' and
-'Armadillo' 9.800 or later.
+terms. Note that 'Ensmallen' requires a compiler that supports 'C++14' and
+'Armadillo' 10.8.2 or later.
 
 %prep
 %setup -q -c -n %{packname}
