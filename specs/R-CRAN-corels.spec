@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  corels
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Binding for the 'Certifiably Optimal RulE ListS (Corels)' Learner
 
@@ -20,9 +21,10 @@ Requires:         R-CRAN-Rcpp >= 1.0.2
 
 %description
 The 'Certifiably Optimal RulE ListS (Corels)' learner by Angelino et al
-described in <arXiv:1704.01701> provides interpretable decision rules with
-an optimality guarantee, and is made available to R with this package. See
-the file 'AUTHORS' for a list of copyright holders and contributors.
+described in <doi:10.48550/arXiv.1704.01701> provides interpretable
+decision rules with an optimality guarantee, and is made available to R
+with this package. See the file 'AUTHORS' for a list of copyright holders
+and contributors.
 
 %prep
 %setup -q -c -n %{packname}

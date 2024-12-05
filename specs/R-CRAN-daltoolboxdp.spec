@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolboxdp
-%global packver   1.0.767
+%global packver   1.0.777
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.767
+Version:          1.0.777
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Pre-Processing Extensions
 

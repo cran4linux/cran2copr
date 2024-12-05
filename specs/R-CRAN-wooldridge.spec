@@ -1,43 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  genular
-%global packver   1.0.1
+%global packname  wooldridge
+%global packver   1.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Genular' Database API
+Summary:          115 Data Sets from "Introductory Econometrics: A Modern Approach, 7e" by Jeffrey M. Wooldridge
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
 
 %description
-Provides an interface to the 'Genular' database API
-(<https://genular.atomic-lab.org>), allowing efficient retrieval and
-integration of genomic, proteomic, and single-cell data. It supports
-operations like fetching gene annotations, cell expression profiles, and
-other information as defined in the 'Genular' database, enabling seamless
-incorporation of biological data into R workflows. With functions tailored
-for bioinformatics and machine learning, the package facilitates
-exploration of cellular heterogeneity, gene-disease relationships, and
-pathway analysis, streamlining multi-omics data analysis.
+Students learning both econometrics and R may find the introduction to
+both challenging. The wooldridge data package aims to lighten the task by
+efficiently loading any data set found in the text with a single command.
+Data sets have been compressed to a fraction of their original size.
+Documentation files contain page numbers, the original source, time of
+publication, and notes from the author suggesting avenues for further
+analysis and research. If one needs an introduction to R model syntax, a
+vignette contains solutions to examples from chapters of the text. Data
+sets are from the 7th edition (Wooldridge 2020, ISBN-13
+978-1-337-55886-0), and are backwards compatible with all previous
+versions of the text.
 
 %prep
 %setup -q -c -n %{packname}

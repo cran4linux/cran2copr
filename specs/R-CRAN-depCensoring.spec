@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depCensoring
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Survival Data with Dependent Censoring
 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-matrixcalc
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-SemiPar.depCens 
+BuildRequires:    R-CRAN-copula 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
@@ -50,7 +50,7 @@ Requires:         R-CRAN-matrixcalc
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-SemiPar.depCens 
+Requires:         R-CRAN-copula 
 
 %description
 Several statistical methods for analyzing survival data under various
@@ -62,7 +62,8 @@ time, based solely on observed survival data. For more details on the
 methods, refer to Deresa and Van Keilegom (2021)
 <doi:10.1093/biomet/asaa095>, Czado and Van Keilegom (2023)
 <doi:10.1093/biomet/asac067>, Crommen et al. (2024)
-<doi:10.1007/s11749-023-00903-9> and Willems et al. (2024+)
+<doi:10.1007/s11749-023-00903-9>, Deresa and Van Keilegom (2024)
+<doi:10.1080/01621459.2022.2161387> and Willems et al. (2024+)
 <doi:10.48550/arXiv.2403.11860>.
 
 %prep

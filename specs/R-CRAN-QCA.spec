@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QCA
-%global packver   3.22
+%global packver   3.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.22
+Version:          3.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Qualitative Comparative Analysis
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-admisc > 0.34
+BuildRequires:    R-CRAN-admisc > 0.35
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-declared 
 BuildRequires:    R-CRAN-venn 
 BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-admisc > 0.34
+Requires:         R-CRAN-admisc > 0.35
 Requires:         R-methods 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-declared 

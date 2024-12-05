@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   7.1
+%global packver   7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.1
+Version:          7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -32,10 +32,8 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-mda 
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-mixture 
-BuildRequires:    R-CRAN-mvhtests 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-regda 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-CRAN-Rnanoflann 
@@ -56,10 +54,8 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-mda 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-mixture 
-Requires:         R-CRAN-mvhtests 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-regda 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-Rfast2 
 Requires:         R-CRAN-Rnanoflann 
@@ -99,19 +95,19 @@ without zero values". Journal of Data Science, 17(1): 219--238.
 <doi:10.6339/JDS.201901_17(1).0010>. i) Tsagris M. and Stewart C. (2020).
 "A folded model for compositional data analysis". Australian and New
 Zealand Journal of Statistics, 62(2): 249--277. <doi:10.1111/anzs.12289>.
-j) Alenazi A. (2021). Alenazi, A. (2023). "A review of compositional data
-analysis and recent advances". Communications in Statistics--Theory and
-Methods, 52(16): 5535--5567. <doi:10.1080/03610926.2021.2014890>. k)
-Alenazi A.A. (2022). "f-divergence regression models for compositional
+j) Alenazi A.A. (2022). "f-divergence regression models for compositional
 data". Pakistan Journal of Statistics and Operation Research, 18(4):
-867--882. <doi:10.18187/pjsor.v18i4.3969>. l) Tsagris M. and Stewart C.
+867--882. <doi:10.18187/pjsor.v18i4.3969>. k) Tsagris M. and Stewart C.
 (2022). "A Review of Flexible Transformations for Modeling Compositional
 Data". In Advances and Innovations in Statistics and Data Science, pp.
-225--234. <doi:10.1007/978-3-031-08329-7_10>. m) Tsagris M., Alenazi A.
-and Stewart C. (2023). "Flexible non-parametric regression models for
-compositional response data with zeros". Statistics and Computing,
-33(106). <doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2024).
-"Constrained least squares simplicial-simplicial regression".
+225--234. <doi:10.1007/978-3-031-08329-7_10>. l) Alenazi A. (2023). "A
+review of compositional data analysis and recent advances". Communications
+in Statistics--Theory and Methods, 52(16): 5535--5567.
+<doi:10.1080/03610926.2021.2014890>. m) Tsagris M., Alenazi A. and Stewart
+C. (2023). "Flexible non-parametric regression models for compositional
+response data with zeros". Statistics and Computing, 33(106).
+<doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2024). "Constrained
+least squares simplicial-simplicial regression".
 <doi:10.48550/arXiv.2403.19835>.
 
 %prep
