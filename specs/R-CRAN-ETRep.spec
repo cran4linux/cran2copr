@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ETRep
-%global packver   0.1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Elliptical Tubes Under the Relative Curvature Condition
 
@@ -60,10 +60,13 @@ package is based on the references: Taheri, M., Pizer, S. M., & Schulz, J.
 Statistics via Skeletal Structures", PhD Thesis, University of Stavanger,
 Norway <doi:10.13140/RG.2.2.34500.23685>. Key features include
 constructing discrete elliptical tubes, calculating transformations,
-validating structures under the Relative Curvature Condition, computing
-means, and generating simulations. Supports intrinsic and non-intrinsic
-mean calculations and transformations, size estimation, plotting, and
-random sample generation based on a reference tube.
+validating structures under the Relative Curvature Condition (RCC),
+computing means, and generating simulations. Supports intrinsic and
+non-intrinsic mean calculations and transformations, size estimation,
+plotting, and random sample generation based on a reference tube. The
+intrinsic approach relies on the interior path of the original non-convex
+space, incorporating the RCC, while the non-intrinsic approach uses a
+basic robotic arm transformation that disregards the RCC.
 
 %prep
 %setup -q -c -n %{packname}

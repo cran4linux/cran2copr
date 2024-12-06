@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rstanemax
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Emax Model Analysis with 'Stan'
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.5.0
 BuildRequires:    R-CRAN-purrr >= 0.3.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstantools >= 2.3.0
 Requires:         R-CRAN-rstan >= 2.26.0
@@ -39,6 +41,8 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-purrr >= 0.3.0
 Requires:         R-methods 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-rstantools
 
 %description

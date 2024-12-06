@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.3
+%global packname  iclogcondist
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          Log-Concave Distribution Estimation with Interval-Censored Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-icenReg 
+BuildRequires:    R-CRAN-monotone 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-icenReg 
+Requires:         R-CRAN-monotone 
+Requires:         R-CRAN-fdrtool 
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+We consider the non-parametric maximum likelihood estimation of the
+underlying distribution function, assuming log-concavity, based on
+mixed-case interval-censored data. The algorithm implemented is base on
+Chi Wing Chu, Hok Kan Ling and Chaoyu Yuan (2024,
+<doi:10.48550/arXiv.2411.19878>).
 
 %prep
 %setup -q -c -n %{packname}

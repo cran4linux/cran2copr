@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gosset
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Data Analysis in Experimental Agriculture
 
@@ -31,6 +31,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-parallel 
 Requires:         R-methods 
 Requires:         R-CRAN-BradleyTerry2 
 Requires:         R-CRAN-DescTools 
@@ -45,6 +46,7 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-patchwork 
+Requires:         R-parallel 
 
 %description
 Methods to analyse experimental agriculture data, from data synthesis to

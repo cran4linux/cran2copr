@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  text
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyses of Text using Transformers Models from HuggingFace, Natural Language Processing and Machine Learning
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 4.00
 Requires:         R-core >= 4.00
 BuildArch:        noarch
 BuildRequires:    R-CRAN-recipes >= 0.1.16
+BuildRequires:    R-CRAN-topics 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-stringi 
@@ -36,8 +37,8 @@ BuildRequires:    R-CRAN-workflows
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-overlapping 
 Requires:         R-CRAN-recipes >= 0.1.16
+Requires:         R-CRAN-topics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-stringi 
@@ -56,7 +57,6 @@ Requires:         R-CRAN-workflows
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-overlapping 
 
 %description
 Link R with Transformers from Hugging Face to transform text variables to

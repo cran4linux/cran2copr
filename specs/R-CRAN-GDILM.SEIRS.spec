@@ -1,55 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  seriation
-%global packver   1.5.7
+%global packname  GDILM.SEIRS
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Infrastructure for Ordering Objects Using Seriation
+Summary:          Spatial Individual Level Modeling of Infectious Disease Transmission with Reinfection Dynamics
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-colorspace 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-gclus 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-qap 
-BuildRequires:    R-CRAN-registry 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ngspatial 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-TSP 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-ca 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-colorspace 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-gclus 
-Requires:         R-grDevices 
-Requires:         R-grid 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-qap 
-Requires:         R-CRAN-registry 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ngspatial 
 Requires:         R-stats 
-Requires:         R-CRAN-TSP 
-Requires:         R-CRAN-vegan 
 
 %description
-Infrastructure for ordering objects with an implementation of several
-seriation/sequencing/ordination techniques to reorder matrices,
-dissimilarity matrices, and dendrograms. Also provides (optimally)
-reordered heatmaps, color images and clustering visualizations like
-dissimilarity plots, and visual assessment of cluster tendency plots (VAT
-and iVAT). Hahsler et al (2008) <doi:10.18637/jss.v025.i03>.
+Geographically Dependent Individual Level Models (GDILMs) within the
+Susceptible-Exposed-Infectious-Recovered-Susceptible (SEIRS) framework are
+applied to model infectious disease transmission, incorporating
+reinfection dynamics. This package employs a likelihood based Monte Carlo
+Expectation Conditional Maximization (MCECM) algorithm for estimating
+model parameters. It also provides tools for GDILM fitting, parameter
+estimation, AIC calculation on real pandemic data, and simulation studies
+customized to user-defined model settings.
 
 %prep
 %setup -q -c -n %{packname}

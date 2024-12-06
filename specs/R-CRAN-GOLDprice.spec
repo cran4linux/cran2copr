@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kbal
-%global packver   0.1.1
+%global packname  GOLDprice
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Balancing
+Summary:          Gold Price Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RSpectra 
-Requires:         R-CRAN-RcppParallel >= 4.4.4
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RSpectra 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-readxl 
 
 %description
-Provides a weighting approach that employs kernels to make one group have
-a similar distribution to another group on covariates. This method matches
-not only means or marginal distributions but also higher-order
-transformations implied by the choice of kernel. 'kbal' is applicable to
-both treatment effect estimation and survey reweighting problems. Based on
-Hazlett, C. (2020) "Kernel Balancing: A flexible non-parametric weighting
-procedure for estimating causal effects." Statistica Sinica.
-<https://www.researchgate.net/publication/299013953_Kernel_Balancing_A_flexible_non-parametric_weighting_procedure_for_estimating_causal_effects/stats>.
+A collection of gold price data in various currencies in the form of USD,
+EUR, JPY, GBP, CAD, CHF, INR, CNY, TRY, SAR, IDR, AED, THB, VND, EGP, KRW,
+RUB, ZAR, and AUD. This data comes from the World Gold Council. In
+addition, the data is in the form of daily, weekly, monthly (average and
+the end of period), quarterly (average and the end of period), and yearly
+(average and the end of period).
 
 %prep
 %setup -q -c -n %{packname}

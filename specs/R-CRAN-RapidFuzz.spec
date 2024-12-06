@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.3
+%global packname  RapidFuzz
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          String Similarity Computation Using 'RapidFuzz'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-Rcpp >= 1.0.13
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+Provides a high-performance interface for calculating string similarities
+and distances, leveraging the efficient library 'RapidFuzz'
+<https://github.com/rapidfuzz/rapidfuzz-cpp>. This package integrates the
+'C++' implementation, allowing 'R' users to access cutting-edge algorithms
+for fuzzy matching and text analysis.
 
 %prep
 %setup -q -c -n %{packname}

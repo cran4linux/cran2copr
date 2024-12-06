@@ -1,30 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.3
+%global packname  rectpacker
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          Rectangle Packing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+Rectangle packing is a packing problem where rectangles are placed into a
+larger rectangular region (without overlapping) in order to maximise the
+use space.  Rectangles are packed using the skyline heuristic as discussed
+in Lijun et al (2011) 'A Skyline-Based Heuristic for the 2D Rectangular
+Strip Packing Problem' <doi:10.1007/978-3-642-21827-9_29>.  A function is
+also included for determining a good small-sized box for containing a
+given set of rectangles.
 
 %prep
 %setup -q -c -n %{packname}

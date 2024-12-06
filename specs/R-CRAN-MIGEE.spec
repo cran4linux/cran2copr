@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.3
+%global packname  MIGEE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          Impute Missing Values and Fitting Linear Mixed Effect Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-ggeffects 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-VIM 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-ggeffects 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+Implements methods for estimating generalized estimating equations (GEE)
+with advanced options for flexible modeling and handling missing data.
+This package provides tools to fit and analyze GEE models for longitudinal
+data, allowing users to address missingness using a variety of imputation
+techniques. It supports both univariate and multivariate modeling,
+visualization of missing data patterns, and facilitates the transformation
+of data for efficient statistical analysis. Designed for researchers
+working with complex datasets, it ensures robust estimation and inference
+in longitudinal and clustered data settings.
 
 %prep
 %setup -q -c -n %{packname}

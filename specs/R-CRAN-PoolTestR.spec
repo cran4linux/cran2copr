@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PoolTestR
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prevalence and Regression for Pool-Tested (Group-Tested) Data
 
@@ -15,37 +16,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.3.1.1
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-lme4 >= 1.1.35.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-brms 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-brms 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.3.1.1
+Requires:         R-CRAN-rstan >= 2.26.0
+Requires:         R-CRAN-lme4 >= 1.1.35.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-brms 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
-Requires:         R-CRAN-brms 
-Requires:         R-stats 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstantools
 
 %description
 An easy-to-use tool for working with presence/absence tests on 'pooled' or
 'grouped' samples. The primary application is for estimating prevalence of
 a marker in a population based on the results of tests on pooled
-specimens. This sampling method is often employed in surveillance of rare
+specimens.  This sampling method is often employed in surveillance of rare
 conditions in humans or animals (e.g. molecular xenomonitoring). The
 package was initially conceived as an R-based alternative to the molecular
 xenomonitoring software, 'PoolScreen'

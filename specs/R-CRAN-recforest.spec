@@ -1,53 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  XDNUTS
-%global packver   1.5.4
+%global packname  recforest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Discontinuous Hamiltonian Monte Carlo with Varying Trajectory Length
+Summary:          Random Survival Forest for Recurrent Events
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-base 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-parallel 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mets 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-reda 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
-Requires:         R-base 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-parallel 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-timereg 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-mets 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-reda 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-timereg 
 
 %description
-Hamiltonian Monte Carlo for both continuous and discontinuous posterior
-distributions with customisable trajectory length termination criterion.
-See Nishimura et al. (2020) <doi:10.1093/biomet/asz083> for the original
-Discontinuous Hamiltonian Monte Carlo, Hoffman et al. (2014)
-<doi:10.48550/arXiv.1111.4246> and Betancourt (2016)
-<doi:10.48550/arXiv.1601.00225> for the definition of possible Hamiltonian
-Monte Carlo termination criteria.
+Analyze recurrent events with right-censored data and the potential
+presence of a terminal event (that prevents further occurrences, like
+death). 'recofest' extends the random survival forest algorithm, adapting
+splitting rules and node estimators to handle complexities of recurrent
+events. The methodology is fully described in Murris, J., Bouaziz, O.,
+Jakubczak, M., Katsahian, S., & Lavenu, A. (2024)
+(<https://hal.science/hal-04612431v1/document>).
 
 %prep
 %setup -q -c -n %{packname}
