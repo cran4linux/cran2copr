@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmoTree
-%global packver   1.2.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get and Modify 'oTree' Data
 
@@ -41,12 +41,12 @@ Requires:         R-CRAN-rlist >= 0.4.6.2
 %description
 Efficiently manage and process data from 'oTree' experiments. Import
 'oTree' data and clean them by using functions that handle messy data,
-dropouts, and other problematic cases. Create IDs, calculate the time,
+dropouts, and other problematic cases.  Create IDs, calculate the time,
 transfer variables between app data frames, and delete sensitive
-information. Review your experimental data prior to running the experiment
-and automatically generate a detailed summary of the variables used in
-your 'oTree' code. Information on 'oTree' is found in Chen, D. L.,
-Schonger, M., & Wickens, C. (2016) <doi:10.1016/j.jbef.2015.12.001>.
+information.  Review your experimental data prior to running the
+experiment and automatically generate a detailed summary of the variables
+used in your 'oTree' code.  Information on 'oTree' is found in Chen, D.
+L., Schonger, M., & Wickens, C. (2016) <doi:10.1016/j.jbef.2015.12.001>.
 
 %prep
 %setup -q -c -n %{packname}

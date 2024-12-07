@@ -1,53 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cofad
-%global packver   0.3.1
+%global packname  PhenotypeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Contrast Analyses for Factorial Designs
+Summary:          Assess Study Cohorts Using a Common Data Model
 
-License:          LGPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-CodelistGenerator >= 3.3.1
+BuildRequires:    R-CRAN-IncidencePrevalence >= 0.9.0
+BuildRequires:    R-CRAN-CohortCharacteristics >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-CRAN-CohortConstructor >= 0.3.2
+BuildRequires:    R-CRAN-OmopSketch >= 0.1.2
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rhandsontable 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-CodelistGenerator >= 3.3.1
+Requires:         R-CRAN-IncidencePrevalence >= 0.9.0
+Requires:         R-CRAN-CohortCharacteristics >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-CRAN-CohortConstructor >= 0.3.2
+Requires:         R-CRAN-OmopSketch >= 0.1.2
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rhandsontable 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-usethis 
 
 %description
-Contrast analysis for factorial designs provides an alternative to the
-traditional ANOVA approach, offering the distinct advantage of testing
-targeted hypotheses. The foundation of this package is primarily rooted in
-the works of Rosenthal, Rosnow, and Rubin (2000, ISBN: 978-0521659802) as
-well as Sedlmeier and Renkewitz (2018, ISBN: 978-3868943214).
+Phenotype study cohorts in data mapped to the Observational Medical
+Outcomes Partnership Common Data Model. Diagnostics are run at the
+database, code list, cohort, and population level to assess whether study
+cohorts are ready for research.
 
 %prep
 %setup -q -c -n %{packname}

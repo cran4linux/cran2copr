@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rpostgis
-%global packver   1.6.0
+%global packname  qcluster
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to a 'PostGIS' Database
+Summary:          Clustering via Quadratic Scoring
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.6.7
-BuildRequires:    R-CRAN-DBI >= 0.5
-BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-terra >= 1.6.7
-Requires:         R-CRAN-DBI >= 0.5
-Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-iterators 
 Requires:         R-methods 
-Requires:         R-CRAN-sf 
+Requires:         R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Provides an interface between R and 'PostGIS'-enabled 'PostgreSQL'
-databases to transparently transfer spatial data. Both vector (points,
-lines, polygons) and raster data are supported in read and write modes.
-Also provides convenience functions to execute common procedures in
-'PostgreSQL/PostGIS'.
+Performs tuning of clustering models, methods and algorithms including the
+problem of determining an appropriate number of clusters. Validation of
+cluster analysis results is performed via quadratic scoring using
+resampling methods, as in Coraggio, L. and Coretto, P. (2023)
+<doi:10.1016/j.jmva.2023.105181>.
 
 %prep
 %setup -q -c -n %{packname}

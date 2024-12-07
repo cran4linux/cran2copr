@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyStorePlus
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Secure in-Browser Storage for 'Shiny' Inputs, Outputs and Variables
+Summary:          Secure in-Browser and Database Storage for 'shiny' Inputs, Outputs, Views and User Likes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,12 +29,12 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-shinyWidgets 
 
 %description
-Store persistent and synchronized data from 'Shiny' inputs within the
-browser in a secure format. Refresh 'Shiny' applications and preserve
-user-inputs over multiple sessions. A database-like storage format is
-implemented using 'Dexie.js' <https://dexie.org>, a minimal wrapper for
-'IndexedDB'. Transfer browser link parameters to 'Shiny' input or output
-values.
+Store persistent and synchronized data from 'shiny' inputs within the
+browser. Refresh 'shiny' applications and preserve user-inputs over
+multiple sessions. A database-like storage format is implemented using
+'Dexie.js' <https://dexie.org>, a minimal wrapper for 'IndexedDB'.
+Transfer browser link parameters to 'shiny' input or output values. Store
+app visitor views, likes and followers.
 
 %prep
 %setup -q -c -n %{packname}

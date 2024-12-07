@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rpostgis
-%global packver   1.6.0
+%global packname  tablespan
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to a 'PostGIS' Database
+Summary:          Create Satisficing 'Excel', 'HTML', 'LaTeX', and 'RTF' Tables using a Simple Formula
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra >= 1.6.7
-BuildRequires:    R-CRAN-DBI >= 0.5
-BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-terra >= 1.6.7
-Requires:         R-CRAN-DBI >= 0.5
-Requires:         R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gt 
 Requires:         R-methods 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 
 %description
-Provides an interface between R and 'PostGIS'-enabled 'PostgreSQL'
-databases to transparently transfer spatial data. Both vector (points,
-lines, polygons) and raster data are supported in read and write modes.
-Also provides convenience functions to execute common procedures in
-'PostgreSQL/PostGIS'.
+Create "good enough" tables with a single formula. 'tablespan' tables can
+be exported to 'Excel', 'HTML', 'LaTeX', and 'RTF' by leveraging the
+packages 'openxlsx' and 'gt'. See <https://jhorzek.github.io/tablespan/>
+for an introduction.
 
 %prep
 %setup -q -c -n %{packname}

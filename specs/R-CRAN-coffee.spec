@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coffee
-%global packver   0.4.1
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chronological Ordering for Fossils and Environmental Events
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rintcal >= 1.0.0
-BuildRequires:    R-CRAN-rice >= 0.2.0
+BuildRequires:    R-CRAN-rintcal >= 1.1.0
+BuildRequires:    R-CRAN-rice >= 0.4.0
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rintcal >= 1.0.0
-Requires:         R-CRAN-rice >= 0.2.0
+Requires:         R-CRAN-rintcal >= 1.1.0
+Requires:         R-CRAN-rice >= 0.4.0
 Requires:         R-CRAN-data.table 
 
 %description

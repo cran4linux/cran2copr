@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  emplik
-%global packver   1.3-1
+%global packver   1.3-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Likelihood Ratio for Censored/Truncated Data
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
-BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-quantreg 
+BuildRequires:    R-CRAN-quantreg 
 Requires:         R-stats 
+Requires:         R-CRAN-quantreg 
 
 %description
-Empirical likelihood ratio tests for means/quantiles/hazards from possibly
-censored and/or truncated data. Now does regression too. This version
-contains some C code.
+Empirical likelihood ratio tests and confidence intervals for
+means/quantiles/hazards from possibly censored and/or truncated data. In
+particular, the empirical likelihood for the Kaplan-Meier/Nelson-Aalen
+estimator. Now does AFT regression too.
 
 %prep
 %setup -q -c -n %{packname}

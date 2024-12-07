@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sphet
-%global packver   2.0
+%global packver   2.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Spatial Autoregressive Models with and without Heteroskedastic Innovations
 
@@ -16,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.1
 Requires:         R-core >= 3.0.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-spData >= 2.3.1
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-spatialreg 
 BuildRequires:    R-CRAN-spdep 
@@ -27,8 +29,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-spData 
 BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-spData >= 2.3.1
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-spatialreg 
 Requires:         R-CRAN-spdep 
@@ -40,7 +42,6 @@ Requires:         R-utils
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-spData 
 Requires:         R-CRAN-sf 
 
 %description
