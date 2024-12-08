@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CCd
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Cauchy-Cacoullos (Discrete Cauchy) Distribution
 
@@ -27,7 +27,7 @@ Maximum likelihood estimation of the Cauchy-Cacoullos (discrete Cauchy)
 distribution. Probability mass, distribution and quantile function are
 also included. The reference paper is: Papadatos N. (2022). "The
 Characteristic Function of the Discrete Cauchy Distribution in Memory of
-T. Cacoullos".  Journal of Statistical Theory Practice, 16(3): 47.
+T. Cacoullos". Journal of Statistical Theory Practice, 16(3): 47.
 <doi:10.1007/s42519-022-00268-6>.
 
 %prep

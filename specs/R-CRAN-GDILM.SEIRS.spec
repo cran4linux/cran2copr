@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GDILM.SEIRS
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Individual Level Modeling of Infectious Disease Transmission with Reinfection Dynamics
+Summary:          Spatial Modeling of Infectious Disease with Reinfection
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

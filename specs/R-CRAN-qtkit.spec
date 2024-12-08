@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qtkit
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantitative Text Kit
 
@@ -20,33 +20,23 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-chromote 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gutenbergr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-openai 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-chromote 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gutenbergr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-openai 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-xml2 
 
 %description
 Support package for the textbook "An Introduction to Quantitative Text

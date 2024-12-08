@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tutorial.helpers
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Creating Tutorials
 
@@ -46,7 +46,7 @@ Requires:         R-CRAN-tibble
 Helper functions for creating, editing, and testing tutorials created with
 the 'learnr' package. Provides a simple method for allowing students to
 download their answers to tutorial questions. For examples of its use, see
-the 'r4ds.tutorials' and 'primer.tutorials' packages.
+the 'r4ds.tutorials' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pRecipe
-%global packver   3.0.1-3
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1.3
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precipitation R Recipes
 
@@ -19,40 +19,28 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-openair 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-twc 
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-twc 
 
 %description
 An open-access tool/framework to download, validate, visualize, and
