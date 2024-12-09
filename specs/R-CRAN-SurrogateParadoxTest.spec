@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cluster
-%global packver   2.1.7
+%global packname  SurrogateParadoxTest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          "Finding Groups in Data": Cluster Analysis Extended Rousseeuw et al.
+Summary:          Empirical Testing of Surrogate Paradox Assumptions
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-parallel 
 
 %description
-Methods for Cluster analysis.  Much extended the original from Peter
-Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw
-(1990) "Finding Groups in Data".
+Provides functions to nonparametrically assess assumptions necessary to
+prevent the surrogate paradox through hypothesis tests of stochastic
+dominance, monotonicity of regression functions, and non-negative residual
+treatment effects. More details are available in Hsiao et al 2024 (under
+review).
 
 %prep
 %setup -q -c -n %{packname}

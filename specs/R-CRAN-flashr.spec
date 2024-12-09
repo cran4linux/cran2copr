@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flashr
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Flashcards of Terms and Definitions
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-revealjs 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-gh 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-memoise
 Requires:         R-CRAN-revealjs 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-testthat 
+Requires:         R-utils 
 
 %description
 Provides functions for creating flashcard decks of terms and definitions.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sampcompR
-%global packver   0.2.4
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparing and Visualizing Differences Between Surveys
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-data.table 
@@ -71,9 +71,9 @@ function can calculate significant differences in model coefficients
 between the surveys of comparison. All of those differences can be easily
 plotted and outputted as a table. For more detailed information on the
 methods and example use see Rohr, B., Silber, H., & Felderer, B. (2024).
-„Comparing the Accuracy of Univariate, Bivariate, and Multivariate
-Estimates across Probability and Non-Probability Surveys with Population
-Benchmarks“ <doi:10.31235/osf.io/n6ehf>.
+Comparing the Accuracy of Univariate, Bivariate, and Multivariate
+Estimates across Probability and Nonprobability Surveys with Population
+Benchmarks. Sociological Methodology <doi:10.1177/00811750241280963>.
 
 %prep
 %setup -q -c -n %{packname}
