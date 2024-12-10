@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rts2
-%global packver   0.7.6
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Real-Time Disease Surveillance
 

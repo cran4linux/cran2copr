@@ -1,45 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lmap
-%global packver   0.1.2
+%global packname  tinylens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logistic Mapping
+Summary:          Minimal Implementation of Functional Lenses
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-CRAN-fmdu 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rfast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggforce 
-Requires:         R-CRAN-fmdu 
-Requires:         R-CRAN-nnet 
-Requires:         R-stats 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rfast 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-vctrs 
 
 %description
-Set of tools for mapping of categorical response variables based on
-principal component analysis (pca) and multidimensional unfolding (mdu).
+Provides utilities to create and use lenses to simplify data manipulation.
+Lenses are composable getter/setter pairs that provide a functional
+approach to manipulating deeply nested data structures, e.g., elements
+within list columns in data frames. The implementation is based on the
+earlier 'lenses' R package <https://github.com/cfhammill/lenses>, which
+was inspired by the Haskell 'lens' package by Kmett (2012)
+<https://github.com/ekmett/lens>, one of the most widely referenced
+implementations of lenses. For additional background and history on the
+theory of lenses, see the 'lens' package wiki:
+<https://github.com/ekmett/lens/wiki/History-of-Lenses>.
 
 %prep
 %setup -q -c -n %{packname}

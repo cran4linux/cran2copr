@@ -1,38 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SmallCountRounding
-%global packver   1.1.0
+%global packname  gg1d
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Count Rounding of Tabular Data
+Summary:          Exploratory Data Analysis using Tiled One-Dimensional Graphics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.6.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.6.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-patchwork >= 1.3.0
+BuildRequires:    R-CRAN-assertions >= 0.2.0
+BuildRequires:    R-CRAN-rank >= 0.1.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggiraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-patchwork >= 1.3.0
+Requires:         R-CRAN-assertions >= 0.2.0
+Requires:         R-CRAN-rank >= 0.1.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggiraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-rlang 
 
 %description
-A statistical disclosure control tool to protect frequency tables in cases
-where small values are sensitive. The function PLSrounding() performs
-small count rounding of necessary inner cells so that all small
-frequencies of cross-classifications to be published (publishable cells)
-are rounded. This is equivalent to changing micro data since frequencies
-of unique combinations are changed. Thus, additivity and consistency are
-guaranteed. The methodology is described in Langsrud and Heldal (2018)
-<https://www.researchgate.net/publication/327768398_An_Algorithm_for_Small_Count_Rounding_of_Tabular_Data>.
+Streamlines exploratory data analysis by providing a turnkey approach to
+visualising n-dimensional data which graphically reveals correlative or
+associative relationships between 2 or more features. Represents all
+dataset features as distinct, vertically aligned bar or tile plots, with
+plot types auto-selected based on whether variables are categorical or
+numeric.
 
 %prep
 %setup -q -c -n %{packname}

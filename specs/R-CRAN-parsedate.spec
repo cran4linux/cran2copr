@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parsedate
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recognize and Parse Dates in Various Formats, Including All ISO 8601 Formats
 
@@ -19,8 +19,8 @@ Requires:         R-core
 
 %description
 Parse dates automatically, without the need of specifying a format.
-Currently it includes the git date parser. It can also recognize and parse
-all ISO 8601 formats.
+Currently it includes the git date parser.  It can also recognize and
+parse all ISO 8601 formats.
 
 %prep
 %setup -q -c -n %{packname}

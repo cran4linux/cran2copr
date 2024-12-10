@@ -1,57 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  caret
-%global packver   7.0-1
+%global packname  iClusterVB
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.0.1
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classification and Regression Training
+Summary:          Fast Integrative Clustering and Feature Selection for High Dimensional Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-withr >= 2.0.0
-BuildRequires:    R-CRAN-ModelMetrics >= 1.2.2.2
-BuildRequires:    R-CRAN-lattice >= 0.20
-BuildRequires:    R-CRAN-recipes >= 0.1.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-clustMixType 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pheatmap 
+BuildRequires:    R-CRAN-poLCA 
 BuildRequires:    R-stats 
-BuildRequires:    R-stats4 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-withr >= 2.0.0
-Requires:         R-CRAN-ModelMetrics >= 1.2.2.2
-Requires:         R-CRAN-lattice >= 0.20
-Requires:         R-CRAN-recipes >= 0.1.10
+BuildRequires:    R-CRAN-VarSelLCM 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-clustMixType 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pheatmap 
+Requires:         R-CRAN-poLCA 
 Requires:         R-stats 
-Requires:         R-stats4 
 Requires:         R-utils 
+Requires:         R-CRAN-VarSelLCM 
 
 %description
-Misc functions for training and plotting classification and regression
-models.
+A variational Bayesian approach for fast integrative clustering and
+feature selection, facilitating the analysis of multi-view, mixed type,
+high-dimensional datasets with applications in fields like cancer
+research, genomics, and more.
 
 %prep
 %setup -q -c -n %{packname}

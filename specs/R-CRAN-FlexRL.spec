@@ -1,38 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SmallCountRounding
-%global packver   1.1.0
+%global packname  FlexRL
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Count Rounding of Tabular Data
+Summary:          A Flexible Model for Record Linkage
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.6.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.6.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-Matrix >= 1.7
+BuildRequires:    R-CRAN-progress >= 1.2.3
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-testit >= 0.13
+Requires:         R-CRAN-Matrix >= 1.7
+Requires:         R-CRAN-progress >= 1.2.3
+Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-testit >= 0.13
 
 %description
-A statistical disclosure control tool to protect frequency tables in cases
-where small values are sensitive. The function PLSrounding() performs
-small count rounding of necessary inner cells so that all small
-frequencies of cross-classifications to be published (publishable cells)
-are rounded. This is equivalent to changing micro data since frequencies
-of unique combinations are changed. Thus, additivity and consistency are
-guaranteed. The methodology is described in Langsrud and Heldal (2018)
-<https://www.researchgate.net/publication/327768398_An_Algorithm_for_Small_Count_Rounding_of_Tabular_Data>.
+Implementation of the Stochastic Expectation Maximisation (StEM) approach
+to Record Linkage described in the paper by K. Robach, S. L. van der Pas,
+M. A. van de Wiel and M. H. Hof (2024, <doi:10.48550/arXiv.2407.06835>);
+see 'citation("FlexRL")' for details. This is a record linkage method, for
+finding the common set of records among 2 data sources based on Partially
+Identifying Variables (PIVs) available in both sources. It includes
+modelling of dynamic Partially Identifying Variables (e.g. postal code)
+that may evolve over time and registration errors (missing values and
+mistakes in the registration). Low memory footprint.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SmallCountRounding
-%global packver   1.1.0
+%global packname  AuxSurvey
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Count Rounding of Tabular Data
+Summary:          Survey Analysis with Auxiliary Discretized Variables
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,22 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.6.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.6.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-rstanarm 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-BART 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-rstanarm 
+Requires:         R-stats 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-BART 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rlang 
 
 %description
-A statistical disclosure control tool to protect frequency tables in cases
-where small values are sensitive. The function PLSrounding() performs
-small count rounding of necessary inner cells so that all small
-frequencies of cross-classifications to be published (publishable cells)
-are rounded. This is equivalent to changing micro data since frequencies
-of unique combinations are changed. Thus, additivity and consistency are
-guaranteed. The methodology is described in Langsrud and Heldal (2018)
-<https://www.researchgate.net/publication/327768398_An_Algorithm_for_Small_Count_Rounding_of_Tabular_Data>.
+Probability surveys often use auxiliary continuous data from
+administrative records, but the utility of this data is diminished when it
+is discretized for confidentiality. We provide a set of survey estimators
+to make full use of information from the discretized variables. See
+Williams, S.Z., Zou, J., Liu, Y., Si, Y., Galea, S. and Chen, Q. (2024)
+<doi:10.1002/sim.10270> for details.
 
 %prep
 %setup -q -c -n %{packname}

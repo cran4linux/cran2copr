@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  move2
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Processing and Analysing Animal Trajectories
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bit64 >= 4.5.2
 BuildRequires:    R-CRAN-vroom >= 1.6.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-sf >= 1.0.16
@@ -28,7 +29,7 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-bit64 
+Requires:         R-CRAN-bit64 >= 4.5.2
 Requires:         R-CRAN-vroom >= 1.6.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-sf >= 1.0.16
@@ -40,7 +41,6 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-bit64 
 
 %description
 Tools to handle, manipulate and explore trajectory data, with an emphasis

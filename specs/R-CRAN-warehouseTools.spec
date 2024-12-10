@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  duckdbfs
-%global packver   0.0.8
+%global packname  warehouseTools
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          High Performance Remote File System, Database and 'Geospatial' Access Using 'duckdb'
+Summary:          Heuristics for Solving the Traveling Salesman Problem in Warehouse Layouts
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-duckdb >= 1.1
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-duckdb >= 1.1
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-clusterSim 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-clusterSim 
 
 %description
-Provides friendly wrappers for creating 'duckdb'-backed connections to
-tabular datasets ('csv', parquet, etc) on local or remote file systems.
-This mimics the behaviour of "open_dataset" in the 'arrow' package, but in
-addition to 'S3' file system also generalizes to any list of 'http' URLs.
+Heuristic methods to solve the routing problems in a warehouse management.
+Package includes several heuristics such as the Midpoint, Return, S-Shape
+and Semi-Optimal Heuristics for designation of the picker’s route in order
+picking. The heuristics aim to provide the acceptable travel distances
+while considering warehouse layout constraints such as aisles and shelves.
+It also includes implementation of the COPRAS (COmplex PRoportional
+ASsessment) method for supporting selection of locations to be visited by
+the picker in shared storage systems. The package is designed to
+facilitate more efficient warehouse routing and logistics operations. see:
+Bartholdi, J. J., Hackman, S. T. (2019). "WAREHOUSE & DISTRIBUTION
+SCIENCE. Release 0.98.1." The Supply Chain & Logistics Institute. H.
+Milton Stewart School of Industrial and Systems Engineering. Georgia
+Institute of Technology.
+<https://www.warehouse-science.com/book/editions/wh-sci-0.98.1.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

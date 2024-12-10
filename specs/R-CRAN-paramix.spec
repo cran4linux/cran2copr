@@ -1,38 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SmallCountRounding
-%global packver   1.1.0
+%global packname  paramix
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Small Count Rounding of Tabular Data
+Summary:          Aggregate and Disaggregate Continuous Parameters for Compartmental Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.6.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-SSBtools >= 1.6.0
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-data.table 
+Requires:         R-CRAN-data.table 
 
 %description
-A statistical disclosure control tool to protect frequency tables in cases
-where small values are sensitive. The function PLSrounding() performs
-small count rounding of necessary inner cells so that all small
-frequencies of cross-classifications to be published (publishable cells)
-are rounded. This is equivalent to changing micro data since frequencies
-of unique combinations are changed. Thus, additivity and consistency are
-guaranteed. The methodology is described in Langsrud and Heldal (2018)
-<https://www.researchgate.net/publication/327768398_An_Algorithm_for_Small_Count_Rounding_of_Tabular_Data>.
+A convenient framework for aggregating and disaggregating continuously
+varying parameters (for example, case fatality ratio, with age) for proper
+parametrization of lower-resolution compartmental models (for example,
+with broad age categories) and subsequent upscaling of model outputs to
+high resolution (for example, as needed when calculating age-sensitive
+measures like years-life-lost).
 
 %prep
 %setup -q -c -n %{packname}

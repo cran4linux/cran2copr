@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kappaGold
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Agreement of Nominal Scale Raters with a Gold Standard
+Summary:          Agreement of Nominal Scale Raters (with a Gold Standard)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-future.apply >= 1.6
-BuildRequires:    R-CRAN-purrr >= 0.3
+BuildRequires:    R-CRAN-purrr >= 1.0
+BuildRequires:    R-CRAN-rlang >= 1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-future.apply >= 1.6
-Requires:         R-CRAN-purrr >= 0.3
+Requires:         R-CRAN-purrr >= 1.0
+Requires:         R-CRAN-rlang >= 1.0
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -32,7 +34,7 @@ Requires:         R-CRAN-tidyr
 Estimate agreement of a group of raters with a gold standard rating on a
 nominal scale. For a single gold standard rater the average pairwise
 agreement of raters with this gold standard is provided. For a group of
-gold standard raters the approach of S. Vanbelle, A. Albert (2009)
+(gold standard) raters the approach of S. Vanbelle, A. Albert (2009)
 <doi:10.1007/s11336-009-9116-1> is implemented. Bias and standard error
 are estimated via delete-1 jackknife.
 
