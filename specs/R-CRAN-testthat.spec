@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  testthat
-%global packver   3.2.1.1
+%global packver   3.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.1.1
+Version:          3.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unit Testing for R
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-processx >= 3.8.2
 BuildRequires:    R-CRAN-callr >= 3.7.3
 BuildRequires:    R-CRAN-cli >= 3.6.1
+BuildRequires:    R-CRAN-withr >= 3.0.2
 BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-withr >= 2.5.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-jsonlite >= 1.8.7
 BuildRequires:    R-CRAN-ps >= 1.7.5
@@ -29,17 +29,17 @@ BuildRequires:    R-CRAN-pkgload >= 1.3.2.1
 BuildRequires:    R-CRAN-brio >= 1.1.3
 BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+BuildRequires:    R-CRAN-evaluate >= 1.0.1
 BuildRequires:    R-CRAN-praise >= 1.0.0
 BuildRequires:    R-CRAN-digest >= 0.6.33
-BuildRequires:    R-CRAN-waldo >= 0.5.1
-BuildRequires:    R-CRAN-evaluate >= 0.21
+BuildRequires:    R-CRAN-waldo >= 0.6.0
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-processx >= 3.8.2
 Requires:         R-CRAN-callr >= 3.7.3
 Requires:         R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-withr >= 3.0.2
 Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-withr >= 2.5.0
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-jsonlite >= 1.8.7
 Requires:         R-CRAN-ps >= 1.7.5
@@ -48,10 +48,10 @@ Requires:         R-CRAN-pkgload >= 1.3.2.1
 Requires:         R-CRAN-brio >= 1.1.3
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-evaluate >= 1.0.1
 Requires:         R-CRAN-praise >= 1.0.0
 Requires:         R-CRAN-digest >= 0.6.33
-Requires:         R-CRAN-waldo >= 0.5.1
-Requires:         R-CRAN-evaluate >= 0.21
+Requires:         R-CRAN-waldo >= 0.6.0
 Requires:         R-methods 
 Requires:         R-utils 
 

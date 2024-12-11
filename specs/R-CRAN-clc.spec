@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AtmChile
-%global packver   1.0.2
+%global packname  clc
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Air Quality and Meteorological Information of Chile
+Summary:          CORINE Land Cover Data and Styles
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-gdalUtilities 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RPostgres 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-gdalUtilities 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RPostgres 
+Requires:         R-CRAN-sf 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-xml2 
 
 %description
-Download air quality and meteorological information of Chile from the
-National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/>
-dependent on the Ministry of the Environment and the Meteorological
-Directorate of Chile (D.M.C.)<https://www.meteochile.gob.cl/> dependent on
-the Directorate General of Civil Aeronautics.
+Streamline the management, analysis, and visualization of CORINE Land
+Cover data. Addresses challenges associated with its classification system
+and related styles, such as color mappings and descriptive labels.
 
 %prep
 %setup -q -c -n %{packname}

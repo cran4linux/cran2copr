@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FedData
-%global packver   4.1.0
+%global packver   4.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.0
+Version:          4.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Geospatial Data Available from Several Federated Data Sources
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.0
 BuildRequires:    R-CRAN-sf >= 1.0
-BuildRequires:    R-CRAN-arcgislayers >= 0.2.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
@@ -36,9 +35,9 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-terra >= 1.0
 Requires:         R-CRAN-sf >= 1.0
-Requires:         R-CRAN-arcgislayers >= 0.2.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
@@ -55,6 +54,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Download geospatial data available from several federated data sources

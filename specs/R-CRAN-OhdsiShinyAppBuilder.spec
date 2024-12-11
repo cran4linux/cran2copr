@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  effectsize
+%global packname  OhdsiShinyAppBuilder
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Indices of Effect Size
+Summary:          Viewing Observational Health Data Sciences and Informatics Results via 'shiny' Modules
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.0.0
-BuildRequires:    R-CRAN-parameters >= 0.24.0
-BuildRequires:    R-CRAN-bayestestR >= 0.15.0
-BuildRequires:    R-CRAN-datawizard >= 0.13.0
-BuildRequires:    R-CRAN-performance >= 0.12.4
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ParallelLogger >= 2.0.0
+BuildRequires:    R-CRAN-ResultModelManager >= 0.4.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-DatabaseConnector 
+BuildRequires:    R-CRAN-devtools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.0.0
-Requires:         R-CRAN-parameters >= 0.24.0
-Requires:         R-CRAN-bayestestR >= 0.15.0
-Requires:         R-CRAN-datawizard >= 0.13.0
-Requires:         R-CRAN-performance >= 0.12.4
-Requires:         R-stats 
+Requires:         R-CRAN-ParallelLogger >= 2.0.0
+Requires:         R-CRAN-ResultModelManager >= 0.4.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-DatabaseConnector 
+Requires:         R-CRAN-devtools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 Requires:         R-utils 
 
 %description
-Provide utilities to work with indices of effect size for a wide variety
-of models and hypothesis tests (see list of supported models using the
-function 'insight::supported_models()'), allowing computation of and
-conversion between indices such as Cohen's d, r, odds, etc. References:
-Ben-Shachar et al. (2020) <doi:10.21105/joss.02815>.
+Users can build a single 'shiny' app for exploring population
+characterization, population-level causal effect estimation, and
+patient-level prediction results generated via the R analyses packages in
+'HADES' (see <https://ohdsi.github.io/Hades/>). Learn more about
+'OhdsiShinyAppBuilder' at <https://ohdsi.github.io/OhdsiShinyAppBuilder/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AtmChile
-%global packver   1.0.2
+%global packname  FAVA
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Air Quality and Meteorological Information of Chile
+Summary:          Quantify Compositional Variability Across Relative Abundance Vectors
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 
 %description
-Download air quality and meteorological information of Chile from the
-National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/>
-dependent on the Ministry of the Environment and the Meteorological
-Directorate of Chile (D.M.C.)<https://www.meteochile.gob.cl/> dependent on
-the Directorate General of Civil Aeronautics.
+Implements the statistic FAVA, an Fst-based Assessment of Variability
+across vectors of relative Abundances, as well as a suite of helper
+functions which enable the visualization and statistical analysis of
+relative abundance data. The 'FAVA' R package accompanies the paper,
+“Quantifying compositional variability in microbial communities with FAVA”
+by Morrison, Xue, and Rosenberg (2024) <doi:10.1101/2024.07.03.601929>.
 
 %prep
 %setup -q -c -n %{packname}

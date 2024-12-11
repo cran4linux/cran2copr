@@ -1,47 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  np
-%global packver   0.60-18
+%global packname  htsDegenerateR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.60.18
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Kernel Smoothing Methods for Mixed Data Types
+Summary:          Degenerate Hierarchical Time Series Reconciliation
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-cubature 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-SparseM 
 Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-quantreg 
 Requires:         R-stats 
 
 %description
-Nonparametric (and semiparametric) kernel methods that seamlessly handle a
-mix of continuous, unordered, and ordered factor data types. We would like
-to gratefully acknowledge support from the Natural Sciences and
-Engineering Research Council of Canada (NSERC,
-<https://www.nserc-crsng.gc.ca/>), the Social Sciences and Humanities
-Research Council of Canada (SSHRC, <https://www.sshrc-crsh.gc.ca/>), and
-the Shared Hierarchical Academic Research Computing Network (SHARCNET,
-<https://sharcnet.ca/>). We would also like to acknowledge the
-contributions of the GNU GSL authors. In particular, we adapt the GNU GSL
-B-spline routine gsl_bspline.c adding automated support for quantile knots
-(in addition to uniform knots), providing missing functionality for
-derivatives, and for extending the splines beyond their endpoints.
+Takes the MinT implementation of the
+'hts'<https://cran.r-project.org/package=hts> package and adapts it to
+allow degenerate hierarchical structures. Instead of the "nodes" argument,
+this function takes an S matrix which is more versatile in the structures
+it allows. For a demo, see Steinmeister and Pauly
+(2024)<doi:10.15488/17729>. The MinT algorithm is based on Wickramasuriya
+et al. (2019)<doi:10.1080/01621459.2018.1448825>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AtmChile
-%global packver   1.0.2
+%global packname  moonboot
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Air Quality and Meteorological Information of Chile
+Summary:          m-Out-of-n Bootstrap Functions
 
-License:          GPL-3
+License:          BSD 2-clause License + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-methods >= 4.1.2
+BuildRequires:    R-stats >= 4.1.2
+Requires:         R-methods >= 4.1.2
+Requires:         R-stats >= 4.1.2
 
 %description
-Download air quality and meteorological information of Chile from the
-National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/>
-dependent on the Ministry of the Environment and the Meteorological
-Directorate of Chile (D.M.C.)<https://www.meteochile.gob.cl/> dependent on
-the Directorate General of Civil Aeronautics.
+Functions and examples based on the m-out-of-n bootstrap suggested by
+Politis, D.N. and Romano, J.P. (1994) <doi:10.1214/aos/1176325770>.
+Additionally there are functions to estimate the scaling factor tau and
+the subsampling size m. For a detailed description and a full list of
+references, see Dalitz, C. and Lögler, F. (2024)
+<doi:10.48550/arXiv.2412.05032>.
 
 %prep
 %setup -q -c -n %{packname}

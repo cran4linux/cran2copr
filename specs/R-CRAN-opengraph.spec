@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AtmChile
-%global packver   1.0.2
+%global packname  opengraph
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Air Quality and Meteorological Information of Chile
+Summary:          Process Metadata from the Open Graph Protocol
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-rvest 
+Requires:         R-CRAN-rvest 
 
 %description
-Download air quality and meteorological information of Chile from the
-National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/>
-dependent on the Ministry of the Environment and the Meteorological
-Directorate of Chile (D.M.C.)<https://www.meteochile.gob.cl/> dependent on
-the Directorate General of Civil Aeronautics.
+Social media sites often embed cards when links are shared, based on
+metadata in the 'Open Graph Protocol' (<https://ogp.me/>). This supports
+extracting that metadata from a website. It further allows for the
+creation of tags to add to a website to support the 'Open Graph Protocol'
+and provides a list of the standard tags and their required properties.
 
 %prep
 %setup -q -c -n %{packname}

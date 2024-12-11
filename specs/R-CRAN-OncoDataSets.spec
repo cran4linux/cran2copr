@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AtmChile
-%global packver   1.0.2
+%global packname  OncoDataSets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Air Quality and Meteorological Information of Chile
+Summary:          A Comprehensive Collection of Cancer Types and Cancer-Related Datasets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-openair 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-openair 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-DT 
 
 %description
-Download air quality and meteorological information of Chile from the
-National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/>
-dependent on the Ministry of the Environment and the Meteorological
-Directorate of Chile (D.M.C.)<https://www.meteochile.gob.cl/> dependent on
-the Directorate General of Civil Aeronautics.
+Offers a rich collection of data focused on cancer research, covering
+survival rates, genetic studies, biomarkers, and epidemiological insights.
+Designed for researchers, analysts, and bioinformatics practitioners, the
+package includes datasets on various cancer types such as melanoma,
+leukemia, breast, ovarian, and lung cancer, among others. It aims to
+facilitate advanced research, analysis, and understanding of cancer
+epidemiology, genetics, and treatment outcomes.
 
 %prep
 %setup -q -c -n %{packname}

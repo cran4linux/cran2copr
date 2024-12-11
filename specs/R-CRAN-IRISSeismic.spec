@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  np
-%global packver   0.60-18
+%global packname  IRISSeismic
+%global packver   1.6.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.60.18
+Version:          1.6.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nonparametric Kernel Smoothing Methods for Mixed Data Types
+Summary:          Classes and Methods for Seismic Data Analysis
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-seismicRoll >= 1.1.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-seismicRoll >= 1.1.0
 Requires:         R-methods 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-XML 
 Requires:         R-stats 
 
 %description
-Nonparametric (and semiparametric) kernel methods that seamlessly handle a
-mix of continuous, unordered, and ordered factor data types. We would like
-to gratefully acknowledge support from the Natural Sciences and
-Engineering Research Council of Canada (NSERC,
-<https://www.nserc-crsng.gc.ca/>), the Social Sciences and Humanities
-Research Council of Canada (SSHRC, <https://www.sshrc-crsh.gc.ca/>), and
-the Shared Hierarchical Academic Research Computing Network (SHARCNET,
-<https://sharcnet.ca/>). We would also like to acknowledge the
-contributions of the GNU GSL authors. In particular, we adapt the GNU GSL
-B-spline routine gsl_bspline.c adding automated support for quantile knots
-(in addition to uniform knots), providing missing functionality for
-derivatives, and for extending the splines beyond their endpoints.
+Provides classes and methods for seismic data analysis. The base classes
+and methods are inspired by the python code found in the 'ObsPy' python
+toolbox <https://github.com/obspy/obspy>. Additional classes and methods
+support data returned by web services provided by EarthScope.
+<https://service.earthscope.org/>.
 
 %prep
 %setup -q -c -n %{packname}
