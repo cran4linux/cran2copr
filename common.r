@@ -72,6 +72,7 @@ do.call.retry <- function(what, args, ..., n=3, wait=60, skip=TRUE) {
     n <- n - 1
     if (n == 0 || !errored)
       break
+    message("\n", out, "\n")
     message("  Retrying in ", wait, " seconds (", n, " retries left)...")
     Sys.sleep(wait)
   }
