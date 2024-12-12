@@ -1,26 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gee
-%global packver   4.13-29
+%global packname  CropBreeding
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.13.29
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Estimation Equation Solver
+Summary:          Stability Analysis in Crop Breeding
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-metan 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-metan 
+Requires:         R-CRAN-rlang 
 
 %description
-Generalized Estimation Equation solver.
+Provides tools for crop breeding analysis including Genetic Coefficient of
+Variation (GCV), Phenotypic Coefficient of Variation (PCV), heritability,
+genetic advance calculations, stability analysis using the
+Eberhart-Russell model, two-way ANOVA for genotype-environment
+interactions, and Additive Main Effects and Multiplicative Interaction
+(AMMI) analysis. These tools are developed for crop breeding research and
+stability evaluation under various environmental conditions. The methods
+are based on established statistical and biometrical principles. Refer to
+Eberhart and Russell (1966)
+<doi:10.2135/cropsci1966.0011183X000600010011x> for stability parameters,
+Fisher (1935) "The Design of Experiments" <ISBN:9780198522294>, Falconer
+(1996) "Introduction to Quantitative Genetics" <ISBN:9780582243026>, and
+Singh and Chaudhary (1985) "Biometrical Methods in Quantitative Genetic
+Analysis" <ISBN:9788122433764> for foundational methodologies.
 
 %prep
 %setup -q -c -n %{packname}

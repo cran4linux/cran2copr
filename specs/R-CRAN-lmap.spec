@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mkde
-%global packver   0.4
+%global packname  lmap
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D and 3D Movement-Based Kernel Density Estimates (MKDEs)
+Summary:          Logistic Mapping
 
-License:          GPL (>= 3)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.9.6
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stars 
-Requires:         R-CRAN-Rcpp >= 0.9.6
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stars 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-fmdu 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rfast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-fmdu 
+Requires:         R-CRAN-nnet 
+Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rfast 
 
 %description
-Provides functions to compute and visualize movement-based kernel density
-estimates (MKDEs) for animal utilization distributions in 2 or 3 spatial
-dimensions.
+Set of tools for mapping of categorical response variables based on
+principal component analysis (pca) and multidimensional unfolding (mdu).
 
 %prep
 %setup -q -c -n %{packname}

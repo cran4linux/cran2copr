@@ -1,46 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  effectplots
-%global packver   0.2.0
+%global packname  tna
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Effect Plots
+Summary:          Transition Network Analysis (TNA)
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-collapse 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-collapse 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-High-performance implementation of various effect plots useful for
-regression and probabilistic classification tasks.  The package includes
-partial dependence plots (Friedman, 2021, <doi:10.1214/aos/1013203451>),
-accumulated local effect plots and M-plots (both from Apley and Zhu, 2016,
-<doi:10.1111/rssb.12377>), as well as plots that describe the statistical
-associations between model response and features.  It supports
-visualizations with either 'ggplot2' or 'plotly', and is compatible with
-most models, including 'Tidymodels', models wrapped in 'DALEX' explainers,
-or models with case weights.
+Provides tools for performing Transition Network Analysis (TNA) to study
+relational dynamics, including functions for building and plotting TNA
+models, calculating centrality measures, and identifying dominant events
+and patterns. TNA statistical techniques (e.g., bootstrapping and
+permutation tests) ensure the reliability of observed insights and confirm
+that identified dynamics are meaningful. See (Saqr et al., 2024)
+<doi:10.48550/arXiv.2411.15486> for more details on TNA.
 
 %prep
 %setup -q -c -n %{packname}

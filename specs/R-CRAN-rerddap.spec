@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rerddap
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Purpose Client for 'ERDDAP' Servers
+Summary:          General Purpose Client for 'ERDDAP™' Servers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-dplyr >= 0.5.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nanoparquet 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-jsonlite >= 1.6
@@ -39,13 +40,14 @@ Requires:         R-CRAN-dplyr >= 0.5.0
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
+Requires:         R-CRAN-nanoparquet 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-General purpose R client for 'ERDDAP' servers. Includes functions to
+General purpose R client for 'ERDDAP™' servers. Includes functions to
 search for 'datasets', get summary information on 'datasets', and fetch
-'datasets', in either 'csv' or 'netCDF' format. 'ERDDAP' information:
+'datasets', in either 'csv' or 'netCDF' format. 'ERDDAP™' information:
 <https://upwell.pfeg.noaa.gov/erddap/information.html>.
 
 %prep

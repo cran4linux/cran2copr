@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  warbleR
-%global packver   1.1.32
+%global packver   1.1.33
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.32
+Version:          1.1.33
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Bioacoustic Analysis
 
@@ -36,6 +36,8 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-bioacoustics 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-seewave >= 2.0.1
 Requires:         R-CRAN-tuneR 
@@ -56,22 +58,18 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-bioacoustics 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
 
 %description
 Functions aiming to facilitate the analysis of the structure of animal
 acoustic signals in 'R'. 'warbleR' makes use of the basic sound analysis
 tools from the packages 'tuneR' and 'seewave', and offers new tools for
-acoustic structure analysis. The main features of the package are the use
-of loops to apply tasks through acoustic signals referenced in a selection
-(annotation) table and the production of spectrograms in image files that
-allow to organize data and verify acoustic analyzes. The package offers
-functions to explore, organize and manipulate multiple sound files,
-explore and download 'Xeno-Canto' recordings, create spectrograms of
-complete recordings or individual signals, run different measures of
-acoustic signal structure, evaluate the performance of measurement
-methods, catalog signals, characterize different structural levels in
-acoustic signals, run statistical analysis of duet coordination and
-consolidate databases and annotation tables, among others.
+explore and quantify acoustic signal structure. The package allows to
+organize and manipulate multiple sound files, create spectrograms of
+complete recordings or individual signals in different formats, run
+several measures of acoustic structure, and characterize different
+structural levels in acoustic signals.
 
 %prep
 %setup -q -c -n %{packname}

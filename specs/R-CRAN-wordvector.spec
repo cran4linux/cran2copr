@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mkde
-%global packver   0.4
+%global packname  wordvector
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D and 3D Movement-Based Kernel Density Estimates (MKDEs)
+Summary:          Word and Document Vector Models
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.9.6
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stars 
-Requires:         R-CRAN-Rcpp >= 0.9.6
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stars 
+BuildRequires:    R-CRAN-quanteda >= 4.1.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-proxyC 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-rsvd 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-quanteda >= 4.1.0
+Requires:         R-methods 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-proxyC 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-rsvd 
 
 %description
-Provides functions to compute and visualize movement-based kernel density
-estimates (MKDEs) for animal utilization distributions in 2 or 3 spatial
-dimensions.
+Create dense vector representation of words and documents using
+'quanteda'. Currently implements Word2vec (Mikolov et al., 2013)
+<doi:10.48550/arXiv.1310.4546> and Latent Semantic Analysis (Deerwester et
+al., 1990)
+<doi:10.1002/(SICI)1097-4571(199009)41:6%%3C391::AID-ASI1%%3E3.0.CO;2-9>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mkde
-%global packver   0.4
+%global packname  ADSIHT
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D and 3D Movement-Based Kernel Density Estimates (MKDEs)
+Summary:          Adaptive Double Sparse Iterative Hard Thresholding
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.9.6
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stars 
-Requires:         R-CRAN-Rcpp >= 0.9.6
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stars 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides functions to compute and visualize movement-based kernel density
-estimates (MKDEs) for animal utilization distributions in 2 or 3 spatial
-dimensions.
+Solving the high-dimensional double sparse linear regression via iterative
+hard thresholding algorithm. For more details, please see Zhang et al.
+(2024, <DOI:10.48550/arXiv.2305.04182>).
 
 %prep
 %setup -q -c -n %{packname}

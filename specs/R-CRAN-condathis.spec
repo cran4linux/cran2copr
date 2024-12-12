@@ -1,34 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mkde
-%global packver   0.4
+%global packname  condathis
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D and 3D Movement-Based Kernel Density Estimates (MKDEs)
+Summary:          Run Any CLI Tool on a 'Conda' Environment
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.9.6
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stars 
-Requires:         R-CRAN-Rcpp >= 0.9.6
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stars 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Provides functions to compute and visualize movement-based kernel density
-estimates (MKDEs) for animal utilization distributions in 2 or 3 spatial
-dimensions.
+Simplifies the execution of command line interface (CLI) tools within
+isolated and reproducible environments. It enables users to effortlessly
+manage 'Conda' environments, execute command line tools, handle
+dependencies, and ensure reproducibility in their data analysis workflows.
 
 %prep
 %setup -q -c -n %{packname}

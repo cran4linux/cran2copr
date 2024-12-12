@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  effectplots
-%global packver   0.2.0
+%global packname  IRISMustangMetrics
+%global packver   2.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Effect Plots
+Summary:          Statistics and Metrics for Seismic Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-collapse 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-IRISSeismic >= 1.3.0
+BuildRequires:    R-CRAN-seismicRoll >= 1.1.4
+BuildRequires:    R-CRAN-dplyr >= 0.4.3
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-collapse 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-IRISSeismic >= 1.3.0
+Requires:         R-CRAN-seismicRoll >= 1.1.4
+Requires:         R-CRAN-dplyr >= 0.4.3
+Requires:         R-methods 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-XML 
 Requires:         R-stats 
+Requires:         R-CRAN-pracma 
 
 %description
-High-performance implementation of various effect plots useful for
-regression and probabilistic classification tasks.  The package includes
-partial dependence plots (Friedman, 2021, <doi:10.1214/aos/1013203451>),
-accumulated local effect plots and M-plots (both from Apley and Zhu, 2016,
-<doi:10.1111/rssb.12377>), as well as plots that describe the statistical
-associations between model response and features.  It supports
-visualizations with either 'ggplot2' or 'plotly', and is compatible with
-most models, including 'Tidymodels', models wrapped in 'DALEX' explainers,
-or models with case weights.
+Classes and functions for metrics calculation as part of the 'EarthScope
+MUSTANG' project. The functionality in this package builds upon the base
+classes of the 'IRISSeismic' package. Metrics include basic statistics as
+well as higher level 'health' metrics that can help identify problematic
+seismometers.
 
 %prep
 %setup -q -c -n %{packname}

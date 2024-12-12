@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mkde
-%global packver   0.4
+%global packname  SunCalcMeeus
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D and 3D Movement-Based Kernel Density Estimates (MKDEs)
+Summary:          Sun Position and Daylight Calculations
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.9.6
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stars 
-Requires:         R-CRAN-Rcpp >= 0.9.6
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stars 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-dplyr >= 1.0.9
+BuildRequires:    R-stats 
+Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-dplyr >= 1.0.9
+Requires:         R-stats 
 
 %description
-Provides functions to compute and visualize movement-based kernel density
-estimates (MKDEs) for animal utilization distributions in 2 or 3 spatial
-dimensions.
+Compute the position of the sun, and local solar time using Meeus'
+formulae. Compute day and/or night length using different twilight
+definitions or arbitrary sun elevation angles. This package is part of the
+'r4photobiology' suite, Aphalo, P. J. (2015)
+<doi:10.19232/uv4pb.2015.1.14>. Algorithms from Meeus (1998,
+ISBN:0943396611).
 
 %prep
 %setup -q -c -n %{packname}

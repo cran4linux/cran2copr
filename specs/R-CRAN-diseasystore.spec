@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diseasystore
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Feature Stores for the 'diseasy' Framework
 
@@ -14,11 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SCDB >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-ISOweek 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pkgcond 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
@@ -36,6 +38,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-SCDB >= 0.4.0
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-dplyr 
@@ -43,6 +46,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-ISOweek 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pkgcond 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 

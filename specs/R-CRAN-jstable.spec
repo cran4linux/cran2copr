@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jstable
-%global packver   1.3.6
+%global packver   1.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tables from Different Types of Regression
 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-lmerTest 
 Requires:         R-CRAN-survival >= 3.0.0
 Requires:         R-CRAN-geepack 
 Requires:         R-CRAN-lme4 
@@ -47,6 +49,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-lmerTest 
 
 %description
 Create regression tables from generalized linear model(GLM), generalized
