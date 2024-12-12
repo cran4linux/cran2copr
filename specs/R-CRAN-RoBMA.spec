@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RoBMA
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Bayesian Meta-Analyses
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    jags-devel
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-BayesTools >= 0.2.16
+BuildRequires:    R-CRAN-BayesTools >= 0.2.17
 BuildRequires:    R-CRAN-runjags 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-stats 
@@ -26,8 +26,9 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-BayesTools >= 0.2.16
+Requires:         R-CRAN-BayesTools >= 0.2.17
 Requires:         R-CRAN-runjags 
 Requires:         R-CRAN-rjags 
 Requires:         R-stats 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-ggplot2 
 
 %description

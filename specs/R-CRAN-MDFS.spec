@@ -1,29 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PSGD
-%global packver   1.0.3
+%global packname  MDFS
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Projected Subset Gradient Descent
+Summary:          MultiDimensional Feature Selection
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 
 %description
-Functions to generate ensembles of generalized linear models using a
-greedy projected subset gradient descent algorithm. The sparsity and
-diversity tuning parameters are selected by cross-validation.
+Functions for MultiDimensional Feature Selection (MDFS): calculating
+multidimensional information gains, scoring variables, finding important
+variables, plotting selection results. This package includes an optional
+CUDA implementation that speeds up information gain calculation using
+NVIDIA GPGPUs. R. Piliszek et al. (2019) <doi:10.32614/RJ-2019-019>.
 
 %prep
 %setup -q -c -n %{packname}

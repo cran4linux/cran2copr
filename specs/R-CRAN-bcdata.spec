@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bcdata
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Search and Retrieve Data from the BC Data Catalogue
 
@@ -19,17 +19,17 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.3.0
 BuildRequires:    R-CRAN-tibble >= 3.1.0
-BuildRequires:    R-CRAN-dbplyr >= 2.2.0
+BuildRequires:    R-CRAN-dbplyr >= 2.3.4
 BuildRequires:    R-CRAN-leaflet >= 2.1.0
 BuildRequires:    R-CRAN-readr >= 2.1
 BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-jsonlite >= 1.6.0
 BuildRequires:    R-CRAN-readxl >= 1.4.0
 BuildRequires:    R-CRAN-xml2 >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-DBI >= 1.1.0
-BuildRequires:    R-CRAN-crul >= 1.1
+BuildRequires:    R-CRAN-crul >= 1.1.0
 BuildRequires:    R-CRAN-tidyselect >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-leaflet.extras >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0
 BuildRequires:    R-CRAN-sf >= 1.0
@@ -39,17 +39,17 @@ BuildRequires:    R-utils
 BuildRequires:    R-stats 
 Requires:         R-CRAN-cli >= 3.3.0
 Requires:         R-CRAN-tibble >= 3.1.0
-Requires:         R-CRAN-dbplyr >= 2.2.0
+Requires:         R-CRAN-dbplyr >= 2.3.4
 Requires:         R-CRAN-leaflet >= 2.1.0
 Requires:         R-CRAN-readr >= 2.1
 Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-jsonlite >= 1.6.0
 Requires:         R-CRAN-readxl >= 1.4.0
 Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-DBI >= 1.1.0
-Requires:         R-CRAN-crul >= 1.1
+Requires:         R-CRAN-crul >= 1.1.0
 Requires:         R-CRAN-tidyselect >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-leaflet.extras >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0
 Requires:         R-CRAN-sf >= 1.0

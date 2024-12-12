@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gptoolsStan
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Processes on Graphs and Lattices in 'Stan'
 
@@ -27,7 +27,7 @@ likelihood that is generally applicable and, second, an exact method for
 regularly spaced data modeled by stationary kernels using fast Fourier
 methods. Utility functions are provided to compile and fit 'Stan' models
 using the 'cmdstanr' interface. References: Hoffmann and Onnela (2022)
-<arXiv:2301.08836>.
+<doi:10.48550/arXiv.2301.08836>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tesselle
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load 'tesselle' Packages
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tabula >= 3.0.1
-BuildRequires:    R-CRAN-kairos >= 2.0.2
-BuildRequires:    R-CRAN-folio >= 1.3.0
-BuildRequires:    R-CRAN-khroma >= 1.11.0
-BuildRequires:    R-CRAN-isopleuros >= 1.0.0
-BuildRequires:    R-CRAN-dimensio >= 0.5.0
-BuildRequires:    R-CRAN-nexus >= 0.1.0
-Requires:         R-CRAN-tabula >= 3.0.1
-Requires:         R-CRAN-kairos >= 2.0.2
-Requires:         R-CRAN-folio >= 1.3.0
-Requires:         R-CRAN-khroma >= 1.11.0
-Requires:         R-CRAN-isopleuros >= 1.0.0
-Requires:         R-CRAN-dimensio >= 0.5.0
-Requires:         R-CRAN-nexus >= 0.1.0
+BuildRequires:    R-CRAN-tabula >= 3.1.1
+BuildRequires:    R-CRAN-kairos >= 2.2.0
+BuildRequires:    R-CRAN-folio >= 1.5.0
+BuildRequires:    R-CRAN-isopleuros >= 1.3.0
+BuildRequires:    R-CRAN-khroma >= 1.14.0
+BuildRequires:    R-CRAN-nexus >= 0.3.0
+BuildRequires:    R-CRAN-dimensio >= 0.10.1
+Requires:         R-CRAN-tabula >= 3.1.1
+Requires:         R-CRAN-kairos >= 2.2.0
+Requires:         R-CRAN-folio >= 1.5.0
+Requires:         R-CRAN-isopleuros >= 1.3.0
+Requires:         R-CRAN-khroma >= 1.14.0
+Requires:         R-CRAN-nexus >= 0.3.0
+Requires:         R-CRAN-dimensio >= 0.10.1
 
 %description
 Easy install and load key packages from the 'tesselle' suite in a single
