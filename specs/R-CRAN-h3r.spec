@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  h3r
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hexagonal Hierarchical Geospatial Indexing System
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-h3lib >= 0.1.3
-Requires:         R-CRAN-h3lib >= 0.1.3
+BuildRequires:    R-CRAN-h3lib >= 0.1.4
+Requires:         R-CRAN-h3lib >= 0.1.4
 
 %description
 Provides access to Uber's 'H3' geospatial indexing system via 'h3lib'

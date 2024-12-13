@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  depCensoring
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Survival Data with Dependent Censoring
 
@@ -26,6 +26,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-OpenMx 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-EnvStats 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-rafalib 
 BuildRequires:    R-CRAN-rvinecopulib 
@@ -43,6 +46,9 @@ Requires:         R-stats
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-OpenMx 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-EnvStats 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-rafalib 
 Requires:         R-CRAN-rvinecopulib 
@@ -64,7 +70,7 @@ methods, refer to Deresa and Van Keilegom (2021)
 <doi:10.1093/biomet/asac067>, Crommen et al. (2024)
 <doi:10.1007/s11749-023-00903-9>, Deresa and Van Keilegom (2024)
 <doi:10.1080/01621459.2022.2161387> and Willems et al. (2024+)
-<doi:10.48550/arXiv.2403.11860>.
+<doi:10.48550/arXiv.2403.11860> and Ding and Van Keilegom (2024).
 
 %prep
 %setup -q -c -n %{packname}

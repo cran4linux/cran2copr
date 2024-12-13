@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  options
-%global packver   0.3.0
+%global packname  ConjointChecks
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple, Consistent Package Options
+Summary:          Implementation of a Method to Check the Cancellation Axioms of Additive Conjoint Measurement
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simple mechanisms for defining and interpreting package options. Provides
-helpers for interpreting environment variables, global options, defining
-default values and more.
+Implementation of a procedure---Domingue (2012)
+<https://eric.ed.gov/?id=ED548657>, Domingue (2014)
+<doi:10.1007/s11336-013-9342-4>; see also Karabatsos (2001)
+<https://psycnet.apa.org/record/2002-01665-005> and Kyngdon (2011)
+<doi:10.1348/2044-8317.002004>---to test the single and double
+cancellation axioms of conjoint measure in data that is dichotomously
+coded and measured with error.
 
 %prep
 %setup -q -c -n %{packname}

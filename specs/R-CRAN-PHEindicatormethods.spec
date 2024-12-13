@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PHEindicatormethods
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Common Public Health Statistics and their Confidence Intervals
 
@@ -14,31 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tibble >= 3.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-broom >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble >= 3.2.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-broom >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-broom 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Functions to calculate commonly used public health statistics and their
 confidence intervals using methods approved for use in the production of
 Public Health England indicators such as those presented via Fingertips
-(<http://fingertips.phe.org.uk/>). It provides functions for the
+(<https://fingertips.phe.org.uk/>). It provides functions for the
 generation of proportions, crude rates, means, directly standardised
 rates, indirectly standardised rates, standardised mortality ratios, slope
 and relative index of inequality and life expectancy. Statistical methods
@@ -51,7 +53,8 @@ are referenced in the following publications. Breslow NE, Day NE (1987)
 (1994, ISBN: 978-0-898-62451-9). Eayres DP, Williams ES (2004)
 <doi:10.1136/jech.2003.009654>. Silcocks PBS et al (2001)
 <doi:10.1136/jech.55.1.38>. Low and Low (2004)
-<doi:10.1093/pubmed/fdh175>.
+<doi:10.1093/pubmed/fdh175>. Fingertips Public Health Technical Guide:
+<https://fingertips.phe.org.uk/static-reports/public-health-technical-guidance/>.
 
 %prep
 %setup -q -c -n %{packname}

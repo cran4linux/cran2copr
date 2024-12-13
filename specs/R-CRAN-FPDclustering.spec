@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FPDclustering
-%global packver   2.3.1
+%global packver   2.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.1
+Version:          2.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          PD-Clustering and Related Methods
 
@@ -40,16 +40,16 @@ Requires:         R-CRAN-ggeasy
 
 %description
 Probabilistic distance clustering (PD-clustering) is an iterative,
-distribution free, probabilistic clustering method. PD-clustering assigns
-units to a cluster according to their probability of membership, under the
+distribution-free, probabilistic clustering method. PD-clustering assigns
+units to a cluster according to their probability of membership under the
 constraint that the product of the probability and the distance of each
-point to any cluster centre is a constant. PD-clustering is a flexible
-method that can be used with non-spherical clusters, outliers, or noisy
-data. PDQ is an extension of the algorithm for clusters of different size.
-GPDC and TPDC uses a dissimilarity measure based on densities. Factor
+point to any cluster center is a constant. PD-clustering is a flexible
+method that can be used with elliptical clusters, outliers, or noisy data.
+PDQ is an extension of the algorithm for clusters of different sizes. GPDC
+and TPDC use a dissimilarity measure based on densities. Factor
 PD-clustering (FPDC) is a factor clustering method that involves a linear
 transformation of variables and a cluster optimizing the PD-clustering
-criterion. It works on high dimensional data sets.
+criterion. It works on high-dimensional data sets.
 
 %prep
 %setup -q -c -n %{packname}

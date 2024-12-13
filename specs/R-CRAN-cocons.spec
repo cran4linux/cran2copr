@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cocons
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate-Based Covariance Functions for Nonstationary Spatial Modeling
 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-knitr
 %description
 Estimation, prediction, and simulation of nonstationary Gaussian process
 with modular covariate-based covariance functions. Sources of
-nonstationarity, such as trend, variance, geometric anisotropy,
+nonstationarity, such as spatial mean, variance, geometric anisotropy,
 smoothness, and nugget, can be considered based on spatial
 characteristics. An induced compact-supported nonstationary covariance
 function is provided, enabling fast and memory-efficient computations when

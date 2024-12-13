@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psc
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Personalised Synthetic Controls
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-enrichwith 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survminer 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-enrichwith 
 Requires:         R-stats 
 Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survminer 
 
 %description
 Allows the comparison of data cohorts (DC) against a Counter Factual Model

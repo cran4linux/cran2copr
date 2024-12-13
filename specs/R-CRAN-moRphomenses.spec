@@ -1,29 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  options
-%global packver   0.3.0
+%global packname  moRphomenses
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple, Consistent Package Options
+Summary:          Geometric Morphometric Tools to Align, Scale, and Compare "Shape" of Menstrual Cycle Hormones
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description
-Simple mechanisms for defining and interpreting package options. Provides
-helpers for interpreting environment variables, global options, defining
-default values and more.
+Mitteroecker & Gunz (2009) <doi:10.1007/s11692-009-9055-x> describe how
+geometric morphometric methods allow researchers to quantify the size and
+shape of physical biological structures. We provide tools to extend
+geometric morphometric principles to the study of non-physical structures,
+hormone profiles, as outlined in Ehrlich et al (2021)
+<doi:10.1002/ajpa.24514>. Easily transform daily measures into
+multivariate landmark-based data. Includes custom functions to apply
+multivariate methods for data exploration as well as hypothesis testing.
+Also includes 'shiny' web app to streamline data exploration. Developed to
+study menstrual cycle hormones but functions have been generalized and
+should be applicable to any biomarker over any time period.
 
 %prep
 %setup -q -c -n %{packname}

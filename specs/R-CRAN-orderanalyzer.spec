@@ -1,44 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  enderecobr
-%global packver   0.3.0
+%global packname  orderanalyzer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Padronizador de Endereços Brasileiros (Brazilian Addresses Standardizer)
+Summary:          Extracting Order Position Tables from PDF-Based Order Documents
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-quanteda 
+BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-lubridate 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-quanteda 
+Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-lubridate 
 
 %description
-Padroniza endereços brasileiros a partir de diferentes critérios. Os
-métodos de padronização incluem apenas manipulações básicas de strings,
-não oferecendo suporte a correspondências probabilísticas entre strings.
-(Standardizes brazilian addresses using different criteria.
-Standardization methods include only basic string manipulation, not
-supporting probabilistic matches between strings.)
+Functions for extracting text and tables from PDF-based order documents.
+It provides an n-gram-based approach for identifying the language of an
+order document. It furthermore uses R-package 'pdftools' to extract the
+text from an order document. In the case that the PDF document is only
+including an image (because it is scanned document), R package 'tesseract'
+is used for OCR. Furthermore, the package provides functionality for
+identifying and extracting order position tables in order documents based
+on a clustering approach.
 
 %prep
 %setup -q -c -n %{packname}

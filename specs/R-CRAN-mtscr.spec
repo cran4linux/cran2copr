@@ -1,29 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  options
-%global packver   0.3.0
+%global packname  mtscr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple, Consistent Package Options
+Summary:          Multidimensional Top Scoring for Creativity Research
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glmmTMB 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-broom.mixed 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glmmTMB 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Simple mechanisms for defining and interpreting package options. Provides
-helpers for interpreting environment variables, global options, defining
-default values and more.
+Implementation of Multidimensional Top Scoring method for creativity
+assessment proposed in Boris Forthmann, Maciej Karwowski, Roger E. Beaty
+(2023) <doi:10.1037/aca0000571>.
 
 %prep
 %setup -q -c -n %{packname}
