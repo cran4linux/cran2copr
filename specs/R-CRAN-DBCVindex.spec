@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedbiastest
-%global packver   0.3.0
+%global packname  DBCVindex
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias Diagnostic for Linear Mixed Models
+Summary:          Calculates the Density-Based Clustering Validation Index (DBCV) Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-pacman 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-pacman 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+A metric called 'Density-Based Clustering Validation index' (DBCV) index
+to evaluate clustering results, following the
+<https://github.com/FelSiq/DBCV> 'Python' implementation by Felipe Alves
+Siqueira. Original 'DBCV' index article: Moulavi, D., Jaskowiak, P. A.,
+Campello, R. J., Zimek, A., & Sander, J. (2014, April). "Density-based
+clustering validation", Proceedings of SDM 2014 -- the 2014 SIAM
+International Conference on Data Mining (pp. 839-847),
+<doi:10.1137/1.9781611973440.96>.
 
 %prep
 %setup -q -c -n %{packname}

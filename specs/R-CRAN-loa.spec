@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loa
-%global packver   0.2.49.4
+%global packver   0.3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.49.4
+Version:          0.3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lattice Options and Add-Ins
 
@@ -42,8 +42,8 @@ Requires:         R-CRAN-plyr
 
 %description
 Various plots and functions that make use of the lattice/trellis plotting
-framework. The plots, which include loaPlot(), RgoogleMapsPlot() and
-trianglePlot(), use panelPal(), a function that extends 'lattice' and
+framework. The plots, which include loaPlot(), loaMapPlot() and
+trianglePlot(), and use panelPal(), a function that extends 'lattice' and
 'hexbin' package methods to automate plot subscript and panel-to-panel and
 panel-to-key synchronization/management.
 

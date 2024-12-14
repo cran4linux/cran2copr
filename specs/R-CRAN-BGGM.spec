@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BGGM
-%global packver   2.1.3
+%global packver   2.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Gaussian Graphical Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-MASS >= 7.3.51.5
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-sna >= 2.5
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
 BuildRequires:    R-CRAN-reshape >= 0.8.8
 BuildRequires:    R-CRAN-ggridges >= 0.5.1
 BuildRequires:    R-CRAN-mvnfast >= 0.2.5
-BuildRequires:    R-CRAN-Rdpack >= 0.11
+BuildRequires:    R-CRAN-Rdpack >= 0.11.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -44,7 +44,7 @@ Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-reshape >= 0.8.8
 Requires:         R-CRAN-ggridges >= 0.5.1
 Requires:         R-CRAN-mvnfast >= 0.2.5
-Requires:         R-CRAN-Rdpack >= 0.11
+Requires:         R-CRAN-Rdpack >= 0.11.1
 Requires:         R-grDevices 
 Requires:         R-methods 
 Requires:         R-stats 

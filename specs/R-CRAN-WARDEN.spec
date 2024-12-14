@@ -1,45 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tssim
-%global packver   0.2.7
+%global packname  WARDEN
+%global packver   0.99.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.99.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulation of Daily and Monthly Time Series
+Summary:          Workflows for Health Technology Assessments in R using Discrete EveNts
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dsa 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-timeDate 
-BuildRequires:    R-CRAN-tsbox 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-flexsurv 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-dsa 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-doFuture 
 Requires:         R-stats 
-Requires:         R-CRAN-timeDate 
-Requires:         R-CRAN-tsbox 
 Requires:         R-utils 
-Requires:         R-CRAN-xts 
+Requires:         R-CRAN-flexsurv 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Flexible simulation of time series using time series components, including
-seasonal, calendar and outlier effects. Main algorithm described in
-Ollech, D. (2021) <doi:10.1515/jtse-2020-0028>.
+Toolkit to support and perform discrete event simulations without resource
+constraints in the context of health technology assessments (HTA). The
+package focuses on cost-effectiveness modelling and aims to be
+submission-ready to relevant HTA bodies in alignment with 'NICE TSD 15'
+<https://www.sheffield.ac.uk/nice-dsu/tsds/patient-level-simulation>. More
+details an examples can be found in the package website
+<https://jsanchezalv.github.io/WARDEN/>.
 
 %prep
 %setup -q -c -n %{packname}

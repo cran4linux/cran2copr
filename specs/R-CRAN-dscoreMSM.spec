@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedbiastest
-%global packver   0.3.0
+%global packname  dscoreMSM
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias Diagnostic for Linear Mixed Models
+Summary:          Survival Proximity Score Matching in Multi-State Survival Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-timeROC 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-mstate 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
+Requires:         R-CRAN-timeROC 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-mstate 
 
 %description
-Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+Implements survival proximity score matching in multi-state survival
+models. Includes tools for simulating survival data and estimating
+transition-specific coxph models with frailty terms. The primary
+methodological work on multistate censored data modeling using propensity
+score matching has been published by Bhattacharjee et al.(2024)
+<doi:10.1038/s41598-024-54149-y>.
 
 %prep
 %setup -q -c -n %{packname}

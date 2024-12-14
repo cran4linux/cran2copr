@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prodigenr
-%global packver   0.6.2
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Research Project Directory Generator
 
@@ -14,23 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-rprojroot 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-gert 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-whisker 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-rprojroot 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-gert 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-withr 
 
 %description
 Create a project directory structure, along with typical files for that

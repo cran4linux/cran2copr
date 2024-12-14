@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lares
-%global packver   5.2.9
+%global packver   5.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.9
+Version:          5.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytics & Machine Learning Sidekick
 
@@ -51,9 +51,10 @@ Requires:         R-CRAN-yaml
 %description
 Auxiliary package for better/faster analytics, visualization, data mining,
 and machine learning tasks. With a wide variety of family functions, like
-Machine Learning, Data Wrangling, MMM, Exploratory, API, and Scrapper, it
-helps the analyst or data scientist to get quick and robust results,
-without the need of repetitive coding or advanced R programming skills.
+Machine Learning, Data Wrangling, Marketing Mix Modeling (Robyn),
+Exploratory, API, and Scrapper, it helps the analyst or data scientist to
+get quick and robust results, without the need of repetitive coding or
+advanced R programming skills.
 
 %prep
 %setup -q -c -n %{packname}

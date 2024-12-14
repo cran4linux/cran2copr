@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedbiastest
-%global packver   0.3.0
+%global packname  datastat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias Diagnostic for Linear Mixed Models
+Summary:          Dataset for Statistical Analysis
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
 
 %description
-Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+Data are essential in statistical analysis. This data package consists of
+four datasets for descriptive statistics, two datasets for statistical
+hypothesis testing, and two datasets for regression analysis. All of the
+datasets are based on Rattanalertnusorn, A. (2024)
+<https://www.researchgate.net/publication/371944275_porkaermxarlaeakarprayuktchingan_R_and_its_applications>.
 
 %prep
 %setup -q -c -n %{packname}

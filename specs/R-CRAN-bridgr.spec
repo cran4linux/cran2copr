@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedbiastest
-%global packver   0.3.0
+%global packname  bridgr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias Diagnostic for Linear Mixed Models
+Summary:          Bridging Data Frequencies for Timely Economic Forecasts
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-tsbox 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-tsbox 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-forecast 
 
 %description
-Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+Implements bridge models for nowcasting and forecasting macroeconomic
+variables by linking high-frequency indicator variables (e.g., monthly
+data) to low-frequency target variables (e.g., quarterly GDP). Simplifies
+forecasting and aggregating indicator variables to match the target
+frequency, enabling timely predictions ahead of official data releases.
+For more on bridge models, see Baffigi, A., Golinelli, R., & Parigi, G.
+(2004) <doi:10.1016/S0169-2070(03)00067-0>, Burri (2023)
+<https://www5.unine.ch/RePEc/ftp/irn/pdfs/WP23-02.pdf> or Schumacher
+(2016) <doi:10.1016/j.ijforecast.2015.07.004>.
 
 %prep
 %setup -q -c -n %{packname}

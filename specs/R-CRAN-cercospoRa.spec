@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedbiastest
-%global packver   0.3.0
+%global packname  cercospoRa
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias Diagnostic for Linear Mixed Models
+Summary:          Process Based Epidemiological Model for Cercospora Leaf Spot of Sugar Beet
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-circular 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-circular 
 
 %description
-Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+Estimates sugar beet canopy closure with remotely sensed leaf area index
+and estimates when action might be needed to protect the crop from a Leaf
+Spot epidemic with a negative prognosis model based on published models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fuzzySim
-%global packver   4.26
+%global packver   4.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.26
+Version:          4.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fuzzy Similarity in Species Distributions
 
@@ -37,14 +37,15 @@ surface analysis, and prevalence-independent favourability obtained from
 probability of presence), as well as pair-wise fuzzy similarity (based on
 fuzzy logic versions of commonly used similarity indices) among those
 occurrence patterns. Includes also functions for model consensus and
-comparison (overlap and fuzzy similarity, loss or gain), and for data
-preparation, such as obtaining unique abbreviations of species names,
-cleaning and gridding (thinning) point occurrence data onto raster maps,
-selecting absences under specified criteria, converting species lists
-(long format) to presence-absence tables (wide format), transposing part
-of a data frame, selecting relevant variables for models, assessing the
-false discovery rate, or analysing and dealing with multicollinearity.
-Initially described in Barbosa (2015) <doi:10.1111/2041-210X.12372>.
+comparison (overlap and fuzzy similarity, fuzzy loss, fuzzy gain), and for
+data preparation, such as obtaining unique abbreviations of species names,
+defining the background region, cleaning and gridding (thinning) point
+occurrence data onto raster maps, selecting among (pseudo)absences to
+address survey bias, converting species lists (long format) to
+presence-absence tables (wide format), transposing part of a data frame,
+selecting relevant variables for models, assessing the false discovery
+rate, or analysing and dealing with multicollinearity. Initially described
+in Barbosa (2015) <doi:10.1111/2041-210X.12372>.
 
 %prep
 %setup -q -c -n %{packname}

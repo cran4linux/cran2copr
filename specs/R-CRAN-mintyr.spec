@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mixedbiastest
-%global packver   0.3.0
+%global packname  mintyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bias Diagnostic for Linear Mixed Models
+Summary:          Streamlined Data Processing Tools for Genomic Selection
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-rstatix 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provides a function to perform bias diagnostics on linear mixed models
-fitted with lmer() from the 'lme4' package. Implements permutation tests
-for assessing the bias of fixed effects, as described in Karl and
-Zimmerman (2021) <doi:10.1016/j.jspi.2020.06.004>. Karl and Zimmerman
-(2020) <doi:10.17632/tmynggddfm.1> provide R code for implementing the
-test using 'mvglmmRank' output. Development of this package was assisted
-by 'GPT o1-preview' for code structure and documentation.
+A toolkit for genomic selection in animal breeding with emphasis on
+multi-breed and multi-trait nested grouping operations. Streamlines
+iterative analysis workflows when working with 'ASReml-R' package.
+Includes utility functions for phenotypic data processing commonly used by
+animal breeders.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,56 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MRG
-%global packver   0.3.1
+%global packname  GHCNr
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Non-Confidential Multi-Resolution Grids
+Summary:          Download Weather Station Data from GHCN
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-vardpoor 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-parallel 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-vardpoor 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-methods 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-terra 
+Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
-Functionality for creating gridded data, respecting the confidentiality
-rules, such as a minimum number of units and dominance by one or more
-units in the grid cell. The functions also include the possibility for
-contextual suppression of data.
+The goal of 'GHCNr' is to provide a fast and friendly interface with the
+Global Historical Climatology Network daily (GHCNd) database, which
+contains daily summaries of weather station data worldwide
+(<https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily>).
+GHCNd is accessed through the web API
+<https://www.ncei.noaa.gov/access/services/data/v1>. 'GHCNr' main
+functionalities consist of downloading data from GHCNd, filter it, and to
+aggregate it at monthly and annual scales.
 
 %prep
 %setup -q -c -n %{packname}
