@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skewlmm
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scale Mixture of Skew-Normal Linear Mixed Models
 
@@ -14,49 +14,53 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-optimParallel 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-MomTrunc 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-relliptical 
+BuildRequires:    R-CRAN-MomTrunc 
 BuildRequires:    R-CRAN-TruncatedNormal 
 Requires:         R-CRAN-optimParallel 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-haven 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-methods 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-MomTrunc 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-relliptical 
+Requires:         R-CRAN-MomTrunc 
 Requires:         R-CRAN-TruncatedNormal 
 
 %description
-It fits scale mixture of skew-normal linear mixed models using an
-expectation–maximization (EM) type algorithm, including some possibilities
-for modeling the within-subject dependence. Details can be found in
-Schumacher, Lachos and Matos (2021) <doi:10.1002/sim.8870>.
+It fits scale mixture of skew-normal linear mixed models using either an
+expectation–maximization (EM) type algorithm or its accelerated version
+(Damped Anderson Acceleration with Epsilon Monotonicity, DAAREM),
+including some possibilities for modeling the within-subject dependence.
+Details can be found in Schumacher, Lachos and Matos (2021)
+<doi:10.1002/sim.8870>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metan
-%global packver   1.18.0
+%global packver   1.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18.0
+Version:          1.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi Environment Trials Analysis
 
@@ -70,12 +70,12 @@ absolute scores by Olivoto et al. (2019a)
 Olivoto et al. (2019b) <doi:10.2134/agronj2019.03.0221>. Non-parametric
 methods includes superiority index by Lin & Binns (1988)
 <doi:10.4141/cjps88-018>, nonparametric measures of phenotypic stability
-by Huehn (1990) <https://link.springer.com/article/10.1007/BF00024241>,
-TOP third statistic by Fox et al. (1990) <doi:10.1007/BF00040364>.
-Functions for computing biometrical analysis such as path analysis,
-canonical correlation, partial correlation, clustering analysis, and tools
-for inspecting, manipulating, summarizing and plotting typical
-multi-environment trial data are also provided.
+by Huehn (1990) <doi:10.1007/BF00024241>, TOP third statistic by Fox et
+al. (1990) <doi:10.1007/BF00040364>. Functions for computing biometrical
+analysis such as path analysis, canonical correlation, partial
+correlation, clustering analysis, and tools for inspecting, manipulating,
+summarizing and plotting typical multi-environment trial data are also
+provided.
 
 %prep
 %setup -q -c -n %{packname}

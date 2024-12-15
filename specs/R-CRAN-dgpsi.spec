@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dgpsi
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'dgpsi' for Deep and Linked Gaussian Process Emulations
 
@@ -27,10 +27,16 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-bitops 
 BuildRequires:    R-CRAN-clhs 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-kableExtra 
 Requires:         R-CRAN-reticulate >= 1.26
 Requires:         R-CRAN-benchmarkme >= 1.0.8
 Requires:         R-utils 
@@ -41,10 +47,16 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-lhs 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-bitops 
 Requires:         R-CRAN-clhs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-parallel 
+Requires:         R-CRAN-kableExtra 
 
 %description
 Interface to the 'python' package 'dgpsi' for Gaussian process, deep
@@ -52,8 +64,8 @@ Gaussian process, and linked deep Gaussian process emulations of computer
 models and networks using stochastic imputation (SI). The implementations
 follow Ming & Guillas (2021) <doi:10.1137/20M1323771> and Ming,
 Williamson, & Guillas (2023) <doi:10.1080/00401706.2022.2124311> and Ming
-& Williamson (2023) <arXiv:2306.01212>. To get started with the package,
-see <https://mingdeyu.github.io/dgpsi-R/>.
+& Williamson (2023) <doi:10.48550/arXiv.2306.01212>. To get started with
+the package, see <https://mingdeyu.github.io/dgpsi-R/>.
 
 %prep
 %setup -q -c -n %{packname}
