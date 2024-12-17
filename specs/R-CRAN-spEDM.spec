@@ -1,54 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CopernicusMarine
-%global packver   0.2.3
+%global packname  spEDM
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search Download and Handle Data from Copernicus Marine Service Information
+Summary:          Spatial Empirical Dynamic Modeling
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-sdsfun >= 0.6.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-sdsfun >= 0.6.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-terra 
 
 %description
-Subset and download data from EU Copernicus Marine Service Information:
-<https://data.marine.copernicus.eu>. Import data on the oceans physical
-and biogeochemical state from Copernicus into R without the need of
-external software.
+Integrates empirical dynamic modeling (EDM) with geospatial
+cross-sectional data to analyze causality via geographical convergent
+cross mapping (GCCM) described in Gao et al. (2023)
+<doi:10.1038/s41467-023-41619-6>.
 
 %prep
 %setup -q -c -n %{packname}

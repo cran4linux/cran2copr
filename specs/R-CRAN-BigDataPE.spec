@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rzmq
-%global packver   0.9.15
+%global packname  BigDataPE
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.15
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'ZeroMQ'
+Summary:          Secure and Intuitive Access to 'BigDataPE' 'API' Datasets
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-keyring 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-keyring 
 
 %description
-Interface to the 'ZeroMQ' lightweight messaging kernel (see
-<https://zeromq.org/> for more information).
+Designed to simplify the process of retrieving datasets from the
+'BigDataPE' platform using secure token-based authentication. It provides
+functions for securely storing, retrieving, and managing tokens associated
+with specific datasets, as well as fetching and processing data using the
+'httr2' package. The integration with 'keyring' ensures that tokens are
+stored securely within the system’s credential manager.
 
 %prep
 %setup -q -c -n %{packname}

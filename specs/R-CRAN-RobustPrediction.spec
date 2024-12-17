@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobustPrediction
-%global packver   0.1.4
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Tuning and Training for Cross-Source Prediction
 
@@ -32,14 +32,19 @@ Requires:         R-CRAN-pROC
 
 %description
 Provides robust parameter tuning and model training for predictive models
-across data sources. This package implements three primary tuning methods:
-cross-validation-based internal tuning, external tuning, and the
-'RobustTuneC' method. It supports Lasso, Ridge, Random Forest, Boosting,
-and Support Vector Machine classifiers. The tuning methods are based on
-the paper by Nicole Ellenbach, Anne-Laure Boulesteix, Bernd Bischl,
-Kristian Unger, and Roman Hornung (2021) "Improved Outcome Prediction
-Across Data Sources Through Robust Parameter Tuning"
-<doi:10.1007/s00357-020-09368-z>.
+applied across data sources where the data distribution varies slightly
+from source to source. This package implements three primary tuning
+methods: cross-validation-based internal tuning, external tuning, and the
+'RobustTuneC' method. External tuning includes a conservative option where
+parameters are tuned internally on the training data and validating on an
+external dataset, providing a slightly pessimistic estimate. It supports
+Lasso, Ridge, Random Forest, Boosting, and Support Vector Machine
+classifiers. Currently, only binary classification is supported. The
+response variable must be the first column of the dataset and a factor
+with exactly two levels. The tuning methods are based on the paper by
+Nicole Ellenbach, Anne-Laure Boulesteix, Bernd Bischl, Kristian Unger, and
+Roman Hornung (2021) "Improved Outcome Prediction Across Data Sources
+Through Robust Parameter Tuning" <doi:10.1007/s00357-020-09368-z>.
 
 %prep
 %setup -q -c -n %{packname}

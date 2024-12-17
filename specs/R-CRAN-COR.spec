@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  COR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The COR for Optimal Subset Selection in Distributed Estimation
 
@@ -22,9 +22,9 @@ Requires:         R-stats
 
 %description
 An algorithm of optimal subset selection, related to Covariance matrices,
-Observation matrices and Response vectors (COR) to select the optimal
+observation matrices and Response vectors (COR) to select the optimal
 subsets in distributed estimation. The philosophy of the package is
-described in Guo G. (2020) <doi:10.1080/02331888.2020.1823979>.
+described in Guo G. (2024) <doi:10.1007/s11222-024-10471-z>.
 
 %prep
 %setup -q -c -n %{packname}

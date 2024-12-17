@@ -1,26 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rzmq
-%global packver   0.9.15
+%global packname  colorfast
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.15
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'ZeroMQ'
+Summary:          Fast Conversion of R Colors to Color Component Values and Native Packed Integer Format
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Interface to the 'ZeroMQ' lightweight messaging kernel (see
-<https://zeromq.org/> for more information).
+Color values in R are often represented as strings of hexadecimal colors
+or named colors.  This package offers fast conversion of these color
+representations to either an array of red/green/blue/alpha values or to
+the packed integer format used in native raster objects.  This fast
+conversion of colors is implemented using an order-preserving minimal
+perfect hash derived from Majewski et al (1996) 'A Family of Perfect
+Hashing Methods' <doi:10.1093/comjnl/39.6.547>.
 
 %prep
 %setup -q -c -n %{packname}

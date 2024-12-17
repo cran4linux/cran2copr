@@ -1,26 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rzmq
-%global packver   0.9.15
+%global packname  jointest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.15
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'ZeroMQ'
+Summary:          Multivariate Testing Through Joint Resampling-Based Tests
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-flipscores 
+BuildRequires:    R-CRAN-flip 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-flipscores 
+Requires:         R-CRAN-flip 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Interface to the 'ZeroMQ' lightweight messaging kernel (see
-<https://zeromq.org/> for more information).
+Runs resampling-based tests jointly, e.g., sign-flip score tests from
+Hemerik et al., (2020) <doi:10.1111/rssb.12369>, to allow for multivariate
+testing, i.e., weak and strong control of the Familywise Error Rate or
+True Discovery Proportion.
 
 %prep
 %setup -q -c -n %{packname}

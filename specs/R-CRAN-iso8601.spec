@@ -1,26 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rzmq
-%global packver   0.9.15
+%global packname  iso8601
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.15
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'ZeroMQ'
+Summary:          Working with ISO8601 Dates and Times
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Interface to the 'ZeroMQ' lightweight messaging kernel (see
-<https://zeromq.org/> for more information).
+Functions to parse strings with ISO8601 dates, times, and date-times into
+R-objects.  Additionally, there are functions to determine the type of
+ISO8601 string and to standardise ISO8601 strings.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,26 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rzmq
-%global packver   0.9.15
+%global packname  displease
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.15
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Bindings for 'ZeroMQ'
+Summary:          Numeric and Color Sequences with Non-Linear Interpolation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    zeromq-devel
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Interface to the 'ZeroMQ' lightweight messaging kernel (see
-<https://zeromq.org/> for more information).
+When visualising changes between two values over time, a strict linear
+interpolation can look jarring and unnatural.  By applying a non-linear
+easing to the transition, the motion between values can appear smoother
+and more natural.  This package includes functions for applying such
+non-linear easings to colors and numeric values, and is useful where
+smooth animated movement and transitions are desired.
 
 %prep
 %setup -q -c -n %{packname}

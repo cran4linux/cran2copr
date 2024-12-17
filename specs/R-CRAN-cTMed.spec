@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cTMed
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Mediation
 
@@ -19,13 +19,11 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-ctsem 
 BuildRequires:    R-CRAN-simStateSpace 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-parallel 
-Requires:         R-CRAN-ctsem 
 Requires:         R-CRAN-simStateSpace 
 
 %description
