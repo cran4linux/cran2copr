@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rMVP
-%global packver   1.1.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Memory-Efficient, Visualize-Enhanced, Parallel-Accelerated GWAS Tool
 
@@ -23,6 +23,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-RhpcBLASctl 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
@@ -35,6 +36,7 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-RhpcBLASctl 
 
 %description
 A memory-efficient, visualize-enhanced, parallel-accelerated Genome-Wide

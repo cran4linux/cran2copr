@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pillar
-%global packver   1.9.0
+%global packver   1.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.0
+Version:          1.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coloured Formatting for Columns
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-cli >= 2.3.0
 BuildRequires:    R-CRAN-utf8 >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.2
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-CRAN-fansi 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-utils 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-cli >= 2.3.0
 Requires:         R-CRAN-utf8 >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.2
 Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-CRAN-fansi 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-utils 

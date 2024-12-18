@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggblanket
-%global packver   11.0.0
+%global packver   11.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.0.0
+Version:          11.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplify 'ggplot2' Visualisation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-lubridate >= 1.7.8
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-hms >= 0.5.0
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-farver 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggblend 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-viridisLite 
@@ -47,9 +47,9 @@ Requires:         R-CRAN-hms >= 0.5.0
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-farver 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggblend 
 Requires:         R-grid 
 Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-viridisLite 

@@ -1,70 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gwavr
-%global packver   0.3.2
+%global packname  qPRAentry
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Get Water Attributes Visually in R
+Summary:          Quantitative Pest Risk Assessment at the Entry Step
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-eurostat >= 4.0.0
+BuildRequires:    R-CRAN-giscoR >= 0.6.0
+BuildRequires:    R-CRAN-bsplus 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-leaflet.extras 
-BuildRequires:    R-CRAN-nhdplusTools 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggiraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-elevatr 
-BuildRequires:    R-CRAN-whitebox 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-eurostat >= 4.0.0
+Requires:         R-CRAN-giscoR >= 0.6.0
+Requires:         R-CRAN-bsplus 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-leaflet.extras 
-Requires:         R-CRAN-nhdplusTools 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggiraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-promises 
-Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-units 
-Requires:         R-utils 
-Requires:         R-CRAN-elevatr 
-Requires:         R-CRAN-whitebox 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-htmlwidgets 
 
 %description
-Provides methods to Get Water Attributes Visually in R ('gwavr'). This
-allows the user to point and click on areas within the United States and
-get back hydrological data, e.g. flowlines, catchments, basin boundaries,
-comids, etc.
+Supports risk assessors in performing the entry step of the quantitative
+Pest Risk Assessment. It allows the estimation of the amount of a plant
+pest entering a risk assessment area (in terms of founder populations)
+through the calculation of the imported commodities that could be
+potential pathways of pest entry, and the development of a pathway model.
+Two 'Shiny' apps based on the functionalities of the package are included,
+that simplify the process of assessing the risk of entry of plant pests.
+The approach is based on the work of the European Food Safety Authority
+(EFSA PLH Panel et al., 2018) <doi:10.2903/j.efsa.2018.5350>.
 
 %prep
 %setup -q -c -n %{packname}

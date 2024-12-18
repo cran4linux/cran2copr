@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rserve
-%global packver   1.8-13
+%global packver   1.8-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.13
+Version:          1.8.15
 Release:          1%{?dist}%{?buildtag}
-Summary:          Binary R server
+Summary:          Versatile R Server
 
 License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,7 +24,8 @@ and working directory. Client-side implementations are available for
 popular languages such as C/C++ and Java, allowing any application to use
 facilities of R without the need of linking to R code. Rserve supports
 remote connection, user authentication and file transfer. A simple R
-client is included in this package as well.
+client is included in this package as well. In addition, it can also act
+as a secure WebSockets and HTTP/HTTPS server.
 
 %prep
 %setup -q -c -n %{packname}

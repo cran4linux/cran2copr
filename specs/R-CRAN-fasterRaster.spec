@@ -1,42 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  desk
-%global packver   1.1.1
+%global packname  fasterRaster
+%global packver   8.4.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          8.4.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Didactic Econometrics Starter Kit
+Summary:          Faster Raster and Spatial Vector Processing Using 'GRASS GIS'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra >= 1.7
+BuildRequires:    R-CRAN-omnibus >= 1.2.11
+BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-rgrass >= 0.3.9
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rpanel 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-stats 
+Requires:         R-CRAN-terra >= 1.7
+Requires:         R-CRAN-omnibus >= 1.2.11
+Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-rgrass >= 0.3.9
+Requires:         R-CRAN-DT 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-rpanel 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-shiny 
 Requires:         R-utils 
 
 %description
-Written to help undergraduate as well as graduate students to get started
-with R for basic econometrics without the need to import specific
-functions and datasets from many different sources. Primarily, the package
-is meant to accompany the German textbook Auer, L.v., Hoffmann, S., Kranz,
-T. (2023, ISBN: 978-3-662-68263-0) from which the exercises cover all the
-topics from the textbook Auer, L.v. (2023, ISBN: 978-3-658-42699-6).
+Processing of large-in-memory/large-on disk rasters and spatial vectors
+using 'GRASS GIS' <https://grass.osgeo.org/>. Most functions in the
+'terra' package are recreated. Processing of medium-sized and smaller
+spatial objects will nearly always be faster using 'terra' or 'sf', but
+for large-in-memory/large-on-disk objects, 'fasterRaster' may be faster.
+To use most of the functions, you must have the stand-alone version (not
+the 'OSGeoW4' installer version) of 'GRASS GIS' 8.0 or higher.
 
 %prep
 %setup -q -c -n %{packname}

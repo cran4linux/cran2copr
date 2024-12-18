@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremevalues
-%global packver   2.4.1
+%global packname  greta.gam
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate Outlier Detection
+Summary:          Generalised Additive Models in 'greta' using 'mgcv'
 
-License:          GPL-2
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-greta >= 0.5.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-utils 
+Requires:         R-CRAN-greta >= 0.5.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-graphics 
 
 %description
-Detect outliers in one-dimensional data.
+A 'greta' (Golding (2019) <doi:10.21105/joss.01601>) module that lets you
+use 'mgcv' smoother functions and formula syntax to define smooth terms
+for use in a 'greta' model. You can then define your own likelihood to
+complete the model, and fit it by Markov Chain Monte Carlo (MCMC).
 
 %prep
 %setup -q -c -n %{packname}

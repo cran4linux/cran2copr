@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremevalues
-%global packver   2.4.1
+%global packname  fuseMLR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate Outlier Detection
+Summary:          Fusing Machine Learning in R
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-digest 
 
 %description
-Detect outliers in one-dimensional data.
+Recent technological advances have enable the simultaneous collection of
+multi-omics data i.e., different types or modalities of molecular data,
+presenting challenges for integrative prediction modeling due to the
+heterogeneous, high-dimensional nature and possible missing modalities of
+some individuals. We introduce this package for late integrative
+prediction modeling, enabling modality-specific variable selection and
+prediction modeling, followed by the aggregation of the modality-specific
+predictions to train a final meta-model. This package facilitates
+conducting late integration predictive modeling in a systematic,
+structured, and reproducible way.
 
 %prep
 %setup -q -c -n %{packname}

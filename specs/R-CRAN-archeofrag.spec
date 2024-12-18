@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archeofrag
-%global packver   0.8.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Refitting and Spatial Analysis in Archaeology
+Summary:          Spatial Analysis in Archaeology from Refitting Fragments
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
@@ -31,19 +31,21 @@ Requires:         R-methods
 Requires:         R-utils 
 
 %description
-Methods to analyse fragmented objects in archaeology using refitting
-relationships between fragments scattered in archaeological spatial units
-(e.g. stratigraphic layers). Graphs and graph theory are used to model
-archaeological observations. The package is mainly based on the 'igraph'
-package for graph analysis. Functions can: 1) create, manipulate, and
-simulate fragmentation graphs, 2) measure the cohesion and admixture of
+Methods to analyse spatial units in archaeology from the relationships
+between refitting fragmented objects scattered in these units (e.g.
+stratigraphic layers). Graphs are used to model archaeological
+observations. The package is mainly based on the 'igraph' package for
+graph analysis. Functions can: 1) create, manipulate, and simulate
+fragmentation graphs, 2) measure the cohesion and admixture of
 archaeological spatial units, and 3) characterise the topology of a
-specific set of refitting relationships. An empirical dataset is also
-provided as an example. Documentation about 'archeofrag' is provided by
-the vignette included in this package and by the accompanying scientific
-papers: Plutniak (2021, Journal of Archaeological Science,
-<doi:10.1016/j.jas.2021.105501>) and Plutniak (2022, Journal of Open
-Source Software, <doi:10.21105/joss.04335>).
+specific set of refitting relationships. Empirical datasets are provided
+as examples. Documentation about 'archeofrag' is provided by the vignette
+included in this package, by the accompanying scientific papers: Plutniak
+(2021, Journal of Archaeological Science, <doi:10.1016/j.jas.2021.105501>)
+and Plutniak (2022, Journal of Open Source Software,
+<doi:10.21105/joss.04335>). This package is complemented by a companion
+GUI application available at
+<https://analytics.huma-num.fr/Sebastien.Plutniak/archeofrag/>.
 
 %prep
 %setup -q -c -n %{packname}

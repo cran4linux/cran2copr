@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tugboat
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Docker Image from a Directory or Project
 
@@ -18,10 +18,8 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-renv >= 1.0.0
-BuildRequires:    R-CRAN-dockerfiler >= 0.2.2
 BuildRequires:    R-CRAN-here 
 Requires:         R-CRAN-renv >= 1.0.0
-Requires:         R-CRAN-dockerfiler >= 0.2.2
 Requires:         R-CRAN-here 
 
 %description

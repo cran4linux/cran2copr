@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  regtomean
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Toward the Mean
 
@@ -14,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-formattable 
 BuildRequires:    R-CRAN-effsize 
 BuildRequires:    R-CRAN-mefa 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-sjPlot 
 BuildRequires:    R-CRAN-sjmisc 
-BuildRequires:    R-CRAN-sjlabelled 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-formattable 
 Requires:         R-CRAN-effsize 
 Requires:         R-CRAN-mefa 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-sjPlot 
 Requires:         R-CRAN-sjmisc 
-Requires:         R-CRAN-sjlabelled 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
 In repeated measures studies with extreme large or small values it is
@@ -45,6 +47,11 @@ when regression toward the mean is present. Ostermann, T., Willich, Stefan
 N. & Luedtke, Rainer. (2008). Regression toward the mean - a detection
 method for unknown population mean based on Mee and Chua's algorithm. BMC
 Medical Research Methodology.<doi:10.1186/1471-2288-8-52>.
+Acknowledgments: We would like to acknowledge "Lena Roth" and "Nico
+Steckhan" for the package's initial updates (Q3 2024) and continued
+supervision and guidance. Both have contributed to discussing and
+integrating these methods into the package, ensuring they are up-to-date
+and contextually relevant.
 
 %prep
 %setup -q -c -n %{packname}

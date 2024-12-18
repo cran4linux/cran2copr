@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthatlas
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore and Import 'Metopio' Health Atlas Data and Spatial Layers
 
@@ -18,19 +18,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-chk 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-chk 
 
 %description
 Allows for painless use of the 'Metopio' health atlas APIs

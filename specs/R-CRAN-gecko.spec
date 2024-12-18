@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gecko
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geographical Ecology and Conservation Knowledge Online
 
@@ -43,8 +43,9 @@ Requires:         R-CRAN-kernlab
 %description
 Includes a collection of geographical analysis functions aimed primarily
 at ecology and conservation science studies, allowing processing of both
-point and raster data. Future versions will integrate species threat
-datasets developed by the authors.
+point and raster data. Now integrates SPECTRE
+(<https://biodiversityresearch.org/spectre/>), a dataset of global
+geospatial threat data, developed by the authors.
 
 %prep
 %setup -q -c -n %{packname}
