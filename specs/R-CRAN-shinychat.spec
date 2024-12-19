@@ -1,52 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidygam
-%global packver   1.0.0
+%global packname  shinychat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Prediction and Plotting of Generalised Additive Models
+Summary:          Chat UI Component for 'shiny'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-promises >= 1.3.2
+BuildRequires:    R-CRAN-shiny >= 1.10.0
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-insight 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-promises >= 1.3.2
+Requires:         R-CRAN-shiny >= 1.10.0
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Provides functions that compute predictions from Generalised Additive
-Models (GAMs) fitted with 'mgcv' and return them as a tibble. These can be
-plotted with a generic plot()-method that uses 'ggplot2' or plotted as any
-other data frame. The main function is predict_gam().
+Provides a scrolling chat interface with multiline input, suitable for
+creating chatbot apps based on Large Language Models (LLMs). Designed to
+work particularly well with the 'elmer' R package for calling LLMs.
 
 %prep
 %setup -q -c -n %{packname}

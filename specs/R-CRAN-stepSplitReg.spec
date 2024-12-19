@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggtangle
-%global packver   0.0.6
+%global packname  stepSplitReg
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Draw Network with Data
+Summary:          Stepwise Split Regularized Regression
 
-License:          Artistic-2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggfun >= 0.1.7
-BuildRequires:    R-CRAN-yulab.utils >= 0.1.7
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggfun >= 0.1.7
-Requires:         R-CRAN-yulab.utils >= 0.1.7
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-SplitGLM 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-CRAN-SplitGLM 
+Requires:         R-CRAN-nnls 
 
 %description
-Extends the 'ggplot2' plotting system to support network visualization.
-Inspired by the 'Method 1' in 'ggtree' (G Yu (2018)
-<doi:10.1093/molbev/msy194>), 'ggtangle' is designed to work with network
-associated data.
+Functions to perform stepwise split regularized regression. The approach
+first uses a stepwise algorithm to split the variables into the models
+with a goodness of fit criterion, and then regularization is applied to
+each model. The weights of the models in the ensemble are determined based
+on a criterion selected by the user.
 
 %prep
 %setup -q -c -n %{packname}

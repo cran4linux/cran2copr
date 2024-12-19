@@ -1,52 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidygam
-%global packver   1.0.0
+%global packname  tatooheene
+%global packver   0.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.19.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Prediction and Plotting of Generalised Additive Models
+Summary:          Technology Appraisal Toolbox for Health Economic Evaluations in the Netherlands
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-insight 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+BuildRequires:    R-stats 
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-assertthat >= 0.2.1
+Requires:         R-stats 
 
 %description
-Provides functions that compute predictions from Generalised Additive
-Models (GAMs) fitted with 'mgcv' and return them as a tibble. These can be
-plotted with a generic plot()-method that uses 'ggplot2' or plotted as any
-other data frame. The main function is predict_gam().
+Functions to support economic modelling in R based on the methods of the
+Dutch guideline for economic evaluations in healthcare
+<https://www.zorginstituutnederland.nl/publicaties/publicatie/2024/01/16/richtlijn-voor-het-uitvoeren-van-economische-evaluaties-in-de-gezondheidszorg>,
+CBS data <https://www.cbs.nl/>, and OECD data
+<https://www.oecd.org/en.html>.
 
 %prep
 %setup -q -c -n %{packname}

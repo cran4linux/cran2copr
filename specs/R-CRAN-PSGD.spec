@@ -1,35 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ivdesc
-%global packver   1.1.1
+%global packname  PSGD
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling Compliers and Non-Compliers for Instrumental Variable Analysis
+Summary:          Projected Subset Gradient Descent
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.20
-BuildRequires:    R-CRAN-purrr >= 0.2.5
-BuildRequires:    R-CRAN-rsample >= 0.0.3
-Requires:         R-CRAN-knitr >= 1.20
-Requires:         R-CRAN-purrr >= 0.2.5
-Requires:         R-CRAN-rsample >= 0.0.3
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.7
 
 %description
-Estimating the mean and variance of a covariate for the complier,
-never-taker and always-taker subpopulation in the context of instrumental
-variable estimation. This package implements the method described in
-Marbach and Hangartner (2020) <doi:10.1017/pan.2019.48> and Hangartner,
-Marbach, Henckel, Maathuis, Kelz and Keele (2021) <arXiv:2103.06328>.
+Functions to generate ensembles of generalized linear models using a
+greedy projected subset gradient descent algorithm. The sparsity and
+diversity tuning parameters are selected by cross-validation.
 
 %prep
 %setup -q -c -n %{packname}

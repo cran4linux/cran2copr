@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statpsych
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Methods for Psychologists
 
@@ -34,14 +34,14 @@ useful in psychological research. The methods can be applied in 1-group,
 2-group, paired-samples, and multiple-group designs and to a variety of
 parameters including means, medians, proportions, slopes, standardized
 mean differences, standardized linear contrasts of means, plus several
-measures of correlation and association. The confidence intervals and
-sample size functions are applicable to single parameters as well as
-differences, ratios, and linear contrasts of parameters.  The sample size
-functions can be used to approximate the sample size needed to estimate a
-parameter or function of parameters with desired confidence interval
-precision or to perform a variety of hypothesis tests (directional
-two-sided, equivalence, superiority, noninferiority) with desired power.
-For details see: Statistical Methods for Psychologists, Volumes 1 – 4,
+measures of correlation and association. Confidence interval and sample
+size functions are given for single parameters as well as differences,
+ratios, and linear contrasts of parameters. The sample size functions can
+be used to approximate the sample size needed to estimate a parameter or
+function of parameters with desired confidence interval precision or to
+perform a variety of hypothesis tests (directional two-sided, equivalence,
+superiority, noninferiority) with desired power. For details see:
+Statistical Methods for Psychologists, Volumes 1 – 4,
 <https://dgbonett.sites.ucsc.edu/>.
 
 %prep

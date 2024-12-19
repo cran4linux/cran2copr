@@ -1,60 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eyetools
-%global packver   0.8.0
+%global packname  adas.utils
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analyse Eye Data
+Summary:          Design of Experiments and Factorial Plans Utilities
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggforce 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gghalfnorm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hdf5r 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rdist 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-ggforce 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gghalfnorm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hdf5r 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rdist 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
-Requires:         R-CRAN-zoo 
 
 %description
-Enables the automation of actions across the pipeline, including initial
-steps of transforming binocular data and gap repair to event-based
-processing such as fixations, saccades, and entry/duration in Areas of
-Interest (AOIs). It also offers visualisation of eye movement and AOI
-entries. These tools take relatively raw (trial, time, x, and y form) data
-and can be used to return fixations, saccades, and AOI entries and time
-spent in AOIs. As the tools rely on this basic data format, the functions
-can work with data from any eye tracking device. Implements fixation and
-saccade detection using methods proposed by Salvucci and Goldberg (2000)
-<doi:10.1145/355017.355028>.
+A number of functions to create and analyze factorial plans according to
+the Design of Experiments (DoE) approach, with the addition of some
+utility function to perform some statistical analyses. DoE approach
+follows the approach in "Design and Analysis of Experiments" by Douglas C.
+Montgomery (2019, ISBN:978-1-119-49244-3). The package also provides
+utilities used in the course "Analysis of Data and Statistics" at the
+University of Trento, Italy.
 
 %prep
 %setup -q -c -n %{packname}

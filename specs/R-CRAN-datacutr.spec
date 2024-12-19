@@ -1,52 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  groupdata2
-%global packver   2.0.5
+%global packname  datacutr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating Groups from Data
+Summary:          SDTM Datacut
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 2.1.3
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
-BuildRequires:    R-CRAN-plyr >= 1.8.5
-BuildRequires:    R-CRAN-dplyr >= 0.8.4
-BuildRequires:    R-CRAN-numbers >= 0.7.5
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.4
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.4
-BuildRequires:    R-CRAN-rearrr >= 0.3.0
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-tibble >= 2.1.3
-Requires:         R-CRAN-checkmate >= 2.0.0
-Requires:         R-CRAN-plyr >= 1.8.5
-Requires:         R-CRAN-dplyr >= 0.8.4
-Requires:         R-CRAN-numbers >= 0.7.5
+BuildRequires:    R-CRAN-reactable >= 0.4.4
+BuildRequires:    R-CRAN-purrr >= 0.3.3
+BuildRequires:    R-CRAN-admiraldev >= 0.3.0
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-lubridate >= 1.7.4
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.0.5
 Requires:         R-CRAN-rlang >= 0.4.4
-Requires:         R-CRAN-rearrr >= 0.3.0
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-reactable >= 0.4.4
+Requires:         R-CRAN-purrr >= 0.3.3
+Requires:         R-CRAN-admiraldev >= 0.3.0
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-Methods for dividing data into groups. Create balanced partitions and
-cross-validation folds. Perform time series windowing and general grouping
-and splitting of data. Balance existing groups with up- and downsampling
-or collapse them to fewer groups.
+Supports the process of applying a cut to Standard Data Tabulation Model
+(SDTM), as part of the analysis of specific points in time of the data,
+normally as part of investigation into clinical trials. The functions
+support different approaches of cutting to the different domains of SDTM
+normally observed.
 
 %prep
 %setup -q -c -n %{packname}

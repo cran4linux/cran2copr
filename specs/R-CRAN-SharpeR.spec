@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SharpeR
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Significance of the Sharpe Ratio
 
@@ -17,8 +18,12 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-epsiwal 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-matrixcalc 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-epsiwal 
 Requires:         R-methods 
 
 %description

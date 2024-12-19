@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  this.path
-%global packver   2.5.0
+%global packver   2.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Executing Script's Path
 
@@ -14,16 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 2.15
+Requires:         R-core >= 2.15
 
 %description
-Determine the path of the executing script. Compatible with a few popular
-GUIs: 'Rgui', 'RStudio', 'VSCode', 'Jupyter', 'Emacs', and 'Rscript'
-(shell). Compatible with several functions and packages: 'source()',
-'sys.source()', 'debugSource()' in 'RStudio', 'compiler::loadcmp()',
-'utils::Sweave()', 'box::use()', 'knitr::knit()', 'plumber::plumb()',
-'shiny::runApp()', 'package:targets', and 'testthat::source_file()'.
+Determine the path of the executing script. Compatible with several
+popular GUIs: 'Rgui', 'RStudio', 'Positron', 'VSCode', 'Jupyter', 'Emacs',
+and 'Rscript' (shell). Compatible with several functions and packages:
+'source()', 'sys.source()', 'debugSource()' in 'RStudio',
+'compiler::loadcmp()', 'utils::Sweave()', 'box::use()', 'knitr::knit()',
+'plumber::plumb()', 'shiny::runApp()', 'package:targets', and
+'testthat::source_file()'.
 
 %prep
 %setup -q -c -n %{packname}

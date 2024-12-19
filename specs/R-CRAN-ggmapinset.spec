@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggmapinset
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Add Inset Panels to Maps
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-cli >= 3.4.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0
+BuildRequires:    R-CRAN-vctrs >= 0.6.5
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli >= 3.4.0
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0
+Requires:         R-CRAN-vctrs >= 0.6.5
+Requires:         R-CRAN-lifecycle 
 
 %description
 Helper to add insets based on geom_sf() from 'ggplot2'. This package gives
