@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgGraphR
-%global packver   0.3.0
+%global packname  bivariateLeaflet
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph the Relationship Between Functions in an R Package
+Summary:          Create Bivariate Choropleth Maps with 'Leaflet'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
 
 %description
-It is often useful when developing an R package to track the relationship
-between functions in order to appropriately test and track changes. This
-package generates a graph of the relationship between all R functions in a
-package. It can also be used on any directory containing .R files which
-can be very useful for 'shiny' apps or other non-package workflows.
+Creates bivariate choropleth maps using 'Leaflet'. This package provides
+tools for visualizing the relationship between two variables through a
+color matrix representation on an interactive map.
 
 %prep
 %setup -q -c -n %{packname}

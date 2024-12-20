@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgGraphR
-%global packver   0.3.0
+%global packname  RGS
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph the Relationship Between Functions in an R Package
+Summary:          Recursive Gradient Scanning Algorithm
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-SemiPar 
+BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-rms 
+Requires:         R-CRAN-SemiPar 
+Requires:         R-CRAN-survival 
 
 %description
-It is often useful when developing an R package to track the relationship
-between functions in order to appropriately test and track changes. This
-package generates a graph of the relationship between all R functions in a
-package. It can also be used on any directory containing .R files which
-can be very useful for 'shiny' apps or other non-package workflows.
+Provides a recursive gradient scanning algorithm for discretizing
+continuous variables in Logistic and Cox regression models. This algorithm
+is especially effective in identifying optimal cut-points for variables
+with U-shaped relationships to 'lnOR' (the natural logarithm of the odds
+ratio) or 'lnHR' (the natural logarithm of the hazard ratio), thereby
+enhancing model fit, interpretability, and predictive power. By
+iteratively scanning and calculating gradient changes, the method
+accurately pinpoints critical cut-points within nonlinear relationships,
+transforming continuous variables into categorical ones. This approach
+improves risk classification and regression analysis performance,
+increasing interpretability and practical relevance in clinical and risk
+management settings.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gratia
-%global packver   0.9.2
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graceful 'ggplot'-Based Graphics and Other Functions for GAMs Fitted Using 'mgcv'
 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-ggokabeito 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.0.0
 Requires:         R-CRAN-mgcv >= 1.9.0
@@ -61,6 +62,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-ggokabeito 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-scales 
 
 %description
 Graceful 'ggplot'-based graphics and utility functions for working with

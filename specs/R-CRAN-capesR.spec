@@ -1,39 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgGraphR
-%global packver   0.3.0
+%global packname  capesR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph the Relationship Between Functions in an R Package
+Summary:          Access to CAPES Data
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DiagrammeR 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 
 %description
-It is often useful when developing an R package to track the relationship
-between functions in order to appropriately test and track changes. This
-package generates a graph of the relationship between all R functions in a
-package. It can also be used on any directory containing .R files which
-can be very useful for 'shiny' apps or other non-package workflows.
+Provides simplified access to the data from the Catalog of Theses and
+Dissertations of the Brazilian Coordination for the Improvement of Higher
+Education Personnel (CAPES, <https://catalogodeteses.capes.gov.br>) for
+the years 1987 through 2022. The dataset includes variables such as Higher
+Education Institution (institution), Area of Concentration (area),
+Graduate Program Name (program_name), Type of Work (type), Language of
+Work (language), Author Identification (author), Abstract (abstract),
+Advisor Identification (advisor), Development Region (region), State
+(state).
 
 %prep
 %setup -q -c -n %{packname}

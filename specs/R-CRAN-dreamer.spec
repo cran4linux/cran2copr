@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dreamer
-%global packver   3.1.0
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dose Response Models for Bayesian Model Averaging
 
@@ -18,37 +18,39 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rjags >= 4.8
-BuildRequires:    R-CRAN-tidyselect >= 1.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.0
+BuildRequires:    R-CRAN-tidyselect >= 1.2
 BuildRequires:    R-CRAN-tidyr >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-ellipsis >= 0.3
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-rjags >= 4.8
-Requires:         R-CRAN-tidyselect >= 1.1
+Requires:         R-CRAN-ggplot2 >= 3.0
+Requires:         R-CRAN-tidyselect >= 1.2
 Requires:         R-CRAN-tidyr >= 1.0.2
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-ellipsis >= 0.3
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
 
 %description
-Fits (longitudinal) dose-response models utilizing a Bayesian model
-averaging approach as outlined in Gould (2019)
-<doi:10.1002/bimj.201700211> for both continuous and binary responses.
-Functions for plotting and calculating various posterior quantities (e.g.
-posterior mean, quantiles, probability of minimum efficacious dose, etc.)
-are also implemented.  Copyright Eli Lilly and Company (2019).
+Fits dose-response models utilizing a Bayesian model averaging approach as
+outlined in Gould (2019) <doi:10.1002/bimj.201700211> for both continuous
+and binary responses. Longitudinal dose-response modeling is also
+supported in a Bayesian model averaging framework as outlined in Payne,
+Ray, and Thomann (2024) <doi:10.1080/10543406.2023.2292214>. Functions for
+plotting and calculating various posterior quantities (e.g. posterior
+mean, quantiles, probability of minimum efficacious dose, etc.) are also
+implemented.  Copyright Eli Lilly and Company (2019).
 
 %prep
 %setup -q -c -n %{packname}

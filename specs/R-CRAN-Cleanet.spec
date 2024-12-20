@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgGraphR
-%global packver   0.3.0
+%global packname  Cleanet
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph the Relationship Between Functions in an R Package
+Summary:          Automated Doublet Detection and Classification for Cytometry Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppHNSW 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppHNSW 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
-It is often useful when developing an R package to track the relationship
-between functions in order to appropriately test and track changes. This
-package generates a graph of the relationship between all R functions in a
-package. It can also be used on any directory containing .R files which
-can be very useful for 'shiny' apps or other non-package workflows.
+Automated method for doublet detection in flow or mass cytometry data,
+based on simulating doublets and finding events whose protein expression
+patterns are similar to the simulated doublets.
 
 %prep
 %setup -q -c -n %{packname}

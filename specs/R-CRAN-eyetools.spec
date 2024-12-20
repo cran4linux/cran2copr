@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyetools
-%global packver   0.8.0
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Eye Data
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-hdf5r
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-rdist 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-hdf5r
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-rdist 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 

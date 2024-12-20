@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgGraphR
-%global packver   0.3.0
+%global packname  ZIM4rv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph the Relationship Between Functions in an R Package
+Summary:          Gene‐based Association Tests of Zero‐inflated Count Phenotype for Rare Variants
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-SKAT 
+BuildRequires:    R-CRAN-RNOmni 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-CompQuadForm 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-SKAT 
+Requires:         R-CRAN-RNOmni 
 
 %description
-It is often useful when developing an R package to track the relationship
-between functions in order to appropriately test and track changes. This
-package generates a graph of the relationship between all R functions in a
-package. It can also be used on any directory containing .R files which
-can be very useful for 'shiny' apps or other non-package workflows.
+Gene‐based association tests to model count data with excessive zeros and
+rare variants using zero-inflated Poisson/zero-inflated negative Binomial
+regression framework. This method was originally described by Fan, Sun,
+and Li in Genetic Epidemiology 46(1):73-86 <doi:10.1002/gepi.22438>.
 
 %prep
 %setup -q -c -n %{packname}

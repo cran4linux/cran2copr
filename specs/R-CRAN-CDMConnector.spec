@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CDMConnector
-%global packver   1.6.1
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.1
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Connect to an OMOP Common Data Model
 
@@ -26,18 +26,16 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-waldo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-dbplyr >= 2.5.0
 Requires:         R-CRAN-DBI >= 0.3.0
 Requires:         R-CRAN-omopgenerics >= 0.1.2
@@ -47,18 +45,16 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-waldo 
 Requires:         R-methods 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 
 %description
 Provides tools for working with observational health data in the

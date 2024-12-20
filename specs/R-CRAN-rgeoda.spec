@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgGraphR
-%global packver   0.3.0
+%global packname  rgeoda
+%global packver   0.0.11-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Graph the Relationship Between Functions in an R Package
+Summary:          R Library for Spatial Data Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-DiagrammeR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-BH >= 1.87.0.1
+BuildRequires:    R-CRAN-Rcpp >= 1.0.1
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-Rcpp >= 1.0.1
+Requires:         R-methods 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-sf 
 
 %description
-It is often useful when developing an R package to track the relationship
-between functions in order to appropriately test and track changes. This
-package generates a graph of the relationship between all R functions in a
-package. It can also be used on any directory containing .R files which
-can be very useful for 'shiny' apps or other non-package workflows.
+Provides spatial data analysis functionalities including Exploratory
+Spatial Data Analysis, Spatial Cluster Detection and Clustering Analysis,
+Regionalization, etc. based on the C++ source code of 'GeoDa', which is an
+open-source software tool that serves as an introduction to spatial data
+analysis. The 'GeoDa' software and its documentation are available at
+<https://geodacenter.github.io>.
 
 %prep
 %setup -q -c -n %{packname}
