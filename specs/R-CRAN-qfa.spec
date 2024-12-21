@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qfa
-%global packver   2.1
+%global packver   3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1
+Version:          3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile-Frequency Analysis (QFA) of Time Series
 
@@ -44,13 +44,15 @@ Requires:         R-CRAN-colorRamps
 Requires:         R-CRAN-MASS 
 
 %description
-Quantile-frequency analysis (QFA) of univariate or multivariate time
-series based on trigonometric quantile regression. See Li, T.-H. (2012)
-"Quantile periodograms", Journal of the American Statistical Association,
-107, 765–776, <doi:10.1080/01621459.2012.682815>; Li, T.-H. (2014) Time
-Series with Mixed Spectra, CRC Press, <doi:10.1201/b15154>; Li, T.-H.
+Quantile-frequency analysis (QFA) of time series based on trigonometric
+quantile regression. References: [1] Li, T.-H. (2012) "Quantile
+periodograms", Journal of the American Statistical Association, 107,
+765–776, <doi:10.1080/01621459.2012.682815>. [2] Li, T.-H. (2014) Time
+Series with Mixed Spectra, CRC Press, <doi:10.1201/b15154> [3] Li, T.-H.
 (2022) "Quantile Fourier transform, quantile series, and nonparametric
-estimation of quantile spectra", <doi:10.48550/arXiv.2211.05844>.
+estimation of quantile spectra", <doi:10.48550/arXiv.2211.05844>. [4] Li,
+T.-H. (2024) "Quantile crossing spectrum and spline autoregression
+estimation," <doi:10.48550/arXiv.2412.02513>.
 
 %prep
 %setup -q -c -n %{packname}

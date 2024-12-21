@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ceas
-%global packver   1.3.0
+%global packname  sTSD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cellular Energetics Analysis Software
+Summary:          Simulate Time Series Diagnostics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-readxl 
-Requires:         R-stats 
 
 %description
-Measuring cellular energetics is essential to understanding a matrix’s
-(e.g. cell, tissue or biofluid) metabolic state. The Agilent Seahorse
-machine is a common method to measure real-time cellular energetics, but
-existing analysis tools are highly manual or lack functionality. The
-Cellular Energetics Analysis Software (ceas) R package fills this
-analytical gap by providing modular and automated Seahorse data analysis
-and visualization using the methods described by Mookerjee et al. (2017)
-<doi:10.1074/jbc.m116.774471>.
+These are tools that allow users to do time series diagnostics, primarily
+tests of unit root, by way of simulation. While there is nothing
+necessarily wrong with the received wisdom of critical values generated
+decades ago, simulation provides its own perks. Not only is simulation
+broadly informative as to what these various test statistics do and what
+are their plausible values, simulation provides more flexibility for
+assessing unit root by way of different thresholds or different
+hypothesized distributions.
 
 %prep
 %setup -q -c -n %{packname}

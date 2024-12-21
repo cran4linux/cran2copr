@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  synthpop
-%global packver   1.8-0
+%global packver   1.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Synthetic Versions of Sensitive Microdata for Statistical Disclosure Control
 
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rmutil 
 BuildRequires:    R-CRAN-broman 
+BuildRequires:    R-CRAN-forcats 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
@@ -61,6 +62,7 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rmutil 
 Requires:         R-CRAN-broman 
+Requires:         R-CRAN-forcats 
 
 %description
 A tool for producing synthetic versions of microdata containing
@@ -77,6 +79,10 @@ default settings are used, or with methods defined by the user. Optional
 parameters can be used to influence the disclosure risk and the analytical
 quality of the synthesised data. For a description of the implemented
 method see Nowok, Raab and Dibben (2016) <doi:10.18637/jss.v074.i11>.
+Functions to assess identity and attribute disclosure for the original and
+for the synthetic data are included in the package, and their use is
+illustrated in a vignette on disclosure (Practical Privacy Metrics for
+Synthetic Data).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DBCVindex
-%global packver   1.1
+%global packname  ciphertext
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculates the Density-Based Clustering Validation Index (DBCV) Index
+Summary:          Classical Cryptography Methods for Words and Phrases
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
 
 %description
-A metric called 'Density-Based Clustering Validation index' (DBCV) index
-to evaluate clustering results, following the
-<https://github.com/FelSiq/DBCV> 'Python' implementation by Felipe Alves
-Siqueira. Original 'DBCV' index article: Moulavi, D., Jaskowiak, P. A.,
-Campello, R. J., Zimek, A., & Sander, J. (2014, April). "Density-based
-clustering validation", Proceedings of SDM 2014 -- the 2014 SIAM
-International Conference on Data Mining (pp. 839-847),
-<doi:10.1137/1.9781611973440.96>.
+Classical cryptography methods for words and brief phrases. Substitution,
+transposition and concealment (null) ciphers are available, like Caesar,
+Vigenère, Atbash, affine, simple substitution, Playfair, rail fence,
+Scytale, single column, and Polybius ciphers.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AuxSurvey
-%global packver   0.9
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Analysis with Auxiliary Discretized Variables
 
@@ -45,7 +45,9 @@ Probability surveys often use auxiliary continuous data from
 administrative records, but the utility of this data is diminished when it
 is discretized for confidentiality. We provide a set of survey estimators
 to make full use of information from the discretized variables. See
-Williams, S.Z., Zou, J., Liu, Y., Si, Y., Galea, S. and Chen, Q. (2024)
+Williams, S.Z., Zou, J., Liu, Y., Si, Y., Galea, S. and Chen, Q. (2024),
+Improving Survey Inference Using Administrative Records Without Releasing
+Individual-Level Continuous Data. Statistics in Medicine, 43: 5803-5813.
 <doi:10.1002/sim.10270> for details.
 
 %prep

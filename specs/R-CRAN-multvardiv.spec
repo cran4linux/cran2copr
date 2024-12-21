@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ceas
-%global packver   1.3.0
+%global packname  multvardiv
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cellular Energetics Analysis Software
+Summary:          Multivariate Probability Distributions, Statistical Divergence
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-stats 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-readxl 
-Requires:         R-stats 
 
 %description
-Measuring cellular energetics is essential to understanding a matrix’s
-(e.g. cell, tissue or biofluid) metabolic state. The Agilent Seahorse
-machine is a common method to measure real-time cellular energetics, but
-existing analysis tools are highly manual or lack functionality. The
-Cellular Energetics Analysis Software (ceas) R package fills this
-analytical gap by providing modular and automated Seahorse data analysis
-and visualization using the methods described by Mookerjee et al. (2017)
-<doi:10.1074/jbc.m116.774471>.
+Multivariate generalized Gaussian distribution, Multivariate Cauchy
+distribution, Multivariate t distribution. Distance between two
+distributions (see N. Bouhlel and A. Dziri (2019):
+<doi:10.1109/LSP.2019.2915000>, N. Bouhlel and D. Rousseau (2022):
+<doi:10.3390/e24060838>, N. Bouhlel and D. Rousseau (2023):
+<doi:10.1109/LSP.2023.3324594>). Manipulation of these multivariate
+probability distributions.
 
 %prep
 %setup -q -c -n %{packname}

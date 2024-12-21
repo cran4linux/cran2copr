@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  logib
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Salary Analysis by the Swiss Federal Office for Gender Equality
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.1
+Requires:         R-core >= 3.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.7.9
-BuildRequires:    R-CRAN-readxl >= 1.3.1
-Requires:         R-CRAN-lubridate >= 1.7.9
-Requires:         R-CRAN-readxl >= 1.3.1
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-readxl 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Implementation of the Swiss Confederation's standard analysis model for
 salary analyses
-<https://www.ebg.admin.ch/dam/ebg/en/dokumente/lohngleichheit/infos-zu-analysen/standard-analysemodellzurueberpruefungderlohngleichheitzwischenf.pdf.download.pdf/methodological_approachformonitoringcompliancewithwageequalitybe.pdf>
-in R. The analysis is run at company-level and the model is intended for
-companies with 50 or more employees (apprentices, trainees/interns and
-expats are not included in the analysis). Employees with at least 100
-employees are required by the Gender Equality Act to conduct an equal pay
-analysis. This package allows users to run the equal salary analysis in R,
-providing additional transparency with respect to the methodology and
-simple automation possibilities.
+<https://www.ebg.admin.ch/en/equal-pay-analysis-with-logib> in R. The
+analysis is run at company-level and the model is intended for
+medium-sized and large companies. It can technically be used with 50 or
+more employees (apprentices, trainees/interns and expats are not included
+in the analysis). Employees with at least 100 employees are required by
+the Gender Equality Act to conduct an equal pay analysis. This package
+allows users to run the equal salary analysis in R, providing additional
+transparency with respect to the methodology and simple automation
+possibilities.
 
 %prep
 %setup -q -c -n %{packname}

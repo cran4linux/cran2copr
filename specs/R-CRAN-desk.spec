@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gpboost
-%global packver   1.5.5
+%global packname  desk
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
+Summary:          Didactic Econometrics Starter Kit
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-R6 >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.0
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-stats 
 Requires:         R-graphics 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-methods 
+Requires:         R-grDevices 
 Requires:         R-utils 
 
 %description
-An R package that allows for combining tree-boosting with Gaussian process
-and mixed effects models. It also allows for independently doing
-tree-boosting as well as inference and prediction for Gaussian process and
-mixed effects models. See <https://github.com/fabsig/GPBoost> for more
-information on the software and Sigrist (2022, JMLR)
-<https://www.jmlr.org/papers/v23/20-322.html> and Sigrist (2023, TPAMI)
-<doi:10.1109/TPAMI.2022.3168152> for more information on the methodology.
+Written to help undergraduate as well as graduate students to get started
+with R for basic econometrics without the need to import specific
+functions and datasets from many different sources. Primarily, the package
+is meant to accompany the German textbook Auer, L.v., Hoffmann, S., Kranz,
+T. (2024, ISBN: 978-3-662-68263-0) from which the exercises cover all the
+topics from the textbook Auer, L.v. (2023, ISBN: 978-3-658-42699-6).
 
 %prep
 %setup -q -c -n %{packname}

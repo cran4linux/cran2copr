@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ceas
-%global packver   1.3.0
+%global packname  backtestGraphics
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cellular Energetics Analysis Software
+Summary:          Interactive Graphics for Portfolio Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-readxl 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dygraphs 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-dygraphs 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-shiny 
 
 %description
-Measuring cellular energetics is essential to understanding a matrix’s
-(e.g. cell, tissue or biofluid) metabolic state. The Agilent Seahorse
-machine is a common method to measure real-time cellular energetics, but
-existing analysis tools are highly manual or lack functionality. The
-Cellular Energetics Analysis Software (ceas) R package fills this
-analytical gap by providing modular and automated Seahorse data analysis
-and visualization using the methods described by Mookerjee et al. (2017)
-<doi:10.1074/jbc.m116.774471>.
+Creates an interactive graphics interface to visualize backtest results of
+different financial instruments, such as equities, futures, and credit
+default swaps. The package does not run backtests on the given data set
+but displays a graphical explanation of the backtest results. Users can
+look at backtest graphics for different instruments, investment
+strategies, and portfolios. Summary statistics of different portfolio
+holdings are shown in the left panel, and interactive plots of profit and
+loss (P&L), net market value (NMV) and gross market value (GMV) are
+displayed in the right panel.
 
 %prep
 %setup -q -c -n %{packname}

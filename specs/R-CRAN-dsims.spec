@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsims
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance Sampling Simulations
 
@@ -59,7 +59,7 @@ distance sampling methods are detailed in Introduction to Distance
 Sampling: Estimating Abundance of Biological Populations, Buckland et. al.
 (2004, ISBN-13: 978-0198509271). Find out more about estimating
 animal/plant abundance with distance sampling at
-<http://distancesampling.org/>.
+<https://distancesampling.org/>.
 
 %prep
 %setup -q -c -n %{packname}

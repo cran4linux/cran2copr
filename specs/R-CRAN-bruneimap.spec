@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gpboost
-%global packver   1.5.5
+%global packname  bruneimap
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
+Summary:          Maps and Spatial Data of Brunei
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-R6 >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.0
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
-Requires:         R-graphics 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-methods 
-Requires:         R-utils 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-An R package that allows for combining tree-boosting with Gaussian process
-and mixed effects models. It also allows for independently doing
-tree-boosting as well as inference and prediction for Gaussian process and
-mixed effects models. See <https://github.com/fabsig/GPBoost> for more
-information on the software and Sigrist (2022, JMLR)
-<https://www.jmlr.org/papers/v23/20-322.html> and Sigrist (2023, TPAMI)
-<doi:10.1109/TPAMI.2022.3168152> for more information on the methodology.
+Provides spatial data for mapping Brunei, including boundaries for
+districts, mukims, and kampongs, as well as locations of key
+infrastructure such as masjids, hospitals, clinics, and schools. The
+package supports researchers, analysts, and developers working with
+Brunei’s geographic and demographic data, offering a quick and accessible
+foundation for creating maps and conducting spatial studies.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diathor
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Ecological Information and Diatom Based Indices
 
@@ -36,25 +36,32 @@ Requires:         R-CRAN-tibble
 
 %description
 Calculate multiple biotic indices using diatoms from environmental
-samples. Diatom species are identified by their species names through a
-heuristic search, and ecological data is retrieved from multiple sources.
-The package includes the calculation of chloroplast diversity indices,
-size classes, ecological guilds, and various biotic indices. It outputs
-both a dataframe with all the results and plots of the obtained data in a
-specified output folder. Sample data is sourced from Nicolosi Gelis,
-Cochero, & Gómez (2020, <doi:10.1016/j.ecolind.2019.105951>). The package
-utilizes the 'Diat.Barcode' database for morphological and ecological
-information by Rimet & Couchez (2012, <doi:10.1051/kmae/2012018>), along
-with the combined classification of guilds and size classes from B-Beres
-et al. (2017, <doi:10.1016/j.ecolind.2017.07.007>). Currently supported
-diatom-based biotic indices include DES index (Descy, 1979); EPID index
-(Dell'Uomo, 1996); IDAP index (Prygiel & Coste, 1993); ID-CH index
-(Hürlimann & Niederhauser, 2007); IDP index (Gómez & Licursi, 2001); ILM
-index (Leclercq & Maquet, 1987); IPS index (Coste, 1982); LOBO index
-(Lobo, Callegaro, & Bender, 2002); SLA index (Sladecek, 1986); TDI index
-(Kelly & Whitton, 1995); SPEAR(herbicide) index (Wood et al., 2019); PBIDW
-index (Castro-Roa & Pinilla-Agudelo, 2014); DISP index (Stenger-Kovácsa et
-al., 2018).
+samples. Diatom species are recognized by their species' name using a
+heuristic search, and their ecological data is retrieved from multiple
+sources. It includes number/shape of chloroplasts diversity indices, size
+classes, ecological guilds, and multiple biotic indices. It outputs both a
+dataframe with all the results and plots of all the obtained data in a
+defined output folder. - Sample data was taken from Nicolosi Gelis,
+Cochero & Gómez (2020, <doi:10.1016/j.ecolind.2019.105951>). - The package
+uses the 'Diat.Barcode' database to calculate morphological and ecological
+information by Rimet & Couchez (2012, <doi:10.1051/kmae/2012018>),and the
+combined classification of guilds and size classes established by B-Béres
+et al. (2017, <doi:10.1016/j.ecolind.2017.07.007>). - Current diatom-based
+biotic indices include the DES index by Descy (1979) - EPID index by
+Dell'Uomo (1996, ISBN: 3950009002) - IDAP index by Prygiel & Coste (1993,
+<doi:10.1007/BF00028033>) - ID-CH index by Hürlimann & Niederhauser (2007)
+- IDP index by Gómez & Licursi (2001, <doi:10.1023/A:1011415209445>) - ILM
+index by Leclercq & Maquet (1987) - IPS index by Coste (1982) - LOBO index
+by Lobo, Callegaro, & Bender (2002, ISBN:9788585869908) - SLA by Sládeček
+(1986, <doi:10.1002/aheh.19860140519>) - TDI index by Kelly, & Whitton
+(1995, <doi:10.1007/BF00003802>) - SPEAR(herbicide) index by Wood,
+Mitrovic, Lim, Warne, Dunlop, & Kefford (2019,
+<doi:10.1016/j.ecolind.2018.12.035>) - PBIDW index by Castro-Roa &
+Pinilla-Agudelo (2014) - DISP index by Stenger-Kovács et al. (2018,
+<doi:10.1016/j.ecolind.2018.07.026>) - EDI index by Chamorro et al. (2024,
+<doi:10.1021/acsestwater.4c00126>) - DDI index by Álvarez-Blanco et al.
+(2013, <doi: 10.1007/s10661-012-2607-z>) - PDISE index by Kahlert et al.
+(2023, <doi:10.1007/s10661-023-11378-4>).
 
 %prep
 %setup -q -c -n %{packname}
