@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esci
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation Statistics with Confidence Intervals
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jmvcore >= 0.8.5
+BuildRequires:    R-CRAN-legendry >= 0.2
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
@@ -28,7 +29,6 @@ BuildRequires:    R-CRAN-statpsych
 BuildRequires:    R-CRAN-metafor 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggdist 
-BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-glue 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-jmvcore >= 0.8.5
+Requires:         R-CRAN-legendry >= 0.2
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
@@ -46,7 +47,6 @@ Requires:         R-CRAN-statpsych
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggdist 
-Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-glue 

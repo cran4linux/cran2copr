@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  learningtower
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          OECD PISA Datasets from 2000-2018 in an Easy-to-Use Format
+Summary:          OECD PISA Datasets from 2000-2022 in an Easy-to-Use Format
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pqrBayes
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Penalized Quantile Regression
 
@@ -24,18 +24,17 @@ Requires:         R-CRAN-glmnet
 
 %description
 The quantile varying coefficient model is robust to data heterogeneity,
-outliers and heavy-tailed distributions in the response variable due to
-the check loss function in quantile regression. In addition, it can
-flexibly model the dynamic pattern of regression coefficients through
-nonparametric varying coefficient functions. Although high dimensional
-quantile varying coefficient model has been examined extensively in the
-frequentist framework, the corresponding Bayesian variable selection
-methods have rarely been developed. In this package, we have implemented
-the Gibbs samplers of the penalized Bayesian quantile varying coefficient
-model with the spike-and-slab priors [Zhou et
-al.(2023)]<doi:10.1016/j.csda.2023.107808>. The Markov Chain Monte Carlo
-(MCMC) algorithms of the proposed and alternative models can be
-efficiently performed by using the package.
+outliers and heavy-tailed distributions in the response variable. In
+addition, it can flexibly model dynamic patterns of regression
+coefficients through nonparametric varying coefficient functions. In this
+package, we have implemented the Gibbs samplers of the penalized Bayesian
+quantile varying coefficient model with spike-and-slab priors [Zhou et
+al.(2023)]<doi:10.1016/j.csda.2023.107808> for efficient Bayesian
+shrinkage estimation, variable selection and statistical inference. In
+particular, valid Bayesian inferences on sparse quantile varying
+coefficient functions can be validated on finite samples. The Markov Chain
+Monte Carlo (MCMC) algorithms of the proposed and alternative models can
+be efficiently performed by using the package.
 
 %prep
 %setup -q -c -n %{packname}
