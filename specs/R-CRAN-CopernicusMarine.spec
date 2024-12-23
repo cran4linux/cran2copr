@@ -1,32 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mstudentd
-%global packver   1.1.2
+%global packname  CopernicusMarine
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multivariate t Distribution
+Summary:          Search Download and Handle Data from Copernicus Marine Service Information
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Distance between multivariate t distributions, as presented by N. Bouhlel
-and D. Rousseau (2023) <doi:10.1109/LSP.2023.3324594>.
+Subset and download data from EU Copernicus Marine Service Information:
+<https://data.marine.copernicus.eu>. Import data on the oceans physical
+and biogeochemical state from Copernicus into R without the need of
+external software.
 
 %prep
 %setup -q -c -n %{packname}

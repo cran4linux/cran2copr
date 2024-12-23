@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pipeflow
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight, General-Purpose Data Analysis Pipelines
 
@@ -35,12 +35,12 @@ Requires:         R-utils
 %description
 A lightweight yet powerful framework for building robust data analysis
 pipelines. With 'pipeflow', you initialize a pipeline with your dataset
-and construct your workflow step by step by seamlessly adding R functions.
-Modify, remove, or insert steps at any stage while 'pipeflow' ensures the
-integrity and correctness of your pipeline. Designed to help you focus on
-the 'what' rather than the 'how', this package simplifies the
-implementation of complex workflows, making even large-scale data analysis
-projects manageable, adaptable, and reusable with ease.
+and construct workflows step by step by adding R functions. You can
+modify, remove, or insert steps and parameters at any stage, while
+'pipeflow' ensures the pipeline's integrity. Overall, this package offers
+a beginner-friendly framework that simplifies and streamlines the
+development of data analysis pipelines by making them modular, intuitive,
+and adaptable.
 
 %prep
 %setup -q -c -n %{packname}
