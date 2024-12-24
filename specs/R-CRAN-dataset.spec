@@ -1,32 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  redatamx
-%global packver   1.1.0
+%global packname  dataset
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Redatam' Library
+Summary:          Create Data Frames that are Easier to Exchange and Reuse
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-vctrs >= 0.5.2
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-ISOcodes 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-vctrs >= 0.5.2
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-ISOcodes 
+Requires:         R-CRAN-labelled 
+Requires:         R-methods 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provides an API to work with 'Redatam' (see <https://redatam.org>)
-databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
-running 'Redatam' programs written in 'SPC' language. It's a wrapper
-around 'Redatam' core and provides functions to open/close a database
-(redatam_open()/redatam_close()), list entities and variables from the
-database (redatam_entities(), redatam_variables()) and execute a 'SPC'
-program and gets the results as data frames (redatam_query(),
-redatam_run()).
+The aim of the 'dataset' package is to make tidy datasets easier to
+release, exchange and reuse. It organizes and formats data frame 'R'
+objects into well-referenced, well-described, interoperable datasets into
+release and reuse ready form.
 
 %prep
 %setup -q -c -n %{packname}

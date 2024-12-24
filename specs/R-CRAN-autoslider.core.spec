@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoslider.core
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slide Automation for Tables, Listings and Figures
 
@@ -14,33 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tern >= 0.9.6
 BuildRequires:    R-CRAN-flextable >= 0.9.4
 BuildRequires:    R-CRAN-rtables >= 0.6.10
-BuildRequires:    R-CRAN-formatters >= 0.5.9
 BuildRequires:    R-CRAN-officer >= 0.3.18
-BuildRequires:    R-CRAN-filters >= 0.3.1
 BuildRequires:    R-CRAN-rlistings >= 0.2.9
-BuildRequires:    R-CRAN-rvg >= 0.2.5
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-googlesheets4 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
@@ -49,27 +39,17 @@ BuildRequires:    R-CRAN-yaml
 Requires:         R-CRAN-tern >= 0.9.6
 Requires:         R-CRAN-flextable >= 0.9.4
 Requires:         R-CRAN-rtables >= 0.6.10
-Requires:         R-CRAN-formatters >= 0.5.9
 Requires:         R-CRAN-officer >= 0.3.18
-Requires:         R-CRAN-filters >= 0.3.1
 Requires:         R-CRAN-rlistings >= 0.2.9
-Requires:         R-CRAN-rvg >= 0.2.5
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-googlesheets4 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 

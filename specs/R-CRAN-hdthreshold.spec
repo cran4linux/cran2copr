@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  redatamx
-%global packver   1.1.0
+%global packname  hdthreshold
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Redatam' Library
+Summary:          Inference on Many Jumps in Nonparametric Panel Regression Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-KernSmooth 
+Requires:         R-CRAN-rdrobust 
+Requires:         R-stats 
 
 %description
-Provides an API to work with 'Redatam' (see <https://redatam.org>)
-databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
-running 'Redatam' programs written in 'SPC' language. It's a wrapper
-around 'Redatam' core and provides functions to open/close a database
-(redatam_open()/redatam_close()), list entities and variables from the
-database (redatam_entities(), redatam_variables()) and execute a 'SPC'
-program and gets the results as data frames (redatam_query(),
-redatam_run()).
+Provides uniform testing procedures for existence and heterogeneity of
+threshold effects in high-dimensional nonparametric panel regression
+models. The package accompanies the paper Chen, Keilbar, Su and Wang
+(2023) "Inference on many jumps in nonparametric panel regression models".
+arXiv preprint <doi:10.48550/arXiv.2312.01162>.
 
 %prep
 %setup -q -c -n %{packname}

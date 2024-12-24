@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  redatamx
-%global packver   1.1.0
+%global packname  HSAR
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Redatam' Library
+Summary:          Hierarchical Spatial Autoregressive Model
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-spatialreg 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-spatialreg 
+Requires:         R-stats 
 
 %description
-Provides an API to work with 'Redatam' (see <https://redatam.org>)
-databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
-running 'Redatam' programs written in 'SPC' language. It's a wrapper
-around 'Redatam' core and provides functions to open/close a database
-(redatam_open()/redatam_close()), list entities and variables from the
-database (redatam_entities(), redatam_variables()) and execute a 'SPC'
-program and gets the results as data frames (redatam_query(),
-redatam_run()).
+A Hierarchical Spatial Autoregressive Model (HSAR), based on a Bayesian
+Markov Chain Monte Carlo (MCMC) algorithm (Dong and Harris (2014)
+<doi:10.1111/gean.12049>). The creation of this package was supported by
+the Economic and Social Research Council (ESRC) through the Applied
+Quantitative Methods Network: Phase II, grant number ES/K006460/1.
 
 %prep
 %setup -q -c -n %{packname}

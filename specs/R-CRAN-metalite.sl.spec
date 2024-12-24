@@ -1,46 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scR
-%global packver   0.4.0
+%global packname  metalite.sl
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Vapnik-Chervonenkis Dimension and Sample Complexity
+Summary:          Subject-Level Analysis Using 'metalite'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-metalite 
+BuildRequires:    R-CRAN-metalite.ae 
+BuildRequires:    R-CRAN-forestly 
+BuildRequires:    R-CRAN-r2rtf 
+BuildRequires:    R-CRAN-reactable 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-plotly 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-brew 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-metalite 
+Requires:         R-CRAN-metalite.ae 
+Requires:         R-CRAN-forestly 
+Requires:         R-CRAN-r2rtf 
+Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-brew 
+Requires:         R-CRAN-uuid 
 
 %description
-We provide a suite of tools for estimating the sample complexity of a
-chosen model through theoretical bounds and simulation. The package
-incorporates methods for estimating the Vapnik-Chervonenkis dimension
-(VCD) of a chosen algorithm, which can be used to estimate its sample
-complexity. Alternatively, we provide simulation methods to estimate
-sample complexity directly. For more details, see Carter, P & Choi, D
-(2024). "Learning from Noise: Applying Sample Complexity for Political
-Science Research" <doi:10.31219/osf.io/evrcj>.
+Analyzes subject-level data in clinical trials using the 'metalite' data
+structure. The package simplifies the workflow to create production-ready
+tables, listings, and figures discussed in the subject-level analysis
+chapters of "R for Clinical Study Reports and Submission" by Zhang et al.
+(2022) <https://r4csr.org/>.
 
 %prep
 %setup -q -c -n %{packname}

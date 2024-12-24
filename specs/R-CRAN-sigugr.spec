@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  redatamx
-%global packver   1.1.0
+%global packname  sigugr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Redatam' Library
+Summary:          Workflow for Geographic Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-clc 
+BuildRequires:    R-CRAN-gdalUtilities 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rpostgis 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-clc 
+Requires:         R-CRAN-gdalUtilities 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rpostgis 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-terra 
 
 %description
-Provides an API to work with 'Redatam' (see <https://redatam.org>)
-databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
-running 'Redatam' programs written in 'SPC' language. It's a wrapper
-around 'Redatam' core and provides functions to open/close a database
-(redatam_open()/redatam_close()), list entities and variables from the
-database (redatam_entities(), redatam_variables()) and execute a 'SPC'
-program and gets the results as data frames (redatam_query(),
-redatam_run()).
+Streamlines geographic data transformation, storage and publication,
+simplifying data preparation and enhancing interoperability across formats
+and platforms.
 
 %prep
 %setup -q -c -n %{packname}

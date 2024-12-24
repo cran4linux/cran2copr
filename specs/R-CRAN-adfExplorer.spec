@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adfExplorer
-%global packver   0.1.8
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import from and Export to Amiga Disk Files
+Summary:          Access and Manipulate Amiga Disk Files
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-methods 
+Requires:         R-CRAN-vctrs 
 
 %description
 Amiga Disk Files (ADF) are virtual representations of 3.5 inch floppy
 disks for the Commodore Amiga. Most disk drives from other systems
-(including modern drives) are not able to read these disks. To be able to
-emulate this system, the ADF format was created. This package enables you
-to read ADF files and import and export files from and to such virtual
-DOS-formatted disks.
+(including modern drives) are not able to read these disks. The
+'adfExplorer' package enables you to establish R connections to files on
+such virtual DOS-formatted disks, which can be use to read from and write
+to those files.
 
 %prep
 %setup -q -c -n %{packname}

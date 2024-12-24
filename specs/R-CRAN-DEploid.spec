@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DEploid
-%global packver   0.5.4
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deconvolute Mixed Genomes with Unknown Proportions
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-htmlwidgets >= 1.0
 BuildRequires:    R-CRAN-scales >= 0.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-CRAN-DEploid.utils >= 0.0.1
 Requires:         R-CRAN-plotly >= 4.7.1
 Requires:         R-CRAN-rmarkdown >= 1.6
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-htmlwidgets >= 1.0
 Requires:         R-CRAN-scales >= 0.4.0
 Requires:         R-CRAN-Rcpp >= 0.11.2
+Requires:         R-CRAN-DEploid.utils >= 0.0.1
 
 %description
 Traditional phasing programs are limited to diploid organisms. Our method

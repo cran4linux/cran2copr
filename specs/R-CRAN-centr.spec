@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  centr
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted and Unweighted Spatial Centers
 
@@ -17,8 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-chk 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-chk 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
 
 %description
 Generate mean and median weighted or unweighted spatial centers. Functions

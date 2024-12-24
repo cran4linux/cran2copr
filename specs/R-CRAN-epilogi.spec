@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epilogi
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'epilogi' Variable Selection Algorithm for Continuous Data
 
@@ -27,7 +27,7 @@ The 'epilogi' variable selection algorithm is implemented for the case of
 continuous response and predictor variables. The relevant paper is:
 Lakiotaki K., Papadovasilakis Z., Lagani V., Fafalios S., Charonyktakis
 P., Tsagris M. and Tsamardinos I. (2023). "Automated machine learning for
-Genome Wide Association Studies". Bioinformatics.
+Genome Wide Association Studies". Bioinformatics, 39(9): btad545.
 <doi:10.1093/bioinformatics/btad545>.
 
 %prep

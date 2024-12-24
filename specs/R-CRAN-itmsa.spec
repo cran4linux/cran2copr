@@ -1,32 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  redatamx
-%global packver   1.1.0
+%global packname  itmsa
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'Redatam' Library
+Summary:          Information-Theoretic Measures for Spatial Association
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-sdsfun >= 0.6.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-sdsfun >= 0.6.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
 
 %description
-Provides an API to work with 'Redatam' (see <https://redatam.org>)
-databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and
-running 'Redatam' programs written in 'SPC' language. It's a wrapper
-around 'Redatam' core and provides functions to open/close a database
-(redatam_open()/redatam_close()), list entities and variables from the
-database (redatam_entities(), redatam_variables()) and execute a 'SPC'
-program and gets the results as data frames (redatam_query(),
-redatam_run()).
+Leveraging information-theoretic measures like mutual information and
+v-measure to quantify spatial associations between patterns (Nowosad and
+Stepinski (2018) <doi:10.1080/13658816.2018.1511794>; Bai, H. et al.
+(2023) <doi:10.1080/24694452.2023.2223700>).
 
 %prep
 %setup -q -c -n %{packname}
