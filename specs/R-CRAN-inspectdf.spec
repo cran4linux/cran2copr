@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  inspectdf
-%global packver   0.0.12
+%global packver   0.0.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.0.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inspection, Comparison and Visualisation of Data Frames
 
