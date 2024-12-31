@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bindata
-%global packver   0.9-21
+%global packver   0.9-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.21
+Version:          0.9.22
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generation of Artificial Binary Data
 
