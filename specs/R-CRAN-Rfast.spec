@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rfast
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Efficient and Extremely Fast R Functions
 
@@ -37,7 +37,10 @@ fast. Journal of Data Science, 16(4): 771--780.
 M., Papadakis M. and Tsagris M. (2020). Extremely Efficient Permutation
 and Bootstrap Hypothesis Tests Using Hypothesis Tests Using R. Journal of
 Modern Applied Statistical Methods, 18(2), eP2898.
-<doi:10.48550/arXiv.1806.10947>.
+<doi:10.48550/arXiv.1806.10947>. d) Tsagris M., Papadakis M., Alenazi A.
+and Alzeley O. (2024). Computationally Efficient Outlier Detection for
+High-Dimensional Data Using the MDP Algorithm. Computation, 12(9): 185.
+<doi:10.3390/computation12090185>.
 
 %prep
 %setup -q -c -n %{packname}
