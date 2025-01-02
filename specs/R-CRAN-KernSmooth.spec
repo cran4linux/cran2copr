@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KernSmooth
-%global packver   2.23-24
+%global packver   2.23-26
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.23.24
+Version:          2.23.26
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Kernel Smoothing Supporting Wand & Jones (1995)
 
