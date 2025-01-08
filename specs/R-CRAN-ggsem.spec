@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsem
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactively Visualize Structural Equation Modeling Diagrams
 
@@ -28,6 +28,9 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-umap 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-shiny 
@@ -39,14 +42,17 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-umap 
 
 %description
-It allows users to perform interactive and reproducible visualizations of
-path diagrams for structural equation modeling (SEM) and small-to-medium
-sized networks using the 'ggplot2' engine. Its 'shiny' app provides an
-interface that allows extensive customization, and creates CSV outputs,
-which can then be used to recreate the figures either using the 'shiny'
-app or in a typical 'ggplot2' workflow.
+It is an R package and web-based application, allowing users to perform
+interactive and reproducible visualizations of path diagrams for
+structural equation modeling (SEM) and networks using the 'ggplot2'
+engine. Its app (built with 'shiny') provides an interface that allows
+extensive customization, and creates CSV outputs, which can then be used
+to recreate the figures either using the web app or script-based workflow.
 
 %prep
 %setup -q -c -n %{packname}

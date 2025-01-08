@@ -1,25 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppThread
-%global packver   2.2.0
+%global packname  creepyalien
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-Friendly Threading in C++
+Summary:          Puzzle Game for the R Console
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-stats 
 
 %description
-Provides a C++11-style thread class and thread pool that can safely be
-interrupted from R. See Nagler (2021) <doi:10.18637/jss.v097.c01>.
+Puzzle game that can be played in the R console. Help the alien to find
+the ship.
 
 %prep
 %setup -q -c -n %{packname}

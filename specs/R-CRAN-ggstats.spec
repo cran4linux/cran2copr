@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstats
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'ggplot2' for Plotting Stats
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-cli 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 Requires:         R-CRAN-tidyr 
 
 %description

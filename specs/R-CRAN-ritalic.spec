@@ -1,25 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppThread
-%global packver   2.2.0
+%global packname  ritalic
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-Friendly Threading in C++
+Summary:          Interface to the ITALIC Database of Lichen Biodiversity
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.5.3
+Requires:         R-core >= 3.5.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-Provides a C++11-style thread class and thread pool that can safely be
-interrupted from R. See Nagler (2021) <doi:10.18637/jss.v097.c01>.
+A programmatic interface to the Web Service methods provided by ITALIC
+(<https://italic.units.it>). ITALIC is a database of lichen data in Italy
+and bordering European countries. 'ritalic' includes functions for
+retrieving information about lichen scientific names, geographic
+distribution, ecological data, morpho-functional traits and identification
+keys. More information about the data is available at
+<https://italic.units.it/?procedure=base&t=59&c=60>. The API documentation
+is available at <https://italic.units.it/?procedure=api>.
 
 %prep
 %setup -q -c -n %{packname}

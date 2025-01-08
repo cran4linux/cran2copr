@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eurocordexr
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Makes it Easier to Work with Daily 'netCDF' from EURO-CORDEX RCMs
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-CRAN-ncdf4.helpers 
+BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-PCICt 
 BuildRequires:    R-CRAN-lubridate 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-CRAN-ncdf4.helpers 
+Requires:         R-CRAN-RNetCDF 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-PCICt 
 Requires:         R-CRAN-lubridate 

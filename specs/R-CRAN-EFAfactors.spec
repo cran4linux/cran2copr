@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EFAfactors
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Determining the Number of Factors in Exploratory Factor Analysis
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-BBmisc 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ddpcr 
 BuildRequires:    R-CRAN-ineq 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mlr 
-BuildRequires:    R-CRAN-ParamHelpers 
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-ranger 
@@ -32,12 +32,12 @@ BuildRequires:    R-CRAN-RcppArmadillo
 BuildRequires:    R-CRAN-SimCorMultRes 
 BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-BBmisc 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-ddpcr 
 Requires:         R-CRAN-ineq 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mlr 
-Requires:         R-CRAN-ParamHelpers 
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-ranger 

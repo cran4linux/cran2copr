@@ -1,25 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppThread
-%global packver   2.2.0
+%global packname  WIPF
+%global packver   0.1.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-Friendly Threading in C++
+Summary:          Weighted Iterative Proportional Fitting
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides a C++11-style thread class and thread pool that can safely be
-interrupted from R. See Nagler (2021) <doi:10.18637/jss.v097.c01>.
+Implementation of the weighted iterative proportional fitting (WIPF)
+procedure for updating/adjusting a N-dimensional array (currently N<=3)
+given a weight structure and some target marginals. Acknowledgements: The
+author wish to thank Ministerio de Ciencia, Innovación y Universidades
+(grant PID2021-128228NB-I00) and Fundación Mapfre (grant 'Modelización
+espacial e intra-anual de la mortalidad en España. Una herramienta
+automática para el cálculo de productos de vida') for supporting this
+research.
 
 %prep
 %setup -q -c -n %{packname}

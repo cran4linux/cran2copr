@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forsearch
-%global packver   6.3.0
+%global packver   6.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.3.0
+Version:          6.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diagnostic Analysis Using Forward Search Procedure for Various Models
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Hmisc >= 4.7.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-survival >= 3.4
-BuildRequires:    R-CRAN-tibble >= 3.1.8
-BuildRequires:    R-CRAN-nlme >= 3.1.157
-BuildRequires:    R-CRAN-formula.tools >= 1.7.0
-BuildRequires:    R-CRAN-Cairo >= 1.6.0
-Requires:         R-CRAN-Hmisc >= 4.7.0
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-survival >= 3.4
-Requires:         R-CRAN-tibble >= 3.1.8
-Requires:         R-CRAN-nlme >= 3.1.157
-Requires:         R-CRAN-formula.tools >= 1.7.0
-Requires:         R-CRAN-Cairo >= 1.6.0
+BuildRequires:    R-CRAN-Hmisc >= 5.2.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-survival >= 3.3.3
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-nlme >= 3.1.166
+BuildRequires:    R-CRAN-formula.tools >= 1.7.1
+BuildRequires:    R-CRAN-Cairo >= 1.6.2
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-Hmisc >= 5.2.1
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-survival >= 3.3.3
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-nlme >= 3.1.166
+Requires:         R-CRAN-formula.tools >= 1.7.1
+Requires:         R-CRAN-Cairo >= 1.6.2
+Requires:         R-CRAN-rlang >= 1.1.4
 
 %description
 Identifies potential data outliers and their impact on estimates and

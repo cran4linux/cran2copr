@@ -1,25 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppThread
-%global packver   2.2.0
+%global packname  DNNSIM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R-Friendly Threading in C++
+Summary:          Single-Index Neural Network for Skewed Heavy-Tailed Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats >= 4.3.0
+BuildRequires:    R-CRAN-Rdpack >= 2.6
+BuildRequires:    R-CRAN-reticulate >= 1.37.0
+Requires:         R-stats >= 4.3.0
+Requires:         R-CRAN-Rdpack >= 2.6
+Requires:         R-CRAN-reticulate >= 1.37.0
 
 %description
-Provides a C++11-style thread class and thread pool that can safely be
-interrupted from R. See Nagler (2021) <doi:10.18637/jss.v097.c01>.
+Provides a deep neural network model with a monotonic increasing single
+index function tailored for periodontal disease studies. The residuals are
+assumed to follow a skewed T distribution, a skewed normal distribution,
+or a normal distribution. More details can be found at Liu, Huang, and Bai
+(2024) <doi:10.1016/j.csda.2024.108012>.
 
 %prep
 %setup -q -c -n %{packname}

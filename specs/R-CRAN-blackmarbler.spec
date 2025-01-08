@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blackmarbler
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Black Marble Data and Statistics
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-hdf5r 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
@@ -27,10 +26,8 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-exactextractr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-hdf5r 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
@@ -39,7 +36,6 @@ Requires:         R-CRAN-terra
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-exactextractr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
 Requires:         R-CRAN-httr2 
 
 %description

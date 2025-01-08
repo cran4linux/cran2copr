@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extractox
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Tox Info from Various Databases
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-pingr
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-webchem 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-janitor 
@@ -31,16 +32,19 @@ Requires:         R-CRAN-pingr
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-webchem 
+Requires:         R-CRAN-withr 
 
 %description
 Extract toxicological and chemical information from databases maintained
 by scientific agencies and resources, including the Comparative
 Toxicogenomics Database <https://ctdbase.org/>, the Integrated Chemical
 Environment <https://ice.ntp.niehs.nih.gov/>, the Integrated Risk
-Information System <https://cfpub.epa.gov/ncea/iris/>, the CompTox
-Chemicals Dashboard Resource Hub
+Information System <https://cfpub.epa.gov/ncea/iris/>, Provisional
+Peer-Reviewed Toxicity Values
+<https://www.epa.gov/pprtv/provisional-peer-reviewed-toxicity-values-pprtvs-assessments>,
+the CompTox Chemicals Dashboard Resource Hub
 <https://www.epa.gov/comptox-tools/comptox-chemicals-dashboard-resource-hub>,
-and PubChem <https://pubchem.ncbi.nlm.nih.gov/>.
+PubChem <https://pubchem.ncbi.nlm.nih.gov/>, and others.
 
 %prep
 %setup -q -c -n %{packname}

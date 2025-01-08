@@ -1,36 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmi
-%global packver   0.1.1
+%global packname  utf8ify
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mutual Information Estimators
+Summary:          Format Text Using Unicode
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Provides mutual information estimators based on k-nearest neighbor
-estimators by A. Kraskov, et al. (2004) <doi:10.1103/PhysRevE.69.066138>,
-S. Gao, et al. (2015) <http://proceedings.mlr.press/v38/gao15.pdf> and
-local density estimators by W. Gao, et al. (2017)
-<doi:10.1109/ISIT.2017.8006749>.
+Format text (bold, italic, ...) and numbers using UTF-8. Offers functions
+to search for emojis and include them in your text.
 
 %prep
 %setup -q -c -n %{packname}

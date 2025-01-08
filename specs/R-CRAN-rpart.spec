@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpart
-%global packver   4.1.23
+%global packver   4.1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.23
+Version:          4.1.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Partitioning and Regression Trees
 

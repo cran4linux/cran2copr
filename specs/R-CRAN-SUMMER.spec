@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SUMMER
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small-Area-Estimation Unit/Area Models and Methods for Estimation in R
 
@@ -38,6 +38,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-survey 
 Requires:         R-stats 
 Requires:         R-CRAN-spdep 
@@ -59,6 +60,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-haven 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Provides methods for spatial and spatio-temporal smoothing of demographic
@@ -66,7 +68,8 @@ and health indicators using survey data, with particular focus on
 estimating and projecting under-five mortality rates, described in Mercer
 et al. (2015) <doi:10.1214/15-AOAS872>, Li et al. (2019)
 <doi:10.1371/journal.pone.0210645>, Wu et al. (DHS Spatial Analysis
-Reports No. 21, 2021), and Li et al. (2023) <arXiv:2007.05117>.
+Reports No. 21, 2021), and Li et al. (2023)
+<doi:10.48550/arXiv.2007.05117>.
 
 %prep
 %setup -q -c -n %{packname}

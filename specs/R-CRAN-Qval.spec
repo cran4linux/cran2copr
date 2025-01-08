@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Qval
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Q-Matrix Validation Methods Framework
 
@@ -16,13 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-GDINA 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-GDINA 
@@ -30,6 +31,8 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
@@ -42,8 +45,11 @@ Wald test method (the Wald method) by Ma and de la Torre (2020)
 <DOI:10.1111/bmsp.12156>, the Hull method by Najera et al. (2021)
 <DOI:10.1111/bmsp.12228>, the multiple logistic regression‑based Q‑matrix
 validation method (the MLR-B method) by Tu et al. (2022)
-<DOI:10.3758/s13428-022-01880-x>. Different research methods during
-Q-matrix validating are available.
+<DOI:10.3758/s13428-022-01880-x>, the beta method based on signal
+detection theory by Li and Chen (2024) <DOI:10.1111/bmsp.12371> and
+Q-matrix validation based on relative fit index by Chen et la. (2013)
+<DOI:10.1111/j.1745-3984.2012.00185.x>. Different research methods and
+iterative procedures during Q-matrix validating are available.
 
 %prep
 %setup -q -c -n %{packname}

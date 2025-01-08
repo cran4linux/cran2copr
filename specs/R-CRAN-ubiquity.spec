@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ubiquity
-%global packver   2.0.3
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          PKPD, PBPK, and Systems Pharmacology Modeling Tools
 
@@ -15,8 +15,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       perl
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-onbrand >= 1.0.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-flextable
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-PKNCA 
@@ -50,7 +49,6 @@ Requires:         R-CRAN-flextable
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-PKNCA 

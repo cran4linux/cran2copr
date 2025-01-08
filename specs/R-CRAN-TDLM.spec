@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TDLM
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Comparison of Trip Distribution Laws and Models
 
@@ -19,13 +19,13 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-readr >= 2.0.0
 BuildRequires:    R-CRAN-rmarkdown >= 2.0
-BuildRequires:    R-CRAN-Rdpack >= 1.0
+BuildRequires:    R-CRAN-Rdpack >= 1.0.0
 BuildRequires:    R-CRAN-sf >= 1.0.0
 BuildRequires:    R-CRAN-Ecume 
 BuildRequires:    R-CRAN-mathjaxr 
 Requires:         R-CRAN-readr >= 2.0.0
 Requires:         R-CRAN-rmarkdown >= 2.0
-Requires:         R-CRAN-Rdpack >= 1.0
+Requires:         R-CRAN-Rdpack >= 1.0.0
 Requires:         R-CRAN-sf >= 1.0.0
 Requires:         R-CRAN-Ecume 
 Requires:         R-CRAN-mathjaxr 
