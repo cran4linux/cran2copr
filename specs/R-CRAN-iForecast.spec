@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iForecast
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Time Series Forecasting
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-caret 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-zoo 
 
 %description
 Compute static, onestep and multistep time series forecasts for machine

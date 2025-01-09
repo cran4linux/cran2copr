@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pomp
-%global packver   5.11
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.11
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Inference for Partially Observed Markov Processes
 

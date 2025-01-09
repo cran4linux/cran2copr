@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  corrfuns
-%global packver   1.0
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correlation Coefficient Related Functions
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
 
 %description
@@ -29,7 +31,9 @@ Many correlation coefficient related functions are offered, such as
 correlations, partial correlations and hypothesis testing using asymptotic
 tests and computer intensive methods (bootstrap and permutation).
 References include Mardia K.V., Kent J.T. and Bibby J.M. (1979).
-"Multivariate Analysis". ISBN: 978-0124712522. London: Academic Press.
+"Multivariate Analysis". ISBN: 978-0124712522. London: Academic Press and
+Owen A. B. (2001). "Empirical likelihood". Chapman and Hall/CRC Press.
+ISBN: 9781584880714.
 
 %prep
 %setup -q -c -n %{packname}

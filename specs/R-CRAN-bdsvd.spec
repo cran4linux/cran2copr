@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bdsvd
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Block Structure Detection Using Singular Vectors
 
@@ -27,8 +27,8 @@ Requires:         R-stats
 %description
 Performs block diagonal covariance matrix detection using singular vectors
 (BD-SVD), which can be extended to hierarchical variable clustering
-(HC-SVD). The methods are described in Bauer (202Xa)
-<doi:10.48550/arXiv.2211.16155> and Bauer (202Xb)
+(HC-SVD). The methods are described in Bauer (2024)
+<doi:10.1080/10618600.2024.2422985> and Bauer (202X)
 <doi:10.48550/arXiv.2308.06820>.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jsmodule
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'RStudio' Addins and 'Shiny' Modules for Medical Research
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MatchIt >= 3.0.0
+BuildRequires:    R-CRAN-jstable >= 1.3.8
 BuildRequires:    R-CRAN-jskm >= 0.4.4
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DT 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-Hmisc 
-BuildRequires:    R-CRAN-jstable 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-maxstat 
 BuildRequires:    R-methods 
@@ -56,6 +56,7 @@ BuildRequires:    R-CRAN-timeROC
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-MatchIt >= 3.0.0
+Requires:         R-CRAN-jstable >= 1.3.8
 Requires:         R-CRAN-jskm >= 0.4.4
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DT 
@@ -68,7 +69,6 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-Hmisc 
-Requires:         R-CRAN-jstable 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-maxstat 
 Requires:         R-methods 

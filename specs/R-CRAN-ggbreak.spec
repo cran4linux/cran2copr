@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggbreak
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Set Axis Break for 'ggplot2'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-yulab.utils >= 0.1.9
 BuildRequires:    R-CRAN-aplot >= 0.1.5
 BuildRequires:    R-CRAN-ggfun >= 0.1.1
 BuildRequires:    R-CRAN-ggplotify >= 0.0.7
@@ -24,6 +25,7 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-yulab.utils >= 0.1.9
 Requires:         R-CRAN-aplot >= 0.1.5
 Requires:         R-CRAN-ggfun >= 0.1.1
 Requires:         R-CRAN-ggplotify >= 0.0.7
@@ -34,7 +36,7 @@ Requires:         R-stats
 
 %description
 An implementation of scale functions for setting axis breaks of a 'gg'
-plot.
+plot (S Xu (2021) <doi:10.3389/fgene.2021.774846>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  amadeus
-%global packver   1.1.6
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing and Analyzing Large-Scale Environmental Data
 
@@ -32,8 +32,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-nhdplusTools 
@@ -55,8 +53,6 @@ Requires:         R-utils
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-stars 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-nhdplusTools 

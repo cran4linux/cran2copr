@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtfstools
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Transit Feed Specification (GTFS) Editing and Analysing Tools
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-sfheaders
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-gtfsio >= 1.0.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 

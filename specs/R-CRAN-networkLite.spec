@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  networkLite
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Simplified Implementation of the 'network' Package Functionality
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statnet.common >= 4.8.0
-BuildRequires:    R-CRAN-network >= 1.18.1
+BuildRequires:    R-CRAN-statnet.common >= 4.11.0
+BuildRequires:    R-CRAN-network >= 1.19.0
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-statnet.common >= 4.8.0
-Requires:         R-CRAN-network >= 1.18.1
+Requires:         R-CRAN-statnet.common >= 4.11.0
+Requires:         R-CRAN-network >= 1.19.0
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
 

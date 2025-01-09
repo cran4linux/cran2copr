@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoslider.core
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slide Automation for Tables, Listings and Figures
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-flextable >= 0.9.4
 BuildRequires:    R-CRAN-rtables >= 0.6.10
 BuildRequires:    R-CRAN-officer >= 0.3.18
 BuildRequires:    R-CRAN-rlistings >= 0.2.9
+BuildRequires:    R-CRAN-rvg >= 0.2.5
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
@@ -41,12 +43,14 @@ Requires:         R-CRAN-flextable >= 0.9.4
 Requires:         R-CRAN-rtables >= 0.6.10
 Requires:         R-CRAN-officer >= 0.3.18
 Requires:         R-CRAN-rlistings >= 0.2.9
+Requires:         R-CRAN-rvg >= 0.2.5
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  colourvision
-%global packver   2.0.4
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colour Vision Models
 
@@ -28,7 +29,7 @@ Requires:         R-CRAN-Matrix
 %description
 Colour vision models, colour spaces and colour thresholds. Provides
 flexibility to build user-defined colour vision models for n number of
-photoreceptor types. Also includes Vorobyev & Osorio (1998) Receptor Noise
+photoreceptor types. Includes Vorobyev & Osorio (1998) Receptor Noise
 Limited models <doi:10.1098/rspb.1998.0302>, Chittka (1992) colour hexagon
 <doi:10.1007/BF00199331>, and Endler & Mielke (2005) model
 <doi:10.1111/j.1095-8312.2005.00540.x>. Models have been extended to

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  backtestGraphics
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Graphics for Portfolio Data
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-dygraphs 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-tibble 
 
 %description
 Creates an interactive graphics interface to visualize backtest results of

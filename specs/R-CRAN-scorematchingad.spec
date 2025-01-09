@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scorematchingad
-%global packver   0.0.67
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.67
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Score Matching Estimation by Automatic Differentiation
 
@@ -25,17 +25,16 @@ BuildRequires:    R-CRAN-FixedPoint
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-CRAN-RcppEigen >= 0.3.3.7
 Requires:         R-CRAN-MCMCpack 
 Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-FixedPoint 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-R6 
 Requires:         R-utils 
 
 %description
@@ -53,7 +52,8 @@ estimators for directional distributions (Mardia, Kent and Laha, 2016)
 Pairwise Interaction model for compositional data. The latter estimators
 perform well when there are zeros in the compositions (Scealy and Wood,
 2023) <doi:10.1080/01621459.2021.2016422>, even many zeros (Scealy,
-Hingee, Kent, and Wood, 2024) <doi:10.1007/s11222-024-10412-w>.
+Hingee, Kent, and Wood, 2024) <doi:10.1007/s11222-024-10412-w>. A partial
+interface to CppAD's ADFun objects is also available.
 
 %prep
 %setup -q -c -n %{packname}

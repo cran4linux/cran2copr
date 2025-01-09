@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kde1d
-%global packver   1.0.7
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate Kernel Density Estimation
 
@@ -32,8 +32,10 @@ Requires:         R-utils
 %description
 Provides an efficient implementation of univariate local polynomial kernel
 density estimators that can handle bounded and discrete data. See Geenens
-(2014) <arXiv:1303.4121>, Geenens and Wang (2018) <arXiv:1602.04862>,
-Nagler (2018a) <arXiv:1704.07457>, Nagler (2018b) <arXiv:1705.05431>.
+(2014) <doi:10.48550/arXiv.1303.4121>, Geenens and Wang (2018)
+<doi:10.48550/arXiv.1602.04862>, Nagler (2018a)
+<doi:10.48550/arXiv.1704.07457>, Nagler (2018b)
+<doi:10.48550/arXiv.1705.05431>.
 
 %prep
 %setup -q -c -n %{packname}

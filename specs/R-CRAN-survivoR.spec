@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survivoR
-%global packver   2.3.4
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data from all Seasons of Survivor (US) TV Series in Tidy Format
 
@@ -47,12 +47,11 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-shinyjs 
 
 %description
-Several datasets which detail the results and events of each season of
-Survivor. This includes details on the cast, voting history, immunity and
-reward challenges, jury votes and viewers. This data is useful for
-practicing data wrangling, graph analytics and analysing how each season
-of Survivor played out. Includes 'ggplot2' scales and colour palettes for
-visualisation.
+Datasets detailing the results, castaways, and events of each season of
+Survivor for the US, Australia, South Africa, New Zealand, and the UK.
+This includes details on the cast, voting history, immunity and reward
+challenges, jury votes, boot order, advantage details, and episode
+ratings. Use this for analysis of trends and statistics of the game.
 
 %prep
 %setup -q -c -n %{packname}

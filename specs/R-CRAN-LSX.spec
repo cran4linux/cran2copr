@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LSX
-%global packver   1.4.0
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Supervised Algorithm for Document Scaling
 
@@ -24,9 +24,6 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-CRAN-rsvd 
-BuildRequires:    R-CRAN-rsparse 
 BuildRequires:    R-CRAN-proxyC 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
@@ -40,9 +37,6 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-irlba 
-Requires:         R-CRAN-rsvd 
-Requires:         R-CRAN-rsparse 
 Requires:         R-CRAN-proxyC 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 

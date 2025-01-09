@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ILSAmerge
-%global packver   1.3.0
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Merge and Download International Large-Scale Assessments (ILSA) Data
 
@@ -24,8 +24,7 @@ Requires:         R-CRAN-haven
 Merges and downloads 'SPSS' data from different International Large-Scale
 Assessments (ILSA), including: Trends in International Mathematics and
 Science Study (TIMSS), Progress in International Reading Literacy Study
-(PIRLS), Programme for International Student Assessment (PISA), and
-others.
+(PIRLS), and others.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spData
-%global packver   2.3.3
+%global packver   2.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datasets for Spatial Analysis
 
@@ -25,10 +25,11 @@ Diverse spatial datasets for demonstrating, benchmarking and teaching
 spatial data analysis. It includes R data of class sf (defined by the
 package 'sf'), Spatial ('sp'), and nb ('spdep'). Unlike other spatial data
 packages such as 'rnaturalearth' and 'maps', it also contains data stored
-in a range of file formats including GeoJSON, ESRI Shapefile and
-GeoPackage. Some of the datasets are designed to illustrate specific
-analysis techniques. cycle_hire() and cycle_hire_osm(), for example, is
-designed to illustrate point pattern analysis techniques.
+in a range of file formats including GeoJSON and GeoPackage, but from
+version 2.3.4, no longer ESRI Shapefile - use GeoPackage instead. Some of
+the datasets are designed to illustrate specific analysis techniques.
+cycle_hire() and cycle_hire_osm(), for example, is designed to illustrate
+point pattern analysis techniques.
 
 %prep
 %setup -q -c -n %{packname}

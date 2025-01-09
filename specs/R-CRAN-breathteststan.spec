@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  breathteststan
-%global packver   0.8.8
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.8
+Version:          0.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stan-Based Fit to Gastric Emptying Curves
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-rstan >= 2.32.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.72
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-breathtestcore >= 0.8.7
+BuildRequires:    R-CRAN-breathtestcore >= 0.8.8
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstantools >= 2.4.0
 Requires:         R-CRAN-rstan >= 2.32.0
 Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-breathtestcore >= 0.8.7
+Requires:         R-CRAN-breathtestcore >= 0.8.8
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 

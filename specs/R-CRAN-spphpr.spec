@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spphpr
-%global packver   0.1.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spring Phenological Prediction
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 
 %description
-Predicts the occurrence times (in day of year) of spring phenological
+Predicts the occurrence times (in day-of-year) of spring phenological
 events. Three methods, including the accumulated degree days (ADD) method,
 the accumulated days transferred to a standardized temperature (ADTS)
 method, and the accumulated developmental progress (ADP) method, were

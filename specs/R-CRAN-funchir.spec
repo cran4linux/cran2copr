@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  funchir
-%global packver   0.2.2
+%global packver   0.3.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convenience Functions by Michael Chirico
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,9 +23,8 @@ Requires:         R-CRAN-data.table
 %description
 YACFP (Yet Another Convenience Function Package). get_age() is a fast &
 accurate tool for measuring fractional years between two dates.
-abbr_to_colClass() is a much more concise way of feeding many types to a
-colClass argument in a data reader. stale_package_check() tries to
-identify any library() calls to unused packages.
+stale_package_check() tries to identify any library() calls to unused
+packages.
 
 %prep
 %setup -q -c -n %{packname}
