@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ExactMultinom
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multinomial Goodness-of-Fit Tests
 
@@ -25,9 +25,9 @@ Requires:         R-stats
 Computes exact p-values for multinomial goodness-of-fit tests based on
 multiple test statistics, namely, Pearson's chi-square, the log-likelihood
 ratio and the probability mass statistic. Implements the algorithm
-detailed in Resin (2020) <arXiv:2008.12682>. Estimates based on the
-classical asymptotic chi-square approximation or Monte-Carlo simulation
-can also be computed.
+detailed in Resin (2023) <doi:10.1080/10618600.2022.2102026>. Estimates
+based on the classical asymptotic chi-square approximation or Monte-Carlo
+simulation can also be computed.
 
 %prep
 %setup -q -c -n %{packname}

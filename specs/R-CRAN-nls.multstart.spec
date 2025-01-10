@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nls.multstart
-%global packver   1.3.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Non-Linear Regression using AIC Scores
 
@@ -22,11 +22,17 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lhs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lhs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 Non-linear least squares regression with the Levenberg-Marquardt algorithm

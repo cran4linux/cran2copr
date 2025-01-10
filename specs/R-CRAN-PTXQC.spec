@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PTXQC
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quality Report Generation for MaxQuant and mzTab Results
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 2.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.4
 BuildRequires:    R-CRAN-knitr >= 1.10
 BuildRequires:    R-CRAN-rmzqc >= 0.5.0
 BuildRequires:    R-CRAN-data.table 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-R6P 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-seqinr 
 BuildRequires:    R-stats 
@@ -41,7 +42,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-UpSetR 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-ggplot2 >= 2.2
+Requires:         R-CRAN-ggplot2 >= 3.4
 Requires:         R-CRAN-knitr >= 1.10
 Requires:         R-CRAN-rmzqc >= 0.5.0
 Requires:         R-CRAN-data.table 
@@ -58,6 +59,7 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-R6P 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-seqinr 
 Requires:         R-stats 

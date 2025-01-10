@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cases
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified Evaluation of Subgroup Classification Accuracy
 
@@ -44,9 +44,10 @@ Requires:         R-CRAN-ggplot2
 Enables simultaneous statistical inference for the accuracy of multiple
 classifiers in multiple subgroups (strata). For instance, allows to
 perform multiple comparisons in diagnostic accuracy studies with
-co-primary endpoints sensitivity and specificity. (Westphal, Max, and
-Antonia Zapf. (2021). "Statistical Inference for Diagnostic Test Accuracy
-Studies with Multiple Comparisons." <arXiv:2105.13469>.)
+co-primary endpoints sensitivity and specificity (Westphal M, Zapf A.
+Statistical inference for diagnostic test accuracy studies with multiple
+comparisons. Statistical Methods in Medical Research. 2024;0(0).
+<doi:10.1177/09622802241236933>).
 
 %prep
 %setup -q -c -n %{packname}

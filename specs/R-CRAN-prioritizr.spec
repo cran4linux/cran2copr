@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  prioritizr
-%global packver   8.0.4
+%global packver   8.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.4
+Version:          8.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Conservation Prioritization in R
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ape >= 5.6
+BuildRequires:    R-CRAN-ape >= 5.6.1
 BuildRequires:    R-CRAN-raster >= 3.6.11
 BuildRequires:    R-CRAN-cli >= 3.6.0
 BuildRequires:    R-CRAN-R6 >= 2.5.1
@@ -37,7 +37,7 @@ BuildRequires:    R-CRAN-slam >= 0.1.48
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-ape >= 5.6
+Requires:         R-CRAN-ape >= 5.6.1
 Requires:         R-CRAN-raster >= 3.6.11
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-R6 >= 2.5.1
@@ -76,7 +76,8 @@ and the 'cplexAPI' R package (available at
 <https://github.com/cran/cplexAPI>). Additionally, the 'rcbc' R package
 (available at <https://github.com/dirkschumacher/rcbc>) can be used to
 generate solutions using the CBC optimization software
-(<https://github.com/coin-or/Cbc>).
+(<https://github.com/coin-or/Cbc>). For further details, see Hanson et al.
+(2024) <doi:10.1111/cobi.14376>.
 
 %prep
 %setup -q -c -n %{packname}

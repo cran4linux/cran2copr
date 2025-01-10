@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datadriftR
-%global packver   0.0.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concept Drift Detection Methods for Stream Data
 
@@ -18,7 +18,11 @@ BuildRequires:    R-devel >= 3.5.2
 Requires:         R-core >= 3.5.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-doremi 
+BuildRequires:    R-CRAN-fda.usc 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-doremi 
+Requires:         R-CRAN-fda.usc 
 
 %description
 A system designed for detecting concept drift in streaming datasets. It
@@ -30,7 +34,9 @@ Methods (HDDM_A, HDDM_W), Kolmogorov-Smirnov test-based Windowing (KSWIN)
 and Page Hinkley (PH) tests. The methods implemented in this package are
 based on established research and have been demonstrated to be effective
 in real-time data analysis. For more details on the methods, please check
-to the following sources. Gama et al. (2004)
+to the following sources. Kobylińska et al. (2023)
+<doi:10.48550/arXiv.2308.11446>, S. Kullback & R.A. Leibler (1951)
+<doi:10.1214/aoms/1177729694>, Gama et al. (2004)
 <doi:10.1007/978-3-540-28645-5_29>, Baena-Garcia et al. (2006)
 <https://www.researchgate.net/publication/245999704_Early_Drift_Detection_Method>,
 Frías-Blanco et al. (2014) <https://ieeexplore.ieee.org/document/6871418>,

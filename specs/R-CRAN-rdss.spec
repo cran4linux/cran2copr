@@ -1,35 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  messi
-%global packver   0.1.2
+%global packname  rdss
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mediation with External Summary Statistic Information
+Summary:          Companion Datasets and Functions for Research Design in the Social Sciences
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.2
-Requires:         R-core >= 3.6.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dataverse 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-randomizr 
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dataverse 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-estimatr 
+Requires:         R-CRAN-randomizr 
 
 %description
-Fits the MESSI, hard constraint, and unconstrained models in Boss et al.
-(2023) <doi:10.48550/arXiv.2306.17347> for mediation analyses with
-external summary-level information on the total effect.
+Helper functions to accompany the Blair, Coppock, and Humphreys (2022)
+"Research Design in the Social Sciences: Declaration, Diagnosis, and
+Redesign" <https://book.declaredesign.org>. 'rdss' includes datasets,
+helper functions, and plotting components to enable use and replication of
+the book.
 
 %prep
 %setup -q -c -n %{packname}

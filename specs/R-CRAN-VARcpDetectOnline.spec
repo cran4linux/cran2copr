@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.2
+%global packname  VARcpDetectOnline
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Sequential Change Point Detection for High-Dimensional VAR Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sparsevar 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sparsevar 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+Implements the algorithm introduced in Tian, Y., and Safikhani, A. (2024)
+<doi:10.5705/ss.202024.0182>, "Sequential Change Point Detection in
+High-dimensional Vector Auto-regressive Models". This package provides
+tools for detecting change points in the transition matrices of Vector
+Auto-Regressive (VAR) models, effectively identifying shifts in temporal
+and cross-correlations within high-dimensional time series data. The
+package includes functions to generate synthetic VAR data, detect change
+points in high-dimensional time series, and analyze real-world data. It
+also demonstrates an application to financial data: the daily log returns
+of 186 S&P 500 stocks from 2004-02-06 to 2016-03-02.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AQEval
-%global packver   0.5.7
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.7
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Air Quality Evaluation
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
 Requires:         R-CRAN-openair 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-loa 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-ggtext 
 Requires:         R-stats 
+Requires:         R-CRAN-data.table 
 
 %description
 Developed for use by those tasked with the routine detection,

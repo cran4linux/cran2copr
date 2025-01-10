@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compind
-%global packver   3.1
+%global packver   3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite Indicators Functions
 
@@ -52,12 +52,10 @@ Requires:         R-CRAN-Rcompadre
 A collection of functions to calculate Composite Indicators methods,
 focusing, in particular, on the normalisation and weighting-aggregation
 steps, as described in OECD Handbook on constructing composite indicators:
-methodology and user guide
-<https://www.oecd-ilibrary.org/economics/handbook-on-constructing-composite-indicators-methodology-and-user-guide_9789264043466-en>,
-'Vidoli' and 'Fusco' and 'Mazziotta' <doi:10.1007/s11205-014-0710-y>,
-'Mazziotta' and 'Pareto' (2016) <doi:10.1007/s11205-015-0998-2>, 'Van
-Puyenbroeck and 'Rogge' <doi:10.1016/j.ejor.2016.07.038> and other
-authors.
+methodology and user guide, 2008, 'Vidoli' and 'Fusco' and 'Mazziotta'
+<doi:10.1007/s11205-014-0710-y>, 'Mazziotta' and 'Pareto' (2016)
+<doi:10.1007/s11205-015-0998-2>, 'Van Puyenbroeck and 'Rogge'
+<doi:10.1016/j.ejor.2016.07.038> and other authors.
 
 %prep
 %setup -q -c -n %{packname}

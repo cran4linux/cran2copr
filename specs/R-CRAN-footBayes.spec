@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  footBayes
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Bayesian and MLE Football Models
 
@@ -22,29 +22,33 @@ BuildRequires:    R-CRAN-rstan >= 2.18.1
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-metRology 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-extraDistr 
 Requires:         R-parallel 
 Requires:         R-CRAN-metRology 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstantools
 
 %description

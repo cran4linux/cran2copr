@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhppp
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulating Nonhomogeneous Poisson Point Processes
 
@@ -26,14 +26,15 @@ Requires:         R-CRAN-rstream
 %description
 Simulates events from one dimensional nonhomogeneous Poisson point
 processes (NHPPPs) as per Trikalinos and Sereda (2024,
-<doi:10.48550/arXiv.2402.00358>). Functions are based on three algorithms
-that provably sample from a target NHPPP: the time-transformation of a
-homogeneous Poisson process (of intensity one) via the inverse of the
-integrated intensity function (Cinlar E, "Theory of stochastic processes"
-(1975, ISBN:0486497996)); the generation of a Poisson number of order
-statistics from a fixed density function; and the thinning of a majorizing
-NHPPP via an acceptance-rejection scheme (Lewis PAW, Shedler, GS (1979)
-<doi:10.1002/nav.3800260304>).
+<doi:10.48550/arXiv.2402.00358> and 2024,
+<doi:10.1371/journal.pone.0311311>). Functions are based on three
+algorithms that provably sample from a target NHPPP: the
+time-transformation of a homogeneous Poisson process (of intensity one)
+via the inverse of the integrated intensity function (Cinlar E, "Theory of
+stochastic processes" (1975, ISBN:0486497996)); the generation of a
+Poisson number of order statistics from a fixed density function; and the
+thinning of a majorizing NHPPP via an acceptance-rejection scheme (Lewis
+PAW, Shedler, GS (1979) <doi:10.1002/nav.3800260304>).
 
 %prep
 %setup -q -c -n %{packname}

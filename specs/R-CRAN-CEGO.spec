@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CEGO
-%global packver   2.4.3
+%global packver   2.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.3
+Version:          2.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combinatorial Efficient Global Optimization
 
@@ -23,7 +23,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ParamHelpers 
 BuildRequires:    R-CRAN-fastmatch 
 BuildRequires:    R-CRAN-anticlust 
 Requires:         R-CRAN-MASS 
@@ -33,7 +32,6 @@ Requires:         R-graphics
 Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-CRAN-ParamHelpers 
 Requires:         R-CRAN-fastmatch 
 Requires:         R-CRAN-anticlust 
 

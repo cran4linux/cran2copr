@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.2
+%global packname  jetty
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Execute R in a 'Docker' Context
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,14 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-renv >= 1.0.0
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-renv >= 1.0.0
+Requires:         R-CRAN-rlang 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+The goal of 'jetty' is to execute R functions and code snippets in an
+isolated R subprocess within a 'Docker' container and return the evaluated
+results to the local R session. 'jetty' can install necessary packages at
+runtime and seamlessly propagates errors and outputs from the 'Docker'
+subprocess back to the main session. 'jetty' is primarily designed for
+sandboxed testing and quick execution of example code.
 
 %prep
 %setup -q -c -n %{packname}

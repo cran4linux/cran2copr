@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForestFit
-%global packver   2.2.3
+%global packver   2.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Modelling for Plant Size Distributions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 3.4.4
+Requires:         R-core >= 3.4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ars 
 BuildRequires:    R-CRAN-pracma 
@@ -41,12 +41,13 @@ function, cumulative distribution function, and generating realizations
 from gamma shape mixture model introduced by Venturini et al. (2008)
 <doi:10.1214/07-AOAS156> , 8 ) The Bayesian inference, computing
 probability density function, cumulative distribution function, and
-generating realizations from four-parameter Johnson SB distribution, 9 )
-Robust multiple linear regression analysis when error term follows skewed
-t distribution, 10 ) Estimating parameters of a given distribution fitted
-to grouped data using method of maximum likelihood, and 11 ) Estimating
-parameters of the Johnson SB distribution through the Bayesian, method of
-moment, conditional maximum likelihood, and two - percentile method.
+generating realizations from univariate and bivariate Johnson SB
+distribution, 9 ) Robust multiple linear regression analysis when error
+term follows skewed t distribution, 10 ) Estimating parameters of a given
+distribution fitted to grouped data using method of maximum likelihood,
+and 11 ) Estimating parameters of the Johnson SB distribution through the
+Bayesian, method of moment, conditional maximum likelihood, and two -
+percentile method.
 
 %prep
 %setup -q -c -n %{packname}

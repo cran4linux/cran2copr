@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aihuman
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Experimental Evaluation of Algorithm-Assisted Human Decision-Making
 
@@ -30,7 +30,11 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-metR 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-GLMMadaptive 
+BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
@@ -47,17 +51,22 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-metR 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-GLMMadaptive 
+Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-forcats 
 
 %description
 Provides statistical methods for analyzing experimental evaluation of the
 causal impacts of algorithmic recommendations on human decisions developed
 by Imai, Jiang, Greiner, Halen, and Shin (2023)
-<doi:10.1093/jrsssa/qnad010>. The data used for this paper, and made
-available here, are interim, based on only half of the observations in the
-study and (for those observations) only half of the study follow-up
-period. We use them only to illustrate methods, not to draw substantive
-conclusions.
+<doi:10.1093/jrsssa/qnad010> and Ben-Michael, Greiner, Huang, Imai, Jiang,
+and Shin (2024) <doi:10.48550/arXiv.2403.12108>. The data used for this
+paper, and made available here, are interim, based on only half of the
+observations in the study and (for those observations) only half of the
+study follow-up period. We use them only to illustrate methods, not to
+draw substantive conclusions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.2
+%global packname  RLescalation
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Optimal Dose Escalation Using Deep Reinforcement Learning
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-reticulate 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+An implementation to compute an optimal dose escalation rule using deep
+reinforcement learning in phase I oncology trials (Matsuura et al. (2023)
+<doi:10.1080/10543406.2023.2170402>). The dose escalation rule can
+directly optimize the percentages of correct selection (PCS) of the
+maximum tolerated dose (MTD).
 
 %prep
 %setup -q -c -n %{packname}

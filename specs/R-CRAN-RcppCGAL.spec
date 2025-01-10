@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppCGAL
-%global packver   6.0
+%global packver   6.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for 'CGAL'
 
@@ -19,8 +19,12 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-utils 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 Creates a header only package to link to the 'CGAL' (Computational

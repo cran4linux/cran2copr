@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLMusingR
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Multilevel Modeling
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-generics
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-WeMix 
 Requires:         R-CRAN-lme4 
 Requires:         R-stats 
 Requires:         R-CRAN-nlme 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-generics
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-performance 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-WeMix 
 
 %description
 Convenience functions and datasets to be used with Practical Multilevel

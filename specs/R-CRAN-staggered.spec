@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  staggered
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Estimation Under Staggered Treatment Timing
 
@@ -33,7 +33,7 @@ Requires:         R-stats
 
 %description
 Efficiently estimates treatment effects in settings with randomized
-staggered rollouts, using tools proposed by Roth and Sant'Anna (2021)
+staggered rollouts, using tools proposed by Roth and Sant'Anna (2023)
 <doi:10.48550/arXiv.2102.01291>.
 
 %prep

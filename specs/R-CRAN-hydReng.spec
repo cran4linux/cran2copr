@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.2
+%global packname  hydReng
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Hydraulic Engineering Tools
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+The 'hydReng' package provides a set of functions for hydraulic
+engineering tasks and natural hazard assessments. It includes basic
+hydraulics (wetted area, wetted perimeter, flow, flow velocity, flow
+depth, and maximum flow) for open channels with arbitrary geometry under
+uniform flow conditions. For structures such as circular pipes, weirs, and
+gates, the package includes calculations for pressure flow, backwater
+depth, and overflow over a weir crest. Additionally, it provides formulas
+for calculating bedload transport. The formulas used can be found in
+standard literature on hydraulics, such as Bollrich (2019,
+ISBN:978-3-410-29169-5) or Hager (2011, ISBN:978-3-642-77430-0).
 
 %prep
 %setup -q -c -n %{packname}

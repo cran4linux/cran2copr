@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.2
+%global packname  IVCor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          A Robust Integrated Variance Correlation
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-BwQuant 
+BuildRequires:    R-CRAN-quantdr 
+BuildRequires:    R-stats 
+Requires:         R-splines 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-BwQuant 
+Requires:         R-CRAN-quantdr 
+Requires:         R-stats 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+A integrated variance correlation is proposed to measure the dependence
+between a categorical or continuous random variable and a continuous
+random variable or vector. This package is designed to estimate the new
+correlation coefficient with parametric and nonparametric approaches. Test
+of independence for different problems can also be implemented via the new
+correlation coefficient with this package.
 
 %prep
 %setup -q -c -n %{packname}

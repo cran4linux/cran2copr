@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.2
+%global packname  bayesestdft
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Estimating the Degrees of Freedom of the Student's t-Distribution under a Bayesian Framework
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.4
+Requires:         R-core >= 4.0.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-dplyr 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+A Bayesian framework to estimate the Student's t-distribution's degrees of
+freedom is developed. Markov Chain Monte Carlo sampling routines are
+developed as in <doi:10.3390/axioms11090462> to sample from the posterior
+distribution of the degrees of freedom. A random walk Metropolis algorithm
+is used for sampling when Jeffrey's and Gamma priors are endowed upon the
+degrees of freedom. In addition, the Metropolis-adjusted Langevin
+algorithm for sampling is used under the Jeffrey's prior specification.
+The Log-normal prior over the degrees of freedom is posed as a viable
+choice with comparable performance in simulations and real-data
+application, against other prior choices, where an Elliptical Slice
+Sampler is used to sample from the concerned posterior.
 
 %prep
 %setup -q -c -n %{packname}

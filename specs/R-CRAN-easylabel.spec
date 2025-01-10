@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  easylabel
-%global packver   0.2.8
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Scatter Plot and Volcano Plot Labels
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-plotly >= 4.10.0
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-plotly >= 4.10.0
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
@@ -41,7 +43,11 @@ Interactive labelling of scatter plots, volcano plots and Manhattan plots
 using a 'shiny' and 'plotly' interface. Users can hover over points to see
 where specific points are located and click points on/off to easily label
 them. Labels can be dragged around the plot to place them optimally. Plots
-can be exported directly to PDF for publication.
+can be exported directly to PDF for publication. For plots with large
+numbers of points, points can optionally be rasterized as a bitmap, while
+all other elements (axes, text, labels & lines) are preserved as vector
+objects. This can dramatically reduce file size for plots with millions of
+points such as Manhattan plots, and is ideal for publication.
 
 %prep
 %setup -q -c -n %{packname}

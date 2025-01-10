@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pkgsearch
-%global packver   3.1.4
+%global packname  ColombiAPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Search and Query CRAN R Packages
+Summary:          Access Colombia's Public Data via 'API-Colombia'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Search CRAN metadata about packages by keyword, popularity, recent
-activity, package name and more. Uses the 'R-hub' search server, see
-<https://r-pkg.org> and the CRAN metadata database, that contains
-information about CRAN packages. Note that this is _not_ a CRAN project.
+Provides a seamless interface to access diverse public data about Colombia
+through the 'API-Colombia', a RESTful API. The package enables users to
+explore various aspects of Colombia, including general information,
+geography, and cultural insights. It includes five API-related functions
+to retrieve data on topics such as Colombia's general information,
+airports, departments, regions, and presidents. Additionally, 'ColombiAPI'
+offers a built-in function to view the datasets available within the
+package. The package also includes curated datasets covering Bogota air
+stations, business and holiday dates, public schools, Colombian coffee
+exports, cannabis licenses, Medellin rainfall, and malls in Bogota, making
+it a comprehensive tool for exploring Colombia's data. For more details on
+the 'API-Colombia', see <https://api-colombia.com/>.
 
 %prep
 %setup -q -c -n %{packname}
