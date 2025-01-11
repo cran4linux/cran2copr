@@ -1,59 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  htmldf
-%global packver   0.6.0
+%global __requires_exclude ^libmpi
+%global packname  CMHSU
+%global packver   0.0.6.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.0.6.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Scraping and Tidy Webpage Summaries
+Summary:          Mental Health Status, Substance Use Status and their Concurrent Status in North American Healthcare Administrative Databases
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cld3 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-cld3 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-xml2 
+Requires:         R-utils 
 
 %description
-Simple tools for scraping webpages, extracting common html tags and
-parsing contents to a tidy, tabular format.  Tools help with extraction of
-page titles, links, images, rss feeds, social media handles and page
-metadata.
+Patients' Mental Health (MH) status, Substance Use (SU) status, and
+concurrent MH/SU status in the American/Canadian Healthcare Administrative
+Databases can be identified. The detection is based on given parameters of
+interest by clinicians including the list of plausible ICD MH/SU codes
+(3/4/5 characters), the required number of visits of hospital for MH/SU ,
+the required number of visits of service physicians for MH/SU, and the
+maximum time span within MH visits, within SU visits, and, between MH and
+SU visits. Methods are described in: Khan S
+<https://pubmed.ncbi.nlm.nih.gov/29044442/>, Keen C, et al. (2021)
+<doi:10.1111/add.15580>, Lavergne MR, et al. (2022)
+<doi:10.1186/s12913-022-07759-z>, Casillas, S M, et al. (2022)
+<doi:10.1016/j.abrep.2022.100464>, CIHI (2022) <https://www.cihi.ca/en>,
+CDC (2024) <https://www.cdc.gov>, WHO (2019) <https://icd.who.int/en>.
 
 %prep
 %setup -q -c -n %{packname}

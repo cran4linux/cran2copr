@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IP
-%global packver   0.1.4
+%global packname  geneviewer
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Classes and Methods for 'IP' Addresses
+Summary:          Gene Cluster Visualizations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-methods 
-Requires:         R-CRAN-stringi 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-fontawesome 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-fontawesome 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Provides S4 classes for Internet Protocol (IP) versions 4 and 6 addresses
-and efficient methods for 'IP' addresses comparison, arithmetic, bit
-manipulation and lookup. Both 'IPv4' and 'IPv6' arbitrary ranges are also
-supported as well as internationalized (IDN) domain lookup with and
-'whois' query.
+Provides tools for plotting gene clusters and transcripts by importing
+data from GenBank, FASTA, and GFF files. It performs BLASTP and MUMmer
+alignments [Altschul et al. (1990) <doi:10.1016/S0022-2836(05)80360-2>;
+Delcher et al. (1999) <doi:10.1093/nar/27.11.2369>] and displays results
+on gene arrow maps. Extensive customization options are available,
+including legends, labels, annotations, scales, colors, tooltips, and
+more.
 
 %prep
 %setup -q -c -n %{packname}

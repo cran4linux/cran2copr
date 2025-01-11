@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multilevelmediation
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions for Multilevel Mediation Analysis
 
@@ -28,6 +28,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-brms 
 BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-glmmTMB 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-matrixcalc 
@@ -39,6 +40,7 @@ Requires:         R-stats
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-brms 
 Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-glmmTMB 
 
 %description
 The ultimate goal is to support 2-2-1, 2-1-1, and 1-1-1 models for

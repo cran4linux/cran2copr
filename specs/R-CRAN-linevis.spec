@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CauchyCP
-%global packver   0.1.1
+%global packname  linevis
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Powerful Test for Survival Data under Non-Proportional Hazards
+Summary:          Interactive Time Series Visualizations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-stats 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-htmlwidgets >= 0.6
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets >= 0.6
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-shiny 
 
 %description
-An omnibus test of change-point Cox regression models to improve the
-statistical power of detecting signals of non-proportional hazards
-patterns. The technical details can be found in Hong Zhang, Qing Li, Devan
-Mehrotra and Judong Shen (2021) <arXiv:2101.00059>. Extensive simulation
-studies demonstrate that, compared to existing tests under
-non-proportional hazards, the proposed CauchyCP test 1) controls the type
-I error better at small alpha levels; 2) increases the power of detecting
-time-varying effects; and 3) is more computationally efficient.
+Create interactive time series visualizations. 'linevis' includes an
+extensive API to manipulate time series after creation, and supports
+getting data out of the visualization. Based on the 'timevis' package and
+the 'vis.js' Timeline 'JavaScript' library
+<https://visjs.github.io/vis-timeline/docs/graph2d/>.
 
 %prep
 %setup -q -c -n %{packname}

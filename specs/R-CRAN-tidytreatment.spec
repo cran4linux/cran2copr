@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tidytreatment
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Methods for Bayesian Treatment Effect Models
 
@@ -22,12 +23,20 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dbarts 
+BuildRequires:    R-CRAN-BART 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-tidybayes 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dbarts 
+Requires:         R-CRAN-BART 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-magrittr 
 
 %description
 Functions for extracting tidy data from Bayesian treatment effect models,

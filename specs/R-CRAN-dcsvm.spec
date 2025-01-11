@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quickPWCR
-%global packver   1.0
+%global packname  dcsvm
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly construct and rating large binary pairwiesd comparisons
+Summary:          Density Convoluted Support Vector Machines
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pbmcapply 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-parallel 
-Requires:         R-CRAN-pbmcapply 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-A collection of functions for constructing large pairwised comparisons and
-rating them using Elo rating system with supporting parallel processing.
-The method of random sample pairs is based on Reservoir Sampling proposed
-by JVitter (1985) <doi:10.1145/3147.3165>.
+Implements an efficient algorithm for solving sparse-penalized support
+vector machines with kernel density convolution. This package is designed
+for high-dimensional classification tasks, supporting lasso (L1) and
+elastic-net penalties for sparse feature selection and providing options
+for tuning kernel bandwidth and penalty weights. The 'dcsvm' is applicable
+to fields such as bioinformatics, image analysis, and text classification,
+where high-dimensional data commonly arise. Learn more about the
+methodology and algorithm at Wang, Zhou, Gu, and Zou (2023)
+<doi:10.1109/TIT.2022.3222767>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ruminate
-%global packver   0.2.4
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Pharmacometrics Data Transformation and Analysis Tool
 
@@ -17,10 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rxode2 >= 2.1.2
 BuildRequires:    R-CRAN-onbrand >= 1.0.3
+BuildRequires:    R-CRAN-formods >= 0.2.0
 BuildRequires:    R-CRAN-PKNCA >= 0.10.2
-BuildRequires:    R-CRAN-formods >= 0.1.6
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
@@ -37,10 +36,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-rxode2 >= 2.1.2
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-onbrand >= 1.0.3
+Requires:         R-CRAN-formods >= 0.2.0
 Requires:         R-CRAN-PKNCA >= 0.10.2
-Requires:         R-CRAN-formods >= 0.1.6
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
@@ -57,6 +56,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-zip 
 
 %description
 Exploration of pharmacometrics data involves both general tools

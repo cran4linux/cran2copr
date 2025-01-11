@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  KaradaColor
-%global packver   0.1.5
+%global packname  nhanesA
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Color Palettes Inspired by Japanese Landscape and Culture
+Summary:          NHANES Data Retrieval
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-crayon 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
 
 %description
-The palette includes motifs from Japanese landscape and culture. And it
-provides commands for color manipulation and 'ggplot2' color scales.
+Utility to retrieve data from the National Health and Nutrition
+Examination Survey (NHANES) website <https://www.cdc.gov/nchs/nhanes/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidymv
-%global packver   3.4.2
+%global packname  simulist
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Model Visualisation for Generalised Additive Models
+Summary:          Simulate Disease Outbreak Line List and Contacts Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-epiparameter >= 0.4.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-randomNames 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-epiparameter >= 0.4.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-randomNames 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
 
 %description
-Provides functions for visualising generalised additive models and getting
-predicted values using tidy tools from the 'tidyverse' packages.
+Tools to simulate realistic raw case data for an epidemic in the form of
+line lists and contacts using a branching process. Simulated outbreaks are
+parameterised with epidemiological parameters and can have age structured
+populations, age-stratified hospitalisation and death risk and
+time-varying case fatality risk.
 
 %prep
 %setup -q -c -n %{packname}

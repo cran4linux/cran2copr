@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simhelpers
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Helper Functions for Simulation Studies
 
@@ -31,9 +31,14 @@ Requires:         R-CRAN-Rdpack
 %description
 Calculates performance criteria measures and associated Monte Carlo
 standard errors for simulation results. Includes functions to help run
-simulation studies. Our derivation and explanation of formulas and our
-general simulation workflow is closely aligned with the approach described
-by Morris, White, and Crowther (2019) <DOI:10.1002/sim.8086>.
+simulation studies, following a general simulation workflow that closely
+aligns with the approach described by Morris, White, and Crowther (2019)
+<DOI:10.1002/sim.8086>. Also includes functions for calculating bootstrap
+confidence intervals (including normal, basic, studentized, percentile,
+bias-corrected, and bias-corrected-and-accelerated) with tidy output, as
+well as for extrapolating confidence interval coverage rates and
+hypothesis test rejection rates following techniques suggested by Boos and
+Zhang (2000) <DOI:10.1080/01621459.2000.10474226>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saros
-%global packver   1.2.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automatic Reporting of Ordinary Surveys
 
@@ -17,40 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-ggiraph 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-mschart 
 BuildRequires:    R-CRAN-officer 
-BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-cli 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-ggiraph 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-mschart 
 Requires:         R-CRAN-officer 
-Requires:         R-CRAN-fs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
 Offers a systematic way for conditional reporting of figures and tables

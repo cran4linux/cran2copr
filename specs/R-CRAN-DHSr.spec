@@ -1,60 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epiCo
-%global packver   1.0.0
+%global packname  DHSr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistical and Viz Tools for Vector-Borne Diseases in Colombia
+Summary:          Create Large Scale Repeated Regression Summary Statistics Dataset and Visualization Seamlessly
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-incidence 
-BuildRequires:    R-CRAN-leaflet 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-treemapify 
-BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-incidence 
-Requires:         R-CRAN-leaflet 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
-Requires:         R-CRAN-treemapify 
-Requires:         R-utils 
 
 %description
-Provides statistical and visualization tools for the analysis of
-demographic indicators, and spatio-temporal behavior and characterization
-of outbreaks of vector-borne diseases (VBDs) in Colombia. It implements
-travel times estimated in Bravo-Vega C., Santos-Vega M., & Cordovez J.M.
-(2022), and the endemic channel method (Bortman, M.  (1999)
-<https://iris.paho.org/handle/10665.2/8562>).
+Mapping, spatial analysis, and statistical modeling of microdata from
+sources such as the Demographic and Health Surveys
+<https://www.dhsprogram.com/> and Integrated Public Use Microdata Series
+<https://www.ipums.org/>. It can also be extended to other datasets. The
+package supports spatial correlation index construction and visualization,
+along with empirical Bayes approximation of regression coefficients in a
+multistage setup.  The main functionality is repeated regression — for
+example, if we have to run regression for n groups, the group ID should be
+vertically composed into the variable for the parameter `location_var`. It
+can perform various kinds of regression, such as Generalized Regression
+Models, logit, probit, and more. Additionally, it can incorporate
+interaction effects. The key benefit of the package is its ability to
+store the regression results performed repeatedly on a dataset by the
+group ID, along with respective p-values and map those estimates.
 
 %prep
 %setup -q -c -n %{packname}

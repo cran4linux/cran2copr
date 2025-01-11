@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betaNB
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap for Regression Effect Sizes
 
@@ -21,7 +21,7 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Generates nonparametric bootstrap confidence intervals (Efron &
+Generates nonparametric bootstrap confidence intervals (Efron and
 Tibshirani, 1993: <doi:10.1201/9780429246593>) for standardized regression
 coefficients (beta) and other effect sizes, including multiple
 correlation, semipartial correlations, improvement in R-squared, squared

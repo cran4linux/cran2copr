@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ciphertext
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Classical Cryptography Methods for Words and Phrases
 
@@ -22,7 +22,7 @@ BuildArch:        noarch
 Classical cryptography methods for words and brief phrases. Substitution,
 transposition and concealment (null) ciphers are available, like Caesar,
 Vigenère, Atbash, affine, simple substitution, Playfair, rail fence,
-Scytale, single column, and Polybius ciphers.
+Scytale, single column, bifid, trifid, and Polybius ciphers.
 
 %prep
 %setup -q -c -n %{packname}

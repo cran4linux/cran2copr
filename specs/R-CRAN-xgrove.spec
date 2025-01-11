@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xgrove
-%global packver   0.1-13
+%global packver   0.1-15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.13
+Version:          0.1.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explanation Groves
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-gbm
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rpart 
 Requires:         R-CRAN-rpart.plot 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Compute surrogate explanation groves for predictive machine learning

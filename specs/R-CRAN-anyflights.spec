@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anyflights
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query 'nycflights13'-Like Air Travel Data for Given Years and Airports
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-curl
 BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-readr 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-roxygen2 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-tidyr 
 
 %description
 Supplies a set of functions to query air travel data for user- specified

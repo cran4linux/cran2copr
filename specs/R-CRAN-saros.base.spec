@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  saros.base
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Base Tools for Semi-Automatic Reporting of Ordinary Surveys
 
@@ -17,33 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-bcrypt 
-Requires:         R-CRAN-cli 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-bcrypt 

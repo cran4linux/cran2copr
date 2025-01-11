@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  patterncausality
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Pattern Causality Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,21 +18,37 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-statebins 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-parallel 
 Requires:         R-stats 
-Requires:         R-CRAN-corrplot 
-Requires:         R-graphics 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-reshape2 
+Requires:         R-grid 
+Requires:         R-CRAN-ggthemes 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-statebins 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-parallel 
 
 %description
-The model proposes a robust methodology for detecting and reconstructing
-the hidden structure of dynamic complex systems through short-term
-forecasts and information embedded in reconstructed state spaces. The
-approach not only identifies critical components and causal interactions
-within these systems but also provides a practical tool for optimizing
-system performance and stability.
+A comprehensive package for detecting and analyzing causal relationships
+in complex systems using pattern-based approaches. Key features include
+state space reconstruction, pattern identification, and causality strength
+evaluation.
 
 %prep
 %setup -q -c -n %{packname}

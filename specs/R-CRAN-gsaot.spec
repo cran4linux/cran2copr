@@ -1,48 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  depower
-%global packver   2024.12.4
+%global packname  gsaot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.12.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Differential Expression Studies
+Summary:          Compute Global Sensitivity Analysis Indices Using Optimal Transport
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvnfast 
-BuildRequires:    R-CRAN-glmmTMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-multidplyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rdpack >= 2.4
+BuildRequires:    R-CRAN-patchwork >= 1.2.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
+BuildRequires:    R-CRAN-transport >= 0.15.0
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-stats 
-Requires:         R-CRAN-mvnfast 
-Requires:         R-CRAN-glmmTMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-multidplyr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rdpack >= 2.4
+Requires:         R-CRAN-patchwork >= 1.2.0
+Requires:         R-CRAN-RcppEigen >= 0.3.4.0.0
+Requires:         R-CRAN-transport >= 0.15.0
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Provides a convenient framework to simulate, test, power, and visualize
-data for differential expression studies with lognormal or negative
-binomial outcomes. Supported designs are two-sample comparisons of
-independent or dependent outcomes. Power may be summarized in the context
-of controlling the per-family error rate or family-wise error rate.
-Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
-<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
-<doi:10.1186/s12859-020-3541-7>.
+Computing Global Sensitivity Indices from given data using Optimal
+Transport, as defined in Borgonovo et al (2024)
+<doi:10.1287/mnsc.2023.01796>. You provide an input sample, an output
+sample, decide the algorithm, and compute the indices.
 
 %prep
 %setup -q -c -n %{packname}
