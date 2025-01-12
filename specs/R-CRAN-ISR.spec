@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ISR
-%global packver   2022.4.22
+%global packver   2025-01-10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.4.22
+Version:          2025.01.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Iterated Score Regression-Based Estimation Algorithm
+Summary:          The Iterated Score Regression-Based Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,10 +23,10 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 
 %description
-Algorithm to handle with PCA-based missing data, where ISR is for
-PCA-based missing data with high correlation and DISR is for distributed
-PCA-based missing data. The philosophy of the package is described in Guo
-G. (2020) <doi:10.1080/02331888.2020.1823979>.
+We use the ISR to handle with PCA-based missing data with high
+correlation, and the DISR to handle with distributed PCA-based missing
+data. The philosophy of the package is described in Guo G. (2024)
+<doi:10.1080/03610918.2022.2091779>.
 
 %prep
 %setup -q -c -n %{packname}

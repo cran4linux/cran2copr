@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cnum
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chinese Numerals Processing
 
@@ -26,11 +27,11 @@ Chinese numerals processing in R, such as conversion between Chinese
 numerals and Arabic numerals as well as detection and extraction of
 Chinese numerals in character objects and string. This package supports
 the casual scale naming system and the respective SI prefix systems used
-in mainland China and Taiwan: "China Statutory Measurement Units" State
-Administration for Market Regulation (2019)
-<http://gkml.samr.gov.cn/nsjg/jls/201902/t20190225_291134.html> "Names,
-Definitions and Symbols of the Legal Units of Measurement and the Decimal
-Multiples and Submultiples" Ministry of Economic Affairs (2019)
+in mainland China and Taiwan: "The State Council's Order on the Unified
+Implementation of Legal Measurement Units in Our Country" The State
+Council of the People's Republic of China (1984) "Names, Definitions and
+Symbols of the Legal Units of Measurement and the Decimal Multiples and
+Submultiples" Ministry of Economic Affairs (2019)
 <https://gazette.nat.gov.tw/egFront/detail.do?metaid=108965>.
 
 %prep
@@ -41,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

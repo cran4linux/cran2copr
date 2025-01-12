@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIMPLE.REGRESSION
-%global packver   0.1.9
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          OLS, Moderated, Logistic, and Count Regressions Made Simple
 
@@ -22,21 +22,30 @@ BuildRequires:    R-stats
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-BayesFactor 
+BuildRequires:    R-CRAN-rstanarm 
+BuildRequires:    R-CRAN-pscl 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-BayesFactor 
+Requires:         R-CRAN-rstanarm 
+Requires:         R-CRAN-pscl 
 
 %description
 Provides SPSS- and SAS-like output for least squares multiple regression,
-logistic regression, and Poisson regression. Detailed output is also
-provided for OLS moderated regression, interaction plots, and
+logistic regression, and count variable regressions. Detailed output is
+also provided for OLS moderated regression, interaction plots, and
 Johnson-Neyman regions of significance. The output includes standardized
 coefficients, partial and semi-partial correlations, collinearity
 diagnostics, plots of residuals, and detailed information about simple
-slopes for interactions. There are numerous options for model plots,
-including plots of interactions for both lm and lme models.
+slopes for interactions. The output for some functions includes Bayes
+Factors and, if requested, regression coefficients from Bayesian Markov
+Chain Monte Carlo analyses. There are numerous options for model plots.
+The REGIONS_OF_SIGNIFICANCE function also provides Johnson-Neyman regions
+of significance and plots of interactions for both lm and lme models.
 
 %prep
 %setup -q -c -n %{packname}

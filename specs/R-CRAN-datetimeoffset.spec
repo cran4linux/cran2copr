@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datetimeoffset
-%global packver   0.3.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Datetimes with Optional UTC Offsets and/or Heterogeneous Time Zones
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-clock >= 0.7.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-clock >= 0.7.0
 Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-CRAN-clock 
 Requires:         R-methods 
 
 %description

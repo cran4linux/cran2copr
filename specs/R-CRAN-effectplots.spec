@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  effectplots
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Effect Plots
 
@@ -19,16 +19,20 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-labeling 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-collapse 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-labeling 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 
 %description

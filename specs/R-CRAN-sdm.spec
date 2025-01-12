@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sdm
-%global packver   1.2-46
+%global packver   1.2-55
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.46
+Version:          1.2.55
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modelling
 

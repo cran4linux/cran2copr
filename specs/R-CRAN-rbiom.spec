@@ -1,49 +1,74 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbiom
-%global packver   1.0.3
+%global packver   2.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read/Write, Transform, and Summarize 'BIOM' Data
+Summary:          Read/Write, Analyze, and Visualize 'BIOM' Data
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-emmeans 
+BuildRequires:    R-CRAN-fillpattern 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rjson 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyplots 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppThread 
+Requires:         R-CRAN-cluster 
 Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-emmeans 
+Requires:         R-CRAN-fillpattern 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-rjson 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-slam 
-Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-tidyplots 
+Requires:         R-CRAN-vegan 
 
 %description
 A toolkit for working with Biological Observation Matrix ('BIOM') files.
-Features include reading/writing all 'BIOM' formats, rarefaction, alpha
-diversity, beta diversity (including 'UniFrac'), summarizing counts by
-taxonomic level, and sample subsetting. Standalone functions for reading,
-writing, and subsetting phylogenetic trees are also provided. All CPU
-intensive operations are encoded in C with multi-thread support.
+Read/write all 'BIOM' formats. Compute rarefaction, alpha diversity, and
+beta diversity (including 'UniFrac'). Summarize counts by taxonomic level.
+Subset based on metadata. Generate visualizations and statistical
+analyses. CPU intensive operations are coded in C++ for speed.
 
 %prep
 %setup -q -c -n %{packname}
