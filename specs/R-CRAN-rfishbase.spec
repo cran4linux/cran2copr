@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfishbase
-%global packver   5.0.0
+%global packver   5.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.0
+Version:          5.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'FishBase'
 
@@ -17,21 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-duckdbfs >= 0.0.9
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-duckdbfs 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-duckdbfs >= 0.0.9
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-duckdbfs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-memoise 

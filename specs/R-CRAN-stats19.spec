@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stats19
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with Open Road Traffic Casualty Data from Great Britain
 
@@ -37,7 +37,7 @@ involved (e.g. type of vehicle), and 'casualties' (e.g. age). The
 statistics relate only to events on public roads that were reported to the
 police, and subsequently recorded, using the 'STATS19' collision reporting
 form. See the Department for Transport website
-<https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data>
+<https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>
 for more information on these datasets. The package is described in a
 paper in the Journal of Open Source Software (Lovelace et al. 2019)
 <doi:10.21105/joss.01181>. See Gilardi et al. (2022)

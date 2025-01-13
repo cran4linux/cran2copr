@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqlm
-%global packver   2.1-1
+%global packver   2.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Modified Poisson and Least-Squares Regressions for Binary Outcome
+Summary:          Modified Poisson and Least-Squares Regressions for Binary Outcome and Their Generalizations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,7 +33,7 @@ of Zou (2004) <doi:10.1093/aje/kwh090> and Cheung (2007)
 to estimate risk ratio and risk difference in clinical and epidemiological
 studies. This R package involves an easy-to-handle function to implement
 these analyses by simple commands. Missing data analysis tools (multiple
-imputation) are also involved. Also, recent studies have shown the
+imputation) are also involved. In addition, recent studies have shown the
 ordinary robust variance estimator possibly has serious bias under small
 or moderate sample size situations for these methods. This package also
 provides computational tools to calculate alternative accurate confidence

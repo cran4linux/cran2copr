@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mortAAR
-%global packver   1.1.6
+%global packver   1.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Archaeological Mortality Data
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats >= 4.3.1
 BuildRequires:    R-methods >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.0.3
+BuildRequires:    R-CRAN-flexsurv >= 2.2.2
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-reshape2 >= 1.4.2
 BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-Rdpack >= 0.4
+BuildRequires:    R-CRAN-Rdpack >= 0.4.20
+Requires:         R-stats >= 4.3.1
 Requires:         R-methods >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.0.3
+Requires:         R-CRAN-flexsurv >= 2.2.2
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-reshape2 >= 1.4.2
 Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-Rdpack >= 0.4
+Requires:         R-CRAN-Rdpack >= 0.4.20
 
 %description
 A collection of functions for the analysis of archaeological mortality
@@ -37,7 +41,8 @@ data (on the topic see e.g. Chamberlain 2006
 It takes demographic data in different formats and displays the result in
 a standard life table as well as plots the relevant indices (percentage of
 deaths, survivorship, probability of death, life expectancy, percentage of
-population).
+population). It also checks for possible biases in the age structure and
+applies corrections to life tables.
 
 %prep
 %setup -q -c -n %{packname}

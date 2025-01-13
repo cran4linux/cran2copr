@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distr
-%global packver   2.9.5
+%global packver   2.9.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.5
+Version:          2.9.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Object Oriented Implementation of Distributions
 
@@ -16,17 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-CRAN-sfsmisc 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-CRAN-startupmsg 
 Requires:         R-CRAN-sfsmisc 
 Requires:         R-stats 
 Requires:         R-grDevices 

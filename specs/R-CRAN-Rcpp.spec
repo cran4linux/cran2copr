@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rcpp
-%global packver   1.0.13-1
+%global packver   1.0.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.13.1
+Version:          1.0.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless R and C++ Integration
 

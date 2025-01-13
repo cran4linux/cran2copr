@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  selenider
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Concise, Lazy and Reliable Wrapper for 'chromote' and 'selenium'
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-coro
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-processx 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
@@ -33,7 +32,6 @@ Requires:         R-CRAN-coro
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-processx 
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 

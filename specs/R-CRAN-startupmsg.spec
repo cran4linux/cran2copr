@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  startupmsg
-%global packver   0.9.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Start-Up Messages
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 1.8.0
 Requires:         R-core >= 1.8.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
 Provides utilities to create or suppress start-up messages.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdacluster
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Clustering and Alignment of Functional Data
 
@@ -19,38 +19,28 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fdasrvf 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fdasrvf 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lpSolve 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-withr 
 
 %description
 Implementations of the k-means, hierarchical agglomerative and DBSCAN
