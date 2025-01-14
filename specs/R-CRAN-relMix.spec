@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  relMix
-%global packver   1.4
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Relationship Inference for DNA Mixtures
 
@@ -18,15 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Familias >= 2.6.1
-BuildRequires:    R-CRAN-gWidgets2 
-BuildRequires:    R-CRAN-gWidgets2tcltk 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-pedFamilias 
 BuildRequires:    R-CRAN-pedtools 
 Requires:         R-CRAN-Familias >= 2.6.1
-Requires:         R-CRAN-gWidgets2 
-Requires:         R-CRAN-gWidgets2tcltk 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-pedFamilias 
@@ -42,9 +38,9 @@ where the contributors to a mixed DNA stain may be related. Relationships
 are represented by pedigrees and can include kinship between more than two
 individuals. The main function is relMix() and its graphical user
 interface relMixGUI(). The implementation and method is described in Dorum
-et al. (2017) <doi:doi.org/10.1007/s00414-016-1526-x>, Hernandis et al.
-(2019) <doi:doi.org/10.1016/j.fsigss.2019.09.085> and Kaur et al. (2016)
-<doi:doi.org/10.1007/s00414-015-1276-1>.
+et al. (2017) <doi:10.1007/s00414-016-1526-x>, Hernandis et al. (2019)
+<doi:10.1016/j.fsigss.2019.09.085> and Kaur et al. (2016)
+<doi:10.1007/s00414-015-1276-1>.
 
 %prep
 %setup -q -c -n %{packname}

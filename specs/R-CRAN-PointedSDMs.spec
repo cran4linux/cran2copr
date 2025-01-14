@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PointedSDMs
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit Models Derived from Point Processes to Species Distributions using 'inlabru'
 
@@ -18,27 +18,31 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-blockCV >= 3.0.0
-BuildRequires:    R-CRAN-inlabru >= 2.8.0
 BuildRequires:    R-CRAN-R6 >= 2.5
+BuildRequires:    R-CRAN-inlabru >= 2.12.0
 BuildRequires:    R-CRAN-sp >= 1.4.5
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-R.devices 
+BuildRequires:    R-CRAN-FNN 
 Requires:         R-CRAN-blockCV >= 3.0.0
-Requires:         R-CRAN-inlabru >= 2.8.0
 Requires:         R-CRAN-R6 >= 2.5
+Requires:         R-CRAN-inlabru >= 2.12.0
 Requires:         R-CRAN-sp >= 1.4.5
 Requires:         R-stats 
 Requires:         R-CRAN-sf 
 Requires:         R-methods 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-fmesher 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-R.devices 
+Requires:         R-CRAN-FNN 
 
 %description
 Integrated species distribution modeling is a rising field in quantitative

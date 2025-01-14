@@ -1,38 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  grec
-%global packver   1.6.0
+%global packname  mlr3inferr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient-Based Recognition of Spatial Patterns in Environmental Data
+Summary:          Inference on the Generalization Error
 
-License:          GPL (>= 3)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-imagine >= 2.1.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-imagine >= 2.1.0
-Requires:         R-utils 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-mlr3 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-lgr 
+BuildRequires:    R-CRAN-mlr3measures 
+BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-mlr3 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-lgr 
+Requires:         R-CRAN-mlr3measures 
+Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-withr 
 
 %description
-Provides algorithms for detection of spatial patterns from oceanographic
-data using image processing methods based on Gradient Recognition.
+An 'mlr3' extension that provides various resampling-based confidence
+interval (CI) methods for estimating the generalization error.  These CI
+methods are implemented as 'mlr3' measures, enabling the evaluation of
+individual algorithms on specific tasks as well as the comparison of
+different learning algorithms.
 
 %prep
 %setup -q -c -n %{packname}

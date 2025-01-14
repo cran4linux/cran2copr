@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProTrackR
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Manipulate and Play 'ProTracker' Modules
 
@@ -25,7 +25,6 @@ BuildRequires:    R-graphics
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-tuneR >= 1.0
 Requires:         R-CRAN-audio 
 Requires:         R-CRAN-lattice 
@@ -34,7 +33,6 @@ Requires:         R-graphics
 Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-XML 
 
 %description
 'ProTracker' is a popular music tracker to sequence music on a Commodore

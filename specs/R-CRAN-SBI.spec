@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SBI
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Blinding Index for Randomized Controlled Trials
 
@@ -20,9 +20,9 @@ BuildArch:        noarch
 
 %description
 Computes a simple blinding index for randomized controlled trials
-introduced in the paper "A simple blinding index for randomized controlled
-trials" by Petroff, Bacak, Dagres, Dilk and Wachter, which has been
-submitted for publication.
+introduced in Petroff, Bacak, Dagres, Dilk, Wachter: A simple blinding
+index for randomized controlled trials. Contemp Clin Trials Commun. 2024
+Nov 26;42:101393. <doi:10.1016/j.conctc.2024.101393>. PMID: 39686958.
 
 %prep
 %setup -q -c -n %{packname}

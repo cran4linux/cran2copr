@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distrSim
-%global packver   2.8.3
+%global packver   2.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.3
+Version:          2.8.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation Classes Based on Package 'distr'
 
@@ -19,16 +19,16 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-setRNG >= 2006.2.1
 BuildRequires:    R-CRAN-distr >= 2.5.2
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-setRNG >= 2006.2.1
 Requires:         R-CRAN-distr >= 2.5.2
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
 Requires:         R-graphics 
-Requires:         R-CRAN-startupmsg 
 Requires:         R-stats 
 Requires:         R-grDevices 
 

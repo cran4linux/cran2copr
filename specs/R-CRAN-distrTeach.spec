@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distrTeach
-%global packver   2.9.1
+%global packver   2.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          2.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extensions of Package 'distr' for Teaching Stochastics/Statistics in Secondary School
 
@@ -19,15 +19,15 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-distr >= 2.2
 BuildRequires:    R-CRAN-distrEx >= 2.2
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-distr >= 2.2
 Requires:         R-CRAN-distrEx >= 2.2
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
-Requires:         R-CRAN-startupmsg 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-stats 

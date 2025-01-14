@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gbfs
-%global packver   1.3.10
+%global packname  viafoundry
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface with Live Bikeshare Data
+Summary:          R Client for 'Via Foundry' API
 
-License:          CC0
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,27 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-askpass 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-curl 
+Requires:         R-CRAN-askpass 
 
 %description
-Supplies a set of functions to interface with bikeshare data following the
-General Bikeshare Feed Specification, allowing users to query and
-accumulate tidy datasets for specified cities/bikeshare programs.
+'Via Foundry' API provides streamlined tools for interacting with and
+extracting data from structured responses, particularly for use cases
+involving hierarchical data from Foundry's API. It includes functions to
+fetch and parse process-level and file-level metadata, allowing users to
+efficiently query and manipulate nested data structures. Key features
+include the ability to list all unique process names, retrieve file
+metadata for specific or all processes, and dynamically load or download
+files based on their type. With built-in support for handling various file
+formats (e.g., tabular and non-tabular files) and seamless integration
+with API through authentication, this package is designed to enhance
+workflows involving large-scale data management and analysis. Robust error
+handling and flexible configuration ensure reliable performance across
+diverse data environments. Please consult the documentation for the API
+endpoint for your installation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Compositional
-%global packver   7.2
+%global packver   7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.2
+Version:          7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compositional Data Analysis
 
@@ -106,9 +106,11 @@ in Statistics--Theory and Methods, 52(16): 5535--5567.
 <doi:10.1080/03610926.2021.2014890>. m) Tsagris M., Alenazi A. and Stewart
 C. (2023). "Flexible non-parametric regression models for compositional
 response data with zeros". Statistics and Computing, 33(106).
-<doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2024). "Constrained
-least squares simplicial-simplicial regression".
-<doi:10.48550/arXiv.2403.19835>.
+<doi:10.1007/s11222-023-10277-5>. n) Tsagris. M. (2025). "Constrained
+least squares simplicial-simplicial regression". Statistics and Computing,
+35(27). <doi:10.1007/s11222-024-10560-z>. o) Sevinc V. and Tsagris. M.
+(2024). "Energy Based Equality of Distributions Testing for Compositional
+Data". <doi:10.48550/arXiv.2412.05199>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distrEllipse
-%global packver   2.8.3
+%global packver   2.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.3
+Version:          2.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          S4 Classes for Elliptically Contoured Distributions
 
@@ -21,19 +21,19 @@ BuildRequires:    R-CRAN-setRNG >= 2006.2.1
 BuildRequires:    R-CRAN-distr >= 2.8.0
 BuildRequires:    R-CRAN-distrEx >= 2.8.0
 BuildRequires:    R-CRAN-distrSim >= 2.2
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-setRNG >= 2006.2.1
 Requires:         R-CRAN-distr >= 2.8.0
 Requires:         R-CRAN-distrEx >= 2.8.0
 Requires:         R-CRAN-distrSim >= 2.2
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-startupmsg 
 Requires:         R-stats 
 
 %description

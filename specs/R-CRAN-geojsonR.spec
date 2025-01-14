@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geojsonR
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A GeoJson Processing Toolkit
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-R6
 %description
 Includes functions for processing GeoJson objects
 <https://en.wikipedia.org/wiki/GeoJSON> relying on 'RFC 7946'
-<https://datatracker.ietf.org/doc/pdf/rfc7946.pdf>. The geojson encoding
-is based on 'json11', a tiny JSON library for 'C++11'
+<https://datatracker.ietf.org/doc/html/rfc7946>. The geojson encoding is
+based on 'json11', a tiny JSON library for 'C++11'
 <https://github.com/dropbox/json11>. Furthermore, the source code is
 exported in R through the 'Rcpp' and 'RcppArmadillo' packages.
 

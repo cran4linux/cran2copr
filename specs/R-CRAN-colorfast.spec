@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colorfast
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Conversion of R Colors to Color Component Values and Native Packed Integer Format
 
@@ -21,10 +21,11 @@ Requires:         R-core
 Color values in R are often represented as strings of hexadecimal colors
 or named colors.  This package offers fast conversion of these color
 representations to either an array of red/green/blue/alpha values or to
-the packed integer format used in native raster objects.  This fast
-conversion of colors is implemented using an order-preserving minimal
-perfect hash derived from Majewski et al (1996) 'A Family of Perfect
-Hashing Methods' <doi:10.1093/comjnl/39.6.547>.
+the packed integer format used in native raster objects.  Functions for
+conversion are also exported at the 'C' level for use in other packages.
+This fast conversion of colors is implemented using an order-preserving
+minimal perfect hash derived from Majewski et al (1996) "A Family of
+Perfect Hashing Methods" <doi:10.1093/comjnl/39.6.547>.
 
 %prep
 %setup -q -c -n %{packname}

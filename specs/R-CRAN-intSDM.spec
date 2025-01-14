@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  intSDM
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Integrated Species Distribution Models Across Norway using 'INLA'
 
@@ -26,10 +26,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-geodata 
+BuildRequires:    R-CRAN-fmesher 
 BuildRequires:    R-CRAN-giscoR 
 BuildRequires:    R-CRAN-blockCV 
 BuildRequires:    R-CRAN-rgbif 
 BuildRequires:    R-CRAN-tidyterra 
+BuildRequires:    R-CRAN-units 
 Requires:         R-CRAN-inlabru >= 2.3.1
 Requires:         R-CRAN-PointedSDMs >= 2.1.0
 Requires:         R-CRAN-ggplot2 
@@ -39,10 +41,12 @@ Requires:         R-stats
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-geodata 
+Requires:         R-CRAN-fmesher 
 Requires:         R-CRAN-giscoR 
 Requires:         R-CRAN-blockCV 
 Requires:         R-CRAN-rgbif 
 Requires:         R-CRAN-tidyterra 
+Requires:         R-CRAN-units 
 
 %description
 Integration of disparate datasets is needed in order to make efficient use

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rapi
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Multiple Data Providers 'EDDS' and 'FRED'
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-writexl 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-digest 
@@ -46,11 +47,12 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-writexl 
 
 %description
-Interface for multiple data sources, such as the 'EDDS' API
+Interface for multiple data sources, such as the `EDDS` API
 <https://evds2.tcmb.gov.tr/index.php?/evds/userDocs> of the Central Bank
-of the Republic of Türkiye and the 'FRED' API
+of the Republic of Türkiye and the `FRED` API
 <https://fred.stlouisfed.org/docs/api/fred/> of the Federal Reserve Bank.
 Both data providers require API keys for access, which users can easily
 obtain by creating accounts on their respective websites. The package

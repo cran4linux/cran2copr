@@ -1,39 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glycanr
-%global packver   0.4.0
+%global packname  dietr
+%global packver   1.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Analysing N-Glycan Data
+Summary:          Diet Estimated Trophic Levels
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.4.3
-BuildRequires:    R-CRAN-tidyr >= 0.3.1
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-coin 
-Requires:         R-CRAN-dplyr >= 0.4.3
-Requires:         R-CRAN-tidyr >= 0.3.1
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-coin 
+BuildRequires:    R-CRAN-rfishbase >= 5.0
+Requires:         R-CRAN-rfishbase >= 5.0
 
 %description
-Useful utilities in N-glycan data analysis. This package tries to fill the
-gap in N-glycan data analysis by providing easy to use functions for basic
-operations on data (see <https://en.wikipedia.org/wiki/Glycomics> for more
-details on Glycomics). At the moment 'glycanr' is mostly oriented to data
-obtained by UPLC (Ultra Performance Liquid Chromatography) and LCMS
-(Liquid chromatography–mass spectrometry) analysis of Plasma and IgG
-glycome.
+Estimates fractional trophic level from quantitative and qualitative diet
+data and calculates electivity indices in R. Borstein (2020)
+<doi:10.1007/s10750-020-04417-5>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mregions2
-%global packver   1.1.1
+%global packname  dfeR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Data from Marineregions.org: Gazetteer & Data Products
+Summary:          Common Department for Education Analysis Tasks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,43 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rdflib 
-BuildRequires:    R-CRAN-ISOcodes 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-wrapr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
-Requires:         R-CRAN-rdflib 
-Requires:         R-CRAN-ISOcodes 
-Requires:         R-CRAN-memoise 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-emoji 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-wrapr 
-Requires:         R-methods 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-emoji 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-usethis 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 
 %description
-Explore and retrieve marine geospatial data from the Marine Regions
-Gazetteer <https://marineregions.org/gazetteer.php?p=webservices> and the
-Marine Regions Data Products <https://marineregions.org/webservices.php>.
+Preferred methods for common analytical tasks that are undertaken across
+the Department, including number formatting, project templates and curated
+reference data.
 
 %prep
 %setup -q -c -n %{packname}

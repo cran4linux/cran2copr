@@ -1,42 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RLoptimal
-%global packver   1.2.1
+%global packname  fastrerandomize
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Adaptive Allocation Using Deep Reinforcement Learning
+Summary:          Hardware-Accelerated Rerandomization for Improved Balance
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DoseFinding 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-DoseFinding 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-reticulate 
-Requires:         R-stats 
+Requires:         R-CRAN-assertthat 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-An implementation to compute an optimal adaptive allocation rule using
-deep reinforcement learning in a dose-response study (Matsuura et al.
-(2022) <doi:10.1002/sim.9247>). The adaptive allocation rule can directly
-optimize a performance metric, such as power, accuracy of the estimated
-target dose, or mean absolute error over the estimated dose-response
-curve.
+Provides hardware-accelerated tools for performing rerandomization and
+randomization testing in experimental research. Using a 'JAX' backend, the
+package enables exact rerandomization inference even for large experiments
+with hundreds of billions of possible randomizations. Key functionalities
+include generating pools of acceptable rerandomizations based on covariate
+balance, conducting exact randomization tests, and performing pre-analysis
+evaluations to determine optimal rerandomization acceptance thresholds.
+The package supports various hardware acceleration frameworks including
+'CPU', 'CUDA', and 'METAL', making it versatile across accelerated
+computing environments. This allows researchers to efficiently implement
+stringent rerandomization designs and conduct valid inference even with
+large sample sizes. The package is partly based on Jerzak and Goldstein
+(2023) <doi:10.48550/arXiv.2310.00861>.
 
 %prep
 %setup -q -c -n %{packname}

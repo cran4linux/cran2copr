@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  suppdata
-%global packver   1.1-9
+%global packname  quickPWCR
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.9
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloading Supplementary Data from Published Manuscripts
+Summary:          Quickly Construct and Rate Large Binary Pairwised Comparisons
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-httr >= 1.0.0
-BuildRequires:    R-CRAN-rcrossref >= 0.8.0
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-httr >= 1.0.0
-Requires:         R-CRAN-rcrossref >= 0.8.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-dplyr 
 
 %description
-Downloads data supplementary materials from manuscripts, using papers'
-DOIs as references. Facilitates open, reproducible research workflows:
-scientists re-analyzing published datasets can work with them as easily as
-if they were stored on their own computer, and others can track their
-analysis workflow painlessly. The main function suppdata() returns a
-(temporary) location on the user's computer where the file is stored,
-making it simple to use suppdata() with standard functions like
-read.csv().
+A collection of functions for constructing large pairwised comparisons and
+rating them using Elo rating system with supporting parallel processing.
+The method of random sample pairs is based on Reservoir Sampling proposed
+by JVitter (1985) <doi:10.1145/3147.3165>.
 
 %prep
 %setup -q -c -n %{packname}

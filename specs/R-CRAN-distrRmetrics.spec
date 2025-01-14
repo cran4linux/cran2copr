@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  distrRmetrics
-%global packver   2.8.2
+%global packver   2.8.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.2
+Version:          2.8.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distribution Classes for Distributions from Rmetrics
 
@@ -20,13 +20,13 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-fBasics >= 270
 BuildRequires:    R-CRAN-fGarch >= 270
 BuildRequires:    R-CRAN-distr >= 2.4
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-startupmsg 
 Requires:         R-CRAN-fBasics >= 270
 Requires:         R-CRAN-fGarch >= 270
 Requires:         R-CRAN-distr >= 2.4
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
-Requires:         R-CRAN-startupmsg 
 
 %description
 S4-distribution classes based on package distr for distributions from
