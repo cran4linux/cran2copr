@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdacluster
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Clustering and Alignment of Functional Data
 
@@ -51,11 +51,11 @@ It supports functional data defined in arrays but also via the 'fd' and
 'funData' classes for functional data defined in the 'fda' and 'funData'
 packages respectively. It currently supports shift, dilation and affine
 warping functions for functional data defined on the real line and uses
-the SRSF framework to handle boundary-preserving warping for functional
+the SRVF framework to handle boundary-preserving warping for functional
 data defined on a specific interval. Main reference for the k-means
 algorithm: Sangalli L.M., Secchi P., Vantini S., Vitelli V. (2010) "k-mean
 alignment for curve clustering" <doi:10.1016/j.csda.2009.12.008>. Main
-reference for the SRSF framework: Tucker, J. D., Wu, W., & Srivastava, A.
+reference for the SRVF framework: Tucker, J. D., Wu, W., & Srivastava, A.
 (2013) "Generative models for functional data using phase and amplitude
 separation" <doi:10.1016/j.csda.2012.12.001>.
 

@@ -1,43 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EBcoBART
-%global packver   1.1.1
+%global packname  FLASHMM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Data Learning for Bayesian Additive Regression Trees
+Summary:          Fast and Scalable Single Cell Differential Expression Analysis using Mixed-Effects Models
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-univariateML 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-univariateML 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Estimate prior variable weights for Bayesian Additive Regression Trees
-(BART). These weights correspond to the probabilities of the variables
-being selected in the splitting rules of the sum-of-trees. Weights are
-estimated using empirical Bayes and external information on the
-explanatory variables (co-data). BART models are fitted using the 'dbarts'
-'R' package. See Goedhart and others (2023)
-<doi:10.48550/arXiv.2311.09997> for details.
+A fast and scalable linear mixed-effects model (LMM) estimation algorithm
+for analysis of single-cell differential expression. The algorithm uses
+summary-level statistics and requires less computer memory to fit the LMM.
 
 %prep
 %setup -q -c -n %{packname}

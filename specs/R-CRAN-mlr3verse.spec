@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3verse
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load the 'mlr3' Package Family
 
@@ -17,37 +17,39 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bbotk >= 1.0.0
-BuildRequires:    R-CRAN-mlr3fselect >= 1.0.0
-BuildRequires:    R-CRAN-mlr3tuning >= 1.0.0
-BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3filters >= 0.8.0
-BuildRequires:    R-CRAN-mlr3viz >= 0.8.0
-BuildRequires:    R-CRAN-mlr3data >= 0.7.0
-BuildRequires:    R-CRAN-mlr3learners >= 0.7.0
-BuildRequires:    R-CRAN-mlr3pipelines >= 0.5.2
-BuildRequires:    R-CRAN-mlr3tuningspaces >= 0.5.1
-BuildRequires:    R-CRAN-mlr3hyperband >= 0.5.0
+BuildRequires:    R-CRAN-bbotk >= 1.5.0
+BuildRequires:    R-CRAN-mlr3tuning >= 1.3.0
+BuildRequires:    R-CRAN-mlr3fselect >= 1.2.1
+BuildRequires:    R-CRAN-paradox >= 1.0.1
+BuildRequires:    R-CRAN-mlr3data >= 0.9.0
+BuildRequires:    R-CRAN-mlr3learners >= 0.9.0
+BuildRequires:    R-CRAN-mlr3filters >= 0.8.1
+BuildRequires:    R-CRAN-mlr3pipelines >= 0.7.1
+BuildRequires:    R-CRAN-mlr3hyperband >= 0.6.0
+BuildRequires:    R-CRAN-mlr3tuningspaces >= 0.5.2
 BuildRequires:    R-CRAN-mlr3 >= 0.20.0
-BuildRequires:    R-CRAN-mlr3mbo >= 0.2.2
-BuildRequires:    R-CRAN-mlr3misc >= 0.15.1
-BuildRequires:    R-CRAN-mlr3cluster >= 0.1.9
+BuildRequires:    R-CRAN-mlr3mbo >= 0.2.8
+BuildRequires:    R-CRAN-mlr3misc >= 0.16.0
+BuildRequires:    R-CRAN-mlr3viz >= 0.10.0
+BuildRequires:    R-CRAN-mlr3cluster >= 0.1.10
+BuildRequires:    R-CRAN-mlr3inferr >= 0.1.0
 BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-bbotk >= 1.0.0
-Requires:         R-CRAN-mlr3fselect >= 1.0.0
-Requires:         R-CRAN-mlr3tuning >= 1.0.0
-Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3filters >= 0.8.0
-Requires:         R-CRAN-mlr3viz >= 0.8.0
-Requires:         R-CRAN-mlr3data >= 0.7.0
-Requires:         R-CRAN-mlr3learners >= 0.7.0
-Requires:         R-CRAN-mlr3pipelines >= 0.5.2
-Requires:         R-CRAN-mlr3tuningspaces >= 0.5.1
-Requires:         R-CRAN-mlr3hyperband >= 0.5.0
+Requires:         R-CRAN-bbotk >= 1.5.0
+Requires:         R-CRAN-mlr3tuning >= 1.3.0
+Requires:         R-CRAN-mlr3fselect >= 1.2.1
+Requires:         R-CRAN-paradox >= 1.0.1
+Requires:         R-CRAN-mlr3data >= 0.9.0
+Requires:         R-CRAN-mlr3learners >= 0.9.0
+Requires:         R-CRAN-mlr3filters >= 0.8.1
+Requires:         R-CRAN-mlr3pipelines >= 0.7.1
+Requires:         R-CRAN-mlr3hyperband >= 0.6.0
+Requires:         R-CRAN-mlr3tuningspaces >= 0.5.2
 Requires:         R-CRAN-mlr3 >= 0.20.0
-Requires:         R-CRAN-mlr3mbo >= 0.2.2
-Requires:         R-CRAN-mlr3misc >= 0.15.1
-Requires:         R-CRAN-mlr3cluster >= 0.1.9
+Requires:         R-CRAN-mlr3mbo >= 0.2.8
+Requires:         R-CRAN-mlr3misc >= 0.16.0
+Requires:         R-CRAN-mlr3viz >= 0.10.0
+Requires:         R-CRAN-mlr3cluster >= 0.1.10
+Requires:         R-CRAN-mlr3inferr >= 0.1.0
 Requires:         R-CRAN-data.table 
 
 %description

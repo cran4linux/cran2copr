@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DescriptiveRepresentationCalculator
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Descriptive Representation Calculator: Characterizing Observed and Expected Representation
+Summary:          Characterizing Observed and Expected Representation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -26,7 +26,7 @@ comparing the composition of a political body to the population it
 represents. Users can compute the expected degree of representation for a
 body under a random sampling model, the expected degree of representation
 variability, as well as representation scores from observed political
-bodies. The package is based on Gerring, Jerzak, and Oncel (2023)
+bodies. The package is based on Gerring, Jerzak, and Oncel (2024)
 <doi:10.1017/S0003055423000680>.
 
 %prep

@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EBcoBART
-%global packver   1.1.1
+%global packname  sgapi
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Data Learning for Bayesian Additive Regression Trees
+Summary:          Aid Querying 'nomis' and 'Office for National Statistics Open Geography' APIs
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-univariateML 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-univariateML 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-xml2 
+Requires:         R-methods 
 
 %description
-Estimate prior variable weights for Bayesian Additive Regression Trees
-(BART). These weights correspond to the probabilities of the variables
-being selected in the splitting rules of the sum-of-trees. Weights are
-estimated using empirical Bayes and external information on the
-explanatory variables (co-data). BART models are fitted using the 'dbarts'
-'R' package. See Goedhart and others (2023)
-<doi:10.48550/arXiv.2311.09997> for details.
+Facilitates extraction of geospatial data from the 'Office for National
+Statistics Open Geography' and 'nomis' Application Programming Interfaces
+(APIs). Simplifies process of querying 'nomis' datasets
+<https://www.nomisweb.co.uk/> and extracting desired datasets in dataframe
+format. Extracts area shapefiles at chosen resolution from 'Office for
+National Statistics Open Geography'
+<https://geoportal.statistics.gov.uk/>.
 
 %prep
 %setup -q -c -n %{packname}

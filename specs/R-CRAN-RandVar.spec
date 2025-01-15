@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RandVar
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Random Variables
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 3.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-distr >= 2.8.0
 BuildRequires:    R-CRAN-distrEx >= 2.8.0
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-startupmsg 
 Requires:         R-CRAN-distr >= 2.8.0
 Requires:         R-CRAN-distrEx >= 2.8.0
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
-Requires:         R-CRAN-startupmsg 
 
 %description
 Implements random variables by means of S4 classes and methods.

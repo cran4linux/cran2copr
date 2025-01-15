@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EBcoBART
-%global packver   1.1.1
+%global packname  PLStests
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Data Learning for Bayesian Additive Regression Trees
+Summary:          Model Checking for High-Dimensional GLMs via Random Projections
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-univariateML 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-univariateML 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-harmonicmeanp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-harmonicmeanp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-psych 
+Requires:         R-stats 
 
 %description
-Estimate prior variable weights for Bayesian Additive Regression Trees
-(BART). These weights correspond to the probabilities of the variables
-being selected in the splitting rules of the sum-of-trees. Weights are
-estimated using empirical Bayes and external information on the
-explanatory variables (co-data). BART models are fitted using the 'dbarts'
-'R' package. See Goedhart and others (2023)
-<doi:10.48550/arXiv.2311.09997> for details.
+Provides methods for testing the goodness-of-fit of generalized linear
+models (GLMs) using random projections. It is specifically designed for
+high-dimensional scenarios where the number of predictors substantially
+exceeds the sample size. The statistical methodologies implemented in this
+package are detailed in the paper by Wen Chen and Falong Tan (2024,
+<doi:10.48550/arXiv.2412.10721>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EBcoBART
-%global packver   1.1.1
+%global packname  ggmapcn
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Data Learning for Bayesian Additive Regression Trees
+Summary:          Customizable China Map Visualizations
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-univariateML 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-univariateML 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-curl >= 6.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-terra >= 1.7
+BuildRequires:    R-CRAN-ggspatial >= 1.1.8
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-sf >= 1.0.0
+BuildRequires:    R-CRAN-tidyterra >= 0.6.0
+Requires:         R-CRAN-curl >= 6.0.0
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-terra >= 1.7
+Requires:         R-CRAN-ggspatial >= 1.1.8
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-sf >= 1.0.0
+Requires:         R-CRAN-tidyterra >= 0.6.0
 
 %description
-Estimate prior variable weights for Bayesian Additive Regression Trees
-(BART). These weights correspond to the probabilities of the variables
-being selected in the splitting rules of the sum-of-trees. Weights are
-estimated using empirical Bayes and external information on the
-explanatory variables (co-data). BART models are fitted using the 'dbarts'
-'R' package. See Goedhart and others (2023)
-<doi:10.48550/arXiv.2311.09997> for details.
+A 'ggplot2' extension for visualizing China’s map, offering customizable
+projections, boundary styles, and buffer zones for thematic maps. Suitable
+for spatial data analysis and enhancing map visualization with flexible
+styling options.
 
 %prep
 %setup -q -c -n %{packname}

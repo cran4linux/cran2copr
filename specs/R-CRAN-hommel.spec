@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hommel
-%global packver   1.6
+%global packver   1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Closed Testing with Simes Inequality, in Particular Hommel's Method
 
@@ -27,7 +28,7 @@ method, and provides lower confidence bounds for true discovery
 proportions. A robust but more conservative variant of the closed testing
 procedure that does not require the assumption of Simes inequality is also
 implemented. The methods have been described in detail in Goeman et al
-(2016) <arXiv:1611.06739v2>.
+(Biometrika 106, 841-856, 2019).
 
 %prep
 %setup -q -c -n %{packname}

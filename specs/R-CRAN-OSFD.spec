@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OSFD
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Output Space-Filling Design
 
@@ -27,11 +27,13 @@ Requires:         R-CRAN-twinning
 Requires:         R-CRAN-dplyr 
 
 %description
-A method to generate a design in the input space that sequentially fills
-the output space of a black-box function. The output space-filling design
-will be helpful in inverse design or feature-based modeling problem.
-Please see Wang et al.(2023) <DOI:10.48550/arXiv.2305.07202> for details.
-This work is supported by U.S. National Foundation grant CMMI-1921646.
+Methods to generate a design in the input space that sequentially fills
+the output space of a black-box function. The output space-filling designs
+are helpful in inverse design or feature-based modeling problems. See
+Wang, Shangkun, Adam P. Generale, Surya R. Kalidindi, and V. Roshan
+Joseph. (2024), Sequential designs for filling output spaces,
+Technometrics, 66, 65–76. for details. This work is supported by U.S.
+National Foundation grant CMMI-1921646.
 
 %prep
 %setup -q -c -n %{packname}

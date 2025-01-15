@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  streamDAG
-%global packver   1.5
+%global packver   1.5-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.5.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analytical Methods for Stream DAGs
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-asbio
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-missForest 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-asbio 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-missForest 
 
 %description
 Provides indices and tools for directed acyclic graphs (DAGs),

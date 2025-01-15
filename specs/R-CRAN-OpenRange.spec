@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EBcoBART
-%global packver   1.1.1
+%global packname  OpenRange
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Co-Data Learning for Bayesian Additive Regression Trees
+Summary:          Code to Access Open Access Species Range Maps
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2.1
+Requires:         R-core >= 3.2.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbarts 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-univariateML 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-dbarts 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-univariateML 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-RPostgreSQL 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-RPostgreSQL 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Estimate prior variable weights for Bayesian Additive Regression Trees
-(BART). These weights correspond to the probabilities of the variables
-being selected in the splitting rules of the sum-of-trees. Weights are
-estimated using empirical Bayes and external information on the
-explanatory variables (co-data). BART models are fitted using the 'dbarts'
-'R' package. See Goedhart and others (2023)
-<doi:10.48550/arXiv.2311.09997> for details.
+Allows access to a proof-of-concept database containing Open Access
+species range models and relevant metadata. Access to the database is via
+both 'PostgreSQL' connection and API
+<https://github.com/EnquistLab/Biendata-Frontend>, allowing diverse
+use-cases.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvms
-%global packver   1.6.2
+%global packver   1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          1.6.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation for Model Selection
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.0.3
-BuildRequires:    R-CRAN-groupdata2 >= 2.0.2
+BuildRequires:    R-CRAN-groupdata2 >= 2.0.5
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-MuMIn >= 1.43.17
 BuildRequires:    R-CRAN-pROC >= 1.16.0
@@ -27,7 +27,7 @@ BuildRequires:    R-CRAN-lme4 >= 1.1.23
 BuildRequires:    R-CRAN-tidyr >= 1.1.2
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
-BuildRequires:    R-CRAN-rearrr >= 0.3.0
+BuildRequires:    R-CRAN-rearrr >= 0.3.4
 BuildRequires:    R-CRAN-parameters >= 0.15.0
 BuildRequires:    R-CRAN-recipes >= 0.1.13
 BuildRequires:    R-CRAN-ggplot2 
@@ -38,7 +38,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tibble >= 3.0.3
-Requires:         R-CRAN-groupdata2 >= 2.0.2
+Requires:         R-CRAN-groupdata2 >= 2.0.5
 Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-MuMIn >= 1.43.17
 Requires:         R-CRAN-pROC >= 1.16.0
@@ -47,7 +47,7 @@ Requires:         R-CRAN-lme4 >= 1.1.23
 Requires:         R-CRAN-tidyr >= 1.1.2
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-rlang >= 0.4.7
-Requires:         R-CRAN-rearrr >= 0.3.0
+Requires:         R-CRAN-rearrr >= 0.3.4
 Requires:         R-CRAN-parameters >= 0.15.0
 Requires:         R-CRAN-recipes >= 0.1.13
 Requires:         R-CRAN-ggplot2 

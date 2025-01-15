@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobAStBase
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Asymptotic Statistics
 
@@ -21,9 +21,9 @@ BuildRequires:    R-CRAN-distrMod >= 2.8.1
 BuildRequires:    R-CRAN-distr >= 2.8.0
 BuildRequires:    R-CRAN-distrEx >= 2.8.0
 BuildRequires:    R-CRAN-RandVar >= 1.2.0
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-distrMod >= 2.8.1
 Requires:         R-CRAN-distr >= 2.8.0
 Requires:         R-CRAN-distrEx >= 2.8.0
 Requires:         R-CRAN-RandVar >= 1.2.0
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-startupmsg 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 

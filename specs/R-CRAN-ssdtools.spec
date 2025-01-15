@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssdtools
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Sensitivity Distributions
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-chk
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-goftest 
 BuildRequires:    R-graphics 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-chk
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-goftest 
 Requires:         R-graphics 
@@ -74,7 +76,7 @@ package uses Maximum Likelihood to fit distributions such as the gamma,
 log-logistic, log-normal and log-normal log-normal mixture. Multiple
 distributions can be averaged using Akaike Information Criteria.
 Confidence intervals on hazard concentrations and proportions are produced
-by parametric bootstrapping.
+by bootstrapping.
 
 %prep
 %setup -q -c -n %{packname}

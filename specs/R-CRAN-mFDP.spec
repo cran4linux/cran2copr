@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mFDP
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Flexible Control of the mFDP
+Summary:          Control of the Median of the FDP
 
 License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,10 @@ BuildRequires:    R-methods
 Requires:         R-methods 
 
 %description
-Computes bounds for the median of the false discovery proportion (mFDP).
-These 50 percent confidence bounds for the FDP are simultaneously valid.
-The method takes a vector of p-values as input. Also provides
-mFDP-adjusted p-values. Can be used for flexible mFDP control.
+Methods for controlling the median of the false discovery proportion
+(mFDP). Depending on the method, simultaneous or non-simultaneous
+inference is provided. The methods take a vector of p-values or test
+statistics as input.
 
 %prep
 %setup -q -c -n %{packname}

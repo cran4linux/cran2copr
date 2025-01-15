@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spEDM
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Empirical Dynamic Modeling
 
@@ -16,13 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-sdsfun >= 0.6.0
+BuildRequires:    R-CRAN-sdsfun >= 0.7.0
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-sdsfun >= 0.6.0
+Requires:         R-CRAN-sdsfun >= 0.7.0
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 Requires:         R-CRAN-terra 
 
 %description
