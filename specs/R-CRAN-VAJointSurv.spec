@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TapeS
-%global packver   0.13.1
+%global packname  VAJointSurv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Taper Curves and Sorting Based on 'TapeR'
+Summary:          Variational Approximation for Joint Survival and Marker Models
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-TapeR >= 0.5.2
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-psqn >= 0.3.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-splines 
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-SimSurvNMarker 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-TapeR >= 0.5.2
-Requires:         R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-splines 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-SimSurvNMarker 
+Requires:         R-CRAN-psqn >= 0.3.0
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-lme4 
 
 %description
-Providing new german-wide 'TapeR' Models and functions for their
-evaluation. Included are the most common tree species in Germany (Norway
-spruce, Scots pine, European larch, Douglas fir, Silver fir as well as
-European beech, Common/Sessile oak and Red oak). Many other species are
-mapped to them so that 36 tree species / groups can be processed. Single
-trees are defined by species code, one or multiple diameters in arbitrary
-measuring height and tree height. The functions then provide information
-on diameters along the stem, bark thickness, height of diameters, volume
-of the total or parts of the trunk and total and component above-ground
-biomass. It is also possible to calculate assortments from the taper
-curves. Uncertainty information is provided for diameter, volume and
-component biomass estimation.
+Estimates joint marker (longitudinal) and survival (time-to-event)
+outcomes using variational approximations. The package supports
+multivariate markers allowing for correlated error terms and multiple
+types of survival outcomes which may be left-truncated, right-censored,
+and recurrent. Time-varying fixed and random covariate effects are
+supported along with non-proportional hazards.
 
 %prep
 %setup -q -c -n %{packname}

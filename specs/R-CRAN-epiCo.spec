@@ -1,60 +1,60 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggsem
-%global packver   0.2.1
+%global packname  epiCo
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactively Visualize Structural Equation Modeling Diagrams
+Summary:          Statistical and Viz Tools for Vector-Borne Diseases in Colombia
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-colourpicker 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-svglite 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-incidence 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-spdep 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-smplot2 
+BuildRequires:    R-CRAN-treemapify 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-umap 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-colourpicker 
-Requires:         R-grid 
-Requires:         R-CRAN-svglite 
+Requires:         R-CRAN-ggraph 
 Requires:         R-grDevices 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-incidence 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-spdep 
 Requires:         R-stats 
-Requires:         R-CRAN-smplot2 
+Requires:         R-CRAN-treemapify 
 Requires:         R-utils 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-umap 
 
 %description
-It is an R package and web-based application, allowing users to perform
-interactive and reproducible visualizations of path diagrams for
-structural equation modeling (SEM) and networks using the 'ggplot2'
-engine. Its app (built with 'shiny') provides an interface that allows
-extensive customization, and creates CSV outputs, which can then be used
-to recreate the figures either using the web app or script-based workflow.
+Provides statistical and visualization tools for the analysis of
+demographic indicators, and spatio-temporal behavior and characterization
+of outbreaks of vector-borne diseases (VBDs) in Colombia. It implements
+travel times estimated in Bravo-Vega C., Santos-Vega M., & Cordovez J.M.
+(2022), and the endemic channel method (Bortman, M.  (1999)
+<https://iris.paho.org/handle/10665.2/8562>).
 
 %prep
 %setup -q -c -n %{packname}

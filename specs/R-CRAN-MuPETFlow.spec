@@ -1,39 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OSFD
-%global packver   3.0
+%global packname  MuPETFlow
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Space-Filling Design
+Summary:          Multiple Ploidy Estimation Tool for all Species Compatible with Flow Cytometry
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-lhs 
-BuildRequires:    R-CRAN-twinning 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BiocManager 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-lhs 
-Requires:         R-CRAN-twinning 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-BiocManager 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zoo 
 
 %description
-Methods to generate a design in the input space that sequentially fills
-the output space of a black-box function. The output space-filling designs
-are helpful in inverse design or feature-based modeling problems. See
-Wang, Shangkun, Adam P. Generale, Surya R. Kalidindi, and V. Roshan
-Joseph. (2024), Sequential designs for filling output spaces,
-Technometrics, 66, 65–76. for details. This work is supported by U.S.
-National Foundation grant CMMI-1921646.
+A graphical user interface tool to estimate ploidy from DNA cells stained
+with fluorescent dyes and analyzed by flow cytometry, following the
+methodology of Gómez-Muñoz and Fischer (2024)
+<doi:10.1101/2024.01.24.577056>. Features include multiple file uploading
+and configuration, peak fluorescence intensity detection, histogram
+visualizations, peak error curation, ploidy and genome size calculations,
+and easy results export.
 
 %prep
 %setup -q -c -n %{packname}

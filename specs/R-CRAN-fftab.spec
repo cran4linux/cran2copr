@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CFtime
-%global packver   1.5.0
+%global packname  fftab
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using CF-Compliant Calendars with Climate Projection Data
+Summary:          Tidy Manipulation of Fourier Transformed Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Support for all calendars as specified in the Climate and Forecast (CF)
-Metadata Conventions for climate and forecasting data. The CF Metadata
-Conventions is widely used for distributing files with climate
-observations or projections, including the Coupled Model Intercomparison
-Project (CMIP) data used by climate change scientists and the
-Intergovernmental Panel on Climate Change (IPCC). This package
-specifically allows the user to work with any of the CF-compliant
-calendars (many of which are not compliant with POSIXt). The CF time
-coordinate is formally defined in the CF Metadata Conventions document
-available at
-<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate>.
+The 'fftab' package stores Fourier coefficients in a tibble and allows
+their manipulation in various ways. Functions are available for converting
+between complex, rectangular ('re', 'im'), and polar ('mod', 'arg')
+representations, as well as for extracting components as vectors or
+matrices. Inputs can include vectors, time series, and arrays of arbitrary
+dimensions, which are restored to their original form when inverting the
+transform. Since 'fftab' stores Fourier frequencies as columns in the
+tibble, many standard operations on spectral data can be easily performed
+using tidy packages like 'dplyr'.
 
 %prep
 %setup -q -c -n %{packname}

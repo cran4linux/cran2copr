@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TapeS
-%global packver   0.13.1
+%global packname  rlibkriging
+%global packver   0.9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.1
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tree Taper Curves and Sorting Based on 'TapeR'
+Summary:          Kriging Models using the 'libKriging' Library
 
-License:          BSD_2_clause + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-TapeR >= 0.5.2
+BuildRequires:    cmake
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-DiceKriging 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-TapeR >= 0.5.2
+Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-methods 
-Requires:         R-utils 
+Requires:         R-CRAN-DiceKriging 
 
 %description
-Providing new german-wide 'TapeR' Models and functions for their
-evaluation. Included are the most common tree species in Germany (Norway
-spruce, Scots pine, European larch, Douglas fir, Silver fir as well as
-European beech, Common/Sessile oak and Red oak). Many other species are
-mapped to them so that 36 tree species / groups can be processed. Single
-trees are defined by species code, one or multiple diameters in arbitrary
-measuring height and tree height. The functions then provide information
-on diameters along the stem, bark thickness, height of diameters, volume
-of the total or parts of the trunk and total and component above-ground
-biomass. It is also possible to calculate assortments from the taper
-curves. Uncertainty information is provided for diameter, volume and
-component biomass estimation.
+Interface to 'libKriging' 'C++' library <https://github.com/libKriging>
+that should provide most standard Kriging / Gaussian process regression
+features (like in 'DiceKriging', 'kergp' or 'RobustGaSP' packages).
+'libKriging' relies on Armadillo linear algebra library (Apache 2 license)
+by Conrad Sanderson, 'lbfgsb_cpp' is a 'C++' port around by Pascal Have of
+'lbfgsb' library (BSD-3 license) by Ciyou Zhu, Richard Byrd, Jorge Nocedal
+and Jose Luis Morales used for hyperparameters optimization.
 
 %prep
 %setup -q -c -n %{packname}

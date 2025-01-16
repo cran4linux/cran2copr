@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiraldev
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utility Functions and Development Tools for the Admiral Package Family
 
@@ -14,9 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
@@ -26,7 +27,7 @@ BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.4
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-lifecycle >= 0.1.0
-BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-stringr >= 1.4.0
@@ -36,7 +37,6 @@ Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.4
 Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-lifecycle >= 0.1.0
-Requires:         R-CRAN-cli 
 
 %description
 Utility functions to check data, variables and conditions for functions

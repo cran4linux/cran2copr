@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CFtime
-%global packver   1.5.0
+%global packname  qmj
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using CF-Compliant Calendars with Climate Projection Data
+Summary:          Quality Scores for the Russell 3000
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-quantmod >= 0.4.3
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-quantmod >= 0.4.3
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rlang 
 
 %description
-Support for all calendars as specified in the Climate and Forecast (CF)
-Metadata Conventions for climate and forecasting data. The CF Metadata
-Conventions is widely used for distributing files with climate
-observations or projections, including the Coupled Model Intercomparison
-Project (CMIP) data used by climate change scientists and the
-Intergovernmental Panel on Climate Change (IPCC). This package
-specifically allows the user to work with any of the CF-compliant
-calendars (many of which are not compliant with POSIXt). The CF time
-coordinate is formally defined in the CF Metadata Conventions document
-available at
-<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate>.
+Produces quality scores for each of the US companies from the Russell
+3000, following the approach described in "Quality Minus Junk" (Asness,
+Frazzini, & Pedersen, 2013)
+<http://www.aqr.com/library/working-papers/quality-minus-junk>. The
+package includes datasets for users who wish to view the most recently
+uploaded quality scores. It also provides tools to automatically gather
+relevant financials and stock price information, allowing users to update
+their data and customize their universe for further analysis.
 
 %prep
 %setup -q -c -n %{packname}

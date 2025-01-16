@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grainscape
-%global packver   0.4.4
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Landscape Connectivity, Habitat, and Protected Area Networks
 
@@ -14,17 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.11.4
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-Rcpp >= 0.12.11.4
 Requires:         R-CRAN-ggplot2 
@@ -32,9 +33,10 @@ Requires:         R-graphics
 Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-methods 
+Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
-Requires:         R-CRAN-raster 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description

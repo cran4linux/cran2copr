@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CFtime
-%global packver   1.5.0
+%global packname  RCTRecruit
+%global packver   0.1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.1.24
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using CF-Compliant Calendars with Climate Projection Data
+Summary:          Non-Parametric Recruitment Prediction for Randomized Clinical Trials
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-lubridate 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Support for all calendars as specified in the Climate and Forecast (CF)
-Metadata Conventions for climate and forecasting data. The CF Metadata
-Conventions is widely used for distributing files with climate
-observations or projections, including the Coupled Model Intercomparison
-Project (CMIP) data used by climate change scientists and the
-Intergovernmental Panel on Climate Change (IPCC). This package
-specifically allows the user to work with any of the CF-compliant
-calendars (many of which are not compliant with POSIXt). The CF time
-coordinate is formally defined in the CF Metadata Conventions document
-available at
-<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate>.
+Accurate prediction of subject recruitment for Randomized Clinical Trials
+(RCT) remains an ongoing challenge. Many previous prediction models rely
+on parametric assumptions. We present functions for non-parametric RCT
+recruitment prediction under several scenarios.
 
 %prep
 %setup -q -c -n %{packname}

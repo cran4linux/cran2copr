@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  funkyheatmap
-%global packver   0.5.1
+%global packname  psHarmonize
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Funky Heatmaps for Data Frames
+Summary:          Creates a Harmonized Dataset Based on a Set of Instructions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggforce 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggforce 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Allows generating heatmap-like visualisations for data frames. Funky
-heatmaps can be fine-tuned by providing annotations of the columns and
-rows, which allows assigning multiple palettes or geometries or grouping
-rows and columns together in categories. Saelens et al. (2019)
-<doi:10.1038/s41587-019-0071-9>.
+Functions which facilitate harmonization of data from multiple different
+datasets. Data harmonization involves taking data sources with differing
+values, creating coding instructions to create a harmonized set of values,
+then making those data modifications. 'psHarmonize' will assist with data
+modification once the harmonization instructions are written. Coding
+instructions are written by the user to create a "harmonization sheet".
+This sheet catalogs variable names, domains (e.g. clinical, behavioral,
+outcomes), provides R code instructions for mapping or conversion of data,
+specifies the variable name in the harmonized data set, and tracks notes.
+The package will then harmonize the source datasets according to the
+harmonization sheet to create a harmonized dataset. Once harmonization is
+finished, the package also has functions that will create descriptive
+statistics using 'RMarkdown'. Data Harmonization guidelines have been
+described by Fortier I, Raina P, Van den Heuvel ER, et al. (2017)
+<doi:10.1093/ije/dyw075>. Additional details of our R package have been
+described by Stephen JJ, Carolan P, Krefman AE, et al. (2024)
+<doi:10.1016/j.patter.2024.101003>.
 
 %prep
 %setup -q -c -n %{packname}

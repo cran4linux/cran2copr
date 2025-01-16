@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RobExtremes
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimally Robust Estimation for Extreme Value Distributions
 
@@ -20,25 +20,25 @@ BuildRequires:    R-CRAN-distrMod >= 2.8.0
 BuildRequires:    R-CRAN-distrEx >= 2.8.0
 BuildRequires:    R-CRAN-ROptEst >= 1.2.0
 BuildRequires:    R-CRAN-RobAStBase >= 1.2.0
+BuildRequires:    R-CRAN-startupmsg >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-robustbase 
 BuildRequires:    R-CRAN-evd 
 BuildRequires:    R-CRAN-RobAStRDA 
 BuildRequires:    R-CRAN-distr 
 BuildRequires:    R-CRAN-RandVar 
-BuildRequires:    R-CRAN-startupmsg 
 BuildRequires:    R-CRAN-actuar 
 Requires:         R-CRAN-distrMod >= 2.8.0
 Requires:         R-CRAN-distrEx >= 2.8.0
 Requires:         R-CRAN-ROptEst >= 1.2.0
 Requires:         R-CRAN-RobAStBase >= 1.2.0
+Requires:         R-CRAN-startupmsg >= 1.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-robustbase 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-RobAStRDA 
 Requires:         R-CRAN-distr 
 Requires:         R-CRAN-RandVar 
-Requires:         R-CRAN-startupmsg 
 Requires:         R-CRAN-actuar 
 
 %description

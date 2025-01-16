@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqimpute
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation of Missing Data in Sequence Analysis
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-TraMineR
 BuildRequires:    R-CRAN-TraMineRextras 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-Amelia 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dfidx 
@@ -57,14 +58,15 @@ Requires:         R-CRAN-TraMineR
 Requires:         R-CRAN-TraMineRextras 
 Requires:         R-utils 
 Requires:         R-CRAN-mice 
+Requires:         R-CRAN-parallelly 
 
 %description
-Multiple imputation of missing data present in a dataset through the
-prediction based on either a random forest or a multinomial regression
-model. Covariates and time-dependent covariates can be included in the
-model. The prediction of the missing values is based on the method of
-Halpin (2012)
-<https://researchrepository.ul.ie/articles/report/Multiple_imputation_for_life-course_sequence_data/19839736>.
+Multiple imputation of missing data in a dataset using MICT or MICT-timing
+methods. The core idea of the algorithms is to fill gaps of missing data,
+which is the typical form of missing data in a longitudinal setting,
+recursively from their edges. Prediction is based on either a multinomial
+or random forest regression model. Covariates and time-dependent
+covariates can be included in the model.
 
 %prep
 %setup -q -c -n %{packname}

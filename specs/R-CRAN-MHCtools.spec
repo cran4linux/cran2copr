@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MHCtools
-%global packver   1.5.3
+%global packver   1.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of MHC Data in Non-Model Species
 
@@ -59,7 +59,7 @@ function is a tool for evaluating whether different k-means() clustering
 models identify similar clusters, and summarize bootstrap model stats as
 means for different estimated values of k. It is designed to take files
 produced by the BootKmeans() function as input, but other data can be
-analysed if the descriptions of the required data formats are observed
+analyzed if the descriptions of the required data formats are observed
 carefully. The PapaDiv() function compares parent pairs in the data set
 and calculate their joint MHC diversity, taking into account sequence
 variants that occur in both parents. The HpltFind() function infers

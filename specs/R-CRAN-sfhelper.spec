@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CFtime
-%global packver   1.5.0
+%global packname  sfhelper
+%global packver   0.2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          0.2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using CF-Compliant Calendars with Climate Projection Data
+Summary:          Repair Functions for 'sf' Package Objects
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,21 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-RCurl 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Support for all calendars as specified in the Climate and Forecast (CF)
-Metadata Conventions for climate and forecasting data. The CF Metadata
-Conventions is widely used for distributing files with climate
-observations or projections, including the Coupled Model Intercomparison
-Project (CMIP) data used by climate change scientists and the
-Intergovernmental Panel on Climate Change (IPCC). This package
-specifically allows the user to work with any of the CF-compliant
-calendars (many of which are not compliant with POSIXt). The CF time
-coordinate is formally defined in the CF Metadata Conventions document
-available at
-<https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate>.
+A group of functions that support the 'sf' package, focused primarily on
+repairing polygons that break when re-projected.
 
 %prep
 %setup -q -c -n %{packname}
