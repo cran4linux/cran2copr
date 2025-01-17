@@ -1,34 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pak
-%global packver   0.8.0.1
+%global packname  trace
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Another Approach to Package Installation
+Summary:          Tandem Repeat Analysis by Capillary Electrophoresis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-seqinr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-tools 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lme4 
+Requires:         R-methods 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-seqinr 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-The goal of 'pak' is to make package installation faster and more
-reliable. In particular, it performs all HTTP operations in parallel, so
-metadata resolution and package downloads are fast. Metadata and package
-files are cached on the local disk as well. 'pak' has a dependency solver,
-so it finds version conflicts before performing the installation. This
-version of 'pak' supports CRAN, 'Bioconductor' and 'GitHub' packages as
-well.
+A pipeline for short tandem repeat instability analysis from fragment
+analysis data. Inputs of fsa files or peak tables, and a user supplied
+metadata data-frame. The package identifies ladders, calls peaks,
+identifies the modal peaks, calls repeats, then calculates repeat
+instability metrics (e.g. expansion index from Lee et al. (2010)
+<doi:10.1186/1752-0509-4-29>).
 
 %prep
 %setup -q -c -n %{packname}

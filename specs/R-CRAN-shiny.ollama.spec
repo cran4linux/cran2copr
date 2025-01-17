@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  secretbase
-%global packver   1.0.4
+%global packname  shiny.ollama
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
+Summary:          R 'Shiny' Interface for Chatting with Large Language Models Offline on Local with 'ollama'
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-shiny >= 1.7.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-bslib >= 0.4.0
+BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-mockery 
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-shiny >= 1.7.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-bslib >= 0.4.0
+Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-mockery 
 
 %description
-Fast and memory-efficient streaming hash functions and base64 encoding /
-decoding. Hashes strings and raw vectors directly. Stream hashes files
-which can be larger than memory, as well as in-memory objects through R's
-serialization mechanism. Implementations include the SHA-256, SHA-3 and
-'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
-(XOF), and 'SipHash' pseudo-random function.
+Chat with large language models on your machine without internet with
+complete privacy via 'ollama', powered by R shiny interface. For more
+information on 'ollama', visit <https://ollama.com>.
 
 %prep
 %setup -q -c -n %{packname}

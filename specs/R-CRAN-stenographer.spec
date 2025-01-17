@@ -1,29 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  secretbase
-%global packver   1.0.4
+%global packname  stenographer
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
+Summary:          Flexible and Customisable Logging System
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-DBI 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-DBI 
 
 %description
-Fast and memory-efficient streaming hash functions and base64 encoding /
-decoding. Hashes strings and raw vectors directly. Stream hashes files
-which can be larger than memory, as well as in-memory objects through R's
-serialization mechanism. Implementations include the SHA-256, SHA-3 and
-'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
-(XOF), and 'SipHash' pseudo-random function.
+A comprehensive logging framework for R applications that provides
+hierarchical logging levels, database integration, and contextual logging
+capabilities. The package supports 'SQLite' storage for persistent logs,
+provides colour-coded console output for better readability, includes
+parallel processing support, and implements structured error reporting
+with 'JSON' formatting.
 
 %prep
 %setup -q -c -n %{packname}

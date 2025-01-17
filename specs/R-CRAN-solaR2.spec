@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  solaR2
-%global packver   0.10
+%global packver   0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10
+Version:          0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiation and Photovoltaic Systems
 
@@ -17,19 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-latticeExtra 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-httr2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 

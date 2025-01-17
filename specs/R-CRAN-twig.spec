@@ -1,54 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ern
-%global packver   2.1.2
+%global packname  twig
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Effective Reproduction Number Estimation
+Summary:          For Streamlining Decision and Economic Evaluation Models using Grammar of Modeling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-EpiEstim 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-EpiEstim 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-runjags 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-doParallel 
 
 %description
-Estimate the effective reproduction number from wastewater and clinical
-data sources.
+Provides tools for building decision and cost-effectiveness analysis
+models. It enables users to write these models concisely, simulate
+outcomes—including probabilistic analyses—efficiently using optimized
+vectorized processes and parallel computing, and produce results. The
+package employs a Grammar of Modeling approach, inspired by the Grammar of
+Graphics, to streamline model construction. For an interactive graphical
+user interface, see 'DecisionTwig' at
+<https://www.dashlab.ca/projects/decision_twig/>. Comprehensive tutorials
+and vignettes are available at <https://hjalal.github.io/twig/>.
 
 %prep
 %setup -q -c -n %{packname}

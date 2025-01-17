@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  cjar
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for 'Customer Journey Analytics' ('CJA') API
 
@@ -22,7 +23,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jose 
@@ -34,13 +34,13 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jose 
@@ -52,9 +52,10 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-httr2 
 
 %description
-Connect to the 'CJA' API, which powers 'CJA Workspace'
+Connect and pull data from the 'CJA' API, which powers 'CJA Workspace'
 <https://github.com/AdobeDocs/cja-apis>. The package was developed with
 the analyst in mind and will continue to be developed with the guiding
 principles of iterative, repeatable, timely analysis. New features are

@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3viz
-%global packver   0.10.1
+%global packname  parttree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizations for 'mlr3'
+Summary:          Visualize Simple 2-D Decision Tree Partitions
 
-License:          LGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.7.0
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tinyplot >= 0.2.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-mlr3misc >= 0.7.0
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-partykit 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rpart 
+Requires:         R-CRAN-tinyplot >= 0.2.0
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-scales 
-Requires:         R-utils 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-partykit 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rpart 
 
 %description
-Visualization package of the 'mlr3' ecosystem. It features plots for mlr3
-objects such as tasks, learners, predictions, benchmark results, tuning
-instances and filters via the 'autoplot()' generic of 'ggplot2'.  The
-package draws plots with the 'viridis' color palette and applies the
-minimal theme. Visualizations include barplots, boxplots, histograms, ROC
-curves, and Precision-Recall curves.
+Visualize the partitions of simple decision trees, involving one or two
+predictors, on the scale of the original data. Provides an intuitive
+alternative to traditional tree diagrams, by visualizing how a decision
+tree divides the predictor space in a simple 2D plot alongside the
+original data. The 'parttree' package supports both classification and
+regression trees from 'rpart' and 'partykit', as well as trees produced by
+popular frontend systems like 'tidymodels' and 'mlr3'. Visualization
+methods are provided for both base R graphics and 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

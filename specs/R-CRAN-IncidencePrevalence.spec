@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IncidencePrevalence
-%global packver   0.9.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Incidence and Prevalence using the OMOP Common Data Model
 
@@ -18,35 +18,29 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-dbplyr >= 2.5.0
-BuildRequires:    R-CRAN-checkmate >= 2.0.0
 BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-CDMConnector >= 1.7.0
 BuildRequires:    R-CRAN-glue >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.5.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.2.3
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.5
 BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-dbplyr >= 2.5.0
-Requires:         R-CRAN-checkmate >= 2.0.0
 Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-CDMConnector >= 1.7.0
 Requires:         R-CRAN-glue >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.5.0
-Requires:         R-CRAN-CDMConnector >= 1.3.0
+Requires:         R-CRAN-PatientProfiles >= 1.2.3
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-PatientProfiles >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.5
 Requires:         R-CRAN-clock 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Calculate incidence and prevalence using data mapped to the Observational

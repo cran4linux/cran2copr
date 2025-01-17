@@ -1,29 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  secretbase
-%global packver   1.0.4
+%global packname  rbm25
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
+Summary:          A Light Wrapper Around the 'BM25' 'Rust' Crate for Okapi BM25 Text Search
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Fast and memory-efficient streaming hash functions and base64 encoding /
-decoding. Hashes strings and raw vectors directly. Stream hashes files
-which can be larger than memory, as well as in-memory objects through R's
-serialization mechanism. Implementations include the SHA-256, SHA-3 and
-'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
-(XOF), and 'SipHash' pseudo-random function.
+BM25 is a ranking function used by search engines to rank matching
+documents according to their relevance to a user's search query. This
+package provides a light wrapper around the 'BM25' 'rust' crate for Okapi
+BM25 text search. For more information, see Robertson et al. (1994)
+<https://trec.nist.gov/pubs/trec3/t3_proceedings.html>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chooseGCM
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Selecting General Circulation Models for Species Distribution Modeling
 
@@ -51,7 +51,8 @@ Methods to help selecting General Circulation Models (GCMs) in the context
 of projecting models to future scenarios. It is provided clusterization
 algorithms, distance and correlation metrics, as well as a tailor-made
 algorithm to detect the optimum subset of GCMs that recreate the
-environment of all GCMs.
+environment of all GCMs as proposed in Esser et al. (2025)
+<doi:10.1111/gcb.70008>.
 
 %prep
 %setup -q -c -n %{packname}

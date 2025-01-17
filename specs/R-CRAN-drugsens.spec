@@ -1,54 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ern
-%global packver   2.1.2
+%global packname  drugsens
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Effective Reproduction Number Estimation
+Summary:          Automated Analysis of 'QuPath' Output Data and Metadata Extraction
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-testthat >= 3.0.0
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-EpiEstim 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-roxygen2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-testthat >= 3.0.0
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-EpiEstim 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-roxygen2 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Estimate the effective reproduction number from wastewater and clinical
-data sources.
+A comprehensive toolkit for analyzing microscopy data output from 'QuPath'
+software. Provides functionality for automated data processing, metadata
+extraction, and statistical analysis of imaging results. The methodology
+implemented in this package is based on Labrosse et al. (2024)
+<doi:10.1016/j.xpro.2024.103274> "Protocol for quantifying drug
+sensitivity in 3D patient-derived ovarian cancer models", which describes
+the complete workflow for drug sensitivity analysis in patient-derived
+cancer models.
 
 %prep
 %setup -q -c -n %{packname}

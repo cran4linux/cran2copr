@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eq5d
-%global packver   0.15.5
+%global packver   0.15.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.5
+Version:          0.15.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for Analysing 'EQ-5D' Data and Calculating 'EQ-5D' Index Scores
 
@@ -36,7 +36,7 @@ population health surveys. The eq5d package provides methods to calculate
 index scores from a subject's dimension scores. 32 TTO and 11 VAS EQ-5D-3L
 value sets including those for countries in Szende et al (2007)
 <doi:10.1007/1-4020-5511-0> and Szende et al (2014)
-<doi:10.1007/978-94-007-7596-1>, 44 EQ-5D-5L EQ-VT value sets, the
+<doi:10.1007/978-94-007-7596-1>, 45 EQ-5D-5L EQ-VT value sets, the
 EQ-5D-5L crosswalk value sets developed by van Hout et al. (2012)
 <doi:10.1016/j.jval.2012.02.008>, the crosswalk value sets for Bermuda,
 Jordan and Russia and the reverse crosswalk value sets. 10 EQ-5D-Y value

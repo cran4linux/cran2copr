@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  secretbase
-%global packver   1.0.4
+%global packname  NPBBBDAefficiency
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
+Summary:          A-Efficiency for Nested Partially Balanced Bipartite Block (NPBBB) Designs
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Fast and memory-efficient streaming hash functions and base64 encoding /
-decoding. Hashes strings and raw vectors directly. Stream hashes files
-which can be larger than memory, as well as in-memory objects through R's
-serialization mechanism. Implementations include the SHA-256, SHA-3 and
-'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
-(XOF), and 'SipHash' pseudo-random function.
+Nested Partially Balanced Bipartite Block (NPBBB) designs involve two
+levels of blocking: (i) The block design (ignoring sub-block
+classification) serves as a partially balanced bipartite block (PBBB)
+design, and (ii) The sub-block design (ignoring block classification) also
+serves as a PBBB design. More details on constructions of the PBBB designs
+and their characterization properties are available in Vinayaka et
+al.(2023) <doi:10.1080/03610926.2023.2251623>. This package calculates
+A-efficiency values for both block and sub-block structures, along with
+all parameters of a given NPBBB design.
 
 %prep
 %setup -q -c -n %{packname}

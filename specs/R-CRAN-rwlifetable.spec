@@ -1,29 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  secretbase
-%global packver   1.0.4
+%global packname  rwlifetable
+%global packver   0.1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          0.1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cryptographic Hash, Extendable-Output and Base64 Functions
+Summary:          Estimation of Life Tables Using Rolling Windows
 
-License:          GPL (>= 3)
+License:          EPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-splines 
+Requires:         R-stats 
+Requires:         R-splines 
 
 %description
-Fast and memory-efficient streaming hash functions and base64 encoding /
-decoding. Hashes strings and raw vectors directly. Stream hashes files
-which can be larger than memory, as well as in-memory objects through R's
-serialization mechanism. Implementations include the SHA-256, SHA-3 and
-'Keccak' cryptographic hash functions, SHAKE256 extendable-output function
-(XOF), and 'SipHash' pseudo-random function.
+Estimates life tables, specifically (crude) death rates and (raw and
+graduated) death probabilities, using rolling windows in one (e.g., age),
+two (e.g., age and time) or three (e.g., age, time and income) dimensions.
+The package can also be utilised for summarising statistics and smoothing
+continuous variables through rolling windows in other domains, such as
+estimating averages of self-positioning ideology in political science.
+Acknowledgements: The authors wish to thank Ministerio de Ciencia,
+Innovación y Universidades (grant PID2021-128228NB-I00) and Generalitat
+Valenciana (grants HIECPU/2023/2, Conselleria de Hacienda, Economía y
+Administración Pública, and CIGE/2023/7, Conselleria de Educación,
+Cultura, Universidades y Empleo) for supporting this research.
 
 %prep
 %setup -q -c -n %{packname}

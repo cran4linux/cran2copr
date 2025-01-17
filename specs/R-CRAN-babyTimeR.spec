@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pak
-%global packver   0.8.0.1
+%global packname  babyTimeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Another Approach to Package Installation
+Summary:          Parse Output from 'BabyTime' Application
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-tools 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildArch:        noarch
+BuildRequires:    R-methods >= 4.4.1
+BuildRequires:    R-CRAN-janitor >= 2.2.0
+BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-snakecase >= 0.11.1
 BuildRequires:    R-utils 
-Requires:         R-tools 
+Requires:         R-methods >= 4.4.1
+Requires:         R-CRAN-janitor >= 2.2.0
+Requires:         R-CRAN-readr >= 2.1.5
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-snakecase >= 0.11.1
 Requires:         R-utils 
 
 %description
-The goal of 'pak' is to make package installation faster and more
-reliable. In particular, it performs all HTTP operations in parallel, so
-metadata resolution and package downloads are fast. Metadata and package
-files are cached on the local disk as well. 'pak' has a dependency solver,
-so it finds version conflicts before performing the installation. This
-version of 'pak' supports CRAN, 'Bioconductor' and 'GitHub' packages as
-well.
+'BabyTime' is an application for tracking infant and toddler care
+activities like sleeping, eating, etc. This package will take the
+outputted .zip files and parse it into a usable list object with cleaned
+data. It handles malformed and incomplete data gracefully and is designed
+to parse one directory at a time.
 
 %prep
 %setup -q -c -n %{packname}

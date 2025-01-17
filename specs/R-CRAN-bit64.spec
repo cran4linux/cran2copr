@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bit64
-%global packver   4.5.2
+%global packver   4.6.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.2
+Version:          4.6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A S3 Class for Vectors of 64bit Integers
 
@@ -14,16 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.1
-Requires:         R-core >= 3.0.1
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildRequires:    R-CRAN-bit >= 4.0.0
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-bit >= 4.0.0
-Requires:         R-utils 
+Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Package 'bit64' provides serializable S3 atomic 64bit (signed) integers.

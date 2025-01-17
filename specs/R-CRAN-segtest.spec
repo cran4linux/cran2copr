@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  segtest
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Segregation Distortion in Polyploids
 
@@ -36,11 +36,11 @@ Requires:         R-CRAN-updog
 Provides a suite of tests for segregation distortion in F1 polyploid
 populations (for now, just tetraploids). This is under different
 assumptions of meiosis. Details of these methods are described in Gerard
-et al. (2024) <doi:10.1101/2024.02.07.579361>. This material is based upon
-work supported by the National Science Foundation under Grant No. 2132247.
-The opinions, findings, and conclusions or recommendations expressed are
-those of the author and do not necessarily reflect the views of the
-National Science Foundation.
+et al. (2025) <doi:10.1007/s00122-025-04816-z>. This material is based
+upon work supported by the National Science Foundation under Grant No.
+2132247.  The opinions, findings, and conclusions or recommendations
+expressed are those of the author and do not necessarily reflect the views
+of the National Science Foundation.
 
 %prep
 %setup -q -c -n %{packname}

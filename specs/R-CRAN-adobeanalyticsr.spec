@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adobeanalyticsr
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for 'Adobe Analytics' API 2.0
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-jsonlite >= 1.5
@@ -57,6 +58,7 @@ Requires:         R-CRAN-vctrs
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-memoise 
 Requires:         R-utils 
+Requires:         R-CRAN-httr2 
 
 %description
 Connect to the 'Adobe Analytics' API v2.0

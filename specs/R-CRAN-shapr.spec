@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapr
-%global packver   0.2.2
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Explanation with Dependence-Aware Shapley Values
 
@@ -19,16 +19,16 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.15
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-condMVNorm 
-BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.15
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-condMVNorm 
-Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-future.apply 
+Requires:         R-methods 
 
 %description
 Complex machine learning models are often hard to interpret. However, in
@@ -36,10 +36,10 @@ many situations it is crucial to understand and explain why a model made a
 specific prediction. Shapley values is the only method for such prediction
 explanation framework with a solid theoretical foundation. Previously
 known methods for estimating the Shapley values do, however, assume
-feature independence. This package implements the method described in Aas,
-Jullum and Løland (2019) <arXiv:1903.10464>, which accounts for any
-feature dependence, and thereby produces more accurate estimates of the
-true Shapley values.
+feature independence. This package implements methods which accounts for
+any feature dependence, and thereby produces more accurate estimates of
+the true Shapley values. An accompanying 'Python' wrapper ('shaprpy') is
+available through the GitHub repository.
 
 %prep
 %setup -q -c -n %{packname}
