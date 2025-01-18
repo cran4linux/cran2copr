@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  readwritesqlite
-%global packver   0.2.0
+%global packname  veesa
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Enhanced Reading and Writing for 'SQLite' Databases
+Summary:          Pipeline for Explainable Machine Learning with Functional Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-crayon 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fdasrvf 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fdasrvf 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Reads and writes data frames to 'SQLite' databases while preserving time
-zones (for POSIXct columns), projections (for 'sfc' columns), units (for
-'units' columns), levels (for factors and ordered factors) and classes for
-logical, Date and 'hms' columns.  It also logs changes to tables and
-provides more informative error messages.
+Implements the Variable importance Explainable Elastic Shape Analysis
+pipeline for explainable machine learning with functional data inputs.
+Converts training and testing data functional inputs to elastic shape
+analysis principal components that account for vertical and/or horizontal
+variability. Computes feature importance to identify important principal
+components and visualizes variability captured by functional principal
+components. See Goode et al. (2025) <doi:10.48550/arXiv.2501.07602> for
+technical details about the methodology.
 
 %prep
 %setup -q -c -n %{packname}

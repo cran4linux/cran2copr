@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agriutilities
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Data Analysis in Agriculture
 
@@ -63,7 +63,7 @@ fitting Linear Mixed Models, 'agriutilities' is the ideal choice for
 anyone who wants to save time and focus on interpreting their results.
 Some of the functions require the R package 'asreml' for the 'ASReml'
 software, this can be obtained upon purchase from 'VSN' international
-(<https://vsni.co.uk/software/asreml-r>).
+<https://vsni.co.uk/software/asreml-r/>.
 
 %prep
 %setup -q -c -n %{packname}

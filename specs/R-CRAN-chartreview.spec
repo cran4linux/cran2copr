@@ -1,31 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.4-0
+%global packname  chartreview
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Adaptive Multi-Wave Sampling for Efficient Chart Validation
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-anesrake 
+BuildRequires:    R-CRAN-weights 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-anesrake 
+Requires:         R-CRAN-weights 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included.
+Functionality to perform adaptive multi-wave sampling for efficient chart
+validation. Code allows one to define strata, adaptively sample using
+several types of confidence bounds for the quantity of interest (Lai's
+confidence bands, Bayesian credible intervals, normal confidence
+intervals), and sampling strategies (random sampling, stratified random
+sampling, Neyman's sampling, see Neyman (1934) <doi:10.2307/2342192> and
+Neyman (1938) <doi:10.1080/01621459.1938.10503378>).
 
 %prep
 %setup -q -c -n %{packname}

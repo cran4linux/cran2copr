@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyscholar
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Template for Creating Reproducible 'shiny' Applications
 
@@ -49,7 +49,8 @@ interactive maps and data tables. Use to create complex analytical
 applications, following best practices in open science and software
 development. Includes functions for automating repetitive development
 tasks and an example application at run_shinyscholar() that requires
-install.packages("shinyscholar", dependencies = TRUE).
+install.packages("shinyscholar", dependencies = TRUE). A guide to
+developing applications can be found on the package website.
 
 %prep
 %setup -q -c -n %{packname}

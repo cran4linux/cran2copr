@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bayestestR
-%global packver   0.15.1
+%global packname  rtables.officer
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Understand and Describe Bayesian Models and Posterior Distributions
+Summary:          Exporting Tools for 'rtables'
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.0.0
-BuildRequires:    R-CRAN-datawizard >= 1.0.0
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-stringi >= 1.6
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-flextable >= 0.9.6
+BuildRequires:    R-CRAN-officer >= 0.6.6
+BuildRequires:    R-CRAN-rtables >= 0.6.11
+BuildRequires:    R-CRAN-formatters >= 0.5.10
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.0.0
-Requires:         R-CRAN-datawizard >= 1.0.0
-Requires:         R-graphics 
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-stringi >= 1.6
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-flextable >= 0.9.6
+Requires:         R-CRAN-officer >= 0.6.6
+Requires:         R-CRAN-rtables >= 0.6.11
+Requires:         R-CRAN-formatters >= 0.5.10
+Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides utilities to describe posterior distributions and Bayesian
-models. It includes point-estimates such as Maximum A Posteriori (MAP),
-measures of dispersion (Highest Density Interval - HDI; Kruschke, 2015
-<doi:10.1016/C2012-0-00477-2>) and indices used for null-hypothesis
-testing (such as ROPE percentage, pd and Bayes factors). References:
-Makowski et al. (2021) <doi:10.21105/joss.01541>.
+Designed to create and display complex tables with R, the 'rtables' R
+package allows cells in an 'rtables' object to contain any
+high-dimensional data structure, which can then be displayed with
+cell-specific formatting instructions. Additionally, the 'rtables.officer'
+package supports export formats related to the Microsoft Office software
+suite, including Microsoft Word ('docx') and Microsoft PowerPoint
+('pptx').
 
 %prep
 %setup -q -c -n %{packname}

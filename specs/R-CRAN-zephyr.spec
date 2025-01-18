@@ -1,31 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.4-0
+%global packname  zephyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Structured Messages and Options
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included.
+Provides a structured framework for consistent user communication and
+configuration management for package developers.
 
 %prep
 %setup -q -c -n %{packname}

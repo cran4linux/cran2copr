@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eDNAjoint
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Modeling of Traditional and Environmental DNA Survey Data in a Bayesian Framework
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstantools >= 2.3.1.1
 BuildRequires:    R-CRAN-rstan >= 2.26.23
@@ -28,7 +28,6 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-tidyr 
@@ -43,7 +42,6 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-loo 
-Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-tidyr 
@@ -53,16 +51,15 @@ Requires:         R-CRAN-rstantools
 %description
 Models integrate environmental DNA (eDNA) detection data and traditional
 survey data to jointly estimate species catch rate (see package vignette:
-<https://bookdown.org/abigailkeller/eDNAjoint_vignette/>). Models can be
-used with count data via traditional survey methods (i.e., trapping,
-electrofishing, visual) and replicated eDNA detection/nondetection data
-via polymerase chain reaction (i.e., PCR or qPCR) from multiple survey
-locations. Estimated parameters include probability of a false positive
-eDNA detection, a site-level covariates that scale the sensitivity of eDNA
-surveys relative to traditional surveys, and catchability coefficients for
-traditional gear types. Models are implemented with a Bayesian framework
-(Markov chain Monte Carlo) using the 'Stan' probabilistic programming
-language.
+<https://ednajoint.netlify.app/>). Models can be used with count data via
+traditional survey methods (i.e., trapping, electrofishing, visual) and
+replicated eDNA detection/nondetection data via polymerase chain reaction
+(i.e., PCR or qPCR) from multiple survey locations. Estimated parameters
+include probability of a false positive eDNA detection, a site-level
+covariates that scale the sensitivity of eDNA surveys relative to
+traditional surveys, and catchability coefficients for traditional gear
+types. Models are implemented with a Bayesian framework (Markov chain
+Monte Carlo) using the 'Stan' probabilistic programming language.
 
 %prep
 %setup -q -c -n %{packname}

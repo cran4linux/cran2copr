@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoslider.core
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slide Automation for Tables, Listings and Figures
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tern >= 0.9.6
+BuildRequires:    R-CRAN-tern >= 0.9.7
 BuildRequires:    R-CRAN-flextable >= 0.9.4
-BuildRequires:    R-CRAN-rtables >= 0.6.10
+BuildRequires:    R-CRAN-rtables >= 0.6.11
 BuildRequires:    R-CRAN-officer >= 0.3.18
-BuildRequires:    R-CRAN-rlistings >= 0.2.9
 BuildRequires:    R-CRAN-rvg >= 0.2.5
+BuildRequires:    R-CRAN-rlistings >= 0.2.10
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -38,12 +38,12 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-tern >= 0.9.6
+Requires:         R-CRAN-tern >= 0.9.7
 Requires:         R-CRAN-flextable >= 0.9.4
-Requires:         R-CRAN-rtables >= 0.6.10
+Requires:         R-CRAN-rtables >= 0.6.11
 Requires:         R-CRAN-officer >= 0.3.18
-Requires:         R-CRAN-rlistings >= 0.2.9
 Requires:         R-CRAN-rvg >= 0.2.5
+Requires:         R-CRAN-rlistings >= 0.2.10
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 

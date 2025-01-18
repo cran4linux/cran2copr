@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sts
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Structural Topic and Sentiment-Discourse Model for Text Analysis
 
@@ -16,8 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-slam 
@@ -28,8 +26,9 @@ BuildRequires:    R-CRAN-stm
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-slam 
@@ -40,6 +39,7 @@ Requires:         R-CRAN-stm
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tm 
 
 %description
 The Structural Topic and Sentiment-Discourse (STS) model allows

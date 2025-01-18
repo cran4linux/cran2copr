@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  miLAG
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculates Microbial Lag Duration (on the Population Level) from Provided Growth Curve Data
 
@@ -34,9 +34,11 @@ population sizes and times of measurements. This package allows to use
 such growth curve data to determine the duration of "microbial lag phase"
 i.e. the time needed for microbes to restart divisions. It implements the
 most commonly used methods to calculate the lag duration, these methods
-are discussed and described in Opalek et.al. 2022. Citation: "How to
-determine microbial lag phase duration?", M. Opalek, B. Smug, D.
-Wloch-Salamon (2022) <doi:10.1101/2022.11.16.516631>.
+are discussed and described in Opalek et.al. 2022. Citation: Smug, B. J.,
+Opalek, M., Necki, M., & Wloch-Salamon, D. (2024). Microbial lag
+calculator: A shiny-based application and an R package for calculating the
+duration of microbial lag phase. Methods in Ecology and Evolution, 15,
+301–307 <doi:10.1111/2041-210X.14269>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  klexdatr
-%global packver   0.1.2
+%global __requires_exclude ^libmpi
+%global packname  unhcrdown
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kootenay Lake Exploitation Study Data
+Summary:          UNHCR Branded Templates for R Markdown Documents
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-sf 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-officedown 
+BuildRequires:    R-CRAN-pagedown 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-xaringan 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-officedown 
+Requires:         R-CRAN-pagedown 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-xaringan 
 
 %description
-Six relational 'tibbles' from the Kootenay Lake Large Trout Exploitation
-study. The study which ran from 2008 to 2014 caught, tagged and released
-large Rainbow Trout and Bull Trout in Kootenay Lake by boat angling. The
-fish were tagged with internal acoustic tags and/or high reward external
-tags and subsequently detected by an acoustic receiver array as well as
-reported by anglers. The data are analysed by Thorley and Andrusak (1994)
-<doi:10.7717/peerj.2874> to estimate the natural and fishing mortality of
-both species.
+Create United Nations High Commissioner for Refugees (UNHCR) branded
+documents, presentations, and reports using R Markdown templates. This
+package provides customized formats that align with UNHCR's official brand
+guidelines for creating professional PDF reports, Word documents,
+PowerPoint presentations, and HTML outputs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +45,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

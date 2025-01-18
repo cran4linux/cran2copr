@@ -1,54 +1,65 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PhenotypeR
-%global packver   0.1.1
+%global packname  tidyfit
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assess Study Cohorts Using a Common Data Model
+Summary:          Regularized Linear Modeling with Tidy Data
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CodelistGenerator >= 3.3.1
-BuildRequires:    R-CRAN-IncidencePrevalence >= 0.9.0
-BuildRequires:    R-CRAN-CohortCharacteristics >= 0.4.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-CohortConstructor >= 0.3.2
-BuildRequires:    R-CRAN-OmopSketch >= 0.1.2
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-CodelistGenerator >= 3.3.1
-Requires:         R-CRAN-IncidencePrevalence >= 0.9.0
-Requires:         R-CRAN-CohortCharacteristics >= 0.4.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-CohortConstructor >= 0.3.2
-Requires:         R-CRAN-OmopSketch >= 0.1.2
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-yardstick 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-generics 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rsample 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-yardstick 
 
 %description
-Phenotype study cohorts in data mapped to the Observational Medical
-Outcomes Partnership Common Data Model. Diagnostics are run at the
-database, code list, cohort, and population level to assess whether study
-cohorts are ready for research.
+An extension to the 'R' tidy data environment for automated machine
+learning. The package allows fitting and cross validation of linear
+regression and classification algorithms on grouped data.
 
 %prep
 %setup -q -c -n %{packname}

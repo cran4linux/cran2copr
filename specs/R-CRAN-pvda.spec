@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pvda
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Disproportionality Functions for Pharmacovigilance
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats >= 4.1.3
 BuildRequires:    R-utils >= 4.1.3
-BuildRequires:    R-CRAN-cli >= 3.4.1
+BuildRequires:    R-CRAN-cli >= 3.6.3
 BuildRequires:    R-CRAN-tibble >= 3.1.8
 BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
@@ -34,7 +34,7 @@ BuildRequires:    R-CRAN-dplyr >= 1.0.10
 BuildRequires:    R-CRAN-purrr >= 0.3.5
 Requires:         R-stats >= 4.1.3
 Requires:         R-utils >= 4.1.3
-Requires:         R-CRAN-cli >= 3.4.1
+Requires:         R-CRAN-cli >= 3.6.3
 Requires:         R-CRAN-tibble >= 3.1.8
 Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-checkmate >= 2.1.0

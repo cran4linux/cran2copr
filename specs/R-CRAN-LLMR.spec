@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Large Language Model APIs in R
 
@@ -29,10 +29,12 @@ A unified interface to interact with various Large Language Model (LLM)
 APIs such as 'OpenAI' (see <https://platform.openai.com/docs/quickstart>
 for details), 'Anthropic' (see
 <https://docs.anthropic.com/en/api/getting-started> for details), 'Groq'
-(see <https://console.groq.com/docs/api-reference> for details), and
-'Together AI' (see <https://docs.together.ai/docs/quickstart> for
-details). Allows users to configure API parameters, send messages, and
-retrieve responses seamlessly within R.
+(see <https://console.groq.com/docs/api-reference> for details), 'Together
+AI' (see <https://docs.together.ai/docs/quickstart> for details),
+'DeepSeek' (see <https://api-docs.deepseek.com> for details), and 'Voyage
+AI' (see <https://docs.voyageai.com/docs/introduction> for details).
+Allows users to configure API parameters, send messages, and retrieve
+responses seamlessly within R.
 
 %prep
 %setup -q -c -n %{packname}

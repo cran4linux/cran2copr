@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SAMprior
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Self-Adapting Mixture (SAM) Priors
 
@@ -14,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RBesT 
+BuildRequires:    R-CRAN-MatchIt 
+BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-RBesT 
+Requires:         R-CRAN-MatchIt 
+Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-ggplot2 
 
 %description

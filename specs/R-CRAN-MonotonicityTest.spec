@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.4-0
+%global packname  MonotonicityTest
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Nonparametric Bootstrap Test for Regression Monotonicity
 
-License:          GPL (>= 3)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13.1
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-Rcpp >= 1.0.13.1
+Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included.
+Implements nonparametric bootstrap tests for detecting monotonicity in
+regression functions from Hall, P. and Heckman, N. (2000)
+<doi:10.1214/aos/1016120363> Includes tools for visualizing results using
+Nadaraya-Watson kernel regression and supports efficient computation with
+'C++'.
 
 %prep
 %setup -q -c -n %{packname}
