@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaCCI
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Aware Cell-Cell Interaction Analysis
 
@@ -29,6 +29,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Seurat >= 4.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.13
@@ -43,6 +44,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-reshape2 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-FNN 
 
 %description
 Provides tools for analyzing spatial cell-cell interactions based on
