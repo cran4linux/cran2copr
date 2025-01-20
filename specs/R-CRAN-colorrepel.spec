@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colorrepel
-%global packver   0.3.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Repel Visually Similar Colors for Colorblind Users in Various Plots
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-dqrng
 BuildRequires:    R-CRAN-gtools 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-ggalt
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-png 
+BuildRequires:    R-CRAN-Polychrome 
 Requires:         R-grDevices 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-Matrix 
@@ -42,6 +44,7 @@ Requires:         R-CRAN-dqrng
 Requires:         R-CRAN-gtools 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -49,6 +52,7 @@ Requires:         R-CRAN-ggalt
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-png 
+Requires:         R-CRAN-Polychrome 
 
 %description
 Iterate and repel visually similar colors away in various 'ggplot2' plots.

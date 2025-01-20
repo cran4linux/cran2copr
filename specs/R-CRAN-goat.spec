@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goat
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gene Set Analysis Using the Gene Set Ordinal Association Test
 
@@ -52,7 +52,7 @@ Requires:         R-CRAN-MonoPoly >= 0.3.10
 %description
 Perform gene set enrichment analyses using the Gene set Ordinal
 Association Test (GOAT) algorithm and visualize your results. Koopmans, F.
-(2024) <doi:10.1101/2023.12.10.570979>.
+(2024) <doi:10.1038/s42003-024-06454-5>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyplots
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Plots for Scientific Papers
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-patchwork >= 1.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
@@ -29,7 +30,6 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-patchwork >= 1.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
@@ -48,7 +49,6 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ivreg
-%global packver   0.6-4
+%global packver   0.6-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.4
+Version:          0.6.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Instrumental-Variables Regression by '2SLS', '2SM', or '2SMM', with Diagnostics
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbiom
-%global packver   2.0.7
+%global packver   2.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.7
+Version:          2.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read/Write, Analyze, and Visualize 'BIOM' Data
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-readr 
@@ -38,8 +39,6 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-tidyplots 
 BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-cluster 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
@@ -55,6 +54,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-readr 
@@ -68,7 +68,7 @@ A toolkit for working with Biological Observation Matrix ('BIOM') files.
 Read/write all 'BIOM' formats. Compute rarefaction, alpha diversity, and
 beta diversity (including 'UniFrac'). Summarize counts by taxonomic level.
 Subset based on metadata. Generate visualizations and statistical
-analyses. CPU intensive operations are coded in C++ for speed.
+analyses. CPU intensive operations are coded in C for speed.
 
 %prep
 %setup -q -c -n %{packname}
