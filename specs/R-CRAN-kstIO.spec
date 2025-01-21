@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kstIO
-%global packver   0.4-0
+%global packver   0.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knowledge Space Theory Input/Output
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-pks >= 0.4.0
 BuildRequires:    R-CRAN-MASS 
@@ -36,7 +36,7 @@ Knowledge space theory by Doignon and Falmagne (1999)
 which proposes mathematical formalisms to operationalize knowledge
 structures in a particular domain.  The 'kstIO' package provides basic
 functionalities to read and write KST data from/to files to be used
-together with the 'kst', 'kstMatrix', 'pks' or 'DAKS' packages.
+together with the 'kst', 'kstMatrix', 'CDSS', 'pks', or 'DAKS' packages.
 
 %prep
 %setup -q -c -n %{packname}

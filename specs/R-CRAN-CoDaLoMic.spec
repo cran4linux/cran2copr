@@ -1,46 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AccelStab
-%global packver   2.1.1
+%global packname  CoDaLoMic
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Stability Kinetic Modelling
+Summary:          Compositional Models to Longitudinal Microbiome Data
 
-License:          AGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-xtable 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-compositions 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-R2jags 
+BuildRequires:    R-CRAN-ggbiplot 
+BuildRequires:    R-CRAN-zCompositions 
+Requires:         R-CRAN-xtable 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-compositions 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-R2jags 
+Requires:         R-CRAN-ggbiplot 
+Requires:         R-CRAN-zCompositions 
 
 %description
-Estimate the Šesták–Berggren kinetic model (degradation model) from
-experimental data. A A closed-form (analytic) solution to the degradation
-model is implemented as a non-linear fit, allowing for the extrapolation
-of the degradation of a drug product - both in time and temperature.
-Parametric bootstrap, with kinetic parameters drawn from the multivariate
-t-distribution, and analytical formulae (the delta method) are available
-options to calculate the confidence and prediction intervals. The results
-(modelling, extrapolations and statistical intervals) can be visualised
-with multiple plots. The examples illustrate the accelerated stability
-modelling in drugs and vaccines development.
+Implementation of models to analyse compositional microbiome time series
+taking into account the interaction between groups of bacteria. The models
+implemented are described in Creus-Martí et al (2018,
+ISBN:978-84-09-07541-6), Creus-Martí et al (2021)
+<doi:10.1155/2021/9951817> and Creus-Martí et al (2022)
+<doi:10.1155/2022/4907527>.
 
 %prep
 %setup -q -c -n %{packname}

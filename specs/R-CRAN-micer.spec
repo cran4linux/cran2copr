@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DTSg
-%global packver   2.0.0
+%global packname  micer
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Class for Working with Time Series Data Based on 'data.table' and 'R6' with Largely Optional Reference Semantics
+Summary:          Map Image Classification Efficacy
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-timechange 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-timechange 
+BuildRequires:    R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-dplyr >= 1.1.3
 
 %description
-Basic time series functionalities such as listing of missing values,
-application of arbitrary aggregation as well as rolling (asymmetric)
-window functions and automatic detection of periodicity. As it is mainly
-based on 'data.table', it is fast and (in combination with the 'R6'
-package) offers reference semantics. In addition to its native R6
-interface, it provides an S3 interface for those who prefer the latter.
-Finally yet importantly, its functional approach allows for incorporating
-functionalities from many other packages.
+Map image classification efficacy (MICE) adjusts the accuracy rate
+relative to a random classification baseline (Shao et al.
+(2021)<doi:10.1109/ACCESS.2021.3116526> and Tang et al.
+(2024)<doi:10.1109/TGRS.2024.3446950>). Only the proportions from the
+reference labels are considered, as opposed to the proportions from the
+reference and predictions, as is the case for the Kappa statistic. This
+package offers means to calculate MICE and adjusted versions of
+class-level user's accuracy (i.e., precision) and producer's accuracy
+(i.e., recall) and F1-scores. Class-level metrics are aggregated using
+macro-averaging. Functions are also made available to estimate confidence
+intervals using bootstrapping and statistically compare two classification
+results.
 
 %prep
 %setup -q -c -n %{packname}

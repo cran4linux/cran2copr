@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.model
-%global packver   3.3-3
+%global packver   3.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.3
+Version:          3.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Statistical Modelling and Inference for the 'spatstat' Family
 
@@ -20,8 +20,8 @@ BuildRequires:    R-CRAN-spatstat.geom >= 3.3.4
 BuildRequires:    R-CRAN-spatstat.random >= 3.3.2
 BuildRequires:    R-CRAN-spatstat.explore >= 3.3.0
 BuildRequires:    R-CRAN-spatstat.data >= 3.1.4
+BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
 BuildRequires:    R-CRAN-spatstat.univar >= 3.1.1
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.1
 BuildRequires:    R-CRAN-spatstat.sparse >= 3.1.0
 BuildRequires:    R-CRAN-goftest >= 1.2.2
 BuildRequires:    R-stats 
@@ -39,8 +39,8 @@ Requires:         R-CRAN-spatstat.geom >= 3.3.4
 Requires:         R-CRAN-spatstat.random >= 3.3.2
 Requires:         R-CRAN-spatstat.explore >= 3.3.0
 Requires:         R-CRAN-spatstat.data >= 3.1.4
+Requires:         R-CRAN-spatstat.utils >= 3.1.2
 Requires:         R-CRAN-spatstat.univar >= 3.1.1
-Requires:         R-CRAN-spatstat.utils >= 3.1.1
 Requires:         R-CRAN-spatstat.sparse >= 3.1.0
 Requires:         R-CRAN-goftest >= 1.2.2
 Requires:         R-stats 

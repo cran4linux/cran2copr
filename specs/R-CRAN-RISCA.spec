@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RISCA
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference and Prediction in Cohort-Based Analyses
 
@@ -22,7 +22,6 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-relsurv 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-tune 
-BuildRequires:    R-CRAN-date 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-MASS 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-survival
 Requires:         R-CRAN-relsurv 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-tune 
-Requires:         R-CRAN-date 
 Requires:         R-graphics 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-MASS 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TSVC
-%global packver   1.5.3
+%global packver   1.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.3
+Version:          1.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tree-Structured Modelling of Varying Coefficients
 
@@ -19,8 +19,14 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-tibble 
+Requires:         R-methods 
 
 %description
 Fitting tree-structured varying coefficient models (Berger et al. (2019),

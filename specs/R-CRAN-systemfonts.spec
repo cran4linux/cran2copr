@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  systemfonts
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          System Native Font Finding
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-cpp11 >= 0.2.1
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-grid 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

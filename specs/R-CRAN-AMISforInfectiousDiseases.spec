@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BOJ
-%global packver   0.3.4
+%global packname  AMISforInfectiousDiseases
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to Bank of Japan Statistics
+Summary:          Implement the AMIS Algorithm for Infectious Disease Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-weights 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-weights 
 
 %description
-Provides an interface to Bank of Japan <https://www.boj.or.jp> statistics.
+Implements the Adaptive Multiple Importance Sampling (AMIS) algorithm, as
+described by Retkute et al. (2021, <doi:10.1214/21-AOAS1486>), to estimate
+key epidemiological parameters by combining outputs from a geostatistical
+model of infectious diseases (such as prevalence, incidence, or relative
+risk) with a disease transmission model. Utilising the resulting posterior
+distributions, the package enables forward projections at the local level.
 
 %prep
 %setup -q -c -n %{packname}

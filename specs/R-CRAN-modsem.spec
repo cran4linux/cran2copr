@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modsem
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Interaction (and Moderation) Analysis in Structural Equation Models (SEM)
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-fastGHQuad
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-fastGHQuad
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
+Requires:         R-CRAN-plotly 
 
 %description
 Estimation of interaction (i.e., moderation) effects between latent
@@ -56,7 +58,7 @@ moderated structural equations (LMS) approach (Klein & Moosbrugger, 2000).
 The quasi-maximum likelihood (QML) approach (Klein & Muthén, 2007)
 (temporarily unavailable) The constrained- unconstrained, residual- and
 double centering- approaches are estimated via 'lavaan' (Rosseel, 2012),
-whilst the LMS- and QML- approaches are estimated via by modsem it self.
+whilst the LMS- and QML- approaches are estimated via 'modsem' it self.
 Alternatively model can be estimated via 'Mplus' (Muthén & Muthén,
 1998-2017). References: Algina, J., & Moulder, B. C. (2001).
 <doi:10.1207/S15328007SEM0801_3>. "A note on estimating the Jöreskog-Yang
@@ -75,7 +77,7 @@ for modeling interactions among latent variables." Marsh, H. W., Wen, Z.,
 & Hau, K. T. (2004). <doi:10.1037/1082-989X.9.3.275>. "Structural equation
 models of latent interactions: evaluation of alternative estimation
 strategies and indicator construction." Muthén, L.K. and Muthén, B.O.
-(1998-2017). "'Mplus' User’s Guide.  Eighth Edition."
+(1998-2017). "'Mplus' User’s Guide. Eighth Edition."
 <https://www.statmodel.com/>. Rosseel Y (2012).
 <doi:10.18637/jss.v048.i02>. "'lavaan': An R Package for Structural
 Equation Modeling."

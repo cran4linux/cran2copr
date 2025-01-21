@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arealDB
-%global packver   0.6.3
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Harmonise and Integrate Heterogeneous Areal Data
 
@@ -14,39 +14,45 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-archive 
+BuildRequires:    R-CRAN-beepr 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fuzzyjoin 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ontologics 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rmapshaper 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tabshiftr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-tabshiftr 
-BuildRequires:    R-CRAN-ontologics 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rmapshaper 
-BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-archive 
+Requires:         R-CRAN-beepr 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fuzzyjoin 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ontologics 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rmapshaper 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tabshiftr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-tabshiftr 
-Requires:         R-CRAN-ontologics 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rmapshaper 
-Requires:         R-CRAN-progress 
 
 %description
 Many relevant applications in the environmental and socioeconomic sciences

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ecic
-%global packver   0.0.4
+%global packname  flexFitR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extended Changes-in-Changes
+Summary:          Flexible Non-Linear Least Square Model Fitting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,30 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-agriutilities 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-furrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-agriutilities 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-progress 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-progressr 
-Requires:         R-stats 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-subplex 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Extends the Changes-in-Changes model a la Athey and Imbens (2006)
-<doi:10.1111/j.1468-0262.2006.00668.x> to multiple cohorts and time
-periods, which generalizes difference-in-differences estimation techniques
-to the entire distribution. Computes quantile treatment effects for every
-possible two-by-two combination in ecic(). Then, aggregating all bootstrap
-runs adds the standard errors in summary_ecic(). Results can be plotted
-with plot_ecic() aggregated over all cohort-group combinations or in an
-event-study style for either individual periods or individual quantiles.
+Provides tools for flexible non-linear least squares model fitting using
+general-purpose optimization techniques. The package supports a variety of
+optimization algorithms, including those provided by the 'optimx' package,
+making it suitable for handling complex non-linear models. Features
+include parallel processing support via the 'future' and 'foreach'
+packages, comprehensive model diagnostics, and visualization capabilities.
+Implements methods described in Nash and Varadhan (2011,
+<doi:10.18637/jss.v043.i09>).
 
 %prep
 %setup -q -c -n %{packname}

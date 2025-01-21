@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurrogateParadoxTest
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Empirical Testing of Surrogate Paradox Assumptions
 
@@ -18,16 +18,17 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MonotonicityTest 
 Requires:         R-stats 
-Requires:         R-parallel 
+Requires:         R-CRAN-MonotonicityTest 
 
 %description
 Provides functions to nonparametrically assess assumptions necessary to
 prevent the surrogate paradox through hypothesis tests of stochastic
 dominance, monotonicity of regression functions, and non-negative residual
-treatment effects. More details are available in Hsiao et al 2024 (under
-review).
+treatment effects. More details are available in Hsiao et al 2025 (under
+review). A tutorial for this package can be found at
+<https://laylaparast.com/home/SurrogateParadoxTest.html>.
 
 %prep
 %setup -q -c -n %{packname}

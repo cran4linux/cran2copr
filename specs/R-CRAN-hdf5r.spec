@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdf5r
-%global packver   1.3.11
+%global packver   1.3.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.11
+Version:          1.3.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'HDF5' Binary Data Format
 
@@ -30,8 +30,8 @@ Requires:         R-utils
 'HDF5' is a data model, library and file format for storing and managing
 large amounts of data. This package provides a nearly feature complete,
 object oriented wrapper for the 'HDF5' API
-<https://support.hdfgroup.org/HDF5/doc/RM/RM_H5Front.html> using R6
-classes. Additionally, functionality is added so that 'HDF5' objects
+<https://support.hdfgroup.org/documentation/hdf5/latest/_r_m.html> using
+R6 classes. Additionally, functionality is added so that 'HDF5' objects
 behave very similar to their corresponding R counterparts.
 
 %prep

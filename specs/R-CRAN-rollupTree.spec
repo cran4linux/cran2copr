@@ -1,47 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  atrrr
+%global packname  rollupTree
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrapper for the 'AT' Protocol Behind 'Bluesky'
+Summary:          Perform Recursive Computations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-igraph 
 
 %description
-Wraps the 'AT' Protocol (Authenticated Transfer Protocol) behind 'Bluesky'
-<https://bsky.social>. Functions can be used for, among others, retrieving
-posts and followers from the network or posting content.
+Mass rollup for a Bill of Materials is an example of a class of
+computations in which elements are arranged in a tree structure and some
+property of each element is a computed function of the corresponding
+values of its child elements. Leaf elements, i.e., those with no children,
+have values assigned. In many cases, the combining function is simple
+arithmetic sum; in other cases (e.g., mass properties), the combiner may
+involve other information such as the geometric relationship between
+parent and child, or statistical relations such as root-sum-of-squares
+(RSS). This package implements a general function for such problems. It is
+adapted to specific recursive computations by functional programming
+techniques; the caller passes a function as the update parameter to
+rollup() (or, at a lower level, passes functions as the get, set, combine,
+and override parameters to update_prop()) at runtime to specify the
+desired operations. The implementation relies on graph-theoretic
+algorithms from the 'igraph' package of Csárdi, et al. (2006
+<doi:10.5281/zenodo.7682609>).
 
 %prep
 %setup -q -c -n %{packname}
