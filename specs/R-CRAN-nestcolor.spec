@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nestcolor
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Colors for NEST Graphs
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-checkmate >= 2.1.0
+Requires:         R-CRAN-lifecycle >= 1.0.3
 
 %description
 Clinical reporting figures require to use consistent colors and

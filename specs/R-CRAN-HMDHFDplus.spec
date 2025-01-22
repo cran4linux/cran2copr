@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HMDHFDplus
-%global packver   2.0.3
+%global packver   2.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read Human Mortality Database and Human Fertility Database Data from the Web
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-dplyr 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Utilities for reading data from the Human Mortality Database

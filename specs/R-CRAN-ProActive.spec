@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ProActive
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Elevations and Gaps in Mapped Sequencing Read Coverage
 
@@ -32,11 +32,12 @@ Requires:         R-CRAN-stringr
 Automate the detection of gaps and elevations in mapped sequencing read
 coverage using a 2D pattern-matching algorithm. 'ProActive' detects,
 characterizes and visualizes read coverage patterns in both genomes and
-metagenomes. Optionally, users may provide gene predictions associated
+metagenomes. Optionally, users may provide gene annotations associated
 with their genome or metagenome in the form of a .gff file. In this case,
 'ProActive' will generate an additional output table containing the gene
-predictions found within the detected regions of gapped and elevated read
-coverage.
+annotations found within the detected regions of gapped and elevated read
+coverage. Additionally, users can search for gene annotations of interest
+in the output read coverage plots.
 
 %prep
 %setup -q -c -n %{packname}

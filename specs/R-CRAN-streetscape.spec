@@ -1,58 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brickster
-%global packver   0.2.6
+%global packname  streetscape
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Toolkit for 'Databricks'
+Summary:          Collect and Investigate Street Views for Urban Science
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.4.0
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-ini 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.4.0
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-ini 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-osmdata 
+BuildRequires:    R-CRAN-quickPWCR 
+BuildRequires:    R-CRAN-mapview 
+BuildRequires:    R-CRAN-SuperpixelImageSegmentation 
+BuildRequires:    R-CRAN-OpenImageR 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-parallelly 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-osmdata 
+Requires:         R-CRAN-quickPWCR 
+Requires:         R-CRAN-mapview 
+Requires:         R-CRAN-SuperpixelImageSegmentation 
+Requires:         R-CRAN-OpenImageR 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-parallelly 
 
 %description
-Collection of utilities that improve using 'Databricks' from R. Primarily
-functions that wrap specific 'Databricks' APIs
-(<https://docs.databricks.com/api>), 'RStudio' connection pane support,
-quality of life functions to make 'Databricks' simpler to use.
+A collection of functions to search and download street view imagery
+('Mapilary' <https://www.mapillary.com/developer/api-documentation>) and
+to extract, quantify, and visualize visual features. Moreover, there are
+functions provided to generate Qualtrics survey in TXT format using the
+collection of street views for various research purposes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ttdo
-%global packver   0.0.9
+%global packver   0.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.0.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extend 'tinytest' with 'diffobj'
+Summary:          Extend 'tinytest' with 'diffobj' and 'tinysnapshot'
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,14 +18,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tinytest >= 1.4.1
+BuildRequires:    R-CRAN-tinysnapshot >= 0.0.8
 BuildRequires:    R-CRAN-diffobj 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-tinytest >= 1.4.1
+Requires:         R-CRAN-tinysnapshot >= 0.0.8
 Requires:         R-CRAN-diffobj 
+Requires:         R-CRAN-base64enc 
 
 %description
 The 'tinytest' package offers a light-weight zero-dependency unit-testing
-framework to which this package adds support of the 'diffobj' package for
-'diff'-style comparison of R objects.
+framework to which this package adds support via the 'diffobj' package for
+'diff'-style textual comparison of R objects, as well as via
+'tinysnapshot' package for visual differences in plots.
 
 %prep
 %setup -q -c -n %{packname}

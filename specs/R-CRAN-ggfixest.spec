@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfixest
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dedicated 'ggplot2' Methods for 'fixest' Objects
 
@@ -18,18 +18,18 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.0
+BuildRequires:    R-CRAN-legendry >= 0.2
 BuildRequires:    R-CRAN-fixest >= 0.11.2
 BuildRequires:    R-CRAN-marginaleffects >= 0.10.0
 BuildRequires:    R-CRAN-dreamerr 
-BuildRequires:    R-CRAN-ggh4x 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ggplot2 >= 2.2.0
+Requires:         R-CRAN-legendry >= 0.2
 Requires:         R-CRAN-fixest >= 0.11.2
 Requires:         R-CRAN-marginaleffects >= 0.10.0
 Requires:         R-CRAN-dreamerr 
-Requires:         R-CRAN-ggh4x 
 Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-utils 

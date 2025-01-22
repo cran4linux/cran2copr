@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BAwiR
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Basketball Data
 
@@ -73,7 +73,8 @@ stats, team heatmaps, team shooting plots, team four factors plots,
 cross-tables with the results of regular season games, maps of
 nationalities, combinations of lineups, possessions-related variables,
 timeouts, performance by periods, personal fouls and offensive rebounds.
-Please see Vinue (2020) <doi:10.1089/big.2018.0124>.
+Please see Vinue (2020) <doi:10.1089/big.2018.0124> and Vinue (2024)
+<doi:10.1089/big.2023.0177>.
 
 %prep
 %setup -q -c -n %{packname}

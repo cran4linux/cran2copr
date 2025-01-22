@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nascaR.data
-%global packver   2.1.0
+%global packname  JICO
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          NASCAR Race Data
+Summary:          Joint and Individual Regression
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-nleqslv 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlist 
+Requires:         R-CRAN-nleqslv 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlist 
 
 %description
-A collection of NASCAR race, driver, owner and manufacturer data across
-the three major NASCAR divisions: NASCAR Cup Series, NASCAR Xfinity
-Series, and NASCAR Craftsman Truck Series. The curated data begins with
-the 1949 season and extends through the end of the 2024 season. Explore
-race, season, or career performance for drivers, teams, and manufacturers
-throughout NASCAR's history. Data was sourced with permission from
-DriverAverages.com.
+An R package that implements the JICO algorithm [Wang, P., Wang, H., Li,
+Q., Shen, D., & Liu, Y. (2024). <Journal of Computational and Graphical
+Statistics, 33(3), 763-773>]. It aims at solving the multi-group
+regression problem. The algorithm decomposes the responses from multiple
+groups into shared and group-specific components, which are driven by
+low-rank approximations of joint and individual structures from the
+covariates respectively.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Blend
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Longitudinal Regularized Semiparametric Quantile Mixed Models
+Summary:          Robust Bayesian Longitudinal Regularized Semiparametric Mixed Models
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,7 +27,7 @@ Requires:         R-stats
 Requires:         R-CRAN-ggplot2 
 
 %description
-Our recently developed fully Bayesian semiparametric quantile mixed-effect
+Our recently developed fully robust Bayesian semiparametric mixed-effect
 model for high-dimensional longitudinal studies with heterogeneous
 observations can be implemented through this package. This model can
 distinguish between time-varying interactions and constant-effect-only

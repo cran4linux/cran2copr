@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meta
-%global packver   8.0-1
+%global packver   8.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.1
+Version:          8.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -48,7 +48,8 @@ and supporting Schwarzer, Carpenter, and Rücker
 <DOI:10.1007/978-3-319-21416-0>, "Meta-Analysis with R" (2015): - common
 effect and random effects meta-analysis; - several plots (forest, funnel,
 Galbraith / radial, L'Abbe, Baujat, bubble); - three-level meta-analysis
-model; - generalised linear mixed model; - Hartung-Knapp method for random
+model; - generalised linear mixed model; - logistic regression with
+penalised likelihood for rare events; - Hartung-Knapp method for random
 effects model; - Kenward-Roger method for random effects model; -
 prediction interval; - statistical tests for funnel plot asymmetry; -
 trim-and-fill method to evaluate bias in meta-analysis; - meta-regression;

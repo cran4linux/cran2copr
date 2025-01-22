@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HDANOVA
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Dimensional Analysis of Variance
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mixlm >= 1.4.0
+BuildRequires:    R-CRAN-mixlm >= 1.4.2
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-pls 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RSpectra 
-Requires:         R-CRAN-mixlm >= 1.4.0
+Requires:         R-CRAN-mixlm >= 1.4.2
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-pls 

@@ -1,45 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nascaR.data
-%global packver   2.1.0
+%global packname  bdsm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NASCAR Race Data
+Summary:          Bayesian Dynamic Systems Modeling
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-optimbase 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-optimbase 
+Requires:         R-parallel 
+Requires:         R-CRAN-rje 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A collection of NASCAR race, driver, owner and manufacturer data across
-the three major NASCAR divisions: NASCAR Cup Series, NASCAR Xfinity
-Series, and NASCAR Craftsman Truck Series. The curated data begins with
-the 1949 season and extends through the end of the 2024 season. Explore
-race, season, or career performance for drivers, teams, and manufacturers
-throughout NASCAR's history. Data was sourced with permission from
-DriverAverages.com.
+Implements methods for building and analyzing models based on panel data
+as described in the paper by Moral-Benito (2013,
+<doi:10.1080/07350015.2013.818003>). The package provides functions to
+estimate dynamic panel data models and analyze the results of the
+estimation.
 
 %prep
 %setup -q -c -n %{packname}

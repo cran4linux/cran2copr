@@ -1,45 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nascaR.data
-%global packver   2.1.0
+%global packname  MiscMath
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          NASCAR Race Data
+Summary:          Miscellaneous Mathematical Tools
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-randomForest 
+Requires:         R-CRAN-randomForest 
 
 %description
-A collection of NASCAR race, driver, owner and manufacturer data across
-the three major NASCAR divisions: NASCAR Cup Series, NASCAR Xfinity
-Series, and NASCAR Craftsman Truck Series. The curated data begins with
-the 1949 season and extends through the end of the 2024 season. Explore
-race, season, or career performance for drivers, teams, and manufacturers
-throughout NASCAR's history. Data was sourced with permission from
-DriverAverages.com.
+Some basic math calculators for finding angles for triangles and for
+finding the greatest common divisor of two numbers and so on.
 
 %prep
 %setup -q -c -n %{packname}
