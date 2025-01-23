@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  yardstick
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Characterizations of Model Performance
 
@@ -18,8 +18,8 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-hardhat >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-rlang >= 1.1.4
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-generics >= 0.1.2
@@ -29,8 +29,8 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-hardhat >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-rlang >= 1.1.4
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-generics >= 0.1.2

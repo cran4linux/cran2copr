@@ -1,30 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.16.0
+%global packname  finna
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Access the 'Finna' API
 
-License:          Apache License (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Provides functions to access and retrieve metadata from the 'Finna' API
+<https://api.finna.fi/>, which aggregates content from Finnish archives,
+libraries, and museums.
 
 %prep
 %setup -q -c -n %{packname}

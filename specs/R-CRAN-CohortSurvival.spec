@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSurvival
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Survival from Common Data Model Cohorts
 
@@ -18,36 +18,36 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survival >= 3.7.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
+BuildRequires:    R-CRAN-CDMConnector >= 1.7.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.2.3
 BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-PatientProfiles 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-survival >= 3.7.0
-Requires:         R-CRAN-CDMConnector >= 1.3.0
+Requires:         R-CRAN-CDMConnector >= 1.7.0
+Requires:         R-CRAN-PatientProfiles >= 1.2.3
 Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.4.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clock 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-PatientProfiles 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 

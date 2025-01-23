@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DIDmultiplegtDYN
-%global packver   2.0.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation in Difference-in-Difference Designs with Multiple Groups and Periods
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matlib 
 BuildRequires:    R-CRAN-plm 
-BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-lmtest 
@@ -35,7 +35,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matlib 
 Requires:         R-CRAN-plm 
-Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-stats 
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-lmtest 
@@ -45,9 +45,9 @@ Requires:         R-CRAN-cowplot
 Requires:         R-CRAN-rnames 
 
 %description
-Estimation of event-study Difference-in-Difference (DID) estimators in
-designs with multiple groups and periods, and with a potentially
-non-binary treatment that may increase or decrease multiple times.
+Estimation of heterogeneity-robust difference-in-differences estimators,
+with a binary, discrete, or continuous treatment, in designs where past
+treatments may affect the current outcome.
 
 %prep
 %setup -q -c -n %{packname}

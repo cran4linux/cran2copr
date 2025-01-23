@@ -1,42 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  schemr
-%global packver   0.3.1
+%global packname  pxmake
+%global packver   0.14.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.14.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Images to Usable Color Schemes
+Summary:          Make PX-Files in R
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-apcluster 
-BuildRequires:    R-CRAN-OpenImageR 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-apcluster 
-Requires:         R-CRAN-OpenImageR 
 Requires:         R-methods 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-vctrs 
 
 %description
-A fast and adaptable tool to convert photos and images into usable colour
-schemes for data visualisation. Contains functionality to extract colour
-palettes from images, as well for the conversion of images between colour
-spaces.
+Create PX-files from scratch or read and modify existing ones. Includes a
+function for every PX keyword, making metadata manipulation simple and
+human-readable.
 
 %prep
 %setup -q -c -n %{packname}

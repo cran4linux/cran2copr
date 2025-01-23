@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.16.0
+%global packname  bootStateSpace
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Bootstrap for State Space Models
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-simStateSpace 
+BuildRequires:    R-CRAN-dynr 
+Requires:         R-stats 
+Requires:         R-CRAN-simStateSpace 
+Requires:         R-CRAN-dynr 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Provides a streamlined and user-friendly framework for bootstrapping in
+state space models, particularly when the number of subjects/units (n)
+exceeds one, a scenario commonly encountered in social and behavioral
+sciences. For an introduction to state space models in social and
+behavioral sciences, refer to Chow, Ho, Hamaker, and Dolan (2010)
+<doi:10.1080/10705511003661553>.
 
 %prep
 %setup -q -c -n %{packname}

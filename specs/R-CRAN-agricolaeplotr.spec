@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  agricolaeplotr
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of Design of Experiments from the 'agricolae' Package
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-stplanr 
 BuildRequires:    R-CRAN-ggspatial 
 Requires:         R-CRAN-sp >= 2.0.0
@@ -41,6 +42,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-stplanr 
 Requires:         R-CRAN-ggspatial 
 

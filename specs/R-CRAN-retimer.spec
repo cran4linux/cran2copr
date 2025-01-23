@@ -1,61 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  embed
-%global packver   1.1.5
+%global packname  retimer
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Recipes for Encoding Predictors
+Summary:          Retime and Analyse Speech Signals
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-recipes >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-generics >= 0.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rPraat 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-uwot 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-recipes >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-generics >= 0.1.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tuneR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-seewave 
+BuildRequires:    R-CRAN-phonTools 
+Requires:         R-CRAN-rPraat 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rsample 
-Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-uwot 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-tuneR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-signal 
+Requires:         R-CRAN-gsignal 
+Requires:         R-methods 
+Requires:         R-CRAN-seewave 
+Requires:         R-CRAN-phonTools 
 
 %description
-Predictors can be converted to one or more numeric representations using a
-variety of methods. Effect encodings using simple generalized linear
-models <doi:10.48550/arXiv.1611.09477> or nonlinear models
-<doi:10.48550/arXiv.1604.06737> can be used. There are also functions for
-dimension reduction and other approaches.
+Retime speech signals with a native Waveform Similarity Overlap-Add
+(WSOLA) implementation translated from the 'TSM toolbox' by Driedger &
+Müller (2014)
+<https://www.audiolabs-erlangen.de/content/resources/MIR/TSMtoolbox/2014_DriedgerMueller_TSM-Toolbox_DAFX.pdf>.
+Design retimings and pitch (f0) transformations with tidy data and apply
+them via 'Praat' interface. Produce spectrograms, spectra, and amplitude
+envelopes. Includes implementation of vocalic speech envelope analysis
+(fft_spectrum) technique and example data (mm1) from Tilsen, S., &
+Johnson, K. (2008) <doi:10.1121/1.2947626>.
 
 %prep
 %setup -q -c -n %{packname}

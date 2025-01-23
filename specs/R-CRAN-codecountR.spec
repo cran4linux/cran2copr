@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  codecountR
-%global packver   0.0.4.5
+%global packver   0.0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.5
+Version:          0.0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Counting Codes in a Text and Preparing Data for Analysis
 
@@ -24,16 +24,16 @@ Requires:         R-stats
 Data analysis often requires coding, especially when data are collected
 through interviews, observations, or questionnaires. As a result, code
 counting and data preparation are essential steps in the analysis process.
-Analysts may need to count the codes in a text (tokenization and counting
-of pre-established codes) and prepare the data (e.g., min-max
-normalization, Z-score, robust scaling, Box-Cox transformation, and
-non-parametric bootstrap). For the Box-Cox transformation (Box & Cox,
-1964, <https://www.jstor.org/stable/2984418>), the optimal Lambda is
-determined using the log-likelihood method. Non-parametric bootstrap
-involves randomly sampling data with replacement. Two random number
-generators are also integrated: a Lehmer congruential generator for
-uniform distribution and a Box-Muller generator for normal distribution.
-Package for educational purposes.
+Analysts may need to count the codes in a text (Tokenization, counting of
+pre-established codes, computing the co-occurrence matrix by line) and
+prepare the data (e.g., min-max normalization, Z-score, robust scaling,
+Box-Cox transformation, and non-parametric bootstrap). For the Box-Cox
+transformation (Box & Cox, 1964, <https://www.jstor.org/stable/2984418>),
+the optimal Lambda is determined using the log-likelihood method.
+Non-parametric bootstrap involves randomly sampling data with replacement.
+Two random number generators are also integrated: a Lehmer congruential
+generator for uniform distribution and a Box-Muller generator for normal
+distribution. Package for educational purposes.
 
 %prep
 %setup -q -c -n %{packname}

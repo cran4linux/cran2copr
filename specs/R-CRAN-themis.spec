@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  themis
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Recipes Steps for Dealing with Unbalanced Data
 
@@ -17,28 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-recipes >= 1.0.4
+BuildRequires:    R-CRAN-recipes >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 BuildRequires:    R-CRAN-generics >= 0.1.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-gower 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-RANN 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ROSE 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hardhat 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-recipes >= 1.0.4
+Requires:         R-CRAN-recipes >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-generics >= 0.1.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-gower 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-RANN 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ROSE 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-withr 
@@ -50,8 +52,8 @@ Requires:         R-CRAN-vctrs
 A dataset with an uneven number of cases in each class is said to be
 unbalanced. Many models produce a subpar performance on unbalanced
 datasets. A dataset can be balanced by increasing the number of minority
-cases using SMOTE 2011 <arXiv:1106.1813>, BorderlineSMOTE 2005
-<doi:10.1007/11538059_91> and ADASYN 2008
+cases using SMOTE 2011 <doi:10.48550/arXiv.1106.1813>, BorderlineSMOTE
+2005 <doi:10.1007/11538059_91> and ADASYN 2008
 <https://ieeexplore.ieee.org/document/4633969>. Or by decreasing the
 number of majority cases using NearMiss 2003
 <https://www.site.uottawa.ca/~nat/Workshop2003/jzhang.pdf> or Tomek link

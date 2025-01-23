@@ -1,30 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.16.0
+%global packname  sacRebleu
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Metrics for Assessing the Quality of Generated Text
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-checkmate 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Implementation of the BLEU-Score in 'C++' to evaluate the quality of
+generated text. The BLEU-Score, introduced by Papineni et al. (2002)
+<doi:10.3115/1073083.1073135>, is a metric for evaluating the quality of
+generated text. It is based on the n-gram overlap between the generated
+text and reference texts. Additionally, the package provides some
+smoothing methods as described in Chen and Cherry (2014)
+<doi:10.3115/v1/W14-3346>.
 
 %prep
 %setup -q -c -n %{packname}

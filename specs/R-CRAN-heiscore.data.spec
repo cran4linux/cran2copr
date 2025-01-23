@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.16.0
+%global packname  heiscore.data
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Data Only Package to 'heiscore'
 
-License:          Apache License (>= 2)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Contains the National Health and Nutrition Examination Survey 24-hour
+dietary recall data and Healthy Eating Index scoring standards used by the
+'heiscore' package.
 
 %prep
 %setup -q -c -n %{packname}

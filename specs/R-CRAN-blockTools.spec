@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adbcdrivermanager
-%global packver   0.16.0
+%global packname  blockTools
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.16.0
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Arrow' Database Connectivity ('ADBC') Driver Manager
+Summary:          Block, Assign, and Diagnose Potential Interference in Randomized Experiments
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nanoarrow >= 0.3.0
-Requires:         R-CRAN-nanoarrow >= 0.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides a developer-facing interface to 'Arrow' Database Connectivity
-('ADBC') for the purposes of driver development, driver testing, and
-building high-level database interfaces for users. 'ADBC'
-<https://arrow.apache.org/adbc/> is an API standard for database access
-libraries that uses 'Arrow' for result sets and query parameters.
+Blocks units into experimental blocks, with one unit per treatment
+condition, by creating a measure of multivariate distance between all
+possible pairs of units. Maximum, minimum, or an allowable range of
+differences between units on one variable can be set. Randomly assign
+units to treatment conditions. Diagnose potential interference between
+units assigned to different treatment conditions.  Write outputs to .tex
+and .csv files. For more information on the methods implemented, see Moore
+(2012) <doi:10.1093/pan/mps025>.
 
 %prep
 %setup -q -c -n %{packname}

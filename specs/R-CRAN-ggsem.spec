@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsem
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactively Visualize Structural Equation Modeling Diagrams
 
@@ -29,7 +29,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-smplot2 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-umap 
 Requires:         R-CRAN-ggplot2 
@@ -44,7 +43,6 @@ Requires:         R-stats
 Requires:         R-CRAN-smplot2 
 Requires:         R-utils 
 Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-umap 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmeta
-%global packver   2.9-0
+%global packver   3.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.0
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -17,16 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-meta >= 6.2.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
-BuildRequires:    R-CRAN-magic 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-meta >= 8.0.1
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-metafor 
-Requires:         R-CRAN-meta >= 6.2.0
-Requires:         R-CRAN-ggplot2 >= 3.0.0
-Requires:         R-CRAN-magic 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-meta >= 8.0.1
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-magic 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-colorspace 
+Requires:         R-grid 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 A comprehensive set of functions providing frequentist methods for network
@@ -37,11 +49,12 @@ following Rücker (2012) <doi:10.1002/jrsm.1058>; - additive network
 meta-analysis for combinations of treatments (Rücker et al., 2020)
 <doi:10.1002/bimj.201800167>; - network meta-analysis of binary data using
 the Mantel-Haenszel or non-central hypergeometric distribution method
-(Efthimiou et al., 2019) <doi:10.1002/sim.8158>; - rankograms and ranking
-of treatments by the Surface under the cumulative ranking curve (SUCRA)
-(Salanti et al., 2013) <doi:10.1016/j.jclinepi.2010.03.016>; - ranking of
-treatments using P-scores (frequentist analogue of SUCRAs without
-resampling) according to Rücker & Schwarzer (2015)
+(Efthimiou et al., 2019) <doi:10.1002/sim.8158>, or penalised logistic
+regression (Evrenoglou et al., 2022) <doi:10.1002/sim.9562>; - rankograms
+and ranking of treatments by the Surface under the cumulative ranking
+curve (SUCRA) (Salanti et al., 2013) <doi:10.1016/j.jclinepi.2010.03.016>;
+- ranking of treatments using P-scores (frequentist analogue of SUCRAs
+without resampling) according to Rücker & Schwarzer (2015)
 <doi:10.1186/s12874-015-0060-8>; - split direct and indirect evidence to
 check consistency (Dias et al., 2010) <doi:10.1002/sim.3767>, (Efthimiou
 et al., 2019) <doi:10.1002/sim.8158>; - league table with network
@@ -56,7 +69,9 @@ treatment rankings ('poset') and Hasse diagram for 'poset' (Carlsen &
 Bruggemann, 2014) <doi:10.1002/cem.2569>; (Rücker & Schwarzer, 2017)
 <doi:10.1002/jrsm.1270>; - contribution matrix as described in
 Papakonstantinou et al. (2018) <doi:10.12688/f1000research.14770.3> and
-Davies et al. (2022) <doi:10.1002/sim.9346>.
+Davies et al. (2022) <doi:10.1002/sim.9346>; - subgroup network
+meta-analysis. The suggested package 'hasseDiagram' is available from
+<https://github.com/kciomek/hasseDiagram>.
 
 %prep
 %setup -q -c -n %{packname}
