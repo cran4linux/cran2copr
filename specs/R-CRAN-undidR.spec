@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bbnet
-%global packver   1.1.0
+%global packname  undidR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Simple Predictive Models on Bayesian Belief Networks
+Summary:          Difference-in-Differences with Unpoolable Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A system to build, visualise and evaluate Bayesian belief networks. The
-methods are described in Stafford et al. (2015)
-<doi:10.12688/f1000research.5981.1>.
+A framework for estimating difference-in-differences with unpoolable data,
+based on Karim, Webb, Austin, and Strumpf (2024)
+<doi:10.48550/arXiv.2403.15910>. Supports common or staggered adoption,
+multiple groups, and the inclusion of covariates. Also computes p-values
+for the aggregate average treatment effect on the treated via the
+randomization inference procedure described in MacKinnon and Webb (2020)
+<doi:10.1016/j.jeconom.2020.04.024>.
 
 %prep
 %setup -q -c -n %{packname}

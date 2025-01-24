@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LFM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Laplace Factor Model Analysis and Evaluation
 
@@ -35,12 +35,13 @@ Requires:         R-CRAN-relliptical
 %description
 Enables the generation of Laplace factor models across diverse Laplace
 distributions and facilitates the application of Sparse Online Principal
-Component (SOPC), Incremental Principal Component (IPC), Parallel
-Principal Component (PPC), Sparse Approximate Principal Component (SAPC),
-Standard Principal Component (SPC), and Farm Test methods to these models.
-Evaluates the efficacy of these methods within the context of Laplace
-factor models by scrutinizing parameter estimation accuracy, mean square
-error, and the degree of sparsity.
+Component (SOPC), Incremental Principal Component (IPC), Projected
+Principal Component (PPC), Perturbation Principal Component (PPC),
+Stochastic Approximation Principal Component (SAPC), Sparse Principal
+Component (SPC) and other PC methods and Farm Test methods to these
+models. Evaluates the efficacy of these methods within the context of
+Laplace factor models by scrutinizing parameter estimation accuracy, mean
+square error, and the degree of sparsity.
 
 %prep
 %setup -q -c -n %{packname}

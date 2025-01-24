@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bbnet
-%global packver   1.1.0
+%global packname  somhca
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Simple Predictive Models on Bayesian Belief Networks
+Summary:          Self-Organising Maps Coupled with Hierarchical Cluster Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-kohonen 
+BuildRequires:    R-CRAN-aweSOM 
+BuildRequires:    R-CRAN-maptree 
+BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-kohonen 
+Requires:         R-CRAN-aweSOM 
+Requires:         R-CRAN-maptree 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-A system to build, visualise and evaluate Bayesian belief networks. The
-methods are described in Stafford et al. (2015)
-<doi:10.12688/f1000research.5981.1>.
+Implements self-organising maps combined with hierarchical cluster
+analysis (SOM-HCA) for clustering and visualization of high-dimensional
+data. The package includes functions to estimate the optimal map size
+based on various quality measures and subsequently generates a model with
+the selected dimensions. It also performs hierarchical clustering on the
+map nodes to group similar units Documentation about the SOM-HCA method is
+provided in Pastorelli et al. (2024) <doi:10.1002/xrs.3388>.
 
 %prep
 %setup -q -c -n %{packname}

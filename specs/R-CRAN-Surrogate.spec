@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Surrogate
-%global packver   3.3.0
+%global packver   3.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of Surrogate Endpoints in Clinical Trials
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-latticeExtra
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-logistf 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-ks 
@@ -36,16 +35,14 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-MBESS 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-optimx 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-msm 
 Requires:         R-CRAN-logistf 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-ks 
@@ -58,9 +55,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-MBESS 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-optimx 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lifecycle 
 
 %description
 In a clinical trial, it frequently occurs that the most credible outcome

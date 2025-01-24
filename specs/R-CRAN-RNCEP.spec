@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RNCEP
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.11
+Release:          1%{?dist}%{?buildtag}
 Summary:          Obtain, Organize, and Visualize NCEP Weather Data
 
 License:          GPL (>= 2)
@@ -36,20 +37,27 @@ Requires:         R-CRAN-sp
 %description
 Contains functions to retrieve, organize, and visualize weather data from
 the NCEP/NCAR Reanalysis
-(<http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.html>)
-and NCEP/DOE Reanalysis II
-(<http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis2.html>)
-datasets.  Data are queried via the Internet and may be obtained for a
-specified spatial and temporal extent or interpolated to a point in space
-and time.  We also provide functions to visualize these weather data on a
-map.  There are also functions to simulate flight trajectories according
-to specified behavior using either NCEP wind data or data specified by the
-user.
+(<https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.html>) and
+NCEP/DOE Reanalysis II
+(<https://psl.noaa.gov/data/gridded/data.ncep.reanalysis2.html>) datasets.
+Data are queried via the Internet and may be obtained for a specified
+spatial and temporal extent or interpolated to a point in space and time.
+We also provide functions to visualize these weather data on a map.  There
+are also functions to simulate flight trajectories according to specified
+behavior using either NCEP wind data or data specified by the user.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -57,9 +65,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

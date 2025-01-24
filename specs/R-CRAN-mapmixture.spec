@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mapmixture
-%global packver   1.1.4
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Visualisation of Admixture on a Projected Map
 
@@ -17,42 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bslib >= 0.5.0
-BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rnaturalearthdata 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyFeedback 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-waiter 
-Requires:         R-CRAN-bslib >= 0.5.0
-Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggspatial 
 Requires:         R-grid 
-Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rnaturalearthdata 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyFeedback 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-waiter 
 
 %description
 Visualise admixture as pie charts on a projected map, admixture as

@@ -1,37 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bbnet
-%global packver   1.1.0
+%global packname  pattern.checks
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Simple Predictive Models on Bayesian Belief Networks
+Summary:          Identifies Patterned Responses in Scales
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-tibble 
 
 %description
-A system to build, visualise and evaluate Bayesian belief networks. The
-methods are described in Stafford et al. (2015)
-<doi:10.12688/f1000research.5981.1>.
+Identifies the entries with patterned responses for psychometric scales.
+The patterns included in the package are identical (a, a, a), ascending
+(a, b, c), descending (c, b, a), alternative (a, b, a, b / a, b, c, a, b,
+c).
 
 %prep
 %setup -q -c -n %{packname}

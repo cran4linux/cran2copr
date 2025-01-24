@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simStateSpace
-%global packver   1.2.7
+%global packver   1.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.7
+Version:          1.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Data from State Space Models
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dynr 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-CRAN-dynr 
 
 %description
 Provides a streamlined and user-friendly framework for simulating data in

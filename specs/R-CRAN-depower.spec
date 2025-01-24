@@ -1,37 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bbnet
-%global packver   1.1.0
+%global packname  depower
+%global packver   2025.1.20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2025.1.20
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Simple Predictive Models on Bayesian Belief Networks
+Summary:          Power Analysis for Differential Expression Studies
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-glmmTMB 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-multidplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
+Requires:         R-CRAN-mvnfast 
+Requires:         R-CRAN-glmmTMB 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-multidplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scales 
 
 %description
-A system to build, visualise and evaluate Bayesian belief networks. The
-methods are described in Stafford et al. (2015)
-<doi:10.12688/f1000research.5981.1>.
+Provides a convenient framework to simulate, test, power, and visualize
+data for differential expression studies with lognormal or negative
+binomial outcomes. Supported designs are two-sample comparisons of
+independent or dependent outcomes. Power may be summarized in the context
+of controlling the per-family error rate or family-wise error rate.
+Negative binomial methods are described in Yu, Fernandez, and Brock (2017)
+<doi:10.1186/s12859-017-1648-2> and Yu, Fernandez, and Brock (2020)
+<doi:10.1186/s12859-020-3541-7>.
 
 %prep
 %setup -q -c -n %{packname}

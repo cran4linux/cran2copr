@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KnockoffTrio
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Trio Data Analysis with Knockoff Statistics for FDR Control
+Summary:          GWAS with Trio and Duo Data using Knockoff Statistics for FDR Control
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,11 +20,16 @@ BuildArch:        noarch
 
 %description
 Identification of putative causal variants in genome-wide association
-studies with the trio design. The package implements the methods in the
-paper: Yang, Y., Wang, C., Liu, L., Buxbaum, J., He, Z., & Ionita-Laza, I.
-(2022). KnockoffTrio: A knockoff framework for the identification of
-putative causal variants in genome-wide association studies with trio
-design. The American Journal of Human Genetics, 109(10), 1761-1776.
+studies with trio and duo families. The package calculates the W feature
+statistics from KnockoffTrio and p-values from the family-based
+association test (FBAT) using trio and/or duo data. Compared to previous
+versions, a significant improvement has been made in Version 1.1.0 to
+allow the package to be applied not only to trio families but also to duo
+families. The package implements the methods in the paper: "Yang, Y.,
+Wang, C., Liu, L., Buxbaum, J., He, Z., & Ionita-Laza, I. (2022).
+KnockoffTrio: A knockoff framework for the identification of putative
+causal variants in genome-wide association studies with trio design. The
+American Journal of Human Genetics, 109(10), 1761-1776."
 
 %prep
 %setup -q -c -n %{packname}

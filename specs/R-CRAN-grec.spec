@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bbnet
-%global packver   1.1.0
+%global packname  grec
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Simple Predictive Models on Bayesian Belief Networks
+Summary:          Gradient-Based Recognition of Spatial Patterns in Environmental Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-imagine >= 2.1.2
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-imagine >= 2.1.2
+Requires:         R-utils 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-lifecycle 
 
 %description
-A system to build, visualise and evaluate Bayesian belief networks. The
-methods are described in Stafford et al. (2015)
-<doi:10.12688/f1000research.5981.1>.
+Provides algorithms for detection of spatial patterns from oceanographic
+data using image processing methods based on Gradient Recognition.
 
 %prep
 %setup -q -c -n %{packname}

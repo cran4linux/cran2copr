@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lidaRtRee
-%global packver   4.0.5
+%global packver   4.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.5
+Version:          4.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forest Analysis with Airborne Laser Scanning (LiDAR) Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lidR >= 4.0.0
+BuildRequires:    R-CRAN-lidR >= 4.1.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-leaps
 BuildRequires:    R-CRAN-gvlma 
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-reldist 
-Requires:         R-CRAN-lidR >= 4.0.0
+Requires:         R-CRAN-lidR >= 4.1.1
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-methods 
@@ -43,17 +43,17 @@ Requires:         R-CRAN-car
 Requires:         R-CRAN-reldist 
 
 %description
-Provides functions for forest analysis using airborne laser scanning
-(LiDAR remote sensing) data: tree detection (method 1 in Eysn et al.
-(2015) <doi:10.3390/f6051721>) and segmentation; forest parameters
-estimation and mapping with the area-based approach. It includes
-complementary steps for forest mapping: co-registration of field plots
-with LiDAR data (Monnet and Mermin (2014) <doi:10.3390/f5092307>);
+Provides functions for forest objects detection, structure metrics
+computation, model calibration and mapping with airborne laser scanning:
+co-registration of field plots (Monnet and Mermin (2014)
+<doi:10.3390/f5092307>); tree detection (method 1 in Eysn et al. (2015)
+<doi:10.3390/f6051721>) and segmentation; forest parameters estimation
+with the area-based approach: model calibration with ground reference, and
+maps export (Aussenac et al. (2023) <doi:10.12688/openreseurope.15373.2>);
 extraction of both physical (gaps, edges, trees) and statistical features
-from LiDAR data useful for e.g. habitat suitability modeling (Glad et al.
-(2020) <doi:10.1002/rse2.117>) and forest maturity mapping (Fuhr et al.
-(2022) <doi:10.1002/rse2.274>); model calibration with ground reference,
-and maps export.
+useful for e.g. habitat suitability modeling (Glad et al. (2020)
+<doi:10.1002/rse2.117>) and forest maturity mapping (Fuhr et al. (2022)
+<doi:10.1002/rse2.274>).
 
 %prep
 %setup -q -c -n %{packname}
