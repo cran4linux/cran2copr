@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lmap
-%global packver   0.1.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logistic Mapping
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-haven 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggforce 
@@ -36,6 +38,8 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-haven 
 
 %description
 Set of tools for mapping of categorical response variables based on

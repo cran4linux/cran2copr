@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyplus
-%global packver   0.0.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional 'tidyverse' Functions
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 

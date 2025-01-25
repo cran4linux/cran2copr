@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbiom
-%global packver   2.0.10
+%global packver   2.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.10
+Version:          2.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read/Write, Analyze, and Visualize 'BIOM' Data
 
@@ -16,51 +16,51 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-fillpattern 
+BuildRequires:    R-CRAN-ggbeeswarm 
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-slam 
-BuildRequires:    R-CRAN-tidyplots 
 BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-cluster 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-fillpattern 
+Requires:         R-CRAN-ggbeeswarm 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-slam 
-Requires:         R-CRAN-tidyplots 
 Requires:         R-CRAN-vegan 
 
 %description

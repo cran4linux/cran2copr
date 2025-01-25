@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nntmvn
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Draw Samples of Truncated Multivariate Normal Distributions
 
@@ -16,16 +16,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
 BuildRequires:    R-CRAN-GpGp 
 BuildRequires:    R-CRAN-TruncatedNormal 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-GpGp 
 Requires:         R-CRAN-TruncatedNormal 
+Requires:         R-CRAN-RANN 
 
 %description
-Use the sequential nearest neighbor (SNN) method introduced in Jian Cao
-and Matthias Katzfuss (2024) <doi:10.48550/arXiv.2406.17307> to draw
-samples from the truncated multivariate normal (TMVN) distributions.
+Draw samples from truncated multivariate normal distribution using the
+sequential nearest neighbor (SNN) method introduced in "Scalable Sampling
+of Truncated Multivariate Normals Using Sequential Nearest-Neighbor
+Approximation" <doi:10.48550/arXiv.2406.17307>.
 
 %prep
 %setup -q -c -n %{packname}

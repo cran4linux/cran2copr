@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grpnet
-%global packver   0.6
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Elastic Net Regularized GLMs and GAMs
 
@@ -22,14 +22,14 @@ Efficient algorithms for fitting generalized linear and additive models
 with group elastic net penalties as described in Helwig (2024)
 <doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
 and group SCAD with an optional group ridge penalty. Computes the
-regularization path for linear regression (gaussian), logistic regression
-(binomial), multinomial logistic regression (multinomial), log-linear
-count regression (poisson and negative.binomial), and log-linear
-continuous regression (gamma and inverse gaussian). Supports default and
-formula methods for model specification, k-fold cross-validation for
-tuning the regularization parameters, and nonparametric regression via
-tensor product reproducing kernel (smoothing spline) basis function
-expansion.
+regularization path for linear regression (gaussian), multivariate
+regression (multigaussian), logistic regression (binomial), multinomial
+logistic regression (multinomial), log-linear count regression (poisson
+and negative.binomial), and log-linear continuous regression (gamma and
+inverse gaussian). Supports default and formula methods for model
+specification, k-fold cross-validation for tuning the regularization
+parameters, and nonparametric regression via tensor product reproducing
+kernel (smoothing spline) basis function expansion.
 
 %prep
 %setup -q -c -n %{packname}

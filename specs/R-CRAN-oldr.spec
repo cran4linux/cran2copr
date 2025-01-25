@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dhis2r
-%global packver   0.3.0
+%global packname  oldr
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for the 'DHIS2' Web API
+Summary:          An Implementation of Rapid Assessment Method for Older People
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3.3
-BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.10
-BuildRequires:    R-CRAN-attempt >= 0.3.1
-BuildRequires:    R-CRAN-httr2 >= 0.2.2
-Requires:         R-CRAN-curl >= 4.3.3
-Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-dplyr >= 1.0.10
-Requires:         R-CRAN-attempt >= 0.3.1
-Requires:         R-CRAN-httr2 >= 0.2.2
+BuildRequires:    R-CRAN-bbw 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tinytex 
+Requires:         R-CRAN-bbw 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tinytex 
 
 %description
-Connect and pull data from a 'DHIS2 (District Health Information Software
-2)' instance into R.
+An implementation of the Rapid Assessment Method for Older People or
+RAM-OP
+<https://www.helpage.org/resource/rapid-assessment-method-for-older-people-ramop-manual/>.
+It provides various functions that allow the user to design and plan the
+assessment and analyse the collected data. RAM-OP provides accurate and
+reliable estimates of the needs of older people.
 
 %prep
 %setup -q -c -n %{packname}

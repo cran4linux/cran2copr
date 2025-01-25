@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biomod2
-%global packver   4.2-5-2
+%global packver   4.2-6-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.5.2
+Version:          4.2.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Platform for Species Distribution Modeling
 
@@ -56,7 +56,7 @@ ensemble of models, ensemble forecasting and visualization. The package
 permits to run consistently up to 10 single models on a presence/absences
 (resp presences/pseudo-absences) dataset and to combine them in ensemble
 models and ensemble projections. Some bench of other evaluation and
-visualisation tools are also available within the package.
+visualization tools are also available within the package.
 
 %prep
 %setup -q -c -n %{packname}

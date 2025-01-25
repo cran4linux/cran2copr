@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyImputationTest
-%global packver   0.4.0
+%global packname  hdftsa
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Procedures and Quality Tests for Fuzzy Data
+Summary:          High-Dimensional Functional Time Series Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ftsa 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-FuzzySimRes 
-BuildRequires:    R-CRAN-FuzzyNumbers 
-BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-miceRanger 
-BuildRequires:    R-CRAN-VIM 
-BuildRequires:    R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-ftsa 
 Requires:         R-methods 
-Requires:         R-CRAN-FuzzySimRes 
-Requires:         R-CRAN-FuzzyNumbers 
-Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-miceRanger 
-Requires:         R-CRAN-VIM 
-Requires:         R-utils 
 
 %description
-Special procedures for the imputation of missing fuzzy numbers are still
-underdeveloped. The goal of the package is to provide the new d-imputation
-method (DIMP for short, Romaniuk, M. and Grzegorzewski, P. (2023) "Fuzzy
-Data Imputation with DIMP and FGAIN" RB/23/2023) and covert some classical
-ones applied in R packages ('missForest','miceRanger','knn') for use with
-fuzzy datasets. Additionally, specially tailored benchmarking tests are
-provided to check and compare these imputation procedures with fuzzy
-datasets.
+Offers methods for visualizing, modelling, and forecasting
+high-dimensional functional time series, also known as functional panel
+data. Documentation about 'hdftsa' is provided via the paper by Cristian
+F. Jimenez-Varon, Ying Sun and Han Lin Shang (2024,
+<doi:10.1080/10618600.2024.2319166>).
 
 %prep
 %setup -q -c -n %{packname}

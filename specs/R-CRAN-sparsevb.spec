@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sparsevb
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spike-and-Slab Variational Bayes for Linear and Logistic Regression
 
@@ -15,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-glmnet >= 4.0
+BuildRequires:    R-CRAN-glmnet >= 4.0.2
 BuildRequires:    R-CRAN-selectiveInference >= 1.2.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEnsmallen 
-Requires:         R-CRAN-glmnet >= 4.0
+Requires:         R-CRAN-glmnet >= 4.0.2
 Requires:         R-CRAN-selectiveInference >= 1.2.5
 Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-stats 
@@ -35,9 +36,8 @@ generate an updating order prioritizing large, more relevant,
 coefficients. Sparsity is induced via spike-and-slab priors with either
 Laplace or Gaussian slabs. By default, the heavier-tailed Laplace density
 is used. Formal derivations of the algorithms and asymptotic consistency
-results may be found in Kolyan Ray and Botond Szabo (2020)
-<doi:10.1080/01621459.2020.1847121> and Kolyan Ray, Botond Szabo, and
-Gabriel Clara (2020) <arXiv:2010.11665>.
+results may be found in Kolyan Ray and Botond Szabo (JASA 2020) and Kolyan
+Ray, Botond Szabo, and Gabriel Clara (NeurIPS 2020).
 
 %prep
 %setup -q -c -n %{packname}
@@ -47,6 +47,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

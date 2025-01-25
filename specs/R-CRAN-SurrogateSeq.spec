@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyImputationTest
-%global packver   0.4.0
+%global packname  SurrogateSeq
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Procedures and Quality Tests for Fuzzy Data
+Summary:          Group Sequential Testing of a Treatment Effect Using a Surrogate Marker
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,31 +18,19 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-FuzzySimRes 
-BuildRequires:    R-CRAN-FuzzyNumbers 
-BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-miceRanger 
-BuildRequires:    R-CRAN-VIM 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-FuzzySimRes 
-Requires:         R-CRAN-FuzzyNumbers 
-Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-miceRanger 
-Requires:         R-CRAN-VIM 
-Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Special procedures for the imputation of missing fuzzy numbers are still
-underdeveloped. The goal of the package is to provide the new d-imputation
-method (DIMP for short, Romaniuk, M. and Grzegorzewski, P. (2023) "Fuzzy
-Data Imputation with DIMP and FGAIN" RB/23/2023) and covert some classical
-ones applied in R packages ('missForest','miceRanger','knn') for use with
-fuzzy datasets. Additionally, specially tailored benchmarking tests are
-provided to check and compare these imputation procedures with fuzzy
-datasets.
+Provides functions to implement group sequential procedures that allow for
+early stopping to declare efficacy using a surrogate marker and the
+possibility of futility stopping.  More details are available in: Parast,
+L. and Bartroff, J (2024) <doi:10.1093/biomtc/ujae108>. A tutorial for
+this package can be found at
+<https://laylaparast.com/home/SurrogateSeq.html>.
 
 %prep
 %setup -q -c -n %{packname}

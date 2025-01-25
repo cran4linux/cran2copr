@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FuzzyImputationTest
-%global packver   0.4.0
+%global packname  transltr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Imputation Procedures and Quality Tests for Fuzzy Data
+Summary:          Support Many Languages in R Programs
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-FuzzySimRes 
-BuildRequires:    R-CRAN-FuzzyNumbers 
-BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-miceRanger 
-BuildRequires:    R-CRAN-VIM 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-FuzzySimRes 
-Requires:         R-CRAN-FuzzyNumbers 
-Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-miceRanger 
-Requires:         R-CRAN-VIM 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-R6 
 Requires:         R-utils 
+Requires:         R-CRAN-yaml 
 
 %description
-Special procedures for the imputation of missing fuzzy numbers are still
-underdeveloped. The goal of the package is to provide the new d-imputation
-method (DIMP for short, Romaniuk, M. and Grzegorzewski, P. (2023) "Fuzzy
-Data Imputation with DIMP and FGAIN" RB/23/2023) and covert some classical
-ones applied in R packages ('missForest','miceRanger','knn') for use with
-fuzzy datasets. Additionally, specially tailored benchmarking tests are
-provided to check and compare these imputation procedures with fuzzy
-datasets.
+An object model for source text and translations. Find and extract
+translatable strings. Provide translations and seamlessly retrieve them at
+runtime.
 
 %prep
 %setup -q -c -n %{packname}
