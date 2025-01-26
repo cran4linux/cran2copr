@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  manymome
-%global packver   0.2.5
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediation, Moderation and Moderated-Mediation After Model Fitting
 
@@ -40,7 +40,7 @@ Requires:         R-methods
 Computes indirect effects, conditional effects, and conditional indirect
 effects in a structural equation model or path model after model fitting,
 with no need to define any user parameters or label any paths in the model
-syntax, using the approach presented in Cheung and Cheung (2023)
+syntax, using the approach presented in Cheung and Cheung (2024)
 <doi:10.3758/s13428-023-02224-z>. Can also form bootstrap confidence
 intervals by doing bootstrapping only once and reusing the bootstrap
 estimates in all subsequent computations. Supports bootstrap confidence

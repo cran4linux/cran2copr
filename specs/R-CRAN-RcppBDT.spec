@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppBDT
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for the Boost Date_Time Library
 
@@ -27,7 +27,7 @@ Access to Boost Date_Time functionality for dates, durations (both for
 days and date time objects), time zones, and posix time ('ptime') is
 provided by using 'Rcpp modules'. The posix time implementation can
 support high-resolution of up to nano-second precision by using 96 bits
-(instead of R's 64) to present a 'ptime' object (but this needs
+(instead of 64 with R) to present a 'ptime' object (but this needs
 recompilation with a #define set).
 
 %prep
