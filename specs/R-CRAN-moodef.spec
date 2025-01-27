@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moodef
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Defining 'Moodle' Elements from R
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-blastula 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-snakecase 
@@ -30,9 +30,9 @@ BuildRequires:    R-tools
 BuildRequires:    R-CRAN-xlsx 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-blastula 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-magick 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-snakecase 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-xml2
 %description
 The main objective of this package is to support the definition of
 'Moodle' elements taking advantage of the power that R offers. In this
-first version, it allows the definition of questions to be included in the
+first version, it allows the definition of quizzes to be included in the
 question bank.
 
 %prep

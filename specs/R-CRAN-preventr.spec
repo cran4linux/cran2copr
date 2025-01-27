@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  preventr
-%global packver   0.10.0
+%global packver   0.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Implementation of the AHA PREVENT Equations
+Summary:          An Implementation of the PREVENT and Pooled Cohort Equations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,9 +21,14 @@ BuildRequires:    R-CRAN-dplyr
 Requires:         R-CRAN-dplyr 
 
 %description
-Implements the American Heart Association (AHA) Predicting Risk of
+Implements the American Heart Association Predicting Risk of
 cardiovascular disease EVENTs (PREVENT) equations from Khan SS, Matsushita
-K, Sang Y, and colleagues (2024) <doi:10.1161/CIRCULATIONAHA.123.067626>.
+K, Sang Y, and colleagues (2023) <doi:10.1161/CIRCULATIONAHA.123.067626>,
+with optional comparison with their de facto predecessor, the Pooled
+Cohort Equations from the American Heart Association and American College
+of Cardiology (2013) <doi:10.1161/01.cir.0000437741.48606.98> and the
+revision to the Pooled Cohort Equations from Yadlowsky and colleagues
+(2018) <doi:10.7326/M17-3011>.
 
 %prep
 %setup -q -c -n %{packname}
