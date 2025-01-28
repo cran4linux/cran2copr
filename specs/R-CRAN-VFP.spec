@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VFP
-%global packver   1.4.1
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variance Function Program
 
@@ -37,11 +37,11 @@ Requires:         R-methods
 %description
 Variance function estimation for models proposed by W. Sadler in his
 variance function program ('VFP',
-<http://www.aacb.asn.au/resources/useful-tools/variance-function-program-v14>).
-Here, the idea is to fit multiple variance functions to a data set and
-consequently assess which function reflects the relationship 'Var ~ Mean'
-best. For 'in-vitro diagnostic' ('IVD') assays modeling this relationship
-is of great importance when individual test-results are used for defining
+www.aacb.asn.au/AACB/Resources/Variance-Function-Program). Here, the idea
+is to fit multiple variance functions to a data set and consequently
+assess which function reflects the relationship 'Var ~ Mean' best. For
+'in-vitro diagnostic' ('IVD') assays modeling this relationship is of
+great importance when individual test-results are used for defining
 follow-up treatment of patients.
 
 %prep

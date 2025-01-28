@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.3
+%global packname  superspreading
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Understand Individual-Level Variation in Infectious Disease Transmission
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,14 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+Estimate and understand individual-level variation in transmission.
+Implements density and cumulative compound Poisson discrete distribution
+functions ('Kremer et al.' (2021) <doi:10.1038/s41598-021-93578-x>), as
+well as functions to calculate infectious disease outbreak statistics
+given epidemiological parameters on individual-level transmission;
+including the probability of an outbreak becoming an epidemic/extinct
+('Kucharski et al.' (2020) <doi:10.1016/S1473-3099(20)30144-4>), or the
+cluster size statistics, e.g. what proportion of cases cause X%% of
+transmission ('Lloyd-Smith et al.' (2005) <doi:10.1038/nature04153>).
 
 %prep
 %setup -q -c -n %{packname}

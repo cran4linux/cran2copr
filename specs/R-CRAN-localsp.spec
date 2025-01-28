@@ -1,30 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.3
+%global packname  localsp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Local Indicator of Stratified Power
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gdverse 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sdsfun 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gdverse 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sdsfun 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+Implements a local indicator of stratified power to analyze local spatial
+stratified association and demonstrate how spatial stratified association
+changes spatially and in local regions, as outlined in Hu et al. (2024)
+<doi:10.1080/13658816.2024.2437811>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppAlgos
-%global packver   2.8.5
+%global packver   2.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.5
+Version:          2.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Tools for Combinatorics and Computational Mathematics
 
@@ -24,17 +24,19 @@ Requires:         R-CRAN-gmp
 Requires:         R-methods 
 
 %description
-Provides optimized functions and flexible combinatorial iterators
-implemented in C++ for solving problems in combinatorics and computational
-mathematics. Utilizes the RMatrix class from 'RcppParallel' for thread
-safety. There are combination/permutation functions with constraint
-parameters that allow for generation of all results of a vector meeting
-specific criteria (e.g. generating integer partitions/compositions or
-finding all combinations such that the sum is between two bounds). Capable
-of generating specific combinations/permutations (e.g. retrieve only the
-nth lexicographical result) which sets up nicely for parallelization as
-well as random sampling. Gmp support permits exploration where the total
-number of results is large (e.g. comboSample(10000, 500, n = 4)).
+Provides optimized functions and flexible iterators implemented in C++ for
+solving problems in combinatorics and computational mathematics. Handles
+various combinatorial objects including combinations, permutations,
+integer partitions and compositions, Cartestion products, unordered
+Cartesian products, and partition of groups. Utilizes the RMatrix class
+from 'RcppParallel' for thread safety. The combination and permutation
+functions contain constraint parameters that allow for generation of all
+results of a vector meeting specific criteria (e.g. finding all
+combinations such that the sum is between two bounds). Capable of
+ranking/unranking combinatorial objects efficiently (e.g. retrieve only
+the nth lexicographical result) which sets up nicely for parallelization
+as well as random sampling. Gmp support permits exploration where the
+total number of results is large (e.g. comboSample(10000, 500, n = 4)).
 Additionally, there are several high performance number theoretic
 functions that are useful for problems common in computational
 mathematics. Some of these functions make use of the fast integer division

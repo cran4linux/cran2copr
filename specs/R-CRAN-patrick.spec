@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  patrick
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parameterized Unit Testing
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1
 Requires:         R-core >= 3.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-testthat >= 3.1.5
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-testthat 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-testthat >= 3.1.5
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-testthat 
 Requires:         R-CRAN-tibble 
 
 %description

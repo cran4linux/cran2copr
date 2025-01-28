@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nanonext
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          NNG (Nanomsg Next Gen) Lightweight Messaging Library
 
@@ -20,15 +20,14 @@ Requires:         R-core >= 3.6
 
 %description
 R binding for NNG (Nanomsg Next Gen), a successor to ZeroMQ. NNG is a
-socket library implementing 'Scalability Protocols', a reliable,
-high-performance standard for common communications patterns including
-publish/subscribe, request/reply and service discovery, over in-process,
-IPC, TCP, WebSocket and secure TLS transports. As its own threaded
-concurrency framework, provides a toolkit for asynchronous programming and
-distributed computing, with intuitive 'aio' objects which resolve
-automatically upon completion of asynchronous operations, and
-synchronisation primitives allowing R to wait upon events signalled by
-concurrent threads.
+socket library for reliable, high-performance messaging over in-process,
+IPC, TCP, WebSocket and secure TLS transports. Implements 'Scalability
+Protocols', a standard for common communications patterns including
+publish/subscribe, request/reply and service discovery. As its own
+threaded concurrency framework, provides a toolkit for asynchronous
+programming and distributed computing. Intuitive 'aio' objects resolve
+automatically when asynchronous operations complete, and synchronisation
+primitives allow R to wait upon events signalled by concurrent threads.
 
 %prep
 %setup -q -c -n %{packname}

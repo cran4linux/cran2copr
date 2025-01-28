@@ -1,30 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.3
+%global packname  unstruwwel
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Detect and Parse Historic Dates
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+Automatically converts language-specific verbal information, e.g., "1st
+half of the 19th century," to its standardized numerical counterparts,
+e.g., "1801-01-01/1850-12-31." It follows the recommendations of the
+'MIDAS' ('Marburger Informations-, Dokumentations- und
+Administrations-System'), see <doi:10.11588/artdok.00003770>.
 
 %prep
 %setup -q -c -n %{packname}

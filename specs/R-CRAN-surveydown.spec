@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveydown
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markdown-Based Surveys Using 'Quarto' and 'shiny'
 
@@ -14,13 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dotenv 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-quarto 
@@ -34,10 +38,14 @@ BuildRequires:    R-CRAN-usethis
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dotenv 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-pool 
 Requires:         R-CRAN-quarto 

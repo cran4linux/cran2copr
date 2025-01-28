@@ -1,30 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.3
+%global packname  ubair
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Effects of External Conditions on Air Quality
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-lightgbm 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-lightgbm 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+Analyzes the impact of external conditions on air quality using
+counterfactual approaches, featuring methods for data preparation,
+modeling, and visualization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  RcppUUID
-%global packver   1.1.1
+%global __requires_exclude ^libmpi
+%global packname  PIE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Universally Unique Identificators
+Summary:          A Partially Interpretable Model with Black-Box Refinement
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-gglasso 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-splines 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-gglasso 
+Requires:         R-CRAN-xgboost 
+Requires:         R-splines 
+Requires:         R-stats 
 
 %description
-Provides functions to generating a vector of Universally Unique
-Identifiers (UUID). Used implementation from the Boost C++ library.
-Supported random (version 4) and name (version 5) UUIDs.
+Implements a novel predictive model, Partially Interpretable Estimators
+(PIE), which jointly trains an interpretable model and a black-box model
+to achieve high predictive performance as well as partial model. See the
+paper, Wang, Yang, Li, and Wang (2021) <doi:10.48550/arXiv.2105.02410>.
 
 %prep
 %setup -q -c -n %{packname}

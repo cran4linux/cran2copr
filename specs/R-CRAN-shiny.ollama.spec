@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny.ollama
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R 'Shiny' Interface for Chatting with Large Language Models Offline on Local with 'ollama'
+Summary:          R 'shiny' Interface for Chatting with Large Language Models Offline on Local with 'ollama'
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,7 +32,7 @@ Requires:         R-CRAN-mockery
 
 %description
 Chat with large language models on your machine without internet with
-complete privacy via 'ollama', powered by R shiny interface. For more
+complete privacy via 'ollama', powered by R 'shiny' interface. For more
 information on 'ollama', visit <https://ollama.com>.
 
 %prep

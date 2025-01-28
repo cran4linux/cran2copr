@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  splineCox
-%global packver   0.0.3
+%global packname  Reacnorm
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
+Summary:          Perform a Partition of Variance of Reaction Norms
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-joint.Cox 
-Requires:         R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-cubature >= 1.4
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-cubature >= 1.4
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-matrixStats 
 
 %description
-Implements a two-stage estimation approach for Cox regression using
-five-parameter M-spline functions to model the baseline hazard. It allows
-for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+Partitions the phenotypic variance of a plastic trait, studied through its
+reaction norm. The variance partition distinguishes between the variance
+arising from the average shape of the reaction norms (V_Plas) and the
+(additive) genetic variance . The latter is itself separated into an
+environment-blind component (V_G/V_A) and the component arising from
+plasticity (V_GxE/V_AxE). The package also provides a way to further
+partition V_Plas into aspects (slope/curvature) of the shape of the
+average reaction norm (pi-decomposition) and partition V_Add
+(gamma-decomposition) and V_AxE (iota-decomposition) into the impact of
+genetic variation in the reaction norm parameters. Reference: de
+Villemereuil & Chevin (2025) <doi:10.32942/X2NC8B>.
 
 %prep
 %setup -q -c -n %{packname}
