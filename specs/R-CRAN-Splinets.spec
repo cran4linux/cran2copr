@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Splinets
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Data Analysis using Splines and Orthogonal Spline Bases
 
@@ -35,8 +35,9 @@ generator is implemented as well as all fundamental algebraic and calculus
 operations on splines.  The optimal, in the least square sense, functional
 fit by 'splinets' to data consisting of sampled values of functions as
 well as splines build over another set of knots is obtained and used for
-functional data analysis.  <arXiv:2102.00733>,
-<doi:10.1016/j.cam.2022.114444>, <arXiv:2302.07552>.
+functional data analysis. The S4-version of the object oriented R is used.
+<doi:10.48550/arXiv.2102.00733>, <doi:10.1016/j.cam.2022.114444>,
+<doi:10.48550/arXiv.2302.07552>.
 
 %prep
 %setup -q -c -n %{packname}

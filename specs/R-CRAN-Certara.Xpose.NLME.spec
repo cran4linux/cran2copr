@@ -1,63 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  baguette
-%global packver   1.1.0
+%global packname  Certara.Xpose.NLME
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Model Functions for Bagging
+Summary:          Enhances 'xpose' Diagnostics for Pharmacometric Models from 'Certara.RsNLME' and Phoenix NLME
 
-License:          MIT + file LICENSE
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hardhat >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-parsnip >= 1.0.0
-BuildRequires:    R-CRAN-butcher 
-BuildRequires:    R-CRAN-C50 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-egg 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-hardhat >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-parsnip >= 1.0.0
-Requires:         R-CRAN-butcher 
-Requires:         R-CRAN-C50 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dials 
+BuildRequires:    R-CRAN-xpose 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-generics 
+Requires:         R-CRAN-egg 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xpose 
 
 %description
-Tree- and rule-based models can be bagged (<doi:10.1007/BF00058655>) using
-this package and their predictions equations are stored in an efficient
-format to reduce the model objects size and speed.
+Facilitates the creation of 'xpose' data objects from Nonlinear Mixed
+Effects (NLME) model outputs produced by 'Certara.RsNLME' or Phoenix NLME.
+This integration enables users to utilize all 'ggplot2'-based plotting
+functions available in 'xpose' for thorough model diagnostics and data
+visualization. Additionally, the package introduces specialized plotting
+functions tailored for covariate model evaluation, extending the
+analytical capabilities beyond those offered by 'xpose' alone.
 
 %prep
 %setup -q -c -n %{packname}

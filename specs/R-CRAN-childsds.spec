@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  childsds
-%global packver   0.8.0
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Methods Around Reference Values in Pediatrics
 
@@ -13,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-gamlss.dist 
@@ -22,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-tibble 
@@ -30,12 +32,15 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-purrrlyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-VGAM 
+BuildRequires:    R-CRAN-interp 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-tibble 
@@ -44,6 +49,8 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-purrrlyr 
 Requires:         R-utils 
 Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-interp 
+Requires:         R-CRAN-lubridate 
 
 %description
 Calculation of standard deviation scores and percentiles adduced from

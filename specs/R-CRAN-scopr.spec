@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WorldMapR
-%global packver   1.1.0
+%global packname  scopr
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Worldwide or Coordinates-Based Heat Maps
+Summary:          Read Ethoscope Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.00
+Requires:         R-core >= 3.00
 BuildArch:        noarch
-BuildRequires:    R-utils >= 4.3.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
-BuildRequires:    R-CRAN-countrycode >= 1.5.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-rnaturalearth >= 1.0.1
-BuildRequires:    R-CRAN-ggfx >= 1.0.1
-Requires:         R-utils >= 4.3.0
-Requires:         R-CRAN-ggplot2 >= 3.4.4
-Requires:         R-CRAN-countrycode >= 1.5.0
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-rnaturalearth >= 1.0.1
-Requires:         R-CRAN-ggfx >= 1.0.1
+BuildRequires:    R-CRAN-behavr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-RSQLite 
+BuildRequires:    R-CRAN-memoise 
+Requires:         R-CRAN-behavr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-RSQLite 
+Requires:         R-CRAN-memoise 
 
 %description
-Easily plot heat maps of the world, based on continuous or categorical
-data. Country labels can also be added to the map.
+Handling of behavioural data from the Ethoscope platform (Geissmann,
+Garcia Rodriguez, Beckwith, French, Jamasb and Gilestro (2017)
+<DOI:10.1371/journal.pbio.2003026>). Ethoscopes
+(<https://giorgiogilestro.notion.site/Ethoscope-User-Manual-a9739373ae9f4840aa45b277f2f0e3a7>)
+are an open source/open hardware framework made of interconnected
+raspberry pis (<https://www.raspberrypi.org>) designed to quantify the
+behaviour of multiple small animals in a distributed and real-time
+fashion. The default tracking algorithm records primary variables such as
+xy coordinates, dimensions and speed. This package is part of the
+rethomics framework <https://rethomics.github.io/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CodelistGenerator
-%global packver   3.3.1
+%global packver   3.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.1
+Version:          3.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Relevant Clinical Codes and Evaluate Their Use
 
@@ -14,37 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.1.0
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-stringi >= 1.8.1
 BuildRequires:    R-CRAN-glue >= 1.5.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.2.3
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-DBI >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-visOmopResults >= 0.5.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-RJSONIO 
 Requires:         R-CRAN-cli >= 3.1.0
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-stringi >= 1.8.1
 Requires:         R-CRAN-glue >= 1.5.0
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-PatientProfiles >= 1.2.3
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-DBI >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-PatientProfiles >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-visOmopResults >= 0.5.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-CRAN-omopgenerics >= 0.4.1
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-vctrs 

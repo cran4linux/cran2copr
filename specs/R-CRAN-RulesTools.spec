@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WorldMapR
-%global packver   1.1.0
+%global packname  RulesTools
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Worldwide or Coordinates-Based Heat Maps
+Summary:          Preparing, Analyzing, and Visualizing Association Rules
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils >= 4.3.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
-BuildRequires:    R-CRAN-countrycode >= 1.5.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-rnaturalearth >= 1.0.1
-BuildRequires:    R-CRAN-ggfx >= 1.0.1
-Requires:         R-utils >= 4.3.0
-Requires:         R-CRAN-ggplot2 >= 3.4.4
-Requires:         R-CRAN-countrycode >= 1.5.0
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-rnaturalearth >= 1.0.1
-Requires:         R-CRAN-ggfx >= 1.0.1
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-arules 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-eulerr 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-arules 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-eulerr 
+Requires:         R-CRAN-magrittr 
 
 %description
-Easily plot heat maps of the world, based on continuous or categorical
-data. Country labels can also be added to the map.
+Streamlines data preprocessing, analysis, and visualization for
+association rule mining. Designed to work with the 'arules' package,
+features include discretizing data frames, generating rule set
+intersections, and visualizing rules with heatmaps and Euler diagrams.
+'RulesTools' also includes a dataset on Brook trout detection from Nolan
+et al. (2022) <doi:10.1007/s13412-022-00800-x>.
 
 %prep
 %setup -q -c -n %{packname}

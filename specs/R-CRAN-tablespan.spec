@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tablespan
-%global packver   0.1.7
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Satisficing 'Excel', 'HTML', 'LaTeX', and 'RTF' Tables using a Simple Formula
 
@@ -14,20 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gt 
 Requires:         R-methods 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description

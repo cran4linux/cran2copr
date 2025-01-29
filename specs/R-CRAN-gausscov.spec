@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gausscov
-%global packver   1.1.3
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Gaussian Covariate Method for Variable Selection
 
@@ -52,9 +52,9 @@ subset. A good default start is f1st(y,x,kmn=15) The best function for
 returning multiple approximations is f3st which repeatedly calls f1st.
 For more information see the web site below and the accompanying papers:
 L. Davies and L. Duembgen, "Covariate Selection Based on a Model-free
-Approach to Linear Regression with Exact Probabilities", 2202,
+Approach to Linear Regression with Exact Probabilities", 2022,
 <doi:10.48550/arXiv.2202.01553>. L. Davies, "An Approximation Based Theory
-of Linear Regression", 2402, <doi:10.48550/arXiv.2402.09858>.
+of Linear Regression", 2024,<doi:10.48550/arXiv.2402.09858>.
 
 %prep
 %setup -q -c -n %{packname}

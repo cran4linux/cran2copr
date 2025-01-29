@@ -1,40 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WorldMapR
-%global packver   1.1.0
+%global packname  EcoMetrics
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Worldwide or Coordinates-Based Heat Maps
+Summary:          Econometrics Model Building
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-utils >= 4.3.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
-BuildRequires:    R-CRAN-countrycode >= 1.5.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-rnaturalearth >= 1.0.1
-BuildRequires:    R-CRAN-ggfx >= 1.0.1
-Requires:         R-utils >= 4.3.0
-Requires:         R-CRAN-ggplot2 >= 3.4.4
-Requires:         R-CRAN-countrycode >= 1.5.0
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-rnaturalearth >= 1.0.1
-Requires:         R-CRAN-ggfx >= 1.0.1
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tseries 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-moments 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tseries 
 
 %description
-Easily plot heat maps of the world, based on continuous or categorical
-data. Country labels can also be added to the map.
+An intuitive and user-friendly package designed to aid undergraduate
+students in understanding and applying econometric methods in their
+studies, Tailored specifically for Econometrics and Regression Modeling
+courses, it provides a practical toolkit for modeling and analyzing
+econometric data with detailed inference capabilities.
 
 %prep
 %setup -q -c -n %{packname}

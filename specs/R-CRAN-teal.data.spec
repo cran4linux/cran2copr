@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.data
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Model for 'teal' Applications
 
@@ -19,14 +19,14 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-teal.code >= 0.5.0
+BuildRequires:    R-CRAN-teal.code >= 0.6.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-teal.code >= 0.5.0
+Requires:         R-CRAN-teal.code >= 0.6.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-stats 

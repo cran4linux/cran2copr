@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  medfateland
-%global packver   2.4.7
+%global packver   2.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.7
+Version:          2.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mediterranean Landscape Simulation
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-CRAN-medfate >= 4.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-medfate >= 4.8.0
 BuildRequires:    R-CRAN-meteoland >= 2.0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-cli 
@@ -36,7 +36,7 @@ BuildRequires:    R-CRAN-tidyterra
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-medfate >= 4.4.0
+Requires:         R-CRAN-medfate >= 4.8.0
 Requires:         R-CRAN-meteoland >= 2.0.2
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-cli 

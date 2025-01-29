@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metafor
-%global packver   4.6-0
+%global packver   4.8-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.0
+Version:          4.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis Package for R
 
@@ -28,6 +28,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-digest 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-metadat 
@@ -39,6 +40,7 @@ Requires:         R-grDevices
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-digest 
 
 %description
 A comprehensive collection of functions for conducting meta-analyses in R.

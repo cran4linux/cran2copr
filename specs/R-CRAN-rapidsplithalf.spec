@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rapidsplithalf
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Fast Split-Half Reliability Algorithm
+Summary:          A Fast Permutation-Based Split-Half Reliability Algorithm
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -25,7 +25,7 @@ Requires:         R-CRAN-foreach
 
 %description
 Accurately estimates the reliability of cognitive tasks using a fast and
-flexible permutated split-half reliability algorithm that supports
+flexible permutation-based split-half reliability algorithm that supports
 stratified splitting while maintaining equal split sizes. See Kahveci,
 Bathke, and Blechert (2022) <doi:10.31234/osf.io/ta59r> for details.
 
