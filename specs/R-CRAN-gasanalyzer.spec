@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasanalyzer
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import, Recompute and Analyze Data from Portable Gas Analyzers
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-nleqslv 
 Requires:         R-CRAN-tidyxl >= 1.0.8
 Requires:         R-CRAN-jsonify 
 Requires:         R-methods 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-units
 Requires:         R-utils 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-nleqslv 
 
 %description
 The gasanalyzer R package offers methods for importing, preprocessing, and

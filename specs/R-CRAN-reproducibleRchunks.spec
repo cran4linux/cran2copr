@@ -1,48 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tosr
-%global packver   0.1.5
+%global packname  reproducibleRchunks
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create the Tree of Science from WoS and Scopus
+Summary:          Automated Reproducibility Checks for R Markdown Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliometrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rebus 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-bibliometrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rebus 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-utils 
 
 %description
-The goal of 'tosr' is to create the Tree of Science from Web of Science
-(WoS) and Scopus data. It can read files from both sources at the same
-time. More information can be found in Valencia-Hernández (2020)
-<https://revistas.unal.edu.co/index.php/ingeinv/article/view/77718>.
+Provide reproducible R chunks in R Markdown document that automatically
+check computational results for reproducibility. This is achieved by
+creating json files storing metadata about computational results. A
+comprehensive tutorial to the package is available as preprint by
+Brandmaier & Peikert (2024, <doi:10.31234/osf.io/3zjvf>).
 
 %prep
 %setup -q -c -n %{packname}

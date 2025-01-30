@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixedBayes
-%global packver   0.1.4
+%global packver   0.1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Longitudinal Regularized Quantile Mixed Model
 
@@ -27,12 +27,12 @@ accounting for the intra-cluster correlations in the presence of data
 heterogeneity and long tailed distributions of the disease phenotype is
 challenging, especially in the context of high dimensional regressions. In
 this package, we developed a Bayesian quantile mixed effects model with
-spike- and -slab priors dissect important gene - environment interactions
-under longitudinal genomics studies. An efficient Gibbs sampler has been
-developed to facilitate fast computation. The Markov chain Monte Carlo
-algorithms of the proposed and alternative methods are efficiently
-implemented in 'C++'. The development of this software package and the
-associated statistical methods have been partially supported by an
+spike- and -slab priors to dissect important gene - environment
+interactions under longitudinal genomics studies. An efficient Gibbs
+sampler has been developed to facilitate fast computation. The Markov
+chain Monte Carlo algorithms of the proposed and alternative methods are
+efficiently implemented in 'C++'. The development of this software package
+and the associated statistical methods have been partially supported by an
 Innovative Research Award from Johnson Cancer Research Center, Kansas
 State University.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REDCapCAST
-%global packver   24.12.1
+%global packver   25.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.12.1
+Version:          25.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          REDCap Metadata Casting and Castellated Data Handling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-REDCapR 
@@ -25,12 +25,8 @@ BuildRequires:    R-CRAN-keyring
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-openxlsx2 
-BuildRequires:    R-CRAN-readODS 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-gt 
@@ -38,6 +34,10 @@ BuildRequires:    R-CRAN-bslib
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-gtsummary 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-openxlsx2 
+BuildRequires:    R-CRAN-readODS 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-REDCapR 
 Requires:         R-CRAN-tidyr 
@@ -46,12 +46,8 @@ Requires:         R-CRAN-keyring
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
 Requires:         R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-haven 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-openxlsx2 
-Requires:         R-CRAN-readODS 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-gt 
@@ -59,6 +55,10 @@ Requires:         R-CRAN-bslib
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-gtsummary 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-openxlsx2 
+Requires:         R-CRAN-readODS 
 
 %description
 Casting metadata for REDCap database creation and handling of castellated

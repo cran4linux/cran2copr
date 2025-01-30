@@ -1,48 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tosr
-%global packver   0.1.5
+%global packname  deprivateR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create the Tree of Science from WoS and Scopus
+Summary:          Calculating and Analyzing Measures of Deprivation in the United States
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliometrix 
-BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-classInt 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rebus 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-english 
+BuildRequires:    R-CRAN-ndi 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sociome 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-bibliometrix 
-Requires:         R-CRAN-igraph 
+BuildRequires:    R-CRAN-tidycensus 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-zippeR 
+Requires:         R-CRAN-classInt 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rebus 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
+Requires:         R-CRAN-english 
+Requires:         R-CRAN-ndi 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sociome 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidycensus 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-zippeR 
 
 %description
-The goal of 'tosr' is to create the Tree of Science from Web of Science
-(WoS) and Scopus data. It can read files from both sources at the same
-time. More information can be found in Valencia-Hernández (2020)
-<https://revistas.unal.edu.co/index.php/ingeinv/article/view/77718>.
+Provides a unified framework to building Area Deprivation Index (ADI),
+Social Vulnerability Index (SVI), and Neighborhood Deprivation Index (NDI)
+deprivation measures and accessing related data from the U.S. Census
+Bureau such as Gini coefficient data. Tools are also available for
+calculating percentiles, quantiles, and for creating clear map breaks for
+data visualization.
 
 %prep
 %setup -q -c -n %{packname}

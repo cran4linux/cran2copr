@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geometa
-%global packver   0.8-0
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Reading and Writing ISO/OGC Geographic Metadata
 
@@ -37,9 +37,9 @@ Requires:         R-CRAN-crayon
 %description
 Provides facilities to read, write and validate geographic metadata
 defined with ISO TC211 / OGC ISO geographic information metadata
-standards, and encoded using the ISO 19139 (XML) standard technical
-specification. This includes ISO 19110 (Feature cataloguing), 19115
-(dataset metadata), 19119 (service metadata) and 19136 (GML). Other
+standards, and encoded using the ISO 19139 and ISO 19115-3 (XML) standard
+technical specifications. This includes ISO 19110 (Feature cataloguing),
+19115 (dataset metadata), 19119 (service metadata) and 19136 (GML). Other
 interoperable schemas from the OGC are progressively supported as well,
 such as the Sensor Web Enablement (SWE) Common Data Model, the OGC GML
 Coverage Implementation Schema (GMLCOV), or the OGC GML Referenceable Grid

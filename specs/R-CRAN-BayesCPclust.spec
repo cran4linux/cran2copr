@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tosr
-%global packver   0.1.5
+%global packname  BayesCPclust
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create the Tree of Science from WoS and Scopus
+Summary:          A Bayesian Approach for Clustering Constant-Wise Change-Point Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliometrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rebus 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-RcppAlgos 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-bibliometrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rebus 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-RcppAlgos 
 Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
-The goal of 'tosr' is to create the Tree of Science from Web of Science
-(WoS) and Scopus data. It can read files from both sources at the same
-time. More information can be found in Valencia-Hernández (2020)
-<https://revistas.unal.edu.co/index.php/ingeinv/article/view/77718>.
+A Gibbs sampler algorithm was developed to estimate change points in
+constant-wise data sequences while performing clustering simultaneously.
+The algorithm is described in da Cruz, A. C. and de Souza, C. P. E "A
+Bayesian Approach for Clustering Constant-wise Change-point Data"
+<doi:10.48550/arXiv.2305.17631>.
 
 %prep
 %setup -q -c -n %{packname}

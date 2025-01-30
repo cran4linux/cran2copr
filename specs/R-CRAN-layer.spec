@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tosr
-%global packver   0.1.5
+%global packname  layer
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create the Tree of Science from WoS and Scopus
+Summary:          Tilt your Maps and Turn Them into 'ggplot' Plots
 
-License:          MIT + file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliometrix 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rebus 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-scico 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-bibliometrix 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rebus 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-scico 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
 Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
-The goal of 'tosr' is to create the Tree of Science from Web of Science
-(WoS) and Scopus data. It can read files from both sources at the same
-time. More information can be found in Valencia-Hernández (2020)
-<https://revistas.unal.edu.co/index.php/ingeinv/article/view/77718>.
+Simplifies the whole process of creating stacked tilted maps, that are
+often used in scientific publications to show different environmental
+layers for a geographical region. Tilting maps and layering them allows to
+easily draw visual correlations between these environmental layers.
 
 %prep
 %setup -q -c -n %{packname}

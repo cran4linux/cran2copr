@@ -1,48 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tosr
-%global packver   0.1.5
+%global packname  SparseICA
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create the Tree of Science from WoS and Scopus
+Summary:          Sparse Independent Component Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-bibliometrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rebus 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-bibliometrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rebus 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-stats 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-MASS >= 7.3.58
+BuildRequires:    R-parallel >= 4.1
+BuildRequires:    R-CRAN-irlba >= 2.3.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-clue >= 0.3
+BuildRequires:    R-CRAN-ciftiTools >= 0.16
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-MASS >= 7.3.58
+Requires:         R-parallel >= 4.1
+Requires:         R-CRAN-irlba >= 2.3.5
+Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-clue >= 0.3
+Requires:         R-CRAN-ciftiTools >= 0.16
 
 %description
-The goal of 'tosr' is to create the Tree of Science from Web of Science
-(WoS) and Scopus data. It can read files from both sources at the same
-time. More information can be found in Valencia-Hernández (2020)
-<https://revistas.unal.edu.co/index.php/ingeinv/article/view/77718>.
+Provides an implementation of the Sparse ICA method in Wang et al. (2024)
+<doi:10.1080/01621459.2024.2370593> for estimating sparse independent
+source components of cortical surface functional MRI data, by addressing a
+non-smooth, non-convex optimization problem through the relax-and-split
+framework. This method effectively balances statistical independence and
+sparsity while maintaining computational efficiency.
 
 %prep
 %setup -q -c -n %{packname}
