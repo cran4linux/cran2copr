@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SMNlmec
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scale Mixture of Normal Distribution in Linear Mixed-Effects Model
 
@@ -48,8 +48,8 @@ Gaussian assumptions with a flexible class of distributions, such as the
 scale mixture of normal family distributions, considering a damped
 exponential correlation structure which was employed to account for
 within-subject autocorrelation among irregularly observed measures. For
-more details, see Zhong et al. (2025, forthcoming in Statistics in
-Medicine).
+more details, see Kelin Zhong, Fernanda L. Schumacher, Luis M. Castro,
+Victor H. Lachos (2025) <doi:10.1002/sim.10295>.
 
 %prep
 %setup -q -c -n %{packname}

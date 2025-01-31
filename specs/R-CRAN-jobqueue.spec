@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RFlocalfdr
-%global packver   0.9
+%global packname  jobqueue
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Significance Level for Random Forest Impurity Importance Scores
+Summary:          Run Interruptible Code Asynchronously
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-randomForest 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-randomForest 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-ps 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-semaphore 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-ps 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-semaphore 
+Requires:         R-utils 
 
 %description
-Sets a significance level for Random Forest MDI (Mean Decrease in
-Impurity, Gini or sum of squares) variable importance scores, using an
-empirical Bayes approach. See Dunne et al. (2022)
-<doi:10.1101/2022.04.06.487300>.
+Takes an R expression and returns a Job object with a $stop() method which
+can be called to terminate the background job. Also provides timeouts and
+other mechanisms for automatically terminating a background job. The
+result of the expression is available synchronously via $result or
+asynchronously with callbacks or through the 'promises' package framework.
 
 %prep
 %setup -q -c -n %{packname}

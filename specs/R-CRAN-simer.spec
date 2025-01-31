@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simer
-%global packver   0.9.0.5
+%global packver   0.9.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0.5
+Version:          0.9.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Simulation for Life Science and Breeding
 
@@ -16,25 +16,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-bigmemory 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-bigmemory 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-bigmemory 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Data simulator including genotype, phenotype, pedigree, selection and

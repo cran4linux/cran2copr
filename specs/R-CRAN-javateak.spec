@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RFlocalfdr
-%global packver   0.9
+%global packname  javateak
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Significance Level for Random Forest Impurity Importance Scores
+Summary:          Javanese Teak Above Ground Biomass Estimation
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-randomForest 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-randomForest 
 
 %description
-Sets a significance level for Random Forest MDI (Mean Decrease in
-Impurity, Gini or sum of squares) variable importance scores, using an
-empirical Bayes approach. See Dunne et al. (2022)
-<doi:10.1101/2022.04.06.487300>.
+Simplifies the process of estimating above ground biomass components for
+teak trees using a few basic inputs, based on the equations taken from the
+journal "Allometric equations for estimating above ground biomass and leaf
+area of planted teak (Tectona grandis) forests under agroforestry
+management in East Java, Indonesia" (Purwanto & Shiba, 2006)
+<doi:10.60409/forestresearch.76.0_1>. This function is most reliable when
+applied to trees from the same region where the equations were developed,
+specifically East Java, Indonesia. This function help to estimate the stem
+diameter at the lowest major living branch (DB) using the stem diameter at
+breast height with R^2 = 0.969. Estimate the branch dry weight (WB) using
+the stem diameter at breast height and tree height (R^2 = 0.979). Estimate
+the stem weight (WS) using the stem diameter at breast height and tree
+height (R^2 = 0.997. Also estimate the leaf dry weight (WL) using the stem
+diameter at the lowest major living branch (R^2 = 0.996).
 
 %prep
 %setup -q -c -n %{packname}

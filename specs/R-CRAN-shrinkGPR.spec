@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DatabaseConnector
-%global packver   6.4.0
+%global packname  shrinkGPR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Connecting to Various Database Platforms
+Summary:          Scalable Gaussian Process Regression with Hierarchical Shrinkage Priors
 
-License:          Apache License
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,41 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dbplyr >= 2.2.0
-BuildRequires:    R-CRAN-SqlRender >= 1.19.1
-BuildRequires:    R-CRAN-DBI >= 1.0.0
-BuildRequires:    R-CRAN-rJava 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-dbplyr >= 2.2.0
-Requires:         R-CRAN-SqlRender >= 1.19.1
-Requires:         R-CRAN-DBI >= 1.0.0
-Requires:         R-CRAN-rJava 
-Requires:         R-methods 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-torch 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-digest 
+Requires:         R-methods 
+Requires:         R-CRAN-torch 
 
 %description
-An R 'DataBase Interface' ('DBI') compatible interface to various database
-platforms ('PostgreSQL', 'Oracle', 'Microsoft SQL Server', 'Amazon
-Redshift', 'Microsoft Parallel Database Warehouse', 'IBM Netezza', 'Apache
-Impala', 'Google BigQuery', 'Snowflake', 'Spark', 'SQLite', and
-'InterSystems IRIS'). Also includes support for fetching data as
-'Andromeda' objects. Uses either 'Java Database Connectivity' ('JDBC') or
-other 'DBI' drivers to connect to databases.
+Efficient variational inference methods for fully Bayesian Gaussian
+Process Regression (GPR) models with hierarchical shrinkage priors,
+including the triple gamma prior for effective variable selection and
+covariance shrinkage in high-dimensional settings. The package leverages
+normalizing flows to approximate complex posterior distributions. For
+details on implementation, see Knaus (2025)
+<doi:10.48550/arXiv.2501.13173>.
 
 %prep
 %setup -q -c -n %{packname}

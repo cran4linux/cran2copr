@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chattr
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interact with Large Language Models in 'RStudio'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.1
+BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-processx 
@@ -33,7 +33,7 @@ BuildRequires:    R-CRAN-yaml
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-fs 
-Requires:         R-CRAN-httr2 >= 1.0.1
+Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-processx 

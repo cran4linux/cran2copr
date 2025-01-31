@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torch
-%global packver   0.13.0
+%global packver   0.14.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          0.14.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-cli >= 3.0.0
 BuildRequires:    R-CRAN-coro >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-safetensors >= 0.1.1
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -31,16 +31,16 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-cli >= 3.0.0
 Requires:         R-CRAN-coro >= 1.0.2
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-safetensors >= 0.1.1
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-rlang 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-stats 
@@ -49,9 +49,9 @@ Requires:         R-CRAN-magrittr
 Requires:         R-tools 
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-desc 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-scales 
 
 %description
 Provides functionality to define and train neural networks similar to

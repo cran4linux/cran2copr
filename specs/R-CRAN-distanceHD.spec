@@ -1,45 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shapr
-%global packver   1.0.1
+%global packname  distanceHD
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prediction Explanation with Dependence-Aware Shapley Values
+Summary:          Distance Metrics for High-Dimensional Clustering
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.15
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.15
-Requires:         R-stats 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-future.apply 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-Complex machine learning models are often hard to interpret. However, in
-many situations it is crucial to understand and explain why a model made a
-specific prediction. Shapley values is the only method for such prediction
-explanation framework with a solid theoretical foundation. Previously
-known methods for estimating the Shapley values do, however, assume
-feature independence. This package implements methods which accounts for
-any feature dependence, and thereby produces more accurate estimates of
-the true Shapley values. An accompanying 'Python' wrapper ('shaprpy') is
-available through the GitHub repository.
+We provide three distance metrics for measuring the separation between two
+clusters in high-dimensional spaces. The first metric is the centroid
+distance, which calculates the Euclidean distance between the centers of
+the two groups. The second is a ridge Mahalanobis distance, which
+incorporates a ridge correction constant, alpha, to ensure that the
+covariance matrix is invertible. The third metric is the maximal data
+piling distance, which computes the orthogonal distance between the affine
+spaces spanned by each class. These three distances are asymptotically
+interconnected and are applicable in tasks such as discrimination,
+clustering, and outlier detection in high-dimensional settings.
 
 %prep
 %setup -q -c -n %{packname}

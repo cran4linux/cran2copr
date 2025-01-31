@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RFlocalfdr
-%global packver   0.9
+%global packname  hrf
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Significance Level for Random Forest Impurity Importance Scores
+Summary:          Hemodynamic Response Function
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ciftiTools >= 0.15.0
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-fMRItools 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-randomForest 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+Requires:         R-CRAN-ciftiTools >= 0.15.0
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-fMRItools 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-stats 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-randomForest 
 
 %description
-Sets a significance level for Random Forest MDI (Mean Decrease in
-Impurity, Gini or sum of squares) variable importance scores, using an
-empirical Bayes approach. See Dunne et al. (2022)
-<doi:10.1101/2022.04.06.487300>.
+Computes the hemodynamic response function (HRF) for task functional
+magnetic resonance imaging (fMRI) data. Also includes functions for
+constructing a design matrix from task fMRI event timings, and for
+comparing multiple design matrices in a general linear model (GLM). A
+wrapper function is provided for GLM analysis of CIFTI-format data.
+Lastly, there are supporting functions which provide visual summaries of
+the HRFs and design matrices.
 
 %prep
 %setup -q -c -n %{packname}

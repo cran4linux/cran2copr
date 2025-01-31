@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datasetjson
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read and Write CDISC Dataset JSON Files
 
@@ -14,19 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.8.0
 BuildRequires:    R-CRAN-jsonvalidate >= 1.3.1
-Requires:         R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-yyjsonr >= 0.1.18
+BuildRequires:    R-CRAN-hms 
 Requires:         R-CRAN-jsonvalidate >= 1.3.1
+Requires:         R-CRAN-yyjsonr >= 0.1.18
+Requires:         R-CRAN-hms 
 
 %description
 Read, construct and write CDISC (Clinical Data Interchange Standards
 Consortium) Dataset JSON (JavaScript Object Notation) files, while
 validating per the Dataset JSON schema file, as described in CDISC (2023)
-<https://www.cdisc.org/dataset-json>.
+<https://www.cdisc.org/standards/data-exchange/dataset-json>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bsvarSIGNs
-%global packver   1.0.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian SVARs with Sign, Zero, and Narrative Restrictions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-bsvars 
@@ -46,11 +46,13 @@ package facilitates predictive and structural analyses using impulse
 responses, forecast error variance and historical decompositions,
 forecasting and conditional forecasting, as well as analyses of structural
 shocks and fitted values. All this is complemented by colourful plots,
-user-friendly summary functions, and comprehensive documentation. The
+user-friendly summary functions, and comprehensive documentation including
+the vignette by Wang & Woźniak (2024) <doi:10.48550/arXiv.2501.16711>. The
 'bsvarSIGNs' package is aligned regarding objects, workflows, and code
 structure with the R package 'bsvars' by Woźniak (2024)
 <doi:10.32614/CRAN.package.bsvars>, and they constitute an integrated
-toolset.
+toolset. It was granted the Di Cook Open-Source Statistical Software Award
+by the Statistical Society of Australia in 2024.
 
 %prep
 %setup -q -c -n %{packname}

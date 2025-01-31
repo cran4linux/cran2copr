@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brulee
-%global packver   0.4.0
+%global packname  ggfootball
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          High-Level Modeling Functions with 'torch'
+Summary:          Plotting Expected Goals (xG) Stats with Understat Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,35 +17,47 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-coro >= 1.0.1
-BuildRequires:    R-CRAN-torch >= 0.13.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-gdtools 
+BuildRequires:    R-CRAN-gfonts 
+BuildRequires:    R-CRAN-ggiraph 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsoccer 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-highcharter 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-coro >= 1.0.1
-Requires:         R-CRAN-torch >= 0.13.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-qdapRegex 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-gdtools 
+Requires:         R-CRAN-gfonts 
+Requires:         R-CRAN-ggiraph 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsoccer 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-hardhat 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-highcharter 
 Requires:         R-utils 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-qdapRegex 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
 
 %description
-Provides high-level modeling functions to define and train models using
-the 'torch' R package. Models include linear, logistic, and multinomial
-regression as well as multilayer perceptrons.
+Scrapes shots data from 'Understat' <https://understat.com/> and
+visualizes it using interactive plots: - A detailed shot map displaying
+the location, type, and xG value of shots taken by both teams. - An xG
+timeline chart showing the cumulative xG for each team over time,
+annotated with the details of scored goals.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,44 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RFlocalfdr
-%global packver   0.9
+%global packname  BKT
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Significance Level for Random Forest Impurity Importance Scores
+Summary:          Bayesian Knowledge Tracing Model
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-fitdistrplus 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-RCurl 
+BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-randomForest 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-fitdistrplus 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-RCurl 
+Requires:         R-parallel 
+Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-randomForest 
+Requires:         R-utils 
 
 %description
-Sets a significance level for Random Forest MDI (Mean Decrease in
-Impurity, Gini or sum of squares) variable importance scores, using an
-empirical Bayes approach. See Dunne et al. (2022)
-<doi:10.1101/2022.04.06.487300>.
+Fitting, cross-validating, and predicting with Bayesian Knowledge Tracing
+(BKT) models. It is designed for analyzing educational datasets to trace
+student knowledge over time. The package includes functions for fitting
+BKT models, evaluating their performance using various metrics, and making
+predictions on new data. It provides the same functionality as the Python
+package pyBKT authored by Bulut et al. (2023, <doi:10.3390/psych5030050>)
+and pyBKT can be accessed via the site at
+<https://github.com/CAHLR/pyBKT>.
 
 %prep
 %setup -q -c -n %{packname}

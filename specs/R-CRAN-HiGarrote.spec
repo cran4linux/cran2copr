@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HiGarrote
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonnegative Garrote Method Incorporating Hierarchical Relationships
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-MaxPro 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-purrr 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-stringr 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-MaxPro 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-purrr 
