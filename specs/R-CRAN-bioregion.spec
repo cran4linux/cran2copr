@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bioregion
-%global packver   1.1.1-1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparison of Bioregionalisation Methods
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-apcluster 
 BuildRequires:    R-CRAN-bipartite 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-data.table 
@@ -26,9 +27,11 @@ BuildRequires:    R-CRAN-fastcluster
 BuildRequires:    R-CRAN-fastkmedoids 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-phangorn 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -39,6 +42,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ape 
+Requires:         R-CRAN-apcluster 
 Requires:         R-CRAN-bipartite 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-data.table 
@@ -48,9 +52,11 @@ Requires:         R-CRAN-fastcluster
 Requires:         R-CRAN-fastkmedoids 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-phangorn 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 

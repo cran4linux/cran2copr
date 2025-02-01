@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  iadf
-%global packver   0.1.3
+%global packname  xmap
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Intra Annual Density Fluctuations
+Summary:          Transforming Data Between Statistical Classifications
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-manipulate 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-pillar >= 1.6.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplR 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-manipulate 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-pillar >= 1.6.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-methods 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplR 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 
 %description
-Calculate false ring proportions from data frames of intra annual density
-fluctuations.
+Provides support for transformations of numeric aggregates between
+statistical classifications (e.g. occupation or industry categorisations)
+using the 'Crossmaps' framework. Implements classes for representing
+transformations between a source and target classification as graph
+structures, and methods for validating and applying crossmaps to transform
+data collected under the source classification into data indexed using the
+target classification codes. Documentation about the 'Crossmaps' framework
+is provided in the included vignettes and in Huang (2024,
+<doi:10.48550/arXiv.2406.14163>).
 
 %prep
 %setup -q -c -n %{packname}

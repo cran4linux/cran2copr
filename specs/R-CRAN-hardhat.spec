@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hardhat
-%global packver   1.4.0
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Construct Modeling Packages
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-glue >= 1.6.2
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-sparsevctrs >= 0.2.0
 Requires:         R-CRAN-cli >= 3.6.0
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-CRAN-sparsevctrs >= 0.2.0
 
 %description
 Building modeling packages is hard. A large amount of effort generally

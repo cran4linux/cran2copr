@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popEpi
-%global packver   0.4.13
+%global packname  fedmatch
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Epidemiological Analysis using Population Data
+Summary:          Fast, Flexible, and User-Friendly Record Linkage Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Epi >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-Epi >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-splines 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 3.5.3
+Requires:         R-core >= 3.5.3
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-SnowballC 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-SnowballC 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-parallel 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
 
 %description
-Enables computation of epidemiological statistics, including those where
-counts or mortality rates of the reference population are used.  Currently
-supported: excess hazard models (Dickman, Sloggett, Hills, and Hakulinen
-(2012) <doi:10.1002/sim.1597>), rates, mean survival times, relative/net
-survival (in particular the Ederer II (Ederer and Heise (1959)) and Pohar
-Perme (Pohar Perme, Stare, and Esteve (2012)
-<doi:10.1111/j.1541-0420.2011.01640.x>) estimators), and standardized
-incidence and mortality ratios, all of which can be easily adjusted for by
-covariates such as age. Fast splitting and aggregation of 'Lexis' objects
-(from package 'Epi') and other computations achieved using 'data.table'.
+Provides a flexible set of tools for matching two un-linked data sets.
+'fedmatch' allows for three ways to match data: exact matches, fuzzy
+matches, and multi-variable matches. It also allows an easy combination of
+these three matches via the tier matching function.
 
 %prep
 %setup -q -c -n %{packname}

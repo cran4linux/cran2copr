@@ -1,42 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popEpi
-%global packver   0.4.13
+%global packname  rmonocypher
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Epidemiological Analysis using Population Data
+Summary:          Easy Encryption of R Objects using Strong Modern Cryptography
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Epi >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-Epi >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-splines 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 
 %description
-Enables computation of epidemiological statistics, including those where
-counts or mortality rates of the reference population are used.  Currently
-supported: excess hazard models (Dickman, Sloggett, Hills, and Hakulinen
-(2012) <doi:10.1002/sim.1597>), rates, mean survival times, relative/net
-survival (in particular the Ederer II (Ederer and Heise (1959)) and Pohar
-Perme (Pohar Perme, Stare, and Esteve (2012)
-<doi:10.1111/j.1541-0420.2011.01640.x>) estimators), and standardized
-incidence and mortality ratios, all of which can be easily adjusted for by
-covariates such as age. Fast splitting and aggregation of 'Lexis' objects
-(from package 'Epi') and other computations achieved using 'data.table'.
+Encrypt R objects to a raw vector or file using modern cryptographic
+techniques.  Password-based key derivation is with 'Argon2'
+(<https://en.wikipedia.org/wiki/Argon2>). Objects are serialized and then
+encrypted using 'XChaCha20-Poly1305'
+(<https://en.wikipedia.org/wiki/ChaCha20-Poly1305>) which follows RFC 8439
+for authenticated encryption
+(<https://en.wikipedia.org/wiki/Authenticated_encryption>). Cryptographic
+functions are provided by the included 'monocypher' 'C' library
+(<https://monocypher.org>).
 
 %prep
 %setup -q -c -n %{packname}

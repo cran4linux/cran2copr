@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramicp
-%global packver   0.0-2
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Based Causal Feature Selection for General Response Types
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tram 
 BuildRequires:    R-CRAN-mlt 
@@ -46,7 +46,7 @@ Requires:         R-CRAN-sandwich
 Extends invariant causal prediction (Peters et al., 2016,
 <doi:10.1111/rssb.12167>) to generalized linear and transformation models
 (Hothorn et al., 2018, <doi:10.1111/sjos.12291>). The methodology is
-described in Kook et al. (2023, <doi:10.48550/arXiv.2309.12833>).
+described in Kook et al. (2023, <doi:10.1080/01621459.2024.2395588>).
 
 %prep
 %setup -q -c -n %{packname}

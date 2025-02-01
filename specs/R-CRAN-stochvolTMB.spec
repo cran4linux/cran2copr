@@ -1,31 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Copula.surv
-%global packver   1.8
+%global packname  stochvolTMB
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Bivariate Survival Data Based on Copulas
+Summary:          Likelihood Estimation of Stochastic Volatility Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sn 
+Requires:         R-stats 
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-MASS 
 
 %description
-Simulating bivariate survival data from copula models. Estimation of the
-association parameter in copula models. Two different ways to estimate the
-association parameter in copula models are implemented. A goodness-of-fit
-test for a given copula model is implemented. See Emura, Lin and Wang
-(2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Parameter estimation for stochastic volatility models using maximum
+likelihood. The latent log-volatility is integrated out of the likelihood
+using the Laplace approximation. The models are fitted via 'TMB' (Template
+Model Builder) (Kristensen, Nielsen, Berg, Skaug, and Bell (2016)
+<doi:10.18637/jss.v070.i05>).
 
 %prep
 %setup -q -c -n %{packname}

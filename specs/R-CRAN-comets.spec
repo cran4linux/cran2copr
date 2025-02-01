@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comets
-%global packver   0.1-0
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariance Measure Tests for Conditional Independence
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-glmnet 
@@ -30,12 +30,15 @@ Requires:         R-CRAN-coin
 
 %description
 Covariance measure tests for conditional independence testing against
-conditional covariance and nonlinear conditional mean alternatives.
-Contains versions of the generalised covariance measure test (Shah and
-Peters, 2020, <doi:10.1214/19-aos1857>) and projected covariance measure
-test (Lundborg et al., 2023, <doi:10.48550/arXiv.2211.02039>).
-Applications can be found in Kook and Lundborg (2024,
-<doi:10.1093/bib/bbae475>).
+conditional covariance and nonlinear conditional mean alternatives. The
+package implements versions of the generalised covariance measure test
+(Shah and Peters, 2020, <doi:10.1214/19-aos1857>) and projected covariance
+measure test (Lundborg et al., 2023, <doi:10.1214/24-AOS2447>). The
+tram-GCM test, for censored responses, is implemented including the Cox
+model and survival forests (Kook et al., 2024,
+<doi:10.1080/01621459.2024.2395588>). Application examples to variable
+significance testing and modality selection can be found in Kook and
+Lundborg (2024, <doi:10.1093/bib/bbae475>).
 
 %prep
 %setup -q -c -n %{packname}

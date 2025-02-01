@@ -1,42 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  exametrika
-%global packver   1.2.0
+%global packname  EmbedSOM
+%global packver   2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Theory Analysis and Biclustering
+Summary:          Fast Embedding Guided by Self-Organizing Map
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-igraph 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rtsne 
+BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-CRAN-uwot 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rtsne 
+Requires:         R-CRAN-umap 
+Requires:         R-CRAN-uwot 
 
 %description
-Implements comprehensive test data engineering methods as described in
-Shojima (2022, ISBN:978-9811699856). Provides statistical techniques for
-engineering and processing test data: Classical Test Theory (CTT) with
-reliability coefficients for continuous ability assessment; Item Response
-Theory (IRT) including Rasch, 2PL, and 3PL models with item/test
-information functions; Latent Class Analysis (LCA) for nominal clustering;
-Latent Rank Analysis (LRA) for ordinal clustering with automatic
-determination of cluster numbers; Biclustering methods including infinite
-relational models for simultaneous clustering of examinees and items
-without predefined cluster numbers; and Bayesian Network Models (BNM) for
-visualizing inter-item dependencies. Features local dependence analysis
-through LRA and biclustering, parameter estimation, dimensionality
-assessment, and network structure visualization for educational,
-psychological, and social science research.
+Provides a smooth mapping of multidimensional points into low-dimensional
+space defined by a self-organizing map. Designed to work with 'FlowSOM'
+and flow-cytometry use-cases. See Kratochvil et al. (2019)
+<doi:10.12688/f1000research.21642.1>.
 
 %prep
 %setup -q -c -n %{packname}

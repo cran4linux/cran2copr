@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  riem
-%global packver   1.0.0
+%global packname  zigg
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accesses Weather Data from the Iowa Environment Mesonet
+Summary:          Lightweight Interfaces to the 'Ziggurat' Pseudo Random Number Generator
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate >= 1.9.0.9000
-BuildRequires:    R-CRAN-jsonlite >= 0.9.19
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-lubridate >= 1.9.0.9000
-Requires:         R-CRAN-jsonlite >= 0.9.19
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
-Allows to get weather data from Automated Surface Observing System (ASOS)
-stations (airports) in the whole world thanks to the Iowa Environment
-Mesonet website.
+The 'Ziggurat' pseudo-random number generator (or PRNG), introduced by
+Marsaglia and Tsang (2000, <doi:10.18637/jss.v005.i08>) and further
+improved by Leong et al (2005, <doi:10.18637/jss.v012.i07>), offers a
+lightweight and very fast PRNG for the normal, exponential, and uniform
+distributions. It is provided here in a small zero-dependency package. It
+can be used from R as well as from 'C/C++' code in other packages as is
+demonstrated by four included sample packages using four distinct methods
+to use the PRNG presented here in client package. The implementation is
+influenced by our package 'RcppZiggurat' which offers a comparison among
+multiple alternative implementations but presented here in a
+lighter-weight implementation that is easier to use by other packages. The
+PRNGs provided are generally faster than the ones in base R: on our
+machine, the relative gains for normal, exponential and uniform are on the
+order of 7.4, 5.2 and 4.7 times faster than base R. However, these
+generators are of potentially lesser quality and shorter period so if in
+doubt use of the base R functions remains the general recommendation.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  IndGenErrors
-%global packver   0.1.4
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Independence Between Innovations of Generalized Error Models
 
@@ -18,12 +18,14 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MixedIndTests 
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MixedIndTests 
 
 %description
 Computation of test statistics of independence between (continuous)
-innovations of time series. They Can be used with stochastic volatility
+innovations of time series. They can be used with stochastic volatility
 models and Hidden Markov Models (HMM). This improves the results in
 Duchesne, Ghoudi & Remillard (2012) <doi:10.1002/cjs.11141>.
 

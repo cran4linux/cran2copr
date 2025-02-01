@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BigDataPE
-%global packver   0.0.9
+%global packname  shortr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Secure and Intuitive Access to 'BigDataPE' 'API' Datasets
+Summary:          Optimal Subset Identification in Undirected Weighted Network Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-keyring 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-keyring 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Designed to simplify the process of retrieving datasets from the
-'BigDataPE' platform using secure token-based authentication. It provides
-functions for securely storing, retrieving, and managing tokens associated
-with specific datasets, as well as fetching and processing data using the
-'httr2' package. The integration with 'keyring' ensures that tokens are
-stored securely within the system’s credential manager.
+Identifies what optimal subset of a desired number of items should be
+retained in a short version of a psychometric instrument to assess the
+“broadest” proportion of the construct-level content of the set of items
+included in the original version of the said psychometric instrument.
+Expects a symmetric adjacency matrix as input (undirected weighted network
+model). Supports brute force and simulated annealing combinatorial search
+algorithms.
 
 %prep
 %setup -q -c -n %{packname}

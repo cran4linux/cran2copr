@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ClustAssess
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Assessing Clustering
 
@@ -13,42 +14,80 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastcluster 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Matrix >= 1.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fastcluster 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-Gmedian 
+BuildRequires:    R-CRAN-ggnewscale 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrastr 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-gprofiler2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-leiden 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-paletteer 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-qualpalr 
+BuildRequires:    R-CRAN-RANN 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Seurat 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyLP 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-uwot 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastcluster 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-vioplot 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Matrix >= 1.5.0
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fastcluster 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-irlba 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Gmedian 
+Requires:         R-CRAN-ggnewscale 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrastr 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-gprofiler2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-leiden 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-paletteer 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-qualpalr 
+Requires:         R-CRAN-RANN 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Seurat 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyLP 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-utils 
 Requires:         R-CRAN-uwot 
+Requires:         R-CRAN-vioplot 
 
 %description
 A set of tools for evaluating clustering robustness using proportion of

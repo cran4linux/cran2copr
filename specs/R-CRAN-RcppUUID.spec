@@ -1,31 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Copula.surv
-%global packver   1.8
+%global packname  RcppUUID
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Bivariate Survival Data Based on Copulas
+Summary:          Generating Universally Unique Identificators
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Simulating bivariate survival data from copula models. Estimation of the
-association parameter in copula models. Two different ways to estimate the
-association parameter in copula models are implemented. A goodness-of-fit
-test for a given copula model is implemented. See Emura, Lin and Wang
-(2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Using the implementation in Boost C++ library, functions are provided to
+generate vectors of 'Universally Unique Identifiers (UUID)' from R
+supporting random (version 4) and name (version 5) 'UUIDs'. The initial
+repository was <https://gitlab.com/artemklevtsov/rcppuuid>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tramvs
-%global packver   0.0-6
+%global packver   0.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Subset Selection for Transformation Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tram >= 0.6.1
 BuildRequires:    R-stats 
@@ -38,7 +38,8 @@ Requires:         R-CRAN-mvtnorm
 Greedy optimal subset selection for transformation models (Hothorn et al.,
 2018, <doi:10.1111/sjos.12291> ) based on the abess algorithm (Zhu et al.,
 2020, <doi:10.1073/pnas.2014241117> ). Applicable to models from packages
-'tram' and 'cotram'.
+'tram' and 'cotram'. Application to shift-scale transformation models are
+described in Siegfried et al. (2024, <doi:10.1080/00031305.2023.2203177>).
 
 %prep
 %setup -q -c -n %{packname}

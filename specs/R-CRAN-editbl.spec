@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  editbl
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DT' Extension for CRUD (Create, Read, Update, Delete) Applications in 'shiny'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-fontawesome >= 0.4.0
 Requires:         R-CRAN-shiny 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-uuid 
 
 %description

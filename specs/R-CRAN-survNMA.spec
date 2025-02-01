@@ -1,31 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Copula.surv
-%global packver   1.8
+%global packname  survNMA
+%global packver   1.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Bivariate Survival Data Based on Copulas
+Summary:          Network Meta-Analysis Combining Survival and Count Outcomes
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-netmeta 
+Requires:         R-stats 
+Requires:         R-CRAN-netmeta 
 
 %description
-Simulating bivariate survival data from copula models. Estimation of the
-association parameter in copula models. Two different ways to estimate the
-association parameter in copula models are implemented. A goodness-of-fit
-test for a given copula model is implemented. See Emura, Lin and Wang
-(2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Network meta-analysis for survival outcome data often involves several
+studies only involve dichotomized outcomes (e.g., the numbers of event and
+sample sizes of individual arms).  To combine these different outcome
+data, Woods et al. (2010) <doi:10.1186/1471-2288-10-54> proposed a
+Bayesian approach using complicated hierarchical models. Besides,
+frequentist approaches have been alternative standard methods for the
+statistical analyses of network meta-analysis, and the methodology has
+been well established. We proposed an easy-to-implement method for the
+network meta-analysis based on the frequentist framework in Noma and Maruo
+(2025) <doi:10.1101/2025.01.23.25321051>. This package involves some
+convenient functions to implement the simple synthesis method.
 
 %prep
 %setup -q -c -n %{packname}

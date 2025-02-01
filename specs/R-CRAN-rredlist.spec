@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rredlist
-%global packver   0.7.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'IUCN' Red List Client
 
@@ -18,15 +18,22 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.1
-BuildRequires:    R-CRAN-crul >= 0.3
+BuildRequires:    R-CRAN-crul >= 0.3.8
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-jsonlite >= 1.1
-Requires:         R-CRAN-crul >= 0.3
+Requires:         R-CRAN-crul >= 0.3.8
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rlang 
 
 %description
-'IUCN' Red List (<http://apiv3.iucnredlist.org/api/v3/docs>) client. The
-'IUCN' Red List is a global list of threatened and endangered species.
-Functions cover all of the Red List 'API' routes. An 'API' key is
-required.
+'IUCN' Red List (<https://api.iucnredlist.org/>) client. The 'IUCN' Red
+List is a global list of threatened and endangered species. Functions
+cover all of the Red List 'API' routes. An 'API' key is required.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popEpi
-%global packver   0.4.13
+%global packname  forgts
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Epidemiological Analysis using Population Data
+Summary:          Convert Formatted Spreadsheets to Presentation-Ready Display Tables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Epi >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-Epi >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
-Requires:         R-splines 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyxl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyxl 
 
 %description
-Enables computation of epidemiological statistics, including those where
-counts or mortality rates of the reference population are used.  Currently
-supported: excess hazard models (Dickman, Sloggett, Hills, and Hakulinen
-(2012) <doi:10.1002/sim.1597>), rates, mean survival times, relative/net
-survival (in particular the Ederer II (Ederer and Heise (1959)) and Pohar
-Perme (Pohar Perme, Stare, and Esteve (2012)
-<doi:10.1111/j.1541-0420.2011.01640.x>) estimators), and standardized
-incidence and mortality ratios, all of which can be easily adjusted for by
-covariates such as age. Fast splitting and aggregation of 'Lexis' objects
-(from package 'Epi') and other computations achieved using 'data.table'.
+Reads cell contents plus formatting from a spreadsheet file and creates an
+editable 'gt' object with the same data and formatting. Supports the most
+commonly-used cell and text styles including colors, fills, font weights
+and decorations, and borders.
 
 %prep
 %setup -q -c -n %{packname}

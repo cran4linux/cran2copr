@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  popEpi
-%global packver   0.4.13
+%global packname  fkbma
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.13
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Epidemiological Analysis using Population Data
+Summary:          Free Knot-Bayesian Model Averaging
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Epi >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-Epi >= 2.0
-Requires:         R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-splines 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstantools
 
 %description
-Enables computation of epidemiological statistics, including those where
-counts or mortality rates of the reference population are used.  Currently
-supported: excess hazard models (Dickman, Sloggett, Hills, and Hakulinen
-(2012) <doi:10.1002/sim.1597>), rates, mean survival times, relative/net
-survival (in particular the Ederer II (Ederer and Heise (1959)) and Pohar
-Perme (Pohar Perme, Stare, and Esteve (2012)
-<doi:10.1111/j.1541-0420.2011.01640.x>) estimators), and standardized
-incidence and mortality ratios, all of which can be easily adjusted for by
-covariates such as age. Fast splitting and aggregation of 'Lexis' objects
-(from package 'Epi') and other computations achieved using 'data.table'.
+Analysis of Bayesian adaptive enrichment clinical trial using Free-Knot
+Bayesian Model Averaging (FK-BMA) method of Maleyeff et al. (2024) for
+Gaussian data. Maleyeff, L., Golchi, S., Moodie, E. E. M., & Hudson, M.
+(2024) "An adaptive enrichment design using Bayesian model averaging for
+selection and threshold-identification of predictive variables"
+<doi:10.1093/biomtc/ujae141>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BIEN
-%global packver   1.2.6
+%global packver   1.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Accessing the Botanical Information and Ecology Network Database
 
@@ -14,15 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.1
-Requires:         R-core >= 3.2.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-RPostgreSQL 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-fasterize 
-BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
@@ -31,8 +29,6 @@ Requires:         R-CRAN-RPostgreSQL
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-fasterize 
-Requires:         R-CRAN-raster 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 

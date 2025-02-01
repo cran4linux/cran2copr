@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Copula.surv
-%global packver   1.8
+%global packname  MultiGrey
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Bivariate Survival Data Based on Copulas
+Summary:          Fitting and Forecasting of Grey Model for Multivariate Time Series Data
 
-License:          GPL-2
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-zoo 
+Requires:         R-stats 
 
 %description
-Simulating bivariate survival data from copula models. Estimation of the
-association parameter in copula models. Two different ways to estimate the
-association parameter in copula models are implemented. A goodness-of-fit
-test for a given copula model is implemented. See Emura, Lin and Wang
-(2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Grey model is commonly used in time series forecasting when statistical
+assumptions are violated with a limited number of data points. The minimum
+number of data points required to fit a grey model is four observations.
+This package fits Grey model of First order and One Variable, i.e., GM
+(1,1) for multivariate time series data and returns the parameters of the
+model, model evaluation criteria and h-step ahead forecast values for each
+of the time series variables. For method details see, Akay, D. and Atak,
+M. (2007) <DOI:10.1016/j.energy.2006.11.014>, Hsu, L. and Wang, C.
+(2007).<DOI:10.1016/j.techfore.2006.02.005>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Copula.surv
-%global packver   1.8
+%global packname  StratifiedSampling
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Bivariate Survival Data Based on Copulas
+Summary:          Different Methods for Stratified Sampling
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-transport 
+BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sampling 
+BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-transport 
+Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sampling 
+Requires:         R-CRAN-Rglpk 
 
 %description
-Simulating bivariate survival data from copula models. Estimation of the
-association parameter in copula models. Two different ways to estimate the
-association parameter in copula models are implemented. A goodness-of-fit
-test for a given copula model is implemented. See Emura, Lin and Wang
-(2010) <doi:10.1016/j.csda.2010.03.013> for details.
+Integrating a stratified structure in the population in a sampling design
+can considerably reduce the variance of the Horvitz-Thompson estimator. We
+propose in this package different methods to handle the selection of a
+balanced sample in stratified population. For more details see Raphaël
+Jauslin, Esther Eustache and Yves Tillé (2021)
+<doi:10.1007/s42081-021-00134-y>. The package propose also a method based
+on optimal transport and balanced sampling, see Raphaël Jauslin and Yves
+Tillé <doi:10.1016/j.jspi.2022.12.003>.
 
 %prep
 %setup -q -c -n %{packname}
