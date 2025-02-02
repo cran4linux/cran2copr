@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2sample
-%global packver   2.2.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Methods for the Two Sample Problem
 
@@ -14,25 +14,28 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 The routine twosample_test() in this package runs the two sample test
 using various test statistic. The p values are found via permutation or
 large sample theory. The routine twosample_power() allows the calculation
 of the power in various cases, and plot_power() draws the corresponding
-power graphs.
+power graphs. The routine run.studies allows a user to quickly study the
+power of a new method and how it compares to some of the standard ones.
 
 %prep
 %setup -q -c -n %{packname}

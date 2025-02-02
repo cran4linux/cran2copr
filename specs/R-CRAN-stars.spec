@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stars
-%global packver   0.6-7
+%global packver   0.6-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.7
+Version:          0.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatiotemporal Arrays, Raster and Vector Data Cubes
 

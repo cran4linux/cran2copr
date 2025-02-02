@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rgof
-%global packver   2.1.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          1d Goodness of Fit Tests
 
@@ -14,22 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Routines that allow the user to run a large number of goodness-of-fit
 tests. It allows for data to be continuous or discrete. It includes
 routines to estimate the power of the tests and display them as a power
-graph.
+graph. The routine run.studies allows a user to quickly study the power of
+a new method and how it compares to some of the standard ones.
 
 %prep
 %setup -q -c -n %{packname}

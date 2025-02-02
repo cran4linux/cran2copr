@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traj
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clustering of Functional Data Based on Measures of Change
 
@@ -30,7 +30,7 @@ to identify clusters of individual longitudinal trajectories. The
 procedure involves (1) computing a number of "measures of change"
 capturing various features of the trajectories; (2) using a Principal
 Component Analysis based dimension reduction algorithm to select a subset
-of measures and (3) using the k-means clustering algorithm to identify
+of measures and (3) using the k-medoids or k-means algorithm to identify
 clusters of trajectories.
 
 %prep

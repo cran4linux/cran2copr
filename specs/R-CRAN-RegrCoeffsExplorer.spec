@@ -1,40 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MazamaSpatialPlots
-%global packver   0.3.0
+%global packname  RegrCoeffsExplorer
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Thematic Plots for Mazama Spatial Datasets
+Summary:          Efficient Visualization of Regression Coefficients for Lm(), Glm(), and Glmnet() Objects
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tmap >= 4.0
-BuildRequires:    R-CRAN-MazamaSpatialUtils >= 0.8.7
-BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.4.6
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-Requires:         R-CRAN-tmap >= 4.0
-Requires:         R-CRAN-MazamaSpatialUtils >= 0.8.7
-Requires:         R-CRAN-MazamaCoreUtils >= 0.4.6
+BuildRequires:    R-stats 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
+Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
+Requires:         R-stats 
 
 %description
-A suite of convenience functions for generating US state and county
-thematic maps using datasets from the MazamaSpatialUtils package.
+The visualization tool offers a nuanced understanding of regression
+dynamics, going beyond traditional per-unit interpretation of continuous
+variables versus categorical ones. It highlights the impact of unit
+changes as well as larger shifts like interquartile changes, acknowledging
+the distribution of empirical data. Furthermore, it generates
+visualizations depicting alterations in Odds Ratios for predictors across
+minimum, first quartile, median, third quartile, and maximum values,
+aiding in comprehending predictor-outcome interplay within empirical data
+distributions, particularly in logistic regression frameworks.
 
 %prep
 %setup -q -c -n %{packname}
