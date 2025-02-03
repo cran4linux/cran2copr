@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nimbleAPT
-%global packver   1.0.6
+%global packname  enrichR
+%global packver   3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          3.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Parallel Tempering for 'NIMBLE'
+Summary:          Provides an R Interface to 'Enrichr'
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.2
-Requires:         R-core >= 3.1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nimble 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-nimble 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-WriteXLS 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-WriteXLS 
 
 %description
-Functions for adaptive parallel tempering (APT) with NIMBLE models.
-Adapted from 'Lacki' & 'Miasojedow' (2016) <DOI:10.1007/s11222-015-9579-0>
-and 'Miasojedow, Moulines and Vihola' (2013)
-<DOI:10.1080/10618600.2013.778779>.
+Provides an R interface to all 'Enrichr' databases. 'Enrichr' is a
+web-based tool for analysing gene sets and returns any enrichment of
+common annotated biological features. Quoting from their website
+'Enrichment analysis is a computational method for inferring knowledge
+about an input gene set by comparing it to annotated gene sets
+representing prior biological knowledge.' See
+<https://maayanlab.cloud/Enrichr/> for further details.
 
 %prep
 %setup -q -c -n %{packname}

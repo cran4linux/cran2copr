@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scientific
-%global packver   2024.2
+%global packver   2025.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.2
+Version:          2025.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highly Customizable 'rmarkdown' Theme for Scientific Reporting
+Summary:          Two Highly Customizable 'rmarkdown' Themes for Scientific Reports
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,12 +27,10 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-xfun 
 
 %description
-Offers 'markdown' output formats designed with various scientific styles,
-allowing users to generate PDF and HTML outputs. The output has a
-contemporary appearance with vibrant visuals, providing numerous styles
-for effective highlighting. The package also includes additional features
-specifically tailored for front-page slides, enhancing the overall
-presentation and customization options. The package was created using the
+Offers 'markdown' output formats designed with various styles, allowing
+users to generate HTML reports tailored for scientific or machine learning
+showcase. The output has a contemporary appearance with vibrant visuals,
+providing numerous styles for effective highlighting. Created using the
 'tufte' <https://rstudio.github.io/tufte/> package code as a starting
 point.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiology
-%global packver   0.11.4
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.4
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Photobiological Calculations
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-splus2R >= 1.3.3
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-SunCalcMeeus >= 0.1.1
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-tibble >= 3.1.6
@@ -39,6 +40,7 @@ Requires:         R-CRAN-splus2R >= 1.3.3
 Requires:         R-CRAN-tidyr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-SunCalcMeeus >= 0.1.1
 Requires:         R-stats 
 Requires:         R-grDevices 
 

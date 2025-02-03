@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelsummary
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready
 
@@ -18,22 +18,22 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.3.1
-BuildRequires:    R-CRAN-data.table >= 1.15.2
-BuildRequires:    R-CRAN-tables >= 0.9.17
-BuildRequires:    R-CRAN-tinytable >= 0.4.0
-BuildRequires:    R-CRAN-parameters >= 0.22.1
-BuildRequires:    R-CRAN-insight >= 0.20.3
-BuildRequires:    R-CRAN-performance >= 0.11.0
+BuildRequires:    R-CRAN-data.table >= 1.16.4
+BuildRequires:    R-CRAN-insight >= 1.0.1
+BuildRequires:    R-CRAN-tables >= 0.9.31
+BuildRequires:    R-CRAN-tinytable >= 0.7.0
+BuildRequires:    R-CRAN-parameters >= 0.24.1
+BuildRequires:    R-CRAN-performance >= 0.13.0
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-checkmate >= 2.3.1
-Requires:         R-CRAN-data.table >= 1.15.2
-Requires:         R-CRAN-tables >= 0.9.17
-Requires:         R-CRAN-tinytable >= 0.4.0
-Requires:         R-CRAN-parameters >= 0.22.1
-Requires:         R-CRAN-insight >= 0.20.3
-Requires:         R-CRAN-performance >= 0.11.0
+Requires:         R-CRAN-data.table >= 1.16.4
+Requires:         R-CRAN-insight >= 1.0.1
+Requires:         R-CRAN-tables >= 0.9.31
+Requires:         R-CRAN-tinytable >= 0.7.0
+Requires:         R-CRAN-parameters >= 0.24.1
+Requires:         R-CRAN-performance >= 0.13.0
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-glue 
 Requires:         R-methods 

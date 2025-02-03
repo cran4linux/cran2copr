@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TDA
-%global packver   1.9.1
+%global packver   1.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.1
+Version:          1.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for Topological Data Analysis
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    gmp-devel
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
-BuildRequires:    R-CRAN-BH >= 1.81.0.1
+BuildRequires:    R-CRAN-BH >= 1.87.0.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-CRAN-FNN 
 BuildRequires:    R-CRAN-igraph 
@@ -31,14 +31,14 @@ Requires:         R-parallel
 Requires:         R-CRAN-scales 
 
 %description
-Tools for the statistical analysis of persistent homology and for density
-clustering. For that, this package provides an R interface for the
-efficient algorithms of the C++ libraries 'GUDHI'
-<https://project.inria.fr/gudhi/software/>, 'Dionysus'
+Tools for Topological Data Analysis. The package focuses on statistical
+analysis of persistent homology and density clustering. For that, this
+package provides an R interface for the efficient algorithms of the C++
+libraries 'GUDHI' <https://project.inria.fr/gudhi/software/>, 'Dionysus'
 <https://www.mrzv.org/software/dionysus/>, and 'PHAT'
-<https://bitbucket.org/phat-code/phat/>. This package also implements the
-methods in Fasy et al. (2014) <doi:10.1214/14-AOS1252> and Chazal et al.
-(2014) <doi:10.1145/2582112.2582128> for analyzing the statistical
+<https://bitbucket.org/phat-code/phat/>. This package also implements
+methods from Fasy et al. (2014) <doi:10.1214/14-AOS1252> and Chazal et al.
+(2015) <doi:10.20382/jocg.v6i2a8> for analyzing the statistical
 significance of persistent homology features.
 
 %prep

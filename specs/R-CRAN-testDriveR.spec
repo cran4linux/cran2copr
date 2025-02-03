@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  testDriveR
-%global packver   0.5.2
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Teaching Data for Statistics and Data Science
 
@@ -20,10 +21,9 @@ BuildArch:        noarch
 %description
 Provides data sets for teaching statistics and data science courses. It
 includes a sample of data from John Edmund Kerrich's famous coinflip
-experiment. These are data that I used for teaching SOC 4015 / SOC 5050 at
-Saint Louis University (SLU). The package also contains an R Markdown
-template with the required formatting for assignments in my courses SOC
-4015, SOC 4650, SOC 5050, and SOC 5650 at SLU.
+experiment. These are data that I used for statistics. The package also
+contains an R Markdown template with the required formatting for
+assignments in my former courses.
 
 %prep
 %setup -q -c -n %{packname}

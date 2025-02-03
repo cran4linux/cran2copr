@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mathml
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Translate R Expressions to 'MathML' and 'LaTeX'/'MathJax'
 
@@ -14,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rolog >= 0.9.14
+BuildRequires:    R-CRAN-xfun >= 0.49
 BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-rolog >= 0.9.14
+Requires:         R-CRAN-xfun >= 0.49
 Requires:         R-CRAN-knitr 
 
 %description
 Translate R expressions to 'MathML' or 'MathJax'/'LaTeX' so that they can
-be rendered in 'R Markdown' documents and shiny apps. This package depends
-on R package 'rolog', which requires an installation of the 'SWI-Prolog'
+be rendered in R markdown documents and shiny apps. This package depends
+on R package 'rolog', which requires an installation of the 'SWI'-'Prolog'
 runtime either from 'swi-prolog.org' or from R package 'rswipl'.
 
 %prep
