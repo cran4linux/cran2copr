@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppAlgos
-%global packver   2.9.1
+%global packver   2.9.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.1
+Version:          2.9.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Tools for Combinatorics and Computational Mathematics
 
@@ -27,7 +27,7 @@ Requires:         R-methods
 Provides optimized functions and flexible iterators implemented in C++ for
 solving problems in combinatorics and computational mathematics. Handles
 various combinatorial objects including combinations, permutations,
-integer partitions and compositions, Cartestion products, unordered
+integer partitions and compositions, Cartesian products, unordered
 Cartesian products, and partition of groups. Utilizes the RMatrix class
 from 'RcppParallel' for thread safety. The combination and permutation
 functions contain constraint parameters that allow for generation of all

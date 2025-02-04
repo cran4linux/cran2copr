@@ -1,52 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dfr
-%global packver   0.1.3
+%global packname  legion
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dual Feature Reduction for SGL
+Summary:          Forecasting Using Multivariate Models
 
-License:          GPL (>= 3)
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sgs 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-smooth >= 3.1.0
+BuildRequires:    R-CRAN-greybox >= 1.0.4
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.8.100.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-stats 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-sgs 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-smooth >= 3.1.0
+Requires:         R-CRAN-greybox >= 1.0.4
+Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-stats 
-Requires:         R-grDevices 
 Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-nloptr 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
 
 %description
-Implementation of the Dual Feature Reduction (DFR) approach for the Sparse
-Group Lasso (SGL) and the Adaptive Sparse Group Lasso (aSGL) (Feser and
-Evangelou (2024) <doi:10.48550/arXiv.2405.17094>). The DFR approach is a
-feature reduction approach that applies strong screening to reduce the
-feature space before optimisation, leading to speed-up improvements for
-fitting SGL (Simon et al. (2013) <doi:10.1080/10618600.2012.681250>) and
-aSGL (Mendez-Civieta et al. (2020) <doi:10.1007/s11634-020-00413-8> and
-Poignard (2020) <doi:10.1007/s10463-018-0692-7>) models. DFR is
-implemented using the Adaptive Three Operator Splitting (ATOS) (Pedregosa
-and Gidel (2018) <doi:10.48550/arXiv.1804.02339>) algorithm, with linear
-and logistic SGL models supported, both of which can be fit using k-fold
-cross-validation. Dense and sparse input matrices are supported.
+Functions implementing multivariate state space models for purposes of
+time series analysis and forecasting. The focus of the package is on
+multivariate models, such as Vector Exponential Smoothing, Vector ETS
+(Error-Trend-Seasonal model) etc. It currently includes Vector Exponential
+Smoothing (VES, de Silva et al., 2010, <doi:10.1177/1471082X0901000401>),
+Vector ETS (Svetunkov et al., 2023, <doi:10.1016/j.ejor.2022.04.040>) and
+simulation function for VES.
 
 %prep
 %setup -q -c -n %{packname}

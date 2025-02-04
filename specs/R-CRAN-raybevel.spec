@@ -1,53 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RStoolbox
-%global packver   1.0.2.1
+%global packname  raybevel
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Remote Sensing Data Analysis
+Summary:          Generates Polygon Straight Skeletons and 3D Bevels
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-caret >= 6.0.79
-BuildRequires:    R-CRAN-terra >= 1.6.41
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-RcppCGAL >= 6.0.1
+BuildRequires:    R-CRAN-RcppThread >= 2.1.6
+BuildRequires:    R-CRAN-rayvertex >= 0.11.4
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-decido 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-exactextractr 
+BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-caret >= 6.0.79
-Requires:         R-CRAN-terra >= 1.6.41
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-rayvertex >= 0.11.4
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-decido 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-exactextractr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
+Requires:         R-grid 
 
 %description
-Toolbox for remote sensing image processing and analysis such as
-calculating spectral indexes, principal component transformation,
-unsupervised and supervised classification or fractional cover analyses.
+Generates polygon straight skeletons and 3D models. Provides functions to
+create and visualize interior polygon offsets, 3D beveled polygons, and 3D
+roof models.
 
 %prep
 %setup -q -c -n %{packname}

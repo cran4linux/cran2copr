@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ocf
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordered Correlation Forest
 
@@ -24,6 +24,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-orf 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 
@@ -33,6 +37,10 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-orf 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
 
 %description
 Machine learning estimator specifically optimized for predictive modeling
@@ -41,7 +49,8 @@ the conditional choice probabilities and the covariates’ marginal effects.
 Under an "honesty" condition, the estimates are consistent and
 asymptotically normal and standard errors can be obtained by leveraging
 the weight-based representation of the random forest predictions. Please
-reference the use as Di Francesco (2023) <doi:10.48550/arXiv.2309.08755>.
+reference the use as Di Francesco (2025)
+<doi:10.1080/07474938.2024.2429596>.
 
 %prep
 %setup -q -c -n %{packname}

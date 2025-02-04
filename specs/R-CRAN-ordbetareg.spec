@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordbetareg
-%global packver   0.7.2
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ordered Beta Regression Models with 'brms'
 
@@ -20,23 +20,31 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-brms >= 2.18.0
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-transformr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-rstantools 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-brms >= 2.18.0
 Requires:         R-stats 
-Requires:         R-CRAN-transformr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-rstantools 
 
 %description
 Implements ordered beta regression models, which are for modeling
 continuous variables with upper and lower bounds, such as survey sliders,
 dose-response relationships and indexes. For more information, see Kubinec
-(2022) <doi:10.31235/osf.io/2sx6y>. The package is a front-end to the R
+(2023) <doi:10.31235/osf.io/2sx6y>. The package is a front-end to the R
 package 'brms', which facilitates a range of regression specifications,
 including hierarchical, dynamic and multivariate modeling.
 

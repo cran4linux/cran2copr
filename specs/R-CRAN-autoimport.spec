@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyterra
-%global packver   0.7.0
+%global packname  autoimport
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
+Summary:          Automatic Generation of @importFrom Tags
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-terra >= 1.8.10
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-desc 
+BuildRequires:    R-CRAN-diffviewer 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-terra >= 1.8.10
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-desc 
+Requires:         R-CRAN-diffviewer 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
-the 'terra' package. It includes also new 'geom_' functions that provide a
-convenient way of visualizing 'terra' objects with 'ggplot2'.
+A toolbox to read all R files inside a package and automatically generate
+@importFrom 'roxygen2' tags in the right place. Includes a 'shiny'
+application to review the changes before applying them.
 
 %prep
 %setup -q -c -n %{packname}

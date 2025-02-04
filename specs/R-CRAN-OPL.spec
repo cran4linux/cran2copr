@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MRS
-%global packver   1.2.6
+%global packname  OPL
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multi-Resolution Scanning for Cross-Sample Differences
+Summary:          Optimal Policy Learning
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-igraph 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-pander 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-tidyr 
 
 %description
-An implementation of the MRS algorithm for comparison across
-distributions, as described in Jacopo Soriano, Li Ma (2017)
-<doi:10.1111/rssb.12180>. The model is based on a nonparametric process
-taking the form of a Markov model that transitions between a "null" and an
-"alternative" state on a multi-resolution partition tree of the sample
-space. MRS effectively detects and characterizes a variety of underlying
-differences. These differences can be visualized using several plotting
-functions.
+Provides functions for optimal policy learning in socioeconomic
+applications helping users to learn the most effective policies based on
+data in order to maximize empirical welfare. Specifically, 'OPL' allows to
+find "treatment assignment rules" that maximize the overall welfare,
+defined as the sum of the policy effects estimated over all the policy
+beneficiaries. Documentation about 'OPL' is provided by several
+international articles via Athey et al (2021, <doi:10.3982/ECTA15732>),
+Kitagawa et al (2018, <doi:10.3982/ECTA13288>), Cerulli (2022,
+<doi:10.1080/13504851.2022.2032577>), the paper by Cerulli (201,
+<doi:10.1080/13504851.2020.1820939>) and the book by Gareth et al (2013,
+<doi:10.1007/978-1-4614-7138-7>).
 
 %prep
 %setup -q -c -n %{packname}

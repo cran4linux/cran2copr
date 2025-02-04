@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lcmm
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Mixed Models Using Latent Classes and Latent Processes
 
@@ -21,7 +21,7 @@ BuildRequires:    R-CRAN-marqLevAlg > 2.0
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-spacefillr 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-survival >= 2.37.2
@@ -29,7 +29,7 @@ Requires:         R-CRAN-marqLevAlg > 2.0
 Requires:         R-CRAN-nlme 
 Requires:         R-parallel 
 Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-spacefillr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-numDeriv 
 

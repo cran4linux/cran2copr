@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RegSDC
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Preserving Regression-Based Tools for Statistical Disclosure Control
 
@@ -18,11 +18,11 @@ BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SSBtools >= 1.3.4
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-CRAN-SSBtools >= 1.3.4
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
 Implementation of the methods described in the paper with the above title:

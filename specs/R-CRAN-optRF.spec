@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optRF
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimising Random Forest Stability Through Selection of the Optimal Number of Trees
+Summary:          Optimising Random Forest Stability by Determining the Optimal Number of Trees
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.2
-Requires:         R-core >= 4.1.2
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-minpack.lm >= 1.2.4
-BuildRequires:    R-CRAN-irr >= 0.84.1
-BuildRequires:    R-CRAN-ranger >= 0.16.0
+BuildRequires:    R-CRAN-minpack.lm >= 1.2.2
+BuildRequires:    R-CRAN-irr >= 0.82
+BuildRequires:    R-CRAN-ranger >= 0.12.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-minpack.lm >= 1.2.4
-Requires:         R-CRAN-irr >= 0.84.1
-Requires:         R-CRAN-ranger >= 0.16.0
+Requires:         R-CRAN-minpack.lm >= 1.2.2
+Requires:         R-CRAN-irr >= 0.82
+Requires:         R-CRAN-ranger >= 0.12.0
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-stats 

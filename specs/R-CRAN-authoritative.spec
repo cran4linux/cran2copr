@@ -1,49 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyterra
-%global packver   0.7.0
+%global packname  authoritative
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
+Summary:          Parse and Deduplicate Author Names
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-terra >= 1.8.10
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-terra >= 1.8.10
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-stringi 
+Requires:         R-utils 
 
 %description
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
-the 'terra' package. It includes also new 'geom_' functions that provide a
-convenient way of visualizing 'terra' objects with 'ggplot2'.
+Utilities to parse authors fields from DESCRIPTION files and general
+purpose functions to deduplicate names in database, beyond the specific
+case of R package authors.
 
 %prep
 %setup -q -c -n %{packname}
