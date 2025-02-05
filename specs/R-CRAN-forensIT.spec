@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forensIT
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Information Theory Tools for Forensic Analysis
 
@@ -28,11 +28,10 @@ BuildRequires:    R-CRAN-fbnet
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-hrbrthemes 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-pedtools 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-pedtools 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-paramlink 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-mispitools 
 Requires:         R-CRAN-forrel 
@@ -44,11 +43,10 @@ Requires:         R-CRAN-fbnet
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-hrbrthemes 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-pedtools 
 Requires:         R-CRAN-iterators 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-paramlink 
 
 %description
 The 'forensIT' package is a comprehensive statistical toolkit tailored for

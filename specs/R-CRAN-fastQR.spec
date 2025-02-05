@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metadat
-%global packver   1.4-0
+%global packname  fastQR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis Datasets
+Summary:          Fast QR Decomposition and Update
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A collection of meta-analysis datasets for teaching purposes,
-illustrating/testing meta-analytic methods, and validating published
-analyses.
+Efficient algorithms for performing, updating, and downdating the QR
+decomposition, R decomposition, or the inverse of the R decomposition of a
+matrix as rows or columns are added or removed. It also includes functions
+for solving linear systems of equations, normal equations for linear
+regression models, and normal equations for linear regression with a RIDGE
+penalty. For a detailed introduction to these methods, see the book by
+Golub and Van Loan (2013, <doi:10.1007/978-3-319-05089-8>) for complete
+introduction to the methods.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metadat
-%global packver   1.4-0
+%global packname  kpiwidget
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis Datasets
+Summary:          KPI Widgets for Quarto Dashboards with Crosstalk
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-crosstalk 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-crosstalk 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-A collection of meta-analysis datasets for teaching purposes,
-illustrating/testing meta-analytic methods, and validating published
-analyses.
+Provides an easy way to create interactive KPI (key performance indicator)
+widgets for 'Quarto' dashboards using 'Crosstalk'. The package enables
+visualization of key metrics in a structured format, supporting
+interactive filtering and linking with other 'Crosstalk'-enabled
+components. Designed for use in 'Quarto' Dashboards.
 
 %prep
 %setup -q -c -n %{packname}

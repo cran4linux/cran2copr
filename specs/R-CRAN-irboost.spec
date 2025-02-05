@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  irboost
-%global packver   0.1-1.5
+%global packver   0.2-1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.5
+Version:          0.2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Iteratively Reweighted Boosting for Robust Analysis
 
@@ -29,8 +29,8 @@ constitutes an application of iteratively reweighted convex optimization
 (IRCO), where convex optimization is performed using the functional
 descent boosting algorithm. IRBoost assigns weights to facilitate outlier
 identification. Applications include robust generalized linear models and
-robust accelerated failure time models. Wang (2021)
-<doi:10.48550/arXiv.2101.07718>.
+robust accelerated failure time models. Wang (2025)
+<doi:10.6339/24-JDS1138>.
 
 %prep
 %setup -q -c -n %{packname}

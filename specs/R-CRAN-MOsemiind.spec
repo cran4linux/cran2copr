@@ -1,51 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gstat
-%global packver   2.1-3
+%global packname  MOsemiind
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
+Summary:          Marshall-Olkin Shock Models with Semi-Independent Time
 
-License:          GPL (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-spacetime >= 1.2.8
-BuildRequires:    R-CRAN-sp >= 0.9.72
-BuildRequires:    R-CRAN-sf >= 0.7.2
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-sftime 
-BuildRequires:    R-CRAN-stars 
-BuildRequires:    R-CRAN-FNN 
-Requires:         R-CRAN-spacetime >= 1.2.8
-Requires:         R-CRAN-sp >= 0.9.72
-Requires:         R-CRAN-sf >= 0.7.2
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-copula 
 Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-sftime 
-Requires:         R-CRAN-stars 
-Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
 
 %description
-Variogram modelling; simple, ordinary and universal point or block
-(co)kriging; spatio-temporal kriging; sequential Gaussian or indicator
-(co)simulation; variogram and variogram map plotting utility functions;
-supports sf and stars.
+Provides tools for analyzing Marshall-Olkin shock models semi-independent
+time. It includes interactive 'shiny' applications for exploring
+copula-based dependence structures, along with functions for modeling and
+visualization. The methods are based on Mijanovic and Popovic (2024,
+submitted) "An R package for Marshall-Olkin shock models with
+semi-independent times."
 
 %prep
 %setup -q -c -n %{packname}

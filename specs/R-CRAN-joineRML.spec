@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  joineRML
-%global packver   0.4.6
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Modelling of Multivariate Longitudinal Data and Time-to-Event Outcomes
 
@@ -31,10 +31,10 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-lme4 >= 1.1.8
 Requires:         R-CRAN-Rcpp >= 0.12.7
 Requires:         R-CRAN-nlme 
@@ -50,6 +50,7 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-parallel 
 Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 

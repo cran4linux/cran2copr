@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metadat
-%global packver   1.4-0
+%global packname  shiny2docker
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis Datasets
+Summary:          Generate Dockerfiles for 'Shiny' Applications
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-attachment >= 0.4.3
+BuildRequires:    R-CRAN-dockerfiler 
+BuildRequires:    R-CRAN-here 
+BuildRequires:    R-CRAN-yesno 
+Requires:         R-CRAN-attachment >= 0.4.3
+Requires:         R-CRAN-dockerfiler 
+Requires:         R-CRAN-here 
+Requires:         R-CRAN-yesno 
 
 %description
-A collection of meta-analysis datasets for teaching purposes,
-illustrating/testing meta-analytic methods, and validating published
-analyses.
+Automates the creation of Dockerfiles for deploying 'Shiny' applications.
+By integrating with 'renv' for dependency management and leveraging
+Docker-based solutions, it simplifies the process of containerizing
+'Shiny' apps, ensuring reproducibility and consistency across different
+environments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gmoTree
-%global packver   1.3.1
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get and Modify 'oTree' Data
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-knitr >= 1.47
 BuildRequires:    R-CRAN-data.table >= 1.15.4
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-lifecycle >= 1.0.4
 BuildRequires:    R-CRAN-pander >= 0.6.5
 BuildRequires:    R-CRAN-rlist >= 0.4.6.2
 Requires:         R-CRAN-openxlsx >= 4.2.5.2
@@ -35,6 +36,7 @@ Requires:         R-CRAN-knitr >= 1.47
 Requires:         R-CRAN-data.table >= 1.15.4
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-lifecycle >= 1.0.4
 Requires:         R-CRAN-pander >= 0.6.5
 Requires:         R-CRAN-rlist >= 0.4.6.2
 
