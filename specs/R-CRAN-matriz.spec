@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scplot
-%global packver   0.5.0
+%global packname  matriz
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Function for Single-Case Data Frames
+Summary:          Literature Matrix Synthesis Tools for Epidemiology and Health Science Research
 
-License:          GPL (>= 3)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scan >= 0.61.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mblm 
-Requires:         R-CRAN-scan >= 0.61.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mblm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-writexl 
 
 %description
-Add-on for the 'scan' package that creates plots from single-case data
-frames ('scdf'). It includes functions for styling single-case plots,
-adding phase-based lines to indicate various statistical parameters, and
-predefined themes for presentations and publications. More information and
-in depth examples can be found in the online book "Analyzing Single-Case
-Data with R and 'scan" Jürgen Wilbert (2025)
-<https://jazznbass.github.io/scan-Book/>.
+An easy-to-use workflow that provides tools to create, update and fill
+literature matrices commonly used in research, specifically epidemiology
+and health sciences research. The project is born out of need as an
+easy–to–use tool for my research methods classes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PhenotypeR
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assess Study Cohorts Using a Common Data Model
 
@@ -14,35 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CodelistGenerator >= 3.3.1
-BuildRequires:    R-CRAN-IncidencePrevalence >= 0.9.0
+BuildRequires:    R-CRAN-CodelistGenerator >= 3.3.2
+BuildRequires:    R-CRAN-IncidencePrevalence >= 1.0.0
+BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
 BuildRequires:    R-CRAN-CohortCharacteristics >= 0.4.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-CohortConstructor >= 0.3.2
-BuildRequires:    R-CRAN-OmopSketch >= 0.1.2
+BuildRequires:    R-CRAN-CohortConstructor >= 0.3.4
+BuildRequires:    R-CRAN-OmopSketch >= 0.2.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-usethis 
-Requires:         R-CRAN-CodelistGenerator >= 3.3.1
-Requires:         R-CRAN-IncidencePrevalence >= 0.9.0
+Requires:         R-CRAN-CodelistGenerator >= 3.3.2
+Requires:         R-CRAN-IncidencePrevalence >= 1.0.0
+Requires:         R-CRAN-omopgenerics >= 0.4.1
 Requires:         R-CRAN-CohortCharacteristics >= 0.4.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-CohortConstructor >= 0.3.2
-Requires:         R-CRAN-OmopSketch >= 0.1.2
+Requires:         R-CRAN-CohortConstructor >= 0.3.4
+Requires:         R-CRAN-OmopSketch >= 0.2.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-usethis 
 
 %description
 Phenotype study cohorts in data mapped to the Observational Medical

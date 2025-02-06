@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scan
-%global packver   0.61.0
+%global packver   0.62.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.61.0
+Version:          0.62.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Case Data Analyses for Single and Multiple Baseline Designs
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-nlme 
@@ -48,11 +48,10 @@ single-case data. These include piecewise linear regression models,
 multilevel models, overlap indices ('PND', 'PEM', 'PAND', 'PET', 'tau-u',
 'baseline corrected tau', 'CDC'), and randomization tests. Data
 preparation functions support outlier detection, handling missing values,
-scaling, truncation, rank transformation, and smoothing. An export
-function helps to generate html and latex tables in a publication friendly
-style. More details can be found in the online book 'Analyzing single-case
-data with R and scan', Juergen Wilbert (2023)
-<https://jazznbass.github.io/scan-Book/>.
+scaling, and custom transformations. An export function helps to generate
+html, word, and latex tables in a publication friendly style. More details
+can be found in the online book 'Analyzing single-case data with R and
+scan', Juergen Wilbert (2025) <https://jazznbass.github.io/scan-Book/>.
 
 %prep
 %setup -q -c -n %{packname}

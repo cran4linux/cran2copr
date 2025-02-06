@@ -1,41 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scplot
-%global packver   0.5.0
+%global packname  SPIChanges
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Function for Single-Case Data Frames
+Summary:          Improves the Interpretation of the Standardized Precipitation Index Under Changing Climate Conditions
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scan >= 0.61.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-spsUtil 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mblm 
-Requires:         R-CRAN-scan >= 0.61.0
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-brglm2 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-spsUtil 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mblm 
+Requires:         R-CRAN-brglm2 
+Requires:         R-CRAN-zoo 
 
 %description
-Add-on for the 'scan' package that creates plots from single-case data
-frames ('scdf'). It includes functions for styling single-case plots,
-adding phase-based lines to indicate various statistical parameters, and
-predefined themes for presentations and publications. More information and
-in depth examples can be found in the online book "Analyzing Single-Case
-Data with R and 'scan" Jürgen Wilbert (2025)
-<https://jazznbass.github.io/scan-Book/>.
+Improves the interpretation of the Standardized Precipitation Index under
+changing climate conditions. The package uses the nonstationary approach
+proposed in Blain et al. (2022) <doi:10.1002/joc.7550> to detect trends in
+rainfall quantities and to quantify the effect of such trends on the
+probability of a drought event occurring.
 
 %prep
 %setup -q -c -n %{packname}

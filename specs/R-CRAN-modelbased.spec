@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelbased
-%global packver   0.8.9
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Model-Based Predictions, Contrasts and Means
 
@@ -17,23 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-effectsize >= 0.8.8
-BuildRequires:    R-CRAN-parameters >= 0.22.2
-BuildRequires:    R-CRAN-insight >= 0.20.5
-BuildRequires:    R-CRAN-bayestestR >= 0.15.0
-BuildRequires:    R-CRAN-datawizard >= 0.13.0
-BuildRequires:    R-CRAN-performance >= 0.12.0
+BuildRequires:    R-CRAN-insight >= 1.0.1
+BuildRequires:    R-CRAN-datawizard >= 1.0.0
+BuildRequires:    R-CRAN-parameters >= 0.24.1
+BuildRequires:    R-CRAN-bayestestR >= 0.15.1
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-effectsize >= 0.8.8
-Requires:         R-CRAN-parameters >= 0.22.2
-Requires:         R-CRAN-insight >= 0.20.5
-Requires:         R-CRAN-bayestestR >= 0.15.0
-Requires:         R-CRAN-datawizard >= 0.13.0
-Requires:         R-CRAN-performance >= 0.12.0
+Requires:         R-CRAN-insight >= 1.0.1
+Requires:         R-CRAN-datawizard >= 1.0.0
+Requires:         R-CRAN-parameters >= 0.24.1
+Requires:         R-CRAN-bayestestR >= 0.15.1
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

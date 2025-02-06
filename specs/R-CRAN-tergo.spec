@@ -1,41 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scplot
-%global packver   0.5.0
+%global packname  tergo
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Function for Single-Case Data Frames
+Summary:          Style Your Code Fast
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-scan >= 0.61.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mblm 
-Requires:         R-CRAN-scan >= 0.61.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mblm 
 
 %description
-Add-on for the 'scan' package that creates plots from single-case data
-frames ('scdf'). It includes functions for styling single-case plots,
-adding phase-based lines to indicate various statistical parameters, and
-predefined themes for presentations and publications. More information and
-in depth examples can be found in the online book "Analyzing Single-Case
-Data with R and 'scan" Jürgen Wilbert (2025)
-<https://jazznbass.github.io/scan-Book/>.
+Provides a set of functions that allow users for styling their R code
+according to the 'tidyverse' style guide. The package uses a native Rust
+implementation to ensure the highest performance. Learn more about 'tergo'
+at <https://rtergo.pagacz.io>.
 
 %prep
 %setup -q -c -n %{packname}

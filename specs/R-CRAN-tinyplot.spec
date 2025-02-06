@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyplot
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight Extension of the Base R Graphics System
 
@@ -19,20 +19,18 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
 
 %description
 Lightweight extension of the base R graphics system, with support for
-automatic legends, facets, and various other enhancements.
+automatic legends, facets, themes, and various other enhancements.
 
 %prep
 %setup -q -c -n %{packname}

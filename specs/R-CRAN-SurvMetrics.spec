@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scplot
-%global packver   0.5.0
+%global packname  SurvMetrics
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Plot Function for Single-Case Data Frames
+Summary:          Predictive Evaluation Metrics in Survival Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-scan >= 0.61.0
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survminer 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-mblm 
-Requires:         R-CRAN-scan >= 0.61.0
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pec 
+Requires:         R-CRAN-survminer 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-mblm 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pec 
 
 %description
-Add-on for the 'scan' package that creates plots from single-case data
-frames ('scdf'). It includes functions for styling single-case plots,
-adding phase-based lines to indicate various statistical parameters, and
-predefined themes for presentations and publications. More information and
-in depth examples can be found in the online book "Analyzing Single-Case
-Data with R and 'scan" Jürgen Wilbert (2025)
-<https://jazznbass.github.io/scan-Book/>.
+An implementation of popular evaluation metrics that are commonly used in
+survival prediction including Concordance Index, Brier Score, Integrated
+Brier Score, Integrated Square Error, Integrated Absolute Error and Mean
+Absolute Error. For a detailed information, see (Ishwaran H, Kogalur UB,
+Blackstone EH and Lauer MS (2008) <doi:10.1214/08-AOAS169>) , (Moradian H,
+Larocque D and Bellavance F (2017) <doi:10.1007/s10985-016-9372-1>),
+(Hanpu Zhou, Hong Wang, Sizheng Wang and Yi Zou (2023)
+<doi:10.32614/rj-2023-009>) for different evaluation metrics.
 
 %prep
 %setup -q -c -n %{packname}

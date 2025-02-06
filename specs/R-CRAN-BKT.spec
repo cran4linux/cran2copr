@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BKT
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Knowledge Tracing Model
 
@@ -33,9 +33,8 @@ Fitting, cross-validating, and predicting with Bayesian Knowledge Tracing
 (BKT) models. It is designed for analyzing educational datasets to trace
 student knowledge over time. The package includes functions for fitting
 BKT models, evaluating their performance using various metrics, and making
-predictions on new data. It provides the same functionality as the Python
-package pyBKT authored by Bulut et al. (2023, <doi:10.3390/psych5030050>)
-and pyBKT can be accessed via the site at
+predictions on new data. It provides the similar functionality as the
+Python package pyBKT authored by Zachary A. Pardos (zp@berkeley.edu) at
 <https://github.com/CAHLR/pyBKT>.
 
 %prep

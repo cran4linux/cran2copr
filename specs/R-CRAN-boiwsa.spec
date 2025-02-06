@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boiwsa
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal Adjustment of Weekly Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-lubridate 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-gridExtra 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-lubridate 
