@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sate
-%global packver   2.2.1
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scientific Analysis of Trial Errors (SATE)
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ellipse 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-survey 
 Requires:         R-stats 
 Requires:         R-CRAN-ellipse 
 Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-survey 
 
 %description
 Bundles functions used to analyze the harmfulness of trial errors in

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gemini.R
-%global packver   0.6.1
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for 'Google Gemini' API
 
@@ -14,17 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-tools 
 
 %description
 Provides a comprehensive interface for Google Gemini API, enabling users

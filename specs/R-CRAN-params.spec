@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  urlparse
-%global packver   0.2.0
+%global packname  params
+%global packver   0.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Simple URL Parser
+Summary:          Simplify Parameters
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-readr >= 1.4.0
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-RcppTOML 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-readr >= 1.4.0
+Requires:         R-CRAN-whisker 
+Requires:         R-utils 
+Requires:         R-CRAN-RcppTOML 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
 
 %description
-A fast and simple 'URL' parser package for 'R'. This package provides
-functions to parse 'URLs' into their components, such as scheme, user,
-password, host, port, path, query, and fragment.
+An interface to simplify organizing parameters used in a package, using
+external configuration files. This attempts to provide a cleaner
+alternative to options().
 
 %prep
 %setup -q -c -n %{packname}

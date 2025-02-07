@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreatmentPatterns
-%global packver   2.7.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzes Real-World Treatment Patterns of a Study Population of Interest
 
@@ -31,6 +31,8 @@ BuildRequires:    R-CRAN-htmlwidgets
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dbplyr 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -45,6 +47,8 @@ Requires:         R-CRAN-htmlwidgets
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dbplyr 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Computes treatment patterns within a given cohort using the Observational

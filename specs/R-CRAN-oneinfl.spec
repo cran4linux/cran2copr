@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cppcontainers
-%global packver   1.0.4
+%global packname  oneinfl
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'C++' Standard Template Library Containers
+Summary:          Estimates OIPP and OIZTNB Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-base >= 4.0.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-base >= 4.0.0
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Use 'C++' Standard Template Library containers interactively in R.
-Includes sets, unordered sets, multisets, unordered multisets, maps,
-unordered maps, multimaps, unordered multimaps, stacks, queues, priority
-queues, vectors, deques, forward lists, and lists.
+Estimates one-inflated positive Poisson (OIPP) and one-inflated
+zero-truncated negative binomial (OIZTNB) regression models. A suite of
+ancillary statistical tools are also provided, including: estimation of
+positive Poisson (PP) and zero-truncated negative binomial (ZTNB) models;
+marginal effects and their standard errors; diagnostic likelihood ratio
+and Wald tests; plotting; predicted counts and expected responses; and
+random variate generation. The models and tools, as well as four
+applications, are shown in Godwin, R. T. (2024). "One-inflated
+zero-truncated count regression models" arXiv preprint
+<doi:10.48550/arXiv.2402.02272>.
 
 %prep
 %setup -q -c -n %{packname}

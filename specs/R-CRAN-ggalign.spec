@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggalign
-%global packver   0.0.5
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-lifecycle 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-cli 
+Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-lifecycle 

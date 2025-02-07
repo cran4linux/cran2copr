@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesianMCPMod
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate, Evaluate, and Analyze Dose Finding Trials with Bayesian MCPMod
 
@@ -20,12 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DoseFinding >= 1.1.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-RBesT 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-DoseFinding >= 1.1.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-RBesT 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPAS
-%global packver   2024.1.31
+%global packver   2025.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.1.31
+Version:          2025.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stratified-Petersen Analysis System
 
@@ -17,20 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-TMB >= 1.7.15
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-msm 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.7.15
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-reshape2 
+Requires:         R-utils 
 
 %description
 The Stratified-Petersen Analysis System (SPAS) is designed to estimate
@@ -46,8 +50,8 @@ describe the use of SPAS in estimating return of salmon stratified by time
 and geography. A related package, BTSPAS, deals with temporal
 stratification where a spline is used to model the distribution of the
 population over time as it passes the second capture location. This is the
-R-version of the (now obsolete) standalone Windows program available at
-<https://home.cs.umanitoba.ca/~popan/spas/spas_home.html>.
+R-version of the (now obsolete) standalone Windows program of the same
+name.
 
 %prep
 %setup -q -c -n %{packname}

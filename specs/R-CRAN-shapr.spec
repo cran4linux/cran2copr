@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SLOS
-%global packver   1.0.1
+%global packname  shapr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          ICU Length of Stay Prediction and Efficiency Evaluation
+Summary:          Prediction Explanation with Dependence-Aware Shapley Values
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,33 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-MLmetrics 
-BuildRequires:    R-CRAN-ems 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-caretEnsemble 
-BuildRequires:    R-CRAN-ranger 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-MLmetrics 
-Requires:         R-CRAN-ems 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-caretEnsemble 
-Requires:         R-CRAN-ranger 
+BuildRequires:    R-CRAN-data.table >= 1.15.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.15
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-data.table >= 1.15.0
+Requires:         R-CRAN-Rcpp >= 0.12.15
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-future.apply 
+Requires:         R-methods 
 
 %description
-Provides tools for predicting ICU length of stay and assessing ICU
-efficiency. It is based on the methodologies proposed by Peres et al.
-(2022, 2023), which utilize data-driven approaches for modeling and
-validation, offering insights into ICU performance and patient outcomes.
-References: Peres et al.
-(2022)<https://pubmed.ncbi.nlm.nih.gov/35988701/>, Peres et al.
-(2023)<https://pubmed.ncbi.nlm.nih.gov/37922007/>. More information:
-<https://github.com/igor-peres/ICU-Length-of-Stay-Prediction>.
+Complex machine learning models are often hard to interpret. However, in
+many situations it is crucial to understand and explain why a model made a
+specific prediction. Shapley values is the only method for such prediction
+explanation framework with a solid theoretical foundation. Previously
+known methods for estimating the Shapley values do, however, assume
+feature independence. This package implements methods which accounts for
+any feature dependence, and thereby produces more accurate estimates of
+the true Shapley values. An accompanying 'Python' wrapper ('shaprpy') is
+available through the GitHub repository.
 
 %prep
 %setup -q -c -n %{packname}

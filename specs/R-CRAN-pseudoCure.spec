@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  urlparse
-%global packver   0.2.0
+%global packname  pseudoCure
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Simple URL Parser
+Summary:          A Pseudo-Observations Approach for Analyzing Survival Data with a Cure Fraction
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-rlang 
 
 %description
-A fast and simple 'URL' parser package for 'R'. This package provides
-functions to parse 'URLs' into their components, such as scheme, user,
-password, host, port, path, query, and fragment.
+A collection of easy-to-use tools for regression analysis of survival data
+with a cure fraction proposed in Su et al. (2022)
+<doi:10.1177/09622802221108579>. The modeling framework is based on the
+Cox proportional hazards mixture cure model and the bounded cumulative
+hazard (promotion time cure) model. The pseudo-observations approach is
+utilized to assess covariate effects and embedded in the variable
+selection procedure.
 
 %prep
 %setup -q -c -n %{packname}

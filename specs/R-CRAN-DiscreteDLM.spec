@@ -1,28 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  urlparse
-%global packver   0.2.0
+%global packname  DiscreteDLM
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Simple URL Parser
+Summary:          Bayesian Distributed Lag Model Fitting for Binary and Count Response Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-dlnm 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-BayesLogit 
+Requires:         R-CRAN-dlnm 
+Requires:         R-splines 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-reshape2 
 
 %description
-A fast and simple 'URL' parser package for 'R'. This package provides
-functions to parse 'URLs' into their components, such as scheme, user,
-password, host, port, path, query, and fragment.
+Tools for fitting Bayesian Distributed Lag Models (DLMs) to longitudinal
+response data that is a count or binary. Count data is fit using negative
+binomial regression and binary is fit using quantile regression. The
+contribution of the lags are fit via b-splines. In addition, infers the
+predictor inclusion uncertainty. Multimomial models are not supported.
+Based on Dempsey and Wyse (2025) <doi:10.48550/arXiv.2403.03646>.
 
 %prep
 %setup -q -c -n %{packname}

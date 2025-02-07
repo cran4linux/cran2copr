@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SomaDataIO
-%global packver   6.1.0
+%global packver   6.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.1.0
+Version:          6.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Input/Output 'SomaScan' Data
 
@@ -19,29 +19,25 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.2
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
-BuildRequires:    R-CRAN-usethis >= 2.0.1
 BuildRequires:    R-CRAN-readxl >= 1.3.1
 BuildRequires:    R-CRAN-tidyr >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-magrittr >= 2.0.1
-Requires:         R-CRAN-usethis >= 2.0.1
 Requires:         R-CRAN-readxl >= 1.3.1
 Requires:         R-CRAN-tidyr >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-crayon 
 Requires:         R-methods 
 
 %description
-Load and export 'SomaScan' data via the 'SomaLogic Operating Co., Inc.'
+Load and export 'SomaScan' data via the 'Standard BioTools, Inc.'
 structured text file called an ADAT ('*.adat'). For file format see
-<https://github.com/SomaLogic/SomaLogic-Data/blob/master/README.md>. The
+<https://github.com/SomaLogic/SomaLogic-Data/blob/main/README.md>. The
 package also exports auxiliary functions for manipulating, wrangling, and
 extracting relevant information from an ADAT object once in memory.
 

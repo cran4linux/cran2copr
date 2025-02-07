@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmeta
-%global packver   3.0-2
+%global packver   3.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
-License:          GPL (>= 2)
+License:          GPL (>= 2) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,22 +23,26 @@ BuildRequires:    R-CRAN-metafor
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-magic 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-meta >= 8.0.1
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-metafor 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-magic 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-colorspace 
 Requires:         R-grid 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
 A comprehensive set of functions providing frequentist methods for network
@@ -70,8 +74,7 @@ Bruggemann, 2014) <doi:10.1002/cem.2569>; (Rücker & Schwarzer, 2017)
 <doi:10.1002/jrsm.1270>; - contribution matrix as described in
 Papakonstantinou et al. (2018) <doi:10.12688/f1000research.14770.3> and
 Davies et al. (2022) <doi:10.1002/sim.9346>; - subgroup network
-meta-analysis. The suggested package 'hasseDiagram' is available from
-<https://github.com/kciomek/hasseDiagram>.
+meta-analysis.
 
 %prep
 %setup -q -c -n %{packname}
