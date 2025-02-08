@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  report
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Reporting of Results and Statistical Models
 
@@ -17,21 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-insight >= 1.0.1
 BuildRequires:    R-CRAN-effectsize >= 1.0.0
-BuildRequires:    R-CRAN-insight >= 1.0.0
-BuildRequires:    R-CRAN-parameters >= 0.24.0
+BuildRequires:    R-CRAN-datawizard >= 1.0.0
+BuildRequires:    R-CRAN-parameters >= 0.24.1
 BuildRequires:    R-CRAN-bayestestR >= 0.15.0
-BuildRequires:    R-CRAN-datawizard >= 0.13.0
-BuildRequires:    R-CRAN-performance >= 0.12.4
+BuildRequires:    R-CRAN-performance >= 0.13.0
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-insight >= 1.0.1
 Requires:         R-CRAN-effectsize >= 1.0.0
-Requires:         R-CRAN-insight >= 1.0.0
-Requires:         R-CRAN-parameters >= 0.24.0
+Requires:         R-CRAN-datawizard >= 1.0.0
+Requires:         R-CRAN-parameters >= 0.24.1
 Requires:         R-CRAN-bayestestR >= 0.15.0
-Requires:         R-CRAN-datawizard >= 0.13.0
-Requires:         R-CRAN-performance >= 0.12.4
+Requires:         R-CRAN-performance >= 0.13.0
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 

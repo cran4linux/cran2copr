@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LatticeDesign
-%global packver   2.0-5
+%global packver   3.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lattice-Based Space-Filling Designs
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
 Requires:         R-methods 
 
@@ -24,11 +24,14 @@ Lattice-based space-filling designs with fill or separation distance
 properties including interleaved lattice-based minimax distance designs
 proposed in Xu He (2017) <doi:10.1093/biomet/asx036>, interleaved
 lattice-based maximin distance designs proposed in Xu He (2018)
-<doi:10.1093/biomet/asy069>, (sliced) rotated sphere packing designs
-proposed in Xu He (2017) <doi:10.1080/01621459.2016.1222289> and Xu He
-(2019) <doi:10.1080/00401706.2018.1458655>, and densest packing-based
-maximum projections designs proposed in Xu He (2020)
-<doi:10.1093/biomet/asaa057> and Xu He (2018) <arXiv:1709.02062v2>.
+<doi:10.1093/biomet/asy069>, interleaved lattice-based designs with low
+fill and high separation distance properties proposed in Xu He (2024)
+<doi:10.1137/23M156940X>, rotated sphere packing designs proposed in Xu He
+(2017) <doi:10.1080/01621459.2016.1222289>, sliced rotated sphere packing
+designs proposed in Xu He (2019) <doi:10.1080/00401706.2018.1458655>, and
+densest packing-based maximum projections designs proposed in Xu He (2021)
+<doi:10.1093/biomet/asaa057> and Xu He (2018)
+<doi:10.48550/arXiv.1709.02062>.
 
 %prep
 %setup -q -c -n %{packname}

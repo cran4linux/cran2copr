@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  galah
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Data from the GBIF Node Network
 
@@ -34,6 +34,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-glue >= 1.3.2
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-jsonlite >= 0.9.8
@@ -51,6 +52,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
 The Global Biodiversity Information Facility ('GBIF',

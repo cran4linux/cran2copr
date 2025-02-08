@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  StepReg
-%global packver   1.5.7
+%global packver   1.5.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.5.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Regression Analysis
 
@@ -53,21 +53,18 @@ Requires:         R-CRAN-shinycssloaders
 Requires:         R-CRAN-shinyjs 
 
 %description
-The stepwise regression analysis is a statistical technique used to
-identify a subset of predictor variables essential for constructing
-predictive models. This package performs stepwise regression analysis
-across various regression models such as linear, logistic, Cox
-proportional hazards, Poisson, Gamma, and negative binomial regression. It
-incorporates diverse stepwise regression algorithms like forward
-selection, backward elimination, and bidirectional elimination alongside
-the best subset method. Additionally, it offers a wide range of selection
-criteria, including Akaike Information Criterion (AIC), Sawa Bayesian
-Information Criterion (BIC), and Significance Levels (SL). We validated
-the output accuracy of StepReg using public datasets within the SAS
-software environment. To facilitate efficient model comparison and
-selection, StepReg allows for multiple strategies and selection metrics to
-be executed in a single function call. Moreover, StepReg integrates a
-Shiny application for interactive regression analysis, broadening its
+Stepwise regression is a statistical technique used for model selection.
+This package streamlines stepwise regression analysis by supporting
+multiple regression types, incorporating popular selection strategies, and
+offering essential metrics. It enables users to apply multiple selection
+strategies and metrics in a single function call, visualize variable
+selection processes, and export results in various formats. However,
+StepReg should not be used for statistical inference unless the variable
+selection process is explicitly accounted for, as it can compromise the
+validity of the results. This limitation does not apply when StepReg is
+used for prediction purposes. We validated StepReg's accuracy using public
+datasets within the SAS software environment. Additionally, StepReg
+features an interactive Shiny application to enhance usability and
 accessibility.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  synthesizer
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthesize Data Based on Empirical Quantile Functions and Rank Order Matching
 
@@ -23,10 +23,11 @@ Requires:         R-stats
 Requires:         R-CRAN-randomForest 
 
 %description
-Data is synthesized using a combination of inverse transform sampling from
-the empirical quantile functions for each variable, and then copying the
-rank order structure from the original dataset. The package also includes
-a number of functions to measure the utility of synthesized datasets.
+Data is synthesized using a combination of inverse transform sampling
+using the empirical quantile functions for each variable, and then copying
+the rank order structure from the original dataset. The syntesizer method
+has a tunable parameter allowing to gradually move from realistic and
+possibly unsafe synthetic data to decorrelated data of less utility.
 
 %prep
 %setup -q -c -n %{packname}

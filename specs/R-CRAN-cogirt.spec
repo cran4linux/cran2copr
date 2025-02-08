@@ -1,36 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  faraway
-%global packver   1.0.9
+%global packname  cogirt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets and Functions for Books by Julian Faraway
+Summary:          Cognitive Testing Using Item Response Theory
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-methods 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-parallel 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Books are "Linear Models with R" published 1st Ed. August 2004, 2nd Ed.
-July 2014, 3rd Ed. February 2025 by CRC press, ISBN 9781439887332, and
-"Extending the Linear Model with R" published by CRC press in 1st Ed.
-December 2005 and 2nd Ed. March 2016, ISBN 9781584884248 and "Practical
-Regression and ANOVA in R" contributed documentation on CRAN (now very
-dated).
+Psychometrically analyze latent individual differences related to tasks,
+interventions, or maturational/aging effects in the context of
+experimental or longitudinal cognitive research using methods first
+described by Thomas et al. (2020) <doi:10.1177/0013164420919898>.
 
 %prep
 %setup -q -c -n %{packname}

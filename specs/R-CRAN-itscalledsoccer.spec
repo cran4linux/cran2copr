@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  itscalledsoccer
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          American Soccer Analysis API Client
 
@@ -26,10 +26,9 @@ BuildRequires:    R-CRAN-glue >= 1.4.1
 BuildRequires:    R-CRAN-httpcache >= 1.2.0
 BuildRequires:    R-CRAN-data.table >= 1.13.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.1
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-clisymbols 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-R6 >= 2.5.0
 Requires:         R-CRAN-magrittr >= 2.0.0
@@ -40,10 +39,9 @@ Requires:         R-CRAN-glue >= 1.4.1
 Requires:         R-CRAN-httpcache >= 1.2.0
 Requires:         R-CRAN-data.table >= 1.13.0
 Requires:         R-CRAN-tidyr >= 1.1.1
-Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-clisymbols 
+Requires:         R-CRAN-cli 
 Requires:         R-methods 
 
 %description

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GaussSuppression
-%global packver   0.9.5
+%global packname  stochtree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tabular Data Suppression using Gaussian Elimination
+Summary:          Stochastic Tree Ensembles (XBART and BART) for Supervised Learning and Causal Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,32 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-SSBtools >= 1.7.0
-BuildRequires:    R-CRAN-RegSDC >= 0.7.0
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-SSBtools >= 1.7.0
-Requires:         R-CRAN-RegSDC >= 0.7.0
+BuildRequires:    R-CRAN-cpp11 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-R6 
 Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-Matrix 
 
 %description
-A statistical disclosure control tool to protect tables by suppression
-using the Gaussian elimination secondary suppression algorithm (Langsrud,
-2024) <doi:10.1007/978-3-031-69651-0_6>. A suggestion is to start by
-working with functions SuppressSmallCounts() and SuppressDominantCells().
-These functions use primary suppression functions for the minimum
-frequency rule and the dominance rule, respectively. Novel functionality
-for suppression of disclosive cells is also included. General primary
-suppression functions can be supplied as input to the general working
-horse function, GaussSuppressionFromData(). Suppressed frequencies can be
-replaced by synthetic decimal numbers as described in Langsrud (2019)
-<doi:10.1007/s11222-018-9848-9>.
+Flexible stochastic tree ensemble software. Robust implementations of
+Bayesian Additive Regression Trees (BART) Chipman, George, McCulloch
+(2010) <doi:10.1214/09-AOAS285> for supervised learning and Bayesian
+Causal Forests (BCF) Hahn, Murray, Carvalho (2020) <doi:10.1214/19-BA1195>
+for causal inference. Enables model serialization and parallel sampling
+and provides a low-level interface for custom stochastic forest samplers.
 
 %prep
 %setup -q -c -n %{packname}

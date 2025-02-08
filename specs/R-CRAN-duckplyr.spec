@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  duckplyr
-%global packver   0.4.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'DuckDB'-Backed Version of 'dplyr'
 
@@ -14,40 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pillar >= 1.10.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-duckdb >= 1.1.3.2
 BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-vctrs >= 0.6.3
-BuildRequires:    R-CRAN-duckdb >= 0.10.2
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-collections 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-pillar >= 1.10.1
 Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-duckdb >= 1.1.3.2
 Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-vctrs >= 0.6.3
-Requires:         R-CRAN-duckdb >= 0.10.2
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-collections 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-utils 
 
 %description
 A drop-in replacement for 'dplyr', powered by 'DuckDB' for performance.
-Also defines a set of generics that provide a low-level implementer's
-interface for the high-level user interface of 'dplyr'.
+Offers convenient utilities for working with in-memory and
+larger-than-memory data while retaining full 'dplyr' compatibility.
 
 %prep
 %setup -q -c -n %{packname}

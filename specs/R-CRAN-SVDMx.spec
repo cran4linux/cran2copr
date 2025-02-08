@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  faraway
-%global packver   1.0.9
+%global packname  SVDMx
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets and Functions for Books by Julian Faraway
+Summary:          Child/Child-Adult Mortality-Indexed Model Mortality Age Schedules
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-methods 
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-nlme 
 
 %description
-Books are "Linear Models with R" published 1st Ed. August 2004, 2nd Ed.
-July 2014, 3rd Ed. February 2025 by CRC press, ISBN 9781439887332, and
-"Extending the Linear Model with R" published by CRC press in 1st Ed.
-December 2005 and 2nd Ed. March 2016, ISBN 9781584884248 and "Practical
-Regression and ANOVA in R" contributed documentation on CRAN (now very
-dated).
+Model age schedules of mortality, nqx, suitable for a life table. This
+package implements the SVD-Comp mortality model indexed by either child or
+child/adult mortality. Given input value(s) of either 5q0 or (5q0, 45q15),
+the qx() function generates single-year 1qx or 5-year 5qx conditional
+age-specific probabilities of dying. See Clark (2016)
+<doi:10.48550/arXiv.1612.01408> and Clark (2019)
+<doi:10.1007/s13524-019-00785-3>.
 
 %prep
 %setup -q -c -n %{packname}
