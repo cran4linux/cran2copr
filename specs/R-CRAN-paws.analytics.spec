@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  paws.analytics
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Amazon Web Services' Analytics Services
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paws.common >= 0.7.5
-Requires:         R-CRAN-paws.common >= 0.7.5
+BuildRequires:    R-CRAN-paws.common >= 0.8.0
+Requires:         R-CRAN-paws.common >= 0.8.0
 
 %description
 Interface to 'Amazon Web Services' 'analytics' services, including

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  labeleR
-%global packver   0.1.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automate the Production of Custom Labels, Badges, Certificates, and Other Documents
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -22,10 +22,11 @@ Requires:         R-CRAN-rmarkdown
 
 %description
 Create custom labels, badges, certificates and other documents. Automate
-the production of potentially large numbers of accreditation badges,
-attendance and participation certificates, herbarium and collection
-labels, etc. Documents are generated in PDF format, which requires a
-working installation of 'LaTeX', such as 'TinyTeX'.
+the production of potentially large numbers of herbarium and collection
+labels, accreditation badges, attendance and participation certificates,
+etc, and deliver them automatically. Documents are generated in PDF
+format, which requires a working installation of 'LaTeX', such as
+'TinyTeX'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wbids
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seamless Access to World Bank International Debt Statistics (IDS)
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-mime 
 Requires:         R-CRAN-httr2 >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr >= 1.0.0
@@ -31,9 +32,10 @@ Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-mime 
 
 %description
-Access and analyze the World Bank’s International Debt Statistics (IDS)
+Access and analyze the World Bank's International Debt Statistics (IDS)
 <https://datacatalog.worldbank.org/search/dataset/0038015>. IDS provides
 creditor-debtor relationships between countries, regions, and
 institutions. 'wbids' enables users to download, process and work with IDS

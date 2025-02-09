@@ -1,41 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RLescalation
-%global packver   1.0.2
+%global packname  rticulate
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Dose Escalation Using Deep Reinforcement Learning
+Summary:          Ultrasound Tongue Imaging
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-nleqslv 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-gsignal 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-nleqslv 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-gsignal 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-An implementation to compute an optimal dose escalation rule using deep
-reinforcement learning in phase I oncology trials (Matsuura et al. (2023)
-<doi:10.1080/10543406.2023.2170402>). The dose escalation rule can
-directly optimize the percentages of correct selection (PCS) of the
-maximum tolerated dose (MTD).
+A tool for processing Articulate Assistant Advanced™ (AAA) export files
+and plot tongue contour data from any system.
 
 %prep
 %setup -q -c -n %{packname}

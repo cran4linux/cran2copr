@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robmed
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          (Robust) Mediation Analysis
 
@@ -39,7 +39,9 @@ Perform mediation analysis via the fast-and-robust bootstrap test ROBMED
 (Alfons, Ates & Groenen, 2022a; <doi:10.1177/1094428121999096>), as well
 as various other methods. Details on the implementation and code examples
 can be found in Alfons, Ates, and Groenen (2022b)
-<doi:10.18637/jss.v103.i13>.
+<doi:10.18637/jss.v103.i13>. Further discussion on robust mediation
+analysis can be found in Alfons & Schley (2024)
+<doi:10.31234/osf.io/2hqdy>.
 
 %prep
 %setup -q -c -n %{packname}
