@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shiny2docker
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate Dockerfiles for 'Shiny' Applications
 
@@ -18,10 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-attachment >= 0.4.3
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dockerfiler 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-yesno 
 Requires:         R-CRAN-attachment >= 0.4.3
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dockerfiler 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-yesno 
@@ -31,7 +33,8 @@ Automates the creation of Dockerfiles for deploying 'Shiny' applications.
 By integrating with 'renv' for dependency management and leveraging
 Docker-based solutions, it simplifies the process of containerizing
 'Shiny' apps, ensuring reproducibility and consistency across different
-environments.
+environments. Additionally, it facilitates the setup of CI/CD pipelines
+for building Docker images on both GitLab and GitHub.
 
 %prep
 %setup -q -c -n %{packname}

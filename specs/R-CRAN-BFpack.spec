@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFpack
-%global packver   1.4.0
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -59,17 +59,20 @@ that can be tested are location parameters (e.g., group means, regression
 coefficients), variances (e.g., group variances), and measures of
 association (e.g,. polychoric/polyserial/biserial/tetrachoric/product
 moments correlations), among others. The statistical underpinnings are
-described in Mulder and Xin (2022) <DOI:10.1080/00273171.2021.1904809>,
-Mulder and Gelissen (2019) <DOI:10.1080/02664763.2021.1992360>, Mulder
-(2016) <DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
+described in O'Hagan (1995) <DOI:10.1111/j.2517-6161.1995.tb02017.x>, De
+Santis and Spezzaferri (2001) <DOI:10.1016/S0378-3758(00)00240-8>, Mulder
+and Xin (2022) <DOI:10.1080/00273171.2021.1904809>, Mulder and Gelissen
+(2019) <DOI:10.1080/02664763.2021.1992360>, Mulder (2016)
+<DOI:10.1016/j.jmp.2014.09.004>, Mulder and Fox (2019)
 <DOI:10.1214/18-BA1115>, Mulder and Fox (2013)
 <DOI:10.1007/s11222-011-9295-3>, Boeing-Messing, van Assen, Hofman,
 Hoijtink, and Mulder (2017) <DOI:10.1037/met0000116>, Hoijtink, Mulder,
 van Lissa, and Gu (2018) <DOI:10.1037/met0000201>, Gu, Mulder, and
 Hoijtink (2018) <DOI:10.1111/bmsp.12110>, Hoijtink, Gu, and Mulder (2018)
 <DOI:10.1111/bmsp.12145>, and Hoijtink, Gu, Mulder, and Rosseel (2018)
-<DOI:10.1037/met0000187>. When using the packages, please refer to Mulder
-et al. (2021) <DOI:10.18637/jss.v100.i18>.
+<DOI:10.1037/met0000187>. When using the packages, please refer to the
+package Mulder et al. (2021) <DOI:10.18637/jss.v100.i18> and the relevant
+methodological papers.
 
 %prep
 %setup -q -c -n %{packname}

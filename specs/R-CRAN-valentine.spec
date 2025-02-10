@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  valentine
-%global packver   2024.2.14
+%global packver   2025.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.2.14
+Version:          2025.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spread the Love for R Packages with Poetry
 
@@ -17,16 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ellmer 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-openai 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ellmer 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-openai 
+Requires:         R-CRAN-rlang 
 
 %description
-Uses 'ChatGPT' <https://openai.com/> to create poems about R packages.
-Currently contains the roses() function to make "roses are red, ..." style
-poems and the prompt() function to only assemble the prompt without
-submitting it to 'ChatGPT'.
+Uses large language models to create poems about R packages. Currently
+contains the roses() function to make "roses are red, ..." style poems and
+the prompt() function to only assemble the prompt without submitting it to
+the model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multpois
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze Nominal Response Data with the Multinomial-Poisson Trick
 
@@ -41,7 +41,7 @@ are then analyzed using (mixed) Poisson regression as per Baker (1994)
 <doi:10.2307/2348134>. Omnibus analyses of variance can be run along with
 post hoc pairwise comparisons. For users wishing to analyze nominal
 responses from surveys or experiments, the functions in this package
-essentially act as though stats::glm() or lme4::glmer() had a
+essentially act as though stats::glm() or lme4::glmer() provide a
 family=multinomial option.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spacesXYZ
-%global packver   1.4-0
+%global packver   1.5-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          CIE XYZ and some of Its Derived Color Spaces
 
@@ -25,7 +25,8 @@ Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
 Correlated Color Temperature (CCT) and the Planckian and daylight loci.
 The XYZs of some standard illuminants and some standard linear chromatic
 adaptation transforms (CATs) are included. Three standard color difference
-metrics are included.
+metrics are included, plus the forward direction of the 'CIECAM02' color
+appearance model.
 
 %prep
 %setup -q -c -n %{packname}
