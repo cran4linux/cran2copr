@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rrepest
-%global packver   1.3.0
+%global packver   1.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Analyzer of International Large Scale Assessments in Education
 
@@ -45,16 +45,17 @@ Requires:         R-CRAN-officer >= 0.6.2
 Requires:         R-CRAN-purrr >= 0.3.4
 
 %description
-A fast way to analyze International Large-Scale Assessments (ILSAs) or any
-other dataset that includes replicated weights (Balanced Repeated
-Replication (BRR) weights, Jackknife replicate weights,...) and/or
-plausible values. 'Rrepest' contains functionalities that enable you to
-calculate basic statistics (means, correlations, etc.), frequencies,
-linear regression, or any other model already implemented in R that takes
-a data frame and weights as parameters. It also includes options to
-prepare the results for publication, following the table formatting
-standards of the Organization for Economic Cooperation and Development
-(OECD).
+An easy way to analyze international large-scale assessments and surveys
+in education or any other dataset that includes replicated weights
+(Balanced Repeated Replication (BRR) weights, Jackknife replicate
+weights,...). It also allows for analyses with multiply imputed variables
+(plausible values). It supports the estimation of univariate statistics
+(e.g. mean, variance, standard deviation, quantiles), frequencies,
+correlation, linear regression and any other model already implemented in
+R that takes a data frame and weights as parameters. It also includes
+options to prepare the results for publication, following the table
+formatting standards of the Organization for Economic Cooperation and
+Development (OECD).
 
 %prep
 %setup -q -c -n %{packname}

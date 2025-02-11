@@ -1,36 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  misuvi
+%global packname  TSLA
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Michigan Substance Use Vulnerability Index (MI-SUVI)
+Summary:          Tree-Guided Rare Feature Selection and Logic Aggregation
 
-License:          CC0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tigris 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tigris 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-PRROC 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-PRROC 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-data.tree 
 
 %description
-Easily import the MI-SUVI data sets. The user can import data sets with
-full metrics, percentiles, Z-scores, or rankings. Data is available at
-both the County and Zip Code Tabulation Area (ZCTA) levels. This package
-also includes a function to import shape files for easy mapping and a
-function to access the full technical documentation. All data is sourced
-from the Michigan Department of Health and Human Services.
+Implementation of the tree-guided feature selection and logic aggregation
+approach introduced in Chen et al. (2024)
+<doi:10.1080/01621459.2024.2326621>. The method enables the selection and
+aggregation of large-scale rare binary features with a known hierarchical
+structure using a convex, linearly-constrained regularized regression
+framework. The package facilitates the application of this method to both
+linear regression and binary classification problems by solving the
+optimization problem via the smoothing proximal gradient descent algorithm
+(Chen et al. (2012) <doi:10.1214/11-AOAS514>).
 
 %prep
 %setup -q -c -n %{packname}

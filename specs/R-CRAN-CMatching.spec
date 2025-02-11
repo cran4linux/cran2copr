@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  misuvi
-%global packver   0.1.1
+%global packname  CMatching
+%global packver   2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Michigan Substance Use Vulnerability Index (MI-SUVI)
+Summary:          Matching Algorithms for Causal Inference with Clustered Data
 
-License:          CC0
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tigris 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tigris 
+BuildRequires:    R-CRAN-Matching 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-multiwayvcov 
+BuildRequires:    R-CRAN-lme4 
+Requires:         R-CRAN-Matching 
+Requires:         R-stats 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-multiwayvcov 
+Requires:         R-CRAN-lme4 
 
 %description
-Easily import the MI-SUVI data sets. The user can import data sets with
-full metrics, percentiles, Z-scores, or rankings. Data is available at
-both the County and Zip Code Tabulation Area (ZCTA) levels. This package
-also includes a function to import shape files for easy mapping and a
-function to access the full technical documentation. All data is sourced
-from the Michigan Department of Health and Human Services.
+Provides functions to perform matching algorithms for causal inference
+with clustered data, as described in B. Arpino and M. Cannas (2016)
+<doi:10.1002/sim.6880>. Pure within-cluster and preferential
+within-cluster matching are implemented. Both algorithms provide causal
+estimates with cluster-adjusted estimates of standard errors.
 
 %prep
 %setup -q -c -n %{packname}

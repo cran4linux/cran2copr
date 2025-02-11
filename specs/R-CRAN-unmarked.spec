@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  unmarked
-%global packver   1.4.3
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models for Data from Unmarked Animals
 
@@ -20,11 +20,11 @@ BuildRequires:    R-CRAN-TMB >= 1.7.18
 BuildRequires:    R-CRAN-Rcpp >= 0.8.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -33,11 +33,11 @@ Requires:         R-CRAN-TMB >= 1.7.18
 Requires:         R-CRAN-Rcpp >= 0.8.0
 Requires:         R-graphics 
 Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-parallel 
+Requires:         R-CRAN-reformulas 
 Requires:         R-stats 
 Requires:         R-utils 
 

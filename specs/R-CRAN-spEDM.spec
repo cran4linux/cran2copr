@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spEDM
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Empirical Dynamic Modeling
 
@@ -33,10 +33,12 @@ Requires:         R-CRAN-sf
 Requires:         R-CRAN-terra 
 
 %description
-Inferring causal associations in cross-sectional earth system data with
-extensions to convergent cross mapping from Sugihara et al. (2012)
-<doi:10.1126/science.1227079> and partial cross mapping as described in Ma
-et al. (2020) <doi:10.1038/s41467-020-16238-0>.
+Inferring causal associations in cross-sectional earth system data through
+empirical dynamic modeling (EDM), with extensions to convergent cross
+mapping from Sugihara et al. (2012) <doi:10.1126/science.1227079>, partial
+cross mapping as outlined in Leng et al. (2020)
+<doi:10.1038/s41467-020-16238-0>, and cross mapping cardinality as
+described in Tao et al. (2023)<doi:10.1016/j.fmre.2023.01.007>.
 
 %prep
 %setup -q -c -n %{packname}

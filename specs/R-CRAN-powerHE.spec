@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  misuvi
-%global packver   0.1.1
+%global packname  powerHE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Michigan Substance Use Vulnerability Index (MI-SUVI)
+Summary:          Power and Sample Size Calculations with Hierarchical Endpoints
 
-License:          CC0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tigris 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tigris 
+BuildRequires:    R-CRAN-skellam 
+Requires:         R-CRAN-skellam 
 
 %description
-Easily import the MI-SUVI data sets. The user can import data sets with
-full metrics, percentiles, Z-scores, or rankings. Data is available at
-both the County and Zip Code Tabulation Area (ZCTA) levels. This package
-also includes a function to import shape files for easy mapping and a
-function to access the full technical documentation. All data is sourced
-from the Michigan Department of Health and Human Services.
+Calculate sample size or power for hierarchical endpoints. The package can
+handle any type of outcomes (binary, continuous, count, ordinal,
+time-to-event) and any number of such endpoints. It allows users to
+calculate sample size with a given power or to calculate power with a
+given sample size for hypothesis testing based on win ratios, win odds,
+net benefit, or DOOR (desirability of outcome ranking) as treatment effect
+between two groups for hierarchical endpoints. The methods of this package
+are described further in the paper by Barnhart, H. X. et al. (2024,
+<doi:10.1080/19466315.2024.2365629>).
 
 %prep
 %setup -q -c -n %{packname}

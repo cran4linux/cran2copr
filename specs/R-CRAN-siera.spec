@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  misuvi
-%global packver   0.1.1
+%global packname  siera
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Michigan Substance Use Vulnerability Index (MI-SUVI)
+Summary:          Generate Analysis Results Programmes Using ARS Metadata
 
-License:          CC0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tigris 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tigris 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
 
 %description
-Easily import the MI-SUVI data sets. The user can import data sets with
-full metrics, percentiles, Z-scores, or rankings. Data is available at
-both the County and Zip Code Tabulation Area (ZCTA) levels. This package
-also includes a function to import shape files for easy mapping and a
-function to access the full technical documentation. All data is sourced
-from the Michigan Department of Health and Human Services.
+Analysis Results Standard (ARS), a foundational standard by CDISC
+(Clinical Data Interchange Standards Consortium), provides a logical data
+model for metadata describing all components to calculate Analysis
+Results.
+<https://www.cdisc.org/standards/foundational/analysis-results-standard>
+Using 'siera' package, ARS metadata is ingested (JSON or Excel format),
+producing programmes to generate Analysis Results Datasets (ARDs).
 
 %prep
 %setup -q -c -n %{packname}

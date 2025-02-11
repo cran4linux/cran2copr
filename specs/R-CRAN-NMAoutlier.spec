@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NMAoutlier
-%global packver   0.1.18
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.18
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detecting Outliers in Network Meta-Analysis
 
@@ -16,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0.0
 Requires:         R-core >= 3.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-meta >= 8.0.1
 BuildRequires:    R-CRAN-MASS >= 7.3.47
-BuildRequires:    R-CRAN-meta >= 4.19.1
 BuildRequires:    R-stats >= 3.4.3
 BuildRequires:    R-parallel >= 3.4.1
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
 BuildRequires:    R-CRAN-reshape2 >= 1.4.3
 BuildRequires:    R-CRAN-netmeta >= 0.9.7
+Requires:         R-CRAN-meta >= 8.0.1
 Requires:         R-CRAN-MASS >= 7.3.47
-Requires:         R-CRAN-meta >= 4.19.1
 Requires:         R-stats >= 3.4.3
 Requires:         R-parallel >= 3.4.1
 Requires:         R-CRAN-ggplot2 >= 3.0.0

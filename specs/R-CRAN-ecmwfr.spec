@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecmwfr
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'ECMWF' and 'CDS' Data Web Services
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-memoise
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-keyring 
+Requires:         R-tools 
 
 %description
 Programmatic interface to the European Centre for Medium-Range Weather

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  terra
-%global packver   1.8-15
+%global packver   1.8-21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.15
+Version:          1.8.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Data Analysis
 

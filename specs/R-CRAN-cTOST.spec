@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cTOST
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finite Sample Correction of the Two One-Sided Tests in the Univariate Framework
 
@@ -20,12 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-PowerTOST 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-OwenQ 
 BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-PowerTOST 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-OwenQ 
 Requires:         R-CRAN-rmarkdown 
 
 %description
