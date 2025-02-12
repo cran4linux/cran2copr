@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMR
-%global packver   0.1.2
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for Large Language Model APIs in R
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-purrr 
@@ -31,10 +31,11 @@ for details), 'Anthropic' (see
 <https://docs.anthropic.com/en/api/getting-started> for details), 'Groq'
 (see <https://console.groq.com/docs/api-reference> for details), 'Together
 AI' (see <https://docs.together.ai/docs/quickstart> for details),
-'DeepSeek' (see <https://api-docs.deepseek.com> for details), and 'Voyage
-AI' (see <https://docs.voyageai.com/docs/introduction> for details).
-Allows users to configure API parameters, send messages, and retrieve
-responses seamlessly within R.
+'DeepSeek' (see <https://api-docs.deepseek.com> for details), 'Gemini'
+(see <https://aistudio.google.com> for details), and 'Voyage AI' (see
+<https://docs.voyageai.com/docs/introduction> for details). Allows users
+to configure API parameters, send messages, and retrieve responses
+seamlessly within R.
 
 %prep
 %setup -q -c -n %{packname}

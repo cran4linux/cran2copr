@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsurveillance
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools and 'ggplot2' Extensions for Infectious Disease Surveillance and Outbreak Investigation
+Summary:          Tools for Outbreak Investigation/Infectious Disease Surveillance
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -47,7 +47,7 @@ Requires:         R-CRAN-tsibble
 %description
 Create epicurves or epigantt charts in 'ggplot2'. Prepare data for
 visualisation or other reporting for infectious disease surveillance and
-outbreak investigation.  Includes functions to solve date based
+outbreak investigation. Includes tidy functions to solve date based
 transformations for common reporting tasks, like (A) seasonal date
 alignment for respiratory disease surveillance, (B) date-based case
 binning based on specified time intervals like isoweek, epiweek, month and

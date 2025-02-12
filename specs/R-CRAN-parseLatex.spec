@@ -1,37 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamselBayes
-%global packver   2.0-2
+%global packname  parseLatex
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Additive Model Selection
+Summary:          Parse 'LaTeX' Code
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-Generalized additive model selection via approximate Bayesian inference is
-provided. Bayesian mixed model-based penalized splines with
-spike-and-slab-type coefficient prior distributions are used to facilitate
-fitting and selection. The approximate Bayesian inference engine options
-are: (1) Markov chain Monte Carlo and (2) mean field variational Bayes.
-Markov chain Monte Carlo has better Bayesian inferential accuracy, but
-requires a longer run-time. Mean field variational Bayes is faster, but
-less accurate. The methodology is described in He and Wand (2024)
-<doi:10.1007/s10182-023-00490-y>.
+Exports an enhanced version of the tools::parseLatex() function to handle
+'LaTeX' syntax more accurately.  Also includes numerous functions for
+searching and modifying 'LaTeX' source.
 
 %prep
 %setup -q -c -n %{packname}

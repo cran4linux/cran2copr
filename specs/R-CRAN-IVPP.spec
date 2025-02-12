@@ -1,37 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamselBayes
-%global packver   2.0-2
+%global packname  IVPP
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Additive Model Selection
+Summary:          Invariance Partial Pruning Test
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-bootnet 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-psychonetrics 
+BuildRequires:    R-CRAN-graphicalVAR 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-bootnet 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-psychonetrics 
+Requires:         R-CRAN-graphicalVAR 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Generalized additive model selection via approximate Bayesian inference is
-provided. Bayesian mixed model-based penalized splines with
-spike-and-slab-type coefficient prior distributions are used to facilitate
-fitting and selection. The approximate Bayesian inference engine options
-are: (1) Markov chain Monte Carlo and (2) mean field variational Bayes.
-Markov chain Monte Carlo has better Bayesian inferential accuracy, but
-requires a longer run-time. Mean field variational Bayes is faster, but
-less accurate. The methodology is described in He and Wand (2024)
-<doi:10.1007/s10182-023-00490-y>.
+An implementation of the Invariance Partial Pruning (IVPP) approach
+described in Du, X., Johnson, S. U., Epskamp, S. (in prep)to comparing
+idiographic and panel network models. IVPP is a two-step method that first
+test for global network structural difference with invariance test and
+then inspect specific edge difference with partial pruning.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,37 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamselBayes
-%global packver   2.0-2
+%global packname  echos
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Additive Model Selection
+Summary:          Echo State Networks for Time Series Modeling and Forecasting
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-distributional 
+BuildRequires:    R-CRAN-forecast 
+Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-distributional 
+Requires:         R-CRAN-forecast 
 
 %description
-Generalized additive model selection via approximate Bayesian inference is
-provided. Bayesian mixed model-based penalized splines with
-spike-and-slab-type coefficient prior distributions are used to facilitate
-fitting and selection. The approximate Bayesian inference engine options
-are: (1) Markov chain Monte Carlo and (2) mean field variational Bayes.
-Markov chain Monte Carlo has better Bayesian inferential accuracy, but
-requires a longer run-time. Mean field variational Bayes is faster, but
-less accurate. The methodology is described in He and Wand (2024)
-<doi:10.1007/s10182-023-00490-y>.
+Provides a lightweight implementation of functions and methods for fast
+and fully automatic time series modeling and forecasting using Echo State
+Networks (ESNs).
 
 %prep
 %setup -q -c -n %{packname}

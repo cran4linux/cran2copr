@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nephro
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Nephrology
 
@@ -19,8 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Set of functions to estimate kidney function and other phenotypes of
-interest in nephrology based on different biomechimal traits.
+Set of functions to estimate kidney function and other traits of interest
+in nephrology.
 
 %prep
 %setup -q -c -n %{packname}

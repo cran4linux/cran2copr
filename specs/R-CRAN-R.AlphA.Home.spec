@@ -1,48 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  statgenMPP
-%global packver   1.0.4
+%global packname  R.AlphA.Home
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          QTL Mapping for Multi Parent Populations
+Summary:          Feel at Home using R, Thanks to Shortcuts Functions Making it Simple
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statgenGWAS >= 1.0.9
-BuildRequires:    R-CRAN-statgenIBD >= 1.0.8
-BuildRequires:    R-CRAN-LMMsolver >= 1.0.5
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-spam 
-Requires:         R-CRAN-statgenGWAS >= 1.0.9
-Requires:         R-CRAN-statgenIBD >= 1.0.8
-Requires:         R-CRAN-LMMsolver >= 1.0.5
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-stringr 
+Requires:         R-grDevices 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-spam 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-magrittr 
 
 %description
-For Multi Parent Populations (MPP) Identity By Descend (IBD) probabilities
-are computed using Hidden Markov Models. These probabilities are then used
-in a mixed model approach for QTL Mapping as described in Li et al.
-(<doi:10.1007/s00122-021-03919-7>).
+A collection of personal functions designed to simplify and streamline
+common R programming tasks. This package provides reusable tools and
+shortcuts for frequently used calculations and workflows.
 
 %prep
 %setup -q -c -n %{packname}

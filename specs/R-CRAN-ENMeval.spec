@@ -1,52 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ENMeval
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Tuning and Evaluations of Ecological Niche Models
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-predicts >= 0.1.16
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-maxnet 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-rangeModelMetadata 
 BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-predicts >= 0.1.16
 Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-maxnet 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-grDevices 
-Requires:         R-CRAN-maxnet 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
@@ -61,7 +55,7 @@ returns data tables to aid in selection of optimal model settings that
 balance goodness-of-fit and model complexity. Also has functions to
 partition data spatially (or not) for cross validation, to plot multiple
 visualizations of results, to run null models to estimate significance and
-effect sizes of performance metrics, and to calculate niche overlap
+effect sizes of performance metrics, and to calculate range overlap
 between model predictions, among others. The package was originally built
 for Maxent models (Phillips et al. 2006, Phillips et al. 2017), but the
 current version allows possible extensions for any modeling algorithm. The

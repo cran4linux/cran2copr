@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chatAI4R
-%global packver   0.2.10
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat-Based Interactive Artificial Intelligence for R
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-deepRstudio
 BuildRequires:    R-CRAN-pdftools 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-assertthat 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-deepRstudio
 Requires:         R-CRAN-pdftools 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-base64enc 
 
 %description
 The Large Language Model (LLM) represents a groundbreaking advancement in

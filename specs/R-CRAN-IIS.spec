@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamselBayes
-%global packver   2.0-2
+%global packname  IIS
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Additive Model Selection
+Summary:          Datasets to Accompany Wolfe and Schneider - Intuitive Introductory Statistics
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-asbio 
+BuildRequires:    R-CRAN-BSDA 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-NSM3 
+BuildRequires:    R-CRAN-Rfit 
+Requires:         R-CRAN-asbio 
+Requires:         R-CRAN-BSDA 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-NSM3 
+Requires:         R-CRAN-Rfit 
 
 %description
-Generalized additive model selection via approximate Bayesian inference is
-provided. Bayesian mixed model-based penalized splines with
-spike-and-slab-type coefficient prior distributions are used to facilitate
-fitting and selection. The approximate Bayesian inference engine options
-are: (1) Markov chain Monte Carlo and (2) mean field variational Bayes.
-Markov chain Monte Carlo has better Bayesian inferential accuracy, but
-requires a longer run-time. Mean field variational Bayes is faster, but
-less accurate. The methodology is described in He and Wand (2024)
-<doi:10.1007/s10182-023-00490-y>.
+These datasets and functions accompany Wolfe and Schneider (2017) -
+Intuitive Introductory Statistics (ISBN: 978-3-319-56070-0)
+<doi:10.1007/978-3-319-56072-4>. They are used in the examples throughout
+the text and in the end-of-chapter exercises. The datasets are meant to
+cover a broad range of topics in order to appeal to the diverse set of
+interests and backgrounds typically present in an introductory Statistics
+class.
 
 %prep
 %setup -q -c -n %{packname}

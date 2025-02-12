@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  connectapi
-%global packver   0.6.0
+%global packname  schwabr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Interacting with the 'Posit Connect' Server API
+Summary:          'Schwab API' Interface for R
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,41 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-urltools >= 1.7.3
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-urltools >= 1.7.3
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-mime 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-uuid 
+Requires:         R-methods 
 
 %description
-Provides a helpful 'R6' class and methods for interacting with the 'Posit
-Connect' Server API along with some meaningful utility functions for
-regular tasks. API documentation varies by 'Posit Connect' installation
-and version, but the latest documentation is also hosted publicly at
-<https://docs.posit.co/connect/api/>.
+Use R to interface with the 'Charles Schwab Trade API'
+<https://developer.schwab.com/>. Functions include authentication,
+trading, price requests, account information, and option chains. A user
+will need a Schwab brokerage account and Schwab Individual Developer app.
+See README for authentication process and examples.
 
 %prep
 %setup -q -c -n %{packname}

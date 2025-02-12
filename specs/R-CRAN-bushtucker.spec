@@ -1,37 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gamselBayes
-%global packver   2.0-2
+%global packname  bushtucker
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Additive Model Selection
+Summary:          'I'm a Celebrity Get Me Out of Here' Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
 
 %description
-Generalized additive model selection via approximate Bayesian inference is
-provided. Bayesian mixed model-based penalized splines with
-spike-and-slab-type coefficient prior distributions are used to facilitate
-fitting and selection. The approximate Bayesian inference engine options
-are: (1) Markov chain Monte Carlo and (2) mean field variational Bayes.
-Markov chain Monte Carlo has better Bayesian inferential accuracy, but
-requires a longer run-time. Mean field variational Bayes is faster, but
-less accurate. The methodology is described in He and Wand (2024)
-<doi:10.1007/s10182-023-00490-y>.
+Data on the first 24 seasons of the UK TV show 'I'm a Celebrity, Get Me
+Out of Here', broadcast from 2002-2024. Taken from the Wikipedia pages for
+each season and the main page available at
+<https://en.wikipedia.org/wiki/I%%27m_a_Celebrity...Get_Me_Out_of_Here!_(British_TV_series)>.
 
 %prep
 %setup -q -c -n %{packname}

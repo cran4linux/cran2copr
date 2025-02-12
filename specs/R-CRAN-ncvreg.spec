@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncvreg
-%global packver   3.14.3
+%global packver   3.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.14.3
+Version:          3.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regularization Paths for SCAD and MCP Penalized Regression Models
 

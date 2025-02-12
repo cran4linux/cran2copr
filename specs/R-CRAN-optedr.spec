@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optedr
-%global packver   2.0.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Optimal and D-Augmented Designs
 
@@ -37,10 +37,10 @@ Requires:         R-CRAN-shiny
 Requires:         R-utils 
 
 %description
-Calculates D-, Ds-, A- and I-optimal designs for non-linear models, via an
-implementation of the cocktail algorithm (Yu, 2011,
+Calculates D-, Ds-, A-, I- and L-optimal designs for non-linear models,
+via an implementation of the cocktail algorithm (Yu, 2011,
 <doi:10.1007/s11222-010-9183-2>). Compares designs via their efficiency,
-and D-augments any design with a controlled efficiency. An efficient
+and augments any design with a controlled efficiency. An efficient
 rounding function has been provided to transform approximate designs to
 exact designs.
 

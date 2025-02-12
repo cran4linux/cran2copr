@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  connectapi
-%global packver   0.6.0
+%global packname  quadVAR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Interacting with the 'Posit Connect' Server API
+Summary:          Quadratic Vector Autoregression
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,41 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.2
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-RAMP 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-uuid 
-Requires:         R-CRAN-rlang >= 0.4.2
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-bit64 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-RAMP 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides a helpful 'R6' class and methods for interacting with the 'Posit
-Connect' Server API along with some meaningful utility functions for
-regular tasks. API documentation varies by 'Posit Connect' installation
-and version, but the latest documentation is also hosted publicly at
-<https://docs.posit.co/connect/api/>.
+Estimate quadratic vector autoregression models with the strong hierarchy
+using the Regularization Algorithm under Marginality Principle (RAMP) by
+Hao et al. (2018) <doi:10.1080/01621459.2016.1264956>, compare the
+performance with linear models, and construct networks with partial
+derivatives.
 
 %prep
 %setup -q -c -n %{packname}

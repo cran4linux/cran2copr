@@ -1,55 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glottospace
-%global packver   0.0.112
+%global packname  metaquant
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.112
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Language Mapping and Geospatial Analysis of Linguistic and Cultural Data
+Summary:          Estimating Means, Standard Deviations and Visualising Distributions using Quantiles
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gld 
+BuildRequires:    R-CRAN-sld 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rnaturalearth 
-BuildRequires:    R-CRAN-rnaturalearthdata 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tmap 
-BuildRequires:    R-CRAN-units 
-BuildRequires:    R-CRAN-writexl 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-estmeansd 
+Requires:         R-CRAN-gld 
+Requires:         R-CRAN-sld 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rnaturalearth 
-Requires:         R-CRAN-rnaturalearthdata 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tmap 
-Requires:         R-CRAN-units 
-Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-estmeansd 
 
 %description
-Streamlined workflows for geolinguistic analysis, including: accessing
-global linguistic and cultural databases, data import, data entry, data
-cleaning, data exploration, mapping, visualization and export.
+Implements a novel density-based approach for estimating unknown means,
+visualizing distributions, and meta-analyses of quantiles. A detailed
+vignettes with example datasets and code to prepare data and analyses is
+available at <https://bookdown.org/a2delivera/metaquant/>. The methods are
+described in the pre-print by De Livera, Prendergast and Kumaranathunga
+(2024, <doi:10.48550/arXiv.2411.10971>).
 
 %prep
 %setup -q -c -n %{packname}
