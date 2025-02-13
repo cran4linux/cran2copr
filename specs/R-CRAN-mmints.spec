@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmints
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflows for Building Web Applications
 
@@ -21,10 +21,14 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-pool 
 BuildRequires:    R-CRAN-RPostgres 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyauthr 
+BuildRequires:    R-CRAN-sodium 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-pool 
 Requires:         R-CRAN-RPostgres 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyauthr 
+Requires:         R-CRAN-sodium 
 
 %description
 Sharing statistical methods or simulation frameworks through 'shiny'

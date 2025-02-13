@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal.transform
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Extracting and Merging Data in the 'teal' Framework
 
@@ -21,32 +21,34 @@ BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-teal.data >= 0.5.0
-BuildRequires:    R-CRAN-teal.widgets >= 0.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-teal.data >= 0.7.0
+BuildRequires:    R-CRAN-teal.widgets >= 0.4.3
+BuildRequires:    R-CRAN-teal.logger >= 0.3.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-logger >= 0.2.0
-BuildRequires:    R-CRAN-teal.logger >= 0.1.1
+BuildRequires:    R-CRAN-shinyvalidate >= 0.1.3
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyvalidate 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-teal.data >= 0.5.0
-Requires:         R-CRAN-teal.widgets >= 0.4.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-teal.data >= 0.7.0
+Requires:         R-CRAN-teal.widgets >= 0.4.3
+Requires:         R-CRAN-teal.logger >= 0.3.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-logger >= 0.2.0
-Requires:         R-CRAN-teal.logger >= 0.1.1
+Requires:         R-CRAN-shinyvalidate >= 0.1.3
 Requires:         R-methods 
 Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyvalidate 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
 A standardized user interface for column selection, that facilitates

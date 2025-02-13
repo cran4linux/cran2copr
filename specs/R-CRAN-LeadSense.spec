@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  r2dii.plot
-%global packver   0.5.0
+%global packname  LeadSense
+%global packver   0.0.1.0000
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.1.0000
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize the Climate Scenario Alignment of a Financial Portfolio
+Summary:          Medtronic Brain Sense Local Field Potencial Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,31 +19,17 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-r2dii.data 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-r2dii.data 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Create plots to visualize the alignment of a corporate lending financial
-portfolio to climate change scenarios based on climate indicators
-(production and emission intensities) across key climate relevant sectors
-of the 'PACTA' methodology (Paris Agreement Capital Transition Assessment;
-<https://www.transitionmonitor.com/>). Financial institutions use 'PACTA'
-to study how their capital allocation decisions align with climate change
-mitigation goals.
+Extracts and creates an analysis pipeline for the JSON data files from
+Brain Sense sessions using Medtronic's Deep Brain Stimulation surgery
+electrode implants.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rbcc
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk-Based Control Charts
 
@@ -17,12 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.00
 Requires:         R-core >= 4.00
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-qcc 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-PearsonDS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pracma 
+Requires:         R-stats 
 Requires:         R-CRAN-qcc 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-reshape2 

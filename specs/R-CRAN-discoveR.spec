@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  discoveR
-%global packver   3.1.2
+%global packver   3.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          3.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Data Analysis System
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shinydashboardPlus >= 2.0.0
 BuildRequires:    R-CRAN-shiny >= 1.7.4

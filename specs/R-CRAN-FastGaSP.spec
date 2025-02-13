@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastGaSP
-%global packver   0.5.3
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Exact Computation of Gaussian Stochastic Process
 
@@ -18,16 +18,26 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rstiefel 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rstiefel 
 
 %description
 Implements fast and exact computation of Gaussian stochastic process with
 the Matern kernel using forward filtering and backward smoothing
-algorithm. It allows for the cases with or without a noise.  See the
-reference: Mengyang Gu and Yanxun Xu, 2020, Journal of Computational and
-Graphical Statistics.
+algorithm. It includes efficient implementations of the inverse Kalman
+filter, with applications such as estimating particle interaction
+functions. These tools support models with or without noise. Additionally,
+the package offers algorithms for fast parameter estimation in latent
+factor models, where the factor loading matrix is orthogonal, and latent
+processes are modeled by Gaussian processes.  See the references: 1)
+Mengyang Gu and Yanxun Xu (2020), Journal of Computational and Graphical
+Statistics; 2) Xinyi Fang and Mengyang Gu (2024),
+<doi:10.48550/arXiv.2407.10089>; 3) Mengyang Gu and Weining Shen (2020),
+Journal of Machine Learning Research; 4) Yizi Lin, Xubo Liu, Paul Segall
+and Mengyang Gu (2025), <doi:10.48550/arXiv.2501.01324>.
 
 %prep
 %setup -q -c -n %{packname}

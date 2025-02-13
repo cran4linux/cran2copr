@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppUUID
-%global packver   1.1.2
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generating Universally Unique Identificators
 
@@ -14,17 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
+BuildRequires:    R-CRAN-BH >= 1.87.0.1
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Using the implementation in Boost C++ library, functions are provided to
-generate vectors of 'Universally Unique Identifiers (UUID)' from R
-supporting random (version 4) and name (version 5) 'UUIDs'. The initial
-repository was <https://gitlab.com/artemklevtsov/rcppuuid>.
+Using the efficient implementation in the Boost C++ library, functions are
+provided to generate vectors of 'Universally Unique Identifiers (UUID)'
+from R supporting random (version 4), name (version 5) and time (version
+7) 'UUIDs'. The initial repository was at
+<https://gitlab.com/artemklevtsov/rcppuuid>.
 
 %prep
 %setup -q -c -n %{packname}

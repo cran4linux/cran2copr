@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psborrow2
-%global packver   0.0.3.4
+%global packver   0.0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3.4
+Version:          0.0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Dynamic Borrowing Analysis and Simulation
 
@@ -55,7 +55,7 @@ characteristics (e.g. sample size, covariates) in a unified way. Third,
 'psborrow2' provides a set of functions to generate data for simulation
 studies, and also allows the user to specify their own data generation
 process. This package is designed to use the sampling functions from
-'cmdstanr' which can be installed from <https://mc-stan.org/r-packages/>.
+'cmdstanr' which can be installed from <https://stan-dev.r-universe.dev>.
 
 %prep
 %setup -q -c -n %{packname}

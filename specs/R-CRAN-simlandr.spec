@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simlandr
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Landscape Construction for Dynamical Systems
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-gganimate 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
@@ -34,11 +36,15 @@ BuildRequires:    R-CRAN-plotly
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Sim.DiffProc 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-coda 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-gganimate 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
@@ -52,7 +58,9 @@ Requires:         R-CRAN-plotly
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Sim.DiffProc 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
 A toolbox for constructing potential landscapes for dynamical systems

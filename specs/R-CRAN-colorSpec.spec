@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  colorSpec
-%global packver   1.6-0
+%global packver   1.7-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Color Calculations with Emphasis on Spectral Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-logger 
 Requires:         R-CRAN-logger 
@@ -23,11 +23,12 @@ Requires:         R-CRAN-logger
 %description
 Calculate with spectral properties of light sources, materials, cameras,
 eyes, and scanners. Build complex systems from simpler parts using a
-spectral product algebra. For light sources, compute CCT, CRI, and SSI.
-For object colors, compute optimal colors and Logvinenko coordinates. Work
-with the standard CIE illuminants and color matching functions, and read
-spectra from text files, including CGATS files.  Estimate a spectrum from
-its response. A user guide and 9 vignettes are included.
+spectral product algebra. For light sources, compute CCT, CRI, SSI, and
+IES TM-30 reports.  For object colors, compute optimal colors and
+Logvinenko coordinates. Work with the standard CIE illuminants and color
+matching functions, and read spectra from text files, including CGATS
+files.  Estimate a spectrum from its response. A user guide and 9
+vignettes are included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  imanr
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify the Racial Complex of Native Corns from Mexico
 
@@ -14,23 +14,25 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-missForest 
-BuildRequires:    R-CRAN-caret 
-BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-bundle 
+BuildRequires:    R-CRAN-tidymodels 
+BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-missForest 
-Requires:         R-CRAN-caret 
-Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-dplyr 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-bundle 
+Requires:         R-CRAN-tidymodels 
+Requires:         R-CRAN-xgboost 
 
 %description
 A model that provides researchers with a powerful tool for the

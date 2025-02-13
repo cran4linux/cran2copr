@@ -1,44 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdwplus
-%global packver   1.0.1
+%global packname  BIOMASS
+%global packver   2.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inverse Distance Weighted Percent Land Use for Streams
+Summary:          Estimating Aboveground Biomass and Its Uncertainty in Tropical Forests
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rgrass 
+BuildRequires:    R-CRAN-data.table >= 1.9.8
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-proj4 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-rgrass 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-data.table >= 1.9.8
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
+Requires:         R-CRAN-proj4 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-stars 
+Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-terra 
 
 %description
-Compute spatially explicit land-use metrics for stream survey sites in
-GRASS GIS and R as an open-source implementation of IDW-PLUS (Inverse
-Distance Weighted Percent Land Use for Streams). The package includes
-functions for preprocessing digital elevation and streams data, and one
-function to compute all the spatially explicit land use metrics described
-in Peterson et al. (2011) <doi:10.1111/j.1365-2427.2010.02507.x> and
-previously implemented by Peterson and Pearse (2017)
-<doi:10.1111/1752-1688.12558> in ArcGIS-Python as IDW-PLUS.
+Contains functions to estimate aboveground biomass/carbon and its
+uncertainty in tropical forests. These functions allow to (1) retrieve and
+to correct taxonomy, (2) estimate wood density and its uncertainty, (3)
+construct height-diameter models, (4) manage tree and plot coordinates,
+(5) estimate the aboveground biomass/carbon at the stand level with
+associated uncertainty. To cite 'BIOMASS', please use citation("BIOMASS").
+See more in the article of Réjou-Méchain et al. (2017)
+<doi:10.1111/2041-210X.12753>.
 
 %prep
 %setup -q -c -n %{packname}

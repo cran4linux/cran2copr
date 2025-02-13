@@ -1,48 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ergm.ego
-%global packver   1.1.2
+%global packname  hdqr
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit, Simulate and Diagnose Exponential-Family Random Graph Models to Egocentrically Sampled Network Data
+Summary:          Fast Algorithm for Penalized Quantile Regression
 
-License:          GPL-3 + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-ergm >= 4.8.1
-BuildRequires:    R-CRAN-survey >= 4.4.2
-BuildRequires:    R-CRAN-statnet.common >= 4.11.0
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-egor >= 1.24.2
-BuildRequires:    R-CRAN-network >= 1.19.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.3
-BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ergm >= 4.8.1
-Requires:         R-CRAN-survey >= 4.4.2
-Requires:         R-CRAN-statnet.common >= 4.11.0
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-egor >= 1.24.2
-Requires:         R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-RColorBrewer >= 1.1.3
-Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 
 %description
-Utilities for managing egocentrically sampled network data and a wrapper
-around the 'ergm' package to facilitate ERGM inference and simulation from
-such data. See Krivitsky and Morris (2017) <doi:10.1214/16-AOAS1010>.
+Implements an efficient algorithm to fit and tune penalized quantile
+regression models using the generalized coordinate descent algorithm.
+Designed to handle high-dimensional datasets effectively, with emphasis on
+precision and computational efficiency. This package implements the
+algorithms proposed in Tang, Q., Zhang, Y., & Wang, B. (2022)
+<https://openreview.net/pdf?id=RvwMTDYTOb>.
 
 %prep
 %setup -q -c -n %{packname}
