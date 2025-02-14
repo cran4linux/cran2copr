@@ -1,32 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  VARcpDetectOnline
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Sequential Change Point Detection for High-Dimensional VAR Models
 
-License:          GPL-3
+License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-doParallel 
+Requires:         R-stats 
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+Implements the algorithm introduced in Tian, Y., and Safikhani, A. (2024)
+<doi:10.5705/ss.202024.0182>, "Sequential Change Point Detection in
+High-dimensional Vector Auto-regressive Models". This package provides
+tools for detecting change points in the transition matrices of VAR
+models, effectively identifying shifts in temporal and cross-correlations
+within high-dimensional time series data.
 
 %prep
 %setup -q -c -n %{packname}

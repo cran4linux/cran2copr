@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  casabourse
-%global packver   2.0.0
+%global packname  swash
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Casablanca Stock Exchange Data
+Summary:          Swash-Backwash Model for the Single Epidemic Wave
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gsheet 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-RJSONIO 
-BuildRequires:    R-CRAN-R.utils 
-Requires:         R-CRAN-gsheet 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-RJSONIO 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-It provides real-time data from the Casablanca Stock Exchange. The
-objective is to facilitate access to data for all users of the R
-programming language. It includes a variety of data accessible just by
-function call.
+The Swash-Backwash Model for the Single Epidemic Wave was developed by
+Cliff and Haggett (2006) <doi:10.1007/s10109-006-0027-8> to model the
+velocity of spread of infectious diseases across space. This package
+enables the calculation of the Swash-Backwash Model for user-supplied
+panel data on regional infections. The package also provides additional
+functions for bootstrap confidence intervals and data management.
 
 %prep
 %setup -q -c -n %{packname}

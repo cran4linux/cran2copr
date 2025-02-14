@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  IFTPredictor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Predictions Using Item-Focused Tree Models
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-CRAN-DIFtree 
+Requires:         R-CRAN-DIFtree 
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+This function predicts item response probabilities and item responses
+using the item-focused tree model. The item-focused tree model combines
+logistic regression with recursive partitioning to detect Differential
+Item Functioning in dichotomous items. The model applies partitioning
+rules to the data, splitting it into homogeneous subgroups, and uses
+logistic regression within each subgroup to explain the data. Differential
+Item Functioning detection is achieved by examining potential group
+differences in item response patterns. This method is useful for
+understanding how different predictors, such as demographic or
+psychological factors, influence item responses across subgroups.
 
 %prep
 %setup -q -c -n %{packname}

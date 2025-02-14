@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Colossus
-%global packver   1.1.4.2
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4.2
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Risk Model Regression and Analysis with Complex Non-Linear Models"
 
@@ -25,6 +25,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp 
@@ -36,6 +39,9 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-callr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-processx 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lubridate 
 
 %description
 Performs survival analysis using general non-linear models. Risk models
@@ -44,7 +50,7 @@ exponential/linear functions of covariates. Additionally sub-terms can be
 defined as a sum of exponential, linear threshold, and step functions. Cox
 Proportional hazards
 <https://en.wikipedia.org/wiki/Proportional_hazards_model>, Poisson
-<https://en.wikipedia.org/wiki/Poisson_regression>, and Fine-Grey
+<https://en.wikipedia.org/wiki/Poisson_regression>, and Fine-Gray
 competing risks
 <https://www.publichealth.columbia.edu/research/population-health-methods/competing-risk-analysis>
 regression are supported. This work was sponsored by NASA Grant

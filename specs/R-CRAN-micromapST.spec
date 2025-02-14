@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micromapST
-%global packver   3.0.4
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots for U. S. and Other Geographic Areas
 
@@ -73,8 +73,8 @@ Chapman and Hall/CRC, Visualizing Data Patterns with Micromaps, CRC Press,
 2010. Pickle, Pearson, and Carr (2015), micromapST: Exploring and
 Communicating Geospatial Patterns in US State Data., Journal of
 Statistical Software, 63(3), 1-25., <https://www.jstatsoft.org/v63/i03/>.
-Copyrighted 2013, 2014, 2015, 2016, 2022, 2023, and 2024 by Carr, Pearson
-and Pickle.
+Copyrighted 2013, 2014, 2015, 2016, 2022, 2023, 2024, and 2025 by Carr,
+Pearson and Pickle.
 
 %prep
 %setup -q -c -n %{packname}

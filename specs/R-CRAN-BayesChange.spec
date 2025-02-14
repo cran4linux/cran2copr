@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  BayesChange
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Bayesian Methods for Change Points Analysis
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppGSL 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+Perform change points detection on univariate and multivariate time series
+according to the methods presented by Asael Fabian Martínez and Ramsés H.
+Mena (2014) <doi:10.1214/14-BA878> and Corradin, Danese and Ongaro (2022)
+<doi:10.1016/j.ijar.2021.12.019>. It also clusters different types of time
+dependent data with common change points, see "Model-based clustering of
+time-dependent observations with common structural changes"
+(Corradin,Danese,KhudaBukhsh and Ongaro, 2024)
+<doi:10.48550/arXiv.2410.09552> for details.
 
 %prep
 %setup -q -c -n %{packname}

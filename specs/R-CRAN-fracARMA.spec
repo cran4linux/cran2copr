@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  fracARMA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Fractionally Integrated ARMA Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-fracdiff 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-fracdiff 
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+Implements fractional differencing with Autoregressive Moving Average
+models to analyse long-memory time series data. Traditional ARIMA models
+typically use integer values for differencing, which are suitable for time
+series with short memory or anti-persistent behaviour. In contrast, the
+Fractional ARIMA model allows fractional differencing, enabling it to
+effectively capture long memory characteristics in time series data. The
+‘fracARMA’ package is user-friendly and allows users to manually input the
+fractional differencing parameter, which can be obtained using various
+estimators such as the GPH estimator, Sperio method, or Wavelet method and
+many. Additionally, the package enables users to directly feed the time
+series data, AR order, MA order, fractional differencing parameter, and
+the proportion of training data as a split ratio, all in a single command.
+The package is based on the reference from the paper of Irshad and others
+(2024, <doi:10.22271/maths.2024.v9.i6b.1906>).
 
 %prep
 %setup -q -c -n %{packname}

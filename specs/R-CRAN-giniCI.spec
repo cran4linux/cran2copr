@@ -1,32 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  giniCI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Gini-Based Composite Indicators
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-DescTools >= 0.99.57
+BuildRequires:    R-CRAN-ggrepel >= 0.9.6
+BuildRequires:    R-CRAN-ggpubr >= 0.6.0
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-DescTools >= 0.99.57
+Requires:         R-CRAN-ggrepel >= 0.9.6
+Requires:         R-CRAN-ggpubr >= 0.6.0
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+An implementation of Gini-based weighting approaches in constructing
+composite indicators, providing functionalities for normalization,
+aggregation, and ranking comparison.
 
 %prep
 %setup -q -c -n %{packname}

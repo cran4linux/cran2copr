@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  acepack
-%global packver   1.5.2
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ACE and AVAS for Selecting Multiple Regression Transformations
 
@@ -19,7 +19,7 @@ Requires:         R-core
 
 %description
 Two nonparametric methods for multiple regression transform selection are
-provided. The first, Alternative Conditional Expectations (ACE), is an
+provided. The first, Alternating Conditional Expectations (ACE), is an
 algorithm to find the fixed point of maximal correlation, i.e. it finds a
 set of transformed response variables that maximizes R^2 using smoothing
 functions [see Breiman, L., and J.H. Friedman. 1985. "Estimating Optimal
@@ -27,12 +27,16 @@ Transformations for Multiple Regression and Correlation". Journal of the
 American Statistical Association. 80:580-598.
 <doi:10.1080/01621459.1985.10478157>]. Also included is the Additivity
 Variance Stabilization (AVAS) method which works better than ACE when
-correlation is low [see Tibshirani, R.. 1986. "Estimating Transformations
+correlation is low [see Tibshirani, R. 1986. "Estimating Transformations
 for Regression via Additivity and Variance Stabilization". Journal of the
 American Statistical Association. 83:394-405.
 <doi:10.1080/01621459.1988.10478610>]. A good introduction to these two
-methods is in chapter 16 of Frank Harrel's "Regression Modeling
-Strategies" in the Springer Series in Statistics.
+methods is in chapter 16 of Frank Harrell's "Regression Modeling
+Strategies" in the Springer Series in Statistics. A permutation
+independence test is included from [Holzmann, H., Klar, B. 2025.
+"Lancaster correlation - a new dependence measure linked to maximum
+correlation". Scandinavian Journal of Statistics. 52(1):145-169
+<doi:10.1111/sjos.12733>].
 
 %prep
 %setup -q -c -n %{packname}

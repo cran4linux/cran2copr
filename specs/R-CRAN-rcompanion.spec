@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rcompanion
-%global packver   2.4.36
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.36
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Support Extension Education Program Evaluation
 
@@ -14,27 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-stats >= 4.1.0
-BuildRequires:    R-graphics >= 4.1.0
-BuildRequires:    R-CRAN-plyr >= 1.8.6
-BuildRequires:    R-CRAN-coin >= 1.4.2
-BuildRequires:    R-CRAN-boot >= 1.3.28
+BuildRequires:    R-stats >= 4.4.0
+BuildRequires:    R-graphics >= 4.4.0
+BuildRequires:    R-CRAN-plyr >= 1.8.9
+BuildRequires:    R-CRAN-coin >= 1.4.3
+BuildRequires:    R-CRAN-boot >= 1.3.30
 BuildRequires:    R-CRAN-nortest >= 1.0.4
-BuildRequires:    R-CRAN-DescTools >= 0.99.43
-BuildRequires:    R-CRAN-lmtest >= 0.9.38
-BuildRequires:    R-CRAN-multcompView >= 0.1.8
-Requires:         R-stats >= 4.1.0
-Requires:         R-graphics >= 4.1.0
-Requires:         R-CRAN-plyr >= 1.8.6
-Requires:         R-CRAN-coin >= 1.4.2
-Requires:         R-CRAN-boot >= 1.3.28
+BuildRequires:    R-CRAN-DescTools >= 0.99.58
+BuildRequires:    R-CRAN-lmtest >= 0.9.40
+BuildRequires:    R-CRAN-multcompView >= 0.1.10
+Requires:         R-stats >= 4.4.0
+Requires:         R-graphics >= 4.4.0
+Requires:         R-CRAN-plyr >= 1.8.9
+Requires:         R-CRAN-coin >= 1.4.3
+Requires:         R-CRAN-boot >= 1.3.30
 Requires:         R-CRAN-nortest >= 1.0.4
-Requires:         R-CRAN-DescTools >= 0.99.43
-Requires:         R-CRAN-lmtest >= 0.9.38
-Requires:         R-CRAN-multcompView >= 0.1.8
+Requires:         R-CRAN-DescTools >= 0.99.58
+Requires:         R-CRAN-lmtest >= 0.9.40
+Requires:         R-CRAN-multcompView >= 0.1.10
 
 %description
 Functions and datasets to support Summary and Analysis of Extension

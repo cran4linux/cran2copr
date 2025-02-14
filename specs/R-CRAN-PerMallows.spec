@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  PerMallows
+%global packver   1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          1.14
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Permutations and Mallows Distributions
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-utils 
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+Includes functions to work with the Mallows and Generalized Mallows
+Models. The considered distances are Kendall's-tau, Cayley, Hamming and
+Ulam and it includes functions for making inference, sampling and learning
+such distributions, some of which are novel in the literature. As a
+by-product, PerMallows also includes operations for permutations, paying
+special attention to those related with the Kendall's-tau, Cayley, Ulam
+and Hamming distances. It is also possible to generate random permutations
+at a given distance, or with a given number of inversions, or cycles, or
+fixed points or even with a given length on LIS (longest increasing
+subsequence).
 
 %prep
 %setup -q -c -n %{packname}

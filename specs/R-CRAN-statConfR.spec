@@ -1,37 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statConfR
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Models of Decision Confidence and Metacognition
+Summary:          Models of Decision Confidence and Measures of Metacognition
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rmisc 
 Requires:         R-parallel 
 Requires:         R-CRAN-plyr 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rmisc 
 
 %description
 Provides fitting functions and other tools for decision confidence and
 metacognition researchers, including meta-d'/d', often considered to be
-the gold standard to measure metacognitive efficiency. Also allows to fit
-several static models of decision making and confidence to test the
-assumptions underlying meta-d'/d' and which may serve as an alternative
-when the assumptions of meta-d'/d' do not hold. See also Rausch et al.
-(2023) <doi:10.1037/met0000634>.
+the gold standard to measure metacognitive efficiency, and
+information-theoretic measures of metacognition. Also allows to fit
+several static models of decision making and confidence.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webdav
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Interface for Interacting with 'WebDAV' Servers
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-xml2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-glue
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-curl 
 
 %description
 An easy-to-use interface for interacting with 'WebDAV' servers, including

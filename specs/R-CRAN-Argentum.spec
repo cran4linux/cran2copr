@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Argentum
-%global packver   0.5.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Import WMS and WFS Data from Argentine Organizations
 
@@ -31,8 +31,9 @@ Provides functions to retrieve information from Web Feature Service (WFS)
 and Web Map Service (WMS) layers from various Argentine organizations and
 import them into R for further analysis. WFS and WMS are standardized
 protocols for serving georeferenced map data over the internet. For more
-information on these services, see <https://www.ogc.org/standard/wfs/> and
-<https://www.ogc.org/standard/wms/>.
+information on these services, see
+<https://www.ogc.org/publications/standard/wfs/> and
+<https://www.ogc.org/publications/standard/wms/>.
 
 %prep
 %setup -q -c -n %{packname}

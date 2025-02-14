@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  IsoplotRgui
-%global packver   6.5
+%global packname  DBCVindex
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.5
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Interface to 'IsoplotR'
+Summary:          Calculates the Density-Based Clustering Validation (DBCV) Index
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-IsoplotR >= 6.5
-BuildRequires:    R-CRAN-shinylight >= 1.2
-Requires:         R-CRAN-IsoplotR >= 6.5
-Requires:         R-CRAN-shinylight >= 1.2
+BuildRequires:    R-CRAN-qpdf 
+Requires:         R-CRAN-qpdf 
 
 %description
-Provides a graphical user interface to the 'IsoplotR' package for
-radiometric geochronology. The GUI runs in an internet browser and can
-either be used offline, or hosted on a server to provide online access to
-the 'IsoplotR' toolbox.
+A metric called 'Density-Based Clustering Validation index' (DBCV) index
+to evaluate clustering results, following the
+<https://github.com/pajaskowiak/clusterConfusion/blob/main/R/dbcv.R> 'R'
+implementation by Pablo Andretta Jaskowiak. Original 'DBCV' index article:
+Moulavi, D., Jaskowiak, P. A., Campello, R. J., Zimek, A., and Sander, J.
+(April 2014), "Density-based clustering validation", Proceedings of SDM
+2014 -- the 2014 SIAM International Conference on Data Mining (pp.
+839-847), <doi:10.1137/1.9781611973440.96>.
 
 %prep
 %setup -q -c -n %{packname}
