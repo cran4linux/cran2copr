@@ -1,56 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlive
-%global packver   0.7.0
+%global packname  guideR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Estimation of Sigmoidal and Piecewise Linear Mixed Models
+Summary:          Miscellaneous Statistical Functions Used in 'guide-R'
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlraa 
-BuildRequires:    R-CRAN-sqldf 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lcmm 
-BuildRequires:    R-CRAN-saemix 
-BuildRequires:    R-CRAN-Rmisc 
-BuildRequires:    R-CRAN-sitar 
-BuildRequires:    R-CRAN-Rmpfr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-pak 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-renv 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-srvyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlraa 
-Requires:         R-CRAN-sqldf 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-lcmm 
-Requires:         R-CRAN-saemix 
-Requires:         R-CRAN-Rmisc 
-Requires:         R-CRAN-sitar 
-Requires:         R-CRAN-Rmpfr 
-Requires:         R-stats 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-pak 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-renv 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-srvyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Estimation of relatively complex nonlinear mixed-effects models, including
-the Sigmoidal Mixed Model and the Piecewise Linear Mixed Model with abrupt
-or smooth transition, through a single intuitive line of code and with
-automated generation of starting values.
+Companion package for the manual 'guide-R : Guide pour l’analyse de
+données d’enquêtes avec R' available at
+<https://larmarange.github.io/guide-R/>. 'guideR' implements miscellaneous
+functions introduced in 'guide-R' to facilitate statistical analysis and
+manipulation of survey data.
 
 %prep
 %setup -q -c -n %{packname}

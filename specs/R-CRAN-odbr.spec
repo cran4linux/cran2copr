@@ -1,29 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unigd
-%global packver   0.1.2
+%global packname  odbr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Universal Graphics Device
+Summary:          Download Data from Brazil's Origin Destination Surveys
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-systemfonts >= 1.0.0
-BuildRequires:    R-CRAN-cpp11 >= 0.2.4
-Requires:         R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-piggyback 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-piggyback 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-sf 
 
 %description
-A unified R graphics backend. Render R graphics fast and easy to many
-common file formats. Provides a thread safe 'C' interface for asynchronous
-rendering of R graphics.
+Download data from Brazil's Origin Destination Surveys. The package covers
+both data from household travel surveys, dictionaries of variables, and
+the spatial geometries of surveys conducted in different years and across
+various urban areas in Brazil. For some cities, the package will include
+enhanced versions of the data sets with variables "harmonized" across
+different years.
 
 %prep
 %setup -q -c -n %{packname}

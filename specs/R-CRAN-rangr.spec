@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nlive
-%global packver   0.7.0
+%global packname  rangr
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Estimation of Sigmoidal and Piecewise Linear Mixed Models
+Summary:          Mechanistic Simulation of Species Range Dynamics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nlraa 
-BuildRequires:    R-CRAN-sqldf 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-lcmm 
-BuildRequires:    R-CRAN-saemix 
-BuildRequires:    R-CRAN-Rmisc 
-BuildRequires:    R-CRAN-sitar 
-BuildRequires:    R-CRAN-Rmpfr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-fastDummies 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nlraa 
-Requires:         R-CRAN-sqldf 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-lcmm 
-Requires:         R-CRAN-saemix 
-Requires:         R-CRAN-Rmisc 
-Requires:         R-CRAN-sitar 
-Requires:         R-CRAN-Rmpfr 
 Requires:         R-stats 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-fastDummies 
-Requires:         R-CRAN-viridis 
+Requires:         R-utils 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-assertthat 
 
 %description
-Estimation of relatively complex nonlinear mixed-effects models, including
-the Sigmoidal Mixed Model and the Piecewise Linear Mixed Model with abrupt
-or smooth transition, through a single intuitive line of code and with
-automated generation of starting values.
+Integrates population dynamics and dispersal into a mechanistic virtual
+species simulator. The package can be used to study the effects of
+environmental change on population growth and range shifts. It allows for
+simple and straightforward definition of population dynamics (including
+positive density dependence), extensive possibilities for defining
+dispersal kernels, and the ability to generate virtual ecologist data.
+Learn more about the 'rangr' at <https://docs.ropensci.org/rangr/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  transltr
-%global packver   0.0.1
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Many Languages in R Programs
+Summary:          Support Many Languages in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringi 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
 
