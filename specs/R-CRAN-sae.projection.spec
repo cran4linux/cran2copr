@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sae.projection
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation Using Model-Assisted Projection Method
 
@@ -34,6 +34,9 @@ BuildRequires:    R-CRAN-yardstick
 BuildRequires:    R-CRAN-bonsai 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-lightgbm 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-themis 
 Requires:         R-CRAN-tidymodels 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-doParallel 
@@ -51,6 +54,9 @@ Requires:         R-CRAN-yardstick
 Requires:         R-CRAN-bonsai 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-lightgbm 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-themis 
 
 %description
 Combines information from two independent surveys using a model-assisted

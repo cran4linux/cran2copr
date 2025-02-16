@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TDAvec
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vector Summaries of Persistence Diagrams
 
@@ -16,18 +16,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.9
-BuildRequires:    R-CRAN-TDA 
-BuildRequires:    R-CRAN-microbenchmark 
-Requires:         R-CRAN-Rcpp >= 1.0.9
-Requires:         R-CRAN-TDA 
-Requires:         R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
-Tools for computing various vector summaries of persistence diagrams
-studied in Topological Data Analysis. For improved computational
+Provides tools for computing various vector summaries of persistence
+diagrams studied in Topological Data Analysis. For improved computational
 efficiency, all code for the vector summaries is written in 'C++' using
-the 'Rcpp' package.
+the 'Rcpp' and 'RcppArmadillo' packages.
 
 %prep
 %setup -q -c -n %{packname}
