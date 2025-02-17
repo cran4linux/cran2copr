@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortConstructor
-%global packver   0.3.4
+%global packver   0.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Manipulate Study Cohorts Using a Common Data Model
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dbplyr >= 2.5.0
 BuildRequires:    R-CRAN-CDMConnector >= 1.7.0
 BuildRequires:    R-CRAN-PatientProfiles >= 1.2.3
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
+BuildRequires:    R-CRAN-omopgenerics >= 1.0.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clock 
@@ -34,7 +34,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-dbplyr >= 2.5.0
 Requires:         R-CRAN-CDMConnector >= 1.7.0
 Requires:         R-CRAN-PatientProfiles >= 1.2.3
-Requires:         R-CRAN-omopgenerics >= 0.4.1
+Requires:         R-CRAN-omopgenerics >= 1.0.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clock 

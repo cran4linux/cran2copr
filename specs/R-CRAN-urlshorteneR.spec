@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  urlshorteneR
-%global packver   1.5.7
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Wrapper for the 'Bit.ly' and 'Is.gd'/'v.gd' URL Shortening Services
 
@@ -14,24 +14,24 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-jsonlite >= 1.8.0
-BuildRequires:    R-CRAN-lubridate >= 1.8.0
-BuildRequires:    R-CRAN-shiny >= 1.7.2
-BuildRequires:    R-CRAN-httr >= 1.4.3
-BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-cli >= 3.6.4
+BuildRequires:    R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-CRAN-jsonlite >= 1.8.9
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-httr >= 1.4.7
+BuildRequires:    R-CRAN-shiny >= 1.10.0
 BuildRequires:    R-CRAN-clipr >= 0.8.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-jsonlite >= 1.8.0
-Requires:         R-CRAN-lubridate >= 1.8.0
-Requires:         R-CRAN-shiny >= 1.7.2
-Requires:         R-CRAN-httr >= 1.4.3
-Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-cli >= 3.6.4
+Requires:         R-CRAN-lubridate >= 1.9.4
+Requires:         R-CRAN-jsonlite >= 1.8.9
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-httr >= 1.4.7
+Requires:         R-CRAN-shiny >= 1.10.0
 Requires:         R-CRAN-clipr >= 0.8.0
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-miniUI >= 0.1.1.1

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pqrBayes
-%global packver   1.0.5
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Penalized Quantile Regression
 
@@ -27,18 +27,17 @@ Requires:         R-splines
 Requires:         R-stats 
 
 %description
-The quantile varying coefficient model is robust to data heterogeneity,
-outliers and heavy-tailed distributions in the response variable. In
-addition, it can flexibly model dynamic patterns of regression
-coefficients through nonparametric varying coefficient functions. In this
-package, we have implemented the Gibbs samplers of the penalized Bayesian
-quantile varying coefficient model with spike-and-slab priors [Zhou et
-al.(2023)]<doi:10.1016/j.csda.2023.107808> for efficient Bayesian
-shrinkage estimation, variable selection and statistical inference. In
-particular, valid Bayesian inferences on sparse quantile varying
-coefficient functions can be validated on finite samples. The Markov Chain
-Monte Carlo (MCMC) algorithms of the proposed and alternative models can
-be efficiently performed by using the package.
+Bayesian regularized quantile regression utilizing sparse priors to impose
+exact sparsity leads to efficient Bayesian shrinkage estimation, variable
+selection and statistical inference. In this package, we have implemented
+robust Bayesian variable selection with spike-and-slab priors under
+high-dimensional linear regression models (Fan et al. (2024)
+<doi:10.3390/e26090794> and Ren et al. (2023) <doi:10.1111/biom.13670>),
+and regularized quantile varying coefficient models (Zhou et al.(2023)
+<doi:10.1016/j.csda.2023.107808>). In particular, valid robust Bayesian
+inferences under both models in the presence of heavy-tailed errors can be
+validated on finite samples. The Markov Chain Monte Carlo (MCMC)
+algorithms of the proposed and alternative models are implemented in C++.
 
 %prep
 %setup -q -c -n %{packname}

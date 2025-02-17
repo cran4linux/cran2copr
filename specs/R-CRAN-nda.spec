@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nda
-%global packver   0.1.15
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.15
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Network-Based Dimensionality Reduction and Analysis
 
@@ -25,8 +25,11 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mco 
 BuildRequires:    R-CRAN-ppcor 
+BuildRequires:    R-CRAN-lm.beta 
 BuildRequires:    R-CRAN-leidenAlg 
+BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-psych 
@@ -36,8 +39,11 @@ Requires:         R-CRAN-Matrix
 Requires:         R-methods 
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mco 
 Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-lm.beta 
 Requires:         R-CRAN-leidenAlg 
+Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-visNetwork 
 
 %description
