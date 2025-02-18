@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blocklength
-%global packver   0.2.0
+%global packname  indexr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Select an Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
+Summary:          A Thoughtful Saver of Results
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-tseries 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
 
 %description
-A set of functions to select the optimal block-length for a dependent
-bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
-<doi:10.1093/biomet/82.3.561> subsampling-based cross-validation method,
-the Politis and White (2004) <doi:10.1081/ETC-120028836> Spectral Density
-Plug-in method, including the Patton, Politis, and White (2009)
-<doi:10.1080/07474930802459016> correction, and the Lahiri, Furukawa, and
-Lee (2007) <doi:10.1016/j.stamet.2006.08.002> nonparametric plug-in
-method, with a corresponding set of S3 plot methods.
+Helps with the thoughtful saving, reading, and management of result files
+(using 'rds' files). The core functions take a list of parameters that are
+used to generate a unique hash to save results under. Then, the same
+parameter list can be used to read those results back in. This is helpful
+to avoid clunky file naming when running a large number of simulations.
+Additionally, helper functions are available for compiling a flat file of
+parameters of saved results, monitoring result usage, and cleaning up
+unwanted or unused results. For more information, visit the 'indexr'
+homepage <https://lharris421.github.io/indexr/>.
 
 %prep
 %setup -q -c -n %{packname}

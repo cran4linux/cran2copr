@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pxmake
-%global packver   0.15.1
+%global packname  simqi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make PX-Files in R
+Summary:          Simulate Quantities of Interest from Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,47 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stevemisc 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-stevemisc 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+Requires:         R-methods 
 
 %description
-Create PX-files from scratch or read and modify existing ones. Includes a
-function for every PX keyword, making metadata manipulation simple and
-human-readable.
+This is an all-encompassing suite to facilitate the simulation of
+so-called quantities of interest by way of a multivariate normal
+distribution of the regression model's coefficients and
+variance-covariance matrix.
 
 %prep
 %setup -q -c -n %{packname}

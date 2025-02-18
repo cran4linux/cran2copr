@@ -1,63 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pxmake
-%global packver   0.15.1
+%global packname  BigDataPE
+%global packver   0.0.95
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.1
+Version:          0.0.95
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make PX-Files in R
+Summary:          Secure and Intuitive Access to 'BigDataPE' 'API' Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-tools 
-Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-httr2 
 
 %description
-Create PX-files from scratch or read and modify existing ones. Includes a
-function for every PX keyword, making metadata manipulation simple and
-human-readable.
+Designed to simplify the process of retrieving datasets from the 'Big Data
+PE' platform using secure token-based authentication. It provides
+functions for securely storing, retrieving, and managing tokens associated
+with specific datasets, as well as fetching and processing data using the
+'httr2' package.
 
 %prep
 %setup -q -c -n %{packname}

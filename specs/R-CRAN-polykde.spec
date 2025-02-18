@@ -1,53 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fdasrvf
-%global packver   2.3.6
+%global packname  polykde
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Elastic Functional Data Analysis
+Summary:          Polyspherical Kernel Density Estimation
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tolerance 
-BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-movMF 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-rotasym 
+BuildRequires:    R-CRAN-sphunif 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-fields 
+Requires:         R-CRAN-Rcpp >= 1.0.8.3
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tolerance 
-Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-movMF 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-RcppProgress 
+Requires:         R-CRAN-rotasym 
+Requires:         R-CRAN-sphunif 
 
 %description
-Performs alignment, PCA, and modeling of multidimensional and
-unidimensional functions using the square-root velocity framework
-(Srivastava et al., 2011 <doi:10.48550/arXiv.1103.3817> and Tucker et al.,
-2014 <DOI:10.1016/j.csda.2012.12.001>). This framework allows for elastic
-analysis of functional data through phase and amplitude separation.
+Kernel density estimation on the polysphere, hypersphere, and circle.
+Includes functions for density estimation, regression estimation, ridge
+estimation, bandwidth selection, kernels, samplers, and homogeneity tests.
+Companion package to García-Portugués and Meilán-Vila (2024)
+<doi:10.48550/arXiv.2411.04166> and García-Portugués and Meilán-Vila
+(2023) <doi:10.1007/978-3-031-32729-2_4>.
 
 %prep
 %setup -q -c -n %{packname}

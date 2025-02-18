@@ -1,62 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  squat
-%global packver   0.3.0
+%global packname  rpcss
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for Quaternion Temporal Data
+Summary:          Constitution of Core Collections by Principal Component Scoring Strategy
 
-License:          GPL (>= 3)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbscan 
-BuildRequires:    R-CRAN-dtw 
-BuildRequires:    R-CRAN-fdacluster 
-BuildRequires:    R-CRAN-funData 
-BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-FactoMineR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-MFPCA 
-BuildRequires:    R-CRAN-progressr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-roahd 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-gslnls 
+BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbscan 
-Requires:         R-CRAN-dtw 
-Requires:         R-CRAN-fdacluster 
-Requires:         R-CRAN-funData 
-Requires:         R-CRAN-furrr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-FactoMineR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-MFPCA 
-Requires:         R-CRAN-progressr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-roahd 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-gslnls 
+Requires:         R-CRAN-mathjaxr 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-An implementation of statistical tools for the analysis of rotation-valued
-time series and functional data. It relies on pre-existing quaternion data
-structure provided by the 'Eigen' 'C++' library.
+Generate a Core Collection with Principal Component Scoring Strategy
+(PCSS) using qualitative and/or quantitative trait data according to Hamon
+and Noirot (1990) <https://www.documentation.ird.fr/hor/fdi:36506>, Noirot
+et al. (1996) <doi:10.2307/2527837> and Noirot et al. (2003)
+<https://www.documentation.ird.fr/hor/fdi:010031886>.
 
 %prep
 %setup -q -c -n %{packname}

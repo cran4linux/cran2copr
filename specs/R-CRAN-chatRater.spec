@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  figpatch
-%global packver   0.2
+%global __requires_exclude ^libmpi
+%global packname  chatRater
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Arrange External Figures with Patchwork Alongside 'ggplot2' Figures
+Summary:          Rating Text Using Large Language Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-patchwork 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-patchwork 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-openai 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-openai 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-For including external figures into an assembled {patchwork}. This enables
-the creation of more complex figures that include images alongside plots.
+Generates ratings for textual stimuli using large language models. It
+allows users to evaluate idioms and similar texts by combining context,
+prompts, and stimulus inputs. The package supports both 'OpenAI' and
+'DeepSeek' APIs by enabling users to switch models simply by specifying
+the model parameter. It implements methods for constructing the request
+payload and parsing numeric ratings from the model outputs.
 
 %prep
 %setup -q -c -n %{packname}

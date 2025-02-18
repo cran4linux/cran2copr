@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cards
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis Results Data
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-lifecycle >= 1.0.3
 
 %description
 Construct CDISC (Clinical Data Interchange Standards Consortium) compliant

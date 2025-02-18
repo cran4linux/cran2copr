@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OPL
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Policy Learning
 
@@ -39,7 +39,7 @@ defined as the sum of the policy effects estimated over all the policy
 beneficiaries. Documentation about 'OPL' is provided by several
 international articles via Athey et al (2021, <doi:10.3982/ECTA15732>),
 Kitagawa et al (2018, <doi:10.3982/ECTA13288>), Cerulli (2022,
-<doi:10.1080/13504851.2022.2032577>), the paper by Cerulli (201,
+<doi:10.1080/13504851.2022.2032577>), the paper by Cerulli (2021,
 <doi:10.1080/13504851.2020.1820939>) and the book by Gareth et al (2013,
 <doi:10.1007/978-1-4614-7138-7>).
 

@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blocklength
-%global packver   0.2.0
+%global packname  nimbleAPT
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Select an Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
+Summary:          Adaptive Parallel Tempering for 'NIMBLE'
 
-License:          GPL (>= 2)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.1.2
+Requires:         R-core >= 3.1.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-tseries 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-nimble 
+Requires:         R-methods 
 
 %description
-A set of functions to select the optimal block-length for a dependent
-bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
-<doi:10.1093/biomet/82.3.561> subsampling-based cross-validation method,
-the Politis and White (2004) <doi:10.1081/ETC-120028836> Spectral Density
-Plug-in method, including the Patton, Politis, and White (2009)
-<doi:10.1080/07474930802459016> correction, and the Lahiri, Furukawa, and
-Lee (2007) <doi:10.1016/j.stamet.2006.08.002> nonparametric plug-in
-method, with a corresponding set of S3 plot methods.
+Functions for adaptive parallel tempering (APT) with NIMBLE models.
+Adapted from 'Lacki' & 'Miasojedow' (2016) <DOI:10.1007/s11222-015-9579-0>
+and 'Miasojedow, Moulines and Vihola' (2013)
+<DOI:10.1080/10618600.2013.778779>.
 
 %prep
 %setup -q -c -n %{packname}

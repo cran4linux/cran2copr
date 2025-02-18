@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blocklength
-%global packver   0.2.0
+%global packname  UAHDataScienceSC
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Select an Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
+Summary:          Learn Supervised Classification Methods Through Examples and Code
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-tseries 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cli >= 3.6.1
+Requires:         R-CRAN-cli >= 3.6.1
 
 %description
-A set of functions to select the optimal block-length for a dependent
-bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
-<doi:10.1093/biomet/82.3.561> subsampling-based cross-validation method,
-the Politis and White (2004) <doi:10.1081/ETC-120028836> Spectral Density
-Plug-in method, including the Patton, Politis, and White (2009)
-<doi:10.1080/07474930802459016> correction, and the Lahiri, Furukawa, and
-Lee (2007) <doi:10.1016/j.stamet.2006.08.002> nonparametric plug-in
-method, with a corresponding set of S3 plot methods.
+Supervised classification methods, which (if asked) can provide
+step-by-step explanations of the algorithms used, as described in PK
+Josephine et. al., (2021) <doi:10.59176/kjcs.v1i1.1259>; and datasets to
+test them on, which highlight the strengths and weaknesses of each
+technique.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blocklength
-%global packver   0.2.0
+%global packname  flint
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Select an Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
+Summary:          Fast Library for Number Theory
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tseries 
+Requires:         R-methods 
 Requires:         R-stats 
 
 %description
-A set of functions to select the optimal block-length for a dependent
-bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
-<doi:10.1093/biomet/82.3.561> subsampling-based cross-validation method,
-the Politis and White (2004) <doi:10.1081/ETC-120028836> Spectral Density
-Plug-in method, including the Patton, Politis, and White (2009)
-<doi:10.1080/07474930802459016> correction, and the Lahiri, Furukawa, and
-Lee (2007) <doi:10.1016/j.stamet.2006.08.002> nonparametric plug-in
-method, with a corresponding set of S3 plot methods.
+An R interface to 'FLINT' <https://flintlib.org/>, a C library for number
+theory.  'FLINT' extends GNU 'MP' <https://gmplib.org/> and GNU 'MPFR'
+<https://www.mpfr.org/> with support for arithmetic in standard rings (the
+integers, the integers modulo n, the rational, p-adic, real, and complex
+numbers) as well as vectors, matrices, polynomials, and power series over
+rings.  'FLINT' implements midpoint-radius interval arithmetic, also known
+as ball arithmetic, in the real and complex numbers, enabling computation
+in arbitrary precision with rigorous propagation of errors; see Johansson
+(2017) <doi:10.1109/TC.2017.2690633>.  Finally, 'FLINT' provides ball
+arithmetic implementations of many special mathematical functions, with
+high coverage of reference works such as the NIST Digital Library of
+Mathematical Functions <https://dlmf.nist.gov/>.  The R interface defines
+S4 classes, generic functions, and methods for representation and basic
+operations as well as plain R functions matching (and vectorizing) entry
+points in the C library.
 
 %prep
 %setup -q -c -n %{packname}

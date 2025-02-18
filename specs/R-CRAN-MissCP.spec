@@ -1,36 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  blocklength
-%global packver   0.2.0
+%global packname  MissCP
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Select an Optimal Block-Length to Bootstrap Dependent Data (Block Bootstrap)
+Summary:          Change Point Detection with Missing Values
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tseries 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-tseries 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glmnet 
 
 %description
-A set of functions to select the optimal block-length for a dependent
-bootstrap (block-bootstrap). Includes the Hall, Horowitz, and Jing (1995)
-<doi:10.1093/biomet/82.3.561> subsampling-based cross-validation method,
-the Politis and White (2004) <doi:10.1081/ETC-120028836> Spectral Density
-Plug-in method, including the Patton, Politis, and White (2009)
-<doi:10.1080/07474930802459016> correction, and the Lahiri, Furukawa, and
-Lee (2007) <doi:10.1016/j.stamet.2006.08.002> nonparametric plug-in
-method, with a corresponding set of S3 plot methods.
+A four step change point detection method that can detect break points
+with the presence of missing values proposed by Liu and Safikhani (2023)
+<https://drive.google.com/file/d/1a8sV3RJ8VofLWikTDTQ7W4XJ76cEj4Fg/view?usp=drive_link>.
 
 %prep
 %setup -q -c -n %{packname}

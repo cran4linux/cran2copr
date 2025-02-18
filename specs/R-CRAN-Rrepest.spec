@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rrepest
-%global packver   1.5.2
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.2
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Analyzer of International Large Scale Assessments in Education
 
@@ -48,14 +48,14 @@ Requires:         R-CRAN-purrr >= 0.3.4
 An easy way to analyze international large-scale assessments and surveys
 in education or any other dataset that includes replicated weights
 (Balanced Repeated Replication (BRR) weights, Jackknife replicate
-weights,...). It also allows for analyses with multiply imputed variables
-(plausible values). It supports the estimation of univariate statistics
-(e.g. mean, variance, standard deviation, quantiles), frequencies,
-correlation, linear regression and any other model already implemented in
-R that takes a data frame and weights as parameters. It also includes
-options to prepare the results for publication, following the table
-formatting standards of the Organization for Economic Cooperation and
-Development (OECD).
+weights,...) while also allowing for analysis with multiply imputed
+variables (plausible values). It supports the estimation of univariate
+statistics (e.g. mean, variance, standard deviation, quantiles),
+frequencies, correlation, linear regression and any other model already
+implemented in R that takes a data frame and weights as parameters. It
+also includes options to prepare the results for publication, following
+the table formatting standards of the Organization for Economic
+Cooperation and Development (OECD).
 
 %prep
 %setup -q -c -n %{packname}
