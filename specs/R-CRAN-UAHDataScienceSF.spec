@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NaileR
-%global packver   1.2.2
+%global packname  UAHDataScienceSF
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Latent Variables with AI
+Summary:          Interactive Statistical Learning Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ollamar 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SensoMineR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ollamar 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SensoMineR 
+BuildRequires:    R-CRAN-magick >= 2.7.3
+BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-stats 
+Requires:         R-CRAN-magick >= 2.7.3
+Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-stats 
 
 %description
-A small package designed for interpreting continuous and categorical
-latent variables. You provide a data set with a latent variable you want
-to understand and some other explanatory variables. It provides a
-description of the latent variable based on the explanatory variables. It
-also provides a name to the latent variable.
+An educational toolkit for learning statistical concepts through
+interactive exploration. Provides functions for basic statistics (mean,
+variance, etc.) and probability distributions with step-by-step
+explanations and interactive learning modes. Each function can be used for
+simple calculations, detailed learning with explanations, or interactive
+practice with feedback.
 
 %prep
 %setup -q -c -n %{packname}

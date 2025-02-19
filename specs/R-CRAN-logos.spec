@@ -1,47 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NaileR
-%global packver   1.2.2
+%global packname  logos
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Latent Variables with AI
+Summary:          Access to the Hebrew, Greek, and English Version of the Bible
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ollamar 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SensoMineR 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ollamar 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SensoMineR 
 
 %description
-A small package designed for interpreting continuous and categorical
-latent variables. You provide a data set with a latent variable you want
-to understand and some other explanatory variables. It provides a
-description of the latent variable based on the explanatory variables. It
-also provides a name to the latent variable.
+Access to the Greek New Testament (27 books) and the Old Testament (39
+books) and allow users to do textual analysis on the data. The New and Old
+Testament have been provided in their original languages, Greek and
+Hebrew, respectively. Additionally, the Revised American Standard Bible is
+also provided for users who'd rather use a word–for–word modern English
+translation.
 
 %prep
 %setup -q -c -n %{packname}

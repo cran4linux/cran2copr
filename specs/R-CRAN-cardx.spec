@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cardx
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Analysis Results Data Utilities
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.1
 BuildRequires:    R-CRAN-glue >= 1.6.2
@@ -23,14 +23,14 @@ BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.2
 BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-cards >= 0.4.0
+BuildRequires:    R-CRAN-cards >= 0.5.0
 Requires:         R-CRAN-cli >= 3.6.1
 Requires:         R-CRAN-glue >= 1.6.2
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.2
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-cards >= 0.4.0
+Requires:         R-CRAN-cards >= 0.5.0
 
 %description
 Create extra Analysis Results Data (ARD) summary objects. The package

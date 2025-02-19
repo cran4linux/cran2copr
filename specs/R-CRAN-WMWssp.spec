@@ -1,47 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NaileR
-%global packver   1.2.2
+%global packname  WMWssp
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Latent Variables with AI
+Summary:          Wilcoxon-Mann-Whitney Sample Size Planning
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ollamar 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SensoMineR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ollamar 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SensoMineR 
 
 %description
-A small package designed for interpreting continuous and categorical
-latent variables. You provide a data set with a latent variable you want
-to understand and some other explanatory variables. It provides a
-description of the latent variable based on the explanatory variables. It
-also provides a name to the latent variable.
+Calculates the minimal sample size for the Wilcoxon-Mann-Whitney test that
+is needed for a given power and two sided type I error rate. The method
+works for metric data with and without ties, count data, ordered
+categorical data, and even dichotomous data. But data is needed for the
+reference group to generate synthetic data for the treatment group based
+on a relevant effect. See Happ et al. (2019, <doi:10.1002/sim.7983>) for
+details.
 
 %prep
 %setup -q -c -n %{packname}

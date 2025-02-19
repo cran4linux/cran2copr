@@ -1,38 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastQR
-%global packver   1.0.0
+%global packname  Dogoftest
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast QR Decomposition and Update
+Summary:          Distributed Online Goodness-of-Fit Tests for Distributed Datasets
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.10
-BuildRequires:    R-CRAN-RcppEigen 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.10
-Requires:         R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Efficient algorithms for performing, updating, and downdating the QR
-decomposition, R decomposition, or the inverse of the R decomposition of a
-matrix as rows or columns are added or removed. It also includes functions
-for solving linear systems of equations, normal equations for linear
-regression models, and normal equations for linear regression with a RIDGE
-penalty. For a detailed introduction to these methods, see the book by
-Golub and Van Loan (2013, <doi:10.1007/978-3-319-05089-8>) for complete
-introduction to the methods.
+Distributed Online Goodness-of-Fit Test can process the distributed
+datasets. The philosophy of the package is described in Guo G.(2024)
+<doi:10.1016/j.apm.2024.115709>.
 
 %prep
 %setup -q -c -n %{packname}

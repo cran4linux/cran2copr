@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calidad
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assesses the Quality of Estimates Made by Complex Sample Designs
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-haven 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
@@ -31,7 +30,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-haven 
 
 %description
@@ -39,8 +37,10 @@ Assesses the quality of estimates made by complex sample designs,
 following the methodology developed by the National Institute of
 Statistics Chile (2020,
 <https://www.ine.cl/docs/default-source/institucionalidad/buenas-pr%%C3%%A1cticas/clasificaciones-y-estandares/est%%C3%%A1ndar-evaluaci%%C3%%B3n-de-calidad-de-estimaciones-publicaci%%C3%%B3n-27022020.pdf>)
-and by Economic Commission for Latin America and Caribbean (2024,
-chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://repositorio.cepal.org/server/api/core/bitstreams/f04569e6-4f38-42e7-a32b-e0b298e0ab9c/content).
+and by Economic Commission for Latin America and Caribbean (2020,
+<https://repositorio.cepal.org/bitstream/handle/11362/45681/1/S2000293_es.pdf>),
+(2024,
+<https://repositorio.cepal.org/server/api/core/bitstreams/f04569e6-4f38-42e7-a32b-e0b298e0ab9c/content>).
 
 %prep
 %setup -q -c -n %{packname}

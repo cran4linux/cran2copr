@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NaileR
-%global packver   1.2.2
+%global packname  correlatio
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Latent Variables with AI
+Summary:          Visualize Details Behind Pearson's Correlation Coefficient
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ollamar 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SensoMineR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ollamar 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SensoMineR 
 
 %description
-A small package designed for interpreting continuous and categorical
-latent variables. You provide a data set with a latent variable you want
-to understand and some other explanatory variables. It provides a
-description of the latent variable based on the explanatory variables. It
-also provides a name to the latent variable.
+Helps visualizing what is summarized in Pearson's correlation coefficient.
+That is, it visualizes its main constituent, namely the distances of the
+single values to their respective mean. The visualization thereby shows
+what the etymology of the word correlation contains: In pairwise
+combination, bringing back (see package Vignette for more details). I hope
+that the 'correlatio' package may benefit some people in understanding and
+critically evaluating what Pearson's correlation coefficient summarizes in
+a single number, i.e., to what degree and why Pearson's correlation
+coefficient may (or may not) be warranted as a measure of association.
 
 %prep
 %setup -q -c -n %{packname}

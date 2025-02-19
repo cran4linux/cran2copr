@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NaileR
-%global packver   1.2.2
+%global packname  musicXML
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interpreting Latent Variables with AI
+Summary:          Data Sonification using 'musicXML'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-FactoMineR 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ollamar 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-SensoMineR 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-FactoMineR 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ollamar 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-SensoMineR 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-xml2 
 
 %description
-A small package designed for interpreting continuous and categorical
-latent variables. You provide a data set with a latent variable you want
-to understand and some other explanatory variables. It provides a
-description of the latent variable based on the explanatory variables. It
-also provides a name to the latent variable.
+A set of tools to facilitate data sonification and handle the 'musicXML'
+format
+<https://usermanuals.musicxml.com/MusicXML/Content/XS-MusicXML.htm>.
+Several classes are defined for basic musical objects such as note pitch,
+note duration, note, measure and score. Moreover, sonification utilities
+functions are provided, e.g. to map data into musical attributes such as
+pitch, loudness or duration. A typical sonification workflow hence looks
+like: get data; map them to musical attributes; create and write the
+'musicXML' score, which can then be further processed using specialized
+music software (e.g. 'MuseScore', 'GuitarPro', etc.). Examples can be
+found in the blog <https://globxblog.github.io/>, the presentation by
+Renard and Le Bescond (2022, <https://hal.science/hal-03710340v1>) or the
+poster by Renard et al. (2023, <https://hal.inrae.fr/hal-04388845v1>).
 
 %prep
 %setup -q -c -n %{packname}

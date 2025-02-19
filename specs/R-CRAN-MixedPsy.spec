@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MixedPsy
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tools for the Analysis of Psychophysical Data
 
@@ -23,6 +24,11 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-beepr 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-brglm 
@@ -30,6 +36,11 @@ Requires:         R-CRAN-lme4
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Tools for the analysis of psychophysical data in R. This package allows to

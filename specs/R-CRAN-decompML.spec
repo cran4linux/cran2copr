@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dartRverse
-%global packver   1.0.6
+%global packname  decompML
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Install and Load the 'dartRverse' Suits of Packages
+Summary:          Decomposition Based Machine Learning Model
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-devtools 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-devtools 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-forecast 
+BuildRequires:    R-CRAN-nnfor 
+BuildRequires:    R-CRAN-Rlibeemd 
+BuildRequires:    R-CRAN-VMDecomp 
+Requires:         R-CRAN-forecast 
+Requires:         R-CRAN-nnfor 
+Requires:         R-CRAN-Rlibeemd 
+Requires:         R-CRAN-VMDecomp 
 
 %description
-Provides a single function that supports the installation of all packages
-belonging to the 'dartRverse'. The 'dartRverse' is a set of packages that
-work together to analyse SNP (single nuclear polymorphism) data. All
-packages aim to have a similar 'look and feel' and are based on the same
-type of data structure ('genlight'), with additional metadata for loci and
-individuals (samples). For more information visit the 'GitHub' pages
-<https://github.com/green-striped-gecko/dartRverse>.
+The hybrid model is a highly effective forecasting approach that
+integrates decomposition techniques with machine learning to enhance time
+series prediction accuracy. Each decomposition technique breaks down a
+time series into multiple intrinsic mode functions (IMFs), which are then
+individually modeled and forecasted using machine learning algorithms. The
+final forecast is obtained by aggregating the predictions of all IMFs,
+producing an ensemble output for the time series. The performance of the
+developed models is evaluated using international monthly maize price
+data, assessed through metrics such as root mean squared error (RMSE),
+mean absolute percentage error (MAPE), and mean absolute error (MAE). For
+method details see Choudhary, K. et al. (2023).
+<https://ssca.org.in/media/14_SA44052022_R3_SA_21032023_Girish_Jha_FINAL_Finally.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
