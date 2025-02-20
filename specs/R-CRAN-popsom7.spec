@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easy.utils
-%global packver   0.1.0
+%global packname  popsom7
+%global packver   7.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          7.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequently Used Functions for Easy R Programming
+Summary:          A User-Friendly Implementation of Self-Organizing Maps
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hash 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-som 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-fields 
+Requires:         R-graphics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hash 
+Requires:         R-stats 
+Requires:         R-CRAN-som 
+Requires:         R-grDevices 
 
 %description
-Some utility functions for validation and data manipulation. These
-functions can be helpful to reduce internal codes everywhere in package
-development.
+Self-organizing maps with a number of distinguishing features: (1)
+Automatic centroid detection and cluster visualization using starbursts,
+for more details see the paper "Improved Interpretability of the Unified
+Distance Matrix with Connected Components" by Hamel and Brown (2011) in
+<ISBN:1-60132-168-6>. (2) Two models of the data: (a) a self organizing
+map model, (b) a centroid based clustering model. (3) A number of easily
+accessible quality metrics, Hamel (2016)
+<doi:10.1007/978-3-319-28518-4_4>.
 
 %prep
 %setup -q -c -n %{packname}

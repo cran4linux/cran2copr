@@ -1,50 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gtsummary
-%global packver   2.1.0
+%global packname  gander
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Presentation-Ready Data Summary and Analytic Result Tables
+Summary:          High Performance, Low Friction Large Language Model Chat
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-shiny >= 1.9.1
 BuildRequires:    R-CRAN-glue >= 1.8.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.3
-BuildRequires:    R-CRAN-rlang >= 1.1.1
-BuildRequires:    R-CRAN-lifecycle >= 1.0.3
-BuildRequires:    R-CRAN-vctrs >= 0.6.4
-BuildRequires:    R-CRAN-cards >= 0.5.0
-BuildRequires:    R-CRAN-gt >= 0.11.1
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-rstudioapi >= 0.17.1
+BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
+BuildRequires:    R-CRAN-ellmer >= 0.1.0
+BuildRequires:    R-CRAN-streamy 
+BuildRequires:    R-CRAN-treesitter 
+BuildRequires:    R-CRAN-treesitter.r 
 Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-shiny >= 1.9.1
 Requires:         R-CRAN-glue >= 1.8.0
-Requires:         R-CRAN-tidyr >= 1.3.0
-Requires:         R-CRAN-dplyr >= 1.1.3
-Requires:         R-CRAN-rlang >= 1.1.1
-Requires:         R-CRAN-lifecycle >= 1.0.3
-Requires:         R-CRAN-vctrs >= 0.6.4
-Requires:         R-CRAN-cards >= 0.5.0
-Requires:         R-CRAN-gt >= 0.11.1
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-rstudioapi >= 0.17.1
+Requires:         R-CRAN-miniUI >= 0.1.1.1
+Requires:         R-CRAN-ellmer >= 0.1.0
+Requires:         R-CRAN-streamy 
+Requires:         R-CRAN-treesitter 
+Requires:         R-CRAN-treesitter.r 
 
 %description
-Creates presentation-ready tables summarizing data sets, regression
-models, and more. The code to create the tables is concise and highly
-customizable. Data frames can be summarized with any function, e.g.
-mean(), median(), even user-written functions. Regression models are
-summarized and include the reference rows for categorical variables.
-Common regression models, such as logistic regression and Cox proportional
-hazards regression, are automatically identified and the tables are
-pre-filled with appropriate column headers.
+Introduces a 'Copilot'-like completion experience, but it knows how to
+talk to the objects in your R environment. 'ellmer' chats are integrated
+directly into your 'RStudio' and 'Positron' sessions, automatically
+incorporating relevant context from surrounding lines of code and your
+global environment (like data frame columns and types). Open the package
+dialog box with a keyboard shortcut, type your request, and the assistant
+will stream its response directly into your documents.
 
 %prep
 %setup -q -c -n %{packname}

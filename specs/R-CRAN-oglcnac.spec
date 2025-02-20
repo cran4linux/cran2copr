@@ -1,48 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sfhotspot
-%global packver   0.9.1
+%global packname  oglcnac
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hot-Spot Analysis with Simple Features
+Summary:          Processing and Analysis of 'O-GlcNAcAtlas' Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-SpatialKDE 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-glue 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-SpatialKDE 
-Requires:         R-CRAN-spdep 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-glue 
 
 %description
-Identify and understand clusters of points (typically representing the
-locations of places or events) stored in simple-features (SF) objects.
-This is useful for analysing, for example, hot-spots of crime events. The
-package emphasises producing results from point SF data in a single step
-using reasonable default values for all other arguments, to aid rapid data
-analysis by users who are starting out. Functions available include kernel
-density estimation (for details, see Yip (2020)
-<doi:10.22224/gistbok/2020.1.12>), analysis of spatial association (Getis
-and Ord (1992) <doi:10.1111/j.1538-4632.1992.tb00261.x>) and hot-spot
-classification (Chainey (2020) ISBN:158948584X).
+Provides tools for processing and analyzing data from the 'O-GlcNAcAtlas'
+database <https://oglcnac.org/>, as described in Ma (2021)
+<doi:10.1093/glycob/cwab003>. It integrates 'UniProt'
+<https://www.uniprot.org/> API calls to retrieve additional information.
+It is specifically designed for research workflows involving
+'O-GlcNAcAtlas' data, providing a flexible and user-friendly interface for
+customizing and downloading processed results. Interactive elements allow
+users to easily adjust parameters and handle various biological datasets.
 
 %prep
 %setup -q -c -n %{packname}

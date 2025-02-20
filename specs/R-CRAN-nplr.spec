@@ -1,37 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easy.utils
-%global packver   0.1.0
+%global packname  nplr
+%global packver   0.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequently Used Functions for Easy R Programming
+Summary:          N-Parameter Logistic Regression
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Some utility functions for validation and data manipulation. These
-functions can be helpful to reduce internal codes everywhere in package
-development.
+Performing drug response analyses and IC50 estimations using n-Parameter
+logistic regression. Can also be applied to proliferation analyses.
 
 %prep
 %setup -q -c -n %{packname}

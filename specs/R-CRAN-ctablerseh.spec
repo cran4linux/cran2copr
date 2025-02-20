@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DATAstudio
-%global packver   1.1
+%global __requires_exclude ^libmpi
+%global packname  ctablerseh
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The Research Data Warehouse of Miguel de Carvalho
+Summary:          Processing Survey Data with Confidence Intervals Like 'SPSS' Software
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-survey 
+Requires:         R-CRAN-survey 
 
 %description
-Pulls together a collection of datasets from Miguel de Carvalho research
-articles. Including, for example: - de Carvalho (2012)
-<doi:10.1016/j.jspi.2011.08.016>; - de Carvalho et al (2012)
-<doi:10.1080/03610926.2012.709905>; - de Carvalho et al (2012)
-<doi:10.1016/j.econlet.2011.09.007>); - de Carvalho and Davison (2014)
-<doi:10.1080/01621459.2013.872651>; - de Carvalho and Rua (2017)
-<doi:10.1016/j.ijforecast.2015.09.004>.
+Processes survey data and displays estimation results along with the
+relative standard error in a table, including the number of samples and
+also uses a t-distribution approach to compute confidence intervals,
+similar to 'SPSS' (Statistical Package for the Social Sciences) software.
 
 %prep
 %setup -q -c -n %{packname}

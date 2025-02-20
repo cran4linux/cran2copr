@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easy.utils
-%global packver   0.1.0
+%global packname  aftables
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequently Used Functions for Easy R Programming
+Summary:          Create Spreadsheet Publications Following Best Practice
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-methods 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-pillar 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-pillar 
 
 %description
-Some utility functions for validation and data manipulation. These
-functions can be helpful to reduce internal codes everywhere in package
-development.
+Generate spreadsheet publications that follow best practice guidance from
+the UK government's Analysis Function, available at
+<https://analysisfunction.civilservice.gov.uk/policy-store/releasing-statistics-in-spreadsheets/>,
+with a focus on accessibility. See also the 'Python' package 'gptables'.
 
 %prep
 %setup -q -c -n %{packname}

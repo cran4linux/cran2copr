@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easy.utils
-%global packver   0.1.0
+%global packname  netknitr
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequently Used Functions for Easy R Programming
+Summary:          Knit Network Map for any Dataset
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.1.0
+Requires:         R-core >= 3.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-utils 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-visNetwork 
 
 %description
-Some utility functions for validation and data manipulation. These
-functions can be helpful to reduce internal codes everywhere in package
-development.
+Designed to create interactive and visually compelling network maps using
+R Shiny. It allows users to quickly analyze CSV files and visualize
+complex relationships, structures, and connections within data by
+leveraging powerful network analysis libraries and dynamic web interfaces.
 
 %prep
 %setup -q -c -n %{packname}

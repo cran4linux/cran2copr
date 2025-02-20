@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tclust
-%global packver   2.0-5
+%global packver   2.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Trimmed Clustering
 
@@ -21,14 +21,14 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ellipsis 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ellipsis 
+Requires:         R-CRAN-rlang 
 
 %description
 Provides functions for robust trimmed clustering. The methods are

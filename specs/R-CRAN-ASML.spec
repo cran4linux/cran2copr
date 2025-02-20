@@ -1,37 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easy.utils
-%global packver   0.1.0
+%global packname  ASML
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Frequently Used Functions for Easy R Programming
+Summary:          Algorithm Portfolio Selection with Machine Learning
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-Polychrome 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-Polychrome 
 Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
 
 %description
-Some utility functions for validation and data manipulation. These
-functions can be helpful to reduce internal codes everywhere in package
-development.
+A wrapper for machine learning (ML) methods to select among a portfolio of
+algorithms based on the value of a key performance indicator (KPI). A
+number of features is used to adjust a model to predict the value of the
+KPI for each algorithm, then, for a new value of the features the KPI is
+estimated and the algorithm with the best one is chosen. To learn it can
+use the regression methods in 'caret' package or a custom function defined
+by the user. Several graphics available to analyze the results obtained.
+This library has been used in Ghaddar et al. (2023)
+<doi:10.1287/ijoc.2022.0090>).
 
 %prep
 %setup -q -c -n %{packname}

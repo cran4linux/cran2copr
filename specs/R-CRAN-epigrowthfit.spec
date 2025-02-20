@@ -1,44 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gpboost
-%global packver   1.5.6
+%global packname  epigrowthfit
+%global packver   0.15.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.6
+Version:          0.15.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
+Summary:          Nonlinear Mixed Effects Models of Epidemic Growth
 
-License:          Apache License (== 2.0) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-R6 >= 2.0
-BuildRequires:    R-CRAN-data.table >= 1.9.6
-BuildRequires:    R-CRAN-Matrix >= 1.1.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-Matrix >= 1.6.2
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.0
-Requires:         R-CRAN-data.table >= 1.9.6
-Requires:         R-CRAN-Matrix >= 1.1.0
+Requires:         R-CRAN-Matrix >= 1.6.2
+Requires:         R-CRAN-TMB 
+Requires:         R-grDevices 
 Requires:         R-graphics 
-Requires:         R-CRAN-RJSONIO 
 Requires:         R-methods 
+Requires:         R-CRAN-nlme 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-An R package that allows for combining tree-boosting with Gaussian process
-and mixed effects models. It also allows for independently doing
-tree-boosting as well as inference and prediction for Gaussian process and
-mixed effects models. See <https://github.com/fabsig/GPBoost> for more
-information on the software and Sigrist (2022, JMLR)
-<https://www.jmlr.org/papers/v23/20-322.html> and Sigrist (2023, TPAMI)
-<doi:10.1109/TPAMI.2022.3168152> for more information on the methodology.
+Maximum likelihood estimation of nonlinear mixed effects models of
+epidemic growth using Template Model Builder ('TMB').  Enables joint
+estimation for collections of disease incidence time series, including
+time series that describe multiple epidemic waves. Supports a set of
+widely used phenomenological models: exponential, logistic, Richards
+(generalized logistic), subexponential, and Gompertz.  Provides methods
+for interrogating model objects and several auxiliary functions, including
+one for computing basic reproduction numbers from fitted values of the
+initial exponential growth rate. Preliminary versions of this software
+were applied in Ma et al. (2014) <doi:10.1007/s11538-013-9918-2> and in
+Earn et al. (2020) <doi:10.1073/pnas.2004904117>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,48 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Pandora
-%global packver   24.2.0
+%global packname  unigd
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.2.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data using the API of the 'Pandora' Data Platform
+Summary:          Universal Graphics Device
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-systemfonts >= 1.0.0
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+Requires:         R-CRAN-systemfonts >= 1.0.0
 
 %description
-API wrapper that contains functions to retrieve data from the 'Pandora'
-databases. Web services for API: <https://pandora.earth/>.
+A unified R graphics backend. Render R graphics fast and easy to many
+common file formats. Provides a thread safe 'C' interface for asynchronous
+rendering of R graphics.
 
 %prep
 %setup -q -c -n %{packname}

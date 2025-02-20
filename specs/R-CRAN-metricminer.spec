@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metricminer
-%global packver   0.5.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mine Metrics from Common Places on the Web
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gh >= 1.3.0
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-gh 
 BuildRequires:    R-CRAN-getPass 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lubridate 
@@ -32,11 +32,15 @@ BuildRequires:    R-CRAN-googlesheets4
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-gh >= 1.3.0
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-gh 
 Requires:         R-CRAN-getPass 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lubridate 
@@ -47,6 +51,10 @@ Requires:         R-CRAN-googlesheets4
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-stringr 
 Requires:         R-methods 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-yaml 
 
 %description
 Mine metrics on common places on the web through the power of their APIs
