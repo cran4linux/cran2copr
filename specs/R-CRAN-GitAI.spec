@@ -1,48 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataclass
-%global packver   1.0.0
+%global packname  GitAI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Create Structured Lists or Data Frames with Input Validation
+Summary:          Extracts Knowledge from 'Git' Repositories
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-GitStats >= 2.2.0
+BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-GitStats >= 2.2.0
+Requires:         R-CRAN-ellmer 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Easily define templates for lists and data frames that validate each
-element. Specify the expected type (i.e., character, numeric, etc),
-expected length, minimum and maximum values, allowable values, and more
-for each element in your data. Decide whether violations of these
-expectations should throw an error or a warning. This package is useful
-for validating data within R processes which pull from dynamic data
-sources such as databases and web APIs to provide an extra layer of
-validation around input and output data.
+Scan multiple 'Git' repositories, pull specified files content and process
+it with large language models. You can summarize the content in specific
+way, extract information and data, or find answers to your questions about
+the repositories. The output can be stored in vector database and used for
+semantic search or as a part of a RAG (Retrieval Augmented Generation)
+prompt.
 
 %prep
 %setup -q -c -n %{packname}

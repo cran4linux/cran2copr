@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SimNPH
-%global packver   0.5.5
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Non-Proportional Hazards
 
@@ -54,9 +54,10 @@ summary statistics for the implemented scenarios and offers common
 analysis methods for time-to-event data. Helper functions for running
 simulations with the 'SimDesign' package and for aggregating and
 presenting the results are also included. Results of the conducted
-simulation study are available as preprint: "A neutral comparison of
-statistical methods for time-to-event analyses under non-proportional
-hazards", Klinglmueller et al. (2023) <doi:10.48550/ARXIV.2310.05622>.
+simulation study are available in the paper: "A Comparison of Statistical
+Methods for Time-To-Event Analyses in Randomized Controlled Trials Under
+Non-Proportional Hazards", Klinglmüller et al. (2025)
+<doi:10.1002/sim.70019>.
 
 %prep
 %setup -q -c -n %{packname}

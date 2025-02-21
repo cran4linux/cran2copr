@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flint
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Library for Number Theory
 
@@ -23,8 +23,8 @@ Requires:         R-stats
 
 %description
 An R interface to 'FLINT' <https://flintlib.org/>, a C library for number
-theory.  'FLINT' extends GNU 'MP' <https://gmplib.org/> and GNU 'MPFR'
-<https://www.mpfr.org/> with support for arithmetic in standard rings (the
+theory.  'FLINT' extends GNU 'MPFR' <https://www.mpfr.org/> and GNU 'MP'
+<https://gmplib.org/> with support for arithmetic in standard rings (the
 integers, the integers modulo n, the rational, p-adic, real, and complex
 numbers) as well as vectors, matrices, polynomials, and power series over
 rings.  'FLINT' implements midpoint-radius interval arithmetic, also known
@@ -35,7 +35,7 @@ arithmetic implementations of many special mathematical functions, with
 high coverage of reference works such as the NIST Digital Library of
 Mathematical Functions <https://dlmf.nist.gov/>.  The R interface defines
 S4 classes, generic functions, and methods for representation and basic
-operations as well as plain R functions matching (and vectorizing) entry
+operations as well as plain R functions matching and vectorizing entry
 points in the C library.
 
 %prep

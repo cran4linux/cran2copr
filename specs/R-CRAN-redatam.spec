@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redatam
-%global packver   2.0.4
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Import 'REDATAM' Files
 
@@ -29,9 +29,9 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 
 %description
-Import 'REDATAM' formats into R via the 'Open REDATAM' C++ library
-<https://github.com/litalbarkai/open-redatam> based on De Grande (2016)
-<https://www.jstor.org/stable/24890658>.
+Import 'REDATAM' formats into R via the 'Open REDATAM' C++ library. The
+full context of this project and details about the implementation are
+available in <doi:10.1017/dap.2025.4> (Open Access).
 
 %prep
 %setup -q -c -n %{packname}

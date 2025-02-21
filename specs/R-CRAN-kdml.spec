@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kdml
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Distance Metric Learning for Mixed-Type Data
 
@@ -32,7 +32,7 @@ relevant to the underlying distance through bandwidth selection via
 maximum similarity cross-validation. These methods can be used in any
 distance-based algorithm, such as distance-based clustering. For further
 details, we refer the reader to Ghashti and Thompson (2024)
-<<doi:10.48550/arXiv.2306.01890>> for dkps() methodology, and Ghashti
+<doi:10.1007/s00357-024-09493-z> for dkps() methodology, and Ghashti
 (2024) <doi:10.14288/1.0443975> for dkss() methodology.
 
 %prep

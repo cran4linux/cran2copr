@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  niarules
-%global packver   0.2.0
+%global packname  pseudorank
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Association Rule Mining using Population-Based Nature-Inspired Algorithms
+Summary:          Pseudo-Ranks
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.16
+BuildRequires:    R-CRAN-doBy 
+Requires:         R-CRAN-Rcpp >= 0.12.16
+Requires:         R-CRAN-doBy 
 
 %description
-Framework is devoted to mining numerical association rules through the
-utilization of nature-inspired algorithms for optimization. Drawing
-inspiration from the 'NiaARM' 'Python' and the 'NiaARM' 'Julia' packages,
-this repository introduces the capability to perform numerical association
-rule mining in the R programming language. Fister Jr., Iglesias, Galvez,
-Del Ser, Osaba and Fister (2018) <doi:10.1007/978-3-030-03493-1_9>.
+Efficient calculation of pseudo-ranks and (pseudo)-rank based test
+statistics. In case of equal sample sizes, pseudo-ranks and mid-ranks are
+equal. When used for inference mid-ranks may lead to paradoxical results.
+Pseudo-ranks are in general not affected by such a problem. See Happ et
+al. (2020, <doi:10.18637/jss.v095.c01>) for details.
 
 %prep
 %setup -q -c -n %{packname}

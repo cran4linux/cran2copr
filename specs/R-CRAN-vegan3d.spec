@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vegan3d
-%global packver   1.3-0
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Static and Dynamic 3D and Editable Interactive Plots for the 'vegan' Package
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-vegan >= 2.3.0
 BuildRequires:    R-CRAN-scatterplot3d >= 0.3.40
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-rgl 
 Requires:         R-CRAN-vegan >= 2.3.0
 Requires:         R-CRAN-scatterplot3d >= 0.3.40
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-rgl 
 
 %description

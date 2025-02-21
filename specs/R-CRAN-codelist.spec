@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  niarules
-%global packver   0.2.0
+%global packname  codelist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Association Rule Mining using Population-Based Nature-Inspired Algorithms
+Summary:          Working with Code Lists
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-stats 
+BuildRequires:    R-methods 
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Framework is devoted to mining numerical association rules through the
-utilization of nature-inspired algorithms for optimization. Drawing
-inspiration from the 'NiaARM' 'Python' and the 'NiaARM' 'Julia' packages,
-this repository introduces the capability to perform numerical association
-rule mining in the R programming language. Fister Jr., Iglesias, Galvez,
-Del Ser, Osaba and Fister (2018) <doi:10.1007/978-3-030-03493-1_9>.
+Functions for working with code lists and vectors with codes. These are an
+alternative for factor that keep track of both the codes and labels.
+Methods allow for transforming between codes and labels. Also supports
+hierarchical code lists.
 
 %prep
 %setup -q -c -n %{packname}

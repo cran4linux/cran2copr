@@ -1,34 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  niarules
-%global packver   0.2.0
+%global packname  transportr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Association Rule Mining using Population-Based Nature-Inspired Algorithms
+Summary:          Transporting Intervention Effects from One Population to Another
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ife 
+BuildRequires:    R-CRAN-mlr3superlearner 
+BuildRequires:    R-CRAN-origami 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ife 
+Requires:         R-CRAN-mlr3superlearner 
+Requires:         R-CRAN-origami 
+Requires:         R-CRAN-R6 
 
 %description
-Framework is devoted to mining numerical association rules through the
-utilization of nature-inspired algorithms for optimization. Drawing
-inspiration from the 'NiaARM' 'Python' and the 'NiaARM' 'Julia' packages,
-this repository introduces the capability to perform numerical association
-rule mining in the R programming language. Fister Jr., Iglesias, Galvez,
-Del Ser, Osaba and Fister (2018) <doi:10.1007/978-3-030-03493-1_9>.
+Doubly-robust, non-parametric estimators for the transported average
+treatment effect from Rudolph, Williams, Stuart, and Diaz (2023)
+<doi:10.48550/arXiv.2304.00117> and the intent-to-treatment average
+treatment effect from Rudolph and van der Laan (2017)
+<doi:10.1111/rssb.12213>. Estimators are fit using cross-fitting and
+nuisance parameters are estimated using the Super Learner algorithm.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bipartite
-%global packver   2.20
+%global packver   2.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.20
+Version:          2.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualising Bipartite Networks and Calculating Some (Ecological) Indices
 
@@ -16,15 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-permute 
-Requires:         R-CRAN-vegan 
 Requires:         R-CRAN-sna 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-MASS 

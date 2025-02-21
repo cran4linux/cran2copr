@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  niarules
-%global packver   0.2.0
+%global packname  RobPC
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Association Rule Mining using Population-Based Nature-Inspired Algorithms
+Summary:          Robust Panel Clustering Algorithm
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-trimcluster 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-trimcluster 
 
 %description
-Framework is devoted to mining numerical association rules through the
-utilization of nature-inspired algorithms for optimization. Drawing
-inspiration from the 'NiaARM' 'Python' and the 'NiaARM' 'Julia' packages,
-this repository introduces the capability to perform numerical association
-rule mining in the R programming language. Fister Jr., Iglesias, Galvez,
-Del Ser, Osaba and Fister (2018) <doi:10.1007/978-3-030-03493-1_9>.
+Performs both classical and robust panel clustering by applying Principal
+Component Analysis (PCA) for dimensionality reduction and clustering via
+standard K-Means or Trimmed K-Means. The method is designed to ensure
+stable and reliable clustering, even in the presence of outliers. Suitable
+for analyzing panel data in domains such as economic research, financial
+time-series, healthcare analytics, and social sciences. The package allows
+users to choose between classical K-Means for standard clustering and
+Trimmed K-Means for robust clustering, making it a flexible tool for
+various applications. For this package, we have benefited from the studies
+Rencher (2003), Wang and Lu (2021) <DOI:10.25236/AJBM.2021.031018>,
+Cuesta-Albertos et al. (1997)
+<https://www.jstor.org/stable/2242558?seq=1>.
 
 %prep
 %setup -q -c -n %{packname}

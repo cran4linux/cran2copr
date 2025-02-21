@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mgwrsar
-%global packver   1.0.5
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          GWR and MGWR with Spatial Autocorrelation
+Summary:          GWR, Mixed GWR and Multiscale GWR with Spatial Autocorrelation
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-spgwr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -38,6 +37,8 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-mboost 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-SMUT 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-sp 
@@ -46,7 +47,6 @@ Requires:         R-CRAN-Matrix
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-spgwr 
 Requires:         R-methods 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
@@ -61,10 +61,12 @@ Requires:         R-grid
 Requires:         R-CRAN-mboost 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-caret 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-SMUT 
 
 %description
-Functions for computing (Mixed) Geographically Weighted Regression with
-spatial autocorrelation, Geniaux and Martinetti (2017)
+Functions for computing (Mixed and Multiscale) Geographically Weighted
+Regression with spatial autocorrelation, Geniaux and Martinetti (2017)
 <doi:10.1016/j.regsciurbeco.2017.04.001>.
 
 %prep

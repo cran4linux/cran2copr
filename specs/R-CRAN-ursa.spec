@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ursa
-%global packver   3.11.3
+%global packver   3.11.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.3
+Version:          3.11.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Interactive Spatial Tools for Raster Processing and Visualization
 

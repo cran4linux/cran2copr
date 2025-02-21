@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataquieR
-%global packver   2.1.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Quality in Epidemiological Research
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-patchwork >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.2
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-lme4 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-MultinomialCI 
 BuildRequires:    R-CRAN-parallelMap 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-R.devices 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-robustbase 
@@ -37,7 +37,9 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-units 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-patchwork >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.0.2
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-lme4 
@@ -45,7 +47,6 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-MultinomialCI 
 Requires:         R-CRAN-parallelMap 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-R.devices 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-robustbase 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-units 
+Requires:         R-methods 
 
 %description
 Data quality assessments guided by a 'data quality framework introduced by
@@ -67,7 +69,7 @@ extensive metadata which can be provided in spreadsheet tables. Either
 standardized (e.g. as 'html5' reports) or individually tailored reports
 can be generated. For an introduction into the specification of
 corresponding metadata, please refer to the 'package website'
-<https://dataquality.qihs.uni-greifswald.de/Annotation_of_Metadata.html>.
+<https://dataquality.qihs.uni-greifswald.de/VIN_Annotation_of_Metadata.html>.
 
 %prep
 %setup -q -c -n %{packname}

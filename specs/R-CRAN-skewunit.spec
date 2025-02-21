@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  niarules
-%global packver   0.2.0
+%global packname  skewunit
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Numerical Association Rule Mining using Population-Based Nature-Inspired Algorithms
+Summary:          Estimation and Other Tools for Skew-Unit Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,17 +18,18 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-pracma 
 
 %description
-Framework is devoted to mining numerical association rules through the
-utilization of nature-inspired algorithms for optimization. Drawing
-inspiration from the 'NiaARM' 'Python' and the 'NiaARM' 'Julia' packages,
-this repository introduces the capability to perform numerical association
-rule mining in the R programming language. Fister Jr., Iglesias, Galvez,
-Del Ser, Osaba and Fister (2018) <doi:10.1007/978-3-030-03493-1_9>.
+Provide estimation and data generation tools for the skew-unit family
+discussed based on Mukhopadhyay and Brani (1995) <doi:10.2307/2348710>.
+The family contains extensions for popular distributions such as the
+ArcSin discussed in Arnold and Groeneveld (1980)
+<doi:10.1080/01621459.1980.10477449>, triangular, U-quadratic and
+Johnson-SB proposed in Cortina-Borja (2006)
+<doi:10.1111/j.1467-985X.2006.00446_12.x> distributions, among others.
 
 %prep
 %setup -q -c -n %{packname}

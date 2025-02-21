@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rticulate
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ultrasound Tongue Imaging
+Summary:          Articulatory Data Processing in R
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -49,8 +49,9 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 
 %description
-A tool for processing Articulate Assistant Advanced™ (AAA) export files
-and plot tongue contour data from any system.
+A tool for processing Articulate Assistant Advanced™ (AAA) ultrasound
+tongue imaging data and Carstens AG500/1 electro-magnetic articulographic
+data.
 
 %prep
 %setup -q -c -n %{packname}

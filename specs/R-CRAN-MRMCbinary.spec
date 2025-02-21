@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MRMCbinary
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Reader Multi-Case Analysis of Binary Diagnostic Tests
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival >= 3.8.1
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
+Requires:         R-CRAN-survival >= 3.8.1
 Requires:         R-CRAN-DescTools 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
 
 %description
 The goal of 'MRMCbinary' is to compare the performance of diagnostic tests

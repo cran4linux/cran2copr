@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SuessR
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Suess and Laws Corrections for Marine Stable Carbon Isotope Data
 
@@ -22,8 +22,8 @@ Requires:         R-stats
 
 %description
 Generates region-specific Suess and Laws corrections for stable carbon
-isotope data from marine organisms collected between 1850 and 2022.
-Version 0.1.5 of 'SuessR' contains four built-in regions: the Bering Sea
+isotope data from marine organisms collected between 1850 and 2023.
+Version 0.1.6 of 'SuessR' contains four built-in regions: the Bering Sea
 ('Bering Sea'), the Aleutian archipelago ('Aleutian Islands'), the Gulf of
 Alaska ('Gulf of Alaska'), and the subpolar North Atlantic ('Subpolar
 North Atlantic'). Users can supply their own environmental data for
