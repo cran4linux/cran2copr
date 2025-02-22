@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  HGDMr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          Hysteretic and Gatekeeping Depressions Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+Implementation of the Hysteretic and Gatekeeping Depressions Model (HGDM)
+which calculates variable connected/contributing areas and resulting
+discharge volumes in prairie basins dominated by depressions ("slough" or
+"potholes"). The small depressions are combined into a single "meta"
+depression which explicitly models the hysteresis between the storage of
+water and the connected/contributing areas of the depressions. The largest
+(greater than 5%% of the total depressional area) depression (if it exists)
+is represented separately to model its gatekeeping, i.e. the blocking of
+upstream flows until it is filled. The methodolgy is described in detail
+in Shook and Pomeroy (2025, <doi:10.1016/j.jhydrol.2025.132821>).
 
 %prep
 %setup -q -c -n %{packname}

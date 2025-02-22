@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  BlueCarbon
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          Estimation of Organic Carbon Stocks and Sequestration Rates from Soil Core Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-reshape 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-reshape 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+Tools to estimate soil organic carbon stocks and sequestration rates in
+blue carbon ecosystems. 'BlueCarbon' contains functions to estimate and
+correct for core compaction, estimate sample thickness, estimate organic
+carbon content from organic matter content, estimate organic carbon stocks
+and sequestration rates, and visualize the error of carbon stock
+extrapolation.
 
 %prep
 %setup -q -c -n %{packname}

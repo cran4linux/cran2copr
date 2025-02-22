@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  ILSAstats
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          Statistics for International Large-Scale Assessments (ILSA)
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+Calculates point estimates and standard errors using replicate weights and
+plausible values for International Large-Scale Assessments (ILSA),
+including: means, proportions, quantiles, correlations, singlelevel
+regressions, and multilevel regressions.
 
 %prep
 %setup -q -c -n %{packname}

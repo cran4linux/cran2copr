@@ -1,37 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  tab2xml
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          XML Generation from Tables
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-readODS 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringr 
+Requires:         R-tools 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+Converting structured data from tables into XML format using predefined
+templates ensures consistency and flexibility, making it ideal for data
+exchange, reporting, and automated workflows.
 
 %prep
 %setup -q -c -n %{packname}

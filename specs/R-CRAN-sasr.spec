@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sasr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'SAS' Interface
 
@@ -18,17 +18,19 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-reticulate 
 
 %description
 Provides a 'SAS' interface, through
 'SASPy'(<https://sassoftware.github.io/saspy/>) and
-'reticulate'(<https://rstudio.github.io/reticulate/>). This package helps
+'reticulate'(<https://rstudio.github.io/reticulate/>).  This package helps
 you create 'SAS' sessions, execute 'SAS' code in remote 'SAS' servers,
 retrieve execution results and log, and exchange datasets between 'SAS'
-and 'R'. It also helps you to install 'SASPy' and create a configuration
+and 'R'.  It also helps you to install 'SASPy' and create a configuration
 file for the connection. Please review the 'SASPy' license file as
 instructed so that you comply with its separate and independent license.
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmcalibration
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calibration Curves for Clinical Prediction Models
 
@@ -19,8 +19,6 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-splines 
 BuildRequires:    R-graphics 
@@ -29,10 +27,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-parallel 
+BuildRequires:    R-grDevices 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-chk 
 Requires:         R-CRAN-mgcv 
 Requires:         R-splines 
 Requires:         R-graphics 
@@ -41,6 +38,7 @@ Requires:         R-methods
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-pbapply 
 Requires:         R-parallel 
+Requires:         R-grDevices 
 
 %description
 Fit calibrations curves for clinical prediction models and calculate

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  gaawr2
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          Genetic Association Analysis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gap 
+BuildRequires:    R-CRAN-gap.datasets 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gap 
+Requires:         R-CRAN-gap.datasets 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rdpack 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+It gathers information, meta-data and scripts in a two-part Henry-Stewart
+talk by Zhao (2009, <doi:10.69645/DCRY5578>), which showcases analysis in
+aspects such as testing of polymorphic variant(s) for Hardy-Weinberg
+equilibrium, association with trait using genetic and statistical models
+as well as Bayesian implementation, power calculation in study design and
+genetic annotation. It also covers R integration with the Linux
+environment, GitHub, package creation and web applications.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  modEvA
-%global packver   3.30
+%global packname  steppedwedge
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.30
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Evaluation and Analysis
+Summary:          Analyze Data from Stepped Wedge Cluster Randomized Trials
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,25 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra > 1.5.50
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-terra > 1.5.50
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-stats 
-Requires:         R-methods 
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-methods >= 3.6.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-geepack >= 1.3.12
+BuildRequires:    R-CRAN-lme4 >= 1.1.35.5
+BuildRequires:    R-CRAN-dplyr >= 1.0.10
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-performance >= 0.12.4
+Requires:         R-stats >= 4.0.0
+Requires:         R-methods >= 3.6.2
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-geepack >= 1.3.12
+Requires:         R-CRAN-lme4 >= 1.1.35.5
+Requires:         R-CRAN-dplyr >= 1.0.10
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-performance >= 0.12.4
 
 %description
-Analyses species distribution models and evaluates their performance. It
-includes functions for variation partitioning, extracting variable
-importance, computing several metrics of model discrimination and
-calibration performance, optimizing prediction thresholds based on a
-number of criteria, performing multivariate environmental similarity
-surface (MESS) analysis, and displaying various analytical plots.
-Initially described in Barbosa et al. (2013) <doi:10.1111/ddi.12100>.
+Provide various functions and tools to help fit models for estimating
+treatment effects in stepped wedge cluster randomized trials. Implements
+methods described in Kenny, Voldal, Xia, and Heagerty (2022) "Analysis of
+stepped wedge cluster randomized trials in the presence of a time-varying
+treatment effect", <doi:10.1002/sim.9511>.
 
 %prep
 %setup -q -c -n %{packname}

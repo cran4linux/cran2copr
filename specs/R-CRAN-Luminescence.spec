@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Luminescence
-%global packver   0.9.26
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.26
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Luminescence Dating Data Analysis
 
@@ -20,10 +20,8 @@ BuildRequires:    R-CRAN-mclust >= 6.1
 BuildRequires:    R-CRAN-XML >= 3.99.0.16
 BuildRequires:    R-CRAN-DEoptim >= 2.2.8
 BuildRequires:    R-CRAN-lamW >= 2.2.3
-BuildRequires:    R-CRAN-zoo >= 1.8.12
 BuildRequires:    R-CRAN-httr >= 1.4.7
 BuildRequires:    R-CRAN-shape >= 1.4.6
-BuildRequires:    R-CRAN-readxl >= 1.4.3
 BuildRequires:    R-CRAN-matrixStats >= 1.3.0
 BuildRequires:    R-CRAN-minpack.lm >= 1.2.4
 BuildRequires:    R-CRAN-data.table >= 1.15.4
@@ -38,10 +36,8 @@ Requires:         R-CRAN-mclust >= 6.1
 Requires:         R-CRAN-XML >= 3.99.0.16
 Requires:         R-CRAN-DEoptim >= 2.2.8
 Requires:         R-CRAN-lamW >= 2.2.3
-Requires:         R-CRAN-zoo >= 1.8.12
 Requires:         R-CRAN-httr >= 1.4.7
 Requires:         R-CRAN-shape >= 1.4.6
-Requires:         R-CRAN-readxl >= 1.4.3
 Requires:         R-CRAN-matrixStats >= 1.3.0
 Requires:         R-CRAN-minpack.lm >= 1.2.4
 Requires:         R-CRAN-data.table >= 1.15.4

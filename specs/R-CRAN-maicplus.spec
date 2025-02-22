@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maicplus
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Matching Adjusted Indirect Comparison
 
@@ -22,7 +22,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-stringr 
@@ -33,7 +33,7 @@ Requires:         R-grDevices
 Requires:         R-stats 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-stringr 

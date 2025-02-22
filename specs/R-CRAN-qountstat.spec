@@ -1,37 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  qountstat
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          Statistical Analysis of Count Data and Quantal Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-multcomp 
+Requires:         R-CRAN-multcomp 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+Methods for statistical analysis of count data and quantal data. For the
+analysis of count data an implementation of the Closure Principle
+Computational Approach Test ("CPCAT") is provided (Lehmann, R et al.
+(2016) <doi:10.1007/s00477-015-1079-4>), as well as an implementation of a
+"Dunnett GLM" approach using a Quasi-Poisson regression (Hothorn, L,
+Kluxen, F (2020) <doi:10.1101/2020.01.15.907881>). For the analysis of
+quantal data an implementation of the Closure Principle
+Fisher–Freeman–Halton test ("CPFISH") is provided (Lehmann, R et al.
+(2018) <doi:10.1007/s00477-017-1392-1>). P-values and no/lowest observed
+(adverse) effect concentration values are calculated. All implemented
+methods include further functions to evaluate the power and the minimum
+detectable difference using a bootstrapping approach.
 
 %prep
 %setup -q -c -n %{packname}

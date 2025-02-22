@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moonboot
-%global packver   0.9.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          m-Out-of-n Bootstrap Functions
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods >= 4.1.2
-BuildRequires:    R-stats >= 4.1.2
-Requires:         R-methods >= 4.1.2
-Requires:         R-stats >= 4.1.2
+BuildRequires:    R-methods >= 3.5.0
+BuildRequires:    R-stats >= 3.5.0
+Requires:         R-methods >= 3.5.0
+Requires:         R-stats >= 3.5.0
 
 %description
 Functions and examples based on the m-out-of-n bootstrap suggested by

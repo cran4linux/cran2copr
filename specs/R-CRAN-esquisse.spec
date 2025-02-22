@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  esquisse
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore and Visualize Your Data Interactively
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-shinybusy 
+BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-datamods >= 1.5.1
 Requires:         R-CRAN-shiny >= 1.1.0
@@ -45,6 +46,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-shinybusy 
+Requires:         R-CRAN-zip 
 
 %description
 A 'shiny' gadget to create 'ggplot2' figures interactively with

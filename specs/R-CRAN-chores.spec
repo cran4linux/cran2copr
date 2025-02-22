@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  samplezoo
-%global packver   1.2.1
+%global packname  chores
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Samples with a Variety of Probability Distributions
+Summary:          A Collection of Large Language Model Assistants
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,13 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-shiny >= 1.9.1
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-rstudioapi >= 0.17.1
+BuildRequires:    R-CRAN-miniUI >= 0.1.1.1
+BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-CRAN-streamy 
+Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-shiny >= 1.9.1
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-rstudioapi >= 0.17.1
+Requires:         R-CRAN-miniUI >= 0.1.1.1
+Requires:         R-CRAN-ellmer 
+Requires:         R-CRAN-streamy 
 
 %description
-Simplifies the process of generating samples from a variety of probability
-distributions, allowing users to quickly create data frames for
-demonstrations, troubleshooting, or teaching purposes. Data is available
-in multiple sizes—small, medium, and large. For more information, refer to
-the package documentation.
+Provides a collection of ergonomic large language model assistants
+designed to help you complete repetitive, hard-to-automate tasks quickly.
+After selecting some code, press the keyboard shortcut you've chosen to
+trigger the package app, select an assistant, and watch your chore be
+carried out. While the package ships with a number of chore helpers for R
+package development, users can create custom helpers just by writing some
+instructions in a markdown file.
 
 %prep
 %setup -q -c -n %{packname}

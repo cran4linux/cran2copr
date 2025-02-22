@@ -1,37 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wnl
-%global packver   0.8.2
+%global packname  fetwfe
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis
+Summary:          Fused Extended Two-Way Fixed Effects
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-numDeriv 
-Requires:         R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-grpreg 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-grpreg 
 
 %description
-This is a set of minimization tools (maximum likelihood estimation and
-least square fitting) to solve examples in the Johan Gabrielsson and Dan
-Weiner's book "Pharmacokinetic and Pharmacodynamic Data Analysis -
-Concepts and Applications" 5th ed. (ISBN:9198299107). Examples include
-linear and nonlinear compartmental model, turn-over model, single or
-multiple dosing bolus/infusion/oral models, allometry, toxicokinetics,
-reversible metabolism, in-vitro/in-vivo extrapolation, enterohepatic
-circulation, metabolite modeling, Emax model, inhibitory model, tolerance
-model, oscillating response model, enantiomer interaction model, effect
-compartment model, drug-drug interaction model, receptor occupancy model,
-and rebound phenomena model.
+Calculates the fused extended two-way fixed effects (FETWFE) estimator for
+unbiased and efficient estimation of difference-in-differences in panel
+data with staggered treatment adoption. This estimator eliminates bias
+inherent in conventional two-way fixed effects estimators, while also
+employing a novel bridge regression regularization approach to improve
+efficiency and yield valid standard errors. Provides flexible tuning
+parameters (including user-specified or data-driven choices for penalty
+parameters), detailed output including overall and cohort-specific
+treatment effects with confidence intervals, and extensive diagnostic
+tools. See details in Faletto (2024) (<doi:10.48550/arXiv.2312.05985>).
 
 %prep
 %setup -q -c -n %{packname}
