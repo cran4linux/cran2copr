@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metaGE
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis for Detecting Genotype x Environment Associations
 
@@ -70,7 +70,7 @@ potential correlation between studies. In addition to the Fixed and Random
 models, one can investigate the relationship between QTL effects and some
 qualitative or quantitative covariate via the test of contrast and the
 meta-regression, respectively.  The methodology is available from: (De
-Walsche, A., et al. (2023) doi{10.1101/2023.03.01.530237}).
+Walsche, A., et al. (2025) doi{10.1371/journal.pgen.1011553}).
 
 %prep
 %setup -q -c -n %{packname}
