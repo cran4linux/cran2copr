@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anomo
-%global packver   0.5.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis of Moderation with the Monte Carlo Confidence Interval Method
+Summary:          Analysis of Moderation, Statistical Power, and Optimal Design for Studies Detecting Difference and Equivalence
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -23,9 +23,9 @@ Requires:         R-graphics >= 4.0.0
 Requires:         R-base >= 4.0.0
 
 %description
-Analysis of Moderation (anomo) uses the Monte Carlo confidence interval
-(MCCI) method to test the difference and equivalence of two effects with
-summary statistics from two studies.
+Analysis of moderation (ANOMO) method conceptualizes the difference and
+equivalence tests as a moderation problem to test the difference and
+equivalence of two means (or two effects in two studies).
 
 %prep
 %setup -q -c -n %{packname}

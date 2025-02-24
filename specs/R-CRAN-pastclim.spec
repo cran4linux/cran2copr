@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pastclim
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Manipulate Time Series of Palaeoclimate Reconstructions
+Summary:          Manipulate Time Series of Climate Reconstructions
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.7.18
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-utils 
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-sf
 Requires:         R-CRAN-terra >= 1.7.18
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-gstat 
 Requires:         R-methods 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-utils 
@@ -35,9 +37,11 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-sf 
 
 %description
-Methods to easily extract and manipulate palaeoclimate reconstructions for
+Methods to easily extract and manipulate climate reconstructions for
 ecological and anthropological analyses, as described in Leonardi et al.
-(2023) <doi:10.1111/ecog.06481>.
+(2023) <doi:10.1111/ecog.06481>. The package includes datasets of
+palaeoclimate reconstructions, present observations, and future
+projections from multiple climate models.
 
 %prep
 %setup -q -c -n %{packname}

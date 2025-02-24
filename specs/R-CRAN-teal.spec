@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  teal
-%global packver   0.15.2
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.2
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Web Apps for Analyzing Clinical Trials Data
 
@@ -14,42 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-shiny >= 1.8.1
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-teal.slice >= 0.5.0
-BuildRequires:    R-CRAN-teal.code >= 0.5.0
-BuildRequires:    R-CRAN-teal.data >= 0.4.0
-BuildRequires:    R-CRAN-teal.widgets >= 0.4.0
+BuildRequires:    R-CRAN-teal.data >= 0.7.0
+BuildRequires:    R-CRAN-teal.code >= 0.6.1
+BuildRequires:    R-CRAN-teal.slice >= 0.6.0
+BuildRequires:    R-CRAN-teal.widgets >= 0.4.3
+BuildRequires:    R-CRAN-teal.reporter >= 0.4.0
+BuildRequires:    R-CRAN-teal.logger >= 0.3.2
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-logger >= 0.2.0
-BuildRequires:    R-CRAN-teal.reporter >= 0.2.0
-BuildRequires:    R-CRAN-teal.logger >= 0.1.1
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-checkmate >= 2.1.0
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-shiny >= 1.8.1
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-teal.slice >= 0.5.0
-Requires:         R-CRAN-teal.code >= 0.5.0
-Requires:         R-CRAN-teal.data >= 0.4.0
-Requires:         R-CRAN-teal.widgets >= 0.4.0
+Requires:         R-CRAN-teal.data >= 0.7.0
+Requires:         R-CRAN-teal.code >= 0.6.1
+Requires:         R-CRAN-teal.slice >= 0.6.0
+Requires:         R-CRAN-teal.widgets >= 0.4.3
+Requires:         R-CRAN-teal.reporter >= 0.4.0
+Requires:         R-CRAN-teal.logger >= 0.3.2
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-logger >= 0.2.0
-Requires:         R-CRAN-teal.reporter >= 0.2.0
-Requires:         R-CRAN-teal.logger >= 0.1.1
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-stats 
+Requires:         R-tools 
 Requires:         R-utils 
 
 %description

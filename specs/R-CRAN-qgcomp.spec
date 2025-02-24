@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qgcomp
-%global packver   2.16.4
+%global packver   2.17.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.16.4
+Version:          2.17.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile G-Computation
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-AER 
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
@@ -33,6 +34,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-AER 
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 

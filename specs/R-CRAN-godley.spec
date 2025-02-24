@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  godley
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stock-Flow-Consistent Model Simulator
 
@@ -58,12 +58,11 @@ equations. With it, users can analyze how different macroeconomic
 structures affect key variables, perform parameter sensitivity analyses,
 introduce policy shocks, and visualize resulting economic scenarios. The
 accounting structure of SFC models follows the approach outlined in the
-seminal study by Godley and Lavoie Godley and Lavoie (2007,
-ISBN:978-1-137-08599-3), ensuring a comprehensive integration of all
-economic flows and stocks. The algorithms implemented to solve the models
-are based on methodologies from Kinsella and O'Shea (2010)
-<doi:10.2139/ssrn.1729205>, Peressini and Sullivan (1988,
-ISBN:0-387-96614-5), and contributions by Joao Macalos.
+seminal study by Godley and Lavoie (2007, ISBN:978-1-137-08599-3),
+ensuring a comprehensive integration of all economic flows and stocks. The
+algorithms implemented to solve the models are based on methodologies from
+Kinsella and O'Shea (2010) <doi:10.2139/ssrn.1729205>, Peressini and
+Sullivan (1988, ISBN:0-387-96614-5), and contributions by Joao Macalos.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  memisc
-%global packver   0.99.31.8.1
+%global packver   0.99.31.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.31.8.1
+Version:          0.99.31.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Management of Survey Data and Presentation of Analysis Results
 
