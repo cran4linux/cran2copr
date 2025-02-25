@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Petersen
-%global packver   2024.6.1
+%global packver   2025.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.6.1
+Version:          2025.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimators for Two-Sample Capture-Recapture Studies
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-AICcmodavg 
 BuildRequires:    R-CRAN-bbmle 
 BuildRequires:    R-CRAN-BTSPAS 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
@@ -37,6 +38,7 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-AICcmodavg 
 Requires:         R-CRAN-bbmle 
 Requires:         R-CRAN-BTSPAS 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-formula.tools 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 

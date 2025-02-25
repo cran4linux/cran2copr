@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  swash
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Swash-Backwash Model for the Single Epidemic Wave
 
@@ -26,7 +26,8 @@ Cliff and Haggett (2006) <doi:10.1007/s10109-006-0027-8> to model the
 velocity of spread of infectious diseases across space. This package
 enables the calculation of the Swash-Backwash Model for user-supplied
 panel data on regional infections. The package also provides additional
-functions for bootstrap confidence intervals and data management.
+functions for bootstrap confidence intervals, country comparison,
+visualization of results, and data management.
 
 %prep
 %setup -q -c -n %{packname}

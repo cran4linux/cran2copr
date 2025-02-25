@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.utils
-%global packver   2.13.0
+%global packname  crane
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Programming Utilities
+Summary:          Supplements the 'gtsummary' Package for Pharmaceutical Reporting
 
-License:          LGPL (>= 2.1)
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.oo 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R.methodsS3 
-Requires:         R-CRAN-R.oo 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-cli >= 3.6.4
+BuildRequires:    R-CRAN-gtsummary >= 2.1.0
+BuildRequires:    R-CRAN-rlang >= 1.1.5
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-flextable >= 0.9.7
+BuildRequires:    R-CRAN-gt >= 0.11.1
+Requires:         R-CRAN-cli >= 3.6.4
+Requires:         R-CRAN-gtsummary >= 2.1.0
+Requires:         R-CRAN-rlang >= 1.1.5
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-flextable >= 0.9.7
+Requires:         R-CRAN-gt >= 0.11.1
 
 %description
-Utility functions useful when programming and developing R packages.
+Tables summarizing clinical trial results are often complex and require
+detailed tailoring prior to submission to a health authority.  The 'crane'
+package supplements the functionality of the 'gtsummary' package for
+creating these often highly bespoke tables in the pharmaceutical industry.
 
 %prep
 %setup -q -c -n %{packname}

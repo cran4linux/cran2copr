@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.utils
-%global packver   2.13.0
+%global packname  disagg2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Programming Utilities
+Summary:          Support Functions for Time Series Analysis Book
 
-License:          LGPL (>= 2.1)
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.oo 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R.methodsS3 
-Requires:         R-CRAN-R.oo 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-PolynomF 
+Requires:         R-CRAN-PolynomF 
 
 %description
-Utility functions useful when programming and developing R packages.
+Contains the support functions for the Time Series Analysis book. We
+present a function to calculate MSE and MAE for inputs of actual and
+forecast values.  We also have the code for disaggregation as found in Wei
+and Stram (1990, <doi:10.1111/j.2517-6161.1990.tb01799.x>), and Hodgess
+and Wei (1996, "Temporal Disaggregation of Time Series").
 
 %prep
 %setup -q -c -n %{packname}

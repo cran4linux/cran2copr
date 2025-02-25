@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.utils
-%global packver   2.13.0
+%global packname  qbinplots
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.0
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Programming Utilities
+Summary:          Quantile Binned Plots
 
-License:          LGPL (>= 2.1)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.oo 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R.methodsS3 
-Requires:         R-CRAN-R.oo 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-scales 
 
 %description
-Utility functions useful when programming and developing R packages.
+Create quantile binned and conditional plots for Exploratory Data
+Analysis. The package provides several plotting functions that are all
+based on quantile binning. The plots are created with 'ggplot2' and
+'patchwork' and can be further adjusted.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RFplus
-%global packver   1.2-2
+%global packver   1.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Progressive Bias Correction of Satellite Environmental Data
+Summary:          Machine Learning for Merging Satellite and Ground Precipitation Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,22 +20,21 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-qmap 
+BuildRequires:    R-CRAN-hydroGOF 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-qmap 
+Requires:         R-CRAN-hydroGOF 
 
 %description
-Implements a bias correction method that combines Random Forest models
-with Quantile Mapping to improve the accuracy of satellite-derived
-environmental datasets. The model corrects biases in meteorological
-variables, such as precipitation and temperature, by integrating in situ
-measurements and a Digital Elevation Model (DEM).
+A machine learning algorithm that merges satellite and ground
+precipitation data using Random Forest for spatial prediction, residual
+modeling for bias correction, and quantile mapping for adjustment,
+ensuring accurate estimates across temporal scales and regions.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arf
-%global packver   0.2.0
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adversarial Random Forests
 
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-truncnorm 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-truncnorm 
 
 %description
@@ -37,7 +39,8 @@ data synthesis. Methods for both are implemented in this package. ARFs
 naturally handle unstructured data with mixed continuous and categorical
 covariates. They inherit many of the benefits of random forests, including
 speed, flexibility, and solid performance with default parameters. For
-details, see Watson et al. (2022) <arXiv:2205.09435>.
+details, see Watson et al. (2023)
+<https://proceedings.mlr.press/v206/watson23a.html>.
 
 %prep
 %setup -q -c -n %{packname}

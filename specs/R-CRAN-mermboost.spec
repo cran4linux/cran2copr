@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.utils
-%global packver   2.13.0
+%global packname  mermboost
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Programming Utilities
+Summary:          Gradient Boosting for Generalized Additive Mixed Models
 
-License:          LGPL (>= 2.1)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.oo 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R.methodsS3 
-Requires:         R-CRAN-R.oo 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-R.methodsS3 
+BuildRequires:    R-CRAN-mboost 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-stabs 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-mboost 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-stabs 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-parallel 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Utility functions useful when programming and developing R packages.
+Provides a novel framework to estimate mixed models via gradient boosting.
+The implemented functions are based on 'mboost' and 'lme4'. Hence, the
+family range is predetermined by 'lme4'. A correction mechanism for
+cluster-constant covariates is implemented as well as an estimation of
+random effects' covariance.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.utils
-%global packver   2.13.0
+%global packname  FRApp
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Programming Utilities
+Summary:          FRAP Data Analysis Using Nonlinear Mixed Effect Models with 'shiny'
 
-License:          LGPL (>= 2.1)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R.oo 
+BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R.methodsS3 
-Requires:         R-CRAN-R.oo 
+Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-gplots 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-R.methodsS3 
 
 %description
-Utility functions useful when programming and developing R packages.
+Analysis of Fluorescence Recovery After Photobleaching (FRAP) experiments
+using nonlinear mixed-effects regression models and analysis of the
+results. 'FRApp' is not limited to the analysis of FRAP experiments only.
+Any nonlinear mixed-effects models with an asymptotic exponential
+functional relationship to hierarchical data in various domains can be
+fitted. The analysis of data available in the package is presented in Di
+Credico, G., Pelucchi, S., Pauli, F. et al. (2025)
+<doi:10.1038/s41598-025-87154-w>.
 
 %prep
 %setup -q -c -n %{packname}

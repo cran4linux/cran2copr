@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RALSA
-%global packver   1.5.0
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Analyzer for Large-Scale Assessments
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-archive 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-Hmisc 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-archive 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-haven 
 Requires:         R-CRAN-Hmisc 
@@ -57,8 +59,8 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 
 %description
-Prepare and analyze data from large-scale assessments and surveys with
-complex sampling and assessment design (see 'Rutkowski', 2010
+Download, prepare and analyze data from large-scale assessments and
+surveys with complex sampling and assessment design (see 'Rutkowski', 2010
 <doi:10.3102/0013189X10363170>). Such studies are, for example,
 international assessments like 'TIMSS', 'PIRLS' and 'PISA'. A graphical
 interface is available for the non-technical user.The package includes

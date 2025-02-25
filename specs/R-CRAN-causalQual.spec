@@ -1,58 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sevenbridges2
-%global packver   0.3.0
+%global packname  causalQual
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'Seven Bridges Platform' API Client
+Summary:          Causal Inference for Qualitative Outcomes
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-AER 
+BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-CRAN-grf 
+BuildRequires:    R-CRAN-lmtest 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ocf 
+BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-AER 
+Requires:         R-CRAN-caret 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggsci 
+Requires:         R-CRAN-grf 
+Requires:         R-CRAN-lmtest 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ocf 
+Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-sandwich 
+Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-data.table 
 
 %description
-R client and utilities for 'Seven Bridges Platform' API, from 'Cancer
-Genomics Cloud' to other 'Seven Bridges' supported platforms. API
-documentation is hosted publicly at
-<https://docs.sevenbridges.com/docs/the-api>.
+Implements the framework introduced in Di Francesco and Mellace (2025)
+<doi:10.48550/arXiv.2502.11691>, shifting the focus to well-defined and
+interpretable estimands that quantify how treatment affects the
+probability distribution over outcome categories. It supports
+selection-on-observables, instrumental variables, regression
+discontinuity, and difference-in-differences designs.
 
 %prep
 %setup -q -c -n %{packname}

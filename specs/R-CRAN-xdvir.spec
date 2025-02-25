@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  R.utils
-%global packver   2.13.0
+%global packname  xdvir
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.13.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Various Programming Utilities
+Summary:          Render 'LaTeX' in Plots
 
-License:          LGPL (>= 2.1)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.14.0
-Requires:         R-core >= 2.14.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R.oo 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-R.methodsS3 
-Requires:         R-CRAN-R.oo 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-R.methodsS3 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-systemfonts >= 1.1.0
+BuildRequires:    R-CRAN-hexView >= 0.3.4
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-tinytex 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-systemfonts >= 1.1.0
+Requires:         R-CRAN-hexView >= 0.3.4
+Requires:         R-grDevices 
+Requires:         R-grid 
+Requires:         R-CRAN-tinytex 
+Requires:         R-CRAN-rlang 
 
 %description
-Utility functions useful when programming and developing R packages.
+High-level functions to render 'LaTeX' fragments in plots, including as
+labels and data symbols in 'ggplot2' plots, plus low-level functions to
+author 'LaTeX' fragments (to produce 'LaTeX' documents), typeset 'LaTeX'
+documents (to produce 'DVI' files), read 'DVI' files (to produce "DVI"
+objects), and render "DVI" objects.
 
 %prep
 %setup -q -c -n %{packname}

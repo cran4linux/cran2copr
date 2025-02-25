@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LightLogR
-%global packver   0.3.8
+%global packver   0.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Data from Wearable Light Loggers and Optical Radiation Dosimeters
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-pkgload 
@@ -36,6 +37,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-slider 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-suntools 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
@@ -46,6 +48,7 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-ggsci 
 Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-hms 
+Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-pkgload 
@@ -58,6 +61,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-slider 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-suntools 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-utils 

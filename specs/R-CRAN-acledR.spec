@@ -1,58 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipumsr
-%global packver   0.8.2
+%global packname  acledR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface for Downloading, Reading, and Handling IPUMS Data
+Summary:          Manipulate ACLED Data
 
-License:          Mozilla Public License 2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-hipread >= 0.2.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-haven >= 2.2.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-hipread >= 0.2.0
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-methods 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-zeallot 
+Requires:         R-utils 
 
 %description
-An easy way to work with census, survey, and geographic data provided by
-IPUMS in R. Generate and download data through the IPUMS API and load
-IPUMS files into R with their associated metadata to make analysis easier.
-IPUMS data describing 1.4 billion individuals drawn from over 750 censuses
-and surveys is available free of charge from the IPUMS website
-<https://www.ipums.org>.
+Tools working with data from ACLED (Armed Conflict Location and Event
+Data). Functions include simplified access to ACLED's API
+(<https://apidocs.acleddata.com/>), methods for keeping local versions of
+ACLED data up-to-date, and functions for common ACLED data
+transformations.
 
 %prep
 %setup -q -c -n %{packname}
