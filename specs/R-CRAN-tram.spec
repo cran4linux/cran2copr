@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tram
-%global packver   1.2-0
+%global packver   1.2-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Models
 
@@ -56,6 +56,8 @@ Hothorn, 2022, <DOI:10.1093/biostatistics/kxac048>). Multivariate
 conditional transformation models (Klein et al, 2022,
 <DOI:10.1111/sjos.12501>) and shift-scale transformation models (Siegfried
 et al, 2023, <DOI:10.1080/00031305.2023.2203177>) can be fitted as well.
+The package contains an implementation of a doubly robust score test,
+described in Kook et al. (2024, <DOI:10.1080/01621459.2024.2395588>).
 
 %prep
 %setup -q -c -n %{packname}

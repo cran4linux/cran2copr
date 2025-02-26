@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cSEM
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Composite-Based Structural Equation Modeling
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
@@ -39,13 +40,13 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-symmoments 
 BuildRequires:    R-CRAN-TruncatedNormal 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-expm >= 0.999.5
 Requires:         R-CRAN-alabama 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
@@ -62,7 +63,6 @@ Requires:         R-stats
 Requires:         R-CRAN-symmoments 
 Requires:         R-CRAN-TruncatedNormal 
 Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Estimate, assess, test, and study linear, nonlinear, hierarchical and
@@ -72,7 +72,7 @@ path modeling (PLS-PM) and its derivatives (PLSc, ordPLSc, robustPLSc),
 generalized structured component analysis (GSCA), generalized structured
 component analysis with uniqueness terms (GSCAm), generalized canonical
 correlation analysis (GCCA), principal component analysis (PCA), factor
-score regression (FSR) using sum score, regression or bartlett scores
+score regression (FSR) using sum score, regression or Bartlett scores
 (including bias correction using Croon’s approach), as well as several
 tests and typical postestimation procedures (e.g., verify admissibility of
 the estimates, assess the model fit, test the model fit etc.).

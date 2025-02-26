@@ -1,43 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TFM
-%global packver   0.2.0
+%global packname  AgePopDenom
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Online Principal Component for Truncated Factor Model
+Summary:          Model Fine-Scale Age-Structured Population Data using Open-Source Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-SOPC 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-SOPC 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-exactextractr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-pdist 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-exactextractr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-pdist 
+Requires:         R-utils 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
 
 %description
-The Truncated Factor Model is a statistical model designed to handle
-specific data structures in data analysis. This R package focuses on the
-Sparse Online Principal Component Estimation method, which is used to
-calculate data such as the loading matrix and specific variance matrix for
-truncated data, thereby better explaining the relationship between common
-factors and original variables. Additionally, the R package also provides
-other equations for comparison with the Sparse Online Principal Component
-Estimation method.The philosophy of the package is described in thesis.
-(2023) <doi:10.1007/s00180-022-01270-z>.
+Automate the modelling of age-structured population data using survey
+data, grid population estimates and urban-rural extents.
 
 %prep
 %setup -q -c -n %{packname}

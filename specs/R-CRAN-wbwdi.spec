@@ -1,43 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TFM
-%global packver   0.2.0
+%global packname  wbwdi
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Online Principal Component for Truncated Factor Model
+Summary:          Seamless Access to World Bank World Development Indicators (WDI)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-SOPC 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-SOPC 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tibble 
 
 %description
-The Truncated Factor Model is a statistical model designed to handle
-specific data structures in data analysis. This R package focuses on the
-Sparse Online Principal Component Estimation method, which is used to
-calculate data such as the loading matrix and specific variance matrix for
-truncated data, thereby better explaining the relationship between common
-factors and original variables. Additionally, the R package also provides
-other equations for comparison with the Sparse Online Principal Component
-Estimation method.The philosophy of the package is described in thesis.
-(2023) <doi:10.1007/s00180-022-01270-z>.
+Access and analyze the World Bank’s World Development Indicators (WDI)
+using the corresponding API
+<https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation>.
+WDI provides more than 24,000 country or region-level indicators for
+various contexts. 'wbwdi' enables users to download, process and work with
+WDI series across multiple countries, aggregates, and time periods.
 
 %prep
 %setup -q -c -n %{packname}

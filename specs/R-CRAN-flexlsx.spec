@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexlsx
-%global packver   0.3.1
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exporting 'flextable' to 'xlsx' Files
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-openxlsx2 >= 1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-tibble 
@@ -30,6 +30,7 @@ Requires:         R-CRAN-openxlsx2 >= 1.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-grDevices 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-tibble 

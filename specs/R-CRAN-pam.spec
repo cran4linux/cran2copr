@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pam
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Efficient Processing of PAM Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-minpack.lm
 BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-ggthemes 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 

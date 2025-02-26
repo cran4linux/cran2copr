@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TFM
-%global packver   0.2.0
+%global packname  pnd
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Online Principal Component for Truncated Factor Model
+Summary:          Parallel Numerical Derivatives, Gradients, Jacobians, and Hessians of Arbitrary Accuracy Order
 
-License:          MIT + file LICENSE
+License:          EUPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-SOPC 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-SOPC 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-matrixcalc 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rdpack 
 
 %description
-The Truncated Factor Model is a statistical model designed to handle
-specific data structures in data analysis. This R package focuses on the
-Sparse Online Principal Component Estimation method, which is used to
-calculate data such as the loading matrix and specific variance matrix for
-truncated data, thereby better explaining the relationship between common
-factors and original variables. Additionally, the R package also provides
-other equations for comparison with the Sparse Online Principal Component
-Estimation method.The philosophy of the package is described in thesis.
-(2023) <doi:10.1007/s00180-022-01270-z>.
+Calculation of numerical derivatives through finite-difference
+approximations with parallel capabilities and optimal step-size selection
+to improve accuracy. These functions facilitate efficient computation of
+derivatives, gradients, Jacobians, and Hessians, allowing for more
+evaluations to reduce the mathematical and machine errors. Designed for
+compatibility with the 'numDeriv' package, which has not received updates
+in several years, it introduces advanced features such as computing
+derivatives of arbitrary order, improving the accuracy of Hessian
+approximations by avoiding repeated differencing, and parallelising slow
+functions on Windows, Mac, and Linux.
 
 %prep
 %setup -q -c -n %{packname}

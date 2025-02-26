@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TFM
-%global packver   0.2.0
+%global packname  pdcor
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Online Principal Component for Truncated Factor Model
+Summary:          Fast and Light-Weight Partial Distance Correlation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-SOPC 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-SOPC 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-dcov 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dcov 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
+Requires:         R-stats 
 
 %description
-The Truncated Factor Model is a statistical model designed to handle
-specific data structures in data analysis. This R package focuses on the
-Sparse Online Principal Component Estimation method, which is used to
-calculate data such as the loading matrix and specific variance matrix for
-truncated data, thereby better explaining the relationship between common
-factors and original variables. Additionally, the R package also provides
-other equations for comparison with the Sparse Online Principal Component
-Estimation method.The philosophy of the package is described in thesis.
-(2023) <doi:10.1007/s00180-022-01270-z>.
+Fast and memory-less computation of the partial distance correlation for
+vectors and matrices. Permutation-based and asymptotic hypothesis testing
+for zero partial distance correlation are also performed. References
+include: Szekely G. J. and Rizzo M. L. (2014). "Partial distance
+correlation with methods for dissimilarities". The Annals Statistics,
+42(6): 2382--2412. <doi:10.1214/14-AOS1255>. Shen C., Panda S. and
+Vogelstein J. T. (2022). "The Chi-Square Test of Distance Correlation".
+Journal of Computational and Graphical Statistics, 31(1): 254--262.
+<doi:10.1080/10618600.2021.1938585>. Szekely G. J. and Rizzo M. L. (2023).
+"The Energy of Data and Distance Correlation". Chapman and Hall/CRC.
+<ISBN:9781482242744>.
 
 %prep
 %setup -q -c -n %{packname}

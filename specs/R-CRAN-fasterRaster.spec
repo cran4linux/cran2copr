@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasterRaster
-%global packver   8.4.0.3
+%global packver   8.4.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.0.3
+Version:          8.4.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Faster Raster and Spatial Vector Processing Using 'GRASS GIS'
 

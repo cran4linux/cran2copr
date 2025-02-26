@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  watcher
-%global packver   0.1.2
+%global packname  scalablebayesm
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Watch the File System for Changes
+Summary:          Distributed Markov Chain Monte Carlo for Bayesian Inference in Marketing
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-bayesm 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-parallel 
+Requires:         R-CRAN-bayesm 
 
 %description
-R binding for 'libfswatch', a file system monitoring library. Watch files,
-or directories recursively, for changes in the background. Log activity,
-or run an R function every time a change event occurs.
+Estimates unit-level and population-level parameters from a hierarchical
+model in marketing applications. The package includes: Hierarchical Linear
+Models with a mixture of normals prior and covariates, Hierarchical
+Multinomial Logits with a mixture of normals prior and covariates,
+Hierarchical Multinomial Logits with a Dirichlet Process prior and
+covariates. For more details, see Bumbaca, F. (Rico), Misra, S., & Rossi,
+P. E. (2020) <doi:10.1177/0022243720952410> "Scalable Target Marketing:
+Distributed Markov Chain Monte Carlo for Bayesian Hierarchical Models".
+Journal of Marketing Research, 57(6), 999-1018.
 
 %prep
 %setup -q -c -n %{packname}

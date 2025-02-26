@@ -1,43 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TFM
-%global packver   0.2.0
+%global packname  EpiSimR
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Online Principal Component for Truncated Factor Model
+Summary:          A 'Shiny' App to Simulate the Dynamics of Epidemic and Endemic Diseases Spread
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.1
+Requires:         R-core >= 4.1.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-relliptical 
-BuildRequires:    R-CRAN-SOPC 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-CRAN-relliptical 
-Requires:         R-CRAN-SOPC 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-matrixcalc 
+BuildRequires:    R-CRAN-openxlsx >= 4.2.8
+BuildRequires:    R-CRAN-deSolve >= 1.40
+BuildRequires:    R-CRAN-shiny >= 1.10.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-shinythemes 
+Requires:         R-CRAN-openxlsx >= 4.2.8
+Requires:         R-CRAN-deSolve >= 1.40
+Requires:         R-CRAN-shiny >= 1.10.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-shinythemes 
 
 %description
-The Truncated Factor Model is a statistical model designed to handle
-specific data structures in data analysis. This R package focuses on the
-Sparse Online Principal Component Estimation method, which is used to
-calculate data such as the loading matrix and specific variance matrix for
-truncated data, thereby better explaining the relationship between common
-factors and original variables. Additionally, the R package also provides
-other equations for comparison with the Sparse Online Principal Component
-Estimation method.The philosophy of the package is described in thesis.
-(2023) <doi:10.1007/s00180-022-01270-z>.
+The 'EpiSimR' package provides an interactive 'shiny' app based on
+deterministic compartmental mathematical modeling for simulating and
+visualizing the dynamics of epidemic and endemic disease spread. It allows
+users to explore various intervention strategies, including vaccination
+and isolation, by adjusting key epidemiological parameters. The
+methodology follows the approach described by Brauer (2008)
+<doi:10.1007/978-3-540-78911-6_2>. Thanks to 'shiny' package.
 
 %prep
 %setup -q -c -n %{packname}
