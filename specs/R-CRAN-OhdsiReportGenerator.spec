@@ -1,53 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  quicR
-%global packver   2.1.0
+%global packname  OhdsiReportGenerator
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          RT-QuIC Data Formatting and Analysis
+Summary:          Observational Health Data Sciences and Informatics Report Generator
 
-License:          GPL-3
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DatabaseConnector 
+BuildRequires:    R-CRAN-forestplot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-slider 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-ParallelLogger 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-reactable 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-DatabaseConnector 
+Requires:         R-CRAN-forestplot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-slider 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-ParallelLogger 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-reactable 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Designed for the curation and analysis of data generated from real-time
-quaking-induced conversion (RT-QuIC) assays first described by Atarashi et
-al. (2011) <doi:10.1038/nm.2294>. 'quicR' calculates useful metrics such
-as maxpoint ratio: Rowden et al. (2023) <doi:10.1099/vir.0.069906-0>;
-time-to-threshold: Shi et al. (2013) <doi:10.1186/2051-5960-1-44>; and
-maximum slope. Integration with the output from plate readers allows for
-seamless input of raw data into the R environment.
+Extract results into R from the Observational Health Data Sciences and
+Informatics result database (see
+<https://ohdsi.github.io/Strategus/results-schema/index.html>) and
+generate reports/presentations via 'quarto' that summarize results in HTML
+format. Learn more about 'OhdsiReportGenerator' at
+<https://ohdsi.github.io/OhdsiReportGenerator/>.
 
 %prep
 %setup -q -c -n %{packname}

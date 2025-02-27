@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexlsx
-%global packver   0.3.4
+%global packname  awdb
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exporting 'flextable' to 'xlsx' Files
+Summary:          Query the USDA NWCC Air and Water Database REST API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,28 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-openxlsx2 >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-openxlsx2 >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-sf 
 
 %description
-Exports 'flextable' objects to 'xlsx' files, utilizing functionalities
-provided by 'flextable' and 'openxlsx2'.
+Query the four endpoints of the 'Air and Water Database (AWDB) REST API'
+maintained by the National Water and Climate Center (NWCC) at the United
+States Department of Agriculture (USDA). Endpoints include data, forecast,
+reference-data, and metadata. The package is extremely light weight, with
+'Rust' via 'extendr' doing most of the heavy lifting to deserialize and
+flatten deeply nested 'JSON' responses. The AWDB can be found at
+<https://wcc.sc.egov.usda.gov/awdbRestApi/swagger-ui/index.html>.
 
 %prep
 %setup -q -c -n %{packname}

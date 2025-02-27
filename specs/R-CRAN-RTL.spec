@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RTL
-%global packver   1.3.5
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Risk Tool Library - Trading, Risk, 'Analytics' for Commodities
+Summary:          Risk Tool Library - Trading, Risk, Analytics for Commodities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,6 +39,7 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-TTR 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-PerformanceAnalytics 
+BuildRequires:    R-CRAN-numDeriv 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-httr 
@@ -62,6 +63,7 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-PerformanceAnalytics 
+Requires:         R-CRAN-numDeriv 
 
 %description
 A toolkit for Commodities 'analytics', risk management and trading

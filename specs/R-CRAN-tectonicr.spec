@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tectonicr
-%global packver   0.4.4
+%global packver   0.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing the Orientation of Maximum Horizontal Stress
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-circular >= 0.5.0
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-sf 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-circular >= 0.5.0
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-sf 

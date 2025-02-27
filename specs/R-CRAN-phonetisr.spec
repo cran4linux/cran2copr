@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexlsx
-%global packver   0.3.4
+%global packname  phonetisr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exporting 'flextable' to 'xlsx' Files
+Summary:          A Naive IPA Tokeniser
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-openxlsx2 >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-openxlsx2 >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-Unicode 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Unicode 
 
 %description
-Exports 'flextable' objects to 'xlsx' files, utilizing functionalities
-provided by 'flextable' and 'openxlsx2'.
+It provides users with functions to parse International Phonetic Alphabet
+(IPA) transcriptions into individual phones (tokenisation) based on
+default IPA symbols and optional user specified multi-character phones.
+The tokenised transcriptions can be used for obtaining counts of phones or
+for searching for words matching phonetic patterns.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CorrectOverloadedPeaks
-%global packver   1.3.3
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Correct Overloaded Peaks from GC-APCI-MS Data
 
@@ -17,17 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildArch:        noarch
+BuildRequires:    R-methods 
+Requires:         R-methods 
 
 %description
-Analyzes and modifies metabolomics raw data (generated using GC-APCI-MS,
-Gas Chromatography-Atmospheric Pressure Chemical Ionization-Mass
-Spectrometry) to correct overloaded signals, i.e. ion intensities
-exceeding detector saturation leading to a cut-off peak. Data in xcmsRaw
-format are accepted as input and mzXML files can be processed
-alternatively. Overloaded signals are detected automatically and modified
-using an Gaussian or Isotopic-Ratio approach, QC plots are generated and
-corrected data are stored within the original xcmsRaw or mzXML
-respectively to allow further processing.
+Analyzes and modifies metabolomics raw data (generated using Gas
+Chromatography-Atmospheric Pressure Chemical Ionization-Mass Spectrometry)
+to correct overloaded signals, i.e. ion intensities exceeding detector
+saturation leading to a cut-off peak. Data in 'xcmsRaw' format are
+accepted as input and 'mzXML' files can be processed alternatively.
+Overloaded signals are detected automatically and modified using an
+Gaussian or an Isotopic-Ratio approach. Quality control plots are
+generated and corrected data are stored within the original 'xcmsRaw' or
+'mzXML' respectively to allow further processing.
 
 %prep
 %setup -q -c -n %{packname}

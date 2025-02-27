@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FBMS
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayesian Model Selection and Model Averaging
 
@@ -19,23 +19,26 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-fastglm 
 BuildRequires:    R-CRAN-GenSA 
 BuildRequires:    R-parallel 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-r2r 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-fastglm 
 Requires:         R-CRAN-GenSA 
 Requires:         R-parallel 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-r2r 
 Requires:         R-CRAN-Rcpp 
 
 %description
-Implements MJMCMC (mode jumping MCMC) described in Hubin and Storvik
-(2018) <doi:10.1016/j.csda.2018.05.020> and GMJMCMC (genetically modified
-MJMCMC) described in Hubin et al. (2021) <doi:10.1613/jair.1.13047>
-algorithms as well as the subsampling counterpart described in Lachmann et
-al. (2022) <doi:10.1016/j.ijar.2022.08.018> for flexible Bayesian model
-selection and model averaging.
+Implements the Mode Jumping Markov Chain Monte Carlo algorithm described
+in <doi:10.1016/j.csda.2018.05.020> and its Genetically Modified
+counterpart described in <doi:10.1613/jair.1.13047> as well as the
+sub-sampling versions described in <doi:10.1016/j.ijar.2022.08.018> for
+flexible Bayesian model selection and model averaging.
 
 %prep
 %setup -q -c -n %{packname}

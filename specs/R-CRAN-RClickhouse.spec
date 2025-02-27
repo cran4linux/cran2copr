@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexlsx
-%global packver   0.3.4
+%global packname  RClickhouse
+%global packver   0.6.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.6.10
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exporting 'flextable' to 'xlsx' Files
+Summary:          'Yandex Clickhouse' Interface for R with Basic 'dplyr' Support
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-openxlsx2 >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-openxlsx2 >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildRequires:    R-methods >= 3.3.2
+BuildRequires:    R-CRAN-dbplyr >= 2.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-DBI >= 1.0.0
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-methods >= 3.3.2
+Requires:         R-CRAN-dbplyr >= 2.0.0
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-DBI >= 1.0.0
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-cli 
 
 %description
-Exports 'flextable' objects to 'xlsx' files, utilizing functionalities
-provided by 'flextable' and 'openxlsx2'.
+'Yandex Clickhouse' (<https://clickhouse.com/>) is a high-performance
+relational column-store database to enable big data exploration and
+'analytics' scaling to petabytes of data. Methods are provided that enable
+working with 'Yandex Clickhouse' databases via 'DBI' methods and using
+'dplyr'/'dbplyr' idioms.
 
 %prep
 %setup -q -c -n %{packname}

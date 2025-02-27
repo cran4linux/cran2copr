@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dabestr
-%global packver   2023.9.12
+%global packver   2025.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.9.12
+Version:          2025.3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Analysis using Bootstrap-Coupled Estimation
 
@@ -17,55 +17,57 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-ggbeeswarm 
-BuildRequires:    R-CRAN-effsize 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-ggsci 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-brunnermunzel 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-effsize 
+BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-ggsci 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-brunnermunzel 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-ggbeeswarm 
-Requires:         R-CRAN-effsize 
-Requires:         R-grid 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-ggsci 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-viridisLite 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-brunnermunzel 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-effsize 
+Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggsci 
+Requires:         R-grid 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-brunnermunzel 
-Requires:         R-methods 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridisLite 
 
 %description
-Data Analysis using Bootstrap-Coupled ESTimation. Estimation statistics is
-a simple framework that avoids the pitfalls of significance testing. It
+Data Analysis using Bootstrap-Coupled ESTimation.  Estimation statistics
+is a simple framework that avoids the pitfalls of significance testing. It
 uses familiar statistical concepts: means, mean differences, and error
 bars. More importantly, it focuses on the effect size of one's
 experiment/intervention, as opposed to a false dichotomy engendered by P
-values. An estimation plot has two key features: 1. It presents all
+values.  An estimation plot has two key features: 1. It presents all
 datapoints as a swarmplot, which orders each point to display the
-underlying distribution. 2. It presents the effect size as a bootstrap 95%%
-confidence interval on a separate but aligned axes. Estimation plots are
-introduced in Ho et al., Nature Methods 2019, 1548-7105.
-<doi:10.1038/s41592-019-0470-3>. The free-to-view PDF is located at
+underlying distribution.  2. It presents the effect size as a bootstrap
+95%% confidence interval on a separate but aligned axes.  Estimation plots
+are introduced in Ho et al., Nature Methods 2019, 1548-7105.
+<doi:10.1038/s41592-019-0470-3>.  The free-to-view PDF is located at
 <https://www.nature.com/articles/s41592-019-0470-3.epdf?author_access_token=Euy6APITxsYA3huBKOFBvNRgN0jAjWel9jnR3ZoTv0Pr6zJiJ3AA5aH4989gOJS_dajtNr1Wt17D0fh-t4GFcvqwMYN03qb8C33na_UrCUcGrt-Z0J9aPL6TPSbOxIC-pbHWKUDo2XsUOr3hQmlRew%%3D%%3D>.
 
 %prep

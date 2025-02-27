@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PatientProfiles
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Characteristics of Patients in the OMOP Common Data Model
 
@@ -14,27 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CDMConnector >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-omopgenerics >= 1.0.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-CDMConnector >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-omopgenerics >= 1.0.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Identify the characteristics of patients in data mapped to the
