@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rfast
-%global packver   2.1.4
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.4
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Collection of Efficient and Extremely Fast R Functions
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-CRAN-RcppZiggurat 
+BuildRequires:    R-CRAN-zigg 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-CRAN-RcppZiggurat 
+Requires:         R-CRAN-zigg 
 Requires:         R-CRAN-RcppParallel 
 
 %description
@@ -40,7 +40,9 @@ Modern Applied Statistical Methods, 18(2), eP2898.
 <doi:10.48550/arXiv.1806.10947>. d) Tsagris M., Papadakis M., Alenazi A.
 and Alzeley O. (2024). Computationally Efficient Outlier Detection for
 High-Dimensional Data Using the MDP Algorithm. Computation, 12(9): 185.
-<doi:10.3390/computation12090185>.
+<doi:10.3390/computation12090185>. e) Tsagris M. and Papadakis M. (2025).
+Fast and light-weight energy statistics using the R package Rfast.
+<doi:10.48550/arXiv.2501.02849>.
 
 %prep
 %setup -q -c -n %{packname}

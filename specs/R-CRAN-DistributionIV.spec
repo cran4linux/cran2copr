@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  DistributionIV
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Distributional Instrumental Variable (DIV) Model
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-torch 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-vctrs 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Distributional instrumental variable (DIV) model for estimation of the
+interventional distribution of the outcome Y under a do-intervention on
+the treatment X. Instruments, predictors and targets can be univariate or
+multivariate. Functionality includes estimation of the (conditional)
+interventional mean and quantiles, as well as sampling from the fitted
+(conditional) interventional distribution.
 
 %prep
 %setup -q -c -n %{packname}

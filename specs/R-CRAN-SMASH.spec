@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  SMASH
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Subclone Multiplicity Allocation and Somatic Heterogeneity
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-smarter 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-smarter 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Cluster user-supplied somatic read counts with corresponding
+allele-specific copy number and tumor purity to infer feasible underlying
+intra-tumor heterogeneity in terms of number of subclones, multiplicity,
+and allocation (Little et al. (2019) <doi:10.1186/s13073-019-0643-9>).
 
 %prep
 %setup -q -c -n %{packname}

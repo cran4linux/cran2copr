@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  owidapi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Access the Our World in Data Chart API
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0.0
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 1.0.0
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
+Requires:         R-CRAN-rlang 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Retrieve data from the Our World in Data (OWID) Chart API
+<https://docs.owid.io/projects/etl/api/>. OWID provides public access to
+more than 5,000 charts focusing on global problems such as poverty,
+disease, hunger, climate change, war, existential risks, and inequality.
 
 %prep
 %setup -q -c -n %{packname}

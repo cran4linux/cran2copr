@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  mmeta
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Multivariate Meta-Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildRequires:    R-CRAN-aod 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+Requires:         R-CRAN-aod 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Multiple 2 by 2 tables often arise in meta-analysis which combines
+statistical evidence from multiple studies. Two risks within the same
+study are possibly correlated because they share some common factors such
+as environment and population structure. This package implements a set of
+novel Bayesian approaches for multivariate meta analysis when the risks
+within the same study are independent or correlated. The exact posterior
+inference of odds ratio, relative risk, and risk difference given either a
+single 2 by 2 table or multiple 2 by 2 tables is provided. Luo, Chen, Su,
+Chu, (2014) <doi:10.18637/jss.v056.i11>, Chen, Luo, (2011)
+<doi:10.1002/sim.4248>, Chen, Chu, Luo, Nie, Chen, (2015)
+<doi:10.1177/0962280211430889>, Chen, Luo, Chu, Su, Nie, (2014)
+<doi:10.1080/03610926.2012.700379>, Chen, Luo, Chu, Wei, (2013)
+<doi:10.1080/19466315.2013.791483>.
 
 %prep
 %setup -q -c -n %{packname}

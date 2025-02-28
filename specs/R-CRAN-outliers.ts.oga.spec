@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  outliers.ts.oga
-%global packver   0.0.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Outlier Detection in Heterogeneous Time Series Databases
+Summary:          Efficient Outlier Detection for Large Time Series Databases
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,9 +37,11 @@ Programs for detecting and cleaning outliers in single time series and in
 time series from homogeneous and heterogeneous databases using an
 Orthogonal Greedy Algorithm (OGA) for saturated linear regression models.
 The programs implement the procedures presented in the paper entitled
-"Efficient outlier detection in heterogeneous time series databases" by
-Pedro Galeano, Daniel Peña and Ruey S. Tsay (2024), working paper,
-Universidad Carlos III de Madrid.
+"Efficient Outlier Detection for Large Time Series Databases" by Pedro
+Galeano, Daniel Peña and Ruey S. Tsay (2025), working paper, Universidad
+Carlos III de Madrid. Version 1.0.1 contains some improvements to the
+algorithm, so the results may vary slightly compared to those obtained
+with version 0.0.1.
 
 %prep
 %setup -q -c -n %{packname}

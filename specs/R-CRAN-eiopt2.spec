@@ -1,42 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  eiopt2
+%global packver   0.1.1-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Ecological Inference for RxC Tables via Nonlinear Quadratic Optimization
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-quadprog 
+Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-quadprog 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Estimates RxC (R by C) vote transfer matrices (ecological contingency
+tables) from aggregate data by simultaneously minimizing Euclidean
+row-standardized unit-to-global distances. Acknowledgements: The authors
+wish to thank Generalitat Valenciana, Consellería de Educación, Cultura,
+Universidades y Empleo (grant CIAICO/2023/031) for supporting this
+research.
 
 %prep
 %setup -q -c -n %{packname}

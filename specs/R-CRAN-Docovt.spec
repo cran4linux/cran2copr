@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  Docovt
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Distributed Online Covariance Matrix Tests
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Distributed Online Covariance Matrix Tests is a powerful tool designed to
+efficiently process and analyze distributed datasets. It enables users to
+perform covariance matrix tests in an online, distributed manner, making
+it highly suitable for large-scale data analysis. By leveraging advanced
+computational techniques, 'Docovt' ensures robust and scalable solutions
+for statistical analysis, particularly in scenarios where data is
+dispersed across multiple nodes or sources. This package is ideal for
+researchers and practitioners working with high-dimensional data,
+providing a flexible and efficient framework for covariance matrix
+estimation and hypothesis testing. The philosophy of 'Docovt' is described
+in Guo G.(2025) <doi:10.1016/j.physa.2024.130308>.
 
 %prep
 %setup -q -c -n %{packname}

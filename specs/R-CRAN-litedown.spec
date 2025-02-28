@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  litedown
-%global packver   0.5
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight Version of R Markdown
 
@@ -18,10 +18,10 @@ BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-commonmark >= 1.9.1
-BuildRequires:    R-CRAN-xfun >= 0.49
+BuildRequires:    R-CRAN-xfun >= 0.51
 BuildRequires:    R-utils 
 Requires:         R-CRAN-commonmark >= 1.9.1
-Requires:         R-CRAN-xfun >= 0.49
+Requires:         R-CRAN-xfun >= 0.51
 Requires:         R-utils 
 
 %description

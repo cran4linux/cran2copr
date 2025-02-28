@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  aion
-%global packver   1.4.0
+%global packname  GTEs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Archaeological Time Series
+Summary:          Group Technical Effects
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.10.0
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.10.0
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-dplyr 
 
 %description
-A toolkit for archaeological time series and time intervals. This package
-provides a system of classes and methods to represent and work with
-archaeological time series and time intervals. Dates are represented as
-"rata die" and can be converted to (virtually) any calendar defined by
-Reingold and Dershowitz (2018) <doi:10.1017/9781107415058>. This packages
-offers a simple API that can be used by other specialized packages.
+Implementation of the GTE (Group Technical Effects) model for single-cell
+data. GTE is a quantitative metric to assess batch effects for individual
+genes in single-cell data. For a single-cell dataset, the user can
+calculate the GTE value for individual features (such as genes), and then
+identify the highly batch-sensitive features. Removing these highly
+batch-sensitive features results in datasets with low batch effects.
 
 %prep
 %setup -q -c -n %{packname}

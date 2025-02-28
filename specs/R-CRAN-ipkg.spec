@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ipkg
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Install R Packages or Download File from GitHub via the Proxy Site
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-httr
 %description
 When you want to install R package or download file from GitHub, but you
 can't access GitHub, this package helps you install R packages or download
-file from GitHub via the proxy website <https://mirror.ghproxy.com/> or
-<https://gh-proxy.com/>, which is in real-time sync with GitHub.
+file from GitHub via the proxy website <https://gh-proxy.com/> or
+<https://ghfast.top/>, which is in real-time sync with GitHub.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  appRiori
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Code and Obtain Customized Planned Comparisons with 'appRiori'
 
@@ -41,12 +41,12 @@ Requires:         R-CRAN-sortable
 Requires:         R-CRAN-stringr 
 
 %description
-With 'appRiori', users upload the research variables and the app guides
-them to the best set of comparisons fitting the hypotheses, for both main
-and interaction effects. Through a graphical explanation and empirical
-examples on reproducible data, it is shown that it is possible to
-understand both the logic behind the planned comparisons and the way to
-interpret them when a model is tested.
+With 'appRiori' <doi:10.1177/25152459241293110>, users upload the research
+variables and the app guides them to the best set of comparisons fitting
+the hypotheses, for both main and interaction effects. Through a graphical
+explanation and empirical examples on reproducible data, it is shown that
+it is possible to understand both the logic behind the planned comparisons
+and the way to interpret them when a model is tested.
 
 %prep
 %setup -q -c -n %{packname}

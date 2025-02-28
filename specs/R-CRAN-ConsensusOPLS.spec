@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ConsensusOPLS
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consensus OPLS for Multi-Block Data Fusion
 
@@ -38,18 +38,19 @@ comprehensively evaluating complex systems. However, the inherent problems
 encountered when analyzing single tables are amplified with the generation
 of multi-block datasets, and finding the relationships between data layers
 of increasing complexity constitutes a challenging task. For that purpose,
-a generic methodology is proposed by combining the strengths of
-established data analysis strategies, i.e. multi-block approaches and the
-Orthogonal Partial Least Squares (OPLS) framework to provide an efficient
-tool for the fusion of data obtained from multiple sources. The package
-enables quick and efficient implementation of the consensus OPLS model for
-any horizontal multi-block data structure (observation-based matching).
+a generic methodology is proposed by combining the strength of established
+data analysis strategies, i.e. multi-block approaches and the Orthogonal
+Partial Least Squares (OPLS) framework to provide an efficient tool for
+the fusion of data obtained from multiple sources. The package enables
+quick and efficient implementation of the consensus OPLS model for any
+horizontal multi-block data structures (observation-based matching).
 Moreover, it offers an interesting range of metrics and graphics to help
 to determine the optimal number of components and check the validity of
-the model through permutation tests. Interpretation tools include scores
-and loadings plots, as well as Variable Importance in Projection (VIP),
-and performance coefficients such as R2, Q2 and DQ2 coefficients. J.
-Boccard and D.N. Rutledge (2013) <doi:10.1016/j.aca.2013.01.022>.
+the model through permutation tests. Interpretation tools include score
+and loading plots, Variable Importance in Projection (VIP), functionality
+predict for SHAP computing, and performance coefficients such as R2, Q2,
+and DQ2 coefficients. J. Boccard and D.N. Rutledge (2013)
+<doi:10.1016/j.aca.2013.01.022>.
 
 %prep
 %setup -q -c -n %{packname}
