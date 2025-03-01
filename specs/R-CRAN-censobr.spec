@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  censobr
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Data from Brazil's Population Census
 
@@ -20,20 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-arrow >= 15.0.1
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-duckplyr 
 BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-arrow >= 15.0.1
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-duckplyr 
 Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
 Requires:         R-tools 
 
 %description

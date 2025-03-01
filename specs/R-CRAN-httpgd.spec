@@ -1,44 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  finbipartite
-%global packver   0.1.0
+%global packname  httpgd
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learning Bipartite Graphs: Heavy Tails and Multiple Components
+Summary:          A 'HTTP' Server Graphics Device
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-spectralGraphTopology 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-CVXR 
-Requires:         R-CRAN-spectralGraphTopology 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-CVXR 
+BuildRequires:    cairo-devel
+BuildRequires:    freetype-devel
+BuildRequires:    libpng-devel
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
+BuildRequires:    R-CRAN-AsioHeaders >= 1.22.1
+BuildRequires:    R-CRAN-cpp11 >= 0.2.4
+BuildRequires:    R-CRAN-unigd 
+Requires:         R-CRAN-unigd 
 
 %description
-Learning bipartite and k-component bipartite graphs from financial
-datasets. This package contains implementations of the algorithms
-described in the paper: Cardoso JVM, Ying J, and Palomar DP (2022).
-<https://openreview.net/pdf?id=WNSyF9qZaMd> "Learning bipartite graphs:
-heavy tails and multiple components, Advances in Neural Informations
-Processing Systems" (NeurIPS).
+A graphics device for R that is accessible via network protocols. This
+package was created to make it easier to embed live R graphics in
+integrated development environments and other applications. The included
+'HTML/JavaScript' client (plot viewer) aims to provide a better overall
+user experience when dealing with R graphics. The device asynchronously
+serves graphics via 'HTTP' and 'WebSockets'.
 
 %prep
 %setup -q -c -n %{packname}

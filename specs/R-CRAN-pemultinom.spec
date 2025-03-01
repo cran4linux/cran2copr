@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pemultinom
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          L1-Penalized Multinomial Regression with Statistical Inference
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-stats 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-magrittr 
 Requires:         R-utils 
+Requires:         R-CRAN-lpSolve 
 
 %description
 We aim for fitting a multinomial regression model with Lasso penalty and
@@ -37,8 +39,11 @@ doing statistical inference (calculating confidence intervals of
 coefficients and p-values for individual variables). It implements 1) the
 coordinate descent algorithm to fit an l1-penalized multinomial regression
 model (parameterized with a reference level); 2) the debiasing approach to
-obtain the inference results, which is described in Tian et al. (2023)
-<arXiv:2302.02310>.
+obtain the inference results, which is described in "Tian, Y., Rusinek,
+H., Masurkar, A. V., & Feng, Y. (2024). L1‐Penalized Multinomial
+Regression: Estimation, Inference, and Prediction, With an Application to
+Risk Factor Identification for Different Dementia Subtypes. Statistics in
+Medicine, 43(30), 5711-5747."
 
 %prep
 %setup -q -c -n %{packname}

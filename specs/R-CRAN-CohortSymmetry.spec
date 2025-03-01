@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CohortSymmetry
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequence Symmetry Analysis Using the Observational Medical Outcomes Partnership Common Data Model
 
@@ -19,34 +19,30 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CodelistGenerator >= 3.1.0
 BuildRequires:    R-CRAN-CDMConnector >= 1.7.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.0.0
+BuildRequires:    R-CRAN-omopgenerics >= 1.0.0
 BuildRequires:    R-CRAN-DrugUtilisation >= 0.7.0
 BuildRequires:    R-CRAN-visOmopResults >= 0.4.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
 BuildRequires:    R-CRAN-omock >= 0.3.1
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-PatientProfiles 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-here 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-duckdb 
 Requires:         R-CRAN-CodelistGenerator >= 3.1.0
 Requires:         R-CRAN-CDMConnector >= 1.7.0
+Requires:         R-CRAN-PatientProfiles >= 1.0.0
+Requires:         R-CRAN-omopgenerics >= 1.0.0
 Requires:         R-CRAN-DrugUtilisation >= 0.7.0
 Requires:         R-CRAN-visOmopResults >= 0.4.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
 Requires:         R-CRAN-omock >= 0.3.1
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-PatientProfiles 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-stats 
 Requires:         R-CRAN-here 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-duckdb 
 
 %description
 Calculating crude sequence ratio, adjusted sequence ratio and confidence

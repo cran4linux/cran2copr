@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CNID
-%global packver   2.0.1
+%global packver   2.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Basic Information from Chinese ID Number
 
@@ -20,7 +20,7 @@ BuildArch:        noarch
 
 %description
 The Chinese ID number contains a lot of information, this package helps
-you get the date of birth, age, age based on year, gender, region, zodiac,
+you get the region, date of birth, age, age based on year, gender, zodiac,
 constellation information from the Chinese ID number.
 
 %prep

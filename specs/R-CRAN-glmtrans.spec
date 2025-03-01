@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  glmtrans
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transfer Learning under Regularized Generalized Linear Models
 
@@ -40,7 +41,10 @@ The elastic-net penalized GLM with three popular families, including
 linear, logistic and Poisson regression models, can be fitted. To avoid
 negative transfer, a transferable source detection algorithm is proposed.
 We also provides visualization for the transferable source detection
-results. The relevant paper is available on arXiv: <arXiv:2105.14328>.
+results. The details of methods can be found in "Tian, Y., & Feng, Y.
+(2023). Transfer learning under high-dimensional generalized linear
+models. Journal of the American Statistical Association, 118(544),
+2684-2697.".
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xml2
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parse XML
 
@@ -25,8 +25,9 @@ Requires:         R-CRAN-cli
 Requires:         R-methods 
 
 %description
-Work with XML files using a simple, consistent interface. Built on top of
-the 'libxml2' C library.
+Bindings to 'libxml2' for working with XML data using a simple, consistent
+interface based on 'XPath' expressions. Also supports XML schema
+validation; for 'XSLT' transformations see the 'xslt' package.
 
 %prep
 %setup -q -c -n %{packname}

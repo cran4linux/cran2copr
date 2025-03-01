@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flexclust
-%global packver   1.4-2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Cluster Algorithms
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 2.14.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-modeltools 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-modeltools 
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-stats4 
@@ -28,8 +28,8 @@ BuildRequires:    R-CRAN-class
 Requires:         R-graphics 
 Requires:         R-grid 
 Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-modeltools 
 Requires:         R-methods 
+Requires:         R-CRAN-modeltools 
 Requires:         R-parallel 
 Requires:         R-stats 
 Requires:         R-stats4 
