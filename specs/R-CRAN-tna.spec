@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tna
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transition Network Analysis (TNA)
 
@@ -50,8 +50,8 @@ relational dynamics, including functions for building and plotting TNA
 models, calculating centrality measures, and identifying dominant events
 and patterns. TNA statistical techniques (e.g., bootstrapping and
 permutation tests) ensure the reliability of observed insights and confirm
-that identified dynamics are meaningful. See (Saqr et al., 2024)
-<doi:10.48550/arXiv.2411.15486> for more details on TNA.
+that identified dynamics are meaningful. See (Saqr et al., 2025)
+<doi:10.1145/3706468.3706513> for more details on TNA.
 
 %prep
 %setup -q -c -n %{packname}

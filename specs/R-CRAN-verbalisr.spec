@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  verbalisr
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Describe Pedigree Relationships in Words
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-pedtools >= 2.2.0
+BuildRequires:    R-CRAN-pedtools >= 2.7.1
 BuildRequires:    R-CRAN-ribd >= 1.6.1
-Requires:         R-CRAN-pedtools >= 2.2.0
+Requires:         R-CRAN-pedtools >= 2.7.1
 Requires:         R-CRAN-ribd >= 1.6.1
 
 %description

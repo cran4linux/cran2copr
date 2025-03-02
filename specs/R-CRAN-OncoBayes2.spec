@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OncoBayes2
-%global packver   0.8-9
+%global packver   0.9-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Logistic Regression for Oncology Dose-Escalation Trials
 
@@ -14,19 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         pandoc
+Recommends:       pandoc
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-rstantools >= 2.3.1
-BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
-BuildRequires:    R-CRAN-rstan >= 2.19.3
-BuildRequires:    R-CRAN-StanHeaders >= 2.19.0
-BuildRequires:    R-CRAN-BH >= 1.72.0
-BuildRequires:    R-CRAN-posterior >= 1.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
+BuildRequires:    R-CRAN-rstan >= 2.32.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.32.0
+BuildRequires:    R-CRAN-RBesT >= 1.8.0
+BuildRequires:    R-CRAN-BH >= 1.75.0
+BuildRequires:    R-CRAN-posterior >= 1.5.0
 BuildRequires:    R-CRAN-bayesplot >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
@@ -41,15 +42,19 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-rstantools >= 2.3.1
-Requires:         R-CRAN-ggplot2 >= 2.2.1
-Requires:         R-CRAN-rstan >= 2.19.3
-Requires:         R-CRAN-posterior >= 1.4.0
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-rstantools >= 2.4.0
+Requires:         R-CRAN-rstan >= 2.32.0
+Requires:         R-CRAN-RBesT >= 1.8.0
+Requires:         R-CRAN-posterior >= 1.5.0
 Requires:         R-CRAN-bayesplot >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
@@ -63,6 +68,9 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-grDevices 
 Requires:         R-CRAN-rstantools
 
 %description

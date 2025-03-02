@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pnd
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Numerical Derivatives, Gradients, Jacobians, and Hessians of Arbitrary Accuracy Order
 
@@ -23,16 +23,16 @@ Requires:         R-parallel
 Requires:         R-CRAN-Rdpack 
 
 %description
-Calculation of numerical derivatives through finite-difference
-approximations with parallel capabilities and optimal step-size selection
-to improve accuracy. These functions facilitate efficient computation of
-derivatives, gradients, Jacobians, and Hessians, allowing for more
-evaluations to reduce the mathematical and machine errors. Designed for
-compatibility with the 'numDeriv' package, which has not received updates
-in several years, it introduces advanced features such as computing
-derivatives of arbitrary order, improving the accuracy of Hessian
-approximations by avoiding repeated differencing, and parallelising slow
-functions on Windows, Mac, and Linux.
+Numerical derivatives through finite-difference approximations can be
+calculated using the 'pnd' package with parallel capabilities and optimal
+step-size selection to improve accuracy. These functions facilitate
+efficient computation of derivatives, gradients, Jacobians, and Hessians,
+allowing for more evaluations to reduce the mathematical and machine
+errors. Designed for compatibility with the 'numDeriv' package, which has
+not received updates in several years, it introduces advanced features
+such as computing derivatives of arbitrary order, improving the accuracy
+of Hessian approximations by avoiding repeated differencing, and
+parallelising slow functions on Windows, Mac, and Linux.
 
 %prep
 %setup -q -c -n %{packname}
