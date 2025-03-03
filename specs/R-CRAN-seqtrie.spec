@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seqtrie
-%global packver   0.2.8
+%global packver   0.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radix Tree and Trie-Based String Distances
 
@@ -35,7 +35,7 @@ A collection of Radix Tree and Trie algorithms for finding similar
 sequences and calculating sequence distances (Levenshtein and other
 distance metrics). This work was inspired by a trie implementation in
 Python: "Fast and Easy Levenshtein distance using a Trie." Hanov (2011)
-<http://stevehanov.ca/blog/index.php?id=114>.
+<https://stevehanov.ca/blog/index.php?id=114>.
 
 %prep
 %setup -q -c -n %{packname}

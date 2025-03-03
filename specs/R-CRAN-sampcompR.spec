@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sampcompR
-%global packver   0.2.6
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comparing and Visualizing Differences Between Surveys
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-data.table 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-survey
 BuildRequires:    R-CRAN-svrep 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-survey
 Requires:         R-CRAN-svrep 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 
 %description
 Easily analyze and visualize differences between samples (e.g., benchmark
