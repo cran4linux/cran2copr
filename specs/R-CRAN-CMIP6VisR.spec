@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HLAtools
-%global packver   1.4.0
+%global packname  CMIP6VisR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for HLA Immunogenomics
+Summary:          Visualization and Analysis of Coupled Model Intercomparison Project, Phase-6 (CMIP6) Hydroclimatic Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-fmsb 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-fmsb 
 
 %description
-A toolkit for the analysis and management of data for genes in the
-so-called "Human Leukocyte Antigen" (HLA) region. Functions extract
-reference data from the Anthony Nolan HLA Informatics Group/ImmunoGeneTics
-HLA 'GitHub' repository (ANHIG/IMGTHLA)
-<https://github.com/ANHIG/IMGTHLA>, validate Genotype List (GL) Strings,
-convert between UNIFORMAT and GL String Code (GLSC) formats, translate HLA
-alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
-Database release versions, identify differences between pairs of alleles
-at a locus, generate customized, multi-position sequence alignments, trim
-and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+Data manipulation for Coupled Model Intercomparison Project, Phase-6
+(CMIP6) hydroclimatic data. The files are archived in the Federated
+Research Data Repository (FRDR) (Rajulapati et al, 2024,
+<doi:10.20383/103.0829>). The data set is described in Abdelmoaty et al.
+(2025, <doi:10.1038/s41597-025-04396-z>).
 
 %prep
 %setup -q -c -n %{packname}

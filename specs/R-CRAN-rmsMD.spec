@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  difNLR
-%global packver   1.5.1-1
+%global packname  rmsMD
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DIF and DDF Detection by Non-Linear Regression Models
+Summary:          Output Results from 'rms' Models for Medical Journals
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-calculus 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-calculus 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
+BuildRequires:    R-CRAN-rms 
+Requires:         R-CRAN-rms 
 
 %description
-Detection of differential item functioning (DIF) among dichotomously
-scored items and differential distractor functioning (DDF) among unscored
-items with non-linear regression procedures based on generalized logistic
-regression models (Hladka & Martinkova, 2020, <doi:10.32614/RJ-2020-014>).
+This takes the output of models performed using the 'rms' package and
+returns a dataframe with the results. This output is in the format
+required by medical journals. For example for cox regression models, the
+hazard ratios, their 95%% confidence intervals, and p values will be
+provided. There are additional functions for outputs when the model
+included restricted cubic spline (RCS) terms. Models using imputed data
+(eg from aregimpute()) and fitted used fit.mult.impute() can also be
+processed. The dataframe which is returned can easily be turned into a
+publication ready table with packages 'flextable' and 'officer'.
 
 %prep
 %setup -q -c -n %{packname}

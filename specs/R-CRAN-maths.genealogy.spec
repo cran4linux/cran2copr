@@ -1,42 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  difNLR
-%global packver   1.5.1-1
+%global packname  maths.genealogy
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          DIF and DDF Detection by Non-Linear Regression Models
+Summary:          Mathematics PhD Genealogy Data and Plotting
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-calculus 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-calculus 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-plyr 
+BuildRequires:    R-CRAN-websocket 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rvest 
 Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
+Requires:         R-CRAN-websocket 
 
 %description
-Detection of differential item functioning (DIF) among dichotomously
-scored items and differential distractor functioning (DDF) among unscored
-items with non-linear regression procedures based on generalized logistic
-regression models (Hladka & Martinkova, 2020, <doi:10.32614/RJ-2020-014>).
+Query, extract, and plot genealogical data from The Mathematics Genealogy
+Project <https://mathgenealogy.org/>. Data is gathered from the WebSocket
+server run by the 'geneagrapher-core' project
+<https://github.com/davidalber/geneagrapher-core>.
 
 %prep
 %setup -q -c -n %{packname}

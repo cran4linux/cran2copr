@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ibdsim2
-%global packver   2.1.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation of Chromosomal Regions Shared by Family Members
 
@@ -16,16 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pedtools >= 2.7.0
-BuildRequires:    R-CRAN-ribd >= 1.6.1
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pedtools >= 2.8.0
+BuildRequires:    R-CRAN-ribd >= 1.7.1
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-pedtools >= 2.7.0
-Requires:         R-CRAN-ribd >= 1.6.1
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-pedtools >= 2.8.0
+Requires:         R-CRAN-ribd >= 1.7.1
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-Rcpp 
 
 %description
 Simulation of segments shared identical-by-descent (IBD) by pedigree
@@ -34,7 +34,7 @@ members. Using sex specific recombination rates along the human genome
 chromosomes are simulated for all pedigree members. Applications include
 calculation of realised relatedness coefficients and IBD segment
 distributions. 'ibdsim2' is part of the 'pedsuite' collection of packages
-for pedigree analysis. A detailed presentation of the 'ped suite',
+for pedigree analysis. A detailed presentation of the 'pedsuite',
 including a separate chapter on 'ibdsim2', is available in the book
 'Pedigree analysis in R' (Vigeland, 2021, ISBN:9780128244302). A 'Shiny'
 app for visualising and comparing IBD distributions is available at

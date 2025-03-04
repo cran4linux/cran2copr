@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdftools
-%global packver   3.4.1
+%global packver   3.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          3.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Extraction, Rendering and Converting of PDF Documents
 
@@ -23,10 +23,10 @@ Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-qpdf 
 
 %description
-Utilities based on 'libpoppler' for extracting text, fonts, attachments
-and metadata from a PDF file. Also supports high quality rendering of PDF
-documents into PNG, JPEG, TIFF format, or into raw bitmap vectors for
-further processing in R.
+Utilities based on 'libpoppler' <https://poppler.freedesktop.org> for
+extracting text, fonts, attachments and metadata from a PDF file. Also
+supports high quality rendering of PDF documents into PNG, JPEG, TIFF
+format, or into raw bitmap vectors for further processing in R.
 
 %prep
 %setup -q -c -n %{packname}

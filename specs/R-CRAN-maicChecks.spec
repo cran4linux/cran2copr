@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  maicChecks
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing the Numerical Feasibility for Conducting a Matching-Adjusted Indirect Comparison (MAIC)
+Summary:          Exact Matching and Matching-Adjusted Indirect Comparison (MAIC)
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,9 +29,12 @@ Requires:         R-CRAN-lpSolve
 Requires:         R-CRAN-quadprog 
 
 %description
-A collection of easy-to-implement tools for checking whether a MAIC can be
-conducted. An alternative way of calculating weights is also included.
-These methods are introduced in Glimm & Yau (2021) <arXiv:2108.01896>.
+The second version (0.2.0) contains implementation for exact matching
+which is an alternative to propensity score matching (see Glimm & Yau
+(2025)). The initial version (0.1.2) contains a collection of
+easy-to-implement tools for checking whether a MAIC can be conducted, as
+well as an alternative way of calculating weights (see Glimm & Yau (2021)
+<doi:10.1002/pst.2210>.)
 
 %prep
 %setup -q -c -n %{packname}

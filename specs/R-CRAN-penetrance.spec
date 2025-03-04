@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HLAtools
-%global packver   1.4.0
+%global packname  penetrance
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for HLA Immunogenomics
+Summary:          Methods for Penetrance Estimation in Family-Based Studies
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-fmsb 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-fmsb 
+BuildRequires:    R-CRAN-kinship2 >= 1.8.5
+BuildRequires:    R-CRAN-clipp 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-kinship2 >= 1.8.5
+Requires:         R-CRAN-clipp 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-MASS 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-A toolkit for the analysis and management of data for genes in the
-so-called "Human Leukocyte Antigen" (HLA) region. Functions extract
-reference data from the Anthony Nolan HLA Informatics Group/ImmunoGeneTics
-HLA 'GitHub' repository (ANHIG/IMGTHLA)
-<https://github.com/ANHIG/IMGTHLA>, validate Genotype List (GL) Strings,
-convert between UNIFORMAT and GL String Code (GLSC) formats, translate HLA
-alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
-Database release versions, identify differences between pairs of alleles
-at a locus, generate customized, multi-position sequence alignments, trim
-and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+Implements statistical methods for estimating disease penetrance in
+family-based studies. Penetrance refers to the probability of disease§
+manifestation in individuals carrying specific genetic variants. The
+package provides tools for age-specific penetrance estimation, handling
+missing data, and accounting for ascertainment bias in family studies.
+Cite as: Kubista, N., Braun, D. & Parmigiani, G. (2024)
+<doi:10.48550/arXiv.2411.18816>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  difNLR
-%global packver   1.5.1-1
+%global packname  rconf
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          DIF and DDF Detection by Non-Linear Regression Models
+Summary:          Minimal and Lightweight Configuration Tool
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-calculus 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-calculus 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
 
 %description
-Detection of differential item functioning (DIF) among dichotomously
-scored items and differential distractor functioning (DDF) among unscored
-items with non-linear regression procedures based on generalized logistic
-regression models (Hladka & Martinkova, 2020, <doi:10.32614/RJ-2020-014>).
+Minimal and lightweight configuration tool that provides basic support for
+'YAML' configuration files without requiring additional package
+dependencies. It offers a simple method for loading and parsing
+configuration settings, making it ideal for quick prototypes and
+lightweight projects.
 
 %prep
 %setup -q -c -n %{packname}

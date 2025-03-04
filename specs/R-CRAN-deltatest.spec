@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  difNLR
-%global packver   1.5.1-1
+%global packname  deltatest
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DIF and DDF Detection by Non-Linear Regression Models
+Summary:          Statistical Hypothesis Testing Using the Delta Method
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-calculus 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-calculus 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
 
 %description
-Detection of differential item functioning (DIF) among dichotomously
-scored items and differential distractor functioning (DDF) among unscored
-items with non-linear regression procedures based on generalized logistic
-regression models (Hladka & Martinkova, 2020, <doi:10.32614/RJ-2020-014>).
+Statistical hypothesis testing using the Delta method as proposed by Deng
+et al. (2018) <doi:10.1145/3219819.3219919>. This method replaces the
+standard variance estimation formula in the Z-test with an approximate
+formula derived via the Delta method, which can account for within-user
+correlation.
 
 %prep
 %setup -q -c -n %{packname}

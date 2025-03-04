@@ -1,42 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  difNLR
-%global packver   1.5.1-1
+%global packname  sakura
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DIF and DDF Detection by Non-Linear Regression Models
+Summary:          Extension to R Serialization
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-calculus 
-BuildRequires:    R-CRAN-msm 
-BuildRequires:    R-CRAN-nnet 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-VGAM 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-calculus 
-Requires:         R-CRAN-msm 
-Requires:         R-CRAN-nnet 
-Requires:         R-CRAN-plyr 
-Requires:         R-stats 
-Requires:         R-CRAN-VGAM 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 
 %description
-Detection of differential item functioning (DIF) among dichotomously
-scored items and differential distractor functioning (DDF) among unscored
-items with non-linear regression procedures based on generalized logistic
-regression models (Hladka & Martinkova, 2020, <doi:10.32614/RJ-2020-014>).
+Extends the functionality of R serialization by augmenting the built-in
+reference hook system. This enhanced implementation allows optimal,
+one-pass integrated serialization that combines R serialization with
+third-party serialization methods. Facilitates the serialization of even
+complex R objects, which contain non-system reference objects, such as
+those accessed via external pointers, for use in parallel and distributed
+computing.
 
 %prep
 %setup -q -c -n %{packname}

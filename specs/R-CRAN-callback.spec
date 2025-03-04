@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  callback
-%global packver   0.1.1
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computes Statistics from Discrimination Experimental Data
 
@@ -26,9 +26,9 @@ Requires:         R-CRAN-ggplot2
 In discrimination experiments candidates are sent on the same test (e.g.
 job, house rental) and one examines whether they receive the same outcome.
 The number of non negative answers are first examined in details looking
-for outcome differences. Then various answering rates and their exacts
-confidence intervals are computed. Last, exact and asymptotic
-discrimination tests are performed. Graphical methods are also available.
+for outcome differences. Then various statistics are computed. This
+package can also be used for analyzing the results from random
+experiments.
 
 %prep
 %setup -q -c -n %{packname}

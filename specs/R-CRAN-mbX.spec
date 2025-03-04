@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HLAtools
-%global packver   1.4.0
+%global packname  mbX
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for HLA Immunogenomics
+Summary:          A Comprehensive Microbiome Data Processing Pipeline
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-fmsb 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-tools 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A toolkit for the analysis and management of data for genes in the
-so-called "Human Leukocyte Antigen" (HLA) region. Functions extract
-reference data from the Anthony Nolan HLA Informatics Group/ImmunoGeneTics
-HLA 'GitHub' repository (ANHIG/IMGTHLA)
-<https://github.com/ANHIG/IMGTHLA>, validate Genotype List (GL) Strings,
-convert between UNIFORMAT and GL String Code (GLSC) formats, translate HLA
-alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
-Database release versions, identify differences between pairs of alleles
-at a locus, generate customized, multi-position sequence alignments, trim
-and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+Provides tools for cleaning, processing, and preparing microbiome
+sequencing data (e.g., 16S rRNA) for downstream analysis. Supports CSV,
+TXT, and 'Excel' file formats. The main function, ezclean(), automates
+microbiome data transformation, including format validation,
+transposition, numeric conversion, and metadata integration. Also ensures
+efficient handling of taxonomic levels, resolves duplicated taxa entries,
+and outputs a well-structured, analysis-ready dataset.
 
 %prep
 %setup -q -c -n %{packname}

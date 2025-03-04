@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MR.RGM
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Bidirectional Mendelian Randomization Networks
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-igraph 
 
 %description
 Addressing a central challenge encountered in Mendelian randomization (MR)
@@ -32,12 +34,14 @@ this routine. Based on Ni et al. (2018) <doi:10.1214/17-BA1087>, 'MR.RGM'
 extends to a broader exploration of the causal landscape by leveraging on
 network structures and involves the construction of causal graphs that
 capture interactions between response variables and consequently between
-responses and instrument variables. 'MR.RGM' facilitates the navigation of
-various data availability scenarios effectively by accommodating three
-input formats, i.e., individual-level data and two types of summary-level
-data. In the process, causal effects, adjacency matrices, and other
-essential parameters of the complex biological networks, are estimated.
-Besides, 'MR.RGM' provides uncertainty quantification for specific network
+responses and instrument variables. The resulting Graph visually
+represents these causal connections, showing directed edges with effect
+sizes labeled. 'MR.RGM' facilitates the navigation of various data
+availability scenarios effectively by accommodating three input formats,
+i.e., individual-level data and two types of summary-level data. In the
+process, causal effects, adjacency matrices, and other essential
+parameters of the complex biological networks, are estimated. Besides,
+'MR.RGM' provides uncertainty quantification for specific network
 structures among response variables.
 
 %prep

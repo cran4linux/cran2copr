@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2dictionary
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Mini-Dictionary for 'R', 'Shiny' and 'Rmarkdown' Documents
+Summary:          A Mini-Dictionary for 'R', 'shiny' and 'rmarkdown' Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel > 3.6
+Requires:         R-core > 3.6
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringr 
@@ -29,14 +29,10 @@ Requires:         R-stats
 %description
 Despite the predominant use of R for data manipulation and various robust
 statistical calculations, in recent years, more people from various
-disciplines are beginning to use R for other purposes. A critical
-milestone that has enabled large influx of users in the R community is the
-development of the Tidyverse family of packages and Rmarkdown. With the
-latter, one can write all kinds of documents and produce output in formats
-such html and pdf very easily. In doing this seemlessly, further tools are
-needed for such users to easily and freely write in R for all kinds of
-purposes. The r2dictionary introduces a means for users to directly search
-for definitions of terms within the R environment.
+disciplines are beginning to use R for other purposes. In doing this
+seemlessly, further tools are needed users to easily and freely write in R
+for all kinds of purposes. The r2dictionary introduces a means for users
+to directly search for definitions of terms within the R environment.
 
 %prep
 %setup -q -c -n %{packname}
