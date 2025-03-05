@@ -1,33 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scoutbaR
-%global packver   0.1.0
+%global packname  MHQoL
+%global packver   0.12.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.12.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Spotlight 'React' Widget for 'shiny' Apps
+Summary:          Mental Health Quality of Life Toolkit
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyalert >= 3.1.0
+BuildRequires:    R-CRAN-writexl >= 1.5.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-shiny >= 1.0.0
+BuildRequires:    R-CRAN-fmsb >= 0.7.6
+BuildRequires:    R-CRAN-DT >= 0.33
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
+Requires:         R-CRAN-shinyalert >= 3.1.0
+Requires:         R-CRAN-writexl >= 1.5.1
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-shiny >= 1.0.0
+Requires:         R-CRAN-fmsb >= 0.7.6
+Requires:         R-CRAN-DT >= 0.33
+Requires:         R-CRAN-assertthat >= 0.2.1
 
 %description
-Creates a contextual menu that can be triggered with keyboard shortcuts or
-programmatically. This can replace traditional sidebars or navigation
-bars, thereby enhancing the user experience with lighter user interfaces.
+Transforms, calculates, and presents results from the Mental Health
+Quality of Life Questionnaire (MHQoL), a measure of health-related quality
+of life for individuals with mental health conditions. Provides scoring
+functions, summary statistics, and visualization tools to facilitate
+interpretation. For more details see van Krugten et al.(2022)
+<doi:10.1007/s11136-021-02935-w>.
 
 %prep
 %setup -q -c -n %{packname}

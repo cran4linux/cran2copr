@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scoutbaR
+%global packname  dda
 %global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Spotlight 'React' Widget for 'shiny' Apps
+Summary:          Direction Dependence Analysis
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,17 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-dHSIC 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dHSIC 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Creates a contextual menu that can be triggered with keyboard shortcuts or
-programmatically. This can replace traditional sidebars or navigation
-bars, thereby enhancing the user experience with lighter user interfaces.
+A collection of tests to analyze the causal direction of dependence in
+linear models (Wiedermann, W., & von Eye, A., 2025, ISBN: 9781009381390).
+The package includes functions to perform Direction Dependence Analysis
+for variable distributions, residual distributions, and independence
+properties of predictors and residuals in competing causal models. In
+addition, the package contains functions to test the causal direction of
+dependence in conditional models (i.e., models with interaction terms) For
+more information see <https://www.ddaproject.com>.
 
 %prep
 %setup -q -c -n %{packname}

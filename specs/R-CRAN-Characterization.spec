@@ -1,50 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  univariateML
-%global packver   1.5.0
+%global packname  Characterization
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Maximum Likelihood Estimation for Univariate Densities
+Summary:          Implement Descriptive Studies Using the Common Data Model
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-logitnorm 
-BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-CRAN-nakagami 
-BuildRequires:    R-CRAN-fGarch 
+BuildRequires:    R-CRAN-DatabaseConnector >= 6.3.1
+BuildRequires:    R-CRAN-FeatureExtraction >= 3.6.0
+BuildRequires:    R-CRAN-ParallelLogger >= 3.0.0
+BuildRequires:    R-CRAN-SqlRender >= 1.9.0
+BuildRequires:    R-CRAN-Andromeda 
+BuildRequires:    R-CRAN-ResultModelManager 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-intervals 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-sads 
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-extraDistr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-logitnorm 
-Requires:         R-CRAN-actuar 
-Requires:         R-CRAN-nakagami 
-Requires:         R-CRAN-fGarch 
+Requires:         R-CRAN-DatabaseConnector >= 6.3.1
+Requires:         R-CRAN-FeatureExtraction >= 3.6.0
+Requires:         R-CRAN-ParallelLogger >= 3.0.0
+Requires:         R-CRAN-SqlRender >= 1.9.0
+Requires:         R-CRAN-Andromeda 
+Requires:         R-CRAN-ResultModelManager 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-intervals 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-sads 
 
 %description
-User-friendly maximum likelihood estimation (Fisher (1921)
-<doi:10.1098/rsta.1922.0009>) of univariate densities.
+An end-to-end framework that enables users to implement various
+descriptive studies for a given set of target and outcome cohorts for data
+mapped to the Observational Medical Outcomes Partnership Common Data
+Model.
 
 %prep
 %setup -q -c -n %{packname}

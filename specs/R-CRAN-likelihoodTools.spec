@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scoutbaR
-%global packver   0.1.0
+%global packname  likelihoodTools
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Spotlight 'React' Widget for 'shiny' Apps
+Summary:          Managing Results from Maximum Likelihood Estimation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Creates a contextual menu that can be triggered with keyboard shortcuts or
-programmatically. This can replace traditional sidebars or navigation
-bars, thereby enhancing the user experience with lighter user interfaces.
+Managing and exploring parameter estimation results derived from Maximum
+Likelihood Estimation (MLE) using the 'likelihood' package. It provides
+functions for organizing, visualizing, and summarizing MLE outcomes,
+streamlining statistical analysis workflows. By improving interpretation
+and facilitating model evaluation, it helps users gain deeper insights
+into parameter estimation and model fitting, making MLE result exploration
+more efficient and accessible. See Goffe et al. (1994)
+<doi:10.1016/0304-4076(94)90038-8> for details on MLE, and Canham and
+Uriarte (2006) <doi:10.1890/04-0657> for application of MLE using
+'likelihood'.
 
 %prep
 %setup -q -c -n %{packname}

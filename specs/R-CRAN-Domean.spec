@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  scoutbaR
-%global packver   0.1.0
+%global packname  Domean
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Spotlight 'React' Widget for 'shiny' Apps
+Summary:          Distributed Online Mean Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-reactR 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-reactR 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Creates a contextual menu that can be triggered with keyboard shortcuts or
-programmatically. This can replace traditional sidebars or navigation
-bars, thereby enhancing the user experience with lighter user interfaces.
+Distributed Online Mean Tests is a powerful tool designed to efficiently
+process and analyze distributed datasets. It enables users to perform mean
+tests in an online, distributed manner, making it highly suitable for
+large-scale data analysis. By leveraging advanced computational
+techniques, 'Domean' ensures robust and scalable solutions for statistical
+analysis, particularly in scenarios where data is dispersed across
+multiple nodes or sources. This package is ideal for researchers and
+practitioners working with high-dimensional data, providing a flexible and
+efficient framework for mean testing. The philosophy of 'Domean' is
+described in Guo G.(2025) <doi:10.1016/j.physa.2024.130308>.
 
 %prep
 %setup -q -c -n %{packname}
