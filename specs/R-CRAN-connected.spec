@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohetsurr
+%global packname  connected
 %global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Complex Heterogeneity in Surrogacy
+Summary:          Visualize and Improve Connectedness of Factors in Tables
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-lfe 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-lfe 
+Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+Visualize the connectedness of factors in two-way tables. Perform two-way
+filtering to improve the degree of connectedness. See Weeks & Williams
+(1964) <doi:10.1080/00401706.1964.10490188>.
 
 %prep
 %setup -q -c -n %{packname}

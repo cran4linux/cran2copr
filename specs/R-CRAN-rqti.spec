@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rqti
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tests According to QTI 2.1 Standard
 
@@ -37,6 +37,7 @@ BuildRequires:    R-CRAN-keyring
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-textutils 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-yaml 
@@ -57,6 +58,7 @@ Requires:         R-CRAN-keyring
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-textutils 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Create tests and tasks compliant with the Question & Test Interoperability

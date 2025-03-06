@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohetsurr
-%global packver   1.1
+%global packname  ecotrends
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Complex Heterogeneity in Surrogacy
+Summary:          Temporal Trends in Ecological Niche Models
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-fuzzySim >= 4.26
+BuildRequires:    R-CRAN-modEvA >= 3.21
+BuildRequires:    R-CRAN-collinear >= 2.0.0
+BuildRequires:    R-CRAN-terra >= 1.4.19
+BuildRequires:    R-CRAN-maxnet 
+BuildRequires:    R-CRAN-trend 
+Requires:         R-CRAN-fuzzySim >= 4.26
+Requires:         R-CRAN-modEvA >= 3.21
+Requires:         R-CRAN-collinear >= 2.0.0
+Requires:         R-CRAN-terra >= 1.4.19
+Requires:         R-CRAN-maxnet 
+Requires:         R-CRAN-trend 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+Computes temporal trends in environmental suitability obtained from
+ecological niche models, based on a set of species presence point
+coordinates and predictor variables.
 
 %prep
 %setup -q -c -n %{packname}

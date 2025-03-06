@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohetsurr
-%global packver   1.1
+%global packname  RplotterPkg
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Complex Heterogeneity in Surrogacy
+Summary:          R Plotting Functions Using 'ggplot2'
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-aplpack >= 1.3.5
+BuildRequires:    R-CRAN-data.table >= 1.16.4
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-gtable >= 0.3.6
+BuildRequires:    R-CRAN-gt >= 0.11.1
+BuildRequires:    R-CRAN-ggplotify >= 0.1.2
+BuildRequires:    R-methods 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-aplpack >= 1.3.5
+Requires:         R-CRAN-data.table >= 1.16.4
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-gtable >= 0.3.6
+Requires:         R-CRAN-gt >= 0.11.1
+Requires:         R-CRAN-ggplotify >= 0.1.2
+Requires:         R-methods 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+Makes it easy to produce everyday 'ggplot2' charts in a functional way
+without an extensive "tree" implementation. The package includes over 15
+functions for the production and arrangement of basic graphing.
 
 %prep
 %setup -q -c -n %{packname}

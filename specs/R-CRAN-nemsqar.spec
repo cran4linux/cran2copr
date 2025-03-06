@@ -1,46 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  strata
-%global packver   1.4.3
+%global packname  nemsqar
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Framework for Simple Automation
+Summary:          National Emergency Medical Service Quality Alliance Measure Calculations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.4
 BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-checkmate >= 2.3.2
-BuildRequires:    R-CRAN-readr >= 2.0.0
-BuildRequires:    R-CRAN-glue >= 1.8.0
-BuildRequires:    R-CRAN-fs >= 1.6.4
-BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-rlang >= 1.1.4
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-purrr >= 1.0.2
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
+BuildRequires:    R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-CRAN-tidyselect >= 1.2.1
+BuildRequires:    R-CRAN-rlang >= 1.1.5
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-cli >= 3.6.4
 Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-checkmate >= 2.3.2
-Requires:         R-CRAN-readr >= 2.0.0
-Requires:         R-CRAN-glue >= 1.8.0
-Requires:         R-CRAN-fs >= 1.6.4
-Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-rlang >= 1.1.4
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-purrr >= 1.0.2
-Requires:         R-CRAN-lifecycle >= 1.0.0
+Requires:         R-CRAN-lubridate >= 1.9.4
+Requires:         R-CRAN-tidyselect >= 1.2.1
+Requires:         R-CRAN-rlang >= 1.1.5
+Requires:         R-CRAN-dplyr >= 1.1.4
 
 %description
-Build a project framework for users with access to only the most basic of
-automation tools.
+Designed to automate the calculation of Emergency Medical Service (EMS)
+quality metrics, 'nemsqar' implements measures defined by the National EMS
+Quality Alliance (NEMSQA). By providing reliable, evidence-based quality
+assessments, the package supports EMS agencies, healthcare providers, and
+researchers in evaluating and improving patient outcomes. Users can find
+details on all approved NEMSQA measures at
+<https://www.nemsqa.org/measures>. Full technical specifications,
+including documentation and pseudocode used to develop 'nemsqar', are
+available on the NEMSQA website after creating a user profile at
+<https://www.nemsqa.org>.
 
 %prep
 %setup -q -c -n %{packname}

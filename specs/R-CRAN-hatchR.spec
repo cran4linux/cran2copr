@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohetsurr
-%global packver   1.1
+%global packname  hatchR
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Complex Heterogeneity in Surrogacy
+Summary:          Predict Fish Hatch and Emergence Timing
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-lubridate >= 1.9.4
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-lifecycle >= 1.0.4
+BuildRequires:    R-CRAN-ggtext >= 0.1.2
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-lubridate >= 1.9.4
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-lifecycle >= 1.0.4
+Requires:         R-CRAN-ggtext >= 0.1.2
 Requires:         R-stats 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
+Requires:         R-utils 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+Predict hatch and emergence timing for a wide range of wild fishes using
+the effective value framework (Sparks et al., (2019)
+<DOI:10.1139/cjfas-2017-0468>). 'hatchR' offers users access to
+established phenological models and the flexibility to incorporate custom
+parameterizations using external datasets.
 
 %prep
 %setup -q -c -n %{packname}

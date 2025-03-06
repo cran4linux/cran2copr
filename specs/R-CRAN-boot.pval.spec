@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boot.pval
-%global packver   0.6
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrap p-Values
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-Rdpack 
@@ -38,7 +38,8 @@ Requires:         R-CRAN-flextable
 
 %description
 Computation of bootstrap p-values through inversion of confidence
-intervals, including convenience functions for regression models.
+intervals, including convenience functions for regression models and tests
+of location.
 
 %prep
 %setup -q -c -n %{packname}

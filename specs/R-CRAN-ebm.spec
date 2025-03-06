@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohetsurr
-%global packver   1.1
+%global packname  ebm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Complex Heterogeneity in Surrogacy
+Summary:          Explainable Boosting Machines
 
-License:          GPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 >= 0.9.0
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-ggplot2 >= 0.9.0
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-lattice 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+An interface to the 'Python' 'InterpretML' framework for fitting
+explainable boosting machines (EBMs); see Nori et al. (2019)
+<doi:10.48550/arXiv.1909.09223> for details. EBMs are a modern type of
+generalized additive model that use tree-based, cyclic gradient boosting
+with automatic interaction detection. They are often as accurate as
+state-of-the-art blackbox models while remaining completely interpretable.
 
 %prep
 %setup -q -c -n %{packname}

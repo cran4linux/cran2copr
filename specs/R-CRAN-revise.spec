@@ -1,42 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lingglosses
-%global packver   0.0.9
+%global packname  revise
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interlinear Glossed Linguistic Examples and Abbreviation Lists Generation
+Summary:          Dynamic Revision Letters for 'Rmarkdown' Manuscripts
 
-License:          GPL (>= 3)
+License:          MIT + file LICENCE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-bookdown 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-papaja 
 BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-worcs 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-bookdown 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-gt 
+Requires:         R-CRAN-papaja 
 Requires:         R-CRAN-rmarkdown 
-Requires:         R-utils 
-Requires:         R-CRAN-htmltools 
-Requires:         R-methods 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-worcs 
+Requires:         R-CRAN-cli 
 
 %description
-Helps to render interlinear glossed linguistic examples in html
-'rmarkdown' documents and then semi-automatically compiles the list of
-glosses at the end of the document. It also provides a database of
-linguistic glosses.
+Extracts tagged text from markdown manuscripts for inclusion in
+dynamically generated revision letters. Provides an R markdown template
+based on papaja::revision_letter_pdf() with comment cross-referencing, a
+system for managing multiple sections of extracted text, and a way to
+automatically determine the page number of quoted sections from PDF
+manuscripts.
 
 %prep
 %setup -q -c -n %{packname}

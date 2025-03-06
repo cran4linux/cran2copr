@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cohetsurr
-%global packver   1.1
+%global packname  pct
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Assessing Complex Heterogeneity in Surrogacy
+Summary:          Propensity to Cycle Tool
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-stplanr >= 0.2.8
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-crul 
+Requires:         R-CRAN-stplanr >= 0.2.8
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-crul 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+Functions and example data to teach and increase the reproducibility of
+the methods and code underlying the Propensity to Cycle Tool (PCT), a
+research project and web application hosted at <https://www.pct.bike/>.
+For an academic paper on the methods, see Lovelace et al (2017)
+<doi:10.5198/jtlu.2016.862>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.univar
-%global packver   3.1-1
+%global packver   3.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          One-Dimensional Probability Distribution Support for the 'spatstat' Family
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.1
+BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
 BuildRequires:    R-stats 
-Requires:         R-CRAN-spatstat.utils >= 3.1.1
+Requires:         R-CRAN-spatstat.utils >= 3.1.2
 Requires:         R-stats 
 
 %description

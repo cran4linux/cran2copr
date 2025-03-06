@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SFM
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Package for Analyzing Skew Factor Models
 
@@ -22,19 +22,23 @@ BuildRequires:    R-CRAN-SOPC
 BuildRequires:    R-CRAN-matrixcalc 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-psych 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-SOPC 
 Requires:         R-CRAN-matrixcalc 
 Requires:         R-CRAN-sn 
 Requires:         R-stats 
+Requires:         R-CRAN-psych 
 
 %description
 Generates Skew Factor Models data and applies Sparse Online Principal
-Component (SOPC) method to estimate model parameters. It includes
-capabilities for calculating mean squared error, relative error, and
-sparsity of the loading matrix. Additionally, it includes robust
-regression methods such as adaptive Huber regression.The philosophy of the
-package is described in Guo G. (2023) <doi:10.1007/s00180-022-01270-z>.
+Component (SOPC), Incremental Principal Component (IPC), Projected
+Principal Component (PPC), Perturbation Principal Component (PPC),
+Stochastic Approximation Principal Component (SAPC), Sparse Principal
+Component (SPC) and other PC methods to estimate model parameters. It
+includes capabilities for calculating mean squared error, relative error,
+and sparsity of the loading matrix.The philosophy of the package is
+described in Guo G. (2023) <doi:10.1007/s00180-022-01270-z>.
 
 %prep
 %setup -q -c -n %{packname}

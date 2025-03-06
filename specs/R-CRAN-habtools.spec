@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  habtools
-%global packver   1.0.7
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Metrics for 3D Surfaces and Objects
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-geometry
 BuildRequires:    R-CRAN-concaveman 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-raster >= 3.5
 Requires:         R-CRAN-terra 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-geometry
 Requires:         R-CRAN-concaveman 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ks 
 Requires:         R-CRAN-dplyr 
 
 %description

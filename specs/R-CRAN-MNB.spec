@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MNB
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Diagnostic Tools for a Multivariate Negative Binomial Model
+Summary:          Diagnostic Tools for a Multivariate Negative Binomial Regression Model
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,8 +31,9 @@ Diagnostic tools as residual analysis, global, local and total-local
 influence for the multivariate model from the random intercept Poisson
 generalized log gamma model are available in this package. Including also,
 the estimation process by maximum likelihood method, for details see
-Fabio, L. F; Villegas, C. L.; Carrasco, J.M.F and de Castro, M. (2021)
-<doi:10.1080/03610926.2021.1939380>.
+Fabio, L. C; Villegas, C. L.; Carrasco, J.M.F and de Castro, M. (2023)
+<doi:10.1080/03610926.2021.1939380> and Fábio, L. C.; Villegas, C.; Mamun,
+A. S. M. A. and Carrasco, J. M. F. (2025) <doi:10.28951/bjb.v43i1.728>.
 
 %prep
 %setup -q -c -n %{packname}
