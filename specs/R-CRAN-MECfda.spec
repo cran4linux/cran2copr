@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MECfda
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scalar-on-Function Regression with Measurement Error Correction
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-quantreg 
 BuildRequires:    R-splines 
@@ -33,8 +32,9 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-glme 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-refund 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-quantreg 
 Requires:         R-splines 
@@ -49,6 +49,8 @@ Requires:         R-methods
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-glme 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-refund 
+Requires:         R-CRAN-pracma 
 
 %description
 Solve scalar-on-function linear models, including generalized linear mixed

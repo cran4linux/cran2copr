@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMC2
-%global packver   2.1.0
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Analysis of Cognitive Models of Choice
 
@@ -38,6 +38,7 @@ BuildRequires:    R-CRAN-psych
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lpSolve 
 BuildRequires:    R-CRAN-WienR 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-corpcor 
@@ -63,7 +64,7 @@ Requires:         R-CRAN-WienR
 
 %description
 Fit Bayesian (hierarchical) cognitive models using a linear modeling
-language interface using particle metropolis Markov chain Monte Carlo
+language interface using particle Metropolis Markov chain Monte Carlo
 sampling with Gibbs steps. The diffusion decision model (DDM), linear
 ballistic accumulator model (LBA), racing diffusion model (RDM), and the
 lognormal race model (LNR) are supported. Additionally, users can specify

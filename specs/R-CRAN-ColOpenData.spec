@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ColOpenData
-%global packver   0.3.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download Colombian Demographic, Climate and Geospatial Data
 
@@ -39,11 +39,11 @@ Requires:         R-utils
 %description
 Downloads wrangled Colombian socioeconomic, geospatial,population and
 climate data from DANE <https://www.dane.gov.co/> (National Administrative
-Department of Statistics) and IDEAM <https://ideam.gov.co> (Institute of
-Hydrology, Meteorology and Environmental Studies). It solves the problem
-of Colombian data being issued in different web pages and sources by using
-functions that allow the user to select the desired database and download
-it without having to do the exhausting acquisition process.
+Department of Statistics) and IDEAM (Institute of Hydrology, Meteorology
+and Environmental Studies). It solves the problem of Colombian data being
+issued in different web pages and sources by using functions that allow
+the user to select the desired database and download it without having to
+do the exhausting acquisition process.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  XBRL
-%global packver   0.99.19.1
+%global __requires_exclude ^libmpi
+%global packname  ROKET
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.19.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extraction of Business Financial Information from 'XBRL' Documents
+Summary:          Optimal Transport-Based Kernel Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libxml2-devel >= 2.9.1
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.10.4
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.10.4
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-smarter 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-MiRKAT 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-smarter 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-MiRKAT 
 
 %description
-Functions to extract business financial information from an Extensible
-Business Reporting Language ('XBRL') instance file and the associated
-collection of files that defines its 'Discoverable' Taxonomy Set ('DTS').
+Perform optimal transport on somatic point mutations and kernel regression
+hypothesis testing by integrating pathway level similarities at the gene
+level (Little et al. (2023) <doi:10.1111/biom.13769>). The software
+implements balanced and unbalanced optimal transport and omnibus tests
+with 'C++' across a set of tumor samples and allows for multi-threading to
+decrease computational runtime.
 
 %prep
 %setup -q -c -n %{packname}

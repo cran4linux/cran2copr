@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wallace
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Modular Platform for Reproducible Modeling of Species Niches and Distributions
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ecospat >= 4.0.0
-BuildRequires:    R-CRAN-ENMeval >= 2.0.3
+BuildRequires:    R-CRAN-ENMeval >= 2.0.5
 BuildRequires:    R-CRAN-leaflet >= 2.0.2
 BuildRequires:    R-CRAN-shiny >= 1.6.0
 BuildRequires:    R-CRAN-spocc >= 1.2.0
@@ -42,7 +42,7 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-spThin 
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-ecospat >= 4.0.0
-Requires:         R-CRAN-ENMeval >= 2.0.3
+Requires:         R-CRAN-ENMeval >= 2.0.5
 Requires:         R-CRAN-leaflet >= 2.0.2
 Requires:         R-CRAN-shiny >= 1.6.0
 Requires:         R-CRAN-spocc >= 1.2.0

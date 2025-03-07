@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
-%global packname  finreportr
-%global packver   1.0.4
+%global __requires_exclude ^libmpi
+%global packname  misha
+%global packver   4.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          4.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Financial Data from U.S. Securities and Exchange Commission
+Summary:          Toolkit for Analysis of Genomic Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-XBRL 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-XBRL 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-curl 
+Requires:         R-utils 
 
 %description
-Download and display company financial data from the U.S. Securities and
-Exchange Commission's EDGAR database. It contains a suite of functions
-with web scraping and XBRL parsing capabilities that allows users to
-extract data from EDGAR in an automated and scalable manner. See
-<https://www.sec.gov/edgar/searchedgar/companysearch.html> for more
-information.
+A toolkit for analysis of genomic data. The 'misha' package implements an
+efficient data structure for storing genomic data, and provides a set of
+functions for data extraction, manipulation and analysis. Some of the 2D
+genome algorithms were described in Yaffe and Tanay (2011)
+<doi:10.1038/ng.947>.
 
 %prep
 %setup -q -c -n %{packname}

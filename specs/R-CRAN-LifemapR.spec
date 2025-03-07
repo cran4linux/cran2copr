@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LifemapR
-%global packver   1.1.4
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualisation on 'Lifemap' Tree
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-shiny 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RCurl 
 BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-CRAN-arrow 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-jsonlite 
@@ -37,12 +38,13 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RCurl 
 Requires:         R-CRAN-fastmatch 
+Requires:         R-CRAN-arrow 
 
 %description
 Allow to visualise data on the NCBI phylogenetic tree as presented in
-Lifemap <http://lifemap.univ-lyon1.fr/>. It takes as input a dataframe
-with at least a "taxid" column containing NCBI format TaxIds and allows to
-draw multiple layers with different visualisation tools.
+Lifemap <https://lifemap.cnrs.fr/>. It takes as input a dataframe with at
+least a "taxid" column containing NCBI format TaxIds and allows to draw
+multiple layers with different visualisation tools.
 
 %prep
 %setup -q -c -n %{packname}

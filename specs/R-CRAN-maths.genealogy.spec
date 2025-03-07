@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maths.genealogy
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematics PhD Genealogy Data and Plotting
 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-websocket
 
 %description
 Query, extract, and plot genealogical data from The Mathematics Genealogy
-Project <https://mathgenealogy.org/>. Data is gathered from the WebSocket
-server run by the 'geneagrapher-core' project
+Project <https://mathgenealogy.org/>. Data is gathered from the
+'WebSocket' server run by the 'geneagrapher-core' project
 <https://github.com/davidalber/geneagrapher-core>.
 
 %prep

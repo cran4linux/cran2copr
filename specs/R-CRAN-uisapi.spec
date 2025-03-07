@@ -1,38 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pnd
-%global packver   0.0.8
+%global packname  uisapi
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Numerical Derivatives, Gradients, Jacobians, and Hessians of Arbitrary Accuracy Order
+Summary:          Access the UNESCO Institute for Statistics API
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-parallel 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-cli >= 3.0.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-jsonlite >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli >= 3.0.0
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-jsonlite >= 1.0.0
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-tibble 
 
 %description
-Numerical derivatives through finite-difference approximations can be
-calculated using the 'pnd' package with parallel capabilities and optimal
-step-size selection to improve accuracy. These functions facilitate
-efficient computation of derivatives, gradients, Jacobians, and Hessians,
-allowing for more evaluations to reduce the mathematical and machine
-errors. Designed for compatibility with the 'numDeriv' package, which has
-not received updates in several years, it introduces advanced features
-such as computing derivatives of arbitrary order, improving the accuracy
-of Hessian approximations by avoiding repeated differencing, and
-parallelising slow functions on Windows, Mac, and Linux.
+Retrieve data from the UNESCO Institute for Statistics (UIS) API
+<https://api.uis.unesco.org/api/public/documentation/>. UIS provides
+public access to more than 4,000 indicators focusing on education, science
+and technology, culture, and communication.
 
 %prep
 %setup -q -c -n %{packname}
