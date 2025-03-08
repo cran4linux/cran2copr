@@ -1,63 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortSurvival
-%global packver   0.6.2
+%global packname  xlr
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Survival from Common Data Model Cohorts
+Summary:          Create Table Summaries and Export Neat Tables to 'Excel'
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survival >= 3.7.0
-BuildRequires:    R-CRAN-CDMConnector >= 1.7.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.2.3
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-survival >= 3.7.0
-Requires:         R-CRAN-CDMConnector >= 1.7.0
-Requires:         R-CRAN-PatientProfiles >= 1.2.3
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-omopgenerics >= 0.4.1
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-methods 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-clock 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Estimate survival using data mapped to the Observational Medical Outcomes
-Partnership common data model. Survival can be estimated based on
-user-defined study cohorts.
+A high-level interface for creating and exporting summary tables to
+'Excel'. Built on 'dplyr' and 'openxlsx', it provides tools for generating
+one-way to n-way tables, and summarizing multiple response questions and
+question blocks. Tables are exported with native 'Excel' formatting,
+including titles, footnotes, and basic styling options.
 
 %prep
 %setup -q -c -n %{packname}

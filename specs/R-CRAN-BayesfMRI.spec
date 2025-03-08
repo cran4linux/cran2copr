@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesfMRI
-%global packver   0.3.11
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.11
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Bayesian Methods for Task Functional MRI Studies
 
@@ -16,10 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-ciftiTools >= 0.8.0
+BuildRequires:    R-CRAN-fMRItools >= 0.5.3
+BuildRequires:    R-CRAN-ciftiTools >= 0.17.2
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-excursions 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-fMRItools 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixStats 
@@ -28,11 +29,13 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-ciftiTools >= 0.8.0
+Requires:         R-CRAN-fMRItools >= 0.5.3
+Requires:         R-CRAN-ciftiTools >= 0.17.2
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-excursions 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-fMRItools 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixStats 
@@ -41,6 +44,7 @@ Requires:         R-CRAN-Rcpp
 Requires:         R-stats 
 Requires:         R-CRAN-sp 
 Requires:         R-utils 
+Requires:         R-CRAN-viridisLite 
 
 %description
 Performs a spatial Bayesian general linear model (GLM) for task functional

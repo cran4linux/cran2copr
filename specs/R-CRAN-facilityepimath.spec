@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
-%global packver   0.1.2
+%global packname  facilityepimath
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          Analyze Mathematical Models of Healthcare Facility Transmission
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-MASS 
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Calculate useful quantities for a user-defined differential equation model
+of infectious disease transmission among individuals in a healthcare
+facility. Input rates of transition between states of individuals with and
+without the disease-causing organism, distributions of states at facility
+admission, relative infectivity of transmissible states, and the facility
+length of stay distribution. Calculate the model equilibrium and the basic
+facility reproduction number, as described in Toth et al. (2025)
+<doi:10.1101/2025.02.21.25322698>.
 
 %prep
 %setup -q -c -n %{packname}

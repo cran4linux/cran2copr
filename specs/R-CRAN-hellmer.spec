@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
-%global packver   0.1.2
+%global packname  hellmer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          Batch Processing for Chat Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ellmer 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-S7 
+Requires:         R-utils 
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Batch processing framework for 'ellmer' chat model interactions. Enables
+sequential and parallel processing of chat completions. Core capabilities
+include error handling with backoff, state persistence, progress tracking,
+and retry management. Parallel processing is implemented via the 'future'
+framework. Additional features include structured data extraction, tool
+integration, timeout handling, verbosity control, and sound notifications.
+Includes methods for returning chat texts, chat objects, progress status,
+and structured data.
 
 %prep
 %setup -q -c -n %{packname}

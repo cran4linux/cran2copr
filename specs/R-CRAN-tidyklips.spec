@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
-%global packver   0.1.2
+%global packname  tidyklips
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          Load Korea Labor & Income Panel Study (KLIPS) Data as Data Frames
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-dplyr 
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Loading the Korea Labor Institute's KLIPS (Korea Labor & Income Panel
+Study) panel data and returning data frames. Users must download 26 years
+of panel data from the Korea Labor Institute website and save it in a
+folder in an appropriate path. Afterwards, users can easily convert the
+data into a data frame using this package.
 
 %prep
 %setup -q -c -n %{packname}

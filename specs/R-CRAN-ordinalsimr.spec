@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordinalsimr
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Ordinal Endpoints Using Simulations
 
@@ -18,10 +18,11 @@ BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-bslib >= 0.9.0
 BuildRequires:    R-CRAN-golem >= 0.4.0
 BuildRequires:    R-CRAN-config >= 0.3.1
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-coin 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
@@ -31,17 +32,17 @@ BuildRequires:    R-CRAN-rhandsontable
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-bslib >= 0.9.0
 Requires:         R-CRAN-golem >= 0.4.0
 Requires:         R-CRAN-config >= 0.3.1
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-coin 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
@@ -51,7 +52,6 @@ Requires:         R-CRAN-rhandsontable
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rms 
 Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 

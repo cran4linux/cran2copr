@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern.rbmi
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Interface for 'RBMI' and 'tern'
 
@@ -20,18 +20,18 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-rbmi >= 1.2.5
-BuildRequires:    R-CRAN-tern >= 0.9.4
-BuildRequires:    R-CRAN-rtables >= 0.6.7
-BuildRequires:    R-CRAN-formatters >= 0.5.6
+BuildRequires:    R-CRAN-tern >= 0.9.7
+BuildRequires:    R-CRAN-rtables >= 0.6.11
 BuildRequires:    R-CRAN-broom >= 0.5.4
+BuildRequires:    R-CRAN-formatters >= 0.5.10
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-rbmi >= 1.2.5
-Requires:         R-CRAN-tern >= 0.9.4
-Requires:         R-CRAN-rtables >= 0.6.7
-Requires:         R-CRAN-formatters >= 0.5.6
+Requires:         R-CRAN-tern >= 0.9.7
+Requires:         R-CRAN-rtables >= 0.6.11
 Requires:         R-CRAN-broom >= 0.5.4
+Requires:         R-CRAN-formatters >= 0.5.10
 Requires:         R-CRAN-lifecycle >= 0.2.0
 
 %description

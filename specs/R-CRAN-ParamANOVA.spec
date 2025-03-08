@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
+%global packname  ParamANOVA
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          Fully Parameterizable ANOVA Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-stats >= 4.2.1
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-rstatix >= 0.7.2
+BuildRequires:    R-CRAN-mlr3misc >= 0.16.0
+Requires:         R-stats >= 4.2.1
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-rstatix >= 0.7.2
+Requires:         R-CRAN-mlr3misc >= 0.16.0
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Allows the user to perform ANOVA tests (in a strict sense: continuous and
+normally-distributed Y variable and 1 or more factorial/categorical X
+variable(s)), with the possibility to specify the type of sum of squares
+(1, 2 or 3), the types of variables (Fixed or Random) and their
+relationships (crossed or nested) with the sole function of the package
+(FullyParamANOVA()). The resulting outputs are the same as in 'SAS'
+software. A dataset (Butterfly) to test the function is also joined.
 
 %prep
 %setup -q -c -n %{packname}

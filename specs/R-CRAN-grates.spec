@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grates
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grouped Date Classes
 
@@ -22,8 +22,7 @@ Requires:         R-utils
 
 %description
 Provides a coherent interface and implementation for creating grouped date
-classes. This package is part of the RECON
-(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+classes.
 
 %prep
 %setup -q -c -n %{packname}

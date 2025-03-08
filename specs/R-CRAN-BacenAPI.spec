@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
-%global packver   0.1.2
+%global packname  BacenAPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          Data Collection from the Central Bank of Brazil
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,19 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Provides tools to facilitate the access and processing of data from the
+Central Bank of Brazil API. The package allows users to retrieve economic
+and financial data, transforming them into usable tabular formats for
+further analysis. The data is obtained from the Central Bank of Brazil
+API:
+<https://api.bcb.gov.br/dados/serie/bcdata.sgs.{series_code}/dados?formato=json&dataInicial={start_date}&dataFinal={end_date}>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EGAnet
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory Graph Analysis – a Framework for Estimating the Number of Dimensions in Multivariate Data using Network Psychometrics
 
-License:          GPL (>= 3.0)
+License:          AGPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -21,10 +21,11 @@ BuildRequires:    R-CRAN-dendextend
 BuildRequires:    R-CRAN-fungible 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-glasso 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-glassoFast 
 BuildRequires:    R-CRAN-GPArotation 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-Matrix 
@@ -40,10 +41,11 @@ Requires:         R-CRAN-dendextend
 Requires:         R-CRAN-fungible 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-glasso 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-glassoFast 
 Requires:         R-CRAN-GPArotation 
 Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-Matrix 

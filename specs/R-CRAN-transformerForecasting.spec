@@ -1,58 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ibawds
-%global packver   1.1.0
+%global packname  transformerForecasting
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Datasets for the Data Science Course at IBAW
+Summary:          Transformer Deep Learning Model for Time Series Forecasting
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-dslabs 
-BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-reticulate >= 1.20
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-keras 
+BuildRequires:    R-CRAN-tensorflow 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-dslabs 
-Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-reticulate >= 1.20
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-keras 
+Requires:         R-CRAN-tensorflow 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-cli 
 
 %description
-A collection of useful functions and datasets for the Data Science Course
-at IBAW.
+Time series forecasting faces challenges due to the non-stationarity,
+nonlinearity, and chaotic nature of the data. Traditional deep learning
+models like Recurrent Neural Network (RNN), Long Short-Term Memory (LSTM),
+and Gated Recurrent Unit (GRU) process data sequentially but are
+inefficient for long sequences. To overcome the limitations of these
+models, we proposed a transformer-based deep learning architecture
+utilizing an attention mechanism for parallel processing, enhancing
+prediction accuracy and efficiency. This paper presents user-friendly code
+for the implementation of the proposed transformer-based deep learning
+architecture utilizing an attention mechanism for parallel processing.
+References: Nayak et al. (2024) <doi:10.1007/s40808-023-01944-7> and Nayak
+et al. (2024) <doi:10.1016/j.simpa.2024.100716>.
 
 %prep
 %setup -q -c -n %{packname}

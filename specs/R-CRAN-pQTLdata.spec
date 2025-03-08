@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
-%global packver   0.1.2
+%global packname  pQTLdata
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          A Collection of Proteome Panels and Meta-Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-Rdpack 
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+It aggregates protein panel data and metadata for protein quantitative
+trait locus (pQTL) analysis using 'pQTLtools'
+(<https://jinghuazhao.github.io/pQTLtools/>). The package includes data
+from affinity-based panels such as 'Olink' (<https://olink.com/>) and
+'SomaScan' (<https://somalogic.com/>), as well as mass spectrometry-based
+panels from 'CellCarta' (<https://cellcarta.com/>) and 'Seer'
+(<https://seer.bio/>). The metadata encompasses updated annotations and
+publication details.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rmsMD
-%global packver   0.1.2
+%global packname  visae
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Output Results from 'rms' Models for Medical Journals
+Summary:          Visualization of Adverse Events
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-Requires:         R-CRAN-rms 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-shiny >= 1.4.0
+BuildRequires:    R-CRAN-tidyr >= 1.1.0
+BuildRequires:    R-CRAN-shinyjs >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-ggrepel >= 0.8.2
+BuildRequires:    R-CRAN-ca >= 0.71
+BuildRequires:    R-CRAN-rlang >= 0.4.6
+BuildRequires:    R-CRAN-DT >= 0.13
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-shiny >= 1.4.0
+Requires:         R-CRAN-tidyr >= 1.1.0
+Requires:         R-CRAN-shinyjs >= 1.1
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-ggrepel >= 0.8.2
+Requires:         R-CRAN-ca >= 0.71
+Requires:         R-CRAN-rlang >= 0.4.6
+Requires:         R-CRAN-DT >= 0.13
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Implementation of 'shiny' app to visualize adverse events based on the
+Common Terminology Criteria for Adverse Events (CTCAE) using stacked
+correspondence analysis as described in Diniz et. al
+(2021)<doi:10.1186/s12874-021-01368-w>.
 
 %prep
 %setup -q -c -n %{packname}
