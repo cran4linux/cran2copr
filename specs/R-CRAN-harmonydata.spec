@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  harmonydata
-%global packver   0.1.1
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Library for 'Harmony'
 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-utils 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-uuid 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-utils 
 Requires:         R-tools 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-purrr 
 
 %description
 'Harmony' is a tool using AI which allows you to compare items from

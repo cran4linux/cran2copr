@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppTOML
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings to Parser for "Tom's Obvious Markup Language"
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-Requires:         R-CRAN-Rcpp >= 0.11.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-Rcpp >= 1.0.8
 
 %description
 The configuration format defined by 'TOML' (which expands to "Tom's

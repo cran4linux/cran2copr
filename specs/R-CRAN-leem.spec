@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  leem
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Laboratory of Teaching to Statistics and Mathematics
 
@@ -13,27 +14,37 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-tkRplotR 
 BuildRequires:    R-CRAN-tkrplot 
+BuildRequires:    R-CRAN-manipulate 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-diagram 
+BuildRequires:    R-methods 
 Requires:         R-tcltk 
+Requires:         R-CRAN-tkRplotR 
 Requires:         R-CRAN-tkrplot 
+Requires:         R-CRAN-manipulate 
+Requires:         R-CRAN-crayon 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-utils 
+Requires:         R-CRAN-diagram 
+Requires:         R-methods 
 
 %description
-Educational tool for teaching of statistics and mathematics in primary and
-higher education. The objective is to assist in teaching/learning for both
-student study planning and teacher teaching strategies. The 'leem' package
-will try to bring, in a simple and at the same time in-depth, knowledge of
-statistics and mathematics to everyone who wants to study these areas of
-knowledge. The main function of the package is 'leem()' function.
+An educational package for teaching statistics and mathematics in both
+primary and higher education. The objective is to assist in the
+teaching/learning process, both for student study planning and teacher
+teaching strategies. The leem package aims to provide, in a simple yet
+in-depth manner, knowledge of statistics and mathematics to anyone who
+wants to study these areas of knowledge.
 
 %prep
 %setup -q -c -n %{packname}
