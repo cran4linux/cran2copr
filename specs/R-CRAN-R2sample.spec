@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2sample
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Methods for the Two Sample Problem
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-microbenchmark 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-microbenchmark 
 
 %description
 The routine twosample_test() in this package runs the two sample test

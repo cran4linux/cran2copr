@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opticskxi
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          OPTICS K-Xi Density-Based Clustering
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-text2vec 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-text2vec 
 
 %description
 Density-based clustering methods are well adapted to the clustering of
@@ -43,7 +43,8 @@ parameter as the OPTICS Xi method. Combined with a framework that compares
 models with varying parameters, the OPTICS k-Xi method can identify groups
 in noisy datasets with unknown number of clusters. Results on summarized
 genetic data of 1,200 patients are in Charlon T. (2019)
-<doi:10.13097/archive-ouverte/unige:161795>.
+<doi:10.13097/archive-ouverte/unige:161795>. A short video tutorial can be
+found at <https://www.youtube.com/watch?v=P2XAjqI5Lc4/>.
 
 %prep
 %setup -q -c -n %{packname}

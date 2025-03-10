@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grafify
-%global packver   4.0.1
+%global packver   5.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          5.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Graphs for Data Visualisation and Linear Models for ANOVA
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-lme4 
@@ -31,6 +32,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-lme4 
@@ -55,7 +57,7 @@ as a generalised additive model (gam) using mgcv(). Obtain estimated
 marginal means and perform post-hoc comparisons on fitted models (via
 emmeans()). Also includes small datasets for practising code and teaching
 basics before users move on to more complex designs. See vignettes for
-details on usage <https://grafify-vignettes.netlify.app/>. Citation:
+details on usage <https://grafify.shenoylab.com/>. Citation:
 <doi:10.5281/zenodo.5136508>.
 
 %prep
