@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rilostat
-%global packver   2.2.0
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ILO Open Data via Ilostat Bulk Download Facility
 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-haven
 Requires:         R-CRAN-data.table 
 
 %description
-Tools to download data from the ilostat database <https://ilostat.ilo.org>
-together with search and manipulation utilities.
+Tools to download data from the [ilostat](<https://ilostat.ilo.org>)
+database together with search and manipulation utilities.
 
 %prep
 %setup -q -c -n %{packname}

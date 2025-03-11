@@ -1,37 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  D4TAlink.light
-%global packver   2.1.14
+%global packname  geneNR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.14
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          FAIR Data - Workflow Management
+Summary:          Automated Gene Identification for Post-GWAS Analysis
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-CRAN-openssl 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringr 
 Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-writexl 
 
 %description
-Tools, methods and processes for the management of analysis workflows.
-These lightweight solutions facilitate structuring R&D activities. These
-solutions were developed to comply with FAIR principles as discussed by
-Jacobsen et al. (2017) <doi:10.1162/dint_r_00024>, and with ALCOA+
-principles as proposed by the U.S. FDA.
+Facilitates the post-Genome Wide Association Studies (GWAS) analysis of
+identifying candidate genes within user-defined search window, based on
+the identified Single Nucleotide Polymorphisms (SNPs) as given by Mazumder
+AK (2024) <doi:10.1038/s41598-024-66903-3>. It supports candidate gene
+analysis for wheat and rice. Just import your GWAS result as explained in
+the sample_data file and the function does all the manual search and
+retrieve candidate genes for you, while exporting the results into
+ready-to-use output.
 
 %prep
 %setup -q -c -n %{packname}

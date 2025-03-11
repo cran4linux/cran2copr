@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iAR
-%global packver   1.2.0
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Irregularly Observed Autoregressive Models
 
@@ -20,11 +20,15 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.7
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.7
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-zoo 
 
 %description
 Data sets, functions and scripts with examples to implement autoregressive

@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
-%global packver   1.0.0
+%global packname  brandr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Brand Identity Management Using brand.yml Standard
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-grDevices >= 4.3.0
+BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-checkmate >= 2.3.2
+BuildRequires:    R-CRAN-yaml >= 2.3.10
+BuildRequires:    R-CRAN-colorspace >= 2.1.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-lifecycle >= 1.0.4
+BuildRequires:    R-CRAN-here >= 1.0.1
+Requires:         R-grDevices >= 4.3.0
+Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-checkmate >= 2.3.2
+Requires:         R-CRAN-yaml >= 2.3.10
+Requires:         R-CRAN-colorspace >= 2.1.1
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-lifecycle >= 1.0.4
+Requires:         R-CRAN-here >= 1.0.1
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+A system to facilitate brand identity management using the brand.yml
+standard, providing functions to consistently access and apply brand
+colors, typography, and other visual elements across your R projects.
 
 %prep
 %setup -q -c -n %{packname}

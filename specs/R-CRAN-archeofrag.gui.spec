@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  archeofrag.gui
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Analysis in Archaeology from Refitting Fragments (GUI)
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-archeofrag 
 BuildRequires:    R-CRAN-dendextend 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
@@ -30,6 +31,7 @@ BuildRequires:    R-CRAN-shinythemes
 Requires:         R-CRAN-archeofrag 
 Requires:         R-CRAN-dendextend 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
@@ -41,12 +43,13 @@ Requires:         R-CRAN-shinythemes
 %description
 A 'Shiny' application to access the functionalities and datasets of the
 'archeofrag' package for spatial analysis in archaeology from refitting
-data. Quick and seamless exploration of archaeological refitting datasets.
-Features include: exclusive focus on connection relationships (i.e.
-physical refits), built-in documentation and convenient workflow, plot
-generation and export, R code generation to re-execute the simulations in
-R and ensure reproducibility, support for parallel computing to speed up
-computation. A demonstration version of the app is available at
+data. Quick and seamless exploration of archaeological refitting datasets,
+focusing on physical refits only. Features include: built-in documentation
+and convenient workflow, plot generation and exports, support of parallel
+computing when simulating archaeological site formation processes, R code
+generation to re-execute simulations and ensure reproducibility, code
+generation for the 'openMOLE' model exploration software. A demonstration
+of the app is available at
 <https://analytics.huma-num.fr/Sebastien.Plutniak/archeofrag/>.
 
 %prep

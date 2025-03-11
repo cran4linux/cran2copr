@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kgraph
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knowledge Graphs Constructions and Visualizations
 
@@ -17,42 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-amap 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-opticskxi 
 BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-rsvd 
 BuildRequires:    R-CRAN-sgraph 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-text2vec 
-Requires:         R-CRAN-amap 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-grid 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-opticskxi 
 Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-rsvd 
 Requires:         R-CRAN-sgraph 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-text2vec 
 
 %description
 Knowledge graphs enable to efficiently visualize and gain insights into

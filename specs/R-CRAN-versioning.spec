@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  versioning
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Settings and File I/O using a Configuration YAML File
 
@@ -18,21 +18,11 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-yaml 
 

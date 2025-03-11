@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
-%global packver   1.0.0
+%global packname  lavaan.mi
+%global packver   0.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Fit Structural Equation Models to Multiply Imputed Data
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-lavaan >= 0.6.18
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-lavaan >= 0.6.18
+Requires:         R-methods 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+The primary purpose of 'lavaan.mi' is to extend the functionality of the R
+package 'lavaan', which implements structural equation modeling (SEM).
+When incomplete data have been multiply imputed, the imputed data sets can
+be analyzed by 'lavaan' using complete-data estimation methods, but
+results must be pooled across imputations (Rubin, 1987,
+<doi:10.1002/9780470316696>). The 'lavaan.mi' package automates the
+pooling of point and standard-error estimates, as well as a variety of
+test statistics, using a familiar interface that allows users to fit an
+SEM to multiple imputations as they would to a single data set using the
+'lavaan' package.
 
 %prep
 %setup -q -c -n %{packname}

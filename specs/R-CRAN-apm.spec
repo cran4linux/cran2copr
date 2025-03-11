@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xmeta
-%global packver   1.3.3
+%global packname  apm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Toolbox for Multivariate Meta-Analysis
+Summary:          Averaged Prediction Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-aod 
-BuildRequires:    R-CRAN-glmmML 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-CRAN-mvmeta 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-pbapply >= 1.7.2
+BuildRequires:    R-CRAN-ggrepel >= 0.9.6
+BuildRequires:    R-CRAN-fwb >= 0.3.0
+BuildRequires:    R-CRAN-ggh4x >= 0.2.8
+BuildRequires:    R-CRAN-chk >= 0.10.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-aod 
-Requires:         R-CRAN-glmmML 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-metafor 
-Requires:         R-CRAN-mvmeta 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-pbapply >= 1.7.2
+Requires:         R-CRAN-ggrepel >= 0.9.6
+Requires:         R-CRAN-fwb >= 0.3.0
+Requires:         R-CRAN-ggh4x >= 0.2.8
+Requires:         R-CRAN-chk >= 0.10.0
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sandwich 
 
 %description
-A toolbox for meta-analysis. This package includes: 1,a robust
-multivariate meta-analysis of continuous or binary outcomes; 2, a
-bivariate Egger's test for detecting small study effects; 3, Galaxy Plot:
-A New Visualization Tool of Bivariate Meta-Analysis Studies; 4, a
-bivariate T&F method accounting for publication bias in bivariate
-meta-analysis, based on symmetry of the galaxy plot. Hong C. et al(2020)
-<doi:10.1093/aje/kwz286>, Chongliang L. et al(2020)
-<doi:10.1101/2020.07.27.20161562>.
+In panel data settings, specifies set of candidate models, fits them to
+data from pre-treatment validation periods, and selects model as average
+over candidate models, weighting each by posterior probability of being
+most robust given its differential average prediction errors in
+pre-treatment validation periods. Subsequent estimation and inference of
+causal effect's bounds accounts for both model and sampling uncertainty,
+and calculates the robustness changepoint value at which bounds go from
+excluding to including 0. The package also includes a range of diagnostic
+plots, such as those illustrating models' differential average prediction
+errors and the posterior distribution of which model is most robust.
 
 %prep
 %setup -q -c -n %{packname}

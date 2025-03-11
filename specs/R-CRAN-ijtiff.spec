@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ijtiff
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive TIFF I/O with Full Support for 'ImageJ' TIFF Files
 
@@ -27,13 +27,12 @@ BuildRequires:    R-CRAN-rlang >= 1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-imager 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-checkmate >= 1.9.3
 Requires:         R-CRAN-fs >= 1.5
 Requires:         R-CRAN-magrittr >= 1.5
@@ -43,13 +42,12 @@ Requires:         R-CRAN-rlang >= 1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
-Requires:         R-CRAN-imager 
+Requires:         R-grDevices 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-zeallot 
 
 %description
 General purpose TIFF file I/O for R users.  Currently the only such

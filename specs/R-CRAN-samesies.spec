@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
-%global packver   1.0.0
+%global packname  samesies
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Compare Similarity Across Text, Factors, or Numbers
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggbeeswarm 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringdist 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-stringdist 
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+Compare lists of texts, factors, or numerical values to measure their
+similarity. The motivating use case is evaluating the similarity of large
+language model responses across models, providers, or prompts. Approximate
+string matching is implemented using 'stringdist'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
+%global packname  MicrobialGrowth
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Estimates Growth Parameters from Models and Plots the Curve
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nlstools 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-nlstools 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+Fit growth curves to various known microbial growth models automatically
+to estimate growth parameters. Growth curves can be plotted with their
+uncertainty band. Growth models are: modified Gompertz model (Zwietering
+et al. (1990) <doi:10.1128/aem.56.6.1875-1881.1990>), Baranyi model
+(Baranyi and Roberts (1994) <doi:10.1016/0168-1605%%2894%%2990157-0>), Rosso
+model (Rosso et al. (1993) <doi:10.1006/jtbi.1993.1099>) and linear model
+(Dantigny (2005) <doi:10.1016/j.ijfoodmicro.2004.10.013>).
 
 %prep
 %setup -q -c -n %{packname}

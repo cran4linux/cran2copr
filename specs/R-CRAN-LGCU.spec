@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
-%global packver   1.0.0
+%global packname  LGCU
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Implementation of Learning Gamma CUSUM (Cumulative Sum) Control Charts
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-tictoc 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-tictoc 
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+Description: Implements Cumulative Sum (CUSUM) control charts specifically
+designed for monitoring processes following a Gamma distribution. Provides
+functions to estimate distribution parameters, simulate control limits,
+and apply cautious learning schemes for adaptive thresholding. It supports
+upward and downward monitoring with guaranteed performance evaluated via
+Monte Carlo simulations. It is useful for quality control applications in
+industries where data follows a Gamma distribution. Methods are based on
+Madrid-Alvarez et al. (2024) <doi:10.1002/qre.3464> and Madrid-Alvarez et
+al. (2024) <doi:10.1080/08982112.2024.2440368>.
 
 %prep
 %setup -q -c -n %{packname}

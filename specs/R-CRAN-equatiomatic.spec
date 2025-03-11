@@ -1,35 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
-%global packver   1.0.0
+%global packname  equatiomatic
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Transform Models into 'LaTeX' Equations
 
-License:          Apache License (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-broom >= 0.7.0
+BuildRequires:    R-CRAN-broom.mixed 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-broom >= 0.7.0
+Requires:         R-CRAN-broom.mixed 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-knitr 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-withr 
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+The goal of 'equatiomatic' is to reduce the pain associated with writing
+'LaTeX' formulas from fitted models. The primary function of the package,
+extract_eq(), takes a fitted model object as its input and returns the
+corresponding 'LaTeX' code for the model.
 
 %prep
 %setup -q -c -n %{packname}

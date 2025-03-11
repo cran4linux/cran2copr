@@ -1,35 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  laminr
-%global packver   1.0.0
+%global packname  jamba
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Client for 'LaminDB'
+Summary:          Just Analysis Methods Base
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-reticulate 
+Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-withr 
 
 %description
-Interact with 'LaminDB'. 'LaminDB' is an open-source data framework for
-biology. This package allows you to query and download data from 'LaminDB'
-instances.
+Just analysis methods ('jam') base functions focused on bioinformatics.
+Version- and gene-centric alphanumeric sort, unique name and version
+assignment, colorized console and 'HTML' output, color ramp and palette
+manipulation, 'Rmarkdown' cache import, styled 'Excel' worksheet import
+and export, interpolated raster output from smooth scatter and image
+plots, list to delimited vector, efficient list tools.
 
 %prep
 %setup -q -c -n %{packname}

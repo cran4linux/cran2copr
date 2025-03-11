@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastglmpca
-%global packver   0.1-103
+%global packver   0.1-107
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.103
+Version:          0.1.107
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Generalized Principal Component Analysis
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-RcppParallel >= 5.1.5
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MatrixExtra 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-distr 
 BuildRequires:    R-CRAN-daarem 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-RcppParallel >= 5.1.5
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-utils 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MatrixExtra 
 Requires:         R-stats 
 Requires:         R-CRAN-distr 
 Requires:         R-CRAN-daarem 

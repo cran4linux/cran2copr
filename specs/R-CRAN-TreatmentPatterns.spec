@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TreatmentPatterns
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzes Real-World Treatment Patterns of a Study Population of Interest
 
@@ -28,8 +28,6 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-sunburstR 
 BuildRequires:    R-CRAN-networkD3 
 BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-jsonlite 
@@ -44,8 +42,6 @@ Requires:         R-CRAN-R6
 Requires:         R-CRAN-sunburstR 
 Requires:         R-CRAN-networkD3 
 Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-jsonlite 

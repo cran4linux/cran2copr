@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ale
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-broom 
@@ -73,7 +73,7 @@ concept to add bootstrap-based confidence intervals and ALE-based
 statistics that can be used for statistical inference. For more details,
 see Okoli, Chitu. 2023. “Statistical Inference Using Machine Learning and
 Classical Techniques Based on Accumulated Local Effects (ALE).” arXiv.
-<arXiv:2310.09877>. <doi:10.48550/arXiv.2310.09877>.
+<doi:10.48550/arXiv.2310.09877>.
 
 %prep
 %setup -q -c -n %{packname}
