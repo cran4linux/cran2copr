@@ -1,33 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FLASHMM
-%global packver   1.1.0
+%global packname  OxSR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Scalable Single Cell Differential Expression Analysis using Mixed-Effects Models
+Summary:          Soil Iron Oxides via Diffuse Reflectance
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-colorSpec 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-munsellinterpol 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-colorSpec 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-munsellinterpol 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
 
 %description
-A fast and scalable linear mixed-effects model (LMM) estimation algorithm
-for analysis of single-cell differential expression. The algorithm uses
-summary-level statistics and requires less computer memory to fit the LMM.
+Calculate the ratio of iron oxides, hematite and goethite, in soil using
+the diffuse reflectance technique. The Kubelka-Munk theory, second
+derivative analysis, and spectral region amplitudes related to hematite
+and goethite content are used for quantification (Torrent, J., & Barron,
+V. (2008) <doi:10.2136/sssabookser5.5.c13>). Additionally, the package
+calculates soil color in the visible spectrum using Munsell and RGB color
+spaces, based on color theory (Viscarra et al. (2006)
+<doi:10.1016/j.geoderma.2005.07.017>).
 
 %prep
 %setup -q -c -n %{packname}

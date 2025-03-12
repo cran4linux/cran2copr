@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FLASHMM
-%global packver   1.1.0
+%global packname  stors
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Scalable Single Cell Differential Expression Analysis using Mixed-Effects Models
+Summary:          Step Optimised Rejection Sampling
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
-A fast and scalable linear mixed-effects model (LMM) estimation algorithm
-for analysis of single-cell differential expression. The algorithm uses
-summary-level statistics and requires less computer memory to fit the LMM.
+Fast and efficient sampling from general univariate probability density
+functions. Implements a rejection sampling approach designed to take
+advantage of modern CPU caches and minimise evaluation of the target
+density for most samples. Many standard densities are internally
+implemented in 'C' for high performance, with general user defined
+densities also supported. A paper describing the methodology will be
+released soon.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FLASHMM
-%global packver   1.1.0
+%global packname  IVDML
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Scalable Single Cell Differential Expression Analysis using Mixed-Effects Models
+Summary:          Double Machine Learning with Instrumental Variables and Heterogeneity
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-xgboost 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-ranger 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-xgboost 
 
 %description
-A fast and scalable linear mixed-effects model (LMM) estimation algorithm
-for analysis of single-cell differential expression. The algorithm uses
-summary-level statistics and requires less computer memory to fit the LMM.
+Instrumental variable (IV) estimators for homogeneous and heterogeneous
+treatment effects with efficient machine learning instruments. The
+estimators are based on double/debiased machine learning allowing for
+nonlinear and potentially high-dimensional control variables. Details can
+be found in Scheidegger, Guo and Bühlmann (2025) "Inference for
+heterogeneous treatment effects with efficient instruments and machine
+learning" <doi:10.48550/arXiv.2503.03530>.
 
 %prep
 %setup -q -c -n %{packname}

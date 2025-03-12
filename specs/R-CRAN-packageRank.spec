@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  packageRank
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Visualization of Package Download Counts and Percentile Ranks
 
@@ -43,8 +43,8 @@ Requires:         R-CRAN-rversions
 Requires:         R-CRAN-sugrrants 
 
 %description
-Compute and visualize the cross-sectional and longitudinal number and rank
-percentile of package downloads from Posit/RStudio's CRAN mirror.
+Compute and visualize package download counts and percentile ranks from
+Posit/RStudio's CRAN mirror.
 
 %prep
 %setup -q -c -n %{packname}

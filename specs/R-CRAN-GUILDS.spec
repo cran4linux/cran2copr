@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GUILDS
-%global packver   1.4.6
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of Sampling Formulas for the Unified Neutral Model of Biodiversity and Biogeography, with or without Guild Structure
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-pracma 
 
 %description
 A collection of sampling formulas for the unified neutral model of

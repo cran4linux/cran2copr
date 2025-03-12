@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  incidence2
-%global packver   2.6.0
+%global packver   2.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.0
+Version:          2.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute, Handle and Plot Incidence of Dated Events
 
@@ -48,9 +48,7 @@ Requires:         R-CRAN-vctrs
 Provides functions and classes to compute, handle and visualise incidence
 from dated events for a defined time interval. Dates can be provided in
 various standard formats. The class 'incidence2' is used to store computed
-incidence and can be easily manipulated, subsetted, and plotted. This
-package is part of the RECON (<https://www.repidemicsconsortium.org/>)
-toolkit for outbreak analysis (<https://www.reconverse.org>).
+incidence and can be easily manipulated, subsetted, and plotted.
 
 %prep
 %setup -q -c -n %{packname}

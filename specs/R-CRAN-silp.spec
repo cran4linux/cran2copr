@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  silp
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditional Process Analysis (CPA) via Structural Equation Modeling (SEM) Approach
+Summary:          Conditional Process Analysis (CPA) via SEM Approach
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
@@ -35,21 +35,19 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 
 %description
-Provides Reliability-Adjusted Product Indicator (RAPI) method to estimate
-effects among latent variables, thus allowing for more precise definition
-and analysis of mediation and moderation models. Our simulation studies
-reveal that while 'silp' may exhibit instability with smaller sample sizes
-and lower reliability scores (e.g., N = 100, omega = 0.7), implementing
-nearest positive definite matrix correction and bootstrap confidence
-interval estimation can significantly ameliorate this volatility. When
-these adjustments are applied, 'silp' achieves estimations akin in quality
-to those derived from latent moderated structural equations (LMS). In
-conclusion, the 'silp' package is a valuable tool for researchers seeking
-to explore complex relational structures between variables without
-resorting to commercial software. Hsiao et
-al.(2018)<doi:10.1177/0013164416679877> Kline &
-Moosbrugger(2000)<doi:10.1007/BF02296338> Cheung et
-al.(2021)<doi:10.1007/s10869-020-09717-0>.
+Utilizes the Reliability-Adjusted Product Indicator (RAPI) method to
+estimate effects among latent variables, thus allowing for more precise
+definition and analysis of mediation and moderation models. Our simulation
+studies reveal that while 'silp' may exhibit instability with smaller
+sample sizes and lower reliability scores (e.g., N = 100, 'omega' = 0.7),
+implementing nearest positive definite matrix correction and bootstrap
+confidence interval estimation can significantly ameliorate this
+volatility. When these adjustments are applied, 'silp' achieves
+estimations akin in quality to those derived from LMS. In conclusion, the
+'silp' package is a valuable tool for researchers seeking to explore
+complex relational structures between variables without resorting to
+commercial software. Cheung et al.(2021)<doi:10.1007/s10869-020-09717-0>
+Hsiao et al.(2018)<doi:10.1177/0013164416679877>.
 
 %prep
 %setup -q -c -n %{packname}

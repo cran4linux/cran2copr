@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  opendataformat
-%global packver   2.1.3
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reading and Writing Open Data Format Files
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-jsonlite 
 
 %description
 The Open Data Format (ODF) is a new, non-proprietary, multilingual,

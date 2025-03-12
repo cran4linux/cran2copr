@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FLASHMM
-%global packver   1.1.0
+%global packname  nimbleMacros
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Scalable Single Cell Differential Expression Analysis using Mixed-Effects Models
+Summary:          Macros Generating 'nimble' Code
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE | GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-reformulas 
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-reformulas 
 
 %description
-A fast and scalable linear mixed-effects model (LMM) estimation algorithm
-for analysis of single-cell differential expression. The algorithm uses
-summary-level statistics and requires less computer memory to fit the LMM.
+Macros to generate 'nimble' code from a concise syntax. Included are
+macros for generating linear modeling code using a formula-based syntax
+and for building for() loops. For more details review the 'nimble' manual:
+<https://r-nimble.org/html_manual/cha-writing-models.html#subsec:macros>.
 
 %prep
 %setup -q -c -n %{packname}

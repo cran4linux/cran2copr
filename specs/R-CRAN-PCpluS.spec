@@ -1,49 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdsm
-%global packver   0.1.0
+%global packname  PCpluS
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Dynamic Systems Modeling
+Summary:          Piecewise Constant Plus Smooth Regression
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-optimbase 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-rje 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rootSolve 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-optimbase 
-Requires:         R-parallel 
-Requires:         R-CRAN-rje 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rootSolve 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-CRAN-changepoint 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
-Implements methods for building and analyzing models based on panel data
-as described in the paper by Moral-Benito (2013,
-<doi:10.1080/07350015.2013.818003>). The package provides functions to
-estimate dynamic panel data models and analyze the results of the
-estimation.
+Allows for nonparametric regression where one assumes that the signal is
+given by the sum of a piecewise constant function and a smooth function.
+More precisely, it implements the estimator PCpluS (piecewise constant
+plus smooth regression estimator) from Pein and Shah (2025)
+<doi:10.48550/arXiv.2112.03878>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdistance
-%global packver   3.0.0
+%global packver   3.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance-Sampling Analyses for Density and Abundance Estimation
 
@@ -29,22 +29,19 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-crayon 
 
 %description
-Distance-sampling analyses estimate density and abundance of organisms in
-ecology when detection probability declines with increasing distance from
-the observers. Distance-sampling is popular in most branches of ecology
-and especially when organisms are observed from aerial platforms (e.g.,
-airplane or drone), surface vessels (e.g., boat or truck), or along
-walking transects. Rdistance analyzes data collected on both point and
-line transects, estimates overall (study area) and site-level (transect or
-point) density, and allows users to specify regression-like formula
-(similar to lm or glm) for covariates. A large suite of classical,
-parametric detection functions are included along with some uncommon
-parametric functions (e.g., Gamma, negative exponential) and
-non-parametric smoothed distance functions. Custom (user-defined)
-detection functions can be implemented (see vignette).  Measurement unit
-integrity is enforced with internal unit conversion when necessary. The
-help files and vignettes have been vetted by multiple authors and tested
-in workshop settings.
+Distance-sampling analyses (<doi:10.1007/978-3-319-19219-2>) estimate
+density and abundance of survey targets (e.g., animals) when detection
+declines with distance. Distance-sampling is popular ecology, especially
+when survey targets are observed from aerial platforms (e.g., airplane or
+drone), surface vessels (e.g., boat or truck), or along walking transects.
+Both point and line transects can be analyzed. Outputs include overall
+(study area) density and abundance, effective sampling distances, and
+model fit statistics. A large suite of classical, parametric detection
+functions (e.g., half-normal, hazard rate) is included along with uncommon
+parametric functions (e.g., Gamma, negative exponential). Non-parametric
+smoothed distance functions are included. Measurement unit integrity is
+enforced via internal unit conversion. The help files and vignettes have
+been vetted by multiple authors and tested in workshop settings.
 
 %prep
 %setup -q -c -n %{packname}

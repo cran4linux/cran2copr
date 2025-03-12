@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  FLASHMM
-%global packver   1.1.0
+%global packname  JMbdirect
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Scalable Single Cell Differential Expression Analysis using Mixed-Effects Models
+Summary:          Joint Model for Longitudinal and Multiple Time to Events Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-JMbayes2 
+BuildRequires:    R-CRAN-joineRML 
+BuildRequires:    R-CRAN-FastJM 
+BuildRequires:    R-CRAN-rstanarm 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-jmBIG 
+Requires:         R-CRAN-JMbayes2 
+Requires:         R-CRAN-joineRML 
+Requires:         R-CRAN-FastJM 
+Requires:         R-CRAN-rstanarm 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-jmBIG 
 
 %description
-A fast and scalable linear mixed-effects model (LMM) estimation algorithm
-for analysis of single-cell differential expression. The algorithm uses
-summary-level statistics and requires less computer memory to fit the LMM.
+Provides model fitting, prediction, and plotting for joint models of
+longitudinal and multiple time-to-event data, including methods from
+Rizopoulos (2012) <doi:10.1201/b12208>. Useful for handling complex
+survival and longitudinal data in clinical research.
 
 %prep
 %setup -q -c -n %{packname}
