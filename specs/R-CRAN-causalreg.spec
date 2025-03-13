@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  polyhedralCubature
-%global packver   1.1.0
+%global packname  causalreg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiple Integration over Convex Polyhedra
+Summary:          Causal Generalized Linear Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gmp 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ompr 
-BuildRequires:    R-CRAN-qspray 
-BuildRequires:    R-CRAN-rcdd 
-BuildRequires:    R-CRAN-SimplicialCubature 
-BuildRequires:    R-CRAN-spray 
-BuildRequires:    R-CRAN-tessellation 
-Requires:         R-CRAN-gmp 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ompr 
-Requires:         R-CRAN-qspray 
-Requires:         R-CRAN-rcdd 
-Requires:         R-CRAN-SimplicialCubature 
-Requires:         R-CRAN-spray 
-Requires:         R-CRAN-tessellation 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-mgcv 
 
 %description
-Evaluation of multiple integrals over convex polyhedra. This is useful
-when the bounds of the integrals are some linear combinations of the
-variables.
+An implementation of methods for causal discovery in a structural causal
+model where the conditional distribution of the target node is described
+by a generalized linear model conditional on its causal parents.
 
 %prep
 %setup -q -c -n %{packname}

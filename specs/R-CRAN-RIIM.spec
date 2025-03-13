@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nloptr
-%global packver   2.2.0
+%global packname  RIIM
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to NLopt
+Summary:          Randomization-Based Inference Under Inexact Matching
 
-License:          LGPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-optmatch 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-optmatch 
 
 %description
-Solve optimization problems using an R interface to NLopt. NLopt is a
-free/open-source library for nonlinear optimization, providing a common
-interface for a number of different free optimization routines available
-online as well as original implementations of various other algorithms.
-See <https://nlopt.readthedocs.io/en/latest/NLopt_Algorithms/> for more
-information on the available algorithms. Building from included sources
-requires 'CMake'. On Linux and 'macOS', if a suitable system build of
-NLopt (2.7.0 or later) is found, it is used; otherwise, it is built from
-included sources via 'CMake'. On Windows, NLopt is obtained through
-'rwinlib' for 'R <= 4.1.x' or grabbed from the appropriate toolchain for
-'R >= 4.2.0'.
+Randomization-based inference for average treatment effects in potentially
+inexactly matched observational studies. It implements the inverse
+post-matching probability weighting framework proposed by the authors. The
+post-matching probability calculation follows the approach of Pimentel and
+Huang (2024) <doi:10.1093/jrsssb/qkae033>. The optimal full matching
+method is based on Hansen (2004) <doi:10.1198/106186006X137047>. The
+variance estimator extends the method proposed in Fogarty (2018)
+<doi:10.1111/rssb.12290> from the perfect randomization settings to the
+potentially inexact matching case. Comparisons are made with conventional
+methods, as described in Rosenbaum (2002) <doi:10.1007/978-1-4757-3692-2>,
+Fogarty (2018) <doi:10.1111/rssb.12290>, and Kang et al. (2016)
+<doi:10.1214/15-aoas894>.
 
 %prep
 %setup -q -c -n %{packname}

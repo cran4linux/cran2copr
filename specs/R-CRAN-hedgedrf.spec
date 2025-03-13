@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hedgedrf
-%global packver   0.0.1
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Implementation of the Hedged Random Forest Algorithm
 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-CVXR
 %description
 This algorithm is described in detail in the paper "Hedging Forecast
 Combinations With an Application to the Random Forest" by Beck et al.
-(2023) <doi:10.48550/arXiv.2308.15384>. The package provides a function
-hedgedrf() that can be used to train a Hedged Random Forest model on a
-dataset, and a function predict.hedgedrf() that can be used to make
-predictions with the model.
+(2024) <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5032102>. The
+package provides a function hedgedrf() that can be used to train a Hedged
+Random Forest model on a dataset, and a function predict.hedgedrf() that
+can be used to make predictions with the model.
 
 %prep
 %setup -q -c -n %{packname}

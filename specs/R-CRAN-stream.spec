@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stream
-%global packver   2.0-2
+%global packver   2.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Data Stream Mining
 
@@ -19,15 +19,15 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-dbscan >= 1.0.0
 BuildRequires:    R-CRAN-proxy >= 0.4.7
 BuildRequires:    R-CRAN-Rcpp >= 0.11.4
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-clusterGeneration 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mlbench 
 BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
@@ -36,15 +36,15 @@ BuildRequires:    R-CRAN-BH
 Requires:         R-CRAN-dbscan >= 1.0.0
 Requires:         R-CRAN-proxy >= 0.4.7
 Requires:         R-CRAN-Rcpp >= 0.11.4
-Requires:         R-methods 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-clusterGeneration 
 Requires:         R-CRAN-fpc 
 Requires:         R-graphics 
 Requires:         R-grDevices 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-mlbench 
 Requires:         R-CRAN-rpart 
 Requires:         R-stats 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bspline
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          B-Spline Interpolation and Regression
 
@@ -27,17 +27,17 @@ Requires:         R-CRAN-arrApply
 %description
 Build and use B-splines for interpolation and regression. In case of
 regression, equality constraints as well as monotonicity and/or positivity
-of B-spline weights can be imposed. Moreover, knot positions (not only
-spline weights) can be part of optimized parameters too. For this end,
-'bspline' is able to calculate Jacobian of basis vectors as function of
-knot positions. User is provided with functions calculating spline values
-at arbitrary points. These functions can be differentiated and integrated
-to obtain B-splines calculating derivatives/integrals at any point.
-B-splines of this package can simultaneously operate on a series of curves
-sharing the same set of knots. 'bspline' is written with concern about
-computing performance that's why the basis and Jacobian calculation is
-implemented in C++. The rest is implemented in R but without notable
-impact on computing speed.
+of B-spline weights can be imposed. Moreover, knot positions can be on
+regular grid or be part of optimized parameters too (in addition to the
+spline weights). For this end, 'bspline' is able to calculate Jacobian of
+basis vectors as function of knot positions. User is provided with
+functions calculating spline values at arbitrary points. These functions
+can be differentiated and integrated to obtain B-splines calculating
+derivatives/integrals at any point. B-splines of this package can
+simultaneously operate on a series of curves sharing the same set of
+knots. 'bspline' is written with concern about computing performance
+that's why the basis and Jacobian calculation is implemented in C++. The
+rest is implemented in R but without notable impact on computing speed.
 
 %prep
 %setup -q -c -n %{packname}

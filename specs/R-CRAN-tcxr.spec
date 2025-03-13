@@ -1,35 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nloptr
-%global packver   2.2.0
+%global packname  tcxr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to NLopt
+Summary:          Parse and Analyze TCX Files
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cmake
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-XML 
+Requires:         R-CRAN-XML 
 
 %description
-Solve optimization problems using an R interface to NLopt. NLopt is a
-free/open-source library for nonlinear optimization, providing a common
-interface for a number of different free optimization routines available
-online as well as original implementations of various other algorithms.
-See <https://nlopt.readthedocs.io/en/latest/NLopt_Algorithms/> for more
-information on the available algorithms. Building from included sources
-requires 'CMake'. On Linux and 'macOS', if a suitable system build of
-NLopt (2.7.0 or later) is found, it is used; otherwise, it is built from
-included sources via 'CMake'. On Windows, NLopt is obtained through
-'rwinlib' for 'R <= 4.1.x' or grabbed from the appropriate toolchain for
-'R >= 4.2.0'.
+Framework provides functions to parse 'Training Center XML (TCX)' files
+and extract key activity metrics such as total distance, total time,
+calories burned, maximum altitude, and power values (watts). This package
+is useful for analyzing workout and training data from devices that export
+'TCX' format.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,51 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tessellation
-%global packver   2.3.0
+%global packname  prinsurf
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Delaunay and Voronoï Tessellations
+Summary:          Constructs Principal Surfaces
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-colorsGen 
-BuildRequires:    R-CRAN-cxhull 
-BuildRequires:    R-CRAN-english 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-hash 
-BuildRequires:    R-CRAN-Polychrome 
-BuildRequires:    R-CRAN-R6 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-colorsGen 
-Requires:         R-CRAN-cxhull 
-Requires:         R-CRAN-english 
-Requires:         R-graphics 
-Requires:         R-CRAN-hash 
-Requires:         R-CRAN-Polychrome 
-Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-sets 
-Requires:         R-utils 
 
 %description
-Delaunay and Voronoï tessellations, with emphasis on the two-dimensional
-and the three-dimensional cases (the package provides functions to plot
-the tessellations for these cases). Delaunay tessellations are computed in
-C with the help of the 'Qhull' library <http://www.qhull.org/>.
+Construct a principal surface that are two-dimensional surfaces that pass
+through the middle of a p-dimensional data set. They minimise the distance
+from the data points, and provide a nonlinear summary of data. The
+surfaces are nonparametric and their shape is suggested by the data. The
+formation of a surface is found using an iterative procedure which starts
+with a linear summary, typically with a principal component plane. Each
+successive iteration is a local average of the p-dimensional points, where
+an average is based on a projection of a point onto the nonlinear surface
+of the previous iteration. For more information on principal surfaces, see
+Ganey, R. (2019,
+"https://open.uct.ac.za/items/4e655d7d-d10c-481b-9ccc-801903aebfc8").
 
 %prep
 %setup -q -c -n %{packname}

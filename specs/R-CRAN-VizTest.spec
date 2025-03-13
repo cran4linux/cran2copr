@@ -1,37 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rehydratoR
-%global packver   0.5.2
+%global packname  VizTest
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Downloads Tweets from a List of Tweet IDs
+Summary:          Optimal Confidence Intervals for Visual Testing
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.5
-BuildRequires:    R-CRAN-tibble >= 1.3.4
-BuildRequires:    R-CRAN-dplyr >= 0.7.6
-BuildRequires:    R-CRAN-rtweet >= 0.6.7
-Requires:         R-CRAN-jsonlite >= 1.5
-Requires:         R-CRAN-tibble >= 1.3.4
-Requires:         R-CRAN-dplyr >= 0.7.6
-Requires:         R-CRAN-rtweet >= 0.6.7
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-HDInterval 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-HDInterval 
 
 %description
-Facilitates replication of Twitter-based research by handling common
-programming tasks needed when downloading tweets.  Specifically, it
-ensures a user does not exceed Twitter’s rate limits, and it saves tweets
-in moderately sized files. While a user could perform these tasks in their
-own code, doing so may be beyond the capabilities of many users.
+Identifies the optimal confidence level to represent the results of a set
+of pairwise tests as suggested by Armstrong and Poirier (2025)
+<doi:10.1017/pan.2024.24>.
 
 %prep
 %setup -q -c -n %{packname}

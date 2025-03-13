@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matrans
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Averaging-Assisted Optimal Transfer Learning
 
@@ -19,12 +19,14 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-formatR 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-splines 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-formatR 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-quadprog 
 Requires:         R-splines 

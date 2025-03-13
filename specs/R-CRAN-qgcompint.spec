@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qgcompint
-%global packver   0.7.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile G-Computation Extensions for Effect Measure Modification
 
@@ -23,6 +24,9 @@ BuildRequires:    R-CRAN-future
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-qgcomp 
 Requires:         R-CRAN-arm 
 Requires:         R-CRAN-survival 
@@ -30,6 +34,9 @@ Requires:         R-CRAN-future
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-MASS 
 
 %description
 G-computation for a set of time-fixed exposures with quantile-based basis

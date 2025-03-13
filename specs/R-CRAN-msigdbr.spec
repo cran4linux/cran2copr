@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  msigdbr
-%global packver   7.5.1
+%global packver   10.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          7.5.1
+Version:          10.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
 
@@ -13,30 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-babelgene 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-babelgene >= 22.9
+BuildRequires:    R-CRAN-tidyselect >= 1.2.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-babelgene 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-babelgene >= 22.9
+Requires:         R-CRAN-tidyselect >= 1.2.0
+Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-lifecycle 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
 
 %description
 Provides the 'Molecular Signatures Database' (MSigDB) gene sets typically
 used with the 'Gene Set Enrichment Analysis' (GSEA) software (Subramanian
 et al. 2005 <doi:10.1073/pnas.0506580102>, Liberzon et al. 2015
-<doi:10.1016/j.cels.2015.12.004>) in a standard R data frame with
-key-value pairs. The package includes the human genes as listed in MSigDB
-as well as the corresponding symbols and IDs for frequently studied model
-organisms such as mouse, rat, pig, fly, and yeast.
+<doi:10.1016/j.cels.2015.12.004>, Castanza et al. 2023
+<doi:10.1038/s41592-023-02014-7>) as an R data frame. The package includes
+the human genes as listed in MSigDB as well as the corresponding symbols
+and IDs for frequently studied model organisms such as mouse, rat, pig,
+fly, and yeast.
 
 %prep
 %setup -q -c -n %{packname}

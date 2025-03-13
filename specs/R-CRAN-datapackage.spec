@@ -1,45 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TukeyRegion
-%global packver   0.1.6.3
+%global packname  datapackage
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tukey Region and Median
+Summary:          Creating and Reading Data Packages
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-ddalpha 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-bfp 
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-ddalpha 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-bfp 
-Requires:         R-CRAN-Rglpk 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-iso8601 
+BuildRequires:    R-utils 
+BuildRequires:    R-tools 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-iso8601 
+Requires:         R-utils 
+Requires:         R-tools 
+Requires:         R-methods 
 
 %description
-Tukey regions are polytopes in the Euclidean space, viz. upper-level sets
-of the Tukey depth function on given data. The bordering hyperplanes of a
-Tukey region are computed as well as its vertices, facets, centroid, and
-volume. In addition, the Tukey median set, which is the non-empty Tukey
-region having highest depth level, and its barycenter (= Tukey median) are
-calculated. Tukey regions are visualized in dimension two and three. For
-details see Liu, Mosler, and Mozharovskyi (2019,
-<doi:10.1080/10618600.2018.1546595>). See file LICENSE.note for additional
-license information.
+Open, read data from and modify Data Packages. Data Packages are an open
+standard for bundling and describing data sets
+(<https://datapackage.org>). When data is read from a Data Package care is
+taken to convert the data as much a possible to R appropriate data types.
+The package can be extended with plugins for additional data types.
 
 %prep
 %setup -q -c -n %{packname}
