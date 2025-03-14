@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cholera
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Amend, Augment and Aid Analysis of John Snow's Cholera Map
 
@@ -14,46 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-deldir >= 1.0.2
 BuildRequires:    R-CRAN-HistData >= 0.7.8
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-elevatr 
 BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tanaka 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-threejs 
 BuildRequires:    R-CRAN-TSP 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-deldir >= 1.0.2
 Requires:         R-CRAN-HistData >= 0.7.8
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-elevatr 
 Requires:         R-CRAN-geosphere 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-grDevices 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sp 
-Requires:         R-stats 
 Requires:         R-CRAN-tanaka 
 Requires:         R-CRAN-terra 
-Requires:         R-tools 
 Requires:         R-CRAN-threejs 
 Requires:         R-CRAN-TSP 
-Requires:         R-utils 
 Requires:         R-CRAN-viridisLite 
 
 %description

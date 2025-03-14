@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vigicaen
-%global packver   0.15.6
+%global packname  R4GoodPersonalFinances
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.15.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'VigiBase' Pharmacovigilance Database Toolbox
+Summary:          Make Better Financial Decisions
 
-License:          CeCILL-2.1
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,42 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-fst 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-PrettyCols 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-bsicons 
+Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-fst 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggtext 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-PrettyCols 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-withr 
 
 %description
-Perform the analysis of the World Health Organization (WHO)
-Pharmacovigilance database 'VigiBase' (Extract Case Level version),
-<https://who-umc.org/> e.g., load data, perform data management,
-disproportionality analysis, and descriptive statistics. Intended for
-pharmacovigilance routine use or studies. This package is NOT supported
-nor reflect the opinion of the WHO, or the Uppsala Monitoring Centre.
-Disproportionality methods are described by Norén et al (2013)
-<doi:10.1177/0962280211403604>.
+Make informed, data-driven decisions for your personal or household
+finances. Use tools and methods that are selected carefully to align with
+academic consensus, bridging the gap between theoretical knowledge and
+practical application. They assist you in finding optimal asset
+allocation, preparing for retirement or financial independence,
+calculating optimal spending, and more. For more details see: Haghani V.,
+White J. (2023, ISBN:978-1-119-74791-8), Idzorek T., Kaplan P. (2024,
+ISBN:9781952927379).
 
 %prep
 %setup -q -c -n %{packname}

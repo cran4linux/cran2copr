@@ -1,35 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxonomizr
-%global packver   0.11.1
+%global packname  cmAnalysis
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with NCBI Accessions and Taxonomy
+Summary:          Process and Visualise Concept Mapping Data
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-factoextra 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-pheatmap 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-factoextra 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-pheatmap 
 
 %description
-Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
-based on NCBI's accession2taxid and taxdump files. This package allows the
-user to download NCBI data dumps and create a local database for fast and
-local taxonomic assignment.
+Processing and visualizing concept mapping data. Concept maps are
+versatile tools used across disciplines to enhance understanding,
+teaching, brainstorming, and information organization. The analysis of
+concept mapping data involves the sequential use of cluster analysis (for
+sorting participants and statements), multidimensional scaling (for
+positioning statements in a conceptual space), and visualization
+techniques, including point cluster maps and dendrograms.
 
 %prep
 %setup -q -c -n %{packname}

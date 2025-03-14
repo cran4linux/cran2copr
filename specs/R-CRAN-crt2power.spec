@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crt2power
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Designing Cluster-Randomized Trials with Two Co-Primary Outcomes
+Summary:          Designing Cluster-Randomized Trials with Two Continuous Co-Primary Outcomes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,12 +42,13 @@ Requires:         R-CRAN-tableone >= 0.13.2
 
 %description
 Provides methods for powering cluster-randomized trials with two
-co-primary outcomes using five key design techniques. Includes functions
-for calculating required sample size and statistical power. For more
-details on methodology, see Li et al. (2020) <doi:10.1111/biom.13212>,
+continuous co-primary outcomes using five key design techniques. Includes
+functions for calculating required sample size and statistical power. For
+more details on methodology, see Owen et al. (2025)
+<doi:10.1002/sim.70015>, Yang et al. (2022) <doi:10.1111/biom.13692>,
 Pocock et al. (1987) <doi:10.2307/2531989>, Vickerstaff et al. (2019)
-<doi:10.1186/s12874-019-0754-4>, and Yang et al. (2022)
-<doi:10.1111/biom.13692>.
+<doi:10.1186/s12874-019-0754-4>, and Li et al. (2020)
+<doi:10.1111/biom.13212>.
 
 %prep
 %setup -q -c -n %{packname}

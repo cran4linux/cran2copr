@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastFMM
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Functional Mixed Models using Fast Univariate Inference
 
@@ -58,8 +58,10 @@ Requires:         R-methods
 
 %description
 Implementation of the fast univariate inference approach (Cui et al.
-(2022) <doi:10.1080/10618600.2021.1950006>, Loewinger et al. (2023)
-<doi:10.1101/2023.11.06.565896>) for fitting functional mixed models.
+(2022) <doi:10.1080/10618600.2021.1950006>, Loewinger et al. (2024)
+<doi:10.7554/eLife.95802.2>) for fitting functional mixed models. User
+guides and Python package information can be found at
+<https://github.com/gloewing/photometry_FLMM>.
 
 %prep
 %setup -q -c -n %{packname}

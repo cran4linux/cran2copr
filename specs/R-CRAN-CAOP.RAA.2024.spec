@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxonomizr
-%global packver   0.11.1
+%global packname  CAOP.RAA.2024
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with NCBI Accessions and Taxonomy
+Summary:          Official Administrative Map of the Azores (CAOP 2024)
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-glue 
 
 %description
-Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
-based on NCBI's accession2taxid and taxdump files. This package allows the
-user to download NCBI data dumps and create a local database for fast and
-local taxonomic assignment.
+Provides the official administrative boundaries of the Azores (Região
+Autónoma dos Açores (RAA)) as defined in the 2024 edition of the Carta
+Administrativa Oficial de Portugal (CAOP), published by the Direção-Geral
+do Território (DGT). The package includes convenience functions to import
+these boundaries as 'sf' objects for spatial analysis in R. Source:
+<https://geo2.dgterritorio.gov.pt/caop/CAOP_RAA_2024-gpkg.zip>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxonomizr
-%global packver   0.11.1
+%global packname  clinify
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with NCBI Accessions and Taxonomy
+Summary:          Clinical Table Styling Tools and Utilities
 
-License:          GPL (>= 2) | file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-flextable 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-flextable 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-zoo 
 
 %description
-Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
-based on NCBI's accession2taxid and taxdump files. This package allows the
-user to download NCBI data dumps and create a local database for fast and
-local taxonomic assignment.
+The primary motivation of this package is to take the things that are
+great about the R packages 'flextable'
+<https://davidgohel.github.io/flextable/> and 'officer'
+<https://davidgohel.github.io/officer/>, take the standard and complex
+pieces of formatting clinical tables for regulatory use, and simplify the
+tedious pieces.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sc2sc
-%global packver   0.0.1-16
+%global packname  censoredAIDS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.16
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Transfer of Statistics among Spanish Census Sections
+Summary:          Estimation of Censored AI/QUAI Demand System via Maximum Likelihood Estimation (MLE)
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mnormt 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 
 %description
-Transfers/imputes statistics among Spanish spatial polygons (census
-sections or postal code areas) from different moments in time (2001-2023)
-without need of spatial files, just linking statistics to the ID codes of
-the spatial units. The data available in the census sections of a
-partition/division (cartography) into force in a moment of time is
-transferred to the census sections of another partition/division employing
-the geometric approach (also known as areal weighting or polygon overlay).
-References: Goerlich (2022) <doi:10.12842/WPIVIE_0322>. Pavía and
-Cantarino (2017a, b) <doi:10.1111/gean.12112>,
-<doi:10.1016/j.apgeog.2017.06.021>. Pérez and Pavía (2024a, b)
-<doi:10.4995/CARMA2024.2024.17796>, <doi:10.38191/iirr-jorr.24.057>.
-Acknowledgements: The authors wish to thank Consellería de Educación,
-Universidades y Empleo, Generalitat Valenciana (grant AICO/2021/257),
-Ministerio de Economía e Innovación (grant PID2021-128228NB-I00) and
-Fundación Mapfre for supporting this research.
+Tools for estimating censored Almost Ideal (AI) and Quadratic Almost Ideal
+(QUAI) demand systems using Maximum Likelihood Estimation (MLE). It
+includes functions for calculating demand share equations and the
+truncated log-likelihood function for a system of equations, incorporating
+demographic variables. The package is designed to handle censored data,
+where some observations may be zero due to non-purchase of certain goods.
+It is particularly useful for applied researchers analyzing household
+consumption data.
 
 %prep
 %setup -q -c -n %{packname}

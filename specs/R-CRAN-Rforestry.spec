@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rforestry
-%global packver   0.10.0
+%global packver   0.11.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.11.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Random Forests, Linear Trees, and Gradient Boosting for Inference and Interpretability
 
-License:          GPL (>= 3)
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,7 +23,6 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-visNetwork 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-onehot 
-BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppThread 
 Requires:         R-CRAN-glmnet >= 4.1
@@ -33,15 +32,13 @@ Requires:         R-methods
 Requires:         R-CRAN-visNetwork 
 Requires:         R-grDevices 
 Requires:         R-CRAN-onehot 
-Requires:         R-CRAN-pROC 
 
 %description
-Provides fast implementations of Honest Random Forests, Gradient Boosting,
-and Linear Random Forests, with an emphasis on inference and
-interpretability. Additionally contains methods for variable importance,
-out-of-bag prediction, regression monotonicity, and several methods for
-missing data imputation. Soren R. Kunzel, Theo F. Saarinen, Edward W. Liu,
-Jasjeet S. Sekhon (2019) <arXiv:1906.06463>.
+Provides fast implementations of Random Forests, Gradient Boosting, and
+Linear Random Forests, with an emphasis on inference and interpretability.
+Additionally contains methods for variable importance, out-of-bag
+prediction, regression monotonicity, and several methods for missing data
+imputation.
 
 %prep
 %setup -q -c -n %{packname}

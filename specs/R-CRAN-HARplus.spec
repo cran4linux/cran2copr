@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sc2sc
-%global packver   0.0.1-16
+%global packname  HARplus
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.16
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Spatial Transfer of Statistics among Spanish Census Sections
+Summary:          Enhanced R Package for 'GEMPACK' .har and .sl4 Files
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-haven 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Transfers/imputes statistics among Spanish spatial polygons (census
-sections or postal code areas) from different moments in time (2001-2023)
-without need of spatial files, just linking statistics to the ID codes of
-the spatial units. The data available in the census sections of a
-partition/division (cartography) into force in a moment of time is
-transferred to the census sections of another partition/division employing
-the geometric approach (also known as areal weighting or polygon overlay).
-References: Goerlich (2022) <doi:10.12842/WPIVIE_0322>. Pavía and
-Cantarino (2017a, b) <doi:10.1111/gean.12112>,
-<doi:10.1016/j.apgeog.2017.06.021>. Pérez and Pavía (2024a, b)
-<doi:10.4995/CARMA2024.2024.17796>, <doi:10.38191/iirr-jorr.24.057>.
-Acknowledgements: The authors wish to thank Consellería de Educación,
-Universidades y Empleo, Generalitat Valenciana (grant AICO/2021/257),
-Ministerio de Economía e Innovación (grant PID2021-128228NB-I00) and
-Fundación Mapfre for supporting this research.
+Provides tools for processing and analyzing .har and .sl4 files, making it
+easier for 'GEMPACK' users and 'GTAP' researchers to handle large economic
+datasets. It simplifies the management of multiple experiment results,
+enabling faster and more efficient comparisons without complexity. Users
+can extract, restructure, and merge data seamlessly, ensuring
+compatibility across different tools. The processed data can be exported
+and used in 'R', 'Stata', 'Python', 'Julia', or any software that supports
+Text, CSV, or 'Excel' formats.
 
 %prep
 %setup -q -c -n %{packname}

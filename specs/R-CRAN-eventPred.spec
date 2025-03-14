@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eventPred
-%global packver   0.2.6
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Event Prediction
 
@@ -23,28 +23,30 @@ BuildRequires:    R-stats >= 3.5.0
 BuildRequires:    R-CRAN-numDeriv >= 2016.8.1.1
 BuildRequires:    R-CRAN-survival >= 2.41.3
 BuildRequires:    R-CRAN-flexsurv >= 2.2.2
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
 BuildRequires:    R-CRAN-shiny >= 1.7.1
 BuildRequires:    R-CRAN-rstpm2 >= 1.6.1
 BuildRequires:    R-CRAN-Matrix >= 1.2.14
+BuildRequires:    R-CRAN-data.table >= 1.14.10
 BuildRequires:    R-CRAN-mvtnorm >= 1.1.3
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-rlang >= 1.0.6
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-erify >= 0.4.0
+BuildRequires:    R-CRAN-lrstat >= 0.2.12
 Requires:         R-CRAN-plotly >= 4.10.1
 Requires:         R-splines >= 3.5.0
 Requires:         R-stats >= 3.5.0
 Requires:         R-CRAN-numDeriv >= 2016.8.1.1
 Requires:         R-CRAN-survival >= 2.41.3
 Requires:         R-CRAN-flexsurv >= 2.2.2
+Requires:         R-CRAN-magrittr >= 2.0.0
 Requires:         R-CRAN-shiny >= 1.7.1
 Requires:         R-CRAN-rstpm2 >= 1.6.1
 Requires:         R-CRAN-Matrix >= 1.2.14
+Requires:         R-CRAN-data.table >= 1.14.10
 Requires:         R-CRAN-mvtnorm >= 1.1.3
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-rlang >= 1.0.6
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-erify >= 0.4.0
+Requires:         R-CRAN-lrstat >= 0.2.12
 
 %description
 Predicts enrollment and events at the design or analysis stage using

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  semTools
-%global packver   0.5-6
+%global packver   0.5-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.6
+Version:          0.5.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Useful Tools for Structural Equation Modeling
 
@@ -16,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lavaan >= 0.6.11
+BuildRequires:    R-CRAN-lavaan >= 0.6.12
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-pbivnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-lavaan >= 0.6.11
+Requires:         R-CRAN-lavaan >= 0.6.12
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-pbivnorm 
@@ -30,9 +31,13 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Provides tools for structural equation modeling, many of which extend the
-'lavaan' package; for example, to pool results from multiple imputations,
-probe latent interactions, or test measurement invariance.
+Provides miscellaneous tools for structural equation modeling, many of
+which extend the 'lavaan' package. For example, latent interactions can be
+estimated using product indicators (Lin et al., 2010,
+<doi:10.1080/10705511.2010.488999>) and simple effects probed; analytical
+power analyses can be conducted (Jak et al., 2021,
+<doi:10.3758/s13428-020-01479-0>); and scale reliability can be estimated
+based on estimated factor-model parameters.
 
 %prep
 %setup -q -c -n %{packname}

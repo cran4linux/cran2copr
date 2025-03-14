@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxonomizr
-%global packver   0.11.1
+%global packname  pkgdiff
+%global packver   0.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.1.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with NCBI Accessions and Taxonomy
+Summary:          Identifies Package Differences
 
-License:          GPL (>= 2) | file LICENSE
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-common 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-cranlogs 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-common 
+Requires:         R-CRAN-crayon 
+Requires:         R-utils 
+Requires:         R-CRAN-cranlogs 
 
 %description
-Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
-based on NCBI's accession2taxid and taxdump files. This package allows the
-user to download NCBI data dumps and create a local database for fast and
-local taxonomic assignment.
+Identifies differences between versions of a package.  Specifically, the
+functions help determine if there are breaking changes from one package
+version to the next.  The package also includes a stability assessment, to
+help you determine the overall stability of a package, or even an entire
+repository.
 
 %prep
 %setup -q -c -n %{packname}

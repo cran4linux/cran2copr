@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastglmpca
-%global packver   0.1-107
+%global packver   0.1-108
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.107
+Version:          0.1.108
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Algorithms for Generalized Principal Component Analysis
 

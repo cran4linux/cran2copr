@@ -1,36 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jinjar
-%global packver   0.3.2
+%global packname  mvPot
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Template Engine Inspired by 'Jinja'
+Summary:          Multivariate Peaks-over-Threshold Modelling for Spatial Extreme Events
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-numbers 
+BuildRequires:    R-CRAN-gmp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-numbers 
+Requires:         R-CRAN-gmp 
 
 %description
-Template engine powered by the 'inja' C++ library. Users write a template
-document, using syntax inspired by the 'Jinja' Python package, and then
-render the final document by passing data from R. The template syntax
-supports features such as variables, loops, conditions and inheritance.
+Tools for high-dimensional peaks-over-threshold inference and simulation
+of Brown-Resnick and extremal Student spatial extremal processes. These
+include optimization routines based on censored likelihood and gradient
+scoring, and exact simulation algorithms for max-stable and multivariate
+Pareto distributions based on rejection sampling. Fast multivariate
+Gaussian and Student distribution functions using separation-of-variable
+algorithm with quasi Monte Carlo integration are also provided. Key
+references include de Fondeville and Davison (2018)
+<doi:10.1093/biomet/asy026>, Thibaud and Opitz (2015)
+<doi:10.1093/biomet/asv045>, Wadsworth and Tawn (2014)
+<doi:10.1093/biomet/ast042> and Genz and Bretz (2009)
+<doi:10.1007/978-3-642-01689-9>.
 
 %prep
 %setup -q -c -n %{packname}

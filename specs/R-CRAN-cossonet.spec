@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxonomizr
-%global packver   0.11.1
+%global packname  cossonet
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with NCBI Accessions and Taxonomy
+Summary:          Sparse Nonparametric Regression for High-Dimensional Data
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cosso 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-cosso 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-glmnet 
+Requires:         R-graphics 
 
 %description
-Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
-based on NCBI's accession2taxid and taxdump files. This package allows the
-user to download NCBI data dumps and create a local database for fast and
-local taxonomic assignment.
+Estimation of sparse nonlinear functions in nonparametric regression using
+component selection and smoothing. Designed for the analysis of
+high-dimensional data, the models support various data types, including
+exponential family models and Cox proportional hazards models. The
+methodology is based on Lin and Zhang (2006)
+<doi:10.1214/009053606000000722>.
 
 %prep
 %setup -q -c -n %{packname}

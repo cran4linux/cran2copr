@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  taxonomizr
-%global packver   0.11.1
+%global packname  abms
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with NCBI Accessions and Taxonomy
+Summary:          Augmented Bayesian Model Selection for Regression Models
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildRequires:    R-CRAN-curl >= 5.0.0
-BuildRequires:    R-CRAN-RSQLite 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-curl >= 5.0.0
-Requires:         R-CRAN-RSQLite 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-GIGrvg 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-truncnorm 
+Requires:         R-CRAN-BayesLogit 
+Requires:         R-CRAN-GIGrvg 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-truncnorm 
 
 %description
-Functions for assigning taxonomy to NCBI accession numbers and taxon IDs
-based on NCBI's accession2taxid and taxdump files. This package allows the
-user to download NCBI data dumps and create a local database for fast and
-local taxonomic assignment.
+Tools to perform model selection alongside estimation under Linear,
+Logistic, Negative binomial, Quantile, and Skew-Normal regression. Under
+the spike-and-slab method, a probability for each possible model is
+estimated with the posterior mean, credibility interval, and standard
+deviation of coefficients and parameters under the most probable model.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  idefix
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Designs for Discrete Choice Experiments
 
@@ -26,6 +27,8 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-tmvtnorm 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-dfidx 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-tableHTML 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.18
 Requires:         R-CRAN-shiny 
@@ -38,6 +41,8 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-tmvtnorm 
 Requires:         R-utils 
 Requires:         R-CRAN-dfidx 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-tableHTML 
 
 %description
 Generates efficient designs for discrete choice experiments based on the

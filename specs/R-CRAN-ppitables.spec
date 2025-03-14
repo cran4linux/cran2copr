@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ppitables
-%global packver   0.5.5
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lookup Tables to Generate Poverty Likelihoods and Rates using the Poverty Probability Index (PPI)
 
@@ -26,8 +26,8 @@ Requires:         R-CRAN-tidyr
 The Poverty Probability Index (PPI) is a poverty measurement tool for
 organizations and businesses with a mission to serve the poor. The PPI is
 statistically-sound, yet simple to use: the answers to 10 questions about
-a household’s characteristics and asset ownership are scored to compute
-the likelihood that the household is living below the poverty line – or
+a household's characteristics and asset ownership are scored to compute
+the likelihood that the household is living below the poverty line - or
 above by only a narrow margin. This package contains country-specific
 lookup data tables used as reference to determine the poverty likelihood
 of a household based on their score from the country-specific PPI
