@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvgam
-%global packver   1.1.4
+%global packver   1.1.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.1.51
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate (Dynamic) Generalized Additive Models
 
@@ -66,7 +66,7 @@ observations. Users can build nonlinear State-Space models that can
 incorporate semiparametric effects in observation and process components,
 using a wide range of observation families. Estimation is performed using
 Markov Chain Monte Carlo with Hamiltonian Monte Carlo in the software
-'Stan'. References: Clark & Wells (2022) <doi:10.1111/2041-210X.13974>.
+'Stan'. References: Clark & Wells (2023) <doi:10.1111/2041-210X.13974>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RweaveExtra
-%global packver   1.1-0
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sweave Drivers with Extra Tricks Up their Sleeve
 
@@ -26,9 +26,10 @@ RweaveExtraLatex and RtangleExtra provide options to completely ignore
 code chunks on weaving, tangling, or both. Chunks ignored on weaving are
 not parsed, yet are written out verbatim on tangling. Chunks ignored on
 tangling may be evaluated as usual on weaving, but are completely left out
-of the tangled scripts. The driver RtangleExtra also provides an option to
+of the tangled scripts. The driver RtangleExtra also provides options to
+control the separation between code chunks in the tangled script, and to
 specify the extension of the file name (or remove it entirely) when
-splitting is selected on tangling.
+splitting is selected.
 
 %prep
 %setup -q -c -n %{packname}

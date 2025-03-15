@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wxgenR
-%global packver   1.4.2
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Stochastic Weather Generator with Seasonality
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-doRNG 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-msm 
 Requires:         R-CRAN-sm 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-doRNG 
 
 %description
 A weather generator to simulate precipitation and temperature for regions

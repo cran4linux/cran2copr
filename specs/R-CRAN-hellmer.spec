@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hellmer
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Batch Processing for Chat Models
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-beepr
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R.utils 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-beepr
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R.utils 

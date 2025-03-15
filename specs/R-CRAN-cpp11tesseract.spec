@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ScRNAIMM
-%global packver   0.1
+%global packname  cpp11tesseract
+%global packver   5.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          5.3.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Performing Single-Cell RNA-Seq Imputation by Using Mean/Median Imputation
+Summary:          Open Source OCR Engine
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-nortest 
-BuildRequires:    R-CRAN-mclust 
-BuildRequires:    R-CRAN-scDHA 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-nortest 
-Requires:         R-CRAN-mclust 
-Requires:         R-CRAN-scDHA 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 
 %description
-Performing single-cell imputation in a way that preserves the biological
-variations in the data. The package clusters the input data to do
-imputation for each cluster, and do a distribution check using the
-Anderson-Darling normality test to impute dropouts using mean or median
-(Yazici, B., & Yolacan, S. (2007) <DOI:10.1080/10629360600678310>).
+Bindings to 'tesseract': 'tesseract'
+(<https://github.com/tesseract-ocr/tesseract>) is a powerful optical
+character recognition (OCR) engine that supports over 100 languages. The
+engine is highly configurable in order to tune the detection algorithms
+and obtain the best possible results.
 
 %prep
 %setup -q -c -n %{packname}

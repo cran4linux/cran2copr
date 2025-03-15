@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSBtools
-%global packver   1.7.0
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics Norway's Miscellaneous Tools
+Summary:          Algorithms and Tools for Tabular Statistics and Hierarchical Computations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,20 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-stringr 
+BuildRequires:    R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
 
 %description
-Functions used by other packages from Statistics Norway are gathered.
-General data manipulation functions, algorithms for statistical disclosure
-control (Langsrud, 2024) <doi:10.1007/978-3-031-69651-0_6> and functions
-for hierarchical computations by sparse model matrices are included
+Includes general data manipulation functions, algorithms for statistical
+disclosure control (Langsrud, 2024) <doi:10.1007/978-3-031-69651-0_6> and
+functions for hierarchical computations by sparse model matrices
 (Langsrud, 2023) <doi:10.32614/RJ-2023-088>.
 
 %prep
