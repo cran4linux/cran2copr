@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GTFSwizard
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploring and Manipulating 'GTFS' Files
 
@@ -17,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gtfstools 
-BuildRequires:    R-CRAN-tidytransit 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
@@ -43,8 +41,10 @@ BuildRequires:    R-CRAN-stplanr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-sfnetworks 
-Requires:         R-CRAN-gtfstools 
-Requires:         R-CRAN-tidytransit 
+BuildRequires:    R-CRAN-gtfstools 
+BuildRequires:    R-CRAN-tidytransit 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
@@ -69,6 +69,10 @@ Requires:         R-CRAN-stplanr
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-sfnetworks 
+Requires:         R-CRAN-gtfstools 
+Requires:         R-CRAN-tidytransit 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
 
 %description
 Exploring, analyzing, and manipulating General Transit Feed Specification

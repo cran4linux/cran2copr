@@ -1,41 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmx
-%global packver   0.1.3
+%global packname  golfr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finite Mixture Parametrization
+Summary:          Group Assignment Tool
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-param2moment 
-BuildRequires:    R-CRAN-TukeyGH77 
-Requires:         R-methods 
-Requires:         R-CRAN-goftest 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-param2moment 
-Requires:         R-CRAN-TukeyGH77 
 
 %description
-A parametrization framework for finite mixture distribution using S4
-objects. Density, cumulative density, quantile and simulation functions
-are defined. Currently normal, Tukey g-&-h, skew-normal and skew-t
-distributions are well tested. The gamma, negative binomial distributions
-are being tested.
+An efficient algorithm to generate group assignments for classroom
+settings while minimizing repeated pairings across multiple rounds.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DemographicTable
-%global packver   0.1.10
+%global packver   0.1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating Demographic Table
 
@@ -17,17 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-scales 
 
 %description
 Functions for creating demographic table of simple summary statistics and
-comparison(s) over one or more groups. Returned value is printed via
-package 'flextable'.
+comparison(s) over one or more groups.
 
 %prep
 %setup -q -c -n %{packname}

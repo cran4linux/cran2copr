@@ -1,48 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  greenfeedr
-%global packver   1.2.0
+%global packname  sourcoise
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Process and Report 'GreenFeed' Data
+Summary:          Source a Script and Cache
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-qs2 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-rmarkdown 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lobstr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-logger 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-qs2 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-rmarkdown 
-Requires:         R-stats 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lobstr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-logger 
 
 %description
-Provides tools for downloading, processing, and reporting daily and
-finalized 'GreenFeed' data.
+Provides a function that behave nearly as base::source() but implements a
+caching mechanism on disk, project based. It allows to quasi source() R
+scripts that gather data but can fail or consume to much time to respond
+even if nothing new is expected. It comes with tools to check and execute
+on demand or when cache is invalid the script.
 
 %prep
 %setup -q -c -n %{packname}

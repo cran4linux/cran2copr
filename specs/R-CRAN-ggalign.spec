@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggalign
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
 
@@ -17,8 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grDevices 
@@ -26,10 +25,10 @@ BuildRequires:    R-grid
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.3.0
-Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-vctrs >= 0.5.0
 Requires:         R-CRAN-cli 
 Requires:         R-grDevices 
@@ -37,15 +36,20 @@ Requires:         R-grid
 Requires:         R-CRAN-gtable 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-A 'ggplot2' extension offers various tools for organizing and arranging
-plots. It is designed to consistently align a specific axis across
-multiple 'ggplot' objects, making it especially useful for plots requiring
-data order manipulation. A typical use case includes organizing
-combinations like a dendrogram and a heatmap.
+A 'ggplot2' extension offers various tools the creation of complex,
+multi-plot visualizations. Built on the familiar grammar of graphics, it
+provides intuitive tools to align and organize plots, making it ideal for
+complex visualizations. It excels in multi-omics research—such as genomics
+and microbiomes—by simplifying the visualization of intricate
+relationships between datasets, for example, linking genes to pathways.
+Whether you need to stack plots, arrange them around a central figure, or
+use a circular layout, 'ggalign' delivers flexibility and accuracy with
+minimal effort.
 
 %prep
 %setup -q -c -n %{packname}

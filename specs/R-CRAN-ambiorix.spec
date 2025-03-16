@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmx
-%global packver   0.1.3
+%global packname  ambiorix
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finite Mixture Parametrization
+Summary:          Web Framework Inspired by 'Express.js'
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-webutils >= 1.2.0
+BuildRequires:    R-CRAN-yyjsonr >= 0.1.20
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-log 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-param2moment 
-BuildRequires:    R-CRAN-TukeyGH77 
+BuildRequires:    R-CRAN-assertthat 
+Requires:         R-CRAN-webutils >= 1.2.0
+Requires:         R-CRAN-yyjsonr >= 0.1.20
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-log 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httpuv 
 Requires:         R-methods 
-Requires:         R-CRAN-goftest 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-param2moment 
-Requires:         R-CRAN-TukeyGH77 
+Requires:         R-CRAN-assertthat 
 
 %description
-A parametrization framework for finite mixture distribution using S4
-objects. Density, cumulative density, quantile and simulation functions
-are defined. Currently normal, Tukey g-&-h, skew-normal and skew-t
-distributions are well tested. The gamma, negative binomial distributions
-are being tested.
+A web framework inspired by 'express.js' to build any web service from
+multi-page websites to 'RESTful' application programming interfaces.
 
 %prep
 %setup -q -c -n %{packname}

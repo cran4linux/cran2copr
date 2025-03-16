@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmx
-%global packver   0.1.3
+%global packname  ggvfields
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Finite Mixture Parametrization
+Summary:          Vector Field Visualizations with 'ggplot2'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4.0
-Requires:         R-core >= 4.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-goftest 
-BuildRequires:    R-CRAN-sn 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-param2moment 
-BuildRequires:    R-CRAN-TukeyGH77 
-Requires:         R-methods 
-Requires:         R-CRAN-goftest 
-Requires:         R-CRAN-sn 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-param2moment 
-Requires:         R-CRAN-TukeyGH77 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-farver 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-grid 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-farver 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-deSolve 
+Requires:         R-grid 
+Requires:         R-utils 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
 
 %description
-A parametrization framework for finite mixture distribution using S4
-objects. Density, cumulative density, quantile and simulation functions
-are defined. Currently normal, Tukey g-&-h, skew-normal and skew-t
-distributions are well tested. The gamma, negative binomial distributions
-are being tested.
+A 'ggplot2' extension for visualizing vector fields in two-dimensional
+space. Provides flexible tools for creating vector and stream field
+layers, visualizing gradients and potential fields, and smoothing vector
+and scalar data to estimate underlying patterns.
 
 %prep
 %setup -q -c -n %{packname}
