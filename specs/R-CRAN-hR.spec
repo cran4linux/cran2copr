@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hR
-%global packver   0.2.50
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.50
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for Data Analytics in Human Resources
+Summary:          Better Data Engineering in Human Resources
 
 License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +18,13 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-knitr 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-knitr 
 
 %description
-Transform and analyze workforce data in meaningful ways for human
-resources (HR) analytics. Get started with workforce planning using a
-simple Shiny app.
+Methods for data engineering in the human resources (HR) corporate domain.
+Designed for HR analytics practitioners and workforce-oriented data sets.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +34,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

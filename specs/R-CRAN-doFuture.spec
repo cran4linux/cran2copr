@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doFuture
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Foreach to Parallelize via the Future Framework
 
@@ -34,15 +34,16 @@ Requires:         R-utils
 
 %description
 The 'future' package provides a unifying parallelization framework for R
-that supports many parallel and distributed backends. The 'foreach'
-package provides a powerful API for iterating over an R expression in
-parallel. The 'doFuture' package brings the best of the two together.
-There are two alternative ways to use this package. The recommended
-approach is to use 'y <- foreach(...) %%dofuture%% { ... }', which does not
-require using 'registerDoFuture()' and has many advantages over '%%dopar%%'.
-The alternative is the traditional 'foreach' approach by registering the
-'foreach' adapter 'registerDoFuture()' and so that 'y <- foreach(...)
-%%dopar%% { ... }' runs in parallelizes with the 'future' framework.
+that supports many parallel and distributed backends
+<doi:10.32614/RJ-2021-048>. The 'foreach' package provides a powerful API
+for iterating over an R expression in parallel. The 'doFuture' package
+brings the best of the two together. There are two alternative ways to use
+this package. The recommended approach is to use 'y <- foreach(...)
+%%dofuture%% { ... }', which does not require using 'registerDoFuture()' and
+has many advantages over '%%dopar%%'. The alternative is the traditional
+'foreach' approach by registering the 'foreach' adapter
+'registerDoFuture()' and so that 'y <- foreach(...) %%dopar%% { ... }' runs
+in parallelizes with the 'future' framework.
 
 %prep
 %setup -q -c -n %{packname}

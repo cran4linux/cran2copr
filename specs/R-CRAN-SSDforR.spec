@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSDforR
-%global packver   1.5.37
+%global packver   1.5.38
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.37
+Version:          1.5.38
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Analyze Single System Data
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-metafor
 BuildRequires:    R-CRAN-SingleCaseES 
 BuildRequires:    R-CRAN-Kendall 
 BuildRequires:    R-CRAN-modifiedmk 
+BuildRequires:    R-CRAN-retrodesign 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-TTR 
 Requires:         R-CRAN-MASS 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-metafor
 Requires:         R-CRAN-SingleCaseES 
 Requires:         R-CRAN-Kendall 
 Requires:         R-CRAN-modifiedmk 
+Requires:         R-CRAN-retrodesign 
 
 %description
 Functions to visually and statistically analyze single system data.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  centerline
-%global packver   0.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Centerline from Closed Polygons
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-sf >= 1.0
 BuildRequires:    R-CRAN-wk >= 0.9
 BuildRequires:    R-CRAN-sfnetworks >= 0.6
 BuildRequires:    R-CRAN-geos >= 0.2.4
+BuildRequires:    R-CRAN-checkmate 
 Requires:         R-CRAN-sf >= 1.0
 Requires:         R-CRAN-wk >= 0.9
 Requires:         R-CRAN-sfnetworks >= 0.6
 Requires:         R-CRAN-geos >= 0.2.4
+Requires:         R-CRAN-checkmate 
 
 %description
 Generates skeletons of closed 2D polygons using Voronoi diagrams. It

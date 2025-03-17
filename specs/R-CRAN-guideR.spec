@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  guideR
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Statistical Functions Used in 'guide-R'
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-labelled 
 BuildRequires:    R-CRAN-lifecycle 
@@ -29,10 +30,13 @@ BuildRequires:    R-CRAN-renv
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-srvyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-labelled 
 Requires:         R-CRAN-lifecycle 
@@ -43,6 +47,8 @@ Requires:         R-CRAN-renv
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-srvyr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
 
