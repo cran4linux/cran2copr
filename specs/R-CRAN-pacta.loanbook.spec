@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  campsismod
-%global packver   1.2.1
+%global packname  pacta.loanbook
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generic Implementation of a PK/PD Model
+Summary:          Easily Install and Load PACTA for Banks Packages
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,45 +17,45 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-r2dii.data >= 0.6.0
+BuildRequires:    R-CRAN-r2dii.analysis >= 0.5.1
+BuildRequires:    R-CRAN-r2dii.plot >= 0.5.1
+BuildRequires:    R-CRAN-r2dii.match >= 0.4.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-LaplacesDemon 
+BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-r2dii.data >= 0.6.0
+Requires:         R-CRAN-r2dii.analysis >= 0.5.1
+Requires:         R-CRAN-r2dii.plot >= 0.5.1
+Requires:         R-CRAN-r2dii.match >= 0.4.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-LaplacesDemon 
+Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A generic, easy-to-use and expandable implementation of a pharmacokinetic
-(PK) / pharmacodynamic (PD) model based on the S4 class system. This
-package allows the user to read/write a pharmacometric model from/to files
-and adapt it further on the fly in the R environment. For this purpose,
-this package provides an intuitive API to add, modify or delete equations,
-ordinary differential equations (ODE's), model parameters or compartment
-properties (like infusion duration or rate, bioavailability and initial
-values). Finally, this package also provides a useful export of the model
-for use with simulation packages 'rxode2' and 'mrgsolve'. This package is
-designed and intended to be used with package 'campsis', a PK/PD
-simulation platform built on top of 'rxode2' and 'mrgsolve'.
+PACTA (Paris Agreement Capital Transition Assessment) for Banks is a tool
+that allows banks to calculate the climate alignment of their corporate
+lending portfolios. This package is designed to make it easy to install
+and load multiple PACTA for Banks packages in a single step. It also
+provides thorough documentation - the PACTA for Banks cookbook at
+<https://rmi-pacta.github.io/pacta.loanbook/articles/cookbook_overview.html>
+- on how to run a PACTA for Banks analysis. This covers prerequisites for
+the analysis, the separate steps of running the analysis, the
+interpretation of PACTA for Banks results, and advanced use cases.
 
 %prep
 %setup -q -c -n %{packname}

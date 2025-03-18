@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.data
-%global packver   3.1-6
+%global packname  FunSurv
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for 'spatstat' Family
+Summary:          Modeling Time-to-Event Data with Functional Predictors
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
+BuildRequires:    R-CRAN-reda >= 0.5.0
+BuildRequires:    R-CRAN-MFPCA 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-funData 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.utils >= 3.1.2
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-reda >= 0.5.0
+Requires:         R-CRAN-MFPCA 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-funData 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
 
 %description
-Contains all the datasets for the 'spatstat' family of packages.
+A collection of methods for modeling time-to-event data using both
+functional and scalar predictors. It implements functional data analysis
+techniques for estimation and inference, allowing researchers to assess
+the impact of functional covariates on survival outcomes, including
+time-to-single event and recurrent event outcomes.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,62 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  summarytools
-%global packver   1.1.2
+%global packname  rIACI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Quickly and Neatly Summarize Data
+Summary:          Iberian Actuarial Climate Index Calculations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pander 
-BuildRequires:    R-CRAN-pryr 
-BuildRequires:    R-CRAN-rapportools 
-BuildRequires:    R-stats 
-BuildRequires:    R-tcltk 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-ecmwfr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-dplyr 
-Requires:         R-grDevices 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-matrixStats 
-Requires:         R-methods 
-Requires:         R-CRAN-pander 
-Requires:         R-CRAN-pryr 
-Requires:         R-CRAN-rapportools 
-Requires:         R-stats 
-Requires:         R-tcltk 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-ecmwfr 
+Requires:         R-CRAN-readr 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-Data frame summaries, cross-tabulations, weight-enabled frequency tables
-and common descriptive (univariate) statistics in concise tables available
-in a variety of formats (plain ASCII, Markdown and HTML). A good
-point-of-entry for exploring data, both for experienced and new R users.
+Calculates the Iberian Actuarial Climate Index and its
+components—including temperature, precipitation, wind power, and sea level
+data—to support climate change analysis and risk assessment. See "Zhou et
+al." (2023) <doi:10.26360/2023_3> for further details.
 
 %prep
 %setup -q -c -n %{packname}

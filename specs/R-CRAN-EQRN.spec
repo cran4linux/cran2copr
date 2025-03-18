@@ -1,38 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BacenAPI
+%global packname  EQRN
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Collection from the Central Bank of Brazil
+Summary:          Extreme Quantile Regression Neural Networks for Risk Forecasting
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-ismev 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-torch 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-coro 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-ismev 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
+Requires:         R-CRAN-torch 
+Requires:         R-utils 
 
 %description
-Provides tools to facilitate the access and processing of data from the
-Central Bank of Brazil API. The package allows users to retrieve economic
-and financial data, transforming them into usable tabular formats for
-further analysis. The data is obtained from the Central Bank of Brazil
-API:
-<https://api.bcb.gov.br/dados/serie/bcdata.sgs.{series_code}/dados?formato=json&dataInicial={start_date}&dataFinal={end_date}>.
+This framework enables forecasting and extrapolating measures of
+conditional risk (e.g. of extreme or unprecedented events), including
+quantiles and exceedance probabilities, using extreme value statistics and
+flexible neural network architectures. It allows for capturing complex
+multivariate dependencies, including dependencies between observations,
+such as sequential dependence (time-series). The methodology was
+introduced in Pasche and Engelke (2024) <doi:10.1214/24-AOAS1907> (also
+available in preprint: Pasche and Engelke (2022)
+<doi:10.48550/arXiv.2208.07590>).
 
 %prep
 %setup -q -c -n %{packname}

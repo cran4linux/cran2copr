@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FORTLS
-%global packver   1.4.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Processing of Terrestrial-Based Technologies Point Cloud Data for Forestry Purposes
 
@@ -14,14 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-Distance 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-lidR 
+BuildRequires:    R-CRAN-mapview 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-parallel 
@@ -30,18 +33,24 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-RCSF 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-VoxR 
 BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-Distance 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-lidR 
+Requires:         R-CRAN-mapview 
 Requires:         R-methods 
 Requires:         R-CRAN-moments 
 Requires:         R-parallel 
@@ -50,8 +59,10 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-RCSF 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-VoxR 
 Requires:         R-CRAN-vroom 

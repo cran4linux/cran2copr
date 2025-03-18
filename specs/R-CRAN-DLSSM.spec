@@ -1,29 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.data
-%global packver   3.1-6
+%global packname  DLSSM
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for 'spatstat' Family
+Summary:          Dynamic Logistic State Space Prediction Model
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.utils >= 3.1.2
 Requires:         R-CRAN-Matrix 
 
 %description
-Contains all the datasets for the 'spatstat' family of packages.
+Implements the dynamic logistic state space model for binary outcome data
+proposed by Jiang et al. (2021) <doi:10.1111/biom.13593>. It provides a
+computationally efficient way to update the prediction whenever new data
+becomes available. It allows for both time-varying and time-invariant
+coefficients, and use cubic smoothing splines to model varying
+coefficients. The smoothing parameters are objectively chosen by maximum
+likelihood. The model is updated using batch data accumulated at
+pre-specified time intervals.
 
 %prep
 %setup -q -c -n %{packname}

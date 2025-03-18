@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  makeit
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run R Scripts if Needed
 
@@ -20,9 +20,9 @@ BuildArch:        noarch
 
 %description
 Automation tool to run R scripts if needed, based on last modified time.
-Implemented in base R with no additional software requirements,
-organizational overhead, or structural requirements. In short: run an R
-script if underlying files have changed, otherwise do nothing.
+It comes with no package dependencies, organizational overhead, or
+structural requirements. In short: run an R script if underlying files
+have changed, otherwise do nothing.
 
 %prep
 %setup -q -c -n %{packname}

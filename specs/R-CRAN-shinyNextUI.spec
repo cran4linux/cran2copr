@@ -1,29 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spatstat.data
-%global packver   3.1-6
+%global packname  shinyNextUI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets for 'spatstat' Family
+Summary:          'HeroUI' 'React' Template for 'shiny' Apps
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
-BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.utils >= 3.1.2
-Requires:         R-CRAN-Matrix 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shiny.react 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shiny.react 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Contains all the datasets for the 'spatstat' family of packages.
+A set of user interface components to create outstanding 'shiny' apps
+<https://shiny.posit.co/>, with the power of 'React' 'JavaScript'
+<https://react.dev/>. Seamlessly support dark and light themes, customize
+CSS with 'tailwind' <https://tailwindcss.com/>.
 
 %prep
 %setup -q -c -n %{packname}

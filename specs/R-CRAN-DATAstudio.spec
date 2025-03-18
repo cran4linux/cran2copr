@@ -1,51 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webqueue
-%global packver   1.0.0
+%global packname  DATAstudio
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multicore HTTP Server
+Summary:          The Research Data Warehouse of Miguel de Carvalho
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-jobqueue 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-parallelly 
-BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-semaphore 
-BuildRequires:    R-CRAN-webutils 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-jobqueue 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-parallelly 
-Requires:         R-CRAN-promises 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-semaphore 
-Requires:         R-CRAN-webutils 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
 
 %description
-Distributes HTTP requests among a pool of background R processes. Supports
-timeouts and interrupts of requests to ensure that CPU cores are utilized
-effectively.
+Pulls together a collection of datasets from Miguel de Carvalho research
+articles. Including, for example: - de Carvalho (2012)
+<doi:10.1016/j.jspi.2011.08.016>; - de Carvalho et al (2012)
+<doi:10.1080/03610926.2012.709905>; - de Carvalho et al (2012)
+<doi:10.1016/j.econlet.2011.09.007>); - de Carvalho and Davison (2014)
+<doi:10.1080/01621459.2013.872651>; - de Carvalho and Rua (2017)
+<doi:10.1016/j.ijforecast.2015.09.004>; - de Carvalho et al (2023)
+<doi:10.1002/sta4.560>; - de Carvalho et al (2022)
+<doi:10.1007/s13253-021-00469-9>; - Palacios et al (2024)
+<doi:10.1214/24-BA1420>.
 
 %prep
 %setup -q -c -n %{packname}

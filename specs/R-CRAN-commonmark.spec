@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  commonmark
-%global packver   1.9.2
+%global packver   1.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.2
+Version:          1.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance CommonMark and Github Markdown Rendering in R
 

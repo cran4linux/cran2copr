@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  noegletalR
-%global packver   0.2.1
+%global packname  kitesquare
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Tibbles of Noegletal
+Summary:          Visualize Contingency Tables Using Kite-Square Plots
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggh4x 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggh4x 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-rlang 
 
 %description
-Work with data from <https://noegletal.dk> in a tidy manner. Tidy up
-previously downloaded data or retrieve new data directly from the comfort
-of R. You can also browse an up-to-date list of available data, including
-thorough variable descriptions.
+Create a kite-square plot for contingency tables using 'ggplot2', to
+display their relevant quantities in a single figure (marginal,
+conditional, expected, observed, chi-squared). The plot resembles a flying
+kite inside a square if the variables are independent, and deviates from
+this the more dependence exists.
 
 %prep
 %setup -q -c -n %{packname}

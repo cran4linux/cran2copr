@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pwr4exp
-%global packver   1.0.0
+%global packname  bdsm
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Power Analysis for Research Experiments
+Summary:          Bayesian Dynamic Systems Modeling
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-optimbase 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rje 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-emmeans 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-optimbase 
+Requires:         R-parallel 
+Requires:         R-CRAN-rje 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
-Requires:         R-CRAN-emmeans 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Provides tools for calculating statistical power for experiments analyzed
-using linear mixed models. It supports standard designs, including
-randomized block, split-plot, and Latin Square designs, while offering
-flexibility to accommodate a variety of other complex study designs.
+Implements methods for building and analyzing models based on panel data
+as described in the paper by Moral-Benito (2013,
+<doi:10.1080/07350015.2013.818003>). The package provides functions to
+estimate dynamic panel data models and analyze the results of the
+estimation.
 
 %prep
 %setup -q -c -n %{packname}
