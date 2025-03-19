@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semaphore
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shared Memory Atomic Operations
 
@@ -24,8 +24,8 @@ Requires:         R-CRAN-Rcpp
 Implements named semaphores from the 'boost' 'C++' library
 <https://www.boost.org/>. A semaphore object is shared amongst several
 processes. This integer value can be safely incremented or decremented by
-each processes. Processes can also wait (blocking) for the value to become
-non-zero.
+each process. Processes can also wait (blocking) for the value to become
+positive.
 
 %prep
 %setup -q -c -n %{packname}

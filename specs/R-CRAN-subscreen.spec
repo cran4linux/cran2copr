@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  subscreen
-%global packver   3.0.7
+%global packver   4.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.7
+Version:          4.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Systematic Screening of Study Data for Subgroup Effects
 
@@ -13,40 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-bsplus 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-colourpicker 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-shinyWidgets 
 Requires:         R-utils 
 Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-DT 
 Requires:         R-stats 
 Requires:         R-CRAN-shinyjs 
+Requires:         R-methods 
 Requires:         R-CRAN-bsplus 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-colourpicker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-shinyWidgets 
 
 %description
@@ -66,11 +73,7 @@ expected, while for larger subgroups only small deviations from the study
 mean can be expected to be chance findings. So for a study with no
 conspicuous subgroup effects, the dots in the figure are expected to form
 a kind of funnel. Any deviations from this funnel shape hint to
-conspicuous subgroups. This approach was presented in Muysers (2020)
-<doi:10.1007/s43441-019-00082-6> and referenced in Ballarini (2020)
-<doi:10.1002/pst.2012>. New to version 3 is the Automatic Screening of
-one- or MUlti-factorial Subgroups (ASMUS) for documentation of the
-structured review of subgroup findings.
+conspicuous subgroups.
 
 %prep
 %setup -q -c -n %{packname}

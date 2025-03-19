@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortCharacteristics
-%global packver   0.5.0
+%global packname  extractFAERS
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
+Summary:          Extract Data from FAERS Database
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.6.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-CDMConnector >= 1.6.0
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-parallel 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-parallel 
+Requires:         R-utils 
 
 %description
-Summarise and visualise the characteristics of patients in data mapped to
-the Observational Medical Outcomes Partnership (OMOP) common data model
-(CDM).
+Provides functions to extract and process data from the FDA Adverse Event
+Reporting System (FAERS). It facilitates the conversion of raw FAERS data
+into structured formats for analysis. See Yang et al. (2022)
+<doi:10.3389/fphar.2021.772768> for related information.
 
 %prep
 %setup -q -c -n %{packname}

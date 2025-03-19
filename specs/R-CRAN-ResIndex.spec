@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortCharacteristics
-%global packver   0.5.0
+%global packname  ResIndex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
+Summary:          Generate Simple yet Effective Metric of Feature Importance for Classification Problems
 
-License:          Apache License (>= 2)
+License:          LGPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.6.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-CDMConnector >= 1.6.0
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
 
 %description
-Summarise and visualise the characteristics of patients in data mapped to
-the Observational Medical Outcomes Partnership (OMOP) common data model
-(CDM).
+An intuitive and explainable metric of Feature Importance for
+Classification Problems. Resolution Index measures the extent to which a
+Feature clusters different classes when data is sorted on it. User
+provides a DataFrame, column name of the Class, sample size and number of
+iterations used for calculation. Resolution Index for each Feature is
+returned, which can be effectively used to rank Features and reduce
+Dimensionality of Training data. For more details on Feature Selection see
+Theng and Bhoyar (2023) <doi:10.1007/s10115-023-02010-5>.
 
 %prep
 %setup -q -c -n %{packname}

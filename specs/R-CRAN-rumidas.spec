@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rumidas
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Univariate GARCH-MIDAS, Double-Asymmetric GARCH-MIDAS and MEM-MIDAS
 
@@ -23,7 +23,7 @@ BuildRequires:    R-CRAN-zoo >= 1.8.8
 BuildRequires:    R-CRAN-lubridate >= 1.7.9
 BuildRequires:    R-CRAN-maxLik >= 1.3.8
 BuildRequires:    R-CRAN-roll >= 1.1.4
-BuildRequires:    R-CRAN-Rdpack >= 1.0
+BuildRequires:    R-CRAN-Rdpack >= 1.0.0
 BuildRequires:    R-CRAN-xts >= 0.12.0
 BuildRequires:    R-CRAN-tseries >= 0.10.47
 Requires:         R-stats >= 4.0.2
@@ -32,7 +32,7 @@ Requires:         R-CRAN-zoo >= 1.8.8
 Requires:         R-CRAN-lubridate >= 1.7.9
 Requires:         R-CRAN-maxLik >= 1.3.8
 Requires:         R-CRAN-roll >= 1.1.4
-Requires:         R-CRAN-Rdpack >= 1.0
+Requires:         R-CRAN-Rdpack >= 1.0.0
 Requires:         R-CRAN-xts >= 0.12.0
 Requires:         R-CRAN-tseries >= 0.10.47
 

@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppArmadillo
-%global packver   14.4.0-1
+%global packname  TPXG
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          14.4.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
+Summary:          Two Parameter Xgamma & Poisson Xgamma: Regression & Distribution Functions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
 
 %description
-'Armadillo' is a templated C++ linear algebra library (by Conrad
-Sanderson) that aims towards a good balance between speed and ease of use.
-Integer, floating point and complex numbers are supported, as well as a
-subset of trigonometric and statistics functions. Various matrix
-decompositions are provided through optional integration with LAPACK and
-ATLAS libraries.  The 'RcppArmadillo' package includes the header files
-from the templated 'Armadillo' library. Thus users do not need to install
-'Armadillo' itself in order to use 'RcppArmadillo'. From release 7.800.0
-on, 'Armadillo' is licensed under Apache License 2; previous releases were
-under licensed as MPL 2.0 from version 3.800.0 onwards and LGPL-3 prior to
-that; 'RcppArmadillo' (the 'Rcpp' bindings/bridge to Armadillo) is
-licensed under the GNU GPL version 2 or later, as is the rest of 'Rcpp'.
+The two-parameter Xgamma and Poisson Xgamma distributions are analyzed,
+covering standard distribution and regression functions, maximum
+likelihood estimation, quantile functions, probability density and mass
+functions, cumulative distribution functions, and random number
+generation. References include: "Sen, S., Chandra, N. and Maiti, S. S.
+(2018). On properties and applications of a two-parameter XGamma
+distribution. Journal of Statistical Theory and Applications, 17(4):
+674--685. <doi:10.2991/jsta.2018.17.4.9>." "Wani, M. A., Ahmad, P. B.,
+Para, B. A. and Elah, N. (2023). A new regression model for count data
+with applications to health care data. International Journal of Data
+Science and Analytics. <doi:10.1007/s41060-023-00453-1>."
 
 %prep
 %setup -q -c -n %{packname}

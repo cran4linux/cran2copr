@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   4.3.2
+%global packver   4.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.3.2
+Version:          4.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -44,6 +44,7 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidytext 
+BuildRequires:    R-CRAN-visNetwork 
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-bibliometrixData 
@@ -71,6 +72,7 @@ Requires:         R-CRAN-stringi
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidytext 
+Requires:         R-CRAN-visNetwork 
 
 %description
 Tool for quantitative research in scientometrics and bibliometrics. It

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metamedian
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Meta-Analysis of Medians
 
@@ -30,18 +30,19 @@ Requires:         R-stats
 
 %description
 Implements several methods to meta-analyze studies that report the sample
-median of the outcome. When the primary studies are one-group studies, the
-methods of McGrath et al. (2019) <doi:10.1002/sim.8013> and Ozturk and
-Balakrishnan (2020) <doi:10.1002/sim.8738> can be applied to estimate the
-pooled median. In the two-group context, the methods of McGrath et al.
-(2020a) <doi:10.1002/bimj.201900036> can be applied to estimate the pooled
-difference of medians across groups. Additionally, a number of methods
-(e.g., McGrath et al. (2020b) <doi:10.1177/0962280219889080>, Cai et al.
-(2021) <doi:10.1177/09622802211047348>, and McGrath et al. (2023)
+median of the outcome. The methods described by McGrath et al. (2019)
+<doi:10.1002/sim.8013>, Ozturk and Balakrishnan (2020)
+<doi:10.1002/sim.8738>, and McGrath et al. (2020a)
+<doi:10.1002/bimj.201900036> can be applied to directly meta-analyze the
+median or difference of medians between groups. Additionally, a number of
+methods (e.g., McGrath et al. (2020b) <doi:10.1177/0962280219889080>, Cai
+et al. (2021) <doi:10.1177/09622802211047348>, and McGrath et al. (2023)
 <doi:10.1177/09622802221139233>) are implemented to estimate
 study-specific (difference of) means and their standard errors in order to
-estimate the pooled (difference of) means. See McGrath et al. (in press)
-<doi:10.1002/jrsm.1686> for a detailed guide on using the package.
+estimate the pooled (difference of) means. Methods for meta-analyzing
+median survival times (McGrath et al. (2025)
+<doi:10.48550/arXiv.2503.03065>) are also implemented. See McGrath et al.
+(2024) <doi:10.1002/jrsm.1686> for a detailed guide on using the package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pgmm
-%global packver   1.2.8
+%global packname  SLmetrics
+%global packver   0.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parsimonious Gaussian Mixture Models
+Summary:          Machine Learning Performance Evaluation on Steroids
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Carries out model-based clustering or classification using parsimonious
-Gaussian mixture models. McNicholas and Murphy (2008)
-<doi:10.1007/s11222-008-9056-0>, McNicholas (2010)
-<doi:10.1016/j.jspi.2009.11.006>, McNicholas and Murphy (2010)
-<doi:10.1093/bioinformatics/btq498>, McNicholas et al. (2010)
-<doi:10.1016/j.csda.2009.02.011>.
+Performance evaluation metrics for supervised and unsupervised machine
+learning, statistical learning and artificial intelligence applications.
+Core computations are implemented in 'C++' for scalability and efficiency.
 
 %prep
 %setup -q -c -n %{packname}

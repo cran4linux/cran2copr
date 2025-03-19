@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  h2otools
-%global packver   0.3
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning Model Evaluation for 'h2o' Package
 
@@ -25,11 +25,10 @@ Requires:         R-CRAN-curl
 Requires:         R-CRAN-boot 
 
 %description
-Several functions are provided that simplify using 'h2o' package.
-Currently, a function for extracting the AutoML model parameter is
-provided, alongside a function for computing F-Measure statistics at any
-given threshold. For more information about 'h2o' package see
-<https://h2o.ai/>.
+Enhances the H2O platform by providing tools for detailed evaluation of
+machine learning models. It includes functions for bootstrapped
+performance evaluation, extended F-score calculations, and various other
+metrics, aimed at improving model assessment.
 
 %prep
 %setup -q -c -n %{packname}

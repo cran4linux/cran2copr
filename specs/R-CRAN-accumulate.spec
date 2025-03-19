@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  accumulate
-%global packver   0.9.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split-Apply-Combine with Dynamic Groups
 
@@ -22,7 +22,8 @@ BuildArch:        noarch
 Estimate group aggregates, where one can set user-defined conditions that
 each group of records must satisfy to be suitable for aggregation. If a
 group of records is not suitable, it is expanded using a collapsing scheme
-defined by the user.
+defined by the user. A paper on this package was published in the Journal
+of Statistical Software <doi:10.18637/jss.v112.i04>.
 
 %prep
 %setup -q -c -n %{packname}

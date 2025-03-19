@@ -1,49 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortCharacteristics
-%global packver   0.5.0
+%global packname  rmon
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
+Summary:          Monitor Changes in Source Code and Auto-Restart Your Server
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.6.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-CDMConnector >= 1.6.0
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-processx >= 3.8.4
+Requires:         R-CRAN-processx >= 3.8.4
 
 %description
-Summarise and visualise the characteristics of patients in data mapped to
-the Observational Medical Outcomes Partnership (OMOP) common data model
-(CDM).
+The 'R' equivalent of 'nodemon'. Watches specified directories for file
+changes and reruns a designated 'R' script when changes are detected. It's
+designed to automate the process of reloading your 'R' applications during
+development, similar to 'nodemon' for 'Node.js'.
 
 %prep
 %setup -q -c -n %{packname}

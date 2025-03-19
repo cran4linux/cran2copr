@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gips
-%global packver   1.2.1
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gaussian Model Invariant by Permutation Symmetry
 
@@ -34,7 +34,9 @@ model, which is of great use when it is smaller than the number of
 variables. Even if that is not the case, the covariance matrix found with
 'gips' approximates the actual covariance with less statistical error. The
 methods implemented in this package are described in Graczyk et al. (2022)
-<doi:10.1214/22-AOS2174>.
+<doi:10.1214/22-AOS2174>. Documentation about 'gips' is provided via its
+website at <https://przechoj.github.io/gips/> and the paper by Chojecki,
+Morgen, Kołodziejek (2025, <doi:10.18637/jss.v112.i07>).
 
 %prep
 %setup -q -c -n %{packname}

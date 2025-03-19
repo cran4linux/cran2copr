@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  censoredAIDS
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Censored AI/QUAI Demand System via Maximum Likelihood Estimation (MLE)
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-mnormt 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-matrixcalc 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mnormt 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
+Requires:         R-CRAN-matrixcalc 
 
 %description
 Tools for estimating censored Almost Ideal (AI) and Quadratic Almost Ideal
@@ -33,7 +35,9 @@ includes functions for calculating demand share equations and the
 truncated log-likelihood function for a system of equations, incorporating
 demographic variables. The package is designed to handle censored data,
 where some observations may be zero due to non-purchase of certain goods.
-It is particularly useful for applied researchers analyzing household
+Package also contains a procedure to approximate demand elasticities
+numerically and estimate standard errors via Delta Method. It is
+particularly useful for applied researchers analyzing household
 consumption data.
 
 %prep

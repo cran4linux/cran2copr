@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  laminr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for 'LaminDB'
 
@@ -18,11 +18,19 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-rlang 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
 

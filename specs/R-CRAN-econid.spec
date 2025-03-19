@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortCharacteristics
-%global packver   0.5.0
+%global packname  econid
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
+Summary:          Economic Entity Identifier Standardization
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.6.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-CDMConnector >= 1.6.0
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-fuzzyjoin 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Summarise and visualise the characteristics of patients in data mapped to
-the Observational Medical Outcomes Partnership (OMOP) common data model
-(CDM).
+Provides utility functions for standardizing economic entity (economy,
+aggregate, institution, etc.) name and id in economic datasets such as
+those published by the International Monetary Fund and World Bank. Aims to
+facilitate consistent data analysis, reporting, and joining across
+datasets. Used as a foundational building block in the 'econdataverse'
+family of packages (<https://www.econdataverse.org>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CohortCharacteristics
-%global packver   0.5.0
+%global packname  DataSimilarity
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Summarise and Visualise Characteristics of Patients in the OMOP CDM
+Summary:          Quantifying Similarity of Datasets and Multivariate Two- And k-Sample Testing
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CDMConnector >= 1.6.0
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-Requires:         R-CRAN-CDMConnector >= 1.6.0
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-boot 
+Requires:         R-stats 
 
 %description
-Summarise and visualise the characteristics of patients in data mapped to
-the Observational Medical Outcomes Partnership (OMOP) common data model
-(CDM).
+A collection of methods for quantifying the similarity of two or more
+datasets, many of which can be used for two- or k-sample testing. It
+provides newly implemented methods as well as wrapper functions for
+existing methods that enable calling many different methods in a unified
+framework. The methods were selected from the review and comparison of
+Stolte et al. (2024) <doi:10.1214/24-SS149>.
 
 %prep
 %setup -q -c -n %{packname}

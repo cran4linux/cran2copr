@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  unitizer
-%global packver   1.4.22
+%global packname  pminternal
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.22
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interactive R Unit Tests
+Summary:          Internal Validation of Clinical Prediction Models
 
-License:          GPL-2 | GPL-3
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crayon >= 1.3.2
-BuildRequires:    R-CRAN-diffobj >= 0.1.5.9000
+BuildRequires:    R-CRAN-dcurves 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-marginaleffects 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pmcalibration 
+BuildRequires:    R-CRAN-pROC 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-crayon >= 1.3.2
-Requires:         R-CRAN-diffobj >= 0.1.5.9000
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-dcurves 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-marginaleffects 
 Requires:         R-methods 
+Requires:         R-CRAN-pmcalibration 
+Requires:         R-CRAN-pROC 
 Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-purrr 
 
 %description
-Simplifies regression tests by comparing objects produced by test code
-with earlier versions of those same objects.  If objects are unchanged the
-tests pass, otherwise execution stops with error details.  If in
-interactive mode, tests can be reviewed through the provided interactive
-environment.
+Conduct internal validation of a clinical prediction model for a binary
+outcome. Produce bias corrected performance metrics (c-statistic, Brier
+score, calibration intercept/slope) via bootstrap (simple bootstrap,
+bootstrap optimism, .632 optimism) and cross-validation (CV optimism, CV
+average). Also includes functions to assess model stability via bootstrap
+resampling. See Steyerberg et al. (2001)
+<doi:10.1016/s0895-4356(01)00341-9>; Harrell (2015)
+<doi:10.1007/978-3-319-19425-7>; Riley and Collins (2023)
+<doi:10.1002/bimj.202200302>.
 
 %prep
 %setup -q -c -n %{packname}

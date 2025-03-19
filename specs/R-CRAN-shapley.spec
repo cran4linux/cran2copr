@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapley
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Weighted Mean SHAP for Feature Selection in ML Grid and Ensemble
+Summary:          Weighted Mean SHAP and CI for Robust Feature Assessment in ML Grid
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-curl >= 4.3.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.2
 BuildRequires:    R-CRAN-h2o >= 3.34.0.0
 BuildRequires:    R-CRAN-waffle >= 1.0.2
+BuildRequires:    R-CRAN-pander >= 0.6.5
 Requires:         R-CRAN-curl >= 4.3.0
 Requires:         R-CRAN-ggplot2 >= 3.4.2
 Requires:         R-CRAN-h2o >= 3.34.0.0
 Requires:         R-CRAN-waffle >= 1.0.2
+Requires:         R-CRAN-pander >= 0.6.5
 
 %description
 This R package introduces Weighted Mean SHapley Additive exPlanations
