@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MDMA
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathijs Deen's Miscellaneous Auxiliaries
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-car 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-performance 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-car 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-performance 
+Requires:         R-stats 
 
 %description
 Provides a variety of functions useful for data analysis, selection,

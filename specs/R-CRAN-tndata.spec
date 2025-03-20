@@ -1,32 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDPR
-%global packver   0.1.10
+%global packname  tndata
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of Dirichlet Process Regression
+Summary:          Fetch Datasets from the Official Tunisian Data Catalog
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.13
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-logger 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-logger 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 
 %description
-'Rcpp' reimplementation of the the Bayesian non-parametric Dirichlet
-Process Regression model for penalized regression first published in Zeng
-and Zhou (2017) <doi:10.1038/s41467-017-00470-2>. A full Bayesian version
-is implemented with Gibbs sampling, as well as a faster but less accurate
-variational Bayes approximation.
+Simplifies access to Tunisian government open data from
+<https://data.gov.tn/fr/>. Queries datasets by theme, author, or keywords,
+retrieves metadata, and gets structured results ready for analysis; all
+through the official 'CKAN' API.
 
 %prep
 %setup -q -c -n %{packname}

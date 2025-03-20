@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecb
-%global packver   0.4.2
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Programmatic Access to the European Central Bank's Statistical Data Warehouse
+Summary:          Programmatic Access to the European Central Bank's Data Portal
 
 License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -27,9 +27,9 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-httr 
 
 %description
-Provides an interface to the 'European Central Bank's Statistical Data
-Warehouse' API <https://sdw.ecb.europa.eu/>, allowing for programmatic
-retrieval of a vast quantity of statistical data.
+Provides an interface to the European Central Bank's Data Portal API,
+allowing for programmatic retrieval of a vast quantity of statistical
+data.
 
 %prep
 %setup -q -c -n %{packname}

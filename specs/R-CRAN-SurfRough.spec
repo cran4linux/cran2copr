@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SurfRough
-%global packver   0.0.1.0
+%global packver   0.0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Surface/Image Texture Indexes
 
@@ -16,8 +16,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-terra 
 
 %description

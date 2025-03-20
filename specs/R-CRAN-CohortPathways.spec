@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDPR
-%global packver   0.1.10
+%global packname  CohortPathways
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of Dirichlet Process Regression
+Summary:          Create Pathways from Target to Event Cohorts
 
-License:          GPL-3
+License:          Apache License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.13
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-DatabaseConnector >= 5.0.0
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-SqlRender 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-DatabaseConnector >= 5.0.0
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-SqlRender 
+Requires:         R-CRAN-tidyr 
 
 %description
-'Rcpp' reimplementation of the the Bayesian non-parametric Dirichlet
-Process Regression model for penalized regression first published in Zeng
-and Zhou (2017) <doi:10.1038/s41467-017-00470-2>. A full Bayesian version
-is implemented with Gibbs sampling, as well as a faster but less accurate
-variational Bayes approximation.
+Software tool designed to compute the temporal relationship defined as
+pathways between any two instantiated cohorts. The cohorts are input as
+Target and event cohorts.
 
 %prep
 %setup -q -c -n %{packname}

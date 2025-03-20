@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDPR
-%global packver   0.1.10
+%global packname  Waypoint
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of Dirichlet Process Regression
+Summary:          Convert, Validate, Format and Print Geographic Coordinates and Waypoints
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.13
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-methods 
 
 %description
-'Rcpp' reimplementation of the the Bayesian non-parametric Dirichlet
-Process Regression model for penalized regression first published in Zeng
-and Zhou (2017) <doi:10.1038/s41467-017-00470-2>. A full Bayesian version
-is implemented with Gibbs sampling, as well as a faster but less accurate
-variational Bayes approximation.
+Convert, validate, format and elegantly print geographic coordinates and
+waypoints (paired latitude and longitude values) in decimal degrees,
+degrees and minutes, and degrees, minutes and seconds using high
+performance C++ code to enable rapid conversion and formatting of large
+coordinate and waypoint datasets.
 
 %prep
 %setup -q -c -n %{packname}

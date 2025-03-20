@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  msigdbr
-%global packver   10.0.0
+%global packver   10.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.0.0
+Version:          10.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-babelgene >= 22.9
 BuildRequires:    R-CRAN-tidyselect >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
@@ -27,6 +28,7 @@ BuildRequires:    R-CRAN-tibble
 Requires:         R-CRAN-babelgene >= 22.9
 Requires:         R-CRAN-tidyselect >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 

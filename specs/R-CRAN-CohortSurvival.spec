@@ -1,47 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MDPIexploreR
-%global packver   0.3.0
+%global packname  CohortSurvival
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Web Scraping and Bibliometric Analysis of MDPI Journals
+Summary:          Estimate Survival from Common Data Model Cohorts
 
-License:          CC BY 4.0
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival >= 3.7.0
+BuildRequires:    R-CRAN-CDMConnector >= 2.0.0
+BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
+BuildRequires:    R-CRAN-omopgenerics >= 1.1.0
+BuildRequires:    R-CRAN-rlang >= 0.4.11
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-survival >= 3.7.0
+Requires:         R-CRAN-CDMConnector >= 2.0.0
+Requires:         R-CRAN-PatientProfiles >= 1.3.1
+Requires:         R-CRAN-omopgenerics >= 1.1.0
+Requires:         R-CRAN-rlang >= 0.4.11
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clock 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-broom 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides comprehensive tools to scrape and analyze data from the MDPI
-journals. It allows users to extract metrics such as
-submission-to-acceptance times, article types, and whether articles are
-part of special issues. The package can also visualize this information
-through plots. Additionally, 'MDPIexploreR' offers tools to explore
-patterns of self-citations within articles and provides insights into
-guest-edited special issues.
+Estimate survival using data mapped to the Observational Medical Outcomes
+Partnership common data model. Survival can be estimated based on
+user-defined study cohorts.
 
 %prep
 %setup -q -c -n %{packname}

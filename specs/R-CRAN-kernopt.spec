@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDPR
-%global packver   0.1.10
+%global packname  kernopt
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Rcpp' Implementation of Dirichlet Process Regression
+Summary:          Estimating Count Data Distributions with Discrete Optimal Symmetric Kernel
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.13
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-'Rcpp' reimplementation of the the Bayesian non-parametric Dirichlet
-Process Regression model for penalized regression first published in Zeng
-and Zhou (2017) <doi:10.1038/s41467-017-00470-2>. A full Bayesian version
-is implemented with Gibbs sampling, as well as a faster but less accurate
-variational Bayes approximation.
+Implementation of Discrete Symmetric Optimal Kernel for estimating count
+data distributions, as described by T. Senga Kiessé and G. Durrieu (2024)
+<doi:10.1016/j.spl.2024.110078>.The nonparametric estimator using the
+discrete symmetric optimal kernel was illustrated on simulated data sets
+and a real-word data set included in the package, in comparison with two
+other discrete symmetric kernels.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gofigR
-%global packver   0.2.2
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for 'GoFigr.io'
 
@@ -25,12 +25,11 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-qrcode 
 BuildRequires:    R-CRAN-getPass 
-BuildRequires:    R-CRAN-textutils 
 BuildRequires:    R-CRAN-scriptName 
-BuildRequires:    R-CRAN-xfun 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-rsvg 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-ggplotify 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
@@ -39,12 +38,11 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-qrcode 
 Requires:         R-CRAN-getPass 
-Requires:         R-CRAN-textutils 
 Requires:         R-CRAN-scriptName 
-Requires:         R-CRAN-xfun 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-rsvg 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-ggplotify 
 
 %description
 Integrates with your 'RMarkdown' documents to automatically publish

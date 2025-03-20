@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FMAT
-%global packver   2024.7
+%global packver   2025.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.7
+Version:          2025.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Fill-Mask Association Test
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-reticulate
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-irr 
 BuildRequires:    R-CRAN-glue 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-reticulate
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-psych 
 Requires:         R-CRAN-irr 
 Requires:         R-CRAN-glue 

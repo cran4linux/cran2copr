@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalcubes
-%global packver   0.7.0
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Earth Observation Data Cubes from Satellite Image Collections
 
@@ -19,8 +19,8 @@ BuildRequires:    gdal-devel
 BuildRequires:    netcdf-devel
 BuildRequires:    proj-devel
 BuildRequires:    sqlite-devel
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ncdf4 

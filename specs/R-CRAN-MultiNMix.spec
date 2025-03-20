@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  greatR
-%global packver   2.0.0
+%global packname  MultiNMix
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gene Registration from Expression and Time-Courses in R
+Summary:          Multi-Species N-Mixture (MNM) Models with 'nimble'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-neldermead 
-BuildRequires:    R-CRAN-optimization 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-nimble 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-rstan 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-neldermead 
-Requires:         R-CRAN-optimization 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-nimble 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-rstan 
 Requires:         R-stats 
+Requires:         R-CRAN-abind 
+Requires:         R-methods 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-rstantools
 
 %description
-A tool for registering (aligning) gene expression profiles between
-reference and query data.
+Simulating data and fitting multi-species N-mixture models using 'nimble'.
+Includes features for handling zero-inflation and temporal correlation,
+Bayesian inference, model diagnostics, parameter estimation, and
+predictive checks. Designed for ecological studies with zero-altered or
+time-series data. Mimnagh, N., Parnell, A., Prado, E., & Moral, R. A.
+(2022) <doi:10.1007/s10651-022-00542-7>. Royle, J. A. (2004)
+<doi:10.1111/j.0006-341X.2004.00142.x>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bayenet
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Quantile Elastic Net for Genetic Study
+Summary:          Robust Bayesian Elastic Net
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -40,11 +40,10 @@ Requires:         R-CRAN-SuppDists
 As heavy-tailed error distribution and outliers in the response variable
 widely exist, models which are robust to data contamination are highly
 demanded. Here, we develop a novel robust Bayesian variable selection
-method with elastic net penalty for quantile regression in genetic
-analysis. In particular, the spike-and-slab priors have been incorporated
-to impose sparsity. An efficient Gibbs sampler has been developed to
-facilitate computation.The core modules of the package have been developed
-in 'C++' and R.
+method with elastic net penalty. In particular, the spike-and-slab priors
+have been incorporated to impose sparsity. An efficient Gibbs sampler has
+been developed to facilitate computation.The core modules of the package
+have been developed in 'C++' and R.
 
 %prep
 %setup -q -c -n %{packname}
