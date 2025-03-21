@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoEnsemble
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Stacked Ensemble Classifier for Severe Class Imbalance
 
@@ -25,13 +25,15 @@ Requires:         R-CRAN-h2o >= 3.34.0.0
 Requires:         R-CRAN-h2otools >= 0.3
 
 %description
-An AutoML algorithm is developed to construct homogeneous or heterogeneous
-stacked ensemble models using specified base-learners. Various criteria
-are employed to identify optimal models, enhancing diversity among them
-and resulting in more robust stacked ensembles. The algorithm optimizes
-the model by incorporating an increasing number of top-performing models
-to create a diverse combination. Presently, only models from 'h2o.ai' are
-supported.
+A stacking solution for modeling imbalanced and severely skewed data. It
+automates the process of building homogeneous or heterogeneous stacked
+ensemble models by selecting "best" models according to different
+criteria. In doing so, it strategically searches for and selects diverse,
+high-performing base-learners to construct ensemble models optimized for
+skewed data. This package is particularly useful for addressing class
+imbalance in datasets, ensuring robust and effective model outcomes
+through advanced ensemble strategies which aim to stabilize the model,
+reduce its overfitting, and further improve its generalizability.
 
 %prep
 %setup -q -c -n %{packname}

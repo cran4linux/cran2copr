@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rflashtext
+%global packname  firebase.auth.rest
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          FlashText Algorithm for Finding and Replacing Words
+Summary:          R Wrapper for 'Firebase Authentication REST API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,15 +16,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 0.2.3
+Requires:         R-CRAN-httr2 >= 0.2.3
 
 %description
-Implementation of the FlashText algorithm, by Singh (2017)
-<arXiv:1711.00046>. It can be used to find and replace words in a given
-text with only one pass over the document.
+A convenient and user-friendly interface to interact with the 'Firebase
+Authentication REST API':
+<https://firebase.google.com/docs/reference/rest/auth>. It enables R
+developers to integrate 'Firebase Authentication' services seamlessly into
+their projects, allowing for user authentication, account management, and
+other authentication-related tasks.
 
 %prep
 %setup -q -c -n %{packname}

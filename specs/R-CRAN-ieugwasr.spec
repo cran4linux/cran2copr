@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ieugwasr
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'OpenGWAS' Database API
 
@@ -29,7 +29,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-stats 
 
 %description
-Interface to the 'OpenGWAS' database API <https://gwas-api.mrcieu.ac.uk/>.
+Interface to the 'OpenGWAS' database API <https://api.opengwas.io/api/>.
 Includes a wrapper to make generic calls to the API, plus convenience
 functions for specific queries.
 

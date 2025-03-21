@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  manymodelr
-%global packver   0.3.7
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build and Tune Several Models
 
@@ -13,18 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-caret >= 6.0.88
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.5
 BuildRequires:    R-CRAN-e1071 >= 1.7.8
+BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-lme4 >= 1.1.27.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-Metrics >= 0.1.4
 Requires:         R-CRAN-caret >= 6.0.88
 Requires:         R-CRAN-ggplot2 >= 3.3.5
 Requires:         R-CRAN-e1071 >= 1.7.8
+Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-lme4 >= 1.1.27.1
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-Metrics >= 0.1.4
@@ -34,7 +37,8 @@ Frequently one needs a convenient way to build and tune several models in
 one go.The goal is to provide a number of machine learning convenience
 functions. It provides the ability to build, tune and obtain predictions
 of several models in one function. The models are built using functions
-from 'caret' with easier to read syntax. Kuhn(2014) <arXiv:1405.6974>.
+from 'caret' with easier to read syntax. Kuhn(2014)
+<doi:10.48550/arXiv.1405.6974>.
 
 %prep
 %setup -q -c -n %{packname}

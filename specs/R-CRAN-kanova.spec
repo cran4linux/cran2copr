@@ -1,41 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  torchaudio
-%global packver   0.2.2
+%global packname  kanova
+%global packver   0.3-12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Interface to 'pytorch''s 'torchaudio'
+Summary:          Pseudo Anova for K-Functions
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-torch >= 0.3.0
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-torch >= 0.3.0
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.2.2
+Requires:         R-core >= 3.2.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-spatstat.explore 
+BuildRequires:    R-CRAN-spatstat.random 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-spatstat.explore 
+Requires:         R-CRAN-spatstat.random 
 
 %description
-Provides access to datasets, models and processing facilities for deep
-learning in audio.
+One-way and two-way analysis of variance for replicated point patterns,
+grouped by one or two classification factors, on the basis of the
+corresponding K-functions.
 
 %prep
 %setup -q -c -n %{packname}

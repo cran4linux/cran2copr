@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  tabulate
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  LJmp3converter
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pretty Console Output for Tables
+Summary:          Convert Video Files to MP3 Format using 'FFmpeg'
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-fs 
+Requires:         R-tools 
+Requires:         R-utils 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-httr 
 
 %description
-Generates pretty console output for tables allowing for full customization
-of cell colors, font type, borders and many others attributes. It also
-supports 'multibyte' characters and nested tables.
+Converts video files to 'MP3' using 'FFmpeg', which is dynamically
+downloaded to avoid bundling any third-party binaries. Users must ensure
+compliance with the license terms of 'FFmpeg' when using the package. See
+<https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip>
+for details.
 
 %prep
 %setup -q -c -n %{packname}

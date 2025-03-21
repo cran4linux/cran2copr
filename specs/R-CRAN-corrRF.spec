@@ -1,33 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  multinet
-%global packver   4.2.1
+%global packname  corrRF
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analysis and mining of multilayer social networks
+Summary:          Clustered Random Forests for Optimal Prediction and Inference of Clustered Data
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-igraph >= 1.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-igraph >= 1.2
-Requires:         R-CRAN-Rcpp >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-rpart 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-rpart 
 
 %description
-Functions for the creation/generation and analysis of multilayer social
-networks <doi:10.18637/jss.v098.i08>.
+A clustered random forest algorithm for fitting random forests for data of
+independent clusters, that exhibit within cluster dependence. Details of
+the method can be found in Young and Buehlmann (2025)
+<doi:10.48550/arXiv.2503.12634>.
 
 %prep
 %setup -q -c -n %{packname}

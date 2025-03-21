@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  questionr
-%global packver   0.7.8
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Make Surveys Processing Easier
 
@@ -14,9 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Requires:         xclip
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+Recommends:       xclip
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-labelled >= 2.6.0
 BuildRequires:    R-CRAN-shiny >= 1.0.5
