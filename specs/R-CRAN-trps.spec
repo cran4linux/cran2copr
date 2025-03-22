@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  marlod
-%global packver   0.1.2
+%global packname  trps
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Marginal Modeling for Exposure Data with Values Below the LOD
+Summary:          Bayesian Trophic Position Models using 'stan'
 
-License:          GPL-3
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-miWQS 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-knitr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-miWQS 
-Requires:         R-CRAN-quantreg 
-Requires:         R-stats 
-Requires:         R-CRAN-knitr 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Functions of marginal mean and quantile regression models are used to
-analyze environmental exposure and biomonitoring data with repeated
-measurements and non-detects (i.e., values below the limit of detection
-(LOD)), as well as longitudinal exposure data that include non-detects and
-time-dependent covariates.
+Bayesian trophic position models using 'stan' by leveraging 'brms' for
+stable isotope data. Trophic position models are derived by using
+equations from Post (2002)
+<doi:10.1890/0012-9658(2002)083[0703:USITET]2.0.CO;2>, Vander Zanden and
+Vadeboncoeur (2002) <doi:10.1890/0012-9658(2002)083[2152:FAIOBA]2.0.CO;2>,
+and Heuvel et al. (2024) <doi:10.1139/cjfas-2024-0028>.
 
 %prep
 %setup -q -c -n %{packname}

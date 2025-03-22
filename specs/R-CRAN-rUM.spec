@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rUM
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Templates from the University of Miami
 
@@ -17,12 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gtsummary >= 2.0.3
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-conflicted 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gtsummary 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rmarkdown 
@@ -32,12 +33,13 @@ BuildRequires:    R-CRAN-table1
 BuildRequires:    R-CRAN-tidymodels 
 BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-gtsummary >= 2.0.3
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-conflicted 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gtsummary 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown 

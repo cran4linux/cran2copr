@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shiny.info
-%global packver   0.2.0
+%global packname  mrgdp
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'shiny' Info
+Summary:          Mexican Regional Gross Domestic Product
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,16 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-git2r >= 0.22.1
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-git2r >= 0.22.1
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Displays simple diagnostic information of the 'shiny' project in the user
-interface of the app.
+Download Mexican economic census for several years (2004, 2009, 2014 and
+2019) and all federal entities. Filter the census data table by municipal
+data and build a data.frame for all federal entities and several years.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DataFakeR
-%global packver   0.1.3
+%global packname  mooplot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate Fake Data for Relational Databases
+Summary:          Graphical Visualizations for Multi-Objective Optimization
 
-License:          MIT + file LICENSE
+License:          LGPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-collapse >= 2.0.8
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-moocore 
+Requires:         R-CRAN-collapse >= 2.0.8
+Requires:         R-CRAN-Rdpack 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-moocore 
 
 %description
-Based on provided database description and/or database connection generate
-data sample preserving source structure.
+Visualization of multi-dimensional data arising in multi-objective
+optimization, including plots of the empirical attainment function (EAF),
+M. López-Ibáñez, L. Paquete, and T. Stützle (2010)
+<doi:10.1007/978-3-642-02538-9_9>, and symmetric Vorob'ev expectation and
+deviation, M. Binois, D. Ginsbourger, O. Roustant (2015)
+<doi:10.1016/j.ejor.2014.07.032>, among others.
 
 %prep
 %setup -q -c -n %{packname}

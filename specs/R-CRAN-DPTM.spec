@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DPTM
-%global packver   1.6.0
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Panel Multiple Threshold Model with Fixed Effects
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-BayesianTools 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-MASS 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-parabar
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-BayesianTools 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-MASS 
@@ -39,7 +41,7 @@ Compute the fixed effects dynamic panel threshold model suggested by
 Ramírez-Rondán (2020) <doi:10.1080/07474938.2019.1624401>, and dynamic
 panel linear model suggested by Hsiao et al. (2002)
 <doi:10.1016/S0304-4076(01)00143-9>, where maximum likelihood type
-estimators are used. Multiple threshold estimation based on Markov Chain
+estimators are used. Multiple thresholds estimation based on Markov Chain
 Monte Carlo (MCMC) is allowed, and model selection of linear model,
 threshold model and multiple threshold model is also allowed.
 

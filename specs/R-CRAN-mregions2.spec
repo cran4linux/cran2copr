@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nestedmodels
-%global packver   1.1.0
+%global packname  mregions2
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tidy Modelling for Nested Data
+Summary:          Access Data from Marine Regions: Gazetteer & Data Products
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,47 +17,43 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-tidyr > 0.8.99
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rdflib 
+BuildRequires:    R-CRAN-ISOcodes 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-recipes 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-tidyr > 0.8.99
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-wrapr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-utils 
+Requires:         R-CRAN-rdflib 
+Requires:         R-CRAN-ISOcodes 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-recipes 
-Requires:         R-CRAN-rsample 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-wrapr 
+Requires:         R-methods 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-digest 
 
 %description
-A modelling framework for nested data using the 'tidymodels' ecosystem.
-Specify how to nest data using the 'recipes' package, create testing and
-training splits using 'rsample', and fit models to this data using the
-'parsnip' and 'workflows' packages. Allows any model to be fit to nested
-data.
+Explore and retrieve marine spatial data from the Marine Regions Gazetteer
+<https://marineregions.org/gazetteer.php?p=webservices> and the Marine
+Regions Data Products <https://marineregions.org/webservices.php>.
 
 %prep
 %setup -q -c -n %{packname}

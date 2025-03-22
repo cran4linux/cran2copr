@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BRugs
-%global packver   0.9-2.1
+%global packname  robustSFA
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.2.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'OpenBUGS' MCMC Software
+Summary:          Robust Estimation of Stochastic Frontier Models with MDPDE
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    openbugs glibc-devel(x86-32)
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-coda 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-frontier 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-stats 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-frontier 
 
 %description
-Fully-interactive R interface to the 'OpenBUGS' software for Bayesian
-analysis using MCMC sampling.  Runs natively and stably in 32-bit R under
-Windows.  Versions running on x86Linux and on 64-bit R under Windows are
-in "beta" status and less efficient.
+This provides a robust estimator for stochastic frontier models, employing
+the Minimum Density Power Divergence Estimator (MDPDE) for enhanced
+robustness against outliers. Additionally, it includes a function to
+recommend the optimal tuning parameter, alpha, which controls the
+robustness of the MDPDE. The methods implemented in this package are based
+on Song et al. (2017) <doi:10.1016/j.csda.2016.08.005>.
 
 %prep
 %setup -q -c -n %{packname}

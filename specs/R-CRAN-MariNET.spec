@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sparsevctrs
-%global packver   0.3.2
+%global packname  MariNET
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Sparse Vectors for Use in Data Frames
+Summary:          Build Network Based on Linear Mixed Models from EHRs
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-cli >= 3.4.0
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-cli >= 3.4.0
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-vctrs 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-qgraph 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-qgraph 
 
 %description
-Provides sparse vectors powered by ALTREP (Alternative Representations for
-R Objects) that behave like regular vectors, and can thus be used in data
-frames. Also provides tools to convert between sparse matrices and data
-frames with sparse columns and functions to interact with sparse vectors.
+Analyzing longitudinal clinical data from Electronic Health Records (EHRs)
+using linear mixed models (LMM) and visualizing the results as networks.
+It includes functions for fitting LMM, normalizing adjacency matrices, and
+comparing networks. The package is designed for researchers in clinical
+and biomedical fields who need to model longitudinal data and explore
+relationships between variables For more details see Bates et al. (2015)
+<doi:10.18637/jss.v067.i01>.
 
 %prep
 %setup -q -c -n %{packname}
