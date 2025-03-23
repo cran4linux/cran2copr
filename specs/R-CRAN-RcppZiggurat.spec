@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppZiggurat
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration of Different "Ziggurat" Normal RNG Implementations
 
@@ -33,8 +33,10 @@ The Ziggurat generator for normally distributed random numbers, originally
 proposed by Marsaglia and Tsang (2000, <doi:10.18637/jss.v005.i08>) has
 been improved upon a few times starting with Leong et al (2005,
 <doi:10.18637/jss.v012.i07>). This package provides an aggregation in
-order to compare different implementations in order to provide an 'faster
-but good enough' alternative for use with R and C++ code.
+order to compare different implementations in order to provide a 'faster
+but good enough' alternative for use with R and C++ code. See the 'zigg'
+package for a lighter implementation for much easier use in other
+packages.
 
 %prep
 %setup -q -c -n %{packname}

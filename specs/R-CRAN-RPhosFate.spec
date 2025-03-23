@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPhosFate
-%global packver   1.0.4
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Soil and Chemical Substance Emission and Transport Model
 
@@ -16,33 +16,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-raster >= 3.6.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-raster >= 3.6.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-graphics 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-spatstat.geom 
 Requires:         R-stats 
+Requires:         R-CRAN-terra 
+Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 
 
 %description
 An enhanced version of the semi-empirical, spatially distributed emission
-and transport model PhosFate implemented in 'R' and 'C++'. It currently
-supports suspended solids (SS) and particulate phosphorus (PP). A major
-feature is the allocation of substance loads entering surface waters to
-their sources of origin, which is a basic requirement for the
-identification of critical source areas and in consequence a
+and transport model PhosFate implemented in 'R' and 'C++'. It is based on
+the D-infinity, but also supports the D8 flow method. The currently
+available substances are suspended solids (SS) and particulate phosphorus
+(PP). A major feature is the allocation of substance loads entering
+surface waters to their sources of origin, which is a basic requirement
+for the identification of critical source areas and in consequence a
 cost-effective implementation of mitigation measures. References: Hepp et
 al. (2022) <doi:10.1016/j.jenvman.2022.114514>; Hepp and Zessner (2019)
 <doi:10.3390/w11102161>; Kovacs (2013)

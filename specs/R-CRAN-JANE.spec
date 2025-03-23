@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JANE
-%global packver   0.2.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Just Another Latent Space Network Clustering Algorithm
 
@@ -51,13 +51,14 @@ Requires:         R-CRAN-igraph
 Requires:         R-methods 
 
 %description
-Fit and simulate latent space network cluster models using an
-expectation-maximization algorithm. Enables flexible modeling of
-unweighted network data, supporting both directed and undirected networks,
-with or without degree heterogeneity. Designed to handle large networks
-efficiently, it allows users to explore network structure through latent
-space representations, identify clusters within network data, and simulate
-models with varying clustering and connectivity patterns.
+Fit latent space network cluster models using an expectation-maximization
+algorithm. Enables flexible modeling of unweighted or weighted network
+data (with or without noise edges), supporting both directed and
+undirected networks (with or without degree heterogeneity). Designed to
+handle large networks efficiently, it allows users to explore network
+structure through latent space representations, identify clusters within
+network data, and simulate networks with varying clustering and
+connectivity patterns.
 
 %prep
 %setup -q -c -n %{packname}

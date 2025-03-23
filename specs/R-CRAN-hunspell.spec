@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hunspell
-%global packver   3.0.5
+%global packver   3.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.5
+Version:          3.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Performance Stemmer, Tokenizer, and Spell Checker
 

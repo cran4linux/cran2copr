@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  tailTransform
-%global packver   1.0.4
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Symmetric Transformation of Tails for Plotting Differences
 
@@ -26,7 +27,8 @@ When plotting treated-minus-control differences, after-minus-before
 changes, or difference-in-differences, the ttrans() function symmetrically
 transforms the positive and negative tails to aid plotting.  The package
 includes an observational study with three control groups and an
-unaffected outcome; see Rosenbaum (2020) <doi:10.1111/biom.13558>.
+unaffected outcome; see Rosenbaum (2022)
+<doi:10.1080/00031305.2022.2063944>.
 
 %prep
 %setup -q -c -n %{packname}

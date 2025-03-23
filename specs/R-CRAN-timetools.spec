@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  timetools
-%global packver   1.15.3
+%global packver   1.15.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.15.3
+Version:          1.15.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Seasonal/Sequential (Instants/Durations, Even or not) Time Series
 
@@ -21,8 +21,8 @@ Requires:         R-methods
 
 %description
 Objects to manipulate sequential and seasonal time series. Sequential time
-series based on time instants and time durations are handled. Both can be
-regularly or unevenly spaced (overlapping durations are allowed). Only
+series based on time instants and time duration are handled. Both can be
+regularly or unevenly spaced (overlapping duration are allowed). Only
 POSIX* format are used for dates and times. The following classes are
 provided : 'POSIXcti', 'POSIXctp', 'TimeIntervalDataFrame',
 'TimeInstantDataFrame', 'SubtimeDataFrame' ; methods to switch from a

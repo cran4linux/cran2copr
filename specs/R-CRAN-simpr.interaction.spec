@@ -1,37 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCurl
-%global packver   1.98-1.17
+%global packname  simpr.interaction
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.98.1.17
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          General Network (HTTP/FTP/...) Client Interface for R
+Summary:          Calculating Parameters for Simulation-Based Regression Interaction Power Analysis
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    libcurl-devel
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-bitops 
-Requires:         R-methods 
-Requires:         R-CRAN-bitops 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-InteractionPoweR 
+Requires:         R-CRAN-InteractionPoweR 
 
 %description
-A wrapper for 'libcurl' <https://curl.se/libcurl/> Provides functions to
-allow one to compose general HTTP requests and provides convenient
-functions to fetch URIs, get & post forms, etc. and process the results
-returned by the Web server. This provides a great deal of control over the
-HTTP/FTP/... connection and the form of the request while providing a
-higher-level interface than is available just using R socket connections.
-Additionally, the underlying implementation is robust and extensive,
-supporting FTP/FTPS/TFTP (uploads and downloads), SSL/HTTPS, telnet, dict,
-ldap, and also supports cookies, redirects, authentication, etc.
+Provides functionality for analytically calculating parameters (via the
+'InteractionPoweR' package) useful for simulation of moderated multiple
+regression, based on the correlations among the predictors and outcome and
+the reliability of predictors.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coconots
-%global packver   1.1.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convolution-Closed Models for Count Time Series
 
@@ -14,39 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.21.0
+BuildRequires:    R-devel >= 4.0.2
+Requires:         R-core >= 4.0.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-HMMpa 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-JuliaConnectoR 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-HMMpa 
-Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-utils 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-JuliaConnectoR 
 
 %description
 Useful tools for fitting, validating, and forecasting of practical
 convolution-closed time series models for low counts are provided.
-Marginal distributions of the data can be modeled via Poisson and
-Generalized Poisson innovations. Regression effects can be modelled via
-time varying innovation rates. The models are described in Jung and
-Tremayne (2011) <doi:10.1111/j.1467-9892.2010.00697.x> and the model
+Marginal distributions of the data can be modelled via Poisson and
+Generalized Poisson innovations. Regression effects can be incorporated
+through time varying innovation rates. The models are described in Jung
+and Tremayne (2011) <doi:10.1111/j.1467-9892.2010.00697.x> and the model
 assessment tools are presented in Czado et al. (2009)
-<doi:10.1111/j.1541-0420.2009.01191.x>, Gneiting and Raftery (2007)
-<doi:10.1198/016214506000001437> and, Tsay (1992) <doi:10.2307/2347612>.
+<doi:10.1111/j.1541-0420.2009.01191.x> and, Tsay (1992)
+<doi:10.2307/2347612>.
 
 %prep
 %setup -q -c -n %{packname}
