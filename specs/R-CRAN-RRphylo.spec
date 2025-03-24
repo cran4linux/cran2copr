@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RRphylo
-%global packver   2.8.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phylogenetic Ridge Regression Methods for Comparative Studies
 
@@ -20,14 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-emmeans >= 1.4.3
 BuildRequires:    R-CRAN-ape 
 BuildRequires:    R-CRAN-phytools 
-BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
 Requires:         R-CRAN-emmeans >= 1.4.3
 Requires:         R-CRAN-ape 
 Requires:         R-CRAN-phytools 
-Requires:         R-stats4 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 

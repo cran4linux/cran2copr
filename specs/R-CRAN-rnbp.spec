@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnbp
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper for the National Bank of Poland API
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-utils 
 
 %description
-Use the <http://api.nbp.pl/> API through R. Retrieve currency exchange
+Use the <https://api.nbp.pl/> API through R. Retrieve currency exchange
 rates and gold prices data published by the National Bank of Poland in
 form of convenient R objects.
 

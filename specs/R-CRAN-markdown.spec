@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  markdown
-%global packver   1.13
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.13
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Render Markdown with 'commonmark'
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.11.1
 Requires:         R-core >= 2.11.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-commonmark >= 1.9.0
-BuildRequires:    R-CRAN-xfun >= 0.38
+BuildRequires:    R-CRAN-litedown >= 0.6
 BuildRequires:    R-utils 
-Requires:         R-CRAN-commonmark >= 1.9.0
-Requires:         R-CRAN-xfun >= 0.38
+BuildRequires:    R-CRAN-xfun 
+Requires:         R-CRAN-litedown >= 0.6
 Requires:         R-utils 
+Requires:         R-CRAN-xfun 
 
 %description
 Render Markdown to full and lightweight HTML/LaTeX documents with the

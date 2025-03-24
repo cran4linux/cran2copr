@@ -1,45 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  disprofas
+%global packname  tidysynth
 %global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Non-Parametric Dissolution Profile Analysis
+Summary:          A Tidy Implementation of the Synthetic Control Method
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-boot 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-CRAN-optimx 
+Requires:         R-stats 
 
 %description
-Similarity of dissolution profiles is assessed using the similarity factor
-f2 according to the EMA guideline (European Medicines Agency 2010) "On the
-investigation of bioequivalence". Dissolution profiles are regarded as
-similar if the f2 value is between 50 and 100. For the applicability of
-the similarity factor f2, the variability between profiles needs to be
-within certain limits. Often, this constraint is violated. One possibility
-in this situation is to resample the measured profiles in order to obtain
-a bootstrap estimate of f2 (Shah et al. (1998)
-<doi:10.1023/A:1011976615750>). Other alternatives are the
-model-independent non-parametric multivariate confidence region (MCR)
-procedure (Tsong et al. (1996) <doi:10.1177/009286159603000427>) or the
-T2-test for equivalence procedure (Hoffelder (2016)
-<https://www.ecv.de/suse_item.php?suseId=Z|pi|8430>). Functions for
-estimation of f1, f2, bootstrap f2, MCR / T2-test for equivalence
-procedure are implemented.
+A synthetic control offers a way of evaluating the effect of an
+intervention in comparative case studies. The package makes a number of
+improvements when implementing the method in R. These improvements allow
+users to inspect, visualize, and tune the synthetic control more easily. A
+key benefit of a tidy implementation is that the entire preparation
+process for building the synthetic control can be accomplished in a single
+pipe.
 
 %prep
 %setup -q -c -n %{packname}

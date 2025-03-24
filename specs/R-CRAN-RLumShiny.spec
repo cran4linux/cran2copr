@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RLumShiny
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Shiny' Applications for the R Package 'Luminescence'
 
@@ -14,31 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny >= 1.7.0
-BuildRequires:    R-CRAN-knitr >= 1.37
-BuildRequires:    R-CRAN-readxl >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-markdown >= 1.1
-BuildRequires:    R-CRAN-Luminescence >= 0.9.17
+BuildRequires:    R-CRAN-leaflet >= 2.2.2
+BuildRequires:    R-CRAN-knitr >= 1.49
+BuildRequires:    R-CRAN-readxl >= 1.4.3
+BuildRequires:    R-CRAN-data.table >= 1.17.0
+BuildRequires:    R-CRAN-markdown >= 1.13
+BuildRequires:    R-CRAN-shiny >= 1.10.0
+BuildRequires:    R-CRAN-Luminescence >= 1.0.1
+BuildRequires:    R-CRAN-googleVis >= 0.7.3
 BuildRequires:    R-CRAN-shinydashboard >= 0.7.2
-BuildRequires:    R-CRAN-googleVis >= 0.6.11
+BuildRequires:    R-CRAN-DT >= 0.33
 BuildRequires:    R-CRAN-rhandsontable >= 0.3.8
-BuildRequires:    R-CRAN-DT >= 0.20
-BuildRequires:    R-CRAN-RCarb >= 0.1.4
-Requires:         R-CRAN-shiny >= 1.7.0
-Requires:         R-CRAN-knitr >= 1.37
-Requires:         R-CRAN-readxl >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-markdown >= 1.1
-Requires:         R-CRAN-Luminescence >= 0.9.17
+BuildRequires:    R-CRAN-RCarb >= 0.1.6
+Requires:         R-CRAN-leaflet >= 2.2.2
+Requires:         R-CRAN-knitr >= 1.49
+Requires:         R-CRAN-readxl >= 1.4.3
+Requires:         R-CRAN-data.table >= 1.17.0
+Requires:         R-CRAN-markdown >= 1.13
+Requires:         R-CRAN-shiny >= 1.10.0
+Requires:         R-CRAN-Luminescence >= 1.0.1
+Requires:         R-CRAN-googleVis >= 0.7.3
 Requires:         R-CRAN-shinydashboard >= 0.7.2
-Requires:         R-CRAN-googleVis >= 0.6.11
+Requires:         R-CRAN-DT >= 0.33
 Requires:         R-CRAN-rhandsontable >= 0.3.8
-Requires:         R-CRAN-DT >= 0.20
-Requires:         R-CRAN-RCarb >= 0.1.4
+Requires:         R-CRAN-RCarb >= 0.1.6
 
 %description
 A collection of 'shiny' applications for the R package 'Luminescence'.
