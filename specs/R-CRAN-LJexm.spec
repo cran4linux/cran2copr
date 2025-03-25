@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmm.hp
-%global packver   0.1-8
+%global packname  LJexm
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Extract, Convert, and Merge 'pdf' Files from 'zip' Files
 
-License:          GPL
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-utils 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each predictor (fixed effects) towards marginal R2 for generalized
-linear mixed-effect model (including lm, glm and glmm) based on output of
-r.squaredGLMM() in 'MuMIn', applying the algorithm of Lai J.,Zou Y., Zhang
-S.,Zhang X.,Mao L.(2022)glmm.hp: an R package for computing individual
-effect of predictors in generalized linear mixed models.Journal of Plant
-Ecology,15(6)1302-1307<doi:10.1093/jpe/rtac096>.
+Extracts 'zip' files, converts 'Word' and 'Excel' documents to 'pdf' files
+using 'VBScript', and merges 'pdf' files into a single file. This package
+is only supported on 'Windows' due to 'VBScript' dependencies.
 
 %prep
 %setup -q -c -n %{packname}

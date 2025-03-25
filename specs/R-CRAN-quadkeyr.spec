@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LNPar
-%global packver   1.1.0
+%global packname  quadkeyr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Testing for a Lognormal-Pareto Mixture
+Summary:          Generate Raster Images from QuadKey-Identified Datasets
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-parallel 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-readr >= 2.1.4
+BuildRequires:    R-CRAN-lubridate >= 1.9.2
+BuildRequires:    R-CRAN-shiny >= 1.7.4
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-rlang >= 1.1.2
+BuildRequires:    R-CRAN-sf >= 1.0.14
+BuildRequires:    R-CRAN-purrr >= 1.0.1
+BuildRequires:    R-CRAN-stars >= 0.6.2
+Requires:         R-CRAN-readr >= 2.1.4
+Requires:         R-CRAN-lubridate >= 1.9.2
+Requires:         R-CRAN-shiny >= 1.7.4
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-rlang >= 1.1.2
+Requires:         R-CRAN-sf >= 1.0.14
+Requires:         R-CRAN-purrr >= 1.0.1
+Requires:         R-CRAN-stars >= 0.6.2
 
 %description
-Estimates a lognormal-Pareto mixture by maximizing the profile likelihood
-function. A likelihood ratio test for discriminating between lognormal and
-Pareto tail is also implemented. See Bee, M. (2022)
-<doi:10.1007/s11634-022-00497-4>.
+A set of functions of increasing complexity allows users to (1) convert
+QuadKey-identified datasets, based on 'Microsoft's Bing Maps Tile System',
+into Simple Features data frames, (2) transform Simple Features data
+frames into rasters, and (3) process multiple 'Meta' ('Facebook')
+QuadKey-identified human mobility files directly into raster files. For
+more details, see D’Andrea et al. (2024) <doi:10.21105/joss.06500>.
 
 %prep
 %setup -q -c -n %{packname}

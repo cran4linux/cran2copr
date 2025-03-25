@@ -1,34 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggplotlyExtra
-%global packver   0.0.1
+%global packname  redquack
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extra Convenience Functions for 'Plotly'
+Summary:          Transfer 'REDCap' Data to 'DuckDB'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-audio 
+BuildRequires:    R-CRAN-beepr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-audio 
+Requires:         R-CRAN-beepr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readr 
+Requires:         R-utils 
 
 %description
-Convenience functions for smooth conversion from 'ggplot' to 'plotly'
-where the conversion using ggplotly() usually gives an unexpected labels.
-The package ease the process of making a 'plotly' figures generated from
-'ggplot2' object more aesthetic in terms of labels and customizability.
+Provides a single function to transfer 'REDCap' (Research Electronic Data
+Capture) data to a 'DuckDB' database. Processes data in chunks to handle
+large datasets while minimizing memory usage. Features include resuming
+incomplete transfers, converting column types, tracking progress, logging
+operations in the database.
 
 %prep
 %setup -q -c -n %{packname}

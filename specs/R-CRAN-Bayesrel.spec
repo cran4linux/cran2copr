@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Bayesrel
-%global packver   0.7.7
+%global packver   0.7.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Reliability Estimation
 
@@ -25,6 +25,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.4.6
 Requires:         R-CRAN-LaplacesDemon 
@@ -35,6 +36,7 @@ Requires:         R-methods
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-psych 
 
 %description
 Functionality for reliability estimates. For 'unidimensional' tests:

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pammtools
-%global packver   0.5.93
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.93
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Piece-Wise Exponential Additive Mixed Modeling Tools for Survival Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.2
 BuildRequires:    R-CRAN-survival >= 2.39.5
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-lazyeval
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pec 
+BuildRequires:    R-CRAN-scam 
 Requires:         R-CRAN-ggplot2 >= 3.2.2
 Requires:         R-CRAN-survival >= 2.39.5
 Requires:         R-CRAN-tidyr >= 1.0.0
@@ -47,6 +48,7 @@ Requires:         R-CRAN-lazyeval
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pec 
+Requires:         R-CRAN-scam 
 
 %description
 The Piece-wise exponential (Additive Mixed) Model (PAMM; Bender and others
@@ -56,10 +58,11 @@ Additive (Mixed) Models (GA(M)Ms). It offers intuitive specification and
 robust estimation of complex survival models with stratified baseline
 hazards, random effects, time-varying effects, time-dependent covariates
 and cumulative effects (Bender and others (2019)), as well as support for
-left-truncated, competing risks and recurrent events data. pammtools
-provides tidy workflow for survival analysis with PAMMs, including data
-simulation, transformation and other functions for data preprocessing and
-model post-processing as well as visualization.
+left-truncated data as well as competing risks, recurrent events and
+multi-state settings. pammtools provides tidy workflow for survival
+analysis with PAMMs, including data simulation, transformation and other
+functions for data preprocessing and model post-processing as well as
+visualization.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flint
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Library for Number Theory
 
@@ -24,15 +24,15 @@ Requires:         R-stats
 %description
 An R interface to 'FLINT' <https://flintlib.org/>, a C library for number
 theory.  'FLINT' extends GNU 'MPFR' <https://www.mpfr.org/> and GNU 'MP'
-<https://gmplib.org/> with support for arithmetic in standard rings (the
-integers, the integers modulo n, the rational, p-adic, real, and complex
-numbers) as well as vectors, matrices, polynomials, and power series over
-rings.  'FLINT' implements midpoint-radius interval arithmetic, also known
-as ball arithmetic, in the real and complex numbers, enabling computation
-in arbitrary precision with rigorous propagation of errors; see Johansson
-(2017) <doi:10.1109/TC.2017.2690633>.  Finally, 'FLINT' provides ball
-arithmetic implementations of many special mathematical functions, with
-high coverage of reference works such as the NIST Digital Library of
+<https://gmplib.org/> with support for operations on standard rings (the
+integers, the integers modulo n, finite fields, the rational, p-adic,
+real, and complex numbers) as well as matrices and polynomials over rings.
+'FLINT' implements midpoint-radius interval arithmetic, also known as ball
+arithmetic, in the real and complex numbers, enabling computation in
+arbitrary precision with rigorous propagation of rounding errors; see
+Johansson (2017) <doi:10.1109/TC.2017.2690633>.  Finally, 'FLINT' provides
+ball arithmetic implementations of many special mathematical functions,
+with high coverage of reference works such as the NIST Digital Library of
 Mathematical Functions <https://dlmf.nist.gov/>.  The R interface defines
 S4 classes, generic functions, and methods for representation and basic
 operations as well as plain R functions mirroring and vectorizing entry

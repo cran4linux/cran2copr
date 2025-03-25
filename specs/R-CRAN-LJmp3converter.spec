@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LJmp3converter
-%global packver   1.0.5
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Video Files to MP3 Format using 'FFmpeg'
+Summary:          Convert Video Files to 'mp3' Format, Merge or Trim Audio Files using 'FFmpeg'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,9 +29,10 @@ Requires:         R-CRAN-rstudioapi
 Requires:         R-CRAN-httr 
 
 %description
-Converts video files to 'MP3' using 'FFmpeg', which is dynamically
-downloaded to avoid bundling any third-party binaries. Users must ensure
-compliance with the license terms of 'FFmpeg' when using the package. See
+Converts video files to 'mp3', merges multiple audio files and trims audio
+files using 'FFmpeg', which is dynamically downloaded to avoid bundling
+any third-party binaries. Users must ensure compliance with the license
+terms of 'FFmpeg' when using the package. See
 <https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip>
 for details.
 

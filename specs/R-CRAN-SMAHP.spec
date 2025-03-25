@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  glmm.hp
-%global packver   0.1-8
+%global packname  SMAHP
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Hierarchical Partitioning of Marginal R2 for Generalized Mixed-Effect Models
+Summary:          Survival Mediation Analysis of High-Dimensional Proteogenomic Data
 
-License:          GPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-penAFT 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-penAFT 
+Requires:         R-CRAN-survival 
+Requires:         R-stats 
+Requires:         R-CRAN-glmnet 
 
 %description
-Conducts hierarchical partitioning to calculate individual contributions
-of each predictor (fixed effects) towards marginal R2 for generalized
-linear mixed-effect model (including lm, glm and glmm) based on output of
-r.squaredGLMM() in 'MuMIn', applying the algorithm of Lai J.,Zou Y., Zhang
-S.,Zhang X.,Mao L.(2022)glmm.hp: an R package for computing individual
-effect of predictors in generalized linear mixed models.Journal of Plant
-Ecology,15(6)1302-1307<doi:10.1093/jpe/rtac096>.
+SMAHP (pronounced as SOO-MAP) is a novel multi-omics framework for causal
+mediation analysis of high-dimensional proteogenomic data with survival
+outcomes. The full methodological details can be found in our recent
+preprint by Ahn S et al. (2025) <doi:10.48550/arXiv.2503.08606>.
 
 %prep
 %setup -q -c -n %{packname}

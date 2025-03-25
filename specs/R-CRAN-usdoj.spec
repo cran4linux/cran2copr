@@ -1,31 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggjoy
-%global packver   0.4.1
+%global packname  usdoj
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Joyplots in 'ggplot2'
+Summary:          For Accessing U.S. Department of Justice (DOJ) Open Data
 
-License:          GPL-2 | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 3.4.4
+Requires:         R-core >= 3.4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggridges >= 0.4.0
-BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges >= 0.4.0
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-anytime 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Joyplots provide a convenient way of visualizing changes in distributions
-over time or space. This package enables the creation of such plots in
-'ggplot2'.
+Fetch data from the
+<https://www.justice.gov/developer/api-documentation/api_v1> API such as
+press releases, blog entries, and speeches. Optional parameters allow
+users to specify the number of results starting from the earliest or
+latest entries, and whether these results contain keywords. Data is
+cleaned for analysis and returned in a dataframe.
 
 %prep
 %setup -q -c -n %{packname}

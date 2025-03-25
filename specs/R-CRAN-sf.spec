@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sf
-%global packver   1.0-19
+%global packver   1.0-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.19
+Version:          1.0.20
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simple Features for R
 
@@ -47,11 +47,12 @@ Requires:         R-tools
 Requires:         R-utils 
 
 %description
-Support for simple features, a standardized way to encode spatial vector
-data. Binds to 'GDAL' for reading and writing data, to 'GEOS' for
-geometrical operations, and to 'PROJ' for projection conversions and datum
-transformations. Uses by default the 's2' package for spherical geometry
-operations on ellipsoidal (long/lat) coordinates.
+Support for simple feature access, a standardized way to encode and
+analyze spatial vector data. Binds to 'GDAL' <doi:10.5281/zenodo.5884351>
+for reading and writing data, to 'GEOS' <doi:10.5281/zenodo.11396894> for
+geometrical operations, and to 'PROJ' <doi:10.5281/zenodo.5884394> for
+projection conversions and datum transformations. Uses by default the 's2'
+package for geometry operations on geodetic (long/lat degree) coordinates.
 
 %prep
 %setup -q -c -n %{packname}

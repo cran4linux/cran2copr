@@ -1,66 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pysparklyr
-%global packver   0.1.7
+%global packname  immunogenetr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
+Summary:          A Comprehensive Toolkit for Clinical HLA Informatics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.8.6
-BuildRequires:    R-CRAN-reticulate >= 1.41.0.1
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-rsconnect 
-Requires:         R-CRAN-sparklyr >= 1.8.6
-Requires:         R-CRAN-reticulate >= 1.41.0.1
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-rsconnect 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-xml2 
 
 %description
-It enables 'sparklyr' to integrate with 'Spark Connect', and 'Databricks
-Connect' by providing a wrapper over the 'PySpark' 'python' library.
+A comprehensive toolkit for clinical Human Leukocyte Antigen (HLA)
+informatics, built on 'tidyverse' <https://tidyverse.tidyverse.org/>
+principles and making use of genotype list string (GL string, Mack et al.
+(2023) <doi:10.1111/tan.15126>) for storing and computing HLA genotype
+data.  Specific functionalities include: coercion of HLA data in tabular
+format to and from GL string; calculation of matching and mismatching in
+all directions, with multiple output formats; automatic formatting of HLA
+data for searching within a GL string; truncation of molecular HLA data to
+a specific number of fields; and reading HLA genotypes in HML files and
+extracting the GL string.
 
 %prep
 %setup -q -c -n %{packname}

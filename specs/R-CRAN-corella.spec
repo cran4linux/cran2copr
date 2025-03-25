@@ -1,66 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pysparklyr
-%global packver   0.1.7
+%global packname  corella
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Provides a 'PySpark' Back-End for the 'sparklyr' Package
+Summary:          Prepare, Manipulate and Check Data to Comply with Darwin Core Standard
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sparklyr >= 1.8.6
-BuildRequires:    R-CRAN-reticulate >= 1.41.0.1
-BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dbplyr 
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-rsconnect 
-Requires:         R-CRAN-sparklyr >= 1.8.6
-Requires:         R-CRAN-reticulate >= 1.41.0.1
-Requires:         R-CRAN-arrow 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dbplyr 
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hms 
+Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
-Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-processx 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-rsconnect 
+Requires:         R-CRAN-uuid 
 
 %description
-It enables 'sparklyr' to integrate with 'Spark Connect', and 'Databricks
-Connect' by providing a wrapper over the 'PySpark' 'python' library.
+Helps users standardise data to the Darwin Core Standard, a global data
+standard to store, document, and share biodiversity data like species
+occurrence records. The package provides tools to manipulate data to
+conform with, and check validity against, the Darwin Core Standard. Using
+'corella' allows users to verify that their data can be used to build
+'Darwin Core Archives' using the 'galaxias' package.
 
 %prep
 %setup -q -c -n %{packname}

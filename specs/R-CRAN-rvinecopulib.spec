@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvinecopulib
-%global packver   0.7.1.1.2
+%global packver   0.7.2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1.1.2
+Version:          0.7.2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Performance Algorithms for Vine Copula Modeling
 
@@ -45,7 +45,7 @@ vine copula and bivariate copula models. Advantages over 'VineCopula' are
 a sleeker and more modern API, improved performances, especially in high
 dimensions, nonparametric and multi-parameter families, and the ability to
 model discrete variables. The 'rvinecopulib' package includes
-'vinecopulib' as header-only C++ library (currently version 0.7.1). Thus
+'vinecopulib' as header-only C++ library (currently version 0.7.2). Thus
 users do not need to install 'vinecopulib' itself in order to use
 'rvinecopulib'. Since their initial releases, 'vinecopulib' is licensed
 under the MIT License, and 'rvinecopulib' is licensed under the GNU GPL
