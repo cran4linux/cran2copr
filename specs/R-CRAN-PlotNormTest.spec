@@ -1,50 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesSurvive
-%global packver   0.1.0
+%global packname  PlotNormTest
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Survival Models for High-Dimensional Data
+Summary:          Graphical Univariate/Multivariate Assessments for Normality Assumption
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-riskRegression 
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MatrixExtra 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-riskRegression 
-Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MatrixExtra 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-rlang 
 
 %description
-An implementation of Bayesian survival models with graph-structured
-selection priors for sparse identification of omics features predictive of
-survival (Madjar et al., 2021 <doi:10.1186/s12859-021-04483-z>) and its
-extension to use a fixed graph via a Markov Random Field (MRF) prior for
-capturing known structure of omics features, e.g. disease-specific
-pathways from the Kyoto Encyclopedia of Genes and Genomes database
-(Hermansen et al., 2025 <doi:10.48550/arXiv.2503.13078>).
+Graphical methods testing multivariate normality assumption. Methods
+including assessing score function, and moment generating
+functions,independent transformations and linear transformations. For more
+details see Tran (2024),"Contributions to Multivariate Data Science:
+Assessment and Identification of Multivariate Distributions and Supervised
+Learning for Groups of Objects." , PhD thesis,
+<https://our.oakland.edu/items/c8942577-2562-4d2f-8677-cb8ec0bf6234>.
 
 %prep
 %setup -q -c -n %{packname}

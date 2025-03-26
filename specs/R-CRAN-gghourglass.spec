@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sprex
-%global packver   1.4.2
+%global packname  gghourglass
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Richness and Extrapolation
+Summary:          Plot Records per Time of Day
 
-License:          GNU General Public License
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscMisc >= 1.4
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-swfscMisc >= 1.4
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.2
+BuildRequires:    R-CRAN-suncalc >= 0.5.1
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.2
+Requires:         R-CRAN-suncalc >= 0.5.1
 
 %description
-Functions for calculating species richness for rarefaction and
-extrapolation, primarily non-parametric species richness such as
-jackknife, Chao1, and ACE. Also available are functions for plotting
-species richness and extrapolation curves, and computing standard
-diversity and entropy indices.
+Splits date and time of day components from continuous 'datetime' objects,
+then plots them using grammar of graphics ('ggplot2'). Plots can also be
+decorated with solar cycle information (e.g., sunset, sunrise, etc.). This
+is useful for data that are associated with the solar cycle.
 
 %prep
 %setup -q -c -n %{packname}

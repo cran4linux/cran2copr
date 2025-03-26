@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sprex
-%global packver   1.4.2
+%global packname  erboost
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Richness and Extrapolation
+Summary:          Nonparametric Multiple Expectile Regression via ER-Boost
 
-License:          GNU General Public License
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscMisc >= 1.4
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-swfscMisc >= 1.4
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-splines 
+Requires:         R-CRAN-lattice 
+Requires:         R-splines 
 
 %description
-Functions for calculating species richness for rarefaction and
-extrapolation, primarily non-parametric species richness such as
-jackknife, Chao1, and ACE. Also available are functions for plotting
-species richness and extrapolation curves, and computing standard
-diversity and entropy indices.
+Expectile regression is a nice tool for estimating the conditional
+expectiles of a response variable given a set of covariates. This package
+implements a regression tree based gradient boosting estimator for
+nonparametric multiple expectile regression, proposed by Yang, Y., Qian,
+W. and Zou, H. (2018) <doi:10.1080/00949655.2013.876024>. The code is
+based on the 'gbm' package originally developed by Greg Ridgeway.
 
 %prep
 %setup -q -c -n %{packname}

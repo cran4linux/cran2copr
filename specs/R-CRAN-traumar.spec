@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  traumar
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Metrics for Trauma System Performance
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-cli >= 3.6.4
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-tibble >= 3.2.1
 BuildRequires:    R-CRAN-lubridate >= 1.9.4
@@ -27,10 +27,10 @@ BuildRequires:    R-CRAN-rlang >= 1.1.5
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-infer >= 1.0.7
 BuildRequires:    R-CRAN-lifecycle >= 1.0.4
-BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-purrr >= 1.0.4
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-cli >= 3.6.4
 Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-tibble >= 3.2.1
 Requires:         R-CRAN-lubridate >= 1.9.4
@@ -40,7 +40,7 @@ Requires:         R-CRAN-rlang >= 1.1.5
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-infer >= 1.0.7
 Requires:         R-CRAN-lifecycle >= 1.0.4
-Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-purrr >= 1.0.4
 Requires:         R-stats 
 Requires:         R-utils 
 

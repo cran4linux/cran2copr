@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RNAmf
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Non-Additive Emulator for Multi-Fidelity Data
 
@@ -19,11 +19,13 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-plgp 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-lhs 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-plgp 
 Requires:         R-stats 
+Requires:         R-methods 
 Requires:         R-CRAN-lhs 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 

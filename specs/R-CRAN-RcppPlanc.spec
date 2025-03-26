@@ -1,50 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EmiStatR
-%global packver   1.2.3.0
+%global __requires_exclude ^libmpi
+%global packname  RcppPlanc
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Emissions and Statistics in R for Wastewater and Pollutants in Combined Sewer Systems
+Summary:          Parallel Low-Rank Approximation with Nonnegativity Constraints
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-hdf5r.Extra 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-zoo 
-Requires:         R-CRAN-foreach 
-Requires:         R-parallel 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-hdf5r.Extra 
 
 %description
-Provides a fast and parallelised calculator to estimate combined
-wastewater emissions. It supports the planning and design of urban
-drainage systems, without the requirement of extensive simulation tools.
-The 'EmiStatR' package implements modular R methods. This enables to add
-new functionalities through the R framework.
+'Rcpp' bindings for 'PLANC', a highly parallel and extensible NMF/NTF
+(Non-negative Matrix/Tensor Factorization) library. Wraps algorithms
+described in Kannan et. al (2018) <doi:10.1109/TKDE.2017.2767592> and
+Eswar et. al (2021) <doi:10.1145/3432185>. Implements algorithms described
+in Welch et al. (2019) <doi:10.1016/j.cell.2019.05.006>, Gao et al. (2021)
+<doi:10.1038/s41587-021-00867-x>, and Kriebel & Welch (2022)
+<doi:10.1038/s41467-022-28431-4>.
 
 %prep
 %setup -q -c -n %{packname}

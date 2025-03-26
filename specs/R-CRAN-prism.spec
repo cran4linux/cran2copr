@@ -1,50 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BayesSurvive
-%global packver   0.1.0
+%global packname  prism
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Survival Models for High-Dimensional Data
+Summary:          Access Data from the Oregon State Prism Climate Project
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-GGally 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-riskRegression 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-GGally 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-riskRegression 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-methods 
 
 %description
-An implementation of Bayesian survival models with graph-structured
-selection priors for sparse identification of omics features predictive of
-survival (Madjar et al., 2021 <doi:10.1186/s12859-021-04483-z>) and its
-extension to use a fixed graph via a Markov Random Field (MRF) prior for
-capturing known structure of omics features, e.g. disease-specific
-pathways from the Kyoto Encyclopedia of Genes and Genomes database
-(Hermansen et al., 2025 <doi:10.48550/arXiv.2503.13078>).
+Allows users to access the Oregon State Prism climate data
+(<https://prism.nacse.org/>). Using the web service API data can easily
+downloaded in bulk and loaded into R for spatial analysis. Some user
+friendly visualizations are also provided.
 
 %prep
 %setup -q -c -n %{packname}

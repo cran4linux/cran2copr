@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sevenbridges2
-%global packver   0.4.0
+%global packname  GoMiner
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The 'Seven Bridges Platform' API Client
+Summary:          Automate the Mapping Between a List of Genes and Gene Ontology Categories
 
-License:          Apache License 2.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,42 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-minimalistGODB 
+BuildRequires:    R-CRAN-HGNChelper 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-DescTools 
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-minimalistGODB 
+Requires:         R-CRAN-HGNChelper 
+Requires:         R-stats 
+Requires:         R-CRAN-gplots 
+Requires:         R-grDevices 
 Requires:         R-utils 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-DescTools 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-data.table 
 
 %description
-R client and utilities for 'Seven Bridges Platform' API, from 'Cancer
-Genomics Cloud' to other 'Seven Bridges' supported platforms. API
-documentation is hosted publicly at
-<https://docs.sevenbridges.com/docs/the-api>.
+In gene-expression microarray studies, for example, one generally obtains
+a list of dozens or hundreds of genes that differ in expression between
+samples and then asks 'What does all of this mean biologically?'
+Alternatively, gene lists can be derived conceptually in addition to
+experimentally. For instance, one might want to analyze a group of genes
+known as housekeeping genes. The work of the Gene Ontology (GO) Consortium
+<geneontology.org> provides a way to address that question. GO organizes
+genes into hierarchical categories based on biological process, molecular
+function and subcellular localization. The role of 'GoMiner' is to
+automate the mapping between a list of genes and GO, and to provide a
+statistical summary of the results as well as a visualization.
 
 %prep
 %setup -q -c -n %{packname}

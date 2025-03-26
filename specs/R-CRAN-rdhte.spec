@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sprex
-%global packver   1.4.2
+%global packname  rdhte
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Richness and Extrapolation
+Summary:          Heterogeneous Treatment Effects in Regression Discontinuity Designs
 
-License:          GNU General Public License
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscMisc >= 1.4
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-swfscMisc >= 1.4
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-rdrobust 
+BuildRequires:    R-CRAN-sandwich 
+Requires:         R-CRAN-rdrobust 
+Requires:         R-CRAN-sandwich 
 
 %description
-Functions for calculating species richness for rarefaction and
-extrapolation, primarily non-parametric species richness such as
-jackknife, Chao1, and ACE. Also available are functions for plotting
-species richness and extrapolation curves, and computing standard
-diversity and entropy indices.
+Understanding heterogeneous causal effects based on pretreatment
+covariates is a crucial step in modern empirical work in data science.
+Building on the recent developments in Calonico et al (2025)
+<https://rdpackages.github.io/references/Calonico-Cattaneo-Farrell-Palomba-Titiunik_2025_HTERD.pdf>,
+this package provides tools for estimation and inference of heterogeneous
+treatment effects in Regression Discontinuity (RD) Designs. The package
+includes two main commands: 'rdhte' to conduct estimation and robust
+bias-corrected inference for conditional RD treatment effects (given
+choice of bandwidth parameter); and 'rdbwhte', which implements automatic
+bandwidth selection methods.
 
 %prep
 %setup -q -c -n %{packname}

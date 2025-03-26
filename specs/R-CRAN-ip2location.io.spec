@@ -1,35 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sprex
-%global packver   1.4.2
+%global packname  ip2location.io
+%global packver   0.0.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          0.0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Richness and Extrapolation
+Summary:          Batch IP Data Retrieval and Storage Using 'IP2Location.io'
 
-License:          GNU General Public License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscMisc >= 1.4
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-swfscMisc >= 1.4
-Requires:         R-CRAN-ggplot2 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Functions for calculating species richness for rarefaction and
-extrapolation, primarily non-parametric species richness such as
-jackknife, Chao1, and ACE. Also available are functions for plotting
-species richness and extrapolation curves, and computing standard
-diversity and entropy indices.
+A system for submitting multiple IP information queries to
+'IP2Location.io'’s IP Geolocation API and storing the resulting data in a
+dataframe. You provide a vector of IP addresses and your 'IP2Location.io'
+API key. The package returns a dataframe with one row per IP address and a
+column for each available data field (data fields not included in your API
+plan will contain NAs). This is the second submission of the package to
+CRAN.
 
 %prep
 %setup -q -c -n %{packname}

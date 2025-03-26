@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OHCSpackage
-%global packver   0.1.5
+%global packname  TDboost
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prepare Housing Data for Analysis
+Summary:          A Boosted Tweedie Compound Poisson Model
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.12.0
+Requires:         R-core >= 2.12.0
+BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-lattice 
 
 %description
-Prepares census and core housing needs data, specifically designed for use
-with Statistics Canada data and standardized input data. The package
-offers functions for tidying, organizing, and splitting complex data
-tables, making it easier for users to perform analyses on the data.
-'OHCSpackage''' is particularly useful for those working with census data
-that has a consistent format, number of rows, and number of columns. With
-this package, users can save time and streamline their data preparation
-processes.
+An implementation of a boosted Tweedie compound Poisson model proposed by
+Yang, Y., Qian, W. and Zou, H. (2018) <doi:10.1080/07350015.2016.1200981>.
+It is capable of fitting a flexible nonlinear Tweedie compound Poisson
+model (or a gamma model) and capturing high-order interactions among
+predictors. This package is based on the 'gbm' package originally
+developed by Greg Ridgeway.
 
 %prep
 %setup -q -c -n %{packname}
