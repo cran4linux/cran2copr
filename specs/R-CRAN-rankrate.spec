@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rankrate
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Statistical Models for Preference Learning with Rankings and Ratings
 
@@ -26,7 +26,9 @@ Requires:         R-CRAN-isotone
 
 %description
 Statistical tools for the Mallows-Binomial model, the first joint
-statistical model for preference learning for rankings and ratings.
+statistical model for preference learning for rankings and ratings. This
+project was supported by the National Science Foundation under Grant No.
+2019901.
 
 %prep
 %setup -q -c -n %{packname}

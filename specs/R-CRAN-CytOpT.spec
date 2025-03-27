@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CytOpT
-%global packver   0.9.4
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Transport for Gating Transfer in Cytometry Data with Domain Adaptation
 
@@ -43,7 +44,7 @@ cell population across sample (due to technical variability from the
 technology of measurements). Supervised learning technique based on the
 Wasserstein metric that is used to estimate an optimal re-weighting of
 class proportions in a mixture model Details are presented in Freulon P,
-Bigot J and Hejblum BP (2021) <arXiv:2006.09003>.
+Bigot J and Hejblum BP (2023) <doi:10.1214/22-AOAS1660>.
 
 %prep
 %setup -q -c -n %{packname}

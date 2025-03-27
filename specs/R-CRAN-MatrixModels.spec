@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MatrixModels
-%global packver   0.5-3
+%global packver   0.5-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.3
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling with Sparse and Dense Matrices
 
@@ -25,8 +25,8 @@ Requires:         R-stats
 Requires:         R-methods 
 
 %description
-Modelling with sparse and dense 'Matrix' matrices, using modular
-prediction and response module classes.
+Generalized Linear Modelling with sparse and dense 'Matrix' matrices,
+using modular prediction and response module classes.
 
 %prep
 %setup -q -c -n %{packname}

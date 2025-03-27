@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FuzzyImputationTest
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imputation Procedures and Quality Tests for Fuzzy Data
 
@@ -25,6 +25,8 @@ BuildRequires:    R-CRAN-missForest
 BuildRequires:    R-CRAN-miceRanger 
 BuildRequires:    R-CRAN-VIM 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-FuzzyResampling 
+BuildRequires:    R-CRAN-mice 
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-CRAN-FuzzySimRes 
@@ -33,6 +35,8 @@ Requires:         R-CRAN-missForest
 Requires:         R-CRAN-miceRanger 
 Requires:         R-CRAN-VIM 
 Requires:         R-utils 
+Requires:         R-CRAN-FuzzyResampling 
+Requires:         R-CRAN-mice 
 
 %description
 Special procedures for the imputation of missing fuzzy numbers are still

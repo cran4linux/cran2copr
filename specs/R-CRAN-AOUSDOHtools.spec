@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Apollonius
-%global packver   1.0.1
+%global packname  AOUSDOHtools
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          2D Apollonius Graphs
+Summary:          Analyzing AOU SDOH Survey Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-gyro >= 1.3.0
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-colorsGen 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-plotrix 
-BuildRequires:    R-CRAN-Polychrome 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-RcppCGAL 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-gyro >= 1.3.0
-Requires:         R-CRAN-abind 
-Requires:         R-CRAN-colorsGen 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-plotrix 
-Requires:         R-CRAN-Polychrome 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Computation of the Apollonius diagram of given 2D points and its dual the
-Apollonius graph, also known as the additively weighted Voronoï diagram,
-and which is a generalization of the classical Voronoï diagram. For
-references, see the bibliography in the CGAL documentation at
-<https://doc.cgal.org/latest/Apollonius_graph_2/citelist.html>.
+Functions for processing and analyzing survey data from the All of Us
+Social Determinants of Health (AOUSDOH) program, including tools for
+calculating health and well-being scores, recoding variables, and
+simplifying survey data analysis. For more details see - Koleck TA,
+Dreisbach C, Zhang C, Grayson S, Lor M, Deng Z, Conway A, Higgins PDR,
+Bakken S (2024) <doi:10.1093/jamia/ocae214>.
 
 %prep
 %setup -q -c -n %{packname}

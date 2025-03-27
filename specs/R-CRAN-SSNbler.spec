@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSNbler
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assemble 'SSN' Objects
 
@@ -26,6 +26,8 @@ BuildRequires:    R-CRAN-igraph
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-SSN2 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-pdist 
@@ -35,6 +37,8 @@ Requires:         R-CRAN-igraph
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-SSN2 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
 
 %description
 Import, create and assemble data needed to fit spatial-statistical

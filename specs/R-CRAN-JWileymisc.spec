@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JWileymisc
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Utilities and Functions
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.3
 BuildRequires:    R-CRAN-data.table >= 1.14.8
@@ -28,16 +28,15 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-multcompView 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-ggthemes 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-rms 
 BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-gamlss 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fst 
@@ -53,16 +52,15 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-multcompView 
 Requires:         R-CRAN-emmeans 
 Requires:         R-graphics 
-Requires:         R-CRAN-ggthemes 
+Requires:         R-grid 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mice 
 Requires:         R-methods 
 Requires:         R-CRAN-psych 
-Requires:         R-grid 
-Requires:         R-CRAN-rms 
 Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fst 

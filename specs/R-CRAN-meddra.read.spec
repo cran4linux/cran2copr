@@ -1,35 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cxhull
-%global packver   0.7.4
+%global packname  meddra.read
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convex Hull
+Summary:          Load and Use 'MedDRA' Data for Clinical Trials
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rgl 
-BuildRequires:    R-CRAN-Rvcg 
-Requires:         R-CRAN-data.table 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rgl 
-Requires:         R-CRAN-Rvcg 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr 
 
 %description
-Computes the convex hull in arbitrary dimension, based on the Qhull
-library (<http://www.qhull.org>). The package provides a complete
-description of the convex hull: edges, ridges, facets, adjacencies.
-Triangulation is optional.
+'MedDRA' data is used for defining adverse events in clinical studies. You
+can load and merge the data for use in categorizing the adverse events
+using this package. The package requires the data licensed from 'MedDRA'
+<https://www.meddra.org/>.
 
 %prep
 %setup -q -c -n %{packname}

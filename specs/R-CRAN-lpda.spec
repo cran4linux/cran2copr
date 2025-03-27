@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lpda
-%global packver   1.0.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Programming Discriminant Analysis
 
@@ -18,15 +18,18 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Rglpk 
+BuildRequires:    R-CRAN-multiway 
 Requires:         R-CRAN-Rglpk 
+Requires:         R-CRAN-multiway 
 
 %description
 Classification method obtained through linear programming. It is
 advantageous with respect to the classical developments when the
 distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. LPDA method is
-published in Nueda, et al. (2022) "LPDA: A new classification method based
-on linear programming". <doi:10.1371/journal.pone.0270403>.
+variables is much greater than the number of individuals. Mathematical
+details behind the method are published in Nueda, et al. (2022) "LPDA: A
+new classification method based on linear programming".
+<doi:10.1371/journal.pone.0270403>.
 
 %prep
 %setup -q -c -n %{packname}

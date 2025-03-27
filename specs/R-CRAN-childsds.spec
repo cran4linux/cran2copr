@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  childsds
-%global packver   0.9.8
+%global packver   0.9.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.8
+Version:          0.9.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data and Methods Around Reference Values in Pediatrics
 
@@ -34,6 +34,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-interp 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-colorspace 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-gamlss 
 Requires:         R-CRAN-gamlss.dist 
 Requires:         R-CRAN-dplyr 
@@ -51,6 +56,11 @@ Requires:         R-utils
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-interp 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-rlang 
 
 %description
 Calculation of standard deviation scores and percentiles adduced from

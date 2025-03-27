@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eCerto
-%global packver   0.5.14
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.14
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Statistical Tests for the Production of Reference Materials
 
@@ -14,12 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-markdown >= 1.5
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-config 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-golem 
 BuildRequires:    R-CRAN-knitr 
@@ -34,9 +35,11 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
 BuildRequires:    R-CRAN-tidyxl 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-markdown >= 1.5
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-config 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-golem 
 Requires:         R-CRAN-knitr 
@@ -51,6 +54,7 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 
 Requires:         R-CRAN-tidyxl 
+Requires:         R-CRAN-xml2 
 
 %description
 The production of certified reference materials (CRMs) requires various
