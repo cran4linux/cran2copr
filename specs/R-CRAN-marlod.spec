@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BGLR
-%global packver   1.1.4
+%global packname  marlod
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Linear Regression
+Summary:          Marginal Modeling for Exposure Data with Values Below the LOD
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-quantreg 
+Requires:         R-stats 
+Requires:         R-CRAN-knitr 
+Requires:         R-utils 
 
 %description
-Bayesian Generalized Linear Regression.
+Functions of marginal mean and quantile regression models are used to
+analyze environmental exposure and biomonitoring data with repeated
+measurements and non-detects (i.e., values below the limit of detection
+(LOD)), as well as longitudinal exposure data that include non-detects and
+time-dependent covariates. For more details see Chen IC, Bertke SJ, Curwin
+BD (2021) <doi:10.1038/s41370-021-00345-1>, Chen IC, Bertke SJ, Estill CF
+(2024) <doi:10.1038/s41370-024-00640-7>, Chen IC, Bertke SJ, Dahm MM
+(2024) <doi:10.1093/annweh/wxae068>, and Chen IC (2025)
+<doi:10.1038/s41370-025-00752-8>.
 
 %prep
 %setup -q -c -n %{packname}

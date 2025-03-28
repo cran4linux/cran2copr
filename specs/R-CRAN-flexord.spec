@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BGLR
-%global packver   1.1.4
+%global packname  flexord
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Linear Regression
+Summary:          Flexible Clustering of Ordinal and Mixed-with-Ordinal Data
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildArch:        noarch
+BuildRequires:    R-CRAN-flexclust >= 1.5.0
 BuildRequires:    R-methods 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-flexmix 
+Requires:         R-CRAN-flexclust >= 1.5.0
 Requires:         R-methods 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-flexmix 
 
 %description
-Bayesian Generalized Linear Regression.
+Extends the capabilities for flexible partitioning and model-based
+clustering available in the packages 'flexclust' and 'flexmix' to handle
+ordinal and mixed-with-ordinal data types via new distance, centroid and
+driver functions that make various assumptions regarding ordinality. Using
+them within the flex-scheme allows for easy comparisons across methods.
 
 %prep
 %setup -q -c -n %{packname}

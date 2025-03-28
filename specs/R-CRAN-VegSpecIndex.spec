@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tint
-%global packver   0.1.5
+%global packname  VegSpecIndex
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'tint' is not 'Tufte'
+Summary:          Vegetation and Spectral Indices for Environmental Assessment
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-rmarkdown 
 
 %description
-A 'tufte'-alike style for 'rmarkdown'. A modern take on the 'Tufte' design
-for pdf and html vignettes, building on the 'tufte' package with
-additional contributions from the 'knitr' and 'ggtufte' package, and also
-acknowledging the key influence of 'envisioned css'.
+Earth system dynamics, such as plant dynamics, water bodies, and fire
+regimes, are widely monitored using spectral indicators obtained from
+multispectral remote sensing products. There is a great need for spectral
+index catalogues and computing tools as a result of the quick rise of
+suggested spectral indices. Unfortunately, the majority of these resources
+lack a standard Application Programming Interface, are out-of-date,
+closed-source, or are not linked to a catalogue. We now introduce
+'VegSpecIndex', a standardised list of spectral indices for studies of the
+earth system. A thorough inventory of spectral indices is offered by
+'VegSpecIndex' and is connected to an R library. For every spectral index,
+'VegSpecIndex' provides a comprehensive collection of information, such as
+names, formulae, and source references. The user community may add more
+items to the catalogue, which will keep 'VegSpecIndex' up to date and
+allow for further scientific uses. Additionally, the R library makes it
+possible to apply the catalogue to actual data, which makes it easier to
+employ remote sensing resources effectively across a variety of Earth
+system domains.
 
 %prep
 %setup -q -c -n %{packname}

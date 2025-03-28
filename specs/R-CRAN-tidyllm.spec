@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyllm
-%global packver   0.3.2
+%global packver   0.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Integration of Large Language Models
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -33,12 +33,12 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
@@ -52,13 +52,13 @@ Requires:         R-CRAN-lifecycle
 
 %description
 A tidy interface for integrating large language model (LLM) APIs such as
-'Claude', 'Openai', 'Groq','Mistral' and local models via 'Ollama' into R
-workflows. The package supports text and media-based interactions,
+'Claude', 'Openai', 'Gemini','Mistral' and local models via 'Ollama' into
+R workflows. The package supports text and media-based interactions,
 interactive message history, batch request APIs, and a tidy,
 pipeline-oriented interface for streamlined integration into data
 workflows. Web services are available at <https://www.anthropic.com>,
-<https://openai.com>, <https://groq.com>, <https://mistral.ai/> and
-<https://ollama.com>.
+<https://openai.com>, <https://aistudio.google.com/>,
+<https://mistral.ai/> and <https://ollama.com>.
 
 %prep
 %setup -q -c -n %{packname}

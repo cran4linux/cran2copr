@@ -1,39 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  canvasXpress
-%global packver   1.55.9
+%global packname  STCCGEV
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.55.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualization Package for CanvasXpress in R
+Summary:          Conditional Copula Model for Crop Yield Forecasting
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmlwidgets >= 1.0
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-bsts 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-rootSolve 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-htmlwidgets >= 1.0
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-bsts 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-CRAN-rootSolve 
 Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Enables creation of visualizations using the CanvasXpress framework in R.
-CanvasXpress is a standalone JavaScript library for reproducible research
-with complete tracking of data and end-user modifications stored in a
-single PNG image that can be played back. See
-<https://www.canvasxpress.org> for more information.
+Provides functions to model and forecast crop yields using a spatial
+temporal conditional copula approach. The package incorporates extreme
+weather covariates and Bayesian Structural Time Series models to analyze
+crop yield dependencies across multiple regions. Includes tools for
+fitting, simulating, and visualizing results. This method build upon
+established R packages, including 'Hofert' 'et' 'al'. (2025)
+<doi:10.32614/CRAN.package.copula>, 'Scott' (2024)
+<doi:10.32614/CRAN.package.bsts>, and 'Stephenson' 'et' 'al'. (2024)
+<doi:10.32614/CRAN.package.evd>.
 
 %prep
 %setup -q -c -n %{packname}

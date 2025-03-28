@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  connectapi
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Interacting with the 'Posit Connect' Server API
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-rlang >= 0.4.2
 Requires:         R-CRAN-vctrs >= 0.3.0
 Requires:         R-CRAN-bit64 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-base64enc 
 
 %description
 Provides a helpful 'R6' class and methods for interacting with the 'Posit

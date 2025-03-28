@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DrugUtilisation
-%global packver   0.8.3
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Summarise Patient-Level Drug Utilisation in Data Mapped to the OMOP Common Data Model
 
@@ -19,30 +19,28 @@ Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-CodelistGenerator >= 3.1.0
 BuildRequires:    R-CRAN-CDMConnector >= 1.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 1.0.0
 BuildRequires:    R-CRAN-PatientProfiles >= 1.0.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-clock 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-clock 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-CodelistGenerator >= 3.1.0
 Requires:         R-CRAN-CDMConnector >= 1.4.0
+Requires:         R-CRAN-omopgenerics >= 1.0.0
 Requires:         R-CRAN-PatientProfiles >= 1.0.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-clock 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-clock 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 
 %description
 Summarise patient-level drug utilisation cohorts using data mapped to the

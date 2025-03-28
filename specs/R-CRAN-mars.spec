@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BGLR
-%global packver   1.1.4
+%global packname  mars
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Generalized Linear Regression
+Summary:          Meta Analysis and Research Synthesis
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-truncnorm 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-truncnorm 
-Requires:         R-CRAN-MASS 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-corpcor 
+BuildRequires:    R-CRAN-matrixcalc 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-corpcor 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-Bayesian Generalized Linear Regression.
+Includes functions for conducting univariate and multivariate
+meta-analysis. This includes the estimation of the asymptotic
+variance-covariance matrix of effect sizes. For more details see Becker
+(1992) <doi:10.2307/1165128>, Cooper, Hedges, and Valentine (2019)
+<doi:10.7758/9781610448864>, and Schmid, Stijnen, and White (2020)
+<doi:10.1201/9781315119403>.
 
 %prep
 %setup -q -c -n %{packname}

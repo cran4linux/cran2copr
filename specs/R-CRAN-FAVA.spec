@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FAVA
-%global packver   1.0.7
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantify Compositional Variability Across Relative Abundance Vectors
 
@@ -34,7 +34,7 @@ across vectors of relative Abundances, as well as a suite of helper
 functions which enable the visualization and statistical analysis of
 relative abundance data. The 'FAVA' R package accompanies the paper,
 “Quantifying compositional variability in microbial communities with FAVA”
-by Morrison, Xue, and Rosenberg (2024) <doi:10.1101/2024.07.03.601929>.
+by Morrison, Xue, and Rosenberg (2025) <doi:10.1073/pnas.2413211122>.
 
 %prep
 %setup -q -c -n %{packname}

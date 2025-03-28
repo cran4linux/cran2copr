@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nonprobsvy
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Based on Non-Probability Samples
 
@@ -23,12 +23,12 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ncvreg 
-BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-nleqslv 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-formula.tools 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 1.0.12
 Requires:         R-CRAN-survey 
@@ -37,23 +37,25 @@ Requires:         R-stats
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ncvreg 
-Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-nleqslv 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-parallel 
+Requires:         R-CRAN-formula.tools 
 
 %description
 Statistical inference with non-probability samples when auxiliary
 information from external sources such as probability samples or
-population totals or means is available. Details can be found in: Wu et
-al. (2020) <doi:10.1080/01621459.2019.1677241>, Kim et al. (2021)
-<doi:10.1111/rssa.12696>, Wu et al. (2023)
-<https://www150.statcan.gc.ca/n1/pub/12-001-x/2022002/article/00002-eng.htm>,
-Kim et al. (2021)
-<https://www150.statcan.gc.ca/n1/pub/12-001-x/2021001/article/00004-eng.htm>,
-Kim et al. (2020) <doi:10.1111/rssb.12354>.
+population totals or means is available. The package implements various
+methods such as inverse probability (propensity score) weighting, mass
+imputation and doubly robust approach. Details can be found in: Chen et
+al. (2020) <doi:10.1080/01621459.2019.1677241>, Yang et al. (2020)
+<doi:10.1111/rssb.12354>, Kim et al. (2021) <doi:10.1111/rssa.12696>, Yang
+et al. (2021)
+<https://www150.statcan.gc.ca/n1/pub/12-001-x/2021001/article/00004-eng.htm>
+and Wu (2022)
+<https://www150.statcan.gc.ca/n1/pub/12-001-x/2022002/article/00002-eng.htm>.
 
 %prep
 %setup -q -c -n %{packname}
