@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grpnet
-%global packver   0.7
+%global packver   0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7
+Version:          0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Elastic Net Regularized GLMs and GAMs
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 3.5.0
 
 %description
 Efficient algorithms for fitting generalized linear and additive models
-with group elastic net penalties as described in Helwig (2024)
+with group elastic net penalties as described in Helwig (2025)
 <doi:10.1080/10618600.2024.2362232>. Implements group LASSO, group MCP,
 and group SCAD with an optional group ridge penalty. Computes the
 regularization path for linear regression (gaussian), multivariate

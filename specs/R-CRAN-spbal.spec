@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spbal
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Balanced Sampling Algorithms
 
@@ -34,7 +34,9 @@ L., Brown, J. A., McDonald, T. and Jaksons, P. (2013)
 Brown, J. A. (2017) <doi:10.1016/j.spl.2017.05.004>. Robertson, B. L.,
 McDonald, T., Price, C. J. and Brown, J. A. (2018)
 <doi:10.1007/s10651-018-0406-6>. Robertson, B. L., van Dam-Bates, P. and
-Gansell, O. (2021a) <doi:10.1007/s10651-020-00481-1>.
+Gansell, O. (2021a) <doi:10.1007/s10651-020-00481-1>. Robertson, B. L.,
+Davies, P., Gansell, O., van Dam-Bates, P., McDonald, T. (2025)
+<doi:10.1111/anzs.12435>.
 
 %prep
 %setup -q -c -n %{packname}

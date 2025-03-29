@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semaphore
-%global packver   1.2.0
+%global packname  dynemu
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shared Memory Atomic Operations
+Summary:          Emulation of Dynamic Simulators via One-Step-Ahead Approach
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,16 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-plgp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-plgp 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
 
 %description
-Implements named semaphores from the 'boost' 'C++' library
-<https://www.boost.org/> for interprocess communication. Multiple 'R'
-sessions on the same host can block (with optional timeout) on a semaphore
-until it becomes positive, then atomically decrement it and unblock. Any
-session can increment the semaphore.
+Performs emulation of dynamic simulators using Gaussian process via
+one-step ahead approach. The package implements a flexible framework for
+approximating time-dependent outputs from computationally expensive
+dynamic systems. It is specifically designed for nonlinear dynamic systems
+where full simulations may be costly. The underlying Gaussian process
+model accounts for temporal dependency through the one-step-ahead
+formulation, allowing for accurate emulation of complex dynamics.
+Hyperparameters are estimated via maximum likelihood. See Heo (2025,
+<doi:10.48550/arXiv.2503.20250>) for exact method, and Mohammadi,
+Challenor, and Goodfellow (2019, <doi:10.1016/j.csda.2019.05.006>) for
+methodological details.
 
 %prep
 %setup -q -c -n %{packname}

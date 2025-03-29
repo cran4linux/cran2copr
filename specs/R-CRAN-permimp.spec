@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  permimp
-%global packver   1.0-2
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Permutation Importance
 
@@ -23,6 +24,7 @@ BuildRequires:    R-CRAN-ipred >= 0.9.6
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-randomForest >= 4.6.14
@@ -32,6 +34,7 @@ Requires:         R-CRAN-ipred >= 0.9.6
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-pbapply 
 Requires:         R-stats 
 Requires:         R-utils 
 

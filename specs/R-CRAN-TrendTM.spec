@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrendTM
-%global packver   2.0.19
+%global packver   2.0.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.19
+Version:          2.0.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Trend of High-Dimensional Time Series Matrix Estimation
 
@@ -27,8 +27,8 @@ Requires:         R-CRAN-fda
 %description
 Matrix factorization for multivariate time series with both low rank and
 temporal structures. The procedure is the one proposed by Alquier, P. and
-Marie, N. Matrix factorization for multivariate time series analysis.
-Electronic journal of statistics, 13(2), 4346-4366 (2019).
+Marie, N. "Matrix factorization for multivariate time series analysis."
+Electronic Journal of Statistics, 13(2), 4346-4366 (2019).
 
 %prep
 %setup -q -c -n %{packname}

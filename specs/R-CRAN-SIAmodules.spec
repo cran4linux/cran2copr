@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIAmodules
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modules for 'ShinyItemAnalysis'
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-difNLR >= 1.5.1.1
 BuildRequires:    R-CRAN-ShinyItemAnalysis >= 1.5.0
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-difNLR 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-forcats 
@@ -39,9 +39,9 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-difNLR >= 1.5.1.1
 Requires:         R-CRAN-ShinyItemAnalysis >= 1.5.0
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-difNLR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-forcats 

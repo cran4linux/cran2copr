@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  jalcal
-%global packver   0.1.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conversion Between Jalali (Persian or Solar Hijri) and Gregorian Calendar Dates
+Summary:          Convert Between Jalaali (Persian or Solar Hijri) and Gregorian Calendar Dates
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,11 +19,15 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-Jalali, also known as Persian, Solar Hijri and Hijri Shamsi calendar is
-the official calendar of Iran and Afghanistan. It begins on Nowruz, the
-March equinox, as determined by astronomical calculation and has years of
-365 or 366 days. Adapting the algorithms in <https://jdf.scr.ir/>, this
-package provides tools for converting the Jalali and Gregorian dates.
+The Jalaali calendar, also known as the Persian or Solar Hijri calendar,
+is the official calendar of Iran and Afghanistan. It starts on Nowruz, the
+spring equinox, and follows an astronomical system for determining leap
+years. Each year consists of 365 or 366 days, divided into 12 months. This
+package provides functions for converting dates between the Jalaali and
+Gregorian calendars. The conversion calculations are based on the work of
+Kazimierz M. Borkowski (1996) (<doi:10.1007/BF00055188>), who used an
+analytical model of Earth's motion to compute equinoxes from AD 550 to
+3800 and determine leap years based on Tehran time.
 
 %prep
 %setup -q -c -n %{packname}

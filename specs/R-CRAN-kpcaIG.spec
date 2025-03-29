@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kpcaIG
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Variables Interpretability with Kernel PCA
 
@@ -25,6 +25,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-WallomicsData 
+BuildRequires:    R-utils 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rgl 
 Requires:         R-CRAN-kernlab 
@@ -33,6 +34,7 @@ Requires:         R-stats
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-WallomicsData 
+Requires:         R-utils 
 
 %description
 The kernelized version of principal component analysis (KPCA) has proven

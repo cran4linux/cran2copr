@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  semaphore
-%global packver   1.2.0
+%global packname  msda
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shared Memory Atomic Operations
+Summary:          Multi-Class Sparse Discriminant Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 
 %description
-Implements named semaphores from the 'boost' 'C++' library
-<https://www.boost.org/> for interprocess communication. Multiple 'R'
-sessions on the same host can block (with optional timeout) on a semaphore
-until it becomes positive, then atomically decrement it and unblock. Any
-session can increment the semaphore.
+Efficient procedures for computing a new Multi-Class Sparse Discriminant
+Analysis method that estimates all discriminant directions simultaneously.
+It is an implementation of the work proposed by Mai, Q., Yang, Y., and
+Zou, H. (2019) <doi:10.5705/ss.202016.0117>.
 
 %prep
 %setup -q -c -n %{packname}

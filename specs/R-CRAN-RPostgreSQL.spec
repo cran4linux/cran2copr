@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPostgreSQL
-%global packver   0.7-7
+%global packver   0.7-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.7
+Version:          0.7.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'PostgreSQL' Database System
 
