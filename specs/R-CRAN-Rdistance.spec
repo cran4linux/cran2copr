@@ -1,47 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rdistance
-%global packver   3.1.4
+%global packver   4.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.4
+Version:          4.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distance-Sampling Analyses for Density and Abundance Estimation
+Summary:          Density and Abundance from Distance-Sampling Surveys
 
 License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-units 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-units 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-units 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Distance-sampling analyses (<doi:10.1007/978-3-319-19219-2>) estimate
-density and abundance of survey targets (e.g., animals) when detection
-declines with distance. Distance-sampling is popular ecology, especially
-when survey targets are observed from aerial platforms (e.g., airplane or
-drone), surface vessels (e.g., boat or truck), or along walking transects.
-Both point and line transects can be analyzed. Outputs include overall
-(study area) density and abundance, effective sampling distances, and
-model fit statistics. A large suite of classical, parametric detection
-functions (e.g., half-normal, hazard rate) is included along with uncommon
-parametric functions (e.g., Gamma, negative exponential). Non-parametric
-smoothed distance functions are included. Measurement unit integrity is
-enforced via internal unit conversion. The help files and vignettes have
-been vetted by multiple authors and tested in workshop settings.
+Distance-sampling (<doi:10.1007/978-3-319-19219-2>) estimates density and
+abundance of survey targets (e.g., animals) when detection probability
+declines with distance. Distance-sampling is popular in ecology,
+especially when survey targets are observed from aerial platforms (e.g.,
+airplane or drone), surface vessels (e.g., boat or truck), or along
+walking transects. Distance-sampling includes line-transect studies that
+measure observation distances as the closest approach of the sample route
+(transect) to the target (i.e., perpendicular off-transect distance), and
+point-transect studies that measure observation distances from stationary
+observers to the target (i.e., radial distance). The routines included
+here fit smooth (parametric) curves to histograms of observation distances
+and use those functions to compute effective sampling distances, density
+of targets in the surveyed area, and abundance of targets in a surrounding
+study area. Curve shapes include the half-normal, hazard rate, and
+negative exponential functions. Physical measurement units are required
+and used throughout to ensure density is reported correctly. The help
+files are extensive and have been vetted by multiple authors.
 
 %prep
 %setup -q -c -n %{packname}

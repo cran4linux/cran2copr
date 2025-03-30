@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  enmSdmX
-%global packver   1.2.10
+%global packver   1.2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Species Distribution Modeling and Ecological Niche Modeling
 
@@ -19,11 +19,13 @@ Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-AICcmodavg 
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-gbm 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ks 
 BuildRequires:    R-CRAN-maxnet 
@@ -44,11 +46,13 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-utils 
 Requires:         R-CRAN-AICcmodavg 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-gbm 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-CRAN-ks 
 Requires:         R-CRAN-maxnet 

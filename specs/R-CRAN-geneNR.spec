@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geneNR
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated Gene Identification for Post-GWAS Analysis
+Summary:          Automated Gene Identification for Post-GWAS and QTL Analysis
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,9 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-vcfR 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
@@ -31,16 +34,20 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
 
 %description
-Facilitates the post-Genome Wide Association Studies (GWAS) analysis of
-identifying candidate genes within user-defined search window, based on
-the identified Single Nucleotide Polymorphisms (SNPs) as given by Mazumder
-AK (2024) <doi:10.1038/s41598-024-66903-3>. It supports candidate gene
-analysis for wheat and rice. Just import your GWAS result as explained in
-the sample_data file and the function does all the manual search and
-retrieve candidate genes for you, while exporting the results into
-ready-to-use output.
+Facilitates the post-Genome Wide Association Studies (GWAS) and
+Quantitative Trait Loci (QTL) analysis of identifying candidate genes
+within user-defined search window, based on the identified Single
+Nucleotide Polymorphisms (SNPs) as given by Mazumder AK (2024)
+<doi:10.1038/s41598-024-66903-3>. It supports candidate gene analysis for
+wheat and rice. Just import your GWAS result as explained in the
+sample_data file and the function does all the manual search and retrieve
+candidate genes for you, while exporting the results into ready-to-use
+output.
 
 %prep
 %setup -q -c -n %{packname}

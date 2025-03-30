@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  incgraph
-%global packver   1.0.1
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
-Release:          3%{?dist}%{?buildtag}
+Version:          1.0.3
+Release:          1%{?dist}%{?buildtag}
 Summary:          Incremental Graphlet Counting for Network Optimisation
 
 License:          GPL-3
@@ -19,17 +20,11 @@ BuildRequires:    R-CRAN-Rcpp >= 0.11.4
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-orca 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp >= 0.11.4
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-orca 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-tibble 
 
 %description
 An efficient and incremental approach for calculating the differences in
@@ -40,6 +35,15 @@ recalculating all orbit counts from scratch for each time point.
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -49,6 +53,8 @@ mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

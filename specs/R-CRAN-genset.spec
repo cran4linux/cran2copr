@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genset
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generates Data Sets for Class Demonstrations
+Summary:          Generates Multiple Data Sets
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,10 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-For educational purposes to demonstrate the importance of multiple
-regression. The genset function generates a data set from an initial data
-set to have the same summary statistics (mean, median, and standard
-deviation) but opposing regression results.
+Generate multiple data sets for educational purposes to demonstrate the
+importance of multiple regression. The genset function generates a data
+set from an initial data set to have the same summary statistics (mean,
+median, and standard deviation) but opposing regression results.
 
 %prep
 %setup -q -c -n %{packname}
