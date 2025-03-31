@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SplitGLM
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Split Generalized Linear Models
 
@@ -26,7 +26,8 @@ generalized linear models that split the covariates into groups. The
 optimal split of the variables into groups and the regularized estimation
 of the coefficients are performed by minimizing an objective function that
 encourages sparsity within each group and diversity among them. Example
-applications can be found in Christidis et al. (2021) <arXiv:2102.08591>.
+applications can be found in Christidis et al. (2021)
+<doi:10.48550/arXiv.2102.08591>.
 
 %prep
 %setup -q -c -n %{packname}

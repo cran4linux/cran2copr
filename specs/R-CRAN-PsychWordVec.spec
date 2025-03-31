@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PsychWordVec
-%global packver   2023.9
+%global packver   2025.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.9
+Version:          2025.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Word Embedding Research Framework for Psychological Science
 
@@ -35,8 +35,6 @@ BuildRequires:    R-CRAN-rsparse
 BuildRequires:    R-CRAN-text2vec 
 BuildRequires:    R-CRAN-word2vec 
 BuildRequires:    R-CRAN-fastTextR 
-BuildRequires:    R-CRAN-text 
-BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-bruceR 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-stringr 
@@ -55,23 +53,19 @@ Requires:         R-CRAN-rsparse
 Requires:         R-CRAN-text2vec 
 Requires:         R-CRAN-word2vec 
 Requires:         R-CRAN-fastTextR 
-Requires:         R-CRAN-text 
-Requires:         R-CRAN-reticulate 
 
 %description
 An integrative toolbox of word embedding research that provides: (1) a
 collection of 'pre-trained' static word vectors in the '.RData' compressed
-format <https://psychbruce.github.io/WordVector_RData.pdf>; (2) a series
-of functions to process, analyze, and visualize word vectors; (3) a range
-of tests to examine conceptual associations, including the Word Embedding
+format <https://psychbruce.github.io/WordVector_RData.pdf>; (2) a group of
+functions to process, analyze, and visualize word vectors; (3) a range of
+tests to examine conceptual associations, including the Word Embedding
 Association Test <doi:10.1126/science.aal4230> and the Relative Norm
 Distance <doi:10.1073/pnas.1720347115>, with permutation test of
-significance; (4) a set of training methods to locally train (static) word
-vectors from text corpora, including 'Word2Vec' <arXiv:1301.3781>, 'GloVe'
-<doi:10.3115/v1/D14-1162>, and 'FastText' <arXiv:1607.04606>; (5) a group
-of functions to download 'pre-trained' language models (e.g., 'GPT',
-'BERT') and extract contextualized (dynamic) word vectors (based on the R
-package 'text').
+significance; and (4) a set of training methods to locally train (static)
+word vectors from text corpora, including 'Word2Vec'
+<doi:10.48550/arXiv.1301.3781>, 'GloVe' <doi:10.3115/v1/D14-1162>, and
+'FastText' <doi:10.48550/arXiv.1607.04606>.
 
 %prep
 %setup -q -c -n %{packname}

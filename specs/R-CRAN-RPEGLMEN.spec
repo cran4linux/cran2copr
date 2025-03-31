@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RPEGLMEN
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gamma and Exponential Generalized Linear Models with Elastic Net Penalty
 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-RPEIF
 %description
 Implements the fast iterative shrinkage-thresholding algorithm (FISTA)
 algorithm to fit a Gamma distribution with an elastic net penalty as
-described in Chen, Arakvin and Martin (2018) <arxiv:1804.07780>. An
-implementation for the case of the exponential distribution is also
-available, with details available in Chen and Martin (2018)
-<https://papers.ssrn.com/abstract_id=3085672>.
+described in Chen, Arakvin and Martin (2018)
+<doi:10.48550/arXiv.1804.07780>. An implementation for the case of the
+exponential distribution is also available, with details available in Chen
+and Martin (2018) <doi:10.2139/ssrn.3085672>.
 
 %prep
 %setup -q -c -n %{packname}
