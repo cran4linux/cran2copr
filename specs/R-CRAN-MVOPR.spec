@@ -1,32 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opencv
-%global packver   0.5.1
+%global packname  MVOPR
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to 'OpenCV' Computer Vision Library
+Summary:          Multi-View Orthogonal Projection Regression for Multi-Modality Integration
 
-License:          MIT + file LICENSE
+License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    opencv-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ncvreg 
+BuildRequires:    R-CRAN-rrpack 
+Requires:         R-CRAN-ncvreg 
+Requires:         R-CRAN-rrpack 
 
 %description
-Exposes some of the available 'OpenCV' <https://opencv.org/> algorithms,
-such as a QR code scanner, and edge, body or face detection. These can
-either be applied to analyze static images, or to filter live video
-footage from a camera device.
+Implements the 'MVOPR' (Multi-View Orthogonal Projection Regression)
+method for robust variable selection and integration of multi-modality
+data.
 
 %prep
 %setup -q -c -n %{packname}

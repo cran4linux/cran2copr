@@ -1,32 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opencv
-%global packver   0.5.1
+%global packname  LikertEZ
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to 'OpenCV' Computer Vision Library
+Summary:          Easy Analysis and Visualization of Likert Scale Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    opencv-devel
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-magrittr 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Exposes some of the available 'OpenCV' <https://opencv.org/> algorithms,
-such as a QR code scanner, and edge, body or face detection. These can
-either be applied to analyze static images, or to filter live video
-footage from a camera device.
+Provides functions for summarizing, visualizing, and analyzing
+Likert-scale survey data. Includes support for computing descriptive
+statistics, Relative Importance Index (RII), reliability analysis
+(Cronbach's Alpha), and response distribution plots.
 
 %prep
 %setup -q -c -n %{packname}

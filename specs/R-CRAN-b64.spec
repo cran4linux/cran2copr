@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  b64
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Vectorized Base 64 Engine
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
 Provides a fast, lightweight, and vectorized base 64 engine to encode and
-decode character and raw vectors as well as files stored on disk.  Common
+decode character and raw vectors as well as files stored on disk. Common
 base 64 alphabets are supported out of the box including the standard,
 URL-safe, bcrypt, crypt, 'BinHex', and IMAP-modified UTF-7 alphabets.
 Custom engines can be created to support unique base 64 encoding and

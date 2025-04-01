@@ -1,43 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gdm
-%global packver   1.6.0-6
+%global packname  subselect
+%global packver   0.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0.6
+Version:          0.16.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Dissimilarity Modeling
+Summary:          Selecting Variable Subsets
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-pbapply 
-Requires:         R-parallel 
-Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-pbapply 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ISwR 
+BuildRequires:    R-CRAN-corpcor 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ISwR 
+Requires:         R-CRAN-corpcor 
 
 %description
-A toolkit with functions to fit, plot, summarize, and apply Generalized
-Dissimilarity Models. Mokany K, Ware C, Woolley SNC, Ferrier S,
-Fitzpatrick MC (2022) <doi:10.1111/geb.13459> Ferrier S, Manion G, Elith
-J, Richardson K (2007) <doi:10.1111/j.1472-4642.2007.00341.x>.
+A collection of functions which (i) assess the quality of variable subsets
+as surrogates for a full data set, in either an exploratory data analysis
+or in the context of a multivariate linear model, and (ii) search for
+subsets which are optimal under various criteria. Theoretical support for
+the heuristic search methods and exploratory data analysis criteria is in
+Cadima, Cerdeira, Minhoto (2003, <doi:10.1016/j.csda.2003.11.001>).
+Theoretical support for the leap and bounds algorithm and the criteria for
+the general multivariate linear model is in Duarte Silva (2001,
+<doi:10.1006/jmva.2000.1920>). There is a package vignette "subselect",
+which includes additional references.
 
 %prep
 %setup -q -c -n %{packname}

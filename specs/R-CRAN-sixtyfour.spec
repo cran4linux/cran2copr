@@ -1,51 +1,66 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vvcanvas
-%global packver   0.0.5
+%global packname  sixtyfour
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Canvas' LMS API Integration
+Summary:          Humane Interface to Amazon Web Services
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-paws >= 0.9.0
+BuildRequires:    R-CRAN-paws.common >= 0.8.1
+BuildRequires:    R-CRAN-s3fs >= 0.1.5
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-htm2txt 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-ipaddress 
+Requires:         R-CRAN-paws >= 0.9.0
+Requires:         R-CRAN-paws.common >= 0.8.1
+Requires:         R-CRAN-s3fs >= 0.1.5
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-htm2txt 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-mime 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-ipaddress 
 
 %description
-Allow R users to interact with the 'Canvas' Learning Management System
-(LMS) API (see <https://canvas.instructure.com/doc/api/all_resources.html>
-for details). It provides a set of functions to access and manipulate
-course data, assignments, grades, users, and other resources available
-through the 'Canvas' API.
+An opinionated interface to Amazon Web Services <https://aws.amazon.com>,
+with functions for interacting with 'IAM' (Identity and Access
+Management), 'S3' (Simple Storage Service), 'RDS' (Relational Data
+Service), Redshift, and Billing. Lower level functions ('aws_' prefix) are
+for do it yourself workflows, while higher level functions ('six_' prefix)
+automate common tasks.
 
 %prep
 %setup -q -c -n %{packname}

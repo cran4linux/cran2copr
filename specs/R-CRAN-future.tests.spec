@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.tests
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Suite for 'Future API' Backends
 
@@ -29,12 +29,12 @@ Requires:         R-CRAN-prettyunits
 Requires:         R-CRAN-sessioninfo 
 
 %description
-Backends implementing the 'Future' API, as defined by the 'future'
-package, should use the tests provided by this package to validate that
-they meet the minimal requirements of the 'Future' API.  The tests can be
-performed easily from within R or from outside of R from the command line
-making it straightforward to include them in package tests and in
-Continuous Integration (CI) pipelines.
+Backends implementing the 'Future' API <doi:10.32614/RJ-2021-048>, as
+defined by the 'future' package, should use the tests provided by this
+package to validate that they meet the minimal requirements of the
+'Future' API.  The tests can be performed easily from within R or from
+outside of R from the command line making it straightforward to include
+them in package tests and in Continuous Integration (CI) pipelines.
 
 %prep
 %setup -q -c -n %{packname}

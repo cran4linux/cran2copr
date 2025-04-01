@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TestGenerator
-%global packver   0.3.3
+%global packname  filibustr
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
+Summary:          Data Utilities for Congressional Research
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,44 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-CDMConnector 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-duckdb 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-CRAN-arrow 
-BuildRequires:    R-CRAN-openxlsx 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-CDMConnector 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-duckdb 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-tools 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-testthat 
-Requires:         R-CRAN-arrow 
-Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-tools 
 
 %description
-Push a sample population for unit testing on data mapped to the
-Observational Medical Outcomes Partnership (OMOP) Common Data Model.
+Provides easy-to-understand and consistent interfaces for accessing data
+on the U.S. Congress. The functions in 'filibustr' streamline the process
+for importing data on Congress into R, removing the need to download and
+work from CSV files and the like. Data sources include 'Voteview'
+(<https://voteview.com/>), the U.S. Senate website
+(<https://www.senate.gov/>), and more.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fdaMocca
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Based Clustering for Functional Data with Covariates
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -45,10 +45,10 @@ spline coefficients and the covariates are modelled as a multivariate
 Gaussian mixture model, where the number of mixtures corresponds to the
 number of clusters. The parameters of the model are estimated by
 maximizing the observed mixture likelihood via an EM algorithm (Arnqvist
-and Sjöstedt de Luna, 2019) <arXiv:1904.10265>. The clustering method is
-used to analyze annual lake sediment from lake Kassjön (Northern Sweden)
-which cover more than 6400 years and can be seen as historical records of
-weather and climate.
+and Sjöstedt de Luna, 2019) <doi:10.48550/arXiv.1904.10265>. The
+clustering method is used to analyze annual lake sediment from lake
+Kassjön (Northern Sweden) which cover more than 6400 years and can be seen
+as historical records of weather and climate.
 
 %prep
 %setup -q -c -n %{packname}

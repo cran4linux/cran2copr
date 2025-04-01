@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ottrpal
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Companion Tools for Open-Source Tools for Training Resources (OTTR)
 
@@ -14,46 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.10
-BuildRequires:    R-CRAN-knitr >= 1.33
-BuildRequires:    R-CRAN-bookdown 
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-openssl 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rprojroot 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-gitcreds 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-webshot2 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-spelling 
 BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-googledrive 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-rmarkdown >= 2.10
-Requires:         R-CRAN-knitr >= 1.33
-Requires:         R-CRAN-bookdown 
-Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-openssl 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rprojroot 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-gitcreds 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-webshot2 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-spelling 
 Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-googledrive 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-yaml 
 
 %description
