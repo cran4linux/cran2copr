@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rskey
-%global packver   0.4.4
+%global packver   0.4.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          0.4.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Custom 'Rstudio' Keyboard Shortcuts
 

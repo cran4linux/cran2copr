@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiblock
-%global packver   0.8.9.0
+%global packver   0.8.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9.0
+Version:          0.8.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiblock Data Fusion in Statistics and Machine Learning
 
@@ -16,9 +16,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-HDANOVA >= 0.8.2
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-HDANOVA 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-mixlm 
 BuildRequires:    R-CRAN-plotrix 
@@ -30,9 +30,9 @@ BuildRequires:    R-CRAN-Rcpp
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-SSBtools 
 BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-HDANOVA >= 0.8.2
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-car 
-Requires:         R-CRAN-HDANOVA 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-mixlm 
 Requires:         R-CRAN-plotrix 

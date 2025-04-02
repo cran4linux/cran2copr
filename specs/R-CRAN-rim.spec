@@ -1,32 +1,41 @@
 %global __brp_check_rpaths %{nil}
-%global packname  geovol
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  rim
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Geopolitical Volatility (GEOVOL) Modelling
+Summary:          Interface to 'Maxima', Enabling Symbolic Computation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-zoo 
-Requires:         R-CRAN-zoo 
+Recommends:       maxima
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-GlobalOptions 
+Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-GlobalOptions 
 
 %description
-Simulation, estimation and inference for the geopolitical volatility
-(GEOVOL) model of Engle and Campos-Martins (2020)
-<doi:10.2139/ssrn.3685213>, where GEOVOL is modelled as a latent
-multiplicative volatility factor with heterogeneous factor loadings.
-Estimation is carried out as a maximization-maximization procedure, where
-GEOVOL and the GEOVOL loadings are estimated iteratively until
-convergence.
+An interface to the powerful and fairly complete computer algebra system
+'Maxima'. It can be used to start and control 'Maxima' from within R by
+entering 'Maxima' commands. Results from 'Maxima' can be parsed and
+evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
+and 'MathML'. 2D and 3D plots can be displayed directly. This package also
+registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
+'RMarkdown' documents.
 
 %prep
 %setup -q -c -n %{packname}

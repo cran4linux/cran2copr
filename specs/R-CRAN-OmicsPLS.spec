@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OmicsPLS
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Integration with Two-Way Orthogonal Partial Least Squares
 
@@ -24,6 +25,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-softImpute 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -32,6 +34,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-softImpute 
+Requires:         R-CRAN-withr 
 
 %description
 Performs the O2PLS data integration method for two datasets, yielding
@@ -54,6 +57,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

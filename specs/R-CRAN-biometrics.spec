@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vampyr
-%global packver   1.1.1
+%global __requires_exclude ^libmpi
+%global packname  biometrics
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Factor Analysis Controlling the Effects of Response Bias
+Summary:          Functions and Datasets for Forest Biometrics and Modelling
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-EFA.MRFA 
-BuildRequires:    R-CRAN-GPArotation 
-BuildRequires:    R-CRAN-PCovR 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-lavaan 
-BuildRequires:    R-CRAN-fungible 
-BuildRequires:    R-CRAN-semPlot 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-datana 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-EFA.MRFA 
-Requires:         R-CRAN-GPArotation 
-Requires:         R-CRAN-PCovR 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-lavaan 
-Requires:         R-CRAN-fungible 
-Requires:         R-CRAN-semPlot 
+Requires:         R-graphics 
+Requires:         R-CRAN-datana 
 
 %description
-Vampirize the response biases from a dataset! Performs factor analysis
-controlling the effects of social desirability and acquiescence using the
-method described in Ferrando, Lorenzo-Seva & Chico (2009)
-<doi:10.1080/10705510902751374>.
+A system of functions and data aiming to apply quantitative analyses to
+forest ecology, silviculture and decision-support systems. Besides, the
+package helps to carry out data management, exploratory analysis, and
+model assessment.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

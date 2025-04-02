@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  winfapReader
-%global packver   0.1-6
+%global packname  nonstat
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with Peak Flow Data in the United Kingdom
+Summary:          Detecting Nonstationarity in Time Series
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-utils 
-Requires:         R-CRAN-lubridate 
 
 %description
-Obtain information on peak flow data from the National River Flow Archive
-(NRFA) in the United Kingdom, either from the Peak Flow Dataset files
-<https://nrfa.ceh.ac.uk/data/peak-flow-dataset> once these have been
-downloaded to the user's computer or using the NRFA's API. These files are
-in a format suitable for direct use in the 'WINFAP' software, hence the
-name of the package.
+Provides a nonvisual procedure for screening time series for
+nonstationarity in the context of intensive longitudinal designs, such as
+ecological momentary assessments. The method combines two diagnostics: one
+for detecting trends (based on the split R-hat statistic from Bayesian
+convergence diagnostics) and one for detecting changes in variance (a
+novel extension inspired by Levene's test). This approach allows
+researchers to efficiently and reproducibly detect violations of the
+stationarity assumption, especially when visual inspection of many
+individual time series is impractical. The procedure is suitable for use
+in all areas of research where time series analysis is central. For a
+detailed description of the method and its validation through simulations
+and empirical application, see Zitzmann, S., Lindner, C., Lohmann, J. F.,
+& Hecht, M. (2024) "A Novel Nonvisual Procedure for Screening for
+Nonstationarity in Time Series as Obtained from Intensive Longitudinal
+Designs"
+<https://www.researchgate.net/publication/384354932_A_Novel_Nonvisual_Procedure_for_Screening_for_Nonstationarity_in_Time_Series_as_Obtained_from_Intensive_Longitudinal_Designs>.
 
 %prep
 %setup -q -c -n %{packname}

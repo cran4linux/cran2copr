@@ -1,76 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tabnet
-%global packver   0.6.0
+%global packname  ForecastingEnsembles
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit 'TabNet' Models for Classification and Regression
+Summary:          Time Series Forecasting Using 23 Individual Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-hardhat >= 1.3.0
-BuildRequires:    R-CRAN-torch >= 0.4.0
-BuildRequires:    R-CRAN-coro 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-dials 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fable 
+BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-fable.prophet 
+BuildRequires:    R-CRAN-feasts 
+BuildRequires:    R-CRAN-fracdiff 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gt 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-parsnip 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-urca 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-hardhat >= 1.3.0
-Requires:         R-CRAN-torch >= 0.4.0
-Requires:         R-CRAN-coro 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-dials 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fable 
+Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-fable.prophet 
+Requires:         R-CRAN-feasts 
+Requires:         R-CRAN-fracdiff 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gt 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-CRAN-parsnip 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-parallel 
+Requires:         R-CRAN-readr 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tune 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-urca 
 Requires:         R-utils 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-withr 
-Requires:         R-CRAN-zeallot 
 
 %description
-Implements the 'TabNet' model by Sercan O. Arik et al. (2019)
-<doi:10.48550/arXiv.1908.07442> with 'Coherent Hierarchical Multi-label
-Classification Networks' by Giunchiglia et al.
-<doi:10.48550/arXiv.2010.10151> and provides a consistent interface for
-fitting and creating predictions. It's also fully compatible with the
-'tidymodels' ecosystem.
+Runs multiple individual time series models, and combines them into an
+ensembles of time series models. This is mainly used to predict the
+results of the monthly labor market report from the United States Bureau
+of Labor Statistics for virtually any part of the economy reported by the
+Bureau of Labor Statistics, but it can be easily modified to work with
+other types of time series data. For example, the package was used to
+predict the winning men's and women's time for the 2024 London Marathon.
 
 %prep
 %setup -q -c -n %{packname}

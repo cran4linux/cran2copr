@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  anim.plots
-%global packver   0.2.3
+%global packname  LTRCtrees
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Animated Plots for R
+Summary:          Survival Trees to Fit Left-Truncated and Right-Censored and Interval-Censored Survival Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-animation 
-Requires:         R-CRAN-animation 
+BuildRequires:    R-CRAN-partykit >= 1.2.0
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-inum 
+BuildRequires:    R-CRAN-icenReg 
+Requires:         R-CRAN-partykit >= 1.2.0
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-inum 
+Requires:         R-CRAN-icenReg 
 
 %description
-Simple animated versions of basic R plots, using the 'animation' package.
-Includes animated versions of plot, barplot, persp, contour,
-filled.contour, hist, curve, points, lines, text, symbols, segments, and
-arrows.
+Recursive partition algorithms designed for fitting survival trees with
+left-truncated and right-censored (LTRC) data, as well as
+interval-censored data. The LTRC trees can also be used to fit survival
+trees with time-varying covariates.
 
 %prep
 %setup -q -c -n %{packname}

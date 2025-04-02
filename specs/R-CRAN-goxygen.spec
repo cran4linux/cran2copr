@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  goxygen
-%global packver   1.0.3
+%global packver   1.4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          In-Code Documentation for 'GAMS'
 
@@ -17,15 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-gms >= 0.26.3
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-gms 
 BuildRequires:    R-CRAN-citation 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-gms >= 0.26.3
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-gms 
 Requires:         R-CRAN-citation 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 
 %description

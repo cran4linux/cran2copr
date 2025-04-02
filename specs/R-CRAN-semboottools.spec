@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  InDisc
-%global packver   1.1.0
+%global __requires_exclude ^libmpi
+%global packname  semboottools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Obtaining and Estimating Unidimensional and Multidimensional IRT Dual Models
+Summary:          Bootstrapping Helpers for Structural Equation Modelling
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-lavaan.printer 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-lavaan 
 Requires:         R-CRAN-psych 
-Requires:         R-utils 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-lavaan.printer 
 
 %description
-Performs a unified approach for obtaining and estimating unidimensional
-and multidimensional Item Response Theory (IRT) Dual Models (DMs),
-proposed by Ferrando (2019 <doi:10.1177/0146621618817779>).
+A collection of helper functions for forming bootstrapping confidence
+intervals and examining bootstrap estimates in structural equation
+modelling. Currently supports models fitted by the 'lavaan' package by
+Rosseel (2012) <doi:10.18637/jss.v048.i02>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -36,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

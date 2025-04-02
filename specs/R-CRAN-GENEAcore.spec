@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  twangRDC
-%global packver   1.0
+%global __requires_exclude ^libmpi
+%global packname  GENEAcore
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gradient Boosting for Linkage Failure in FSRDCs
+Summary:          Pre-Processing of 'GENEActiv' Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xgboost 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MatrixModels 
-Requires:         R-CRAN-xgboost 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MatrixModels 
+BuildRequires:    R-CRAN-changepoint 
+BuildRequires:    R-CRAN-signal 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-changepoint 
+Requires:         R-CRAN-signal 
+Requires:         R-methods 
 
 %description
-Provides functions for gradient boosted weighting to correct linkage
-failures or generate comparison groups.
+Analytics to read in and segment raw 'GENEActiv' accelerometer data into
+epochs and events. For more details on the 'GENEActiv' device, see
+<https://activinsights.com/resources/geneactiv-support-1-2/>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
