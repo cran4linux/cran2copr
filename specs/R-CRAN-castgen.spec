@@ -1,53 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twc
-%global packver   0.0.2
+%global packname  castgen
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Terrestrial Water Cycle
+Summary:          Estimate Sample Size for Population Genomic Studies
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-parallel >= 4.0.0
+BuildRequires:    R-CRAN-foreach >= 1.5.2
+BuildRequires:    R-CRAN-vcfR >= 1.15.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.2
+BuildRequires:    R-CRAN-doParallel >= 1.0.17
+BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-parallel 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
+Requires:         R-parallel >= 4.0.0
+Requires:         R-CRAN-foreach >= 1.5.2
+Requires:         R-CRAN-vcfR >= 1.15.0
+Requires:         R-CRAN-dplyr >= 1.1.2
+Requires:         R-CRAN-doParallel >= 1.0.17
+Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-An open-access tool/framework that constitutes the core functions to
-analyze terrestrial water cycle data across various spatio-temporal
-scales.
+Estimate sample sizes needed to capture target levels of genetic diversity
+from a population (multivariate allele frequencies) for applications like
+germplasm conservation and breeding efforts. Compares bootstrap samples to
+a full population using linear regression, employing the R-squared value
+to represent the proportion of diversity captured. Iteratively increases
+sample size until a user-defined target R-squared is met. Offers a
+parallelized R implementation of a previously developed 'python' method.
+All ploidy levels are supported. For more details, see Sandercock et al.
+(2024) <doi:10.1073/pnas.2403505121>.
 
 %prep
 %setup -q -c -n %{packname}

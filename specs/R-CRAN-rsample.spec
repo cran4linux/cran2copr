@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsample
-%global packver   1.2.1
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Resampling Infrastructure
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
-BuildRequires:    R-CRAN-rlang >= 0.4.10
 BuildRequires:    R-CRAN-slider >= 0.1.5
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-furrr 
@@ -33,9 +33,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-dplyr >= 1.1.1
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-vctrs >= 0.5.0
-Requires:         R-CRAN-rlang >= 0.4.10
 Requires:         R-CRAN-slider >= 0.1.5
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-furrr 

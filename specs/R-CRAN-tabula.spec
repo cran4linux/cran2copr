@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tabula
-%global packver   3.2.0
+%global packver   3.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis and Visualization of Archaeological Count Data
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.9.0
-BuildRequires:    R-CRAN-khroma >= 1.15.0
+BuildRequires:    R-CRAN-khroma >= 1.16.0
+BuildRequires:    R-CRAN-arkhe >= 1.10.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.9.0
-Requires:         R-CRAN-khroma >= 1.15.0
+Requires:         R-CRAN-khroma >= 1.16.0
+Requires:         R-CRAN-arkhe >= 1.10.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 

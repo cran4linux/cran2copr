@@ -1,45 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tame
-%global packver   0.0.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Timing, Anatomical, Therapeutic and Chemical Based Medication Clustering
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-tibble >= 3.0.0
+BuildRequires:    R-CRAN-tidyr >= 1.2.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-fuzzyjoin 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-tibble >= 3.0.0
+Requires:         R-CRAN-tidyr >= 1.2.0
 Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-fuzzyjoin 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-scales 
+Requires:         R-utils 
 
 %description
 Agglomerative hierarchical clustering with a bespoke distance measure

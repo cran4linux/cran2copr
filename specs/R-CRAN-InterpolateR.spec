@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDAvec
-%global packver   0.1.41
+%global packname  InterpolateR
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.41
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Summaries of Persistence Diagrams
+Summary:          A Comprehensive Toolkit for Fast and Efficient Spatial Interpolation
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-qmap 
+BuildRequires:    R-CRAN-hydroGOF 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-qmap 
+Requires:         R-CRAN-hydroGOF 
 
 %description
-Provides tools for computing various vector summaries of persistence
-diagrams studied in Topological Data Analysis. For improved computational
-efficiency, all code for the vector summaries is written in 'C++' using
-the 'Rcpp' and 'RcppArmadillo' packages.
+Spatial interpolation toolkit designed for environmental and geospatial
+applications. It includes a range of methods, from traditional techniques
+to advanced machine learning approaches, ensuring accurate and efficient
+estimation of values in unobserved locations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,58 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crplyr
-%global packver   0.4.2
+%global packname  weathR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'dplyr' Interface for Crunch
+Summary:          Interact with the U.S. National Weather Service API
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httptest >= 3.0.0
-BuildRequires:    R-CRAN-crunch >= 1.15.3
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lazyeval 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-janitor 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-lutz 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-httptest >= 3.0.0
-Requires:         R-CRAN-crunch >= 1.15.3
 Requires:         R-CRAN-dplyr 
-Requires:         R-methods 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lazyeval 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-janitor 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-lutz 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-viridisLite 
 
 %description
-In order to facilitate analysis of datasets hosted on the Crunch data
-platform <https://crunch.io/>, the 'crplyr' package implements 'dplyr'
-methods on top of the Crunch backend. The usual methods 'select',
-'filter', 'group_by', 'summarize', and 'collect' are implemented in such a
-way as to perform as much computation on the server and pull as little
-data locally as possible.
+Enables interaction with the National Weather Service application
+programming web-interface for fetching of real-time and forecast
+meteorological data. Users can provide latitude and longitude, Automated
+Surface Observing System identifier, or Automated Weather Observing System
+identifier to fetch recent weather observations and recent forecasts for
+the given location or station. Additionally, auxiliary functions exist to
+identify stations nearest to a point, convert wind direction from
+character to degrees, and fetch active warnings. Results are returned as
+simple feature objects whenever possible.
 
 %prep
 %setup -q -c -n %{packname}

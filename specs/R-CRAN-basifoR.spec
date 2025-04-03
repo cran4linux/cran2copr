@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  basifoR
-%global packver   0.4
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval and Processing of the Spanish National Forest Inventory
 
@@ -35,7 +36,7 @@ Requires:         R-utils
 
 %description
 Data sets of the Spanish National Forest Inventory
-<https://www.miteco.gob.es/es/biodiversidad/servicios/banco-datos-naturaleza/informacion-disponible/>
+<https://www.miteco.gob.es/es/biodiversidad/servicios/banco-datos-naturaleza/informacion-disponible.html>
 are processed to compute tree metrics and statistics. Function
 metrics2Vol() controls most of the routines.
 

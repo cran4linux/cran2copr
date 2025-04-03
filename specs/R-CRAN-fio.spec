@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fio
-%global packver   0.1.2
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Friendly Input-Output Analysis
 
@@ -14,8 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-Rdpack > 2.3.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-emoji 
@@ -24,8 +25,8 @@ BuildRequires:    R-CRAN-miniUI
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-Rdpack > 2.3.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-emoji 
@@ -34,7 +35,6 @@ Requires:         R-CRAN-miniUI
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-R6 
 
 %description

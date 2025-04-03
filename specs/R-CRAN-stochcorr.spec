@@ -1,46 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ropenmeteo
-%global packver   0.1.1
+%global packname  stochcorr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wrappers for 'Open-Meteo' API
+Summary:          Stochastic Correlation Modelling via Circular Diffusion
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-imputeTS 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-imputeTS 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-snow 
 
 %description
-Wrappers for the Application Programming Interface from the
-<https://open-meteo.com> project along with helper functions.  The
-<https://open-meteo.com> project streamlines access to a range of publicly
-historical and forecast meteorology data from agencies across the world.
+Performs simulation and inference of diffusion processes on circle.
+Stochastic correlation models based on circular diffusion models are
+provided. For details see Majumdar, S. and Laha, A.K. (2024) "Diffusion on
+the circle and a stochastic correlation model"
+<doi:10.48550/arXiv.2412.06343>.
 
 %prep
 %setup -q -c -n %{packname}

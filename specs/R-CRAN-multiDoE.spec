@@ -1,30 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDAvec
-%global packver   0.1.41
+%global packname  multiDoE
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.41
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Summaries of Persistence Diagrams
+Summary:          Multi-Criteria Design of Experiments for Optimal Design
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-pracma 
 
 %description
-Provides tools for computing various vector summaries of persistence
-diagrams studied in Topological Data Analysis. For improved computational
-efficiency, all code for the vector summaries is written in 'C++' using
-the 'Rcpp' and 'RcppArmadillo' packages.
+Multi-criteria design of experiments algorithm that simultaneously
+optimizes up to six different criteria ('I', 'Id', 'D', 'Ds', 'A' and
+'As'). The algorithm finds the optimal Pareto front and, if requested,
+selects a possible symmetrical design on it. The symmetrical design is
+selected based on two techniques: minimum distance with the Utopia point
+or the 'TOPSIS' approach.
 
 %prep
 %setup -q -c -n %{packname}

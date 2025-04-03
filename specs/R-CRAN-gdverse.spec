@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdverse
-%global packver   1.3-2
+%global packver   1.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Spatial Stratified Heterogeneity
 
@@ -51,12 +51,11 @@ Requires:         R-CRAN-tidyr
 Requires:         R-utils 
 
 %description
-Analyzing spatial factors and exploring spatial associations based on the
-concept of spatial stratified heterogeneity, while also taking into
-account local spatial dependencies, spatial interpretability, complex
-spatial interactions, and robust spatial stratification. Additionally, it
-supports the spatial stratified heterogeneity family established in
-academic literature.
+Detecting spatial associations via spatial stratified heterogeneity,
+accounting for spatial dependencies, interpretability, complex
+interactions, and robust stratification. In addition, it supports the
+spatial stratified heterogeneity family described in Lv et al.
+(2025)<doi:10.1111/tgis.70032>.
 
 %prep
 %setup -q -c -n %{packname}

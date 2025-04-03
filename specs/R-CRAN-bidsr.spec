@@ -1,53 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  twc
-%global packver   0.0.2
+%global packname  bidsr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Terrestrial Water Cycle
+Summary:          A Brain Imaging Data Structure ('BIDS') Parser
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-S7 >= 0.2.0
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fastmap 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-nanotime 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-S7 >= 0.2.0
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-magrittr 
-Requires:         R-methods 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-parallel 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
+Requires:         R-CRAN-fastmap 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-nanotime 
 Requires:         R-utils 
+Requires:         R-CRAN-uuid 
 
 %description
-An open-access tool/framework that constitutes the core functions to
-analyze terrestrial water cycle data across various spatio-temporal
-scales.
+Parse and read the files that comply with the brain imaging data
+structure, or 'BIDS' format, see the publication from Gorgolewski, K.,
+Auer, T., Calhoun, V. et al. (2016) <doi:10.1038/sdata.2016.44>. Provides
+query functions to extract and check the 'BIDS' entity information (such
+as subject, session, task, etc.) from the file paths and suffixes
+according to the specification. The package is developed and used in the
+reproducible analysis and visualization of intracranial
+electroencephalography, or 'RAVE', see Magnotti, J. F., Wang, Z., and
+Beauchamp, M. S. (2020) <doi:10.1016/j.neuroimage.2020.117341>; see
+'citation("bidsr")' for details and attributions.
 
 %prep
 %setup -q -c -n %{packname}

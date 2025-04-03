@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BGmisc
-%global packver   1.3.3
+%global packver   1.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Extended Behavior Genetics Analysis
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-kinship2
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-kinship2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
+Requires:         R-methods 
 
 %description
 Provides functions for behavior genetics analysis, including variance
@@ -38,7 +40,7 @@ using path-tracing methods [Wright (1922) <doi:10.1086/279872>; McArdle &
 McDonald (1984) <doi:10.1111/j.2044-8317.1984.tb00802.x>], inference of
 relatedness, pedigree conversion, and simulation of multi-generational
 family data [Lyu et al. (2024) <doi:10.1101/2024.12.19.629449>]. For a
-full overview, see Garrison et al. (2025) <doi:10.21105/joss.06203>.
+full overview, see Garrison et al. (2024) <doi:10.21105/joss.06203>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDAvec
-%global packver   0.1.41
+%global packname  RKaggle
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.41
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Summaries of Persistence Diagrams
+Summary:          'Kaggle' Dataset Downloader 'API'
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-readODS 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-readxl 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-readODS 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-readxl 
 
 %description
-Provides tools for computing various vector summaries of persistence
-diagrams studied in Topological Data Analysis. For improved computational
-efficiency, all code for the vector summaries is written in 'C++' using
-the 'Rcpp' and 'RcppArmadillo' packages.
+Easily download datasets from Kaggle <https://www.kaggle.com/> directly
+into your R environment using 'RKaggle'. Streamline your data analysis
+workflows by importing datasets effortlessly and focusing on insights
+rather than manual data handling. Perfect for data enthusiasts and
+professionals looking to integrate Kaggle datasets into their R projects
+with minimal hassle.
 
 %prep
 %setup -q -c -n %{packname}

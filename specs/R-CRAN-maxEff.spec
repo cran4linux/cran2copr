@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TDAvec
-%global packver   0.1.41
+%global packname  maxEff
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.41
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Summaries of Persistence Diagrams
+Summary:          Additional Predictor with Maximum Effect Size
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.5
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rpart 
+BuildRequires:    R-CRAN-spatstat.geom 
+Requires:         R-CRAN-caret 
+Requires:         R-parallel 
+Requires:         R-CRAN-rpart 
+Requires:         R-CRAN-spatstat.geom 
 
 %description
-Provides tools for computing various vector summaries of persistence
-diagrams studied in Topological Data Analysis. For improved computational
-efficiency, all code for the vector summaries is written in 'C++' using
-the 'Rcpp' and 'RcppArmadillo' packages.
+Methods of selecting one from many numeric predictors for a regression
+model, to ensure that the additional predictor has the maximum effect
+size.
 
 %prep
 %setup -q -c -n %{packname}

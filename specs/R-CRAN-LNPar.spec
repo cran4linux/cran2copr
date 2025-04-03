@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LNPar
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Testing for a Lognormal-Pareto Mixture
 
@@ -25,10 +25,11 @@ Requires:         R-parallel
 Requires:         R-stats 
 
 %description
-Estimates a lognormal-Pareto mixture by maximizing the profile likelihood
-function. A likelihood ratio test for discriminating between lognormal and
-Pareto tail is also implemented. See Bee, M. (2022)
-<doi:10.1007/s11634-022-00497-4>.
+Estimates a lognormal-Pareto mixture by means of the
+Expectation-Conditional-Maximization-Either algorithm and by maximizing
+the profile likelihood function. A likelihood ratio test for
+discriminating between lognormal and Pareto tail is also implemented. See
+Bee, M. (2022) <doi:10.1007/s11634-022-00497-4>.
 
 %prep
 %setup -q -c -n %{packname}
