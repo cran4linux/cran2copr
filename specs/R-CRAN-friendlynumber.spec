@@ -1,32 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omnibus
-%global packver   1.2.15
+%global packname  friendlynumber
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.15
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Tools for Managing Data, Dates, Missing Values, and Text
+Summary:          Translate Numbers into Number Words
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 
 %description
-An assortment of helper functions for managing data (e.g., rotating values
-in matrices by a user-defined angle, switching from row- to
-column-indexing), dates (e.g., intuiting year from messy date strings),
-handling missing values (e.g., removing elements/rows across multiple
-vectors or matrices if any have an NA), text (e.g., flushing reports to
-the console in real-time); and combining data frames with different schema
-(copying, filling, or concatenating columns or applying functions before
-combining).
+Converts vectors of numbers into character vectors of numerals, including
+cardinals (one, two, three) and ordinals (first, second, third). Supports
+negative numbers, fractions, and arbitrary-precision integer and
+high-precision floating-point vectors provided by the 'bignum' package.
 
 %prep
 %setup -q -c -n %{packname}

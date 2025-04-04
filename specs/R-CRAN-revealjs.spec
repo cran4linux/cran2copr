@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  revealjs
-%global packver   0.9
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Markdown Format for 'reveal.js' Presentations
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.0
 Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.0
-Requires:         R-CRAN-rmarkdown >= 1.0
+BuildRequires:    R-CRAN-rmarkdown >= 1.7
+Requires:         R-CRAN-rmarkdown >= 1.7
 
 %description
 R Markdown format for 'reveal.js' presentations, a framework for easily

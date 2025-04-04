@@ -1,47 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PKPDsim
-%global packver   1.4.0
+%global packname  NHSRwaitinglist
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Performing Pharmacokinetic-Pharmacodynamic Simulations
+Summary:          Waiting List Metrics Using Queuing Theory
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.13
-BuildRequires:    R-CRAN-BH 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-Rcpp >= 1.0.13
-Requires:         R-CRAN-BH 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-randomNames 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-randomNames 
+Requires:         R-methods 
 
 %description
-Simulate dose regimens for pharmacokinetic-pharmacodynamic (PK-PD) models
-described by differential equation (DE) systems. Simulation using
-ADVAN-style analytical equations is also supported (Abuhelwa et al. (2015)
-<doi:10.1016/j.vascn.2015.03.004>).
+Waiting list management using queuing theory to analyse, predict and
+manage queues, based on the approach described in Fong et al. (2022)
+<doi:10.1101/2022.08.23.22279117>.  Aimed at UK National Health Service
+(NHS) applications, waiting list summary statistics, target-value
+calculations, waiting list simulation, and scheduling functions are
+included.
 
 %prep
 %setup -q -c -n %{packname}

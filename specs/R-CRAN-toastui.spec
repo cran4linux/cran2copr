@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  toastui
-%global packver   0.3.4
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Tables, Calendars and Charts for the Web
 
@@ -35,9 +35,9 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-shinyWidgets 
 
 %description
-Create interactive tables, calendars and charts with 'TOAST UI'
-<https://ui.toast.com/> libraries to integrate in 'shiny' applications or
-'rmarkdown' 'HTML' documents.
+Create interactive tables, calendars, charts and markdown WYSIWYG editor
+with 'TOAST UI' <https://ui.toast.com/> libraries to integrate in 'shiny'
+applications or 'rmarkdown' 'HTML' documents.
 
 %prep
 %setup -q -c -n %{packname}

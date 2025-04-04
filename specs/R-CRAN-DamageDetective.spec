@@ -1,45 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbgm
-%global packver   0.2.0
+%global packname  DamageDetective
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for 'Box Geometry Model' (BGM) Files and Topology for the Atlantis Ecosystem Model
+Summary:          Detecting Damaged Cells in Single-Cell RNA Sequencing Data
 
-License:          GPL-3
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.2
-Requires:         R-core >= 3.2.2
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-RcppHNSW 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reproj 
-BuildRequires:    R-CRAN-sfheaders 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-RcppHNSW 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reproj 
-Requires:         R-CRAN-sfheaders 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-withr 
 
 %description
-Facilities for working with Atlantis box-geometry model (BGM) files.
-Atlantis is a deterministic, biogeochemical, whole-of-ecosystem model.
-Functions are provided to read from BGM files directly, preserving their
-internal topology, as well as helper functions to generate spatial data
-from these mesh forms. This functionality aims to simplify the creation
-and modification of box and geometry as well as the ability to integrate
-with other data sources.
+Detects and filters damaged cells in single-cell RNA sequencing
+(scRNA-seq) data using a novel approach inspired by 'DoubletFinder'.
+Damage is detected by measuring the extent to which cells deviate from
+artificially damaged profiles of themselves, simulated through the
+probabilistic escape of cytoplasmic RNA. As output, a damage score ranging
+from 0 to 1 is given for each cell providing an intuitive scale for
+filtering that is standardised across cell types, samples, and
+experiments.
 
 %prep
 %setup -q -c -n %{packname}

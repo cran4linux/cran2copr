@@ -1,32 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omnibus
-%global packver   1.2.15
+%global packname  RStanTVA
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.15
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Helper Tools for Managing Data, Dates, Missing Values, and Text
+Summary:          TVA Models in 'Stan' using 'R' and 'StanTVA'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-brms 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-brms 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstantools
 
 %description
-An assortment of helper functions for managing data (e.g., rotating values
-in matrices by a user-defined angle, switching from row- to
-column-indexing), dates (e.g., intuiting year from messy date strings),
-handling missing values (e.g., removing elements/rows across multiple
-vectors or matrices if any have an NA), text (e.g., flushing reports to
-the console in real-time); and combining data frames with different schema
-(copying, filling, or concatenating columns or applying functions before
-combining).
+'Stan' implementation of the Theory of Visual Attention (TVA; Bundesen,
+1990; <doi:10.1037/0033-295X.97.4.523>) and numerous convenience functions
+for generating, compiling, fitting, and analyzing TVA models.
 
 %prep
 %setup -q -c -n %{packname}

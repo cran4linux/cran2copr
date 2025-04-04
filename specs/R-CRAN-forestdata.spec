@@ -1,33 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PROJ
-%global packver   0.6.0
+%global packname  forestdata
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generic Coordinate System Transformations Using 'PROJ'
+Summary:          Download Forestry Data
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-archive 
+BuildRequires:    R-CRAN-foreign 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-wk 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-archive 
+Requires:         R-CRAN-foreign 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-wk 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
 
 %description
-A wrapper around the generic coordinate transformation software 'PROJ'
-that transforms coordinates from one coordinate reference system ('CRS')
-to another. This includes cartographic projections as well as geodetic
-transformations.  The intention is for this package to be used by
-user-packages such as 'reproj', and that the older 'PROJ.4' and version 5
-pathways be provided by the 'proj4' package.
+Functions for downloading forestry and land use data for use in spatial
+analysis. This packages offers a user-friendly solution to quickly obtain
+datasets such as forest height, forest types, tree species under various
+climate change scenarios, or land use data among others.
 
 %prep
 %setup -q -c -n %{packname}

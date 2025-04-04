@@ -1,44 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  capybara
-%global packver   0.9.3
+%global packname  FARS
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Memory Efficient Fitting of Linear Models with High-Dimensional Fixed Effects
+Summary:          Factor-Augmented Regression Scenarios
 
-License:          Apache License (>= 2)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Formula 
-BuildRequires:    R-CRAN-generics 
+BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-kendallknight 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-ellipse 
+BuildRequires:    R-CRAN-SyScSelection 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-cpp11 
-BuildRequires:    R-CRAN-cpp11armadillo 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Formula 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-kendallknight 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-ellipse 
+Requires:         R-CRAN-SyScSelection 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-MASS 
-Requires:         R-stats 
+Requires:         R-CRAN-reshape2 
 
 %description
-Fast and user-friendly estimation of generalized linear models with
-multiple fixed effects and cluster the standard errors. The method to
-obtain the estimated fixed-effects coefficients is based on Stammann
-(2018) <doi:10.48550/arXiv.1707.01815> and Gaure (2013)
-<doi:10.1016/j.csda.2013.03.024>.
+Provides a comprehensive framework in R for modeling and forecasting
+economic scenarios based on multi-level dynamic factor model. The package
+enables users to: (i) extract global and block-specific factors using a
+flexible multilevel factor structure; (ii) compute asymptotically valid
+confidence regions for the estimated factors, accounting for uncertainty
+in the factor loadings; (iii) estimate factor-augmented quantile
+regressions; (iv) recover full predictive densities from these quantile
+forecasts; and (v) estimate the density when the factors are stressed.
 
 %prep
 %setup -q -c -n %{packname}

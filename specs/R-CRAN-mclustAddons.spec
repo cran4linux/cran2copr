@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mclustAddons
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Addons for the 'mclust' Package
 
@@ -14,14 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
-BuildRequires:    R-CRAN-mclust >= 6.1
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-mclust >= 6.1.1
+BuildRequires:    R-CRAN-RcppArmadillo >= 14.4
 BuildRequires:    R-CRAN-doRNG >= 1.6
 BuildRequires:    R-CRAN-knitr >= 1.12
 BuildRequires:    R-CRAN-Rcpp >= 1.0
 BuildRequires:    R-CRAN-rmarkdown >= 0.9
-BuildRequires:    R-CRAN-RcppArmadillo >= 0.10
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-iterators
 BuildRequires:    R-parallel 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-mclust >= 6.1
+Requires:         R-CRAN-mclust >= 6.1.1
 Requires:         R-CRAN-doRNG >= 1.6
 Requires:         R-CRAN-knitr >= 1.12
 Requires:         R-CRAN-Rcpp >= 1.0

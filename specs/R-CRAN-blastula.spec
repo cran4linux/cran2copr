@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blastula
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Send HTML Email Messages
 
@@ -57,8 +57,8 @@ Compose and send out responsive HTML email messages that render perfectly
 across a range of email clients and device sizes. Helper functions let the
 user insert embedded images, web link buttons, and 'ggplot2' plot objects
 into the message body. Messages can be sent through an 'SMTP' server,
-through the 'RStudio Connect' service, or through the 'Mailgun' API
-service <https://www.mailgun.com/>.
+through the 'Posit Connect' service, or through the 'Mailgun' API service
+<https://www.mailgun.com/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kairos
-%global packver   2.2.0
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Chronological Patterns from Archaeological Count Data
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.9.0
-BuildRequires:    R-CRAN-aion >= 1.3.0
-BuildRequires:    R-CRAN-dimensio >= 0.10.1
+BuildRequires:    R-CRAN-aion >= 1.4.0
+BuildRequires:    R-CRAN-arkhe >= 1.10.0
+BuildRequires:    R-CRAN-dimensio >= 0.13.0
 BuildRequires:    R-CRAN-extraDistr 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.9.0
-Requires:         R-CRAN-aion >= 1.3.0
-Requires:         R-CRAN-dimensio >= 0.10.1
+Requires:         R-CRAN-aion >= 1.4.0
+Requires:         R-CRAN-arkhe >= 1.10.0
+Requires:         R-CRAN-dimensio >= 0.13.0
 Requires:         R-CRAN-extraDistr 
 Requires:         R-grDevices 
 Requires:         R-methods 
