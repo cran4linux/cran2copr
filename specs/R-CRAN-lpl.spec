@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lpl
-%global packver   0.11
+%global packver   0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11
+Version:          0.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Local Partial Likelihood Estimation and Simultaneous Confidence Band
 
@@ -17,9 +18,11 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-parallel 
 Requires:         R-CRAN-survival 
 

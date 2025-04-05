@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ARDECO
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Annual Regional Database of the European Commission (ARDECO)
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-ghql
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-ghql 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-tidyr 
 
 %description

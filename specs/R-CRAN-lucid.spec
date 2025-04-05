@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  lucid
-%global packver   1.8
+%global packver   1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8
+Version:          1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Printing Floating Point Numbers in a Human-Friendly Format
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,7 +24,7 @@ Requires:         R-CRAN-nlme
 Print vectors (and data frames) of floating point numbers using a
 non-scientific format optimized for human readers.  Vectors of numbers are
 rounded using significant digits, aligned at the decimal point, and all
-zeros trailing the decimal point are dropped. See: Wright (2016). Lucid:
+zeros trailing the decimal point are dropped.  See: Wright (2016). Lucid:
 An R Package for Pretty-Printing Floating Point Numbers. In JSM
 Proceedings, Statistical Computing Section. Alexandria, VA: American
 Statistical Association. 2270-2279.
@@ -36,6 +37,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

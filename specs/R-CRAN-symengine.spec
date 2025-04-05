@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  symengine
-%global packver   0.2.6
+%global packver   0.2.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6
+Version:          0.2.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'SymEngine' Library
 

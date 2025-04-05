@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cna
-%global packver   3.6.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.6.2
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Modeling with Coincidence Analysis
 
@@ -34,12 +34,15 @@ Provides comprehensive functionalities for causal modeling with
 Coincidence Analysis (CNA), which is a configurational comparative method
 of causal data analysis that was first introduced in Baumgartner (2009)
 <doi:10.1177/0049124109339369>, and generalized in Baumgartner & Ambuehl
-(2018) <doi:10.1017/psrm.2018.45>. CNA is designed to recover
+(2020) <doi:10.1017/psrm.2018.45>. CNA is designed to recover
 INUS-causation from data, which is particularly relevant for analyzing
 processes featuring conjunctural causation (component causation) and
 equifinality (alternative causation). CNA is currently the only method for
 INUS-discovery that allows for multiple effects (outcomes/endogenous
 factors), meaning it can analyze common-cause and causal chain structures.
+Moreover, as of version 4.0, it is the only method of its kind that
+provides measures for model evaluation and selection that are custom-made
+for the problem of INUS-discovery.
 
 %prep
 %setup -q -c -n %{packname}
