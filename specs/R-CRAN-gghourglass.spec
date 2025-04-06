@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gghourglass
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Records per Time of Day
 
@@ -17,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-grid >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
 BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.2
 BuildRequires:    R-CRAN-suncalc >= 0.5.1
+Requires:         R-grid >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.4.4
 Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.2
 Requires:         R-CRAN-suncalc >= 0.5.1
@@ -32,7 +36,7 @@ Requires:         R-CRAN-suncalc >= 0.5.1
 Splits date and time of day components from continuous 'datetime' objects,
 then plots them using grammar of graphics ('ggplot2'). Plots can also be
 decorated with solar cycle information (e.g., sunset, sunrise, etc.). This
-is useful for data that are associated with the solar cycle.
+is useful for visualising data that are associated with the solar cycle.
 
 %prep
 %setup -q -c -n %{packname}

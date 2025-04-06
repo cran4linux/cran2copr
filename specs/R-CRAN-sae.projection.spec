@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sae.projection
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation Using Model-Assisted Projection Method
 
@@ -18,6 +18,10 @@ BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tidymodels 
+BuildRequires:    R-CRAN-FSelector 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
@@ -27,17 +31,20 @@ BuildRequires:    R-CRAN-recipes
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rsample 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-tune 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-yardstick 
 BuildRequires:    R-CRAN-bonsai 
 BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-lightgbm 
-BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-themis 
+BuildRequires:    R-CRAN-lightgbm 
+BuildRequires:    R-CRAN-caret 
 Requires:         R-CRAN-tidymodels 
+Requires:         R-CRAN-FSelector 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-survey 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr 
@@ -47,16 +54,15 @@ Requires:         R-CRAN-recipes
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rsample 
 Requires:         R-stats 
-Requires:         R-CRAN-survey 
 Requires:         R-CRAN-tune 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-yardstick 
 Requires:         R-CRAN-bonsai 
 Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-lightgbm 
-Requires:         R-CRAN-caret 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-themis 
+Requires:         R-CRAN-lightgbm 
+Requires:         R-CRAN-caret 
 
 %description
 Combines information from two independent surveys using a model-assisted

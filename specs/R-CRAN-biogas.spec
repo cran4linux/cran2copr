@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  biogas
-%global packver   1.61
+%global packver   1.64.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.61
+Version:          1.64.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Process Biogas Data and Predict Biogas Production
 
@@ -19,25 +19,27 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-High- and low-level functions for processing biogas data and predicting
-biogas production. Molar mass and calculated oxygen demand (COD') can be
-determined from a chemical formula. Measured gas volume can be corrected
-for water vapor and to (possibly user-defined) standard temperature and
-pressure. Gas quantity can be converted between volume, mass, and moles.
-Gas composition, cumulative production, or other variables can be
-interpolated to a specified time. Cumulative biogas and methane production
-(and rates) can be calculated from raw data obtained using volumetric,
-manometric, gravimetric, or gas density methods for any number of bottles.
-With cumulative methane production data and data on bottle contents,
-biochemical methane potential (BMP) or specific methane production (SMP)
-can be calculated and summarized, including subtraction of the inoculum
-contribution and normalization by substrate mass. Cumulative production
-and production rates can be summarized in several different ways (e.g.,
-omitting normalization) using the same function. Biogas quantity and
-composition can be predicted from substrate composition and additional,
-optional data. Inoculum and substrate mass can be determined for planning
-BMP experiments. Finally, first-order models can be fit to measurements in
-order to extract estimates of ultimate yield and kinetic constants.
+Functions for calculating biochemical methane potential (BMP) from
+laboratory measurements and other types of data processing and prediction
+useful for biogas research. Raw laboratory measurements for diverse
+methods (volumetric, manometric, gravimetric, gas density) can be
+processed to calculate BMP. Theoretical maximum BMP or methane or biogas
+yield can be predicted from various measures of substrate composition.
+Molar mass and calculated oxygen demand (COD') can be determined from a
+chemical formula. Measured gas volume can be corrected for water vapor and
+to standard (or user-defined) temperature and pressure. Gas quantity can
+be converted between volume, mass, and moles. A function for planning BMP
+experiments can consider multiple constraints in suggesting substrate or
+inoculum quantities, and check for problems. Inoculum and substrate mass
+can be determined for planning BMP experiments. Finally, a set of
+first-order models can be fit to measured methane production rate or
+cumulative yield in order to extract estimates of ultimate yield and
+kinetic constants. See Hafner et al. (2018)
+<doi:10.1016/j.softx.2018.06.005> for details. OBA is a web application
+that provides access to some of the package functionality:
+<https://biotransformers.shinyapps.io/oba1/>. The Standard BMP Methods
+website documents the calculations in detail:
+<https://www.dbfz.de/en/BMP>.
 
 %prep
 %setup -q -c -n %{packname}

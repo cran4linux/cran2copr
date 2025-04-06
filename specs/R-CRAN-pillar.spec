@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pillar
-%global packver   1.10.1
+%global packver   1.10.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.1
+Version:          1.10.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Coloured Formatting for Columns
 

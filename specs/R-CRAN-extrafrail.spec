@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extrafrail
-%global packver   1.12
+%global packver   1.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          1.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation and Additional Tools for Alternative Shared Frailty Models
 
@@ -32,11 +32,11 @@ Requires:         R-CRAN-msm
 Provide estimation and data generation tools for some new multivariate
 frailty models. This version includes the gamma, inverse Gaussian,
 weighted Lindley, Birnbaum-Saunders, truncated normal, mixture of inverse
-Gaussian and mixture of Birnbaum-Saunders as the distribution for the
-frailty terms. For the basal model, it is considered a parametric approach
-based on the exponential, Weibull and the piecewise exponential
-distributions as well as a semiparametric approach. For details, see
-Gallardo and Bourguignon (2022) <doi:10.48550/arXiv.2206.12973> and
+Gaussian, mixture of Birnbaum-Saunders and generalized exponential as the
+distribution for the frailty terms. For the basal model, it is considered
+a parametric approach based on the exponential, Weibull and the piecewise
+exponential distributions as well as a semiparametric approach. For
+details, see Gallardo and Bourguignon (2025) <doi:10.1002/bimj.70044> and
 Gallardo et al. (2024) <doi:10.1007/s11222-024-10458-w>.
 
 %prep

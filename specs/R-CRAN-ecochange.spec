@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecochange
-%global packver   2.9.3.2
+%global packver   2.9.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.3.2
+Version:          2.9.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrating Ecosystem Remote Sensing Products to Derive EBV Indicators
 

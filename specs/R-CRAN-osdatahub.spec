@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jlme
-%global packver   0.4.1
+%global packname  osdatahub
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression Modelling with 'GLM.jl' and 'MixedModels.jl' in 'Julia'
+Summary:          Easier Interaction with the Ordnance Survey Data Hub
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-JuliaConnectoR >= 1.1.4
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-JuliaFormulae 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-JuliaConnectoR >= 1.1.4
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-JuliaFormulae 
-Requires:         R-CRAN-MASS 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-geojsonsf 
+BuildRequires:    R-CRAN-geos 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-geojsonsf 
+Requires:         R-CRAN-geos 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Bindings to 'Julia' packages 'GLM.jl' <doi:10.5281/zenodo.3376013> and
-'MixedModels.jl' <doi:10.5281/zenodo.12575371>, powered by
-'JuliaConnectoR'. Fits (generalized) linear (mixed-effects) regression
-models in 'Julia' using familiar model fitting syntax from R. Offers
-'broom'-style data frame summary functionalities for 'Julia' regression
-models.
+Ordnance Survey ('OS') is the national mapping agency for Great Britain
+and produces a large variety of mapping and geospatial products. Much of
+OS's data is available via the OS Data Hub <https://osdatahub.os.uk/>, a
+platform that hosts both free and premium data products. 'osdatahub'
+provides a user-friendly way to access, query, and download these data.
 
 %prep
 %setup -q -c -n %{packname}

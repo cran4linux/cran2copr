@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinycodet
-%global packver   0.5.4
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.4
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Help in your Coding Etiquette
 

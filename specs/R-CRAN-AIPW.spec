@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AIPW
-%global packver   0.6.3.2
+%global packver   0.6.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3.2
+Version:          0.6.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Augmented Inverse Probability Weighting
 
@@ -34,14 +35,14 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-Rsolnp 
 
 %description
-The 'AIPW' pacakge implements the augmented inverse probability weighting,
+The 'AIPW' package implements the augmented inverse probability weighting,
 a doubly robust estimator, for average causal effect estimation with
 user-defined stacked machine learning algorithms. To cite the 'AIPW'
 package, please use: "Yongqi Zhong, Edward H. Kennedy, Lisa M. Bodnar,
-Ashley I. Naimi (2021, In Press). AIPW: An R Package for Augmented Inverse
+Ashley I. Naimi (2021). AIPW: An R Package for Augmented Inverse
 Probability Weighted Estimation of Average Causal Effects. American
-Journal of Epidemiology". Visit: <https://yqzhong7.github.io/AIPW/> for
-more information.
+Journal of Epidemiology. <doi:10.1093/aje/kwab207>". Visit:
+<https://yqzhong7.github.io/AIPW/> for more information.
 
 %prep
 %setup -q -c -n %{packname}
@@ -51,6 +52,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

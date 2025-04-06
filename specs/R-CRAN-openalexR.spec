@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  openalexR
-%global packver   1.4.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Getting Bibliographic Records from 'OpenAlex' Database Using 'DSL' API
 
@@ -14,16 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-progress 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 
 %description
