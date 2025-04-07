@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rankCorr
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Total, Between-, and Within-Cluster Spearman Rank Correlations for Clustered Data
 
@@ -18,9 +18,9 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rms >= 6.3.0
-BuildRequires:    R-CRAN-rankICC >= 1.0.1
+BuildRequires:    R-CRAN-rankICC >= 1.0.2
 Requires:         R-CRAN-rms >= 6.3.0
-Requires:         R-CRAN-rankICC >= 1.0.1
+Requires:         R-CRAN-rankICC >= 1.0.2
 
 %description
 Estimates the total, between-, and within-cluster Spearman rank

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ir
-%global packver   0.2.1
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Handle and Preprocess Infrared Spectra
 
@@ -13,10 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ChemoSpec >= 5.2.12
 BuildRequires:    R-CRAN-hyperSpec >= 0.99.20200527
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-dplyr 
@@ -24,7 +24,6 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-signal 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-methods 
@@ -33,8 +32,6 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-baseline 
-Requires:         R-CRAN-ChemoSpec >= 5.2.12
 Requires:         R-CRAN-hyperSpec >= 0.99.20200527
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
@@ -42,7 +39,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-signal 
 Requires:         R-grDevices 
 Requires:         R-CRAN-rlang 
 Requires:         R-methods 
@@ -51,13 +47,12 @@ Requires:         R-CRAN-Rdpack
 Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-baseline 
 
 %description
 Functions to import and handle infrared spectra (import from '.csv' and
 Thermo Galactic's '.spc', baseline correction, binning, clipping,
 interpolating, smoothing, averaging, adding, subtracting, dividing,
-multiplying, plotting).
+multiplying, atmospheric correction, 'tidyverse' methods, plotting).
 
 %prep
 %setup -q -c -n %{packname}

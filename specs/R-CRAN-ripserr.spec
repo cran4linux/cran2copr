@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ripserr
-%global packver   0.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Persistent Homology with Ripser-Based Engines
 
@@ -16,17 +16,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-methods >= 3.0
 BuildRequires:    R-stats >= 3.0
+BuildRequires:    R-utils >= 3.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0
-Requires:         R-methods >= 3.0
 Requires:         R-stats >= 3.0
+Requires:         R-utils >= 3.0
 Requires:         R-CRAN-Rcpp >= 1.0
 
 %description
-Ports the Ripser <arXiv:1908.02518> and Cubical Ripser <arXiv:2005.12692>
-persistent homology calculation engines from C++. Can be used as a rapid
-calculation tool in topological data analysis pipelines.
+Ports the Ripser <doi:10.48550/arXiv.1908.02518> and Cubical Ripser
+<doi:10.48550/arXiv.2005.12692> persistent homology calculation engines
+from C++. Can be used as a rapid calculation tool in topological data
+analysis pipelines.
 
 %prep
 %setup -q -c -n %{packname}

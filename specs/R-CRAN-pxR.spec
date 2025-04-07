@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pxR
-%global packver   0.42.7
+%global packver   0.42.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.42.7
+Version:          0.42.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          PC-Axis with R
 
@@ -19,11 +19,11 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-RJSONIO 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-plyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-RJSONIO 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-plyr 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TrueSkillThroughTime
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Skill Estimation Based on a Single Bayesian Network
 
@@ -31,10 +31,12 @@ estimates. TrueSkill Through Time solves all these problems by modeling
 the entire history of activities using a single Bayesian network allowing
 the information to propagate correctly throughout the system. This
 algorithm requires only a few iterations to converge, allowing millions of
-observations to be analyzed using any low-end computer. The core ideas
-implemented in this project were developed by Dangauthier P, Herbrich R,
-Minka T, Graepel T (2007). "Trueskill through time: Revisiting the history
-of chess." <https://dl.acm.org/doi/10.5555/2981562.2981605>.
+observations to be analyzed using any low-end computer. Landfried G,
+Mocskos E (2025). "TrueSkill Through Time: Reliable Initial Skill
+Estimates and Historical Comparability with Julia, Python, and R."
+<doi:10.18637/jss.v112.i06>. The core ideas implemented in this project
+were developed by Dangauthier P, Herbrich R, Minka T, Graepel T (2007).
+"Trueskill through time: Revisiting the history of chess.".
 
 %prep
 %setup -q -c -n %{packname}

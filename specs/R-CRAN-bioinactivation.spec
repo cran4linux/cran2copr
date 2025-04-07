@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bioinactivation
-%global packver   1.2.3
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematical Modelling of (Dynamic) Microbial Inactivation
 
@@ -14,27 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.39
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-graphics >= 3.1.3
 BuildRequires:    R-stats >= 3.1.3
-BuildRequires:    R-CRAN-ggplot2 >= 2.0.0
 BuildRequires:    R-CRAN-FME >= 1.3.2
 BuildRequires:    R-CRAN-deSolve >= 1.11
-BuildRequires:    R-CRAN-dplyr >= 0.4.1
-BuildRequires:    R-CRAN-purrr >= 0.3.2
+BuildRequires:    R-CRAN-dplyr >= 1.0.2
+BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-rlang >= 0.1.2
 BuildRequires:    R-CRAN-lazyeval >= 0.1.10
 Requires:         R-CRAN-MASS >= 7.3.39
+Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-graphics >= 3.1.3
 Requires:         R-stats >= 3.1.3
-Requires:         R-CRAN-ggplot2 >= 2.0.0
 Requires:         R-CRAN-FME >= 1.3.2
 Requires:         R-CRAN-deSolve >= 1.11
-Requires:         R-CRAN-dplyr >= 0.4.1
-Requires:         R-CRAN-purrr >= 0.3.2
+Requires:         R-CRAN-dplyr >= 1.0.2
+Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-rlang >= 0.1.2
 Requires:         R-CRAN-lazyeval >= 0.1.10
 
