@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adegraphics
-%global packver   1.0-22
+%global packname  StatTools
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An S4 Lattice-Based Package for the Representation of Multivariate Data
+Summary:          All-in-One Chi Distribution CI
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 >= 1.7.13
-BuildRequires:    R-CRAN-sp >= 1.1.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-ade4 >= 1.7.13
-Requires:         R-CRAN-sp >= 1.1.1
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-stats 
 
 %description
-Graphical functionalities for the representation of multivariate data. It
-is a complete re-implementation of the functions available in the 'ade4'
-package.
+Computes confidence intervals for variance using the Chi-Square
+distribution, without requiring raw data. Wikipedia (2025)
+<https://en.wikipedia.org/wiki/Chi-squared_distribution>. 'All-in-One Chi
+Distribution CI' provides functions to calculate confidence intervals for
+the population variance based on a chi-squared distribution, utilizing a
+sample variance and sample size. It offers only a simple all-in-one method
+for quick calculations to find the CI for Chi Distribution.
 
 %prep
 %setup -q -c -n %{packname}

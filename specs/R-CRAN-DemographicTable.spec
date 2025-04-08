@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DemographicTable
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Demographic Table
 
@@ -17,17 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-officer 
 Requires:         R-CRAN-scales 
 
 %description
-Functions for creating demographic table of simple summary statistics and
+To create demographic table with simple summary statistics, with optional
 comparison(s) over one or more groups.
 
 %prep

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nexus
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sourcing Archaeological Materials by Chemical Composition
 
@@ -17,24 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-arkhe >= 1.9.0
-BuildRequires:    R-CRAN-isopleuros >= 1.3.0
-BuildRequires:    R-CRAN-khroma >= 1.15.0
-BuildRequires:    R-CRAN-dimensio >= 0.11.0
+BuildRequires:    R-CRAN-isopleuros >= 1.4.0
+BuildRequires:    R-CRAN-khroma >= 1.16.0
+BuildRequires:    R-CRAN-arkhe >= 1.10.0
+BuildRequires:    R-CRAN-dimensio >= 0.13.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-arkhe >= 1.9.0
-Requires:         R-CRAN-isopleuros >= 1.3.0
-Requires:         R-CRAN-khroma >= 1.15.0
-Requires:         R-CRAN-dimensio >= 0.11.0
+Requires:         R-CRAN-isopleuros >= 1.4.0
+Requires:         R-CRAN-khroma >= 1.16.0
+Requires:         R-CRAN-arkhe >= 1.10.0
+Requires:         R-CRAN-dimensio >= 0.13.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
 Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-stats 
 Requires:         R-utils 
 

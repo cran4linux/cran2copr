@@ -1,49 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidyterra
-%global packver   0.7.1
+%global packname  CardioCurveR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
+Summary:          Nonlinear Modeling of R-R Interval Dynamics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-tibble >= 3.0.0
-BuildRequires:    R-CRAN-terra >= 1.8.10
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-tibble >= 3.0.0
-Requires:         R-CRAN-terra >= 1.8.10
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-signal >= 1.8.1
+BuildRequires:    R-CRAN-data.table >= 1.16.4
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-signal >= 1.8.1
+Requires:         R-CRAN-data.table >= 1.16.4
 
 %description
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
-the 'terra' package. It includes also new 'geom_' functions that provide a
-convenient way of visualizing 'terra' objects with 'ggplot2'.
+Automated and robust framework for analyzing R-R interval (RRi) signals
+using advanced nonlinear modeling and preprocessing techniques. The
+package implements a dual-logistic model to capture the rapid drop and
+subsequent recovery of RRi during exercise, as described by
+Castillo-Aguilar et al. (2025) <doi:10.1038/s41598-025-93654-6>. In
+addition, 'CardioCurveR' includes tools for filtering RRi signals using
+zero-phase Butterworth low-pass filtering and for cleaning ectopic beats
+via adaptive outlier replacement using local regression and robust
+statistics. These integrated methods preserve the dynamic features of RRi
+signals and facilitate accurate cardiovascular monitoring and clinical
+research.
 
 %prep
 %setup -q -c -n %{packname}

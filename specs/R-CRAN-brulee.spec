@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rtweet
-%global packver   2.0.0
+%global packname  brulee
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collecting Twitter Data
+Summary:          High-Level Modeling Functions with 'torch'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 4.3.2
-BuildRequires:    R-CRAN-bit64 >= 4.0.5
-BuildRequires:    R-CRAN-withr >= 2.5.0
-BuildRequires:    R-CRAN-tibble >= 1.3.4
-BuildRequires:    R-CRAN-httr >= 1.3.0
-BuildRequires:    R-CRAN-progress >= 1.2.2
-BuildRequires:    R-CRAN-httr2 >= 1.0.0
-BuildRequires:    R-CRAN-lifecycle >= 1.0.0
-BuildRequires:    R-CRAN-jsonlite >= 0.9.22
-BuildRequires:    R-CRAN-rlang >= 0.4.10
-BuildRequires:    R-methods 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-coro >= 1.0.1
+BuildRequires:    R-CRAN-torch >= 0.13.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-curl >= 4.3.2
-Requires:         R-CRAN-bit64 >= 4.0.5
-Requires:         R-CRAN-withr >= 2.5.0
-Requires:         R-CRAN-tibble >= 1.3.4
-Requires:         R-CRAN-httr >= 1.3.0
-Requires:         R-CRAN-progress >= 1.2.2
-Requires:         R-CRAN-httr2 >= 1.0.0
-Requires:         R-CRAN-lifecycle >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 0.9.22
-Requires:         R-CRAN-rlang >= 0.4.10
-Requires:         R-methods 
-Requires:         R-tools 
+Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-coro >= 1.0.1
+Requires:         R-CRAN-torch >= 0.13.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-hardhat 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
-An implementation of calls designed to collect and organize Twitter data
-via Twitter's REST and stream Application Program Interfaces (API), which
-can be found at the following URL:
-<https://developer.twitter.com/en/docs>.
+Provides high-level modeling functions to define and train models using
+the 'torch' R package. Models include linear, logistic, and multinomial
+regression as well as multilayer perceptrons.
 
 %prep
 %setup -q -c -n %{packname}

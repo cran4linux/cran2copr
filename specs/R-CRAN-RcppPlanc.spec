@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adegraphics
-%global packver   1.0-22
+%global packname  RcppPlanc
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An S4 Lattice-Based Package for the Representation of Multivariate Data
+Summary:          Parallel Low-Rank Approximation with Nonnegativity Constraints
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 >= 1.7.13
-BuildRequires:    R-CRAN-sp >= 1.1.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ade4 >= 1.7.13
-Requires:         R-CRAN-sp >= 1.1.1
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-hdf5r.Extra 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-hdf5r.Extra 
 
 %description
-Graphical functionalities for the representation of multivariate data. It
-is a complete re-implementation of the functions available in the 'ade4'
-package.
+'Rcpp' bindings for 'PLANC', a highly parallel and extensible NMF/NTF
+(Non-negative Matrix/Tensor Factorization) library. Wraps algorithms
+described in Kannan et. al (2018) <doi:10.1109/TKDE.2017.2767592> and
+Eswar et. al (2021) <doi:10.1145/3432185>. Implements algorithms described
+in Welch et al. (2019) <doi:10.1016/j.cell.2019.05.006>, Gao et al. (2021)
+<doi:10.1038/s41587-021-00867-x>, and Kriebel & Welch (2022)
+<doi:10.1038/s41467-022-28431-4>.
 
 %prep
 %setup -q -c -n %{packname}

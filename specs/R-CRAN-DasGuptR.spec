@@ -1,47 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adegraphics
-%global packver   1.0-22
+%global packname  DasGuptR
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An S4 Lattice-Based Package for the Representation of Multivariate Data
+Summary:          Das Gupta Standardisation and Decomposition
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 >= 1.7.13
-BuildRequires:    R-CRAN-sp >= 1.1.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ade4 >= 1.7.13
-Requires:         R-CRAN-sp >= 1.1.1
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-stats 
 
 %description
-Graphical functionalities for the representation of multivariate data. It
-is a complete re-implementation of the functions available in the 'ade4'
-package.
+Implementation of Das Gupta's standardisation and decomposition of
+population rates, as set out "Standardization and decomposition of rates:
+A user’s manual", Das Gupta (1993)
+<https://www2.census.gov/library/publications/1993/demographics/p23-186.pdf>.
+The goal of these methods is to calculate adjusted rates based on
+compositional 'factors' and quantify the contribution of each factor to
+the difference in crude rates between populations. The package offers
+functionality to handle various scenarios for any number of factors and
+populations, where said factors can be comprised of vectors across
+sub-populations (including cross-classified population breakdowns), and
+with the option to specify user-defined rate functions.
 
 %prep
 %setup -q -c -n %{packname}

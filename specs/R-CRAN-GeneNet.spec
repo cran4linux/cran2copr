@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GeneNet
-%global packver   1.2.16
+%global packver   1.2.17
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.16
+Version:          1.2.17
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modeling and Inferring Gene Networks
 
@@ -13,16 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-corpcor >= 1.6.10
-BuildRequires:    R-CRAN-fdrtool >= 1.2.17
+BuildRequires:    R-CRAN-fdrtool >= 1.2.18
 BuildRequires:    R-CRAN-longitudinal >= 1.1.13
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-corpcor >= 1.6.10
-Requires:         R-CRAN-fdrtool >= 1.2.17
+Requires:         R-CRAN-fdrtool >= 1.2.18
 Requires:         R-CRAN-longitudinal >= 1.1.13
 Requires:         R-stats 
 Requires:         R-grDevices 

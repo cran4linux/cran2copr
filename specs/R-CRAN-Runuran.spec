@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Runuran
-%global packver   0.40
+%global packver   0.41
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.40
+Version:          0.41
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to the 'UNU.RAN' Random Variate Generators
 

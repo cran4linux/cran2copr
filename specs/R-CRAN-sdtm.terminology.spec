@@ -1,50 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  carbonate
-%global packver   0.1.4
+%global packname  sdtm.terminology
+%global packver   2025-3-25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          2025.3.25
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with 'carbon.js'
+Summary:          CDISC SDTM Controlled Terminology
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-clipr 
-BuildRequires:    R-CRAN-details 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-magick 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-rtweet 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-wdman 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-clipr 
-Requires:         R-CRAN-details 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-magick 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-rtweet 
-Requires:         R-utils 
-Requires:         R-CRAN-wdman 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
 
 %description
-Create beautiful images of source code using
-'carbon.js'<https://carbon.now.sh/about>.
+Clinical Data Interchange Standards Consortium (CDISC) Standard Data
+Tabulation Model (SDTM) controlled terminology, 2025-03-25. Source:
+<https://evs.nci.nih.gov/ftp1/CDISC/SDTM/>.
 
 %prep
 %setup -q -c -n %{packname}

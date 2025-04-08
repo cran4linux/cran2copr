@@ -1,47 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adegraphics
-%global packver   1.0-22
+%global packname  QR.break
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          An S4 Lattice-Based Package for the Representation of Multivariate Data
+Summary:          Structural Breaks in Quantile Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 >= 1.7.13
-BuildRequires:    R-CRAN-sp >= 1.1.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ade4 >= 1.7.13
-Requires:         R-CRAN-sp >= 1.1.1
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-quantreg 
+Requires:         R-CRAN-quantreg 
 
 %description
-Graphical functionalities for the representation of multivariate data. It
-is a complete re-implementation of the functions available in the 'ade4'
-package.
+Methods for detecting structural breaks, determining the number of breaks,
+and estimating break locations in linear quantile regression, using one or
+multiple quantiles, based on Qu (2008) and Oka and Qu (2011).  Applicable
+to both time series and repeated cross-sectional data. The main function
+is rq.break().
+
+References for detailed theoretical and empirical explanations:
+
+(1) Qu, Z. (2008). Testing for Structural Change in Regression Quantiles.
+Journal of Econometrics, 146(1), 170-184
+<doi:10.1016/j.jeconom.2008.08.006>
+
+(2) Oka, T., and Qu, Z. (2011).  Estimating Structural Changes in
+Regression Quantiles.  Journal of Econometrics, 162(2), 248-267
+<doi:10.1016/j.jeconom.2011.01.005>.
 
 %prep
 %setup -q -c -n %{packname}

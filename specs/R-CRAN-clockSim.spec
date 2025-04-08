@@ -1,49 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ulrb
-%global packver   0.1.6
+%global packname  clockSim
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unsupervised Learning Based Definition of Microbial Rare Biosphere
+Summary:          Streamlined Simulation of Circadian Gene Networks
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-bench 
+BuildRequires:    R-CRAN-dde 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-lomb 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-odin 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-clusterSim 
-BuildRequires:    R-CRAN-gridExtra 
-Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-bench 
+Requires:         R-CRAN-dde 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-lomb 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-odin 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-clusterSim 
-Requires:         R-CRAN-gridExtra 
 
 %description
-A tool to define rare biosphere. 'ulrb' solves the problem of the
-definition of rarity by replacing arbitrary thresholds with an
-unsupervised machine learning algorithm (partitioning around medoids, or
-k-medoids). This algorithm works for any type of microbiome data, provided
-there is an abundance table. For validation of this method to different
-abundance tables, see Pascoal et al, 2025. This method also works for
-non-microbiome data.
+A user-friendly workflow for simulating circadian clock gene networks.
+Despite decades of advances in modeling circadian clock dynamics, the lack
+of accessible tools for reproducible simulation workflows hinders the
+integration of computational modeling with experimental studies.
+'clockSim' addresses this gap by providing models and helper functions
+with step-by-step vignettes. This package opens up system-level
+exploration of the circadian clock to wet-lab experimentalists, and future
+development will include additional clock architectures and other gene
+circuit models. Currently implemented models are based on Leloup and
+Goldbeter (1998) <doi:10.1177/074873098128999934>.
 
 %prep
 %setup -q -c -n %{packname}

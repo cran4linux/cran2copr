@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  adegraphics
-%global packver   1.0-22
+%global packname  tvcure
+%global packver   0.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.22
+Version:          0.6.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          An S4 Lattice-Based Package for the Representation of Multivariate Data
+Summary:          Additive Cure Survival Model with Time-Varying Covariates
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ade4 >= 1.7.13
-BuildRequires:    R-CRAN-sp >= 1.1.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-lattice 
-BuildRequires:    R-CRAN-latticeExtra 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ade4 >= 1.7.13
-Requires:         R-CRAN-sp >= 1.1.1
-Requires:         R-graphics 
-Requires:         R-grid 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-lattice 
-Requires:         R-CRAN-latticeExtra 
-Requires:         R-methods 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-cubicBsplines 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mgcv 
+Requires:         R-CRAN-cubicBsplines 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mgcv 
 
 %description
-Graphical functionalities for the representation of multivariate data. It
-is a complete re-implementation of the functions available in the 'ade4'
-package.
+Fit of a double additive cure survival model with time-varying covariates.
+The additive terms in the long- and short-term survival submodels,
+modelling the cure probability and the event timing for susceptible units,
+are estimated using Laplace P-splines. For more details, see Lambert and
+Kreyenfeld (2025) <doi:10.1093/jrsssa/qnaf035>.
 
 %prep
 %setup -q -c -n %{packname}
