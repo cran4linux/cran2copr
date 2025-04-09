@@ -1,41 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  varrank
-%global packver   0.5
+%global packname  immundata
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Heuristics Tools Based on Mutual Information for Variable Ranking
+Summary:          A Unified Data Layer for Single-Cell, Spatial and Bulk Immunomics
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-grDevices 
-Requires:         R-stats 
-Requires:         R-CRAN-FNN 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-duckplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-duckplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 
 %description
-A computational toolbox of heuristics approaches for performing variable
-ranking and feature selection based on mutual information well adapted for
-multivariate system epidemiology datasets. The core function is a general
-implementation of the minimum redundancy maximum relevance model. R.
-Battiti (1994) <doi:10.1109/72.298224>. Continuous variables are
-discretized using a large choice of rule. Variables ranking can be learned
-with a sequential forward/backward search algorithm. The two main problems
-that can be addressed by this package is the selection of the most
-representative variable within a group of variables of interest (i.e.
-dimension reduction) and variable ranking with respect to a set of
-features of interest.
+Provides a unified data layer for single-cell, spatial and bulk T-cell and
+B-cell immune receptor repertoire data, integrating diverse data formats
+such as AIRR and raw sequencing files. Includes utilities for receptor
+aggregation, metadata normalization, and clonotype filtering.
 
 %prep
 %setup -q -c -n %{packname}

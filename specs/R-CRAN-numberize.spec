@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  numberize
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convert Words to Numbers in Multiple Languages
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 
 %description
-Converts written out numbers into their equivalent numbers. Supports
-numbers written out in English, French, or Spanish.
+Converts number spellings into their equivalent numbers. Supports numbers
+written in English, French, or Spanish.
 
 %prep
 %setup -q -c -n %{packname}

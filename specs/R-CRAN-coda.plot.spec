@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCytoGPS
-%global packver   1.2.9
+%global packname  coda.plot
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using Cytogenetics Data in R
+Summary:          Plots for Compositional Data
 
-License:          Apache License (== 2.0)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjson 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggtern >= 3.5.0
+BuildRequires:    R-CRAN-coda.base >= 0.5
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggtern >= 3.5.0
+Requires:         R-CRAN-coda.base >= 0.5
 
 %description
-Defines classes and methods to process text-based cytogenetics using the
-CytoGPS web site, then import the results into R for further analysis and
-graphing.
+Provides a collection of easy-to-use functions for creating visualizations
+of compositional data using 'ggplot2'. Includes support for common
+plotting techniques in compositional data analysis.
 
 %prep
 %setup -q -c -n %{packname}

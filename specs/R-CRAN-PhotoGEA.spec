@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCytoGPS
-%global packver   1.2.9
+%global packname  PhotoGEA
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using Cytogenetics Data in R
+Summary:          Photosynthetic Gas Exchange Analysis
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjson 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-dfoptim 
+BuildRequires:    R-CRAN-DEoptim 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-dfoptim 
+Requires:         R-CRAN-DEoptim 
 
 %description
-Defines classes and methods to process text-based cytogenetics using the
-CytoGPS web site, then import the results into R for further analysis and
-graphing.
+Read, process, fit, and analyze photosynthetic gas exchange measurements.
+Documentation is provided by several vignettes; also see Lochocki,
+Salesse-Smith, & McGrath (2025) <doi:10.1111/pce.15501>.
 
 %prep
 %setup -q -c -n %{packname}

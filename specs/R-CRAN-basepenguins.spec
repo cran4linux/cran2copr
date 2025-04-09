@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCytoGPS
-%global packver   1.2.9
+%global packname  basepenguins
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using Cytogenetics Data in R
+Summary:          Convert Files that Use 'palmerpenguins' to Work with 'datasets'
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjson 
 
 %description
-Defines classes and methods to process text-based cytogenetics using the
-CytoGPS web site, then import the results into R for further analysis and
-graphing.
+From 'R' 4.5.0, the 'datasets' package includes the penguins and
+penguins_raw data sets popularised in the 'palmerpenguins' package.
+'basepenguins' takes files that use the 'palmerpenguins' package and
+converts them to work with the versions from 'datasets' ('R' >= 4.5.0). It
+does this by removing calls to library(palmerpenguins) and making the
+necessary changes to column names. Additionally, it provides helper
+functions to define new files paths for saving the output and a directory
+of example files to experiment with.
 
 %prep
 %setup -q -c -n %{packname}

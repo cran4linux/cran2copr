@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micromapST
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linked Micromap Plots for U. S. and Other Geographic Areas
 
@@ -64,17 +64,21 @@ second layer boundaries, a top or third layer boundary, a parameter list
 of run options, and a cross indexing table between area names,
 abbreviations, numeric identification and alias matching strings for the
 specific geographic area.  By specifying a border group, the package
-create linked micromap plots for any geographic region.  The user can
+create linked micromap plots for any geographic region. The user can
 create and provide their own border group dataset for any area beyond the
-areas contained within the package. In version 3.0.0, the
-'BuildBorderGroup' function was upgraded to not use the retiring
-'maptools', 'rgdal', and 'rgeos' packages. References: Carr and Pickle,
-Chapman and Hall/CRC, Visualizing Data Patterns with Micromaps, CRC Press,
-2010. Pickle, Pearson, and Carr (2015), micromapST: Exploring and
-Communicating Geospatial Patterns in US State Data., Journal of
-Statistical Software, 63(3), 1-25., <https://www.jstatsoft.org/v63/i03/>.
-Copyrighted 2013, 2014, 2015, 2016, 2022, 2023, 2024, and 2025 by Carr,
-Pearson and Pickle.
+areas contained within the package with the 'BuildBorderGroup' function.
+In April of 2022, it was announced that 'maptools', 'rgdal', and 'rgeos' R
+packages would be retired in middle to end of 2023 and removed from the
+CRAN libraries. The 'BuildBorderGroup' function was dependent on these
+packages. 'micromapST' functions were not impacted by the retired R
+packages. Upgrading of 'BuildBorderGroup' function was completed and
+released with version 3.0.0 on August 10, 2023 using the 'sf' R package.
+References: Carr and Pickle, Chapman and Hall/CRC, Visualizing Data
+Patterns with Micromaps, CRC Press, 2010. Pickle, Pearson, and Carr
+(2015), micromapST: Exploring and Communicating Geospatial Patterns in US
+State Data., Journal of Statistical Software, 63(3), 1-25.,
+<https://www.jstatsoft.org/v63/i03/>. Copyrighted 2013, 2014, 2015, 2016,
+2022, 2023, 2024, and 2025 by Carr, Pearson and Pickle.
 
 %prep
 %setup -q -c -n %{packname}

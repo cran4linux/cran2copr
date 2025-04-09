@@ -1,59 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vannstats
-%global packver   1.5.4.07
+%global packname  spect
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4.07
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simplified Statistical Procedures for Social Sciences
+Summary:          Survival Prediction Ensemble Classification Tool
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-gdata 
-BuildRequires:    R-CRAN-plm 
+BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survminer 
+BuildRequires:    R-CRAN-riskRegression 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-caretEnsemble 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-formula.tools 
-BuildRequires:    R-CRAN-gplots 
-BuildRequires:    R-CRAN-rstatix 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-CRAN-gdata 
-Requires:         R-CRAN-plm 
+Requires:         R-CRAN-futile.logger 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survminer 
+Requires:         R-CRAN-riskRegression 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-caretEnsemble 
+Requires:         R-CRAN-survival 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-formula.tools 
-Requires:         R-CRAN-gplots 
-Requires:         R-CRAN-rstatix 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-DescTools 
 
 %description
-Simplifies functions assess normality for bivariate and multivariate
-statistical techniques. Includes functions designed to replicate plots and
-tables that would result from similar calls in 'SPSS', including hst(),
-box(), qq(), tab(), cormat(), and residplot(). Also includes simplified
-formulae, such as mode(), scatter(), p.corr(), ow.anova(), and rm.anova().
+A tool for survival analysis using a discrete time approach with ensemble
+binary classification. 'spect' provides a simple interface consistent with
+commonly used R data analysis packages, such as 'caret', a variety of
+parameter options to help facilitate search automation, a high degree of
+transparency to the end-user - all intermediate data sets and parameters
+are made available for further analysis and useful, out-of-the-box
+visualizations of model performance. Methods for transforming survival
+data into discrete-time are adapted from the 'autosurv' package by Suresh
+et al., (2022) <doi:10.1186/s12874-022-01679-6>.
 
 %prep
 %setup -q -c -n %{packname}

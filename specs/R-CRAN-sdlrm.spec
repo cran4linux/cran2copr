@@ -1,35 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCytoGPS
-%global packver   1.2.9
+%global packname  sdlrm
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using Cytogenetics Data in R
+Summary:          Modified Skew Discrete Laplace Regression for Integer-Valued and Paired Discrete Data
 
-License:          Apache License (== 2.0)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjson 
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjson 
+BuildRequires:    R-CRAN-Formula >= 1.2.3
+BuildRequires:    R-CRAN-Rfast 
+Requires:         R-CRAN-Formula >= 1.2.3
+Requires:         R-CRAN-Rfast 
 
 %description
-Defines classes and methods to process text-based cytogenetics using the
-CytoGPS web site, then import the results into R for further analysis and
-graphing.
+Implementation of the modified skew discrete Laplace (SDL) regression
+model. The package provides a set of functions for a complete analysis of
+integer-valued data, where the dependent variable is assumed to follow a
+modified SDL distribution. This regression model is useful for the
+analysis of integer-valued data and experimental studies in which paired
+discrete observations are collected.
 
 %prep
 %setup -q -c -n %{packname}

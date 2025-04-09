@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RCytoGPS
-%global packver   1.2.9
+%global packname  multinet
+%global packver   4.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.9
+Version:          4.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Using Cytogenetics Data in R
+Summary:          Analysis and Mining of Multilayer Social Networks
 
 License:          Apache License (== 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-igraph >= 1.2
+BuildRequires:    R-CRAN-Rcpp >= 1.0
 BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-rjson 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-igraph >= 1.2
+Requires:         R-CRAN-Rcpp >= 1.0
 Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-rjson 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Defines classes and methods to process text-based cytogenetics using the
-CytoGPS web site, then import the results into R for further analysis and
-graphing.
+Functions for the creation/generation and analysis of multilayer social
+networks <doi:10.18637/jss.v098.i08>.
 
 %prep
 %setup -q -c -n %{packname}

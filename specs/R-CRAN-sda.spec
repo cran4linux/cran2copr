@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sda
-%global packver   1.3.8
+%global packver   1.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Shrinkage Discriminant Analysis and CAT Score Variable Selection
 
@@ -13,18 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 3.4.0
+Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-corpcor >= 1.6.10
-BuildRequires:    R-CRAN-entropy >= 1.3.1
-BuildRequires:    R-CRAN-fdrtool >= 1.2.17
+BuildRequires:    R-CRAN-entropy >= 1.3.2
+BuildRequires:    R-CRAN-fdrtool >= 1.2.18
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-corpcor >= 1.6.10
-Requires:         R-CRAN-entropy >= 1.3.1
-Requires:         R-CRAN-fdrtool >= 1.2.17
+Requires:         R-CRAN-entropy >= 1.3.2
+Requires:         R-CRAN-fdrtool >= 1.2.18
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 

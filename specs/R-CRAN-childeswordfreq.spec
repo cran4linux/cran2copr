@@ -1,51 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  PEIMAN2
-%global packver   1.0.0
+%global packname  childeswordfreq
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Post-Translational Modification Enrichment, Integration, and Matching Analysis
+Summary:          Word Frequency Extraction and Summarization
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-childesr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-childesr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-graphics 
-Requires:         R-CRAN-forcats 
-Requires:         R-stats 
 Requires:         R-CRAN-magrittr 
+Requires:         R-stats 
 
 %description
-Functions and mined database from 'UniProt' focusing on post-translational
-modifications to do single enrichment analysis (SEA) and protein set
-enrichment analysis (PSEA). Payman Nickchi, Uladzislau Vadadokhau, Mehdi
-Mirzaie, Marc Baumann, Amir Ata Saei, Mohieddin Jafari (2025)
-<doi:10.1002/pmic.202400238>.
+Provides tools to extract word frequencies from the CHILDES (Child
+Language Data Exchange System) corpus. The main function allows users to
+input a list of words and receive speaker-role-specific frequency counts
+and a summary of the dataset. The output includes Excel-formatted tables
+of word counts and metadata summaries such as number of speakers,
+transcripts, children, and token counts. Useful for researchers studying
+early language acquisition, corpus linguistics, and speaker role
+variation. The CHILDES database is maintained at
+<https://childes.talkbank.org/>.
 
 %prep
 %setup -q -c -n %{packname}

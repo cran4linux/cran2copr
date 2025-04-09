@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  triact
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyzing the Lying Behavior of Cows from Accelerometer Data
 
@@ -14,20 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-checkmate >= 2.2.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.2
-BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-checkmate >= 2.3.2
+BuildRequires:    R-CRAN-lubridate >= 1.9.3
+BuildRequires:    R-CRAN-data.table >= 1.15.4
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-checkmate >= 2.2.0
-Requires:         R-CRAN-lubridate >= 1.9.2
-Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-checkmate >= 2.3.2
+Requires:         R-CRAN-lubridate >= 1.9.3
+Requires:         R-CRAN-data.table >= 1.15.4
 Requires:         R-parallel 
 Requires:         R-methods 
 Requires:         R-stats 
@@ -39,8 +39,7 @@ the determination of common measures for lying behavior including total
 lying duration, the number of lying bouts, and the mean duration of lying
 bouts. Further capabilities are the description of lying laterality and
 the calculation of proxies for the level of physical activity of the cow.
-Reference: Simmler M., Brouwers S. P. (2023)
-<https://gitlab.com/AgroSimi/triact_manuscript>.
+Reference: Simmler M., Brouwers S. P. (2024) <doi:10.7717/peerj.17036>.
 
 %prep
 %setup -q -c -n %{packname}
