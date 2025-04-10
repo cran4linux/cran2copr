@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  serosv
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Infectious Disease Parameters from Serosurveys
 
@@ -27,11 +27,14 @@ BuildRequires:    R-CRAN-deSolve
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-locfit 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-mixdist 
 BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-stats4 
 BuildRequires:    R-CRAN-rstantools
@@ -43,11 +46,14 @@ Requires:         R-CRAN-deSolve
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-locfit 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-mixdist 
 Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-boot 
 Requires:         R-stats4 
 Requires:         R-CRAN-rstantools

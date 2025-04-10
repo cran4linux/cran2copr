@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  AdsorpR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Adsorption Isotherm Models
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+Model adsorption behavior using classical isotherms, including Langmuir,
+Freundlich, Brunauer–Emmett–Teller (BET), and Temkin models. The package
+supports parameter estimation through both linearized and non-linear
+fitting techniques and generates high-quality plots for model diagnostics.
+It is intended for environmental scientists, chemists, and researchers
+working on adsorption phenomena in soils, water treatment, and material
+sciences. Functions are compatible with base 'R' and 'ggplot2' for
+visualization.
 
 %prep
 %setup -q -c -n %{packname}

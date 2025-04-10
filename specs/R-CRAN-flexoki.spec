@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  flexoki
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Inky Color Schemes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-palette 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-palette 
+Requires:         R-CRAN-scales 
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+Provides color palettes designed to be reminiscent of text on paper. The
+color schemes were taken from <https://stephango.com/flexoki>. Includes
+discrete, continuous, and binned scales that are not necessarily
+color-blind friendly. Simple scale and theme functions are available for
+use with 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

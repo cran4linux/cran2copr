@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ale
-%global packver   0.3.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interpretable Machine Learning and Statistical Inference with Accumulated Local Effects (ALE)
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,46 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-CRAN-labeling 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-S7 
+BuildRequires:    R-CRAN-staccuracy 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-univariateML 
-BuildRequires:    R-CRAN-yaImpute 
-Requires:         R-CRAN-assertthat 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-broom 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-glue 
-Requires:         R-grDevices 
 Requires:         R-CRAN-insight 
-Requires:         R-CRAN-labeling 
+Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-S7 
+Requires:         R-CRAN-staccuracy 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-univariateML 
-Requires:         R-CRAN-yaImpute 
+Requires:         R-utils 
 
 %description
 Accumulated Local Effects (ALE) were initially developed as a
@@ -66,13 +64,13 @@ approaches like partial dependency plots (PDP) and SHapley Additive
 exPlanations (SHAP): its values represent a clean functional decomposition
 of the model. As such, ALE values are not affected by the presence or
 absence of interactions among variables in a mode. Moreover, its
-computation is relatively rapid. This package rewrites the original code
-from the 'ALEPlot' package for calculating ALE data and it completely
-reimplements the plotting of ALE values. It also extends the original ALE
-concept to add bootstrap-based confidence intervals and ALE-based
-statistics that can be used for statistical inference. For more details,
-see Okoli, Chitu. 2023. “Statistical Inference Using Machine Learning and
-Classical Techniques Based on Accumulated Local Effects (ALE).” arXiv.
+computation is relatively rapid. This package reimplements the algorithms
+for calculating ALE data and develops highly interpretable visualizations
+for plotting these ALE values. It also extends the original ALE concept to
+add bootstrap-based confidence intervals and ALE-based statistics that can
+be used for statistical inference. For more details, see Okoli, Chitu.
+2023. “Statistical Inference Using Machine Learning and Classical
+Techniques Based on Accumulated Local Effects (ALE).” arXiv.
 <doi:10.48550/arXiv.2310.09877>.
 
 %prep

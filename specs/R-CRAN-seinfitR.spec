@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  seinfitR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Modeling the Relationship Between Nematode Densities and Plant Growth
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-minpack.lm 
+Requires:         R-CRAN-minpack.lm 
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+Implements the Seinhorst model to analyze the relationship between initial
+nematode densities and plant growth response using nonlinear least squares
+estimation. The package provides tools for model fitting, prediction, and
+visualization, facilitating the study of plant-nematode interactions.
+Model parameters can be estimated or set to predefined values based on
+Seinhorst (1986) <doi:10.1007/978-1-4613-2251-1_11>.
 
 %prep
 %setup -q -c -n %{packname}

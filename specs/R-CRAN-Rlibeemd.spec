@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rlibeemd
-%global packver   1.4.3
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Empirical Mode Decomposition (EEMD) and Its Complete Variant (CEEMDAN)
 
@@ -28,8 +28,8 @@ An R interface for libeemd (Luukko, Helske, Räsänen, 2016)
 parallelizable functions for performing the ensemble empirical mode
 decomposition (EEMD), its complete variant (CEEMDAN), the regular
 empirical mode decomposition (EMD), and bivariate EMD (BEMD). Due to the
-possible portability issues CRAN version no longer supports OpenMP, you
-can install OpenMP-supported version from GitHub:
+possible portability issues CRAN version no longer supports OpenMP, but
+you can install OpenMP-supported version from GitHub:
 <https://github.com/helske/Rlibeemd/>.
 
 %prep

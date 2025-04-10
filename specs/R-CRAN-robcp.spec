@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  robcp
+%global packver   0.3.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Robust Change-Point Tests
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-devel >= 3.3.1
+Requires:         R-core >= 3.3.1
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
+BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+Provides robust methods to detect change-points in uni- or multivariate
+time series. They can cope with corrupted data and heavy tails. Focus is
+on the detection of abrupt changes in location, but changes in the scale
+or dependence structure can be detected as well. This package provides
+tests for change detection in uni- and multivariate time series based on
+Huberized versions of CUSUM tests proposed in Duerre and Fried (2019)
+<DOI:10.48550/arXiv.1905.06201>, and tests for change detection in
+univariate time series based on 2-sample U-statistics or 2-sample
+U-quantiles as proposed by Dehling et al. (2015)
+<DOI:10.1007/978-1-4939-3076-0_12> and Dehling, Fried and Wendler (2020)
+<DOI:10.1093/biomet/asaa004>. Furthermore, the packages provides tests on
+changes in the scale or the correlation as proposed in Gerstenberger,
+Vogel and Wendler (2020) <DOI:10.1080/01621459.2019.1629938>, Dehling et
+al. (2017) <DOI:10.1017/S026646661600044X>, and Wied et al. (2014)
+<DOI:10.1016/j.csda.2013.03.005>.
 
 %prep
 %setup -q -c -n %{packname}

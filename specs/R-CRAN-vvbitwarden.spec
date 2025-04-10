@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  vvbitwarden
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Interacts with 'Bitwarden Secrets Manager'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+Provides functions to securely retrieve secrets from a 'Bitwarden Secrets
+Manager' vault using the 'Bitwarden CLI', enabling secret and
+configuration management within R packages and workflows. For more
+information visit <https://bitwarden.com/products/secrets-manager/>.
 
 %prep
 %setup -q -c -n %{packname}

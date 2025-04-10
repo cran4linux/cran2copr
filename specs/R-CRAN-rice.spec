@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rice
-%global packver   1.0.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Radiocarbon Equations
 
@@ -18,17 +18,13 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-maps >= 3.4.2.1
-BuildRequires:    R-CRAN-rintcal >= 1.1.1
-BuildRequires:    R-CRAN-rnaturalearth >= 1.0.1
+BuildRequires:    R-CRAN-rintcal >= 1.1.3
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-maps >= 3.4.2.1
-Requires:         R-CRAN-rintcal >= 1.1.1
-Requires:         R-CRAN-rnaturalearth >= 1.0.1
+Requires:         R-CRAN-rintcal >= 1.1.3
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-sf 
 
 %description
 Provides functions for the calibration of radiocarbon dates, as well as

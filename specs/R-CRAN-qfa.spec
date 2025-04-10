@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qfa
-%global packver   4.0
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile-Frequency Analysis (QFA) of Time Series
 
@@ -47,15 +47,16 @@ Requires:         R-CRAN-MASS
 Quantile-frequency analysis (QFA) of time series based on trigonometric
 quantile regression. Spline quantile regression (SQR) for regression
 coefficient estimation. References: [1] Li, T.-H. (2012) "Quantile
-periodograms", Journal of the American Statistical Association, 107,
+periodograms," Journal of the American Statistical Association, 107,
 765–776, <doi:10.1080/01621459.2012.682815>. [2] Li, T.-H. (2014) Time
 Series with Mixed Spectra, CRC Press, <doi:10.1201/b15154> [3] Li, T.-H.
 (2022) "Quantile Fourier transform, quantile series, and nonparametric
-estimation of quantile spectra", <doi:10.48550/arXiv.2211.05844>. [4] Li,
+estimation of quantile spectra," <doi:10.48550/arXiv.2211.05844>. [4] Li,
 T.-H. (2024) "Quantile crossing spectrum and spline autoregression
 estimation," <doi:10.48550/arXiv.2412.02513>. [5] Li, T.-H. (2024) "Spline
-autoregression method for estimation of quantile spectrum",
-<doi:10.48550/arXiv.2412.17163>.
+autoregression method for estimation of quantile spectrum,"
+<doi:10.48550/arXiv.2412.17163>. [6] Li, T.-H., and Megiddo, N. (2025)
+"Spline quantile regression," <doi:10.48550/arXiv.2501.03883>.
 
 %prep
 %setup -q -c -n %{packname}

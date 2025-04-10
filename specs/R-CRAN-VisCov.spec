@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VisCov
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing of Distributions of Covariance Matrices
 
@@ -34,7 +34,7 @@ Requires:         R-methods
 Visualizing of distributions of covariance matrices. The package
 implements the methodology described in Tokuda, T., Goodrich, B., Van
 Mechelen, I., Gelman, A., & Tuerlinckx, F. (2012)
-<https://stat.columbia.edu/~gelman/research/unpublished/Visualization.pdf>.
+<https://sites.stat.columbia.edu/gelman/research/unpublished/Visualization.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

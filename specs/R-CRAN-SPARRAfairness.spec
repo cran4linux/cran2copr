@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SPARRAfairness
-%global packver   0.0.0.2
+%global packver   0.1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.2
+Version:          0.1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Differential Behaviour of SPARRA Score Across Demographic Groups
 
@@ -50,7 +50,8 @@ differential performance over demographically-defined groups. It includes
 useful utility functions to plot receiver-operator-characteristic,
 precision-recall and calibration curves, draw stock human figures,
 estimate counterfactual quantities without the need to re-compute risk
-scores, to simulate a semi-realistic dataset.
+scores, to simulate a semi-realistic dataset. Our manuscript can be found
+at: <doi:10.1371/journal.pdig.0000675>.
 
 %prep
 %setup -q -c -n %{packname}

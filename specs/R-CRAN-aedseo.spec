@@ -1,50 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aedseo
-%global packver   0.1.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automated and Early Detection of Seasonal Epidemic Onset
+Summary:          Automated and Early Detection of Seasonal Epidemic Onset and Burden Levels
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-base 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 Requires:         R-base 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 
 %description
 A powerful tool for automating the early detection of seasonal epidemic
 onsets in time series data. It offers the ability to estimate growth rates
-for consecutive time intervals and calculate the sum of cases (SoC) within
-those intervals. It is particularly useful for epidemiologists, public
-health professionals, and researchers seeking to identify and respond to
-seasonal epidemics in a timely fashion. For reference on growth rate
-estimation, see Walling and Lipstich (2007) <doi:10.1098/rspb.2006.3754>
-and Obadia et al. (2012) <doi:10.1186/1472-6947-12-147>.
+across consecutive time intervals, calculate the sum of cases (SoC) within
+those intervals, and estimate seasonal onsets within user defined seasons.
+With use of a disease-specific threshold it also offers the possibility to
+estimate seasonal onset of epidemics. Additionally it offers the ability
+to estimate burden levels for seasons based on historical data. It is
+aimed towards epidemiologists, public health professionals, and
+researchers seeking to identify and respond to seasonal epidemics in a
+timely fashion.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  npdsim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Simulate Demand and Attributes for New Products
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-dplyr >= 1.1.4
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+Simulate demand and attributes for ready to launch new products during
+their life cycle, or during their introduction and growth phases. You
+provide the number of products, attributes, time periods and/or other
+parameters and 'npdsim' can simulate for you the demand for each product
+during the considered time periods, and the attributes of each product.
+The simulation for the demand is based on the idea that each product has a
+shape and a level, where the level is the cumulative demand over the
+considered time periods, and the shape is the normalized demand across
+those time periods.
 
 %prep
 %setup -q -c -n %{packname}

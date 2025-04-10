@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggstudent
-%global packver   0.1.1-1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Confidence Interval Plots using t-Distribution
 
@@ -34,7 +34,9 @@ to compute standard confidence intervals for the mean of the normal
 distribution when the variance is unknown. Two types of plots are
 available, a gradient plot with rectangular areas, and a violin plot where
 the shape (horizontal width) is defined by the probability density
-function of the t-distribution.
+function of the t-distribution. These visualizations are studied in
+(Helske, Helske, Cooper, Ynnerman, and Besancon, 2021)
+<doi:10.1109/TVCG.2021.3073466>.
 
 %prep
 %setup -q -c -n %{packname}

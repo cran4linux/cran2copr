@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tbm
-%global packver   0.3-6
+%global packver   0.3-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Transformation Boosting Machines
 
@@ -34,7 +34,7 @@ Requires:         R-methods
 
 %description
 Boosting the likelihood of conditional and shift transformation models as
-introduced in doi{10.1007/s11222-019-09870-4}.
+introduced in <DOI:10.1007/s11222-019-09870-4>.
 
 %prep
 %setup -q -c -n %{packname}

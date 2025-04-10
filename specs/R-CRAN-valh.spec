@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  crosswalkr
-%global packver   0.3.0
+%global packname  valh
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rename and Encode Data Frames Using External Crosswalk Files
+Summary:          Interface Between R and the OpenStreetMap-Based Routing Service Valhalla
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-labelled 
-Requires:         R-methods 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-googlePolylines 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-googlePolylines 
+Requires:         R-CRAN-curl 
+Requires:         R-utils 
+Requires:         R-CRAN-sf 
 
 %description
-A pair of functions for renaming and encoding data frames using external
-crosswalk files. It is especially useful when constructing master data
-sets from multiple smaller data sets that do not name or encode variables
-consistently across files. Based on similar commands in 'Stata'.
+An interface between R and the 'Valhalla' API. 'Valhalla' is a routing
+service based on 'OpenStreetMap' data. See
+<https://valhalla.github.io/valhalla/> for more information. This package
+enables the computation of routes, trips, isochrones and travel distances
+matrices (travel time and kilometer distance).
 
 %prep
 %setup -q -c -n %{packname}

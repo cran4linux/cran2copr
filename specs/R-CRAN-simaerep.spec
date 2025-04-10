@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simaerep
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Find Clinical Trial Sites Under-Reporting Adverse Events
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-furrr >= 0.2.1
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
@@ -32,8 +32,8 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dbplyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.1.0
-Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-furrr >= 0.2.1
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 

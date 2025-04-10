@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  OptHoldoutSize
-%global packver   0.1.0.0
+%global packver   0.1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.0
+Version:          0.1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of Optimal Size for a Holdout Set for Updating a Predictive Score
 
@@ -35,7 +36,8 @@ problem: a proportion of the population is 'held-out' from computation of
 the previous risk score. This package provides tools to estimate a size
 for this holdout set and associated errors. Comprehensive vignettes are
 included. Please see: Haidar-Wehbe S, Emerson SR, Aslett LJM, Liley J
-(2022) <arXiv:2202.06374> for details of methods.
+(2022) <doi:10.48550/arXiv.2202.06374> (to appear in Annals of Applied
+Statistics) for details of methods.
 
 %prep
 %setup -q -c -n %{packname}
