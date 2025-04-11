@@ -1,27 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  ztils
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Various Common Statistical Utilities
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-scico 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-scico 
+Requires:         R-CRAN-vegan 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Utilities for simplifying common statistical operations including
+probability density functions, cumulative distribution functions,
+Kolmogorov-Smirnov tests, principal component analysis plots, and
+prediction plots.
 
 %prep
 %setup -q -c -n %{packname}

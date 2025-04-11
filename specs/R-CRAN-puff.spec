@@ -1,49 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gmwmx2
-%global packver   0.0.2
+%global packname  puff
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimate Functional and Stochastic Parameters of Linear Models with Correlated Residuals and Missing Data
+Summary:          Simulate and Visualize the Gaussian Puff Forward Atmospheric Model
 
-License:          AGPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-wv 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-wv 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Implements the Generalized Method of Wavelet Moments with Exogenous Inputs
-estimator (GMWMX) presented in Voirol, L., Xu, H., Zhang, Y., Insolia, L.,
-Molinari, R. and Guerrier, S. (2024) <doi:10.48550/arXiv.2409.05160>. The
-GMWMX estimator allows to estimate functional and stochastic parameters of
-linear models with correlated residuals in presence of missing data. The
-'gmwmx2' package provides functions to load and plot Global Navigation
-Satellite System (GNSS) data from the Nevada Geodetic Laboratory and
-functions to estimate linear model model with correlated residuals in
-presence of missing data.
+Simulate and run the Gaussian puff forward atmospheric model in sensor
+(specific sensor coordinates) or grid (across the grid of a full oil and
+gas operations site) modes, following Jia, M., Fish, R., Daniels, W.,
+Sprinkle, B. and Hammerling, D. (2024)
+<doi:10.26434/chemrxiv-2023-hc95q-v3>. Numerous visualization options,
+including static and animated, 2D and 3D, and a site map generator based
+on sensor and source coordinates.
 
 %prep
 %setup -q -c -n %{packname}

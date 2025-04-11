@@ -1,44 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  arcgisutils
-%global packver   0.3.3
+%global packname  ernm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          ArcGIS Utility Functions
+Summary:          Exponential-Family Random Network Models
 
-License:          Apache License (>= 2)
+License:          LGPL-2.1
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2
-Requires:         R-core >= 4.2
-BuildRequires:    R-CRAN-httr2 >= 1.0.5
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-RcppSimdJson 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.5
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-RcppSimdJson 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-trust 
+Requires:         R-CRAN-BH 
+Requires:         R-methods 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-graphics 
+Requires:         R-CRAN-moments 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-trust 
 
 %description
-Developer oriented utility functions designed to be used as the building
-blocks of R packages that work with ArcGIS Location Services. It provides
-functionality for authorization, Esri JSON construction and parsing, as
-well as other utilities pertaining to geometry and Esri type conversions.
-To support 'ArcGIS Pro' users, authorization can be done via
-'arcgisbinding'. Installation instructions for 'arcgisbinding' can be
-found at <https://developers.arcgis.com/r-bridge/installation/>.
+Estimation of fully and partially observed Exponential-Family Random
+Network Models (ERNM). Exponential-family Random Graph Models (ERGM) and
+Gibbs Fields are special cases of ERNMs and can also be estimated with the
+package. Please cite Fellows and Handcock (2012), "Exponential-family
+Random Network Models" available at <doi:10.48550/arXiv.1208.0121>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MetaNet
-%global packver   0.1.2
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Analysis for Omics Data
 
@@ -19,12 +19,11 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-igraph >= 1.3.5
-BuildRequires:    R-CRAN-pcutils >= 0.2.5
+BuildRequires:    R-CRAN-pcutils >= 0.2.7
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reshape2 
@@ -34,12 +33,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-igraph >= 1.3.5
-Requires:         R-CRAN-pcutils >= 0.2.5
+Requires:         R-CRAN-pcutils >= 0.2.7
 Requires:         R-graphics 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-RColorBrewer 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reshape2 

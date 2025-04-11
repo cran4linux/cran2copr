@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  MCSimMod
+%global packver   0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Working with 'MCSim' Models
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-methods 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-deSolve 
+Requires:         R-methods 
+Requires:         R-tools 
+Requires:         R-CRAN-deSolve 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Tools that facilitate ordinary differential equation (ODE) modeling in
+'R'. This package allows one to perform simulations for ODE models that
+are encoded in the GNU 'MCSim' model specification language (Bois, 2009)
+<doi:10.1093/bioinformatics/btp162> using ODE solvers from the 'R' package
+'deSolve' (Soetaert et al., 2010) <doi:10.18637/jss.v033.i09>.
 
 %prep
 %setup -q -c -n %{packname}

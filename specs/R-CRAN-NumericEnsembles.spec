@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NumericEnsembles
-%global packver   0.5.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatically Runs 23 Individual and 17 Ensembles of Models
 

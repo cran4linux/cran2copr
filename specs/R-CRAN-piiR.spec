@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  piiR
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Predictive Information Index ('PII')
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-stats >= 3.6.0
+BuildRequires:    R-CRAN-infotheo >= 1.2.0
+BuildRequires:    R-CRAN-pROC >= 1.18.0
+Requires:         R-stats >= 3.6.0
+Requires:         R-CRAN-infotheo >= 1.2.0
+Requires:         R-CRAN-pROC >= 1.18.0
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+A simple implementation of the Predictive Information Index ('PII') using
+mutual information and entropy from the 'infotheo' package. For related
+methodology, see Wells (2025) <https://github.com/TheotherDrWells/piiR>.
 
 %prep
 %setup -q -c -n %{packname}

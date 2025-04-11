@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  heatwaveR
-%global packver   0.4.6
+%global packver   0.5.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.6
+Version:          0.5.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Detect Heatwaves and Cold-Spells
 
@@ -17,26 +18,18 @@ BuildRequires:    R-devel >= 3.0.2
 Requires:         R-core >= 3.0.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.16
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fasttime 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-plyr 
 BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fasttime 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-grid 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-plyr 
 Requires:         R-CRAN-Rcpp >= 0.12.16
 Requires:         R-CRAN-RcppRoll 
 Requires:         R-stats 
-Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description

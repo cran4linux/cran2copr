@@ -1,27 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  PwePred
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Event/Timeline Prediction Model Based on Piecewise Exponential
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-fastmatch 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-segmented 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-fastmatch 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-segmented 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-parallel 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Efficient algorithm for estimating piecewise exponential hazard models for
+right-censored data, and is useful for reliable power calculation, study
+design, and event/timeline prediction for study monitoring.
 
 %prep
 %setup -q -c -n %{packname}

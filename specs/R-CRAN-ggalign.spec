@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggalign
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
 
@@ -48,7 +48,7 @@ complex visualizations. It excels in multi-omics research—such as genomics
 and microbiomes—by simplifying the visualization of intricate
 relationships between datasets, for example, linking genes to pathways.
 Whether you need to stack plots, arrange them around a central figure, or
-use a circular layout, 'ggalign' delivers flexibility and accuracy with
+create a circular layout, 'ggalign' delivers flexibility and accuracy with
 minimal effort.
 
 %prep

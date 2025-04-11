@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ip2locationio
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lookup Geolocation and Proxy Information using 'IP2Location.io' API
 
@@ -27,9 +27,10 @@ Query for enriched data such as country, region, city, latitude &
 longitude, ZIP code, time zone, Autonomous System, Internet Service
 Provider, domain, net speed, International direct dialing (IDD) code, area
 code, weather station data, mobile data, elevation, usage type, address
-type, advertisement category, and proxy data with an IP address. This
-package uses the 'IP2Location.io' API to query this data. To get started
-with a free API key, sign up here
+type, advertisement category, fraud score, and proxy data with an IP
+address. You can also query a list of hosted domain names for the IP
+address too. This package uses the 'IP2Location.io' API to query this
+data. To get started with a free API key, sign up here
 <https://www.ip2location.io/sign-up?ref=1>.
 
 %prep

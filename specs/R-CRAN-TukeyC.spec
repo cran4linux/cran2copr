@@ -1,27 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  TukeyC
+%global packver   1.3-43
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.3.43
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Conventional Tukey Test
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.6.0
+Requires:         R-core >= 2.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-doBy 
+BuildRequires:    R-CRAN-xtable 
+Requires:         R-CRAN-doBy 
+Requires:         R-CRAN-xtable 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Provides tools to perform multiple comparison analyses, based on the
+well-known Tukey's "Honestly Significant Difference" (HSD) test. In models
+involving interactions, 'TukeyC' stands out from other R packages by
+implementing intuitive and easy-to-use functions. In addition to
+accommodating traditional R methods such as lm() and aov(), it has also
+been extended to objects of the lmer() class, that is, mixed models with
+fixed effects. For more details see Tukey (1949) <doi:10.2307/3001913>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,27 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  hera
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Companion to the 'xeus-r' 'jupyter' Kernel
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-evaluate 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-IRdisplay 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-repr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-evaluate 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-IRdisplay 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-repr 
+Requires:         R-CRAN-rlang 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Set of R functions to be coupled with the 'xeus-r' 'jupyter' kernel in
+order to drive execution of code in notebook input cells, how R objects
+are to be displayed in output cells, and handle two way communication with
+the front end through comms.
 
 %prep
 %setup -q -c -n %{packname}

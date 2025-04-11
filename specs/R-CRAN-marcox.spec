@@ -1,27 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  marcox
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Marginal Hazard Ratio Estimation in Clustered Failure Time Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Estimation of marginal hazard ratios in clustered failure time data. It
+implements the weighted generalized estimating equation approach based on
+a semiparametric marginal proportional hazards model (See Niu, Y. Peng,
+Y.(2015). "A new estimating equation approach for marginal hazard ratio
+estimation"), accounting for within-cluster correlations. 5 different
+correlation structures are supported. The package is designed for
+researchers in biostatistics and epidemiology who require accurate and
+efficient estimation methods for survival analysis in clustered data
+settings.
 
 %prep
 %setup -q -c -n %{packname}

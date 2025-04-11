@@ -1,27 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  ARTool
+%global packver   0.11.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.11.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Aligned Rank Transform
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.2
+Requires:         R-core >= 3.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-car >= 2.0.24
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-emmeans 
+Requires:         R-CRAN-car >= 2.0.24
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-emmeans 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+The aligned rank transform for nonparametric factorial ANOVAs as described
+by Wobbrock, Findlater, Gergle, and Higgins (2011)
+<doi:10.1145/1978942.1978963>. Also supports aligned rank transform
+contrasts as described by Elkin, Kay, Higgins, and Wobbrock (2021)
+<doi:10.1145/3472749.3474784>.
 
 %prep
 %setup -q -c -n %{packname}

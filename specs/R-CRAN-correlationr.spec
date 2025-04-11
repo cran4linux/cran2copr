@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  extremefit
-%global packver   1.0.3
+%global packname  correlationr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of Extreme Conditional Quantiles and Probabilities
+Summary:          Conduct Robust Correlations on Non-Normal Data
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
 
 %description
-Extreme value theory, nonparametric kernel estimation, tail conditional
-probabilities, extreme conditional quantile, adaptive estimation, quantile
-regression, survival probabilities.
+Allows you to conduct robust correlations on your non-normal data set. The
+robust correlations included in the package are median-absolute-deviation
+and median-based correlations. Li, J.C.H. (2022) <doi:10.5964/meth.8467>.
 
 %prep
 %setup -q -c -n %{packname}

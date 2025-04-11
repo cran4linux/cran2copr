@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmeta
-%global packver   3.1-1
+%global packver   3.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Network Meta-Analysis using Frequentist Methods
 
@@ -73,7 +73,8 @@ treatment rankings ('poset') and Hasse diagram for 'poset' (Carlsen &
 Bruggemann, 2014) <doi:10.1002/cem.2569>; (Rücker & Schwarzer, 2017)
 <doi:10.1002/jrsm.1270>; - contribution matrix as described in
 Papakonstantinou et al. (2018) <doi:10.12688/f1000research.14770.3> and
-Davies et al. (2022) <doi:10.1002/sim.9346>; - subgroup network
+Davies et al. (2022) <doi:10.1002/sim.9346>; - network meta-regression
+with a single continuous or binary covariate; - subgroup network
 meta-analysis.
 
 %prep

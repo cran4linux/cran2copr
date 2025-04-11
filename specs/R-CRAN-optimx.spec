@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  optimx
-%global packver   2024-12.2
+%global packver   2025-4.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2024.12.2
+Version:          2025.4.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Expanded Replacement and Extension of the 'optim' Function
 
