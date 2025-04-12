@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalMetaR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causally Interpretable Meta-Analysis
 
@@ -39,8 +39,8 @@ same data structure (outcome, treatment, and covariates). The target
 population can be based on an internal dataset or an external dataset
 where only covariate information is available. The causal estimands
 available are average treatment effects and subgroup treatment effects.
-See Wang et al. (2024) <doi:10.48550/arXiv.2402.04341> for a detailed
-guide on using the package.
+See Wang et al. (2025) <doi:10.1017/rsm.2025.5> for a detailed guide on
+using the package.
 
 %prep
 %setup -q -c -n %{packname}

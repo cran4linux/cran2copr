@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shrinkDSM
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Dynamic Survival Models with Shrinkage
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-shrinkTVP >= 2.0.2
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
 Requires:         R-CRAN-stochvol >= 3.0.3
@@ -28,6 +29,7 @@ Requires:         R-CRAN-shrinkTVP >= 2.0.2
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-coda 
 Requires:         R-utils 
+Requires:         R-CRAN-survival 
 
 %description
 Efficient Markov chain Monte Carlo (MCMC) algorithms for fully Bayesian

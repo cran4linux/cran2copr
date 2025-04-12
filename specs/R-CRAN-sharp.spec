@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sharp
-%global packver   1.4.6
+%global packver   1.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.6
+Version:          1.4.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stability-enHanced Approaches using Resampling Procedures
 
@@ -50,16 +50,16 @@ Requires:         R-CRAN-Rdpack
 In stability selection (N Meinshausen, P Bühlmann (2010)
 <doi:10.1111/j.1467-9868.2010.00740.x>) and consensus clustering (S Monti
 et al (2003) <doi:10.1023/A:1023949509487>), resampling techniques are
-used to enhance the reliability of the results. In this package,
-hyper-parameters are calibrated by maximising model stability, which is
-measured under the null hypothesis that all selection (or co-membership)
-probabilities are identical (B Bodinier et al (2023a)
-<doi:10.1093/jrsssc/qlad058> and B Bodinier et al (2023b)
-<doi:10.1093/bioinformatics/btad635>). Functions are readily implemented
-for the use of LASSO regression, sparse PCA, sparse (group) PLS or
-graphical LASSO in stability selection, and hierarchical clustering,
-partitioning around medoids, K means or Gaussian mixture models in
-consensus clustering.
+used to enhance the reliability of the results. In this package (B
+Bodinier et al (2025) <doi:10.18637/jss.v112.i05>), hyper-parameters are
+calibrated by maximising model stability, which is measured under the null
+hypothesis that all selection (or co-membership) probabilities are
+identical (B Bodinier et al (2023a) <doi:10.1093/jrsssc/qlad058> and B
+Bodinier et al (2023b) <doi:10.1093/bioinformatics/btad635>). Functions
+are readily implemented for the use of LASSO regression, sparse PCA,
+sparse (group) PLS or graphical LASSO in stability selection, and
+hierarchical clustering, partitioning around medoids, K means or Gaussian
+mixture models in consensus clustering.
 
 %prep
 %setup -q -c -n %{packname}

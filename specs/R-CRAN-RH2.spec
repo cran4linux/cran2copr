@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RH2
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          DBI/RJDBC Interface to H2 Database
 
@@ -27,7 +27,7 @@ Requires:         R-CRAN-RJDBC
 Requires:         R-CRAN-rJava 
 
 %description
-DBI/RJDBC interface to h2 database. h2 version 1.3.175 is included.
+DBI/RJDBC interface to h2 database. h2 version 2.3.232 is included.
 
 %prep
 %setup -q -c -n %{packname}

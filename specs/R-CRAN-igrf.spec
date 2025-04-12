@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  igrf
-%global packver   1.0
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          International Geomagnetic Reference Field
 
@@ -17,7 +18,7 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 
 %description
-The 13th generation International Geomagnetic Reference Field (IGRF). A
+The 14th generation International Geomagnetic Reference Field (IGRF). A
 standard spherical harmonic representation of the Earth's main field.
 
 %prep

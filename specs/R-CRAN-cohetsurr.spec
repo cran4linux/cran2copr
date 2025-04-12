@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cohetsurr
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Complex Heterogeneity in Surrogacy
 
@@ -20,19 +20,30 @@ BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-grf 
 Requires:         R-stats 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-grf 
 
 %description
-Provides functions to assess and test for complex heterogeneity in the
-utility of a surrogate marker with respect to multiple baseline
-covariates, using both a parametric model and a semiparametric two-step
-model. More details are available in: Knowlton, R., Tian, L., & Parast, L.
-(2025). "A General Framework to Assess Complex Heterogeneity in the
-Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
-<doi:10.1002/sim.70001>. A tutorial for this package can be found at
-<https://laylaparast.com/home/cohetsurr.html>.
+Provides functions to assess complex heterogeneity in the strength of a
+surrogate marker with respect to multiple baseline covariates, in either a
+randomized treatment setting or observational setting. For a randomized
+treatment setting, the functions assess and test for heterogeneity using
+both a parametric model and a semiparametric two-step model. More details
+for the randomized setting are available in: Knowlton, R., Tian, L., &
+Parast, L. (2025). "A General Framework to Assess Complex Heterogeneity in
+the Strength of a Surrogate Marker," Statistics in Medicine, 44(5), e70001
+<doi:10.1002/sim.70001>. For an observational setting, functions in this
+package assess complex heterogeneity in the strength of a surrogate marker
+using meta-learners, with options for different base learners. More
+details for the observational setting will be available in the future in:
+Knowlton, R., Parast, L. (2025) "Assessing Surrogate Heterogeneity in Real
+World Data Using Meta-Learners." A tutorial for this package can be found
+at <https://www.laylaparast.com/cohetsurr>.
 
 %prep
 %setup -q -c -n %{packname}

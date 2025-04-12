@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcensusPkg
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Access US Census Bureau Survey and Geographic Data
 
@@ -20,20 +20,22 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
 BuildRequires:    R-CRAN-jsonlite >= 1.8.9
 BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-httr >= 1.4.7
 BuildRequires:    R-CRAN-data.table >= 1.16.4
+BuildRequires:    R-CRAN-httr2 >= 1.1.2
 BuildRequires:    R-CRAN-purrr >= 1.0.2
 BuildRequires:    R-CRAN-sf >= 1.0.19
+BuildRequires:    R-CRAN-downloader >= 0.4.1
 BuildRequires:    R-CRAN-gtable >= 0.3.6
 BuildRequires:    R-CRAN-RplotterPkg >= 0.1.3
 BuildRequires:    R-CRAN-ggplotify >= 0.1.2
 Requires:         R-CRAN-ggplot2 >= 3.5.1
 Requires:         R-CRAN-jsonlite >= 1.8.9
 Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-httr >= 1.4.7
 Requires:         R-CRAN-data.table >= 1.16.4
+Requires:         R-CRAN-httr2 >= 1.1.2
 Requires:         R-CRAN-purrr >= 1.0.2
 Requires:         R-CRAN-sf >= 1.0.19
+Requires:         R-CRAN-downloader >= 0.4.1
 Requires:         R-CRAN-gtable >= 0.3.6
 Requires:         R-CRAN-RplotterPkg >= 0.1.3
 Requires:         R-CRAN-ggplotify >= 0.1.2

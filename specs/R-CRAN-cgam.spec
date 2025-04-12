@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cgam
-%global packver   1.23
+%global packver   1.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23
+Version:          1.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Generalized Additive Model
 
@@ -17,18 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-statmod >= 1.4.36
-BuildRequires:    R-CRAN-Matrix >= 1.2.8
 BuildRequires:    R-CRAN-coneproj >= 1.12
-BuildRequires:    R-CRAN-lme4 >= 1.1.13
-BuildRequires:    R-CRAN-svDialogs >= 0.9.57
 BuildRequires:    R-CRAN-splines2 >= 0.5.2
-Requires:         R-CRAN-statmod >= 1.4.36
-Requires:         R-CRAN-Matrix >= 1.2.8
+BuildRequires:    R-CRAN-svDialogs 
+BuildRequires:    R-CRAN-statmod 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-coneproj >= 1.12
-Requires:         R-CRAN-lme4 >= 1.1.13
-Requires:         R-CRAN-svDialogs >= 0.9.57
 Requires:         R-CRAN-splines2 >= 0.5.2
+Requires:         R-CRAN-svDialogs 
+Requires:         R-CRAN-statmod 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-parallel 
+Requires:         R-CRAN-zeallot 
 
 %description
 A constrained generalized additive model is fitted by the cgam routine.
