@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GetBCBData
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Imports Datasets from BCB (Central Bank of Brazil) using Its Official API
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
 Requires:         R-CRAN-curl 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
 Requires:         R-methods 
+Requires:         R-CRAN-cli 
 
 %description
 Downloads and organizes datasets using BCB's API

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coxphm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time-to-Event Data Analysis with Missing Survival Times
 
@@ -25,8 +25,8 @@ Requires:         R-CRAN-MASS
 Requires:         R-stats 
 
 %description
-Fits a pseudo Cox proprotional hazards model that allow us to analyze
-time-to-event data when survival times are missing for control groups.
+Fits a pseudo Cox proprotional hazards model when survival times are
+missing for control groups.
 
 %prep
 %setup -q -c -n %{packname}

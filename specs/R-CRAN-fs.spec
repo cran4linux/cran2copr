@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fs
-%global packver   1.6.5
+%global packver   1.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Platform File System Operations Based on 'libuv'
 

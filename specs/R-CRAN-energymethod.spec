@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  power.transform
-%global packver   1.0.1
+%global packname  energymethod
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Location and Scale Invariant Power Transformations
+Summary:          Two-Sample Test of many Functional Means using the Energy Method
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nloptr 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.14
 
 %description
-Location- and scale-invariant Box-Cox and Yeo-Johnson power
-transformations allow for transforming variables with distributions
-distant from 0 to normality. Transformers are implemented as S4 objects.
-These allow for transforming new instances to normality after optimising
-fitting parameters on other data. A test for central normality allows for
-rejecting transformations that fail to produce a suitably normal
-distribution, independent of sample number.
+Given two samples of size n_1 and n_2 from a data set where each sample
+consists of K functional observations (channels), each recorded on T grid
+points, the function energy method implements a hypothesis test of
+equality of channel-wise mean at each channel using the bootstrapped
+distribution of maximum energy to control family wise error.
 
 %prep
 %setup -q -c -n %{packname}

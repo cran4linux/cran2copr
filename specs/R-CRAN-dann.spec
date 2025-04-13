@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dann
-%global packver   1.0.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Discriminant Adaptive Nearest Neighbor Classification
 
@@ -23,10 +23,9 @@ BuildRequires:    R-CRAN-fpc >= 2.1.11.1
 BuildRequires:    R-CRAN-tibble >= 2.1.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
-BuildRequires:    R-CRAN-rlang >= 0.3.4
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-purrr >= 0.3.2
 BuildRequires:    R-CRAN-hardhat 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-stats >= 3.5.3
@@ -35,10 +34,9 @@ Requires:         R-CRAN-fpc >= 2.1.11.1
 Requires:         R-CRAN-tibble >= 2.1.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-Rcpp >= 1.0.1
-Requires:         R-CRAN-rlang >= 0.3.4
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-purrr >= 0.3.2
 Requires:         R-CRAN-hardhat 
-Requires:         R-CRAN-ellipsis 
 
 %description
 Discriminant Adaptive Nearest Neighbor Classification is a variation of k

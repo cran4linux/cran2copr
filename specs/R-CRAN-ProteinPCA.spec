@@ -1,39 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  power.transform
-%global packver   1.0.1
+%global packname  ProteinPCA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Location and Scale Invariant Power Transformations
+Summary:          Principal Component Analysis (PCA) Tool on Protein Expression Data
 
-License:          EUPL
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nloptr 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 
 %description
-Location- and scale-invariant Box-Cox and Yeo-Johnson power
-transformations allow for transforming variables with distributions
-distant from 0 to normality. Transformers are implemented as S4 objects.
-These allow for transforming new instances to normality after optimising
-fitting parameters on other data. A test for central normality allows for
-rejecting transformations that fail to produce a suitably normal
-distribution, independent of sample number.
+Analysis of protein expression data can be done through Principal
+Component Analysis (PCA), and this R package is designed to streamline the
+analysis. This package enables users to perform PCA and it generates
+biplot and scree plot for advanced graphical visualization. Optionally, it
+supports grouping/clustering visualization with PCA loadings and
+confidence ellipses. With this R package, researchers can quickly explore
+complex protein datasets, interpret variance contributions, and visualize
+sample clustering through intuitive biplots. For more details, see
+Jolliffe (2001) <doi:10.1007/b98835>, Gabriel (1971)
+<doi:10.1093/biomet/58.3.453>, Zhang et al. (2024)
+<doi:10.1038/s41467-024-53239-9>, and Anandan et al. (2022)
+<doi:10.1038/s41598-022-07781-5>.
 
 %prep
 %setup -q -c -n %{packname}

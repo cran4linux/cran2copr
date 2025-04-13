@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AzureKeyVault
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Key and Secret Management in 'Azure'
 
@@ -37,7 +38,7 @@ Requires:         R-CRAN-AzureGraph
 
 %description
 Manage keys, certificates, secrets, and storage accounts in Microsoft's
-'Key Vault' service: <https://azure.microsoft.com/services/key-vault/>.
+'Key Vault' service: <https://azure.microsoft.com/products/key-vault/>.
 Provides facilities to store and retrieve secrets, use keys to encrypt,
 decrypt, sign and verify data, and manage certificates. Integrates with
 the 'AzureAuth' package to enable authentication with a certificate, and

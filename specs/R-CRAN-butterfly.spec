@@ -1,39 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  power.transform
-%global packver   1.0.1
+%global packname  butterfly
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Location and Scale Invariant Power Transformations
+Summary:          Verification for Continually Updating Time Series Data
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nloptr 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-waldo 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-waldo 
 
 %description
-Location- and scale-invariant Box-Cox and Yeo-Johnson power
-transformations allow for transforming variables with distributions
-distant from 0 to normality. Transformers are implemented as S4 objects.
-These allow for transforming new instances to normality after optimising
-fitting parameters on other data. A test for central normality allows for
-rejecting transformations that fail to produce a suitably normal
-distribution, independent of sample number.
+Verification of continually updating time series data where we expect new
+values, but want to ensure previous data remains unchanged. Data
+previously recorded could change for a number of reasons, such as
+discovery of an error in model code, a change in methodology or instrument
+recalibration. Monitoring data sources for these changes is not always
+possible. Other unnoticed changes could include a jump in time or
+measurement frequency, due to instrument failure or software updates.
+Functionality is provided that can be used to check and flag changes to
+previous data to prevent changes going unnoticed, as well as unexpected
+jumps in time.
 
 %prep
 %setup -q -c -n %{packname}

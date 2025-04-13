@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  power.transform
-%global packver   1.0.1
+%global packname  FLAG
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Location and Scale Invariant Power Transformations
+Summary:          Flexible and Accurate Gaussian Graphical Models
 
-License:          EUPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nloptr 
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-data.table 
-Requires:         R-methods 
-Requires:         R-CRAN-nloptr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-MASS 
 
 %description
-Location- and scale-invariant Box-Cox and Yeo-Johnson power
-transformations allow for transforming variables with distributions
-distant from 0 to normality. Transformers are implemented as S4 objects.
-These allow for transforming new instances to normality after optimising
-fitting parameters on other data. A test for central normality allows for
-rejecting transformations that fail to produce a suitably normal
-distribution, independent of sample number.
+In order to achieve accurate estimation without sparsity assumption on the
+precision matrix, element-wise inference on the precision matrix, and
+joint estimation of multiple Gaussian graphical models, a novel method is
+proposed and efficient algorithm is implemented. FLAG() is the main
+function given a data matrix, and FlagOneEdge() will be used when one pair
+of random variables are interested where their indices should be given.
+Flexible and Accurate Methods for Estimation and Inference of Gaussian
+Graphical Models with Applications, see Qian Y (2023)
+<doi:10.14711/thesis-991013223054603412>, Qian Y, Hu X, Yang C (2023)
+<doi:10.48550/arXiv.2306.17584>.
 
 %prep
 %setup -q -c -n %{packname}

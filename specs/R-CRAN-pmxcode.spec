@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pmxcode
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Pharmacometric Models
 
@@ -24,12 +24,14 @@ BuildRequires:    R-CRAN-shinyBS
 BuildRequires:    R-CRAN-bsicons 
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-markdown 
+BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-rclipboard 
 BuildRequires:    R-CRAN-readr 
@@ -37,6 +39,7 @@ BuildRequires:    R-CRAN-rhandsontable
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-shinyAce 
 BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-tools 
@@ -49,12 +52,14 @@ Requires:         R-CRAN-shinyBS
 Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-markdown 
+Requires:         R-CRAN-officer 
 Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-rclipboard 
 Requires:         R-CRAN-readr 
@@ -62,6 +67,7 @@ Requires:         R-CRAN-rhandsontable
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-shinyAce 
 Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-shinyjs 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyr 
 Requires:         R-tools 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AzureContainers
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Container Instances', 'Docker Registry' and 'Kubernetes' in 'Azure'
 
@@ -33,7 +34,7 @@ Requires:         R-CRAN-processx
 
 %description
 An interface to container functionality in Microsoft's 'Azure' cloud:
-<https://azure.microsoft.com/en-us/product-categories/containers/>. Manage
+<https://azure.microsoft.com/en-us/products/category/containers/>. Manage
 'Azure Container Instance' (ACI), 'Azure Container Registry' (ACR) and
 'Azure Kubernetes Service' (AKS) resources, push and pull images, and
 deploy services. On the client side, lightweight shells to the 'docker',
