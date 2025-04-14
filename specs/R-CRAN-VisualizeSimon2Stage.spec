@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VisualizeSimon2Stage
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Simon's Two-Stage Design
 
@@ -21,10 +21,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-flextable 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-geomtextpath 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-methods 
 Requires:         R-CRAN-flextable 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-officer 
+Requires:         R-CRAN-geomtextpath 
+Requires:         R-CRAN-scales 
 
 %description
 To visualize the probabilities of early termination, fail and success of

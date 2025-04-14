@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  refitME
-%global packver   1.2.2
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measurement Error Modelling using MCEM
 
@@ -13,11 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-SemiPar 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-VGAMdata 
@@ -29,7 +29,6 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-SemiPar 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-VGAM 
 Requires:         R-CRAN-VGAMdata 

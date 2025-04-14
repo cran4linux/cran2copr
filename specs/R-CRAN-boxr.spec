@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  boxr
-%global packver   0.3.6
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface for the 'Box.com API'
 
@@ -17,17 +18,15 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr >= 1.1.0
+BuildRequires:    R-CRAN-rio >= 0.5.18
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-bit64 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-httpuv 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-mime 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rio 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -35,18 +34,19 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-httr >= 1.1.0
+Requires:         R-CRAN-rio >= 0.5.18
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-bit64 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-httpuv 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-mime 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rio 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 
@@ -54,6 +54,9 @@ Requires:         R-utils
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-withr 
 
 %description
 An R interface for the remote file hosting service 'Box'
@@ -71,6 +74,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

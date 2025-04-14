@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpicrust2
-%global packver   2.0.0
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make 'PICRUSt2' Output Analysis and Visualization Easier
 
@@ -33,6 +33,8 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-aplot 
 Requires:         R-CRAN-dplyr 
@@ -50,6 +52,8 @@ Requires:         R-CRAN-progress
 Requires:         R-stats 
 Requires:         R-methods 
 Requires:         R-grDevices 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-ggraph 
 Requires:         R-utils 
 
 %description

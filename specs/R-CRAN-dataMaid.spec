@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataMaid
-%global packver   1.4.1
+%global packver   1.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.1
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Suite of Checks for Identification of Potential Errors in a Data Frame as Part of the Data Screening Process
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pander 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-whoami 
 Requires:         R-CRAN-rmarkdown >= 1.10
@@ -37,6 +38,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-pander 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-whoami 
 

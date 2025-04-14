@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SUMO
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generating Multi-Omics Datasets
+Summary:          Generating Multi-Omics Datasets for Testing and Benchmarking
 
 License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,17 +20,40 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-officer 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-officer 
 
 %description
-Designed to generate multi-omics datasets that closely reflect biological
-complexity, the package allows for testing, validation, and benchmarking
-of multi-omics integrative methods. The simulated data includes one or
-multiple predefined signals (latent/unobserved factors), giving users
-complete control over the data-generated characteristics. Tini, Giulia, et
-al (2019) <doi:10.1093/bib/bbx167>.
+Provides tools to simulate multi-omics datasets with predefined signal
+structures. The generated data can be used for testing, validating, and
+benchmarking integrative analysis methods such as factor models and
+clustering approaches. This version includes enhanced signal
+customization, visualization tools (scatter, histogram, 3D), MOFA-based
+analysis pipelines, PowerPoint export, and statistical profiling of
+datasets. Designed for both method development and teaching, SUMO supports
+real and synthetic data pipelines with interpretable outputs. Tini,
+Giulia, et al (2019) <doi:10.1093/bib/bbx167>.
 
 %prep
 %setup -q -c -n %{packname}

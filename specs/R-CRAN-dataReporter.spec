@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dataReporter
-%global packver   1.0.2
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reproducible Data Screening Checks and Report of Possible Errors
 
@@ -27,6 +28,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-pander 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-whoami 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-rmarkdown >= 1.10
 Requires:         R-CRAN-robustbase >= 0.93.2
 Requires:         R-CRAN-ggplot2 
@@ -38,6 +40,7 @@ Requires:         R-methods
 Requires:         R-CRAN-pander 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-whoami 
+Requires:         R-CRAN-rlang 
 
 %description
 Data screening is an important first step of any statistical analysis.
