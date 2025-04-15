@@ -1,11 +1,12 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.temis
-%global packver   0.7.10
+%global packver   0.7.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.10
-Release:          3%{?dist}%{?buildtag}
+Version:          0.7.12
+Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Integrated Text Mining Solution
 
 License:          GPL (>= 2)
@@ -24,7 +25,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-NLP 
 BuildRequires:    R-CRAN-slam 
 BuildRequires:    R-CRAN-zoo 
-BuildRequires:    R-lattice 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-tcltk2 
 BuildRequires:    R-utils 
@@ -39,7 +40,7 @@ Requires:         R-methods
 Requires:         R-CRAN-NLP 
 Requires:         R-CRAN-slam 
 Requires:         R-CRAN-zoo 
-Requires:         R-lattice 
+Requires:         R-CRAN-lattice 
 Requires:         R-tcltk 
 Requires:         R-CRAN-tcltk2 
 Requires:         R-utils 
@@ -54,14 +55,22 @@ series of text mining tasks such as importing and cleaning a corpus, and
 analyses like terms and documents counts, vocabulary tables, terms
 co-occurrences and documents similarity measures, time series analysis,
 correspondence analysis and hierarchical clustering. Corpora can be
-imported from spreadsheet-like files, directories of raw text files,
-'Twitter' queries, as well as from 'Dow Jones Factiva', 'LexisNexis',
-'Europresse' and 'Alceste' files.
+imported from spreadsheet-like files, directories of raw text files, as
+well as from 'Dow Jones Factiva', 'LexisNexis', 'Europresse' and 'Alceste'
+files.
 
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
 find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -69,9 +78,10 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 
 mkdir -p %{buildroot}%{rlibdir}
 xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

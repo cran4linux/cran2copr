@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scs
-%global packver   3.2.4
+%global packver   3.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.4
+Version:          3.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Splitting Conic Solver
 

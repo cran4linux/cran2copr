@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveyvoi
-%global packver   1.0.6
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Value of Information
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-RcppAlgos >= 2.3.6
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-withr >= 2.1.2
 BuildRequires:    R-CRAN-plyr >= 1.8.4
-BuildRequires:    R-CRAN-xgboost >= 1.5.2.1
+BuildRequires:    R-CRAN-xgboost >= 1.7.8.1
 BuildRequires:    R-CRAN-groupdata2 >= 1.3.0
 BuildRequires:    R-CRAN-nloptr >= 1.2.2.2
 BuildRequires:    R-CRAN-progress >= 1.2.2
@@ -47,7 +47,7 @@ Requires:         R-CRAN-RcppAlgos >= 2.3.6
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-withr >= 2.1.2
 Requires:         R-CRAN-plyr >= 1.8.4
-Requires:         R-CRAN-xgboost >= 1.5.2.1
+Requires:         R-CRAN-xgboost >= 1.7.8.1
 Requires:         R-CRAN-groupdata2 >= 1.3.0
 Requires:         R-CRAN-nloptr >= 1.2.2.2
 Requires:         R-CRAN-progress >= 1.2.2
@@ -78,7 +78,7 @@ value of information. Please note that several functions depend on the
 'Gurobi' optimization software (available from <https://www.gurobi.com>).
 Additionally, the 'JAGS' software (available from
 <https://mcmc-jags.sourceforge.io/>) is required to fit hierarchical
-generalized linear models. For further details, see Hanson et al. (2022)
+generalized linear models. For further details, see Hanson et al. (2023)
 <doi:10.1111/1365-2664.14309>.
 
 %prep

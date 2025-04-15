@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vectorsurvR
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Access and Analytical Tools for 'VectorSurv' Users
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
@@ -28,8 +28,10 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-DT 
-Requires:         R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
@@ -39,6 +41,8 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-DT 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-sf 
 
 %description
 Allows registered 'VectorSurv' <https://vectorsurv.org/> users access to

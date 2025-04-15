@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diceplot
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Dimensional Categorical Data Visualization
 
@@ -27,6 +27,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-data.table >= 1.14.8
@@ -37,6 +38,7 @@ Requires:         R-stats
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-ggrepel 
 
 %description
 Easy visualization for datasets with more than two categorical variables

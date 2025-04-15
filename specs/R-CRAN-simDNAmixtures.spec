@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  simDNAmixtures
-%global packver   1.0.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Forensic DNA Mixtures
 
@@ -13,15 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-naturalsort 
+BuildRequires:    R-CRAN-pedprobr 
+BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-naturalsort 
+Requires:         R-CRAN-pedprobr 
+Requires:         R-CRAN-xml2 
 
 %description
 Mixed DNA profiles can be sampled according to models for probabilistic

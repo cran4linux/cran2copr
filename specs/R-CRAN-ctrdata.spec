@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctrdata
-%global packver   1.21.1
+%global packver   1.22.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.21.1
+Version:          1.22.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve and Analyze Clinical Trials in Public Registers
+Summary:          Retrieve and Analyze Clinical Trials Data from Public Registers
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -68,13 +68,14 @@ classic interface), the 'ISRCTN' (<http://www.isrctn.com/>) and the
 'European Union Clinical Trials Information System' ('CTIS',
 <https://euclinicaltrials.eu/>). Trial information is downloaded,
 converted and stored in a database ('PostgreSQL', 'SQLite', 'DuckDB' or
-'MongoDB'; via package 'nodbi'). Documents in registers associated with
+'MongoDB'; via package 'nodbi'). Protocols, statistical analysis plans,
+informed consent sheets and other documents in registers associated with
 trials can also be downloaded. Other functions implement trial concepts
 canonically across registers, identify deduplicated records, easily find
 and extract variables (fields) of interest even from complex nested data
 as used by the registers, merge variables and update queries. The package
-can be used for meta-analysis and trend-analysis of the design and conduct
-as well as of the results of clinical trials across registers.
+can be used for monitoring, meta- and trend-analysis of the design and
+conduct as well as of the results of clinical trials across registers.
 
 %prep
 %setup -q -c -n %{packname}

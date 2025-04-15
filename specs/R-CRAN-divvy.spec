@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  divvy
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Subsampling of Biodiversity Occurrence Data
 
@@ -14,20 +14,20 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-iNEXT >= 3.0.0
+BuildRequires:    R-CRAN-units >= 0.8.6
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-iNEXT >= 3.0.0
+Requires:         R-CRAN-units >= 0.8.6
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-units 
 Requires:         R-CRAN-vegan 
 
 %description
@@ -35,7 +35,7 @@ Divide taxonomic occurrence data into geographic regions of fair
 comparison, with three customisable methods to standardise area and
 extent. Calculate common biodiversity and range-size metrics on subsampled
 data. Background theory and practical considerations for the methods are
-described in Antell and others (2023) <doi:10.31223/X5997Z>.
+described in Antell and others (2024) <doi:10.1017/pab.2023.36>.
 
 %prep
 %setup -q -c -n %{packname}

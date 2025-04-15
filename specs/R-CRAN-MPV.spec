@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MPV
-%global packver   1.64
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.64
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Sets from Montgomery, Peck and Vining
 
@@ -14,22 +14,18 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.0.1
+Requires:         R-core >= 2.0.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-KernSmooth 
-Requires:         R-CRAN-randomForest 
 
 %description
 Most of this package consists of data sets from the textbook Introduction
-to Linear Regression Analysis, by Montgomery, Peck and Vining.  All data
-sets from the 3rd edition are included and many from the 6th edition are
-also included. The package also contains some additional data sets and
-functions.
+to Linear Regression Analysis (3rd ed), by Montgomery, Peck and Vining.
+Some additional data sets and functions are also included.
 
 %prep
 %setup -q -c -n %{packname}

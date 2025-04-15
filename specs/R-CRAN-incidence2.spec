@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  incidence2
-%global packver   2.6.1
+%global packver   2.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          2.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compute, Handle and Plot Incidence of Dated Events
 
@@ -19,9 +19,9 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-grates >= 1.3.0
 BuildRequires:    R-CRAN-ympes >= 1.3.0
+BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
@@ -32,9 +32,9 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-grates >= 1.3.0
 Requires:         R-CRAN-ympes >= 1.3.0
+Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-grDevices 
-Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-pillar 
 Requires:         R-utils 
 Requires:         R-stats 

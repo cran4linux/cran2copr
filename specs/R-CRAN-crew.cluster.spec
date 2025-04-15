@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crew.cluster
-%global packver   0.3.4
+%global packver   0.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Crew Launcher Plugins for Traditional High-Performance Computing Clusters
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crew >= 1.0.0
+BuildRequires:    R-CRAN-crew >= 1.1.0
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
@@ -26,7 +26,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-crew >= 1.0.0
+Requires:         R-CRAN-crew >= 1.1.0
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 
@@ -43,7 +43,7 @@ systems, ranging from traditional clusters to cloud services. The
 'crew.cluster' package extends the 'mirai'-powered 'crew' package with
 worker launcher plugins for traditional high-performance computing
 systems. Inspiration also comes from packages 'mirai' by Gao (2023)
-<https://github.com/shikokuchuo/mirai>, 'future' by Bengtsson (2021)
+<https://github.com/r-lib/mirai>, 'future' by Bengtsson (2021)
 <doi:10.32614/RJ-2021-048>, 'rrq' by FitzJohn and Ashton (2023)
 <https://github.com/mrc-ide/rrq>, 'clustermq' by Schubert (2019)
 <doi:10.1093/bioinformatics/btz284>), and 'batchtools' by Lang, Bischl,

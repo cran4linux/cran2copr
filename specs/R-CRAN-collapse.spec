@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collapse
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -20,11 +20,11 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 Requires:         R-CRAN-Rcpp >= 1.0.1
 
 %description
-A C/C++ based package for advanced data transformation and statistical
-computing in R that is extremely fast, class-agnostic, robust and
-programmer friendly. Core functionality includes a rich set of S3 generic
-grouped and weighted statistical functions for vectors, matrices and data
-frames, which provide efficient low-level vectorizations, OpenMP
+A large C/C++-based package for advanced data transformation and
+statistical computing in R that is extremely fast, class-agnostic, robust,
+and programmer friendly. Core functionality includes a rich set of S3
+generic grouped and weighted statistical functions for vectors, matrices
+and data frames, which provide efficient low-level vectorizations, OpenMP
 multithreading, and skip missing values by default. These are integrated
 with fast grouping and ordering algorithms (also callable from C), and
 efficient data manipulation functions. The package also provides a
@@ -33,9 +33,9 @@ further includes fast functions for common statistical procedures,
 detailed (grouped, weighted) summary statistics, powerful tools to work
 with nested data, fast data object conversions, functions for memory
 efficient R programming, and helpers to effectively deal with variable
-labels, attributes, and missing data. It is well integrated with base R
-classes, 'dplyr'/'tibble', 'data.table', 'sf', 'units', 'plm'
-(panel-series and data frames), and 'xts'/'zoo'.
+labels, attributes, and missing data. It seamlessly supports base R
+objects/classes as well as 'units', 'integer64', 'xts'/'zoo', 'tibble',
+'grouped_df', 'data.table', 'sf', 'pseries'/'pdata.frame'.
 
 %prep
 %setup -q -c -n %{packname}

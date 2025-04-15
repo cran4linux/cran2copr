@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r311
-%global packver   0.3.7
+%global packver   0.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.7
+Version:          0.4.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'open311' Standard
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-utils 
-Requires:         R-tools 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Access and handle APIs that use the international 'open311' 'GeoReport v2'
@@ -32,7 +32,7 @@ standard for civic issue tracking
 <https://wiki.open311.org/GeoReport_v2/>. Retrieve civic service types and
 request data. Select and add available 'open311' endpoints and
 jurisdictions. Implicitly supports custom queries and 'open311'
-extensions. Requires a minimal number of hard dependencies while still
+extensions.  Requires a minimal number of hard dependencies while still
 allowing the integration in common R formats ('xml2', 'tibble', 'sf').
 
 %prep

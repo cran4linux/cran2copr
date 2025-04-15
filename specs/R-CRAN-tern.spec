@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Common TLGs Used in Clinical Trials
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.60
-BuildRequires:    R-CRAN-survival >= 3.6.4
+BuildRequires:    R-CRAN-survival >= 3.8.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-car >= 3.0.13
 BuildRequires:    R-CRAN-Rdpack >= 2.4
@@ -33,9 +33,9 @@ BuildRequires:    R-CRAN-cowplot >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-rtables >= 0.6.11
+BuildRequires:    R-CRAN-rtables >= 0.6.12
 BuildRequires:    R-CRAN-broom >= 0.5.4
-BuildRequires:    R-CRAN-formatters >= 0.5.10
+BuildRequires:    R-CRAN-formatters >= 0.5.11
 BuildRequires:    R-CRAN-gtable >= 0.3.0
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-nestcolor >= 0.1.1
@@ -45,7 +45,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS >= 7.3.60
-Requires:         R-CRAN-survival >= 3.6.4
+Requires:         R-CRAN-survival >= 3.8.3
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-car >= 3.0.13
 Requires:         R-CRAN-Rdpack >= 2.4
@@ -60,9 +60,9 @@ Requires:         R-CRAN-cowplot >= 1.0.0
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-rtables >= 0.6.11
+Requires:         R-CRAN-rtables >= 0.6.12
 Requires:         R-CRAN-broom >= 0.5.4
-Requires:         R-CRAN-formatters >= 0.5.10
+Requires:         R-CRAN-formatters >= 0.5.11
 Requires:         R-CRAN-gtable >= 0.3.0
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-nestcolor >= 0.1.1
