@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvs
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods for High-Dimensional Multi-View Learning
 
@@ -19,8 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet >= 1.9.8
 BuildRequires:    R-CRAN-foreach >= 1.4.4
+BuildRequires:    R-CRAN-randomForest 
 Requires:         R-CRAN-glmnet >= 1.9.8
 Requires:         R-CRAN-foreach >= 1.4.4
+Requires:         R-CRAN-randomForest 
 
 %description
 Methods for high-dimensional multi-view learning based on the multi-view

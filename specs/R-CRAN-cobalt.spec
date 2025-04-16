@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cobalt
-%global packver   4.5.5
+%global packver   4.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.5
+Version:          4.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Covariate Balance Tables and Plots
 
@@ -14,31 +14,29 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.1
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-backports >= 1.1.9
-BuildRequires:    R-CRAN-chk >= 0.8.1
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-gtable >= 0.3.0
+BuildRequires:    R-CRAN-crayon >= 1.5.3
+BuildRequires:    R-CRAN-rlang >= 1.1.5
+BuildRequires:    R-CRAN-gtable >= 0.3.6
+BuildRequires:    R-CRAN-chk >= 0.10.0
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-grid 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-crayon 
-Requires:         R-CRAN-ggplot2 >= 3.4.1
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-backports >= 1.1.9
-Requires:         R-CRAN-chk >= 0.8.1
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-gtable >= 0.3.0
+Requires:         R-CRAN-crayon >= 1.5.3
+Requires:         R-CRAN-rlang >= 1.1.5
+Requires:         R-CRAN-gtable >= 0.3.6
+Requires:         R-CRAN-chk >= 0.10.0
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-grid 
 Requires:         R-grDevices 
-Requires:         R-CRAN-crayon 
 
 %description
 Generate balance tables and plots for covariates of groups preprocessed

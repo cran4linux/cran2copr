@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ScatterDensity
-%global packver   0.0.4
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Density Estimation and Visualization of 2D Scatter Plots
 
@@ -16,10 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-RcppParallel >= 5.1.4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel >= 5.1.4
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-pracma 

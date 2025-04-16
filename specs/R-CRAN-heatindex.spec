@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bookdown
-%global packver   0.43
+%global packname  heatindex
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Authoring Books and Technical Documents with R Markdown
+Summary:          Calculating Heat Stress
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.14
-BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-knitr >= 1.38
-BuildRequires:    R-CRAN-xfun >= 0.48
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-tinytex >= 0.12
-BuildRequires:    R-CRAN-jquerylib 
-Requires:         R-CRAN-rmarkdown >= 2.14
-Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-knitr >= 1.38
-Requires:         R-CRAN-xfun >= 0.48
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-tinytex >= 0.12
-Requires:         R-CRAN-jquerylib 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Output formats and utilities for authoring books and technical documents
-with R Markdown.
+Implements the simpler and faster heat index, which matches the values of
+the original 1979 heat index and its 2022 extension for air temperatures
+above 300 K (27 C, 80 F) and with only minor differences at lower
+temperatures.
 
 %prep
 %setup -q -c -n %{packname}

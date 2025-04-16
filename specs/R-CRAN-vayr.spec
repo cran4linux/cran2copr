@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bookdown
-%global packver   0.43
+%global packname  vayr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.43
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Authoring Books and Technical Documents with R Markdown
+Summary:          Extensions for 'ggplot2' to Visualize as You Randomize
 
-License:          GPL-3
+License:          GPL-2 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 2.14
-BuildRequires:    R-CRAN-yaml >= 2.1.19
-BuildRequires:    R-CRAN-knitr >= 1.38
-BuildRequires:    R-CRAN-xfun >= 0.48
-BuildRequires:    R-CRAN-htmltools >= 0.3.6
-BuildRequires:    R-CRAN-tinytex >= 0.12
-BuildRequires:    R-CRAN-jquerylib 
-Requires:         R-CRAN-rmarkdown >= 2.14
-Requires:         R-CRAN-yaml >= 2.1.19
-Requires:         R-CRAN-knitr >= 1.38
-Requires:         R-CRAN-xfun >= 0.48
-Requires:         R-CRAN-htmltools >= 0.3.6
-Requires:         R-CRAN-tinytex >= 0.12
-Requires:         R-CRAN-jquerylib 
+BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
+BuildRequires:    R-CRAN-withr >= 2.1.1
+BuildRequires:    R-CRAN-packcircles >= 0.3.7
+Requires:         R-CRAN-ggplot2 >= 3.0.0
+Requires:         R-CRAN-withr >= 2.1.1
+Requires:         R-CRAN-packcircles >= 0.3.7
 
 %description
-Output formats and utilities for authoring books and technical documents
-with R Markdown.
+Position adjustments for 'ggplot2' to implement "visualize as you
+randomize" principles, which can be especially useful when plotting
+experimental data.
 
 %prep
 %setup -q -c -n %{packname}

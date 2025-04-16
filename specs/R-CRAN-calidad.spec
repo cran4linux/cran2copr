@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calidad
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assesses the Quality of Estimates Made by Complex Sample Designs
 
@@ -35,8 +35,10 @@ Requires:         R-CRAN-haven
 %description
 Assesses the quality of estimates made by complex sample designs,
 following the methodology developed by the National Institute of
-Statistics Chile (2020,
-<https://www.ine.cl/docs/default-source/institucionalidad/buenas-pr%%C3%%A1cticas/clasificaciones-y-estandares/est%%C3%%A1ndar-evaluaci%%C3%%B3n-de-calidad-de-estimaciones-publicaci%%C3%%B3n-27022020.pdf>)
+Statistics Chile (Household Survey Standard 2020,
+<https://www.ine.cl/docs/default-source/institucionalidad/buenas-pr%%C3%%A1cticas/clasificaciones-y-estandares/est%%C3%%A1ndar-evaluaci%%C3%%B3n-de-calidad-de-estimaciones-publicaci%%C3%%B3n-27022020.pdf>),
+(Economics Survey Standard 2024,
+<https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/estandares/documentos/est%%C3%%A1ndar-evaluaci%%C3%%B3n-de-calidad-de-estimaciones-econ%%C3%%B3micas.pdf?sfvrsn=201fbeb9_2>)
 and by Economic Commission for Latin America and Caribbean (2020,
 <https://repositorio.cepal.org/bitstream/handle/11362/45681/1/S2000293_es.pdf>),
 (2024,

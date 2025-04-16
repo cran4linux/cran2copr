@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  arcgislayers
-%global packver   0.3.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Interface to ArcGIS Data Services
 
@@ -20,10 +20,10 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.0.5
 BuildRequires:    R-CRAN-arcgisutils >= 0.2.0
 BuildRequires:    R-CRAN-arcpbf >= 0.1.5
+BuildRequires:    R-CRAN-RcppSimdJson >= 0.1.13
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-jsonify 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-RcppSimdJson 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
@@ -31,10 +31,10 @@ BuildRequires:    R-utils
 Requires:         R-CRAN-httr2 >= 1.0.5
 Requires:         R-CRAN-arcgisutils >= 0.2.0
 Requires:         R-CRAN-arcpbf >= 0.1.5
+Requires:         R-CRAN-RcppSimdJson >= 0.1.13
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-jsonify 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-RcppSimdJson 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 

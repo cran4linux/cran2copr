@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.tests
-%global packver   0.8.0
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test Suite for 'Future API' Backends
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.22.1
+BuildRequires:    R-CRAN-future >= 1.40.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-sessioninfo 
-Requires:         R-CRAN-future >= 1.22.1
+Requires:         R-CRAN-future >= 1.40.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-prettyunits 

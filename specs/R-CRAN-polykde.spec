@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  polykde
-%global packver   1.0.0
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Polyspherical Kernel Density Estimation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8.3
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-doFuture 
@@ -41,7 +41,7 @@ Requires:         R-CRAN-rotasym
 Requires:         R-CRAN-sphunif 
 
 %description
-Kernel density estimation on the polysphere, hypersphere, and circle.
+Kernel density estimation on the polysphere, (hyper)sphere, and circle.
 Includes functions for density estimation, regression estimation, ridge
 estimation, bandwidth selection, kernels, samplers, and homogeneity tests.
 Companion package to García-Portugués and Meilán-Vila (2024)

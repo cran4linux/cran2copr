@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OmopViewer
-%global packver   0.3.0
+%global packname  whirl
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualise OMOP Results using 'shiny' Applications
+Summary:          Log Execution of Scripts
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,47 +17,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-visOmopResults >= 0.5.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.0
-BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-zephyr >= 0.1.1
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-gt 
-BuildRequires:    R-CRAN-markdown 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-snakecase 
+BuildRequires:    R-CRAN-sessioninfo 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-styler 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-unglue 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-visOmopResults >= 0.5.0
-Requires:         R-CRAN-omopgenerics >= 0.4.0
-Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-zephyr >= 0.1.1
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-gt 
-Requires:         R-CRAN-markdown 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-snakecase 
+Requires:         R-CRAN-sessioninfo 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-styler 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-unglue 
+Requires:         R-utils 
+Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 
 %description
-Visualise results obtained from analysing data mapped to the Observational
-Medical Outcomes Partnership (OMOP) common data model using 'shiny'
-applications.
+Logging of scripts suitable for clinical trials using 'Quarto' to create
+nice human readable logs.  'whirl' enables execution of scripts in batch,
+while simultaneously creating logs for the execution of each script, and
+providing an overview summary log of the entire batch execution.
 
 %prep
 %setup -q -c -n %{packname}
