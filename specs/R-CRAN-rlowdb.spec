@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rlowdb
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lightweight JSON-Based Database
 
@@ -17,14 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli >= 3.6.4
 BuildRequires:    R-CRAN-R6 >= 2.5.1
-BuildRequires:    R-CRAN-jsonlite >= 1.8.8
 BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-yyjsonr >= 0.1.20
+Requires:         R-CRAN-cli >= 3.6.4
 Requires:         R-CRAN-R6 >= 2.5.1
-Requires:         R-CRAN-jsonlite >= 1.8.8
 Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-yyjsonr >= 0.1.20
 
 %description
 The goal of 'rlowdb' is to provide a lightweight, file-based JSON

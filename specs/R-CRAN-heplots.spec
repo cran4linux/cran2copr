@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heplots
-%global packver   1.7.3
+%global packver   1.7.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Hypothesis Tests in Multivariate Linear Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-car 
@@ -43,9 +43,11 @@ Provides HE plot and other functions for visualizing hypothesis tests in
 multivariate linear models. HE plots represent
 sums-of-squares-and-products matrices for linear hypotheses and for error
 using ellipses (in two dimensions) and ellipsoids (in three dimensions).
-The related 'candisc' package provides visualizations in a reduced-rank
-canonical discriminant space when there are more than a few response
-variables.
+It also provides other tools for analysis and graphical display of the
+models such as robust methods and homogeneity of variance covariance
+matrices. The related 'candisc' package provides visualizations in a
+reduced-rank canonical discriminant space when there are more than a few
+response variables.
 
 %prep
 %setup -q -c -n %{packname}

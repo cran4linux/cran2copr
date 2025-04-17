@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaDfGene
-%global packver   1.0.0.3
+%global packname  IBDInfer
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gene Operations for Real-Coded Genes
+Summary:          Design-Based Causal Inference Method for Incomplete Block Designs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,18 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-CRAN-crossdes 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-crossdes 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 
 %description
-Representation-dependent gene-level operations for genetic and
-evolutionary algorithms with real-coded genes are collected in this
-package. The common feature of the gene operations is that all of them are
-useful for derivation-free optimization algorithms. At the moment the
-package implements initialization, mutation, crossover, and replication
-operations for differential evolution as described in Price, Kenneth V.,
-Storn, Rainer M. and Lampinen, Jouni A. (2005)
-<doi:10.1007/3-540-31306-0>.
+This R package implements methods for estimation and inference under
+Incomplete Block Designs and Balanced Incomplete Block Designs within a
+design-based finite-population framework. Based on 'Koo and Pashley'
+(2024) <arXiv:2405.19312>, it includes block-level estimators and extends
+to unit-level effects using 'Horvitz-Thompson' and 'Hájek' estimators. The
+package also provides asymptotic confidence intervals to support valid
+statistical inference.
 
 %prep
 %setup -q -c -n %{packname}

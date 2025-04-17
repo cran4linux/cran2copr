@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ORKM
-%global packver   0.8.0.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Online Regularized K-Means Clustering Algorithm
 
@@ -26,8 +26,8 @@ Requires:         R-stats
 
 %description
 Algorithm of online regularized k-means to deal with online multi(single)
-view data. The philosophy of the package is described in Guo G. (2020)
-<doi:10.1080/02331888.2020.1823979>.
+view data. The philosophy of the package is described in Guo G. (2024)
+<doi:10.1016/j.ins.2024.121133>.
 
 %prep
 %setup -q -c -n %{packname}

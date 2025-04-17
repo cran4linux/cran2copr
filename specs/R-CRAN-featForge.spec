@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  neatR
-%global packver   0.2.0
+%global packname  featForge
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Neat Data for Presentation
+Summary:          Automated Feature Engineering for Credit Scoring
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-magrittr 
-Requires:         R-tools 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Utilities for unambiguous, neat and legible representation of data (date,
-time stamp, numbers, percentages and strings) for presentation of analysis
-, aiming for elegance and consistency. The purpose of this package is to
-format data, that is better for presentation and any automation jobs that
-reports numbers.
+Automated feature engineering functions tailored for credit scoring. It
+includes utilities for extracting structured features from timestamps, IP
+addresses, and email addresses, enabling enhanced predictive modeling for
+financial risk assessment.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rpredictit
-%global packver   0.1.0
+%global packname  tAI
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to the 'PredictIt' API
+Summary:          The tRNA Adaptation Index
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-dygraphs 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-quantmod 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-dygraphs 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-quantmod 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-shiny 
 
 %description
-Wrapper to retrieve market data, explore available markets, and plot
-historical price data from the 'PredictIt' public API
-(<https://www.predictit.org/api/marketdata/all/>). The package comes with
-a demo 'shiny' application for illustrating example use cases. License to
-use data made available via the API is for non-commercial use and
-'PredictIt' is the sole source of such data.
+Functions and example files to calculate the tRNA adaptation index, a
+measure of the level of co-adaptation between the set of tRNA genes and
+the codon usage bias of protein-coding genes in a given genome. The
+methodology is described in dos Reis, Wernisch and Savva (2003)
+<doi:10.1093/nar/gkg897>, and dos Reis, Savva and Wernisch (2004)
+<doi:10.1093/nar/gkh834>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tall
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis for All
 
@@ -48,13 +48,14 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-ggraph 
 BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-ldatuning 
 BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyFiles 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-pagedown 
+BuildRequires:    R-CRAN-word2vec 
+BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-dplyr >= 1.1.0
@@ -89,13 +90,14 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-ggraph 
 Requires:         R-CRAN-ca 
-Requires:         R-CRAN-ldatuning 
 Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyFiles 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-pagedown 
+Requires:         R-CRAN-word2vec 
+Requires:         R-CRAN-umap 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 

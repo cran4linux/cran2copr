@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xegaPermGene
-%global packver   1.0.0.0
+%global packver   1.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.0
+Version:          1.0.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Operations on Permutation Genes
 
@@ -22,8 +22,8 @@ Requires:         R-CRAN-xegaSelectGene
 
 %description
 An implementation of representation-dependent gene level operations for
-genetic algorithms with genes which represent permutations: initialization
-of genes, mutation and crossover. The crossover operation provided is
+genetic algorithms with genes representing permutations: Initialization of
+genes, mutation, and crossover. The crossover operation provided is
 position-based crossover (Syswerda, G., Chap. 21 in Davis, L. (1991,
 ISBN:0-442-00173-8). For mutation, several variants are included:
 Order-based mutation (Syswerda, G., Chap. 21 in Davis, L. (1991,

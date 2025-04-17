@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaDfGene
-%global packver   1.0.0.3
+%global packname  remulate
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.3
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Gene Operations for Real-Coded Genes
+Summary:          Simulate Dynamic Networks from Relational Event Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-xegaSelectGene 
-Requires:         R-CRAN-xegaSelectGene 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
-Representation-dependent gene-level operations for genetic and
-evolutionary algorithms with real-coded genes are collected in this
-package. The common feature of the gene operations is that all of them are
-useful for derivation-free optimization algorithms. At the moment the
-package implements initialization, mutation, crossover, and replication
-operations for differential evolution as described in Price, Kenneth V.,
-Storn, Rainer M. and Lampinen, Jouni A. (2005)
-<doi:10.1007/3-540-31306-0>.
+Model based simulation of dynamic networks under tie-oriented (Butts, C.,
+2008, <doi:10.1111/j.1467-9531.2008.00203.x>) and actor-oriented
+(Stadtfeld, C., & Block, P., 2017, <doi:10.15195/v4.a14>) relational event
+models. Supports simulation from a variety of relational event model
+extensions, including temporal variability in effects, heterogeneity
+through dyadic latent class relational event models (DLC-REM), random
+effects, blockmodels, and memory decay in relational event models
+(Lakdawala, R., 2024 <doi:10.48550/arXiv.2403.19329>). The development of
+this package was supported by a Vidi Grant (452-17-006) awarded by the
+Netherlands Organization for Scientific Research (NWO) Grant and an ERC
+Starting Grant (758791).
 
 %prep
 %setup -q -c -n %{packname}

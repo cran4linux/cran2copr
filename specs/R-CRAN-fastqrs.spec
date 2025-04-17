@@ -1,40 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  T2DFitTailor
-%global packver   3.0.0
+%global packname  fastqrs
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tailor the Exercise Plans and Visualize the Outcome for T2D Patients
+Summary:          Fast Algorithms for Quantile Regression with Selection
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fmsb 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-quantreg 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-quantreg 
+Requires:         R-CRAN-copula 
+Requires:         R-stats 
 
 %description
-A system for personalized exercise plan recommendations for T2D (Type 2
-Diabetes) patients based on the primary outcome of HbA1c (Glycated
-Hemoglobin). You provide the individual's information, and 'T2DFitTailor'
-details the exercise plan and predicts the intervention's effectiveness.
+Fast estimation algorithms to implement the Quantile Regression with
+Selection estimator and the multiplicative Bootstrap for inference. This
+estimator can be used to estimate models that feature sample selection and
+heterogeneous effects in cross-sectional data. For more details, see
+Arellano and Bonhomme (2017) <doi:10.3982/ECTA14030> and Pereda-Fernández
+(2024) <doi:10.48550/arXiv.2402.16693>.
 
 %prep
 %setup -q -c -n %{packname}
