@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ADSIHT
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Adaptive Double Sparse Iterative Hard Thresholding
 
@@ -19,15 +19,21 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-mvnfast 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-snowfall 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-mvnfast 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-snowfall 
 
 %description
-Solving the high-dimensional double sparse linear regression via iterative
-hard thresholding algorithm. For more details, please see Zhang et al.
-(2024, <DOI:10.48550/arXiv.2305.04182>).
+Solving high-dimensional double sparse linear regression via an iterative
+hard thresholding algorithm. Furthermore, the method is extended to
+jointly estimate multiple graphical models.  For more details, please see
+<https://www.jmlr.org/papers/v25/23-0653.html> and
+<doi:10.48550/arXiv.2503.18722>.
 
 %prep
 %setup -q -c -n %{packname}

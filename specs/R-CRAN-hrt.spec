@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  hrt
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedasticity Robust Testing
 
@@ -37,7 +38,8 @@ test statistics and a user-supplied significance level (also incorporating
 a check of conditions under which such a size-controlling critical value
 exists). The three functions are based on results in Poetscher and
 Preinerstorfer (2021) "Valid Heteroskedasticity Robust Testing"
-<arXiv:2104.12597>.
+<doi:10.48550/arXiv.2104.12597>, which will appear as
+<doi:10.1017/S0266466623000269>.
 
 %prep
 %setup -q -c -n %{packname}

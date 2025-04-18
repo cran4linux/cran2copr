@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaBNF
-%global packver   1.0.0.5
+%global packname  mmequiv
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compile a Backus-Naur Form Specification into an R Grammar Object
+Summary:          Calculate Standardized Morphine Milligram Equivalent Doses
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 
 %description
-Translates a BNF (Backus-Naur Form) specification of a context-free
-language into an R grammar object which consists of the start symbol, the
-symbol table, the production table, and a short production table. The
-short production table is non-recursive. The grammar object contains the
-file name from which it was generated (without a path). In addition, it
-provides functions to determine the type of a symbol (isTerminal() and
-isNonterminal()) and functions to access the production table (rules() and
-derives()). For the BNF specification, see Backus, John et al. (1962)
-"Revised Report on the Algorithmic Language ALGOL 60". (ALGOL60 standards
-page <http://www.algol60.org/2standards.htm>, html-edition
-<https://www.masswerk.at/algol60/report.htm>) A preprocessor for macros
-which expand to standard BNF is included. The grammar compiler is an
-extension of the APL2 implementation in Geyer-Schulz, Andreas (1997,
-ISBN:978-3-7908-0830-X).
+Calculate morphine milligram equivalents (MME) for opioid dose comparison
+using standardized methods. Includes API wrapper functions to call 'NIH
+HEAL MME Online Calculator' and functions that replicate API calculations
+on the user's local machine from the comfort of 'R'. Creation of the 'NIH
+HEAL MME Online Calculator' and the MME calculations implemented in this
+package are described in Adams MCB, Sward KA, Perkins ML, Hurley RW (2025)
+<doi:10.1097/j.pain.0000000000003529>.
 
 %prep
 %setup -q -c -n %{packname}

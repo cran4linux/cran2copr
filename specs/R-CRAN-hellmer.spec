@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hellmer
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Batch Processing for Chat Models
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-furrr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-ellmer 
@@ -36,19 +35,18 @@ Requires:         R-CRAN-furrr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-S7 
 Requires:         R-utils 
 
 %description
-Batch processing framework for 'ellmer' chat model interactions. Enables
-sequential and parallel processing of chat completions. Core capabilities
-include error handling with backoff, state persistence, progress tracking,
-and retry management. Parallel processing is implemented via the 'future'
-framework. Additional features include structured data extraction, tool
-integration, timeout handling, verbosity control, and sound notifications.
-Includes methods for returning chat texts, chat objects, progress status,
-and structured data.
+Batch processing framework for 'ellmer' chat models. Provides both
+sequential and parallel processing of chat interactions with features
+including tool calling and structured data extraction. Enables workflow
+management through progress tracking and recovery and automatic retry with
+backoff. Additional quality-of-life features include verbosity (or echo)
+control and sound notifications. Parallel processing is implemented via
+the 'future' framework. Includes methods for retrieving progress status,
+chat texts, and chat objects.
 
 %prep
 %setup -q -c -n %{packname}

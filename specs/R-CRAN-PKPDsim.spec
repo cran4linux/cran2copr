@@ -1,38 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaBNF
-%global packver   1.0.0.5
+%global packname  PKPDsim
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.5
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compile a Backus-Naur Form Specification into an R Grammar Object
+Summary:          Tools for Performing Pharmacokinetic-Pharmacodynamic Simulations
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-Rcpp >= 1.0.13
+Requires:         R-CRAN-BH 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-stats 
+Requires:         R-parallel 
+Requires:         R-CRAN-magrittr 
 
 %description
-Translates a BNF (Backus-Naur Form) specification of a context-free
-language into an R grammar object which consists of the start symbol, the
-symbol table, the production table, and a short production table. The
-short production table is non-recursive. The grammar object contains the
-file name from which it was generated (without a path). In addition, it
-provides functions to determine the type of a symbol (isTerminal() and
-isNonterminal()) and functions to access the production table (rules() and
-derives()). For the BNF specification, see Backus, John et al. (1962)
-"Revised Report on the Algorithmic Language ALGOL 60". (ALGOL60 standards
-page <http://www.algol60.org/2standards.htm>, html-edition
-<https://www.masswerk.at/algol60/report.htm>) A preprocessor for macros
-which expand to standard BNF is included. The grammar compiler is an
-extension of the APL2 implementation in Geyer-Schulz, Andreas (1997,
-ISBN:978-3-7908-0830-X).
+Simulate dose regimens for pharmacokinetic-pharmacodynamic (PK-PD) models
+described by differential equation (DE) systems. Simulation using
+ADVAN-style analytical equations is also supported (Abuhelwa et al. (2015)
+<doi:10.1016/j.vascn.2015.03.004>).
 
 %prep
 %setup -q -c -n %{packname}

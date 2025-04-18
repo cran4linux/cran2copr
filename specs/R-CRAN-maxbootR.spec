@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trendeval
-%global packver   0.1.0
+%global packname  maxbootR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluate Trending Models
+Summary:          Efficient Bootstrap Methods for Block Maxima
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-trending >= 0.1.0
-BuildRequires:    R-CRAN-yardstick 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-trending >= 0.1.0
-Requires:         R-CRAN-yardstick 
-Requires:         R-CRAN-rsample 
-Requires:         R-stats 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-evd 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-evd 
 
 %description
-Provides a coherent interface for evaluating models fit with the trending
-package.  This package is part of the RECON
-(<https://www.repidemicsconsortium.org/>) toolkit for outbreak analysis.
+Implements state-of-the-art block bootstrap methods for extreme value
+statistics based on block maxima. Includes disjoint blocks, sliding
+blocks, relying on a circular transformation of blocks. Fast C++ backends
+(via 'Rcpp') ensure scalability for large time series.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  xegaBNF
-%global packver   1.0.0.5
+%global packname  netdose
+%global packver   0.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0.5
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Compile a Backus-Naur Form Specification into an R Grammar Object
+Summary:          Dose-Response Network Meta-Analysis in a Frequentist Way
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-netmeta >= 3.1.1
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-netmeta >= 3.1.1
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-grid 
+Requires:         R-CRAN-Matrix 
 
 %description
-Translates a BNF (Backus-Naur Form) specification of a context-free
-language into an R grammar object which consists of the start symbol, the
-symbol table, the production table, and a short production table. The
-short production table is non-recursive. The grammar object contains the
-file name from which it was generated (without a path). In addition, it
-provides functions to determine the type of a symbol (isTerminal() and
-isNonterminal()) and functions to access the production table (rules() and
-derives()). For the BNF specification, see Backus, John et al. (1962)
-"Revised Report on the Algorithmic Language ALGOL 60". (ALGOL60 standards
-page <http://www.algol60.org/2standards.htm>, html-edition
-<https://www.masswerk.at/algol60/report.htm>) A preprocessor for macros
-which expand to standard BNF is included. The grammar compiler is an
-extension of the APL2 implementation in Geyer-Schulz, Andreas (1997,
-ISBN:978-3-7908-0830-X).
+A set of functions providing the implementation of the network
+meta-analysis model with dose-response relationships, predicted values of
+the fitted model and dose-response plots in a frequentist way.
 
 %prep
 %setup -q -c -n %{packname}

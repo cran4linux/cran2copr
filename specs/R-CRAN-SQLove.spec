@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SQLove
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Execute 'SQL' Scripts in 'R' Containing Multiple Queries
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-RJDBC 
+BuildRequires:    R-CRAN-odbc 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-RJDBC 
+Requires:         R-CRAN-odbc 
 
 %description
 The nature of working with structured query language ('SQL') scripts
