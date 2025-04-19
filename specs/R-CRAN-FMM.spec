@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FMM
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Rhythmic Patterns Modeling by FMM Models
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-gsignal 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-iterators 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-gsignal 
 
 %description
 Provides a collection of functions to fit and explore single,

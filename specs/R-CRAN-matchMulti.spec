@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  matchMulti
-%global packver   1.1.12.1
+%global packver   1.1.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.12.1
+Version:          1.1.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Optimal Multilevel Matching using a Network Algorithm
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.3
-Requires:         R-core >= 3.2.3
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rcbsubset >= 1.1.4
 BuildRequires:    R-CRAN-rlang 

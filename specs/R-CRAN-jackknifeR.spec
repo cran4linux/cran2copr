@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jackknifeR
-%global packver   1.2.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Delete-d Jackknife for Point and Interval Estimation
 
@@ -17,21 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-stats 
 Requires:         R-utils 
 
 %description
-This function creates jackknife samples from the data by sequentially
-removing d observations from the data, performs estimation using the
-jackknife samples and calculates the jackknife coefficients, bias,
-standard error and confidence intervals based on the methodology discussed
-by Quenouille (1956) <doi:10.2307/2332914>, Tukey (1958)
-<doi:10.1214/aoms/1177706647> and Shi (1988)
-<doi:10.1016/0167-7152(88)90011-9>.
+Implements delete-d jackknife resampling for robust statistical
+estimation. The package provides both weighted (HC3-adjusted) and
+unweighted versions of jackknife estimation, with parallel computation
+support. Suitable for biomedical research and other fields requiring
+robust variance estimation.
 
 %prep
 %setup -q -c -n %{packname}

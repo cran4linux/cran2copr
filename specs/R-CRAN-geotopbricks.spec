@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geotopbricks
-%global packver   1.5.8.2
+%global packver   1.5.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8.2
+Version:          1.5.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Plug-in for the Distributed Hydrological Model GEOtop
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
@@ -36,9 +36,7 @@ the Hydrological Distributed Model GEOtop. It contains functions and
 methods to import maps and other keywords from geotop.inpts file. Some
 examples with simulation cases of GEOtop 2.x/3.x are presented in the
 package. Any information about the GEOtop Distributed Hydrological Model
-source code is available on www.geotop.org. Technical details about the
-model are available in Endrizzi et al (2014)
-<https://gmd.copernicus.org/articles/7/2831/2014/gmd-7-2831-2014.html>.
+can be found in the provided documentation.
 
 %prep
 %setup -q -c -n %{packname}

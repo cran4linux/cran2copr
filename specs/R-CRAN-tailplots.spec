@@ -1,34 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  demic
-%global packver   2.0.0
+%global packname  tailplots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Estimator of Microbial Communities
+Summary:          Estimators and Plots for Gamma and Pareto Tail Detection
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.6.2
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-Matrix >= 1.6.2
-Requires:         R-CRAN-lme4 
-Requires:         R-CRAN-reshape2 
+BuildRequires:    R-CRAN-resample 
+Requires:         R-CRAN-resample 
 
 %description
-Multi-sample algorithm based on contigs and coverage values, to infer the
-relative distances of contigs from the replication origin and to
-accurately compare bacterial growth rates between samples. Yuan Gao and
-Hongzhe Li (2018) <doi:10.1038/s41592-018-0182-0>.
+Estimators for two functionals used to detect Gamma or Pareto
+distributions, as well as distributions exhibiting similar tail behavior,
+as introduced by Iwashita and Klar (2023) <doi:10.1111/stan.12316> and
+Klar (2024) <doi:10.1080/00031305.2024.2413081>. One of these functionals,
+g, originally proposed by Asmussen and Lehtomaa (2017)
+<doi:10.3390/risks5010010>, distinguishes between log-convex and
+log-concave tail behavior. The package also includes methods for
+visualizing these estimators and their associated confidence intervals
+across various threshold values.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datapackage
-%global packver   0.2.1
+%global packname  slash
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating and Reading Data Packages
+Summary:          Path-Based Access and Manipulation of Nested Lists
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-iso8601 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-iso8601 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-R6 
 
 %description
-Open, read data from and modify Data Packages. Data Packages are an open
-standard for bundling and describing data sets
-(<https://datapackage.org>). When data is read from a Data Package care is
-taken to convert the data as much a possible to R appropriate data types.
-The package can be extended with plugins for additional data types.
+Allows users to list data structures using path-based navigation. Provides
+intuitive methods for storing, accessing, and manipulating nested data
+through simple path strings. Key features include strict mode validation,
+path existence checking, recursive operations, and automatic parent-level
+creation. Designed for use cases requiring organized storage of complex
+nested data while maintaining simple access patterns. Particularly useful
+for configuration management, nested settings, and any application where
+data naturally forms a tree-like structure.
 
 %prep
 %setup -q -c -n %{packname}

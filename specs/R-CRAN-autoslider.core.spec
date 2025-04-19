@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoslider.core
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slide Automation for Tables, Listings and Figures
 
@@ -14,51 +14,53 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tern >= 0.9.7
+BuildRequires:    R-CRAN-cli >= 3.6.3
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-checkmate >= 2.3.2
+BuildRequires:    R-CRAN-yaml >= 2.3.10
+BuildRequires:    R-CRAN-gridExtra >= 2.3
+BuildRequires:    R-CRAN-gtsummary >= 2.1.0
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-forcats >= 1.0.0
+BuildRequires:    R-CRAN-tern >= 0.9.8
 BuildRequires:    R-CRAN-flextable >= 0.9.4
-BuildRequires:    R-CRAN-rtables >= 0.6.11
+BuildRequires:    R-CRAN-rtables >= 0.6.12
+BuildRequires:    R-CRAN-ggpubr >= 0.6.0
 BuildRequires:    R-CRAN-officer >= 0.3.18
 BuildRequires:    R-CRAN-rvg >= 0.2.5
-BuildRequires:    R-CRAN-rlistings >= 0.2.10
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-rlistings >= 0.2.11
+BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-yaml 
-Requires:         R-CRAN-tern >= 0.9.7
+Requires:         R-CRAN-cli >= 3.6.3
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-checkmate >= 2.3.2
+Requires:         R-CRAN-yaml >= 2.3.10
+Requires:         R-CRAN-gridExtra >= 2.3
+Requires:         R-CRAN-gtsummary >= 2.1.0
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-forcats >= 1.0.0
+Requires:         R-CRAN-tern >= 0.9.8
 Requires:         R-CRAN-flextable >= 0.9.4
-Requires:         R-CRAN-rtables >= 0.6.11
+Requires:         R-CRAN-rtables >= 0.6.12
+Requires:         R-CRAN-ggpubr >= 0.6.0
 Requires:         R-CRAN-officer >= 0.3.18
 Requires:         R-CRAN-rvg >= 0.2.5
-Requires:         R-CRAN-rlistings >= 0.2.10
-Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-rlistings >= 0.2.11
+Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-grid 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-survival 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-yaml 
 
 %description
 The normal process of creating clinical study slides is that a

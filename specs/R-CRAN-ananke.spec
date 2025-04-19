@@ -1,41 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datapackage
-%global packver   0.2.1
+%global packname  ananke
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating and Reading Data Packages
+Summary:          Quantitative Chronology in Archaeology
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-iso8601 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-aion >= 1.4.0
+BuildRequires:    R-CRAN-arkhe >= 1.10.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-yaml 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-iso8601 
-Requires:         R-utils 
-Requires:         R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-aion >= 1.4.0
+Requires:         R-CRAN-arkhe >= 1.10.0
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Open, read data from and modify Data Packages. Data Packages are an open
-standard for bundling and describing data sets
-(<https://datapackage.org>). When data is read from a Data Package care is
-taken to convert the data as much a possible to R appropriate data types.
-The package can be extended with plugins for additional data types.
+Simple radiocarbon calibration and chronological analysis. This package
+allows the calibration of radiocarbon ages and modern carbon fraction
+values using multiple calibration curves. It allows the calculation of
+highest density region intervals and credible intervals. The package also
+provides tools for visualising results and estimating statistical
+summaries.
 
 %prep
 %setup -q -c -n %{packname}

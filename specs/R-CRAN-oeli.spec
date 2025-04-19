@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  oeli
-%global packver   0.7.1
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.1
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Utilities for Developing Data Science Software
+Summary:          Some Utilities for Developing Data Science Software
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -46,8 +46,9 @@ Requires:         R-CRAN-sysfonts
 Requires:         R-utils 
 
 %description
-Some general helper functions that I (and maybe others) find useful when
-developing data science software.
+A collection of general-purpose helper functions that I (and maybe others)
+find useful when developing data science software. Includes tools for
+simulation, data transformation, input validation, and more.
 
 %prep
 %setup -q -c -n %{packname}

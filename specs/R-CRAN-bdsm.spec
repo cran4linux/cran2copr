@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bdsm
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Dynamic Systems Modeling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-knitr
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-optimbase 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rootSolve 
@@ -41,6 +42,7 @@ Requires:         R-CRAN-knitr
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-optimbase 
 Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-rje 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rootSolve 

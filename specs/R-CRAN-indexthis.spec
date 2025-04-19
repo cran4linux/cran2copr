@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  indexthis
-%global packver   1.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick Indexation
 
@@ -16,8 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.5
-Requires:         R-CRAN-Rcpp >= 1.0.5
 
 %description
 Quick indexation of any type of vector or of any combination of those.

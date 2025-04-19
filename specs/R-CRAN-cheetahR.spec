@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  datapackage
-%global packver   0.2.1
+%global packname  cheetahR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating and Reading Data Packages
+Summary:          High Performance Tables Using 'Cheetah Grid'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-htmlwidgets 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-iso8601 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-htmlwidgets 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-iso8601 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-methods 
+Requires:         R-CRAN-tibble 
 
 %description
-Open, read data from and modify Data Packages. Data Packages are an open
-standard for bundling and describing data sets
-(<https://datapackage.org>). When data is read from a Data Package care is
-taken to convert the data as much a possible to R appropriate data types.
-The package can be extended with plugins for additional data types.
+An R interface to 'Cheetah Grid', a high-performance JavaScript table
+widget. 'cheetahR' allows users to render millions of rows in just a few
+milliseconds, making it an excellent alternative to other R table widgets.
+The package wraps the 'Cheetah Grid' JavaScript functions and makes them
+readily available for R users. The underlying grid implementation is based
+on 'Cheetah Grid' <https://github.com/future-architect/cheetah-grid>.
 
 %prep
 %setup -q -c -n %{packname}
