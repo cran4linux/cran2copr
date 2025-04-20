@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  energymethod
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Two-Sample Test of many Functional Means using the Energy Method
 
@@ -25,7 +25,8 @@ Given two samples of size n_1 and n_2 from a data set where each sample
 consists of K functional observations (channels), each recorded on T grid
 points, the function energy method implements a hypothesis test of
 equality of channel-wise mean at each channel using the bootstrapped
-distribution of maximum energy to control family wise error.
+distribution of maximum energy to control family wise error. The function
+energy_method_complex accomodates complex valued functional observations.
 
 %prep
 %setup -q -c -n %{packname}

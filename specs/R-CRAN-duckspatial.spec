@@ -1,44 +1,35 @@
 %global __brp_check_rpaths %{nil}
-%global packname  sgat
-%global packver   0.9
+%global __requires_exclude ^libmpi
+%global packname  duckspatial
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extract Information from Google's "Popular Times"
+Summary:          R Interface to 'DuckDB' Database with Spatial Extension
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RSelenium 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-qdapRegex 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-RSelenium 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-qdapRegex 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-plyr 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-sf 
 
 %description
-Once you've identified a real life place, such as a shop, a restaurant, a
-bar, etc. use this package to simulate a Google search and retrieve its
-"Popular Times" and geographic location information and save them in
-Comma-Separated Values files. This package also downloads a list of
-restaurants and bars of Ushuaia city, Argentina.
+Provides an interface between R and the 'DuckDB' (see
+<https://duckdb.org>) database with spatial extensions. It supports
+reading, writing, and performing some geometric operations.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

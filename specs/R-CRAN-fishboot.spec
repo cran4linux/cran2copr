@@ -1,44 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gadget3
-%global packver   0.13-0
+%global packname  fishboot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Globally-Applicable Area Disaggregated General Ecosystem Toolbox V3
+Summary:          Bootstrap-Based Methods for the Study of Fish Stocks and Aquatic Populations
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TMB >= 1.7.0
-BuildRequires:    R-CRAN-rlang >= 0.4.5
-BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-TMB >= 1.7.0
-Requires:         R-CRAN-rlang >= 0.4.5
-Requires:         R-CRAN-digest 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-TropFishR 
+BuildRequires:    R-CRAN-fishmethods 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-TropFishR 
+Requires:         R-CRAN-fishmethods 
 
 %description
-A framework to assist creation of marine ecosystem models, generating
-either 'R' or 'C++' code which can then be optimised using the 'TMB'
-package and standard 'R' tools. Principally designed to reproduce gadget2
-models in 'TMB', but can be extended beyond gadget2's capabilities. Kasper
-Kristensen, Anders Nielsen, Casper W. Berg, Hans Skaug, Bradley M. Bell
-(2016) <doi:10.18637/jss.v070.i05> "TMB: Automatic Differentiation and
-Laplace Approximation.". Begley, J., & Howell, D. (2004)
-<https://core.ac.uk/download/pdf/225936648.pdf> "An overview of Gadget,
-the globally applicable area-disaggregated general ecosystem toolbox.
-ICES.".
+A suite of bootstrap-based models and tools for analyzing fish stocks and
+aquatic populations. Designed for ecologists and fisheries scientists, it
+supports data from length-frequency distributions, tag-and-recapture
+studies, and hard structure readings (e.g., otoliths). See Schwamborn et
+al., 2019 <doi:10.1016/j.ecolmodel.2018.12.001> for background. The
+package includes functions for bootstrapped fitting of growth curves and
+plotting.
 
 %prep
 %setup -q -c -n %{packname}
