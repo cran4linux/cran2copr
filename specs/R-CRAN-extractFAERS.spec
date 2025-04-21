@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extractFAERS
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Data from FAERS Database
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stringr >= 1.5.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
@@ -29,8 +29,8 @@ Requires:         R-utils
 %description
 Provides functions to extract and process data from the FDA Adverse Event
 Reporting System (FAERS). It facilitates the conversion of raw FAERS data
-into structured formats for analysis. See Yang et al. (2022)
-<doi:10.3389/fphar.2021.772768> for related information.
+published after 2014Q3 into structured formats for analysis. See Yang et
+al. (2022) <doi:10.3389/fphar.2021.772768> for related information.
 
 %prep
 %setup -q -c -n %{packname}

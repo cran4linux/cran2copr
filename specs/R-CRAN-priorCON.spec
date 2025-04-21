@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  priorCON
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graph Community Detection Methods into Systematic Conservation Planning
 
@@ -17,22 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-prioritizr >= 8.0.4
-BuildRequires:    R-CRAN-tmap >= 3.3.4
+BuildRequires:    R-CRAN-prioritizr >= 8.0.6
+BuildRequires:    R-CRAN-tmap >= 4.0
 BuildRequires:    R-CRAN-brainGraph >= 3.1.0
-BuildRequires:    R-CRAN-igraph >= 2.0.3
-BuildRequires:    R-CRAN-terra >= 1.7.78
-BuildRequires:    R-CRAN-sf >= 1.0.16
+BuildRequires:    R-CRAN-igraph >= 2.1.4
+BuildRequires:    R-CRAN-terra >= 1.8.21
+BuildRequires:    R-CRAN-sf >= 1.0.19
+BuildRequires:    R-CRAN-highs >= 0.1.10
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-highs 
-Requires:         R-CRAN-prioritizr >= 8.0.4
-Requires:         R-CRAN-tmap >= 3.3.4
+Requires:         R-CRAN-prioritizr >= 8.0.6
+Requires:         R-CRAN-tmap >= 4.0
 Requires:         R-CRAN-brainGraph >= 3.1.0
-Requires:         R-CRAN-igraph >= 2.0.3
-Requires:         R-CRAN-terra >= 1.7.78
-Requires:         R-CRAN-sf >= 1.0.16
+Requires:         R-CRAN-igraph >= 2.1.4
+Requires:         R-CRAN-terra >= 1.8.21
+Requires:         R-CRAN-sf >= 1.0.19
+Requires:         R-CRAN-highs >= 0.1.10
 Requires:         R-utils 
-Requires:         R-CRAN-highs 
 
 %description
 An innovative tool-set that incorporates graph community detection methods
