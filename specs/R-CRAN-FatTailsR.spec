@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FatTailsR
-%global packver   1.8-5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kiener Distributions and Fat Tails in Finance
+Summary:          Kiener Distributions and Fat Tails in Finance and Neuroscience
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-timeSeries 
@@ -30,10 +30,13 @@ Requires:         R-stats
 
 %description
 Kiener distributions K1, K2, K3, K4 and K7 to characterize distributions
-with left and right, symmetric or asymmetric fat tails in market finance,
-neuroscience and other disciplines. Two algorithms to estimate with a high
-accuracy distribution parameters, quantiles, value-at-risk and expected
-shortfall. Include power hyperbolas and power hyperbolic functions.
+with left and right, symmetric or asymmetric fat tails in finance,
+neuroscience and other disciplines. Two algorithms to estimate the
+distribution parameters, quantiles, value-at-risk and expected shortfall.
+IMPORTANT: Standardization has been changed in versions >= 2.0.0 to get sd
+= 1 when kappa = Inf rather than 2*pi/sqrt(3) in versions <= 1.8.6. This
+affects parameter g (other parameters stay unchanged). Do not update if
+you need consistent comparisons with previous results for the g parameter.
 
 %prep
 %setup -q -c -n %{packname}

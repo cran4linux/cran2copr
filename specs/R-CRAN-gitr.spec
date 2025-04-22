@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gitr
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Lightweight API for 'Git'
 
@@ -20,11 +20,10 @@ BuildArch:        noarch
 
 %description
 A light-weight, dependency-free, application programming interface (API)
-to access system-level 'Git' commands from within 'R'. Contains wrappers
-and defaults for common data science workflows as well as 'Zsh'
-<https://github.com/ohmyzsh/ohmyzsh> plugin aliases. A generalized API
-syntax is also available. A system installation of 'Git'
-<https://git-scm.com/downloads> is required.
+to access system-level 'Git' <https://git-scm.com/downloads> commands from
+within 'R'. Contains wrappers and defaults for common data science
+workflows as well as 'Zsh' <https://github.com/ohmyzsh/ohmyzsh> plugin
+aliases. A generalized API syntax is also available.
 
 %prep
 %setup -q -c -n %{packname}

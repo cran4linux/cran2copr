@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MIIPW
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          IPW and Mean Score Methods for Time-Course Missing Data
 
@@ -17,9 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-spatstat 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-spatstat 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 

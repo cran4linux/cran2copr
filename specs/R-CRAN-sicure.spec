@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sicure
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Single-Index Mixture Cure Models
 
@@ -37,7 +37,13 @@ the curse of dimensionality. The vector of parameters that defines the
 model can be estimated by maximum likelihood. A nonparametric estimator
 for the conditional density of the susceptible population is provided. For
 more details, see Piñeiro-Lamas (2024)
-(<https://ruc.udc.es/dspace/handle/2183/37035>).
+(<https://ruc.udc.es/dspace/handle/2183/37035>). Funding: This work,
+integrated into the framework of PERTE for Vanguard Health, has been
+co-financed by the Spanish Ministry of Science, Innovation and
+Universities with funds from the European Union NextGenerationEU, from the
+Recovery, Transformation and Resilience Plan (PRTR-C17.I1) and from the
+Autonomous Community of Galicia within the framework of the Biotechnology
+Plan Applied to Health.
 
 %prep
 %setup -q -c -n %{packname}

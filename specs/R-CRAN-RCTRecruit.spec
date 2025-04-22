@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RCTRecruit
-%global packver   0.1.24
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.24
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Non-Parametric Recruitment Prediction for Randomized Clinical Trials
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 

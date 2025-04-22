@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  shinydashboard
-%global packver   0.7.2
+%global packver   0.7.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.7.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Dashboards with 'Shiny'
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,12 +19,12 @@ Requires:         R-core >= 3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny >= 1.0.0
 BuildRequires:    R-CRAN-htmltools >= 0.2.6
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-shiny >= 1.0.0
 Requires:         R-CRAN-htmltools >= 0.2.6
-Requires:         R-utils 
 Requires:         R-CRAN-promises 
+Requires:         R-utils 
 
 %description
 Create dashboards with 'Shiny'. This package provides a theme on top of

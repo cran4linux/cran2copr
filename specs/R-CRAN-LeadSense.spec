@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LeadSense
-%global packver   0.0.1.0000
+%global packver   0.0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.0000
+Version:          0.0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Medtronic Brain Sense Local Field Potencial Analysis
 
@@ -20,11 +20,17 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-CRAN-seewave 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-signal 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 
+Requires:         R-CRAN-seewave 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-signal 
 
 %description
 Extracts and creates an analysis pipeline for the JSON data files from
