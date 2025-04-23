@@ -1,31 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  irtDemo
-%global packver   0.1.5
+%global packname  qcrlscR
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Theory Demo Collection
+Summary:          Quality Control–based Robust LOESS Signal Correction
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch >= 3010
-BuildRequires:    R-CRAN-shiny >= 0.13.2
-Requires:         R-CRAN-fGarch >= 3010
-Requires:         R-CRAN-shiny >= 0.13.2
 
 %description
-Includes a collection of shiny applications to demonstrate or to explore
-fundamental item response theory (IRT) concepts such as estimation,
-scoring, and multidimensional IRT models.
+An R implementation of quality control–based robust LOESS(local polynomial
+regression fitting) signal correction for metabolomics data analysis,
+described in Dunn, W., Broadhurst, D., Begley, P. et al. (2011)
+<doi:10.1038/nprot.2011.335>. The optimisation of LOESS's span parameter
+using generalized cross-validation (GCV) is provided as an option. In
+addition to signal correction, 'qcrlscR' includes some utility functions
+like batch shifting and data filtering.
 
 %prep
 %setup -q -c -n %{packname}

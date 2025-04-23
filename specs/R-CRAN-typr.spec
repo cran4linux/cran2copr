@@ -1,31 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  irtDemo
-%global packver   0.1.5
+%global packname  typr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Theory Demo Collection
+Summary:          Write and Render 'Typst' Documents
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch >= 3010
-BuildRequires:    R-CRAN-shiny >= 0.13.2
-Requires:         R-CRAN-fGarch >= 3010
-Requires:         R-CRAN-shiny >= 0.13.2
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rlang 
 
 %description
-Includes a collection of shiny applications to demonstrate or to explore
-fundamental item response theory (IRT) concepts such as estimation,
-scoring, and multidimensional IRT models.
+Compile 'Typst' files using the 'typst-cli' (<https://typst.app>) command
+line tool. Automatically falls back to rendering via embedded 'Typst' from
+'Quarto' (<https://quarto.org>) if 'Typst' is not installed. Includes
+utilities to check for 'typst-cli' availability and run 'Typst' commands.
 
 %prep
 %setup -q -c -n %{packname}

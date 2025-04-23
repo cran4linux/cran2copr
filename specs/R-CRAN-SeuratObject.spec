@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeuratObject
-%global packver   5.0.2
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.2
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Structures for Single Cell Data
 
@@ -22,16 +22,16 @@ BuildRequires:    R-CRAN-Rcpp >= 1.0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.7
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Matrix >= 1.6.4
 Requires:         R-CRAN-sp >= 1.5.0
@@ -39,16 +39,16 @@ Requires:         R-CRAN-Rcpp >= 1.0.5
 Requires:         R-CRAN-rlang >= 0.4.7
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-generics 
 Requires:         R-grDevices 
 Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-spam 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
-Requires:         R-CRAN-spam 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-generics 
 
 %description
 Defines S4 classes for single-cell genomic data and associated

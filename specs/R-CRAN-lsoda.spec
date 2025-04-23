@@ -1,31 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  irtDemo
-%global packver   0.1.5
+%global packname  lsoda
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Theory Demo Collection
+Summary:          'C++' Header Library for Ordinary Differential Equations
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch >= 3010
-BuildRequires:    R-CRAN-shiny >= 0.13.2
-Requires:         R-CRAN-fGarch >= 3010
-Requires:         R-CRAN-shiny >= 0.13.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-Rcpp >= 1.0.12
 
 %description
-Includes a collection of shiny applications to demonstrate or to explore
-fundamental item response theory (IRT) concepts such as estimation,
-scoring, and multidimensional IRT models.
+A 'C++' header library for using the 'libsoda-cxx' library with R. The
+'C++' header reimplements the 'lsoda' function from the 'ODEPACK' library
+for solving initial value problems for first order ordinary differential
+equations (Hindmarsh, 1982;
+<https://computing.llnl.gov/sites/default/files/ODEPACK_pub1_u88007.pdf>).
+The 'C++' header can be used by other R packages by linking against this
+package. The 'C++' functions can be called inline using 'Rcpp'. Finally,
+the package provides an 'ode' function to call from R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,38 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  synlik
-%global packver   0.1.7
+%global packname  rob
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthetic Likelihood Methods for Intractable Likelihoods
+Summary:          Run Orders with Assignment-Expansion Method
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-graphics 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
-Requires:         R-parallel 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FMC 
+BuildRequires:    R-CRAN-minimalRSD 
+Requires:         R-CRAN-FMC 
+Requires:         R-CRAN-minimalRSD 
 
 %description
-Framework to perform synthetic likelihood inference for models where the
-likelihood function is unavailable or intractable.
+It enables the identification of sequentialexperimentation orders for
+factorial designs that jointly reduce bias and the number of level
+changes. The method used is that presented by Conto et al. (2025), known
+as the Assignment-Expansion method, which consists of adapting the linear
+programming assignment problem to generate balanced experimentation
+orders. The properties identified are then generalized to designs with a
+larger number of factors and levels using the expansion method proposed by
+Correa et al. (2009) and later generalized by Bhowmik et al. (2017). For
+more details see Conto et al. (2025) <doi:10.1016/j.cie.2024.110844>,
+Correa et al. (2009) <doi:10.1080/02664760802499337> and Bhowmik et al.
+(2017) <doi:10.1080/03610926.2016.1152490>.
 
 %prep
 %setup -q -c -n %{packname}

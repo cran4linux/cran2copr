@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  irtDemo
-%global packver   0.1.5
+%global packname  simBKMRdata
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Theory Demo Collection
+Summary:          Helper Functions for Bayesian Kernel Machine Regression
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch >= 3010
-BuildRequires:    R-CRAN-shiny >= 0.13.2
-Requires:         R-CRAN-fGarch >= 3010
-Requires:         R-CRAN-shiny >= 0.13.2
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
 
 %description
-Includes a collection of shiny applications to demonstrate or to explore
-fundamental item response theory (IRT) concepts such as estimation,
-scoring, and multidimensional IRT models.
+Provides a suite of helper functions to support Bayesian Kernel Machine
+Regression (BKMR) analyses in environmental health research. It enables
+the simulation of realistic multivariate exposure data using Multivariate
+Skewed Gamma distributions, estimation of distributional parameters by
+subgroup, and application of adaptive, data-driven thresholds for feature
+selection via Posterior Inclusion Probabilities (PIPs). It is especially
+suited for handling skewed exposure data and enhancing the
+interpretability of BKMR results through principled variable selection.
+The methodology is shown in Hasan et. al. (2025)
+<doi:10.1101/2025.04.14.25325822>.
 
 %prep
 %setup -q -c -n %{packname}

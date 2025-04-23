@@ -1,31 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  irtDemo
-%global packver   0.1.5
+%global packname  rrcovNA
+%global packver   0.5-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.5.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Theory Demo Collection
+Summary:          Scalable Robust Estimators with High Breakdown Point for Incomplete Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
-BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch >= 3010
-BuildRequires:    R-CRAN-shiny >= 0.13.2
-Requires:         R-CRAN-fGarch >= 3010
-Requires:         R-CRAN-shiny >= 0.13.2
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-rrcov >= 1.3.7
+BuildRequires:    R-CRAN-robustbase >= 0.92.1
+BuildRequires:    R-methods 
+BuildRequires:    R-stats4 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-norm 
+BuildRequires:    R-CRAN-cluster 
+Requires:         R-CRAN-rrcov >= 1.3.7
+Requires:         R-CRAN-robustbase >= 0.92.1
+Requires:         R-methods 
+Requires:         R-stats4 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-norm 
+Requires:         R-CRAN-cluster 
 
 %description
-Includes a collection of shiny applications to demonstrate or to explore
-fundamental item response theory (IRT) concepts such as estimation,
-scoring, and multidimensional IRT models.
+Robust Location and Scatter Estimation and Robust Multivariate Analysis
+with High Breakdown Point for Incomplete Data (missing values) (Todorov et
+al. (2010) <doi:10.1007/s11634-010-0075-2>).
 
 %prep
 %setup -q -c -n %{packname}

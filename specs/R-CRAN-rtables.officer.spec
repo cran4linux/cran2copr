@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtables.officer
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exporting Tools for 'rtables'
 
@@ -22,8 +22,9 @@ BuildRequires:    R-CRAN-stringi >= 1.6
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-flextable >= 0.9.6
 BuildRequires:    R-CRAN-officer >= 0.6.6
-BuildRequires:    R-CRAN-rtables >= 0.6.11
-BuildRequires:    R-CRAN-formatters >= 0.5.10
+BuildRequires:    R-CRAN-rtables >= 0.6.12
+BuildRequires:    R-CRAN-formatters >= 0.5.11
+BuildRequires:    R-CRAN-rlistings >= 0.2.11
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
@@ -32,8 +33,9 @@ Requires:         R-CRAN-stringi >= 1.6
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-flextable >= 0.9.6
 Requires:         R-CRAN-officer >= 0.6.6
-Requires:         R-CRAN-rtables >= 0.6.11
-Requires:         R-CRAN-formatters >= 0.5.10
+Requires:         R-CRAN-rtables >= 0.6.12
+Requires:         R-CRAN-formatters >= 0.5.11
+Requires:         R-CRAN-rlistings >= 0.2.11
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-methods 
 Requires:         R-stats 

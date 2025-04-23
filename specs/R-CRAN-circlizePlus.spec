@@ -1,31 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  irtDemo
-%global packver   0.1.5
+%global packname  circlizePlus
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Item Response Theory Demo Collection
+Summary:          Using 'ggplot2' Feature to Write Readable R Code for Circular Visualization
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.4
-Requires:         R-core >= 3.2.4
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fGarch >= 3010
-BuildRequires:    R-CRAN-shiny >= 0.13.2
-Requires:         R-CRAN-fGarch >= 3010
-Requires:         R-CRAN-shiny >= 0.13.2
+BuildRequires:    R-CRAN-circlize >= 0.4.16
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-circlize >= 0.4.16
+Requires:         R-methods 
+Requires:         R-stats 
 
 %description
-Includes a collection of shiny applications to demonstrate or to explore
-fundamental item response theory (IRT) concepts such as estimation,
-scoring, and multidimensional IRT models.
+A wrapper for 'circlize'. All components are based on classes and objects.
+Users can use the addition symbol (+) to combine components for a circular
+visualization with 'ggplot2' style.The package is described in Zhang Z,
+Cao T, Huang Y and Xia Y (2025) <doi:10.3389/fgene.2025.1535368>.
 
 %prep
 %setup -q -c -n %{packname}

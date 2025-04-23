@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggdist
-%global packver   3.3.2
+%global packver   3.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizations of Distributions and Uncertainty
 
@@ -14,35 +14,35 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-distributional >= 0.3.2
 BuildRequires:    R-CRAN-rlang >= 0.3.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-quadprog 
 BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-distributional >= 0.3.2
 Requires:         R-CRAN-rlang >= 0.3.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-scales 
 Requires:         R-grid 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-quadprog 
 Requires:         R-CRAN-Rcpp 
 
 %description

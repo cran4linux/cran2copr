@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  proxyC
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computes Proximity in Large Sparse Matrices
 
@@ -27,9 +27,9 @@ Requires:         R-methods
 %description
 Computes proximity between rows or columns of large matrices efficiently
 in C++. Functions are optimised for large sparse matrices using the
-Armadillo and Intel TBB libraries. Among several built-in
+Armadillo and Intel TBB libraries. Among various built-in
 similarity/distance measures, computation of correlation, cosine
-similarity and Euclidean distance is particularly fast.
+similarity, Dice coefficient and Euclidean distance is particularly fast.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rankdifferencetest
-%global packver   2021-11-25
+%global packver   2025.4.21
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2021.11.25
+Version:          2025.4.21
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kornbrot's Rank Difference Test
 
