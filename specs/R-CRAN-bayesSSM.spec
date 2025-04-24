@@ -1,39 +1,40 @@
 %global __brp_check_rpaths %{nil}
-%global packname  crunchy
-%global packver   0.3.3
+%global __requires_exclude ^libmpi
+%global packname  bayesSSM
+%global packver   0.4.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.3
+Version:          0.4.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Shiny Apps on Crunch
+Summary:          Bayesian Methods for State Space Models
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstudioapi >= 0.4
-BuildRequires:    R-CRAN-crunch 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-httpcache 
-BuildRequires:    R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi >= 0.4
-Requires:         R-CRAN-crunch 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-httpcache 
-Requires:         R-CRAN-miniUI 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
-To facilitate building custom dashboards on the Crunch data platform
-<https://crunch.io/>, the 'crunchy' package provides tools for working
-with 'shiny'. These tools include utilities to manage authentication and
-authorization automatically and custom stylesheets to help match the look
-and feel of the Crunch web application. The package also includes several
-gadgets for use in 'RStudio'.
+Implements methods for Bayesian analysis of State Space Models. Includes
+implementations the Particle Marginal Metropolis-Hastings algorithm
+described in Andrieu et al. (2010) <doi:10.1111/j.1467-9868.2009.00736.x>
+and automatic tuning inspired by Pitt et al. (2012)
+<doi:10.1016/j.jeconom.2012.06.004> and J. Dahlin and T. B. Schön (2019)
+<doi:10.18637/jss.v088.c02>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +44,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

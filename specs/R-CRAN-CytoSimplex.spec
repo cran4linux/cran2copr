@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CytoSimplex
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simplex Visualization of Cell Fate Similarity in Single-Cell Data
 
@@ -18,25 +18,35 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildRequires:    R-stats 
 BuildRequires:    R-methods 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-plot3D 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-stats 
 Requires:         R-methods 
+Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-plot3D 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-viridis 
 
 %description
 Create simplex plots to visualize the similarity between single-cells and
 selected clusters in a 1-/2-/3-simplex space. Velocity information can be
 added as an additional layer. See Liu J, Wang Y et al (2023)
-<doi:10.1101/2023.12.07.570655> for more details.
+<doi:10.1093/bioinformatics/btaf119> for more details.
 
 %prep
 %setup -q -c -n %{packname}

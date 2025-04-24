@@ -1,33 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdeps
-%global packver   0.3
+%global packname  MarginalMaxTest
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify External Packages Used in a Project
+Summary:          Max-Type Test for Marginal Correlation with Bootstrap
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Screens all '.R', '.Rmd', and '.qmd' files to extract the name of packages
-used in a project. This package detects packages called with
-'library(foo)', 'require(foo)', 'foo::bar()' and 'use("foo", "bar")' and
-adds these dependencies in the DESCRIPTION file in the sections Depends,
-Imports, and Suggests.
+Test the marginal correlation between a scalar response variable with a
+vector of explanatory variables using the max-type test with bootstrap.
+The test is based on the max-type statistic and its asymptotic
+distribution under the null hypothesis of no marginal correlation. The
+bootstrap procedure is used to approximate the null distribution of the
+test statistic. The package provides a function for performing the test.
+For more technical details, refer to Zhang and Laber (2014)
+<doi:10.1080/01621459.2015.1106403>.
 
 %prep
 %setup -q -c -n %{packname}

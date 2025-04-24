@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  QR.break
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structural Breaks in Quantile Regression
 
@@ -29,12 +29,12 @@ is rq.break().
 
 References for detailed theoretical and empirical explanations:
 
-(1) Qu, Z. (2008). Testing for Structural Change in Regression Quantiles.
-Journal of Econometrics, 146(1), 170-184
+(1) Qu, Z. (2008).  "Testing for Structural Change in Regression
+Quantiles."  Journal of Econometrics, 146(1), 170-184
 <doi:10.1016/j.jeconom.2008.08.006>
 
-(2) Oka, T., and Qu, Z. (2011).  Estimating Structural Changes in
-Regression Quantiles.  Journal of Econometrics, 162(2), 248-267
+(2) Oka, T., and Qu, Z. (2011).  "Estimating Structural Changes in
+Regression Quantiles."  Journal of Econometrics, 162(2), 248-267
 <doi:10.1016/j.jeconom.2011.01.005>.
 
 %prep

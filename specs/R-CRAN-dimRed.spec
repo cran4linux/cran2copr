@@ -1,33 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdeps
-%global packver   0.3
+%global packname  dimRed
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify External Packages Used in a Project
+Summary:          A Framework for Dimensionality Reduction
 
-License:          GPL (>= 2)
+License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-DRR 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-DRR 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
-Screens all '.R', '.Rmd', and '.qmd' files to extract the name of packages
-used in a project. This package detects packages called with
-'library(foo)', 'require(foo)', 'foo::bar()' and 'use("foo", "bar")' and
-adds these dependencies in the DESCRIPTION file in the sections Depends,
-Imports, and Suggests.
+A collection of dimensionality reduction techniques from R packages and a
+common interface for calling the methods.
 
 %prep
 %setup -q -c -n %{packname}

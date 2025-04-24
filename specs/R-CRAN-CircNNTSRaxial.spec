@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rdeps
-%global packver   0.3
+%global packname  CircNNTSRaxial
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Identify External Packages Used in a Project
+Summary:          Axial Data using NNTS Models
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-psychTools 
+BuildRequires:    R-CRAN-CircNNTSR 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-psychTools 
+Requires:         R-CRAN-CircNNTSR 
 
 %description
-Screens all '.R', '.Rmd', and '.qmd' files to extract the name of packages
-used in a project. This package detects packages called with
-'library(foo)', 'require(foo)', 'foo::bar()' and 'use("foo", "bar")' and
-adds these dependencies in the DESCRIPTION file in the sections Depends,
-Imports, and Suggests.
+Statistical analysis of axial using distributions Nonnegative
+Trigonometric Sums (NNTS). The package includes functions for calculation
+of densities and distributions, for the estimation of parameters, and
+more. Fernandez-Duran, J.J. and Gregorio-Dominguez, M.M. (2025),
+''Multimodal distributions for circular axial data",
+<doi:10.48550/arXiv.2504.04681>.
 
 %prep
 %setup -q -c -n %{packname}

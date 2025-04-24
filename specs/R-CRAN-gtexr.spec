@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gtexr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query the GTEx Portal API
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
 BuildRequires:    R-CRAN-cli 
@@ -34,7 +34,13 @@ Requires:         R-CRAN-tidyr
 
 %description
 A convenient R interface to the Genotype-Tissue Expression (GTEx) Portal
-API. For more information on the API, see
+API. The GTEx project is a comprehensive public resource for studying
+tissue-specific gene expression and regulation in human tissues. Through
+systematic analysis of RNA sequencing data from 54 non-diseased tissue
+sites across nearly 1000 individuals, GTEx provides crucial insights into
+the relationship between genetic variation and gene expression. This data
+is accessible through the GTEx Portal API enabling programmatic access to
+human gene expression data. For more information on the API, see
 <https://gtexportal.org/api/v2/redoc>.
 
 %prep

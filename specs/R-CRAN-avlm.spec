@@ -1,36 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httpgd
-%global packver   2.0.4
+%global packname  avlm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'HTTP' Server Graphics Device
+Summary:          Safe Anytime Valid Inference for Linear Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    cairo-devel
-BuildRequires:    freetype-devel
-BuildRequires:    libpng-devel
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-AsioHeaders >= 1.22.1
-BuildRequires:    R-CRAN-cpp11 >= 0.2.4
-BuildRequires:    R-CRAN-unigd 
-Requires:         R-CRAN-unigd 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-A graphics device for R that is accessible via network protocols. This
-package was created to make it easier to embed live R graphics in
-integrated development environments and other applications. The included
-'HTML/JavaScript' client (plot viewer) aims to provide a better overall
-user experience when dealing with R graphics. The device asynchronously
-serves graphics via 'HTTP' and 'WebSockets'.
+Anytime-valid inference for linear models, namely, sequential t-tests,
+sequential F-tests, and confidence sequences with time-uniform Type-I
+error and coverage guarantees. This allows hypotheses to be continuously
+tested without sacrificing false positive guarantees. It is based on the
+methods documented in Lindon et al. (2022)
+<doi:10.48550/arXiv.2210.08589>.
 
 %prep
 %setup -q -c -n %{packname}

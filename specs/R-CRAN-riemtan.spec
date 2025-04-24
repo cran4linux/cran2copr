@@ -1,37 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webshot2
-%global packver   0.1.2
+%global packname  riemtan
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Take Screenshots of Web Pages
+Summary:          Riemannian Metrics for Symmetric Positive Definite Matrices
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chromote >= 0.1.0
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-promises 
-Requires:         R-CRAN-chromote >= 0.1.0
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-promises 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-furrr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-expm 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-furrr 
 
 %description
-Takes screenshots of web pages, including Shiny applications and R
-Markdown documents. 'webshot2' uses headless Chrome or Chromium as the
-browser back-end.
+Implements various Riemannian metrics for symmetric positive definite
+matrices, including AIRM (Affine Invariant Riemannian Metric, see Pennec,
+Fillard, and Ayache (2006) <doi:10.1007/s11263-005-3222-z>), Log-Euclidean
+(see Arsigny, Fillard, Pennec, and Ayache (2006) <doi:10.1002/mrm.20965>),
+Euclidean, Log-Cholesky (see Lin (2019) <doi:10.1137/18M1221084>), and
+Bures-Wasserstein metrics (see Bhatia, Jain, and Lim (2019)
+<doi:10.1016/j.exmath.2018.01.002>). Provides functions for computing
+logarithmic and exponential maps, vectorization, and statistical
+operations on the manifold of positive definite matrices.
 
 %prep
 %setup -q -c -n %{packname}

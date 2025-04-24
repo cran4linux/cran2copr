@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  flowchart
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tidy Flowchart Generator
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-Gmisc 
 Requires:         R-grid 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-rlang 
 Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
 
 %description
 Creates participant flow diagrams directly from a dataframe. Representing

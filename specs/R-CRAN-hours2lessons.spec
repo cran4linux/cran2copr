@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  njtr1
-%global packver   0.3.2
+%global __requires_exclude ^libmpi
+%global packname  hours2lessons
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download, Analyze & Clean New Jersey Car Crash Data
+Summary:          Alocă Pe Ore Lecțiile Zilei
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,31 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
-Download and analyze motor vehicle crash data released by the New Jersey
-Department of Transportation (NJDOT). The data in this package is
-collected through the filing of NJTR-1 form by police officers, which
-provide a standardized way of documenting a motor vehicle crash that
-occurred in New Jersey. 3 different data tables containing data on
-crashes, vehicles & pedestrians released from 2001 to the present can be
-downloaded & cleaned using this package.
+Lecțiile prof/cls trebuie completate cu un câmp "ora", astfel ca oricare
+două lecții prof/cls/ora să nu se suprapună într-o aceeași oră. The
+prof/cls lessons must be completed with a "hour" field ('ora), so that any
+two prof/cls/ora lessons do not overlap in the same hour.
+<https://vlad.bazon.net/>.
 
 %prep
 %setup -q -c -n %{packname}
