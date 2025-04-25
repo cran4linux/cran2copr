@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  itrimhoch
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Improved Trimmed Weighted Hochberg Procedures and Sample Size Optimization
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildArch:        noarch
+BuildRequires:    R-stats >= 4.0.0
+BuildRequires:    R-CRAN-mvtnorm >= 1.2
+Requires:         R-stats >= 4.0.0
+Requires:         R-CRAN-mvtnorm >= 1.2
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+The improved trimmed weighted Hochberg procedure provides increased
+statistical power and relaxes the dependence assumptions for familywise
+error rate control compared to the original weighted Hochberg procedure.
+This package computes the boundaries required for implementing the
+proposed methodology and includes sample size optimization methods. See
+Gou, J., Chang, Y., Li, T., and Zhang, F.(2025). Improved trimmed weighted
+Hochberg procedures with two endpoints and sample size optimization.
+Technical Report.
 
 %prep
 %setup -q -c -n %{packname}

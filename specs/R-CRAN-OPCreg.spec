@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  OPCreg
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Online Principal Component Regression for Online Datasets
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-car 
+Requires:         R-CRAN-MASS 
+Requires:         R-stats 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-car 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+The online principal component regression method can process the online
+data set. 'OPCreg' implements the online principal component regression
+method, which is specifically designed to process online datasets
+efficiently. This method is particularly useful for handling large-scale,
+streaming data where traditional batch processing methods may be
+computationally infeasible.The philosophy of the package is described in
+'Guo' (2025) <doi:10.1016/j.physa.2024.130308>.
 
 %prep
 %setup -q -c -n %{packname}

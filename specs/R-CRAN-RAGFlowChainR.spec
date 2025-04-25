@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rollama
-%global packver   0.2.1
+%global packname  RAGFlowChainR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Communicate with 'Ollama' to Run Large Language Models Locally
+Summary:          Retrieval-Augmented Generation (RAG) Workflows in R with Local and Web Search
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,32 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-callr 
-BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-duckdb >= 0.10.0
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-prettyunits 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-callr 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-officer 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-duckdb >= 0.10.0
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-prettyunits 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-officer 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-curl 
 
 %description
-Wraps the 'Ollama' <https://ollama.com> API, which can be used to
-communicate with generative large language models locally.
+Enables Retrieval-Augmented Generation (RAG) workflows in R by combining
+local vector search using 'DuckDB' with optional web search via the
+'Tavily' API. Supports OpenAI- and Ollama-compatible embedding models,
+full-text and HNSW (Hierarchical Navigable Small World) indexing, and
+modular large language model (LLM) invocation. Designed for advanced
+question-answering, chat-based applications, and production-ready AI
+pipelines. This package is the R equivalent of the 'python' package
+'RAGFlowChain' available at <https://pypi.org/project/RAGFlowChain/>.
 
 %prep
 %setup -q -c -n %{packname}

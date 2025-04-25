@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  EEEA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Explicit Exploration Strategy for Evolutionary Algorithms
 
-License:          GPL (>= 2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Implements an explicit exploration strategy for evolutionary algorithms in
+order to have a more effective search in solving optimization problems.
+Along with this exploration search strategy, a set of four different
+Estimation of Distribution Algorithms (EDAs) are also implemented for
+solving optimization problems in continuous domains. The implemented
+explicit exploration strategy in this package is described in
+Salinas-Gutiérrez and Muñoz Zavala (2023)
+<doi:10.1016/j.asoc.2023.110230>.
 
 %prep
 %setup -q -c -n %{packname}

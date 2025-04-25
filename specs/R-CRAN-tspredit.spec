@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tspredit
-%global packver   1.0.787
+%global packver   1.1.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.787
+Version:          1.1.707
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Prediction Integrated Tuning
+Summary:          Time Series Prediction with Integrated Tuning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
@@ -37,19 +37,17 @@ Requires:         R-CRAN-KFAS
 Requires:         R-CRAN-daltoolbox 
 
 %description
-Prediction is one of the most important activities while working with time
-series. There are many alternative ways to model the time series. Finding
-the right one is challenging to model them. Most data-driven models
-(either statistical or machine learning) demand tuning. Setting them right
-is mandatory for good predictions. It is even more complex since time
-series prediction also demands choosing a data pre-processing that
-complies with the chosen model. Many time series frameworks have features
-to build and tune models. The package differs as it provides a framework
-that seamlessly integrates tuning data pre-processing activities with the
-building of models. The package provides functions for defining and
-conducting time series prediction, including data pre(post)processing,
-decomposition, tuning, modeling, prediction, and accuracy assessment. More
-information is available at Izau et al. <doi:10.5753/sbbd.2022.224330>.
+Time series prediction is a critical task in data analysis, requiring not
+only the selection of appropriate models, but also suitable data
+preprocessing and tuning strategies. TSPredIT (Time Series Prediction with
+Integrated Tuning) is a framework that provides a seamless integration of
+data preprocessing, decomposition, model training, hyperparameter
+optimization, and evaluation. Unlike other frameworks, TSPredIT emphasizes
+the co-optimization of both preprocessing and modeling steps, improving
+predictive performance. It supports a variety of statistical and machine
+learning models, filtering techniques, outlier detection, data
+augmentation, and ensemble strategies. More information is available in
+Salles et al. <doi:10.1007/978-3-662-68014-8_2>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  randPedPCA
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Fast PCA for Large Pedigrees
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pedigreeTools 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-CRAN-pedigreeTools 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Carry out principal component analysis (PCA) of very large pedigrees such
+as found in breeding populations! This package, 'randPedPCA', exploits
+sparse matrices and randomised linear algebra to deliver a gazillion-times
+speed-up compared to naive singular value decoposition (SVD) (and eigen
+decomposition).
 
 %prep
 %setup -q -c -n %{packname}

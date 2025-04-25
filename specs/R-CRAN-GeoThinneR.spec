@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoThinneR
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Spatial Thinning for Ecological and Spatial Analysis
+Summary:          Efficient Spatial Thinning of Species Occurrences
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,18 +16,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
+BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-nabor 
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-nabor 
-Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
 Requires:         R-CRAN-terra 
 

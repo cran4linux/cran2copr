@@ -1,34 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  chatLLM
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          A Flexible Interface for 'LLM' API Interactions
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
+BuildRequires:    R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-jsonlite >= 1.7.2
+Requires:         R-CRAN-httr >= 1.4.0
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Provides a flexible interface for interacting with Large Language Model
+('LLM') providers such as 'OpenAI' (<https://openai.com/>), 'Groq'
+(<https://groq.com/>), and 'Anthropic' (<https://www.anthropic.com/>).
+Supports both synchronous and asynchronous API calls with features such as
+retry logic, support for additional parameters, and multi-message handling
+to streamline integration with state-of-the-art 'LLM' APIs.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  hdMTD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Inference for High-Dimensional Mixture Transition Distribution Models
 
-License:          GPL (>= 2) | file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Estimates parameters in Mixture Transition Distribution (MTD) models, a
+class of high-order Markov chains. The set of relevant pasts (lags) is
+selected using either the Bayesian Information Criterion or the Forward
+Stepwise and Cut algorithms. Other model parameters (e.g. transition
+probabilities and oscillations) can be estimated via maximum likelihood
+estimation or the Expectation-Maximization algorithm. Additionally,
+'hdMTD' includes a perfect sampling algorithm that generates samples of an
+MTD model from its invariant distribution. For theory, see Ost & Takahashi
+(2023) <http://jmlr.org/papers/v24/22-0266.html>.
 
 %prep
 %setup -q -c -n %{packname}

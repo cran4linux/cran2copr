@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reddPrec
-%global packver   2.0.4
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reconstruction of Daily Data - Precipitation
 
@@ -23,12 +23,40 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-qmap 
+BuildRequires:    R-CRAN-BreakPoints 
+BuildRequires:    R-CRAN-Kendall 
+BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-geosphere 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-xts 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-neuralnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-xgboost 
 Requires:         R-CRAN-terra 
 Requires:         R-stats 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-qmap 
+Requires:         R-CRAN-BreakPoints 
+Requires:         R-CRAN-Kendall 
+Requires:         R-CRAN-car 
+Requires:         R-CRAN-geosphere 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-xts 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-neuralnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-xgboost 
 
 %description
 Applies quality control to daily precipitation observations; reconstructs

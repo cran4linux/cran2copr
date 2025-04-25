@@ -1,34 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  localScore
-%global packver   2.0.3
+%global packname  mbest
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Sequence Analysis by Local Score
+Summary:          Moment-Based Estimation for Hierarchical Models
 
-License:          GPL (>= 2) | file LICENSE
+License:          Apache License (== 2.0) | file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.16
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 0.12.16
-Requires:         R-utils 
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
+BuildRequires:    R-CRAN-nlme >= 3.1.124
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-bigmemory 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-reformulas 
+BuildRequires:    R-CRAN-logging 
+Requires:         R-CRAN-nlme >= 3.1.124
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-bigmemory 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-reformulas 
+Requires:         R-CRAN-logging 
 
 %description
-Functionalities for calculating the local score and calculating
-statistical relevance (p-value) to find a local Score in a sequence of
-given distribution (S. Mercier and J.-J. Daudin (2001)
-<https://hal.science/hal-00714174/>) ; S. Karlin and S. Altschul (1990)
-<https://pmc.ncbi.nlm.nih.gov/articles/PMC53667/> ; S. Mercier, D. Cellier
-and F. Charlot (2003) <https://hal.science/hal-00937529v1/> ; A. Lagnoux,
-S. Mercier and P. Valois (2017) <doi:10.1093/bioinformatics/btw699> ).
+Fast moment-based hierarchical model fitting. Implements methods from the
+papers "Fast Moment-Based Estimation for Hierarchical Models," by Perry
+(2017) and "Fitting a Deeply Nested Hierarchical Model to a Large Book
+Review Dataset Using a Moment-Based Estimator," by Zhang, Schmaus, and
+Perry (2018).
 
 %prep
 %setup -q -c -n %{packname}

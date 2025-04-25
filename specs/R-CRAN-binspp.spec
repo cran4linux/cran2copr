@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  binspp
-%global packver   0.1.26
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.26
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Inference for Neyman-Scott Point Processes
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-spatstat
 BuildRequires:    R-CRAN-spatstat.model 
 BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.random 
+BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-spatstat
 Requires:         R-CRAN-spatstat.model 
 Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.random 
+Requires:         R-CRAN-fields 
 
 %description
 The Bayesian MCMC estimation of parameters for Thomas-type cluster point

@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolboxdp
-%global packver   1.0.777
+%global packver   1.0.787
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.777
+Version:          1.0.787
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Pre-Processing Extensions
+Summary:          Python-Based Extensions for Data Analytics Workflows
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-daltoolbox 
 BuildRequires:    R-CRAN-leaps 
@@ -23,22 +23,29 @@ BuildRequires:    R-CRAN-FSelector
 BuildRequires:    R-CRAN-doBy 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-smotefamily 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-daltoolbox 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-FSelector 
 Requires:         R-CRAN-doBy 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-smotefamily 
+Requires:         R-CRAN-reticulate 
+Requires:         R-stats 
 
 %description
-An important aspect of data analytics is related to data management
-support for artificial intelligence. It is related to preparing data
-correctly. This package provides extensions to support data preparation in
-terms of both data sampling and data engineering. Overall, the package
-provides researchers with a comprehensive set of functionalities for data
-science based on experiment lines, promoting ease of use, extensibility,
-and integration with various tools and libraries. Information on
-Experiment Line is based on Ogasawara et al. (2009)
+Provides Python-based extensions to enhance data analytics workflows,
+particularly for tasks involving data preprocessing and predictive
+modeling. Includes tools for data sampling, transformation, feature
+selection, balancing strategies (e.g., SMOTE), and model construction.
+These capabilities leverage Python libraries via the reticulate interface,
+enabling seamless integration with a broader machine learning ecosystem.
+Supports instance selection and hybrid workflows that combine R and Python
+functionalities for flexible and reproducible analytical pipelines. The
+architecture is inspired by the Experiment Lines approach, which promotes
+modularity, extensibility, and interoperability across tools. More
+information on Experiment Lines is available in Ogasawara et al. (2009)
 <doi:10.1007/978-3-642-02279-1_20>.
 
 %prep

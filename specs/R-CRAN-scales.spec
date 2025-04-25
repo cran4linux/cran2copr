@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scales
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scale Functions for Visualization
 
@@ -14,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-farver >= 2.0.3
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-munsell >= 0.5
+BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-labeling 
@@ -28,8 +27,7 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-viridisLite 
 Requires:         R-CRAN-farver >= 2.0.3
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-munsell >= 0.5
+Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-labeling 

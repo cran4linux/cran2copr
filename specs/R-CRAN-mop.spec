@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mop
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mobility Oriented-Parity Metric
 
@@ -45,7 +45,8 @@ calibrated (trained), this metric helps to identify transfer conditions
 that differ substantially from those of calibration. These tools are
 implemented following principles proposed in Owens et al. (2013)
 <doi:10.1016/j.ecolmodel.2013.04.011>, and expanded to obtain more
-detailed results that aid in interpretation.
+detailed results that aid in interpretation as in Cobos et al. (2024)
+<doi:10.21425/fob.17.132916>.
 
 %prep
 %setup -q -c -n %{packname}

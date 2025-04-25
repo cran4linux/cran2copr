@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ROI.plugin.highs
-%global packver   1.0-3
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'HiGHS' Plugin for the 'R' Optimization Infrastructure
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-highs >= 1.9.0.0
 BuildRequires:    R-CRAN-ROI >= 1.0.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-highs 
+Requires:         R-CRAN-highs >= 1.9.0.0
 Requires:         R-CRAN-ROI >= 1.0.0
 Requires:         R-methods 
-Requires:         R-CRAN-highs 
 
 %description
 Enhances the 'R' Optimization Infrastructure ('ROI') package with the

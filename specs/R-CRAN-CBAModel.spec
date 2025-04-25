@@ -1,40 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EnvStats
-%global packver   3.1.0
+%global packname  CBAModel
+%global packver   0.0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          0.0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package for Environmental Statistics, Including US EPA Guidance
+Summary:          Stochastic 3D Structure Model for Binder-Conductive Additive Phase
 
-License:          GPL (>= 3)
+License:          GPL (>= 3.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-nortest 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-nortest 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Graphical and statistical analyses of environmental data, with focus on
-analyzing chemical concentrations and physical parameters, usually in the
-context of mandated environmental monitoring.  Major environmental
-statistical methods found in the literature and regulatory guidance
-documents, with extensive help that explains what these methods do, how to
-use them, and where to find them in the literature.  Numerous built-in
-data sets from regulatory guidance documents and environmental statistics
-literature.  Includes scripts reproducing analyses presented in the book
-"EnvStats: An R Package for Environmental Statistics" (Millard, 2013,
-Springer, ISBN 978-1-4614-8455-4, <doi:10.1007/978-1-4614-8456-1>).
+Simulation of the stochastic 3D structure model for the nanoporous
+binder-conductive additive phase in battery cathodes introduced in P.
+Gräfensteiner, M. Osenberg, A. Hilger, N. Bohn, J. R. Binder, I. Manke, V.
+Schmidt, M. Neumann (2024) <doi:10.48550/arXiv.2409.11080>. The model is
+developed for a binder-conductive additive phase of consisting of carbon
+black, polyvinylidene difluoride binder and graphite particles. For its
+stochastic 3D modeling, a three-step procedure based on methods from
+stochastic geometry is used. First, the graphite particles are described
+by a Boolean model with ellipsoidal grains. Second, the mixture of carbon
+black and binder is modeled by an excursion set of a Gaussian random field
+in the complement of the graphite particles. Third, large pore regions
+within the mixture of carbon black and binder are described by a Boolean
+model with spherical grains.
 
 %prep
 %setup -q -c -n %{packname}
