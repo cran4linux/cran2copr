@@ -1,58 +1,67 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  zippeR
-%global packver   0.1.2
+%global packname  connector
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Working with United States ZIP Code and ZIP Code Tabulation Area Data
+Summary:          Streamlining Data Access in Clinical Research
 
 License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 >= 2.4.0
+BuildRequires:    R-CRAN-zephyr >= 0.1.1
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-datasets 
+BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spatstat.univar 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidycensus 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tigris 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vroom 
+BuildRequires:    R-CRAN-writexl 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-R6 >= 2.4.0
+Requires:         R-CRAN-zephyr >= 0.1.1
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
-Requires:         R-datasets 
+Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-haven 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spatstat.univar 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidycensus 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tigris 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-CRAN-vroom 
+Requires:         R-CRAN-writexl 
+Requires:         R-CRAN-yaml 
 
 %description
-Provides a set of functions for working with American postal codes, which
-are known as ZIP Codes. These include accessing ZIP Code to ZIP Code
-Tabulation Area (ZCTA) crosswalks, retrieving demographic data for ZCTAs,
-and tabulating demographic data for three-digit ZCTAs.
+Provides a consistent interface for connecting R to various data sources
+including file systems and databases. Designed for clinical research,
+'connector' streamlines access to 'ADAM', 'SDTM' for example. It helps to
+deal with multiple data formats through a standardized API and centralized
+configuration.
 
 %prep
 %setup -q -c -n %{packname}

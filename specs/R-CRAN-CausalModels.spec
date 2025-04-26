@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CausalModels
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference Modeling for Estimation of Causal Effects
 
@@ -34,7 +34,7 @@ standardization, IP weighting, propensity matching, outcome regression,
 and doubly-robust estimators. Estimates of the average treatment effects
 from each model are given with the standard error and a 95%% Wald
 confidence interval (Hernan, Robins (2020)
-<https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>).
+<https://miguelhernan.org/whatifbook/>).
 
 %prep
 %setup -q -c -n %{packname}

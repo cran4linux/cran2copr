@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PracTools
-%global packver   1.5
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Designing and Weighting Survey Samples
 
@@ -21,11 +21,13 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-usmap 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-usmap 
 
 %description

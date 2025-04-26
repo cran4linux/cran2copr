@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WaverideR
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracting Signals from Wavelet Spectra
 
@@ -17,17 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DecomposeR 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-colorednoise 
-BuildRequires:    R-CRAN-doSNOW 
-BuildRequires:    R-CRAN-fANCOVA 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-stats 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-truncnorm 
@@ -35,24 +31,22 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-astrochron 
-BuildRequires:    R-CRAN-biwavelet 
-BuildRequires:    R-CRAN-WaveletComp 
 BuildRequires:    R-CRAN-RColorBrewer 
 BuildRequires:    R-CRAN-colorRamps 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-CRAN-rlist 
-Requires:         R-CRAN-DecomposeR 
+BuildRequires:    R-CRAN-trapezoid 
+BuildRequires:    R-CRAN-fANCOVA 
+BuildRequires:    R-CRAN-DecomposeR 
+BuildRequires:    R-CRAN-doSNOW 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-Matrix 
 Requires:         R-utils 
 Requires:         R-CRAN-colorednoise 
-Requires:         R-CRAN-doSNOW 
-Requires:         R-CRAN-fANCOVA 
 Requires:         R-CRAN-foreach 
 Requires:         R-stats 
-Requires:         R-tcltk 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-truncnorm 
@@ -60,13 +54,15 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-parallel 
 Requires:         R-CRAN-astrochron 
-Requires:         R-CRAN-biwavelet 
-Requires:         R-CRAN-WaveletComp 
 Requires:         R-CRAN-RColorBrewer 
 Requires:         R-CRAN-colorRamps 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-magick 
 Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-trapezoid 
+Requires:         R-CRAN-fANCOVA 
+Requires:         R-CRAN-DecomposeR 
+Requires:         R-CRAN-doSNOW 
 
 %description
 The continuous wavelet transform enables the observation of

@@ -1,43 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexlsx
-%global packver   0.3.5
+%global packname  arcgis
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exporting 'flextable' to 'xlsx' Files
+Summary:          ArcGIS Location Services Meta-Package
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-openxlsx2 >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-openxlsx2 >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-arcgisutils >= 0.3.0
+BuildRequires:    R-CRAN-arcgislayers >= 0.2.0
+BuildRequires:    R-CRAN-arcgisgeocode >= 0.1.0
+BuildRequires:    R-CRAN-arcgisplaces >= 0.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-arcgisutils >= 0.3.0
+Requires:         R-CRAN-arcgislayers >= 0.2.0
+Requires:         R-CRAN-arcgisgeocode >= 0.1.0
+Requires:         R-CRAN-arcgisplaces >= 0.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-utils 
 
 %description
-Exports 'flextable' objects to 'xlsx' files, utilizing functionalities
-provided by 'flextable' and 'openxlsx2'.
+Provides easy installation and loading of core ArcGIS location services
+packages 'arcgislayers', 'arcgisutils', 'arcgisgeocode', and
+'arcgisplaces'. Enabling developers to interact with spatial data and
+services from 'ArcGIS Online', 'ArcGIS Enterprise', and 'ArcGIS Platform'.
+Learn more about the 'arcgis' meta-package at
+<https://developers.arcgis.com/r-bridge/>.
 
 %prep
 %setup -q -c -n %{packname}

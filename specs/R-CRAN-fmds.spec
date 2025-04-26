@@ -1,45 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rbacon
-%global packver   3.4.1
+%global packname  fmds
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Age-Depth Modelling using Bayesian Statistics
+Summary:          Multidimensional Scaling Development Kit
 
-License:          GPL (>= 2)
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-rintcal >= 1.1.3
-BuildRequires:    R-CRAN-rice >= 1.1.1
-BuildRequires:    R-CRAN-coda >= 0.19.1
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-data.table 
-Requires:         R-CRAN-rintcal >= 1.1.3
-Requires:         R-CRAN-rice >= 1.1.1
-Requires:         R-CRAN-coda >= 0.19.1
-Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-graphics 
-Requires:         R-grDevices 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-data.table 
 
 %description
-An approach to age-depth modelling that uses Bayesian statistics to
-reconstruct accumulation histories for deposits, through combining
-radiocarbon and other dates with prior information on accumulation rates
-and their variability. See Blaauw & Christen (2011).
+Multidimensional scaling (MDS) functions for various tasks that are beyond
+the beta stage and way past the alpha stage. Currently, options are
+available for weights, restrictions, classical scaling or principal
+coordinate analysis, transformations (linear, power, Box-Cox, spline,
+ordinal), outlier mitigation (rdop), out-of-sample estimation (predict),
+negative dissimilarities, fast and faster executions with low memory
+footprints, penalized restrictions, cross-validation-based penalty
+selection, supplementary variable estimation (explain), additive constant
+estimation, mixed measurement level distance calculation, restricted
+classical scaling, etc. More will come in the future. References. Busing
+(2024) "A Simple Population Size Estimator for Local Minima Applied to
+Multidimensional Scaling". Manuscript submitted for publication. Busing
+(2025) "Node Localization by Multidimensional Scaling with Iterative
+Majorization". Manuscript submitted for publication. Busing (2025) "Faster
+Multidimensional Scaling". Manuscript in preparation. Barroso and Busing
+(2025) "e-RDOP, Relative Density-Based Outlier Probabilities, Extended to
+Proximity Mapping". Manuscript submitted for publication.
 
 %prep
 %setup -q -c -n %{packname}

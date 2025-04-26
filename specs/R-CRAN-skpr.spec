@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  skpr
-%global packver   1.7.1
+%global packver   1.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.1
+Version:          1.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design of Experiments Suite: Generate and Evaluate Optimal Designs
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-iterators 
@@ -31,10 +31,11 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-lmerTest 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-geometry 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-utils 
@@ -51,10 +52,11 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-lmerTest 
 Requires:         R-methods 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-doFuture 
 Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-geometry 
+Requires:         R-CRAN-digest 
 
 %description
 Generates and evaluates D, I, A, Alias, E, T, and G optimal designs.

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  artma
-%global packver   0.1.19
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Replication Tools for Meta-Analysis
 
@@ -21,20 +21,24 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lintr 
-BuildRequires:    R-CRAN-logger 
 BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-usethis 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lintr 
-Requires:         R-CRAN-logger 
 Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-usethis 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-yaml 
 

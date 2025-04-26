@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  microsynth
-%global packver   2.0.44
+%global packver   2.0.51
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.44
+Version:          2.0.51
 Release:          1%{?dist}%{?buildtag}
 Summary:          Synthetic Control Methods with Micro- And Meso-Level Data
 
@@ -17,20 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-LowRankQP 
+BuildRequires:    R-stats 
+BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-kernlab 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
 Requires:         R-CRAN-survey 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-LowRankQP 
+Requires:         R-stats 
+Requires:         R-parallel 
 Requires:         R-utils 
+Requires:         R-CRAN-pracma 
 
 %description
 A generalization of the 'Synth' package that is designed for data at a

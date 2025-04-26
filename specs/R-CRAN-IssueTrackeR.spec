@@ -1,43 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexlsx
-%global packver   0.3.5
+%global packname  IssueTrackeR
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exporting 'flextable' to 'xlsx' Files
+Summary:          List Things to Do
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-openxlsx2 >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-openxlsx2 >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-gh 
+Requires:         R-tools 
+Requires:         R-CRAN-yaml 
 
 %description
-Exports 'flextable' objects to 'xlsx' files, utilizing functionalities
-provided by 'flextable' and 'openxlsx2'.
+Manage a 'GitHub' problem using R: wrangle issues, labels and milestones.
+It includes functions for storing, prioritizing (sorting), displaying,
+adding, deleting, and selecting (filtering) issues based on qualitative
+and quantitative information. Issues (labels and milestones) are written
+in lists and categorized into the S3 class to be easily manipulated as
+datasets in R.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flexlsx
-%global packver   0.3.5
+%global packname  Rmoji
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exporting 'flextable' to 'xlsx' Files
+Summary:          Interactively Insert Emojis in 'R' Documents
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-dplyr >= 1.1.1
-BuildRequires:    R-CRAN-openxlsx2 >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr >= 1.1.1
-Requires:         R-CRAN-openxlsx2 >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-grDevices 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
 
 %description
-Exports 'flextable' objects to 'xlsx' files, utilizing functionalities
-provided by 'flextable' and 'openxlsx2'.
+Provides an intuitive and user-friendly interface for working with emojis
+in 'R'. It allows users to search, insert, and manage emojis by keyword,
+category, or through an interactive 'shiny'-based drop-down. The package
+enables integration of emojis into 'R' scripts, 'R Markdown', 'Quarto',
+'shiny' apps, and 'ggplot2' plots. Also includes built-in mappings for
+commit messages, useful for version control. It builds on established
+emoji libraries and Unicode standards, adding expressiveness and visual
+cues to documentation, user interfaces, and reports. For more details see
+'Emojipedia' (2024) <https://emojipedia.org> and GitHub Emoji Cheat Sheet
+<https://github.com/ikatyang/emoji-cheat-sheet/tree/master>.
 
 %prep
 %setup -q -c -n %{packname}

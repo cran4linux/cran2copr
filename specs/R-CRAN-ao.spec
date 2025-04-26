@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ao
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Alternating Optimization
 
@@ -17,8 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-optimizeR >= 1.1.1
-BuildRequires:    R-CRAN-oeli >= 0.5.2
+BuildRequires:    R-CRAN-optimizeR >= 1.2.0
+BuildRequires:    R-CRAN-oeli >= 0.7.2
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-future.apply 
@@ -26,8 +26,8 @@ BuildRequires:    R-CRAN-progressr
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-optimizeR >= 1.1.1
-Requires:         R-CRAN-oeli >= 0.5.2
+Requires:         R-CRAN-optimizeR >= 1.2.0
+Requires:         R-CRAN-oeli >= 0.7.2
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-future.apply 
@@ -37,11 +37,11 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Alternating optimization is an iterative procedure that optimizes a
-function by alternately performing restricted optimization over individual
-parameter subsets. Instead of tackling joint optimization directly, it
-breaks the problem down into simpler sub-problems. This approach can make
-optimization feasible when joint optimization is too difficult.
+An iterative process that optimizes a function by alternately performing
+restricted optimization over parameter subsets. Instead of joint
+optimization, it breaks the optimization problem down into simpler
+sub-problems. This approach can make optimization feasible when joint
+optimization is too difficult.
 
 %prep
 %setup -q -c -n %{packname}

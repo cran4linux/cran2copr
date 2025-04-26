@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasterRaster
-%global packver   8.4.0.5
+%global packver   8.4.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.0.5
+Version:          8.4.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Faster Raster and Spatial Vector Processing Using 'GRASS GIS'
 
@@ -18,26 +18,24 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-terra >= 1.7
-BuildRequires:    R-CRAN-omnibus >= 1.2.11
+BuildRequires:    R-CRAN-omnibus >= 1.2.15
 BuildRequires:    R-CRAN-data.table >= 1.14.8
 BuildRequires:    R-CRAN-rgrass >= 0.3.9
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rpanel 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-terra >= 1.7
-Requires:         R-CRAN-omnibus >= 1.2.11
+Requires:         R-CRAN-omnibus >= 1.2.15
 Requires:         R-CRAN-data.table >= 1.14.8
 Requires:         R-CRAN-rgrass >= 0.3.9
 Requires:         R-CRAN-DT 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
-Requires:         R-CRAN-rpanel 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-shiny 
 Requires:         R-utils 

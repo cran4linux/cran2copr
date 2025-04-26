@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dlmtree
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Treed Distributed Lag Models
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-shiny
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Rcpp >= 1.0.4
@@ -32,6 +34,8 @@ Requires:         R-CRAN-shiny
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-mgcv 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-coda 
 
 %description
 Estimation of distributed lag models (DLMs) based on a Bayesian additive
@@ -41,7 +45,8 @@ DLMs and distributed lag mixture models (Mork and Wilson, 2023)
 Wilson, 2022) <doi:10.1093/biostatistics/kxaa051>; heterogeneous DLMs
 (Mork, et. al., 2024) <doi:10.1080/01621459.2023.2258595>; monotone DLMs
 (Mork and Wilson, 2024) <doi:10.1214/23-BA1412>. The package also includes
-visualization tools and a 'shiny' interface to help interpret results.
+visualization tools and a 'shiny' interface to check model convergence and
+to help interpret results.
 
 %prep
 %setup -q -c -n %{packname}
