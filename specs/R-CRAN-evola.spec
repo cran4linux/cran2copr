@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evola
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evolutionary Algorithm
 
@@ -27,9 +27,8 @@ Requires:         R-methods
 Requires:         R-CRAN-crayon 
 
 %description
-Runs a genetic algorithm using the 'AlphaSimR' machinery
-<doi:10.1093/g3journal/jkaa017> and the coalescent simulator 'MaCS'
-<doi:10.1101/gr.083634.108>.
+Runs an evolutionary algorithm using the 'AlphaSimR' machinery
+<doi:10.1093/g3journal/jkaa017> .
 
 %prep
 %setup -q -c -n %{packname}

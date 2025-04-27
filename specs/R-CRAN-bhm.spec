@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bhm
-%global packver   1.18
+%global packver   1.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.18
+Version:          1.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biomarker Threshold Models
 
@@ -19,11 +19,15 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lpl 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lpl 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-survival 
 Requires:         R-methods 

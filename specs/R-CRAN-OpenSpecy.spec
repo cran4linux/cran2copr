@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenSpecy
-%global packver   1.4.0
+%global packver   1.5.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.0
+Version:          1.5.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyze, Process, Identify, and Share Raman and (FT)IR Spectra
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-data.table 
@@ -56,7 +56,7 @@ alignment, and min-max normalization. Spectra can be identified in batch
 using an onboard reference library (Cowger et al. 2020,
 <doi:10.1177/0003702820929064>) using match_spec(). A Shiny app is
 available via run_app() or online at
-<https://openanalysis.org/openspecy/>.
+<https://www.openanalysis.org/openspecy/>.
 
 %prep
 %setup -q -c -n %{packname}

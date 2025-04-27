@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rerddapXtracto
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extracts Environmental Data from 'ERDDAP™' Web Services
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-rerddap >= 0.8.0
 Requires:         R-CRAN-plotdap >= 0.0.5
@@ -46,6 +47,7 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sp 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 
 %description
