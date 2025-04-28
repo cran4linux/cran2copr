@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netmediate
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Micro-Macro Analysis for Social Networks
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-btergm 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ergm 
+BuildRequires:    R-CRAN-tergm 
 BuildRequires:    R-CRAN-RSiena 
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-network 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-btergm 
 Requires:         R-stats 
 Requires:         R-CRAN-ergm 
+Requires:         R-CRAN-tergm 
 Requires:         R-CRAN-RSiena 
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-network 

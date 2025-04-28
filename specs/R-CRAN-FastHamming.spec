@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FastHamming
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Computation of Pairwise Hamming Distances
 
@@ -19,11 +19,11 @@ Requires:         R-core >= 4.0.0
 
 %description
 Pairwise Hamming distances are computed between the rows of a binary (0/1)
-matrix using highly optimized C code. The input is an integer matrix where
-each row represents a binary feature vector and returns a symmetric
+matrix using highly optimized 'C' code. The input is an integer matrix
+where each row represents a binary feature vector and returns a symmetric
 integer matrix of pairwise distances. Internally, rows are bit-packed into
 64-bit words for fast XOR-based comparisons, with hardware-accelerated
-popcount operations to count differences. OpenMP parallelization ensures
+popcount operations to count differences. 'OpenMP' parallelization ensures
 efficient performance for large matrices.
 
 %prep
