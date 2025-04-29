@@ -1,52 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rusquant
-%global packver   1.1.4
+%global packname  licoread
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quantitative Trading Framework
+Summary:          Reads Raw Files from Li-COR Gas Analyzers
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-quantmod 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-XML 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-jose 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-base64enc 
-Requires:         R-CRAN-quantmod 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-XML 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-jose 
-Requires:         R-stats 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-yaml 
 
 %description
-Collection of functions to retrieve financial data from various sources,
-including brokerage and exchange platforms, financial websites, and data
-providers. Includes functions to retrieve account information, portfolio
-information, and place/cancel orders from different brokers. Additionally,
-allows users to download historical data such as earnings, dividends,
-stock splits.
+Reads raw files from Li-COR gas analyzers and produces a dataframe that
+can directly be used with 'fluxible'
+<https://cran.r-project.org/package=fluxible>.
 
 %prep
 %setup -q -c -n %{packname}

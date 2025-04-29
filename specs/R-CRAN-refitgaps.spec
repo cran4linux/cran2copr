@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mapme.biodiversity
-%global packver   0.9.4
+%global packname  refitgaps
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Monitoring of Global Biodiversity Portfolios
+Summary:          Reduce the Number of Holes in the School Timetable
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -18,39 +18,26 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-furrr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-furrr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-terra 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
-Biodiversity areas, especially primary forest, serve a multitude of
-functions for local economy, regional functionality of the ecosystems as
-well as the global health of our planet. Recently, adverse changes in
-human land use practices and climatic responses to increased greenhouse
-gas emissions, put these biodiversity areas under a variety of different
-threats. The present package helps to analyse a number of biodiversity
-indicators based on freely available geographical datasets. It supports
-computational efficient routines that allow the analysis of potentially
-global biodiversity portfolios. The primary use case of the package is to
-support evidence based reporting of an organization's effort to protect
-biodiversity areas under threat and to identify regions were intervention
-is most duly needed.
+If a teacher was assigned, say, hours 1, 2, 4, 6 for his lessons on the
+current day, then he got two "gaps" (or "holes"), in hours 3 and 5. If the
+total number of holes in the existing daily schedule is too large
+(exceeding, say, 6%% of the total lessons), then the problem arises of
+reallocating the respective lessons by hours (respecting the constraints
+induced by the existence of coupled lessons) so that the total number of
+holes is as small as possible.
 
 %prep
 %setup -q -c -n %{packname}

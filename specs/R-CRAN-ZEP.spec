@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  astrochron
-%global packver   1.5
+%global packname  ZEP
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Computational Tool for Astrochronology
+Summary:          Procedures Related to the Zadeh's Extension Principle for Fuzzy Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-multitaper 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-IDPmisc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-palinsol 
-Requires:         R-CRAN-multitaper 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-IDPmisc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-palinsol 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FuzzyNumbers 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-FuzzyNumbers 
+Requires:         R-methods 
 
 %description
-Routines for astrochronologic testing, astronomical time scale
-construction, and time series analysis
-<doi:10.1016/j.earscirev.2018.11.015>. Also included are a range of
-statistical analysis and modeling routines that are relevant to time scale
-development and paleoclimate analysis.
+Procedures for calculation, plotting, and approximation of the outputs for
+fuzzy numbers (see A.I. Ban, L. Coroianu, P. Grzegorzewski "Fuzzy Numbers:
+Approximations, Ranking and Applications" (2015)) based on the Zadeh's
+Extension Principle (see de Barros, L.C., Bassanezi, R.C., Lodwick, W.A.
+(2017) <doi:10.1007/978-3-662-53324-6_2>).
 
 %prep
 %setup -q -c -n %{packname}

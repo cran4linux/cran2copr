@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  astrochron
-%global packver   1.5
+%global packname  ggsegmentedtotalbar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Computational Tool for Astrochronology
+Summary:          Create a Segmented Total Bar Plot with Custom Annotations and Labels
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-multitaper 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-IDPmisc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-palinsol 
-Requires:         R-CRAN-multitaper 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-IDPmisc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-palinsol 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-forcats 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grid 
+Requires:         R-CRAN-forcats 
 
 %description
-Routines for astrochronologic testing, astronomical time scale
-construction, and time series analysis
-<doi:10.1016/j.earscirev.2018.11.015>. Also included are a range of
-statistical analysis and modeling routines that are relevant to time scale
-development and paleoclimate analysis.
+It provides a better alternative for stacked bar plot by creating a
+segmented total bar plot with custom annotations and labels. It is useful
+for visualizing the total of a variable and its segments in a single bar,
+making it easier to compare the segments and their contributions to the
+total.
 
 %prep
 %setup -q -c -n %{packname}

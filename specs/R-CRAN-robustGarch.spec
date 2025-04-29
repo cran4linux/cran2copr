@@ -1,33 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  trelloR
-%global packver   0.8.0
+%global packname  robustGarch
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Trello API
+Summary:          Robust Garch(1,1) Model
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.0
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-jsonlite >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.0
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-rugarch 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-xts 
+Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-rugarch 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-xts 
 
 %description
-An R client for the Trello API. Supports free-tier features such as access
-to private boards, creating and updating cards and other resources, and
-downloading data in a structured way.
+A method for modeling robust generalized autoregressive conditional
+heteroskedasticity (Garch) (1,1) processes, providing robustness toward
+additive outliers instead of innovation outliers. This work is based on
+the methodology described by Muler and Yohai (2008)
+<doi:10.1016/j.jspi.2007.11.003>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapr
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Explanation with Dependence-Aware Shapley Values
 
@@ -22,6 +22,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-Rcpp >= 0.12.15
@@ -29,6 +31,8 @@ Requires:         R-stats
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rlang 
 
 %description
 Complex machine learning models are often hard to interpret. However, in

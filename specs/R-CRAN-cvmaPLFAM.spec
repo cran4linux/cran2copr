@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cvmaPLFAM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cross-Validation Model Averaging for Partial Linear Functional Additive Models
 
@@ -33,8 +33,8 @@ Requires:         R-utils
 %description
 Produce an averaging estimate/prediction by combining all candidate models
 for partial linear functional additive models, using multi-fold
-cross-validation criterion. More details can be referred to Shishi Liu and
-Jingxiao Zhang. (2021) <arXiv:2105.00966>.
+cross-validation criterion. More details can be referred to arXiv e-Prints
+via <doi:10.48550/arXiv.2105.00966>.
 
 %prep
 %setup -q -c -n %{packname}

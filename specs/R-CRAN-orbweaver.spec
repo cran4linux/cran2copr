@@ -1,46 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  astrochron
-%global packver   1.5
+%global packname  orbweaver
+%global packver   0.18.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.18.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Computational Tool for Astrochronology
+Summary:          Fast and Efficient Graph Data Structures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-multitaper 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-IDPmisc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-palinsol 
-Requires:         R-CRAN-multitaper 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-IDPmisc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-palinsol 
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-glue 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-Routines for astrochronologic testing, astronomical time scale
-construction, and time series analysis
-<doi:10.1016/j.earscirev.2018.11.015>. Also included are a range of
-statistical analysis and modeling routines that are relevant to time scale
-development and paleoclimate analysis.
+Seamlessly build and manipulate graph structures, leveraging its
+high-performance methods for filtering, joining, and mutating data.
+Ensures that mutations and changes to the graph are performed in place,
+streamlining your workflow for optimal productivity.
 
 %prep
 %setup -q -c -n %{packname}

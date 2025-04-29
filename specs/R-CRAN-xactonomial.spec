@@ -1,32 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  CrossVA
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  xactonomial
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Verbal Autopsy Data Transformation for InSilicoVA and InterVA5 Algorithms
+Summary:          Inference for Functions of Multinomial Parameters
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-stringi 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Enables transformation of Verbal Autopsy data collected with the WHO 2016
-questionnaire (versions 1.4.1 & 1.5.1) or the WHO 2014 questionnaire for
-automated coding of Cause of Death using the InSilicoVA (data.type =
-"WHO2016") and InterVA5 algorithms. Previous versions of this package
-supported user-supplied mappings (via the map_records function), but this
-functionality has been removed.  This package is made available by WHO and
-the Bloomberg Data for Health Initiative.
+We consider the problem where we observe k vectors (possibly of different
+lengths), each representing an independent multinomial random vector. For
+a given function that takes in the concatenated vector of multinomial
+probabilities and outputs a real number, this is a Monte Carlo estimation
+procedure of an exact p-value and confidence interval. The resulting
+inference is valid even in small samples, when the parameter is on the
+boundary, and when the function is not differentiable at the parameter
+value, all situations where asymptotic methods and the bootstrap would
+fail. For more details see Sachs, Fay, and Gabriel (2025)
+<doi:10.48550/arXiv.2406.19141>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  grates
-%global packver   1.4.3
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.3
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Grouped Date Classes
 
@@ -18,7 +18,9 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-fastymd 
 Requires:         R-utils 
+Requires:         R-CRAN-fastymd 
 
 %description
 Provides a coherent interface and implementation for creating grouped date

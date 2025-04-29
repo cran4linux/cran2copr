@@ -1,46 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  astrochron
-%global packver   1.5
+%global packname  forensicpopdata
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Computational Tool for Astrochronology
+Summary:          Allele Frequency Data for Human Genetic Markers
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-multitaper 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-IDPmisc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-palinsol 
-Requires:         R-CRAN-multitaper 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-IDPmisc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-palinsol 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-xml2 
 
 %description
-Routines for astrochronologic testing, astronomical time scale
-construction, and time series analysis
-<doi:10.1016/j.earscirev.2018.11.015>. Also included are a range of
-statistical analysis and modeling routines that are relevant to time scale
-development and paleoclimate analysis.
+Provides allele frequency data for Short Tandem Repeat human genetic
+markers commonly used in forensic genetics for human identification and
+kinship analysis. Includes published population frequency data from the US
+National Institute of Standards and Technology and the UK government.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stops
-%global packver   1.8-2
+%global packver   1.9-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.2
+Version:          1.9.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Structure Optimized Proximity Scaling
 
@@ -23,8 +23,6 @@ BuildRequires:    R-CRAN-clue
 BuildRequires:    R-CRAN-cmaes 
 BuildRequires:    R-CRAN-cordillera 
 BuildRequires:    R-CRAN-dfoptim 
-BuildRequires:    R-CRAN-DiceOptim 
-BuildRequires:    R-CRAN-DiceKriging 
 BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-minerva 
 BuildRequires:    R-CRAN-nloptr 
@@ -41,8 +39,6 @@ Requires:         R-CRAN-clue
 Requires:         R-CRAN-cmaes 
 Requires:         R-CRAN-cordillera 
 Requires:         R-CRAN-dfoptim 
-Requires:         R-CRAN-DiceOptim 
-Requires:         R-CRAN-DiceKriging 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-minerva 
 Requires:         R-CRAN-nloptr 
@@ -81,7 +77,10 @@ goodness-of-fit fit only (i.e., no structure considerations). The package
 further contains functions for optimization, specifically the adaptive
 Luus-Jaakola algorithm and a wrapper for Bayesian optimization with treed
 Gaussian process with jumps to linear models, and functions for various
-c-structuredness indices.
+c-structuredness indices. Hyperparameter optimization can be done with a
+number of techniques but we recommend either Bayesian optimization or
+particle swarm. For using "Kriging", users need to install a version of
+the archived 'DiceOptim' R package.
 
 %prep
 %setup -q -c -n %{packname}

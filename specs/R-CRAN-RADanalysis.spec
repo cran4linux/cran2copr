@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  astrochron
-%global packver   1.5
+%global packname  RADanalysis
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Computational Tool for Astrochronology
+Summary:          Normalization and Analysis of Rank Abundance Distributions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-multitaper 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-IDPmisc 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-viridisLite 
-BuildRequires:    R-CRAN-palinsol 
-Requires:         R-CRAN-multitaper 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-IDPmisc 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-viridisLite 
-Requires:         R-CRAN-palinsol 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sfsmisc 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-sfsmisc 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Routines for astrochronologic testing, astronomical time scale
-construction, and time series analysis
-<doi:10.1016/j.earscirev.2018.11.015>. Also included are a range of
-statistical analysis and modeling routines that are relevant to time scale
-development and paleoclimate analysis.
+Implementation of the MaxRank normalization method, which enables
+standardization of Rank Abundance Distributions (RADs) to a specified
+number of ranks. Rank abundance distributions are widely used in biology
+and ecology to describe species abundances, and are mathematically
+equivalent to complementary cumulative distribution functions (CCDFs) used
+in physics, linguistics, sociology, and other fields. The method is
+described in Saeedghalati et al. (2017)
+<doi:10.1371/journal.pcbi.1005362>.
 
 %prep
 %setup -q -c -n %{packname}
