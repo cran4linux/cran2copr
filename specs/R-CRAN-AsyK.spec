@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  AsyK
-%global packver   1.5.5
+%global packver   1.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.5
+Version:          1.5.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel Density Estimation
 
@@ -16,8 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DELTD 
-Requires:         R-CRAN-DELTD 
 
 %description
 A collection of functions related to density estimation by using Chen's

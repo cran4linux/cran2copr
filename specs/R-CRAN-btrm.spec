@@ -1,36 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairml
-%global packver   0.9
+%global packname  btrm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fair Models in Machine Learning
+Summary:          Bayesian Treed Regression Model for Personalized Prediction and Precision Diagnostics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glmnet 
-Requires:         R-methods 
-Requires:         R-CRAN-glmnet 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-arm 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Fair machine learning regression models which take sensitive attributes
-into account in model estimation. Currently implementing Komiyama et al.
-(2018) <http://proceedings.mlr.press/v80/komiyama18a/komiyama18a.pdf>,
-Zafar et al. (2019)
-<https://www.jmlr.org/papers/volume20/18-262/18-262.pdf> and my own
-approach from Scutari, Panero and Proissl (2022)
-<doi:10.1007/s11222-022-10143-w> that uses ridge regression to enforce
-fairness.
+Generalization of the Bayesian classification and regression tree (CART)
+model that partitions subjects into terminal nodes and tailors regression
+model to each terminal node.
 
 %prep
 %setup -q -c -n %{packname}

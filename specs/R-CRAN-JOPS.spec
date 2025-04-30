@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JOPS
-%global packver   0.1.19
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.19
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Smoothing with P-Splines
 
@@ -26,7 +26,6 @@ BuildRequires:    R-CRAN-rpart
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-spam 
-BuildRequires:    R-CRAN-SemiPar 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -39,7 +38,6 @@ Requires:         R-CRAN-rpart
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-spam 
-Requires:         R-CRAN-SemiPar 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 

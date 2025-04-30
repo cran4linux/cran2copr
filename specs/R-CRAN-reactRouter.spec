@@ -1,42 +1,36 @@
 %global __brp_check_rpaths %{nil}
-%global packname  DiceOptim
-%global packver   2.1.1
+%global __requires_exclude ^libmpi
+%global packname  reactRouter
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kriging-Based Optimization for Computer Experiments
+Summary:          'React Router' for 'shiny' Apps and 'Quarto'
 
-License:          GPL-2 | GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-DiceKriging >= 1.2
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-randtoolbox 
-BuildRequires:    R-CRAN-pbivnorm 
-BuildRequires:    R-CRAN-rgenoud 
-BuildRequires:    R-CRAN-mnormt 
-BuildRequires:    R-CRAN-DiceDesign 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-DiceKriging >= 1.2
-Requires:         R-methods 
-Requires:         R-CRAN-randtoolbox 
-Requires:         R-CRAN-pbivnorm 
-Requires:         R-CRAN-rgenoud 
-Requires:         R-CRAN-mnormt 
-Requires:         R-CRAN-DiceDesign 
-Requires:         R-parallel 
+BuildRequires:    R-devel >= 3.4
+Requires:         R-core >= 3.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shiny.react 
+BuildRequires:    R-CRAN-checkmate 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shiny.react 
+Requires:         R-CRAN-checkmate 
 
 %description
-Efficient Global Optimization (EGO) algorithm as described in "Roustant et
-al. (2012)" <doi:10.18637/jss.v051.i01> and adaptations for problems with
-noise ("Picheny and Ginsbourger, 2012") <doi:10.1016/j.csda.2013.03.018>,
-parallel infill, and problems with constraints.
+You can easily share url pages using 'React Router' in 'shiny'
+applications and 'Quarto' documents. The package wraps the
+'react-router-dom' 'React' library and provides access to hash routing to
+navigate on multiple url pages.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,6 +40,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

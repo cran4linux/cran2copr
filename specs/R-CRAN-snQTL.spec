@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairml
-%global packver   0.9
+%global packname  snQTL
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fair Models in Machine Learning
+Summary:          Spectral Network Quantitative Trait Loci (snQTL) Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rARPACK 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-rARPACK 
+Requires:         R-CRAN-MASS 
 Requires:         R-methods 
-Requires:         R-CRAN-glmnet 
 
 %description
-Fair machine learning regression models which take sensitive attributes
-into account in model estimation. Currently implementing Komiyama et al.
-(2018) <http://proceedings.mlr.press/v80/komiyama18a/komiyama18a.pdf>,
-Zafar et al. (2019)
-<https://www.jmlr.org/papers/volume20/18-262/18-262.pdf> and my own
-approach from Scutari, Panero and Proissl (2022)
-<doi:10.1007/s11222-022-10143-w> that uses ridge regression to enforce
-fairness.
+A spectral framework to map quantitative trait loci (QTLs) affecting joint
+differential networks of gene co-Expression. Test the equivalence among
+multiple biological networks via spectral statistics. See reference Hu,
+J., Weber, J. N., Fuess, L. E., Steinel, N. C., Bolnick, D. I., & Wang, M.
+(2025) <doi:10.1371/journal.pcbi.1012953>.
 
 %prep
 %setup -q -c -n %{packname}

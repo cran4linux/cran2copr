@@ -1,57 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytuesdayR
-%global packver   1.2.1
+%global packname  ucsfindustrydocs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Weekly 'TidyTuesday' Project Dataset
+Summary:          UCSF Industry Documents Library API Wrapper
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-tools >= 3.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.0
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rvest >= 0.3.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-tools >= 3.1.0
-Requires:         R-CRAN-lubridate >= 1.7.0
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rvest >= 0.3.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-stringr 
 
 %description
-'TidyTuesday' is a project by the 'Data Science Learning Community' in
-which they post a weekly dataset in a public data repository
-(<https://github.com/rfordatascience/tidytuesday>) for people to analyze
-and visualize. This package provides the tools to easily download this
-data and the description of the source.
+Serves as a R wrapper for the University of California San Francisco's
+[Industry Documents Digital
+Library]<https://www.industrydocuments.ucsf.edu/> API. The API, and this
+wrapper, serve to pull metadata about of items within the digital library.
+For more information the API, see the [API's
+documentation]<https://www.industrydocuments.ucsf.edu/wp-content/uploads/2020/08/IndustryDocumentsDataAPI_v7.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

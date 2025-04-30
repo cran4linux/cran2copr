@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytuesdayR
-%global packver   1.2.1
+%global packname  geofi
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Weekly 'TidyTuesday' Project Dataset
+Summary:          Access Finnish Geospatial Data
 
-License:          MIT + file LICENSE
+License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,41 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-tools >= 3.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.0
 BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rvest >= 0.3.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httpcache 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-tools >= 3.1.0
-Requires:         R-CRAN-lubridate >= 1.7.0
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rvest >= 0.3.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httpcache 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-yaml 
 
 %description
-'TidyTuesday' is a project by the 'Data Science Learning Community' in
-which they post a weekly dataset in a public data repository
-(<https://github.com/rfordatascience/tidytuesday>) for people to analyze
-and visualize. This package provides the tools to easily download this
-data and the description of the source.
+Designed to simplify geospatial data access from the Statistics Finland
+Web Feature Service API <https://geo.stat.fi/geoserver/index.html>, the
+geofi package offers researchers and analysts a set of tools to obtain and
+harmonize administrative spatial data for a wide range of applications,
+from urban planning to environmental research. The package contains
+annually updated time series of municipality key datasets that can be used
+for data aggregation and language translations.
 
 %prep
 %setup -q -c -n %{packname}

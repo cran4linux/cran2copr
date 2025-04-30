@@ -1,36 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fairml
-%global packver   0.9
+%global packname  bmabart
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fair Models in Machine Learning
+Summary:          Bayesian Mediation Analysis Using BART
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.14.1
+Requires:         R-core >= 2.14.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BART 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-gplots 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-glmnet 
+Requires:         R-CRAN-BART 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-gplots 
+Requires:         R-CRAN-lattice 
 Requires:         R-methods 
-Requires:         R-CRAN-glmnet 
 
 %description
-Fair machine learning regression models which take sensitive attributes
-into account in model estimation. Currently implementing Komiyama et al.
-(2018) <http://proceedings.mlr.press/v80/komiyama18a/komiyama18a.pdf>,
-Zafar et al. (2019)
-<https://www.jmlr.org/papers/volume20/18-262/18-262.pdf> and my own
-approach from Scutari, Panero and Proissl (2022)
-<doi:10.1007/s11222-022-10143-w> that uses ridge regression to enforce
-fairness.
+Used for Bayesian mediation analysis based on Bayesian additive Regression
+Trees (BART). The analysis method is described in Yu and Li (2025)
+"Mediation Analysis with Bayesian Additive Regression Trees", submitted
+for publication.
 
 %prep
 %setup -q -c -n %{packname}

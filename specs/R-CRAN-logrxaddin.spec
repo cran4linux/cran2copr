@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MixAll
-%global packver   1.5.16
+%global packname  logrxaddin
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.16
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Clustering and Classification using Model-Based Mixture Models
+Summary:          Addin for the 'logrx' Package
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-rtkore >= 1.6.10
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-rtkore >= 1.6.10
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-logrx 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-waiter 
+Requires:         R-CRAN-logrx 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-waiter 
 
 %description
-Algorithms and methods for model-based clustering and classification. It
-supports various types of data: continuous, categorical and counting and
-can handle mixed data of these types. It can fit Gaussian (with diagonal
-covariance structure), gamma, categorical and Poisson models. The
-algorithms also support missing values.
+This is an extension package to 'logrx', which is a log creation program
+focused on Clinical Reporting within the Pharma Industry.  This package
+enables a simple 'shiny-based' Add-in that provides a point and click
+interface to produce a log for a single program.
 
 %prep
 %setup -q -c -n %{packname}

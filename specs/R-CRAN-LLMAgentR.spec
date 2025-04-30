@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LLMAgentR
-%global packver   0.2.0
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Language Model Agents in R for AI Workflows and Research
 
@@ -60,7 +60,7 @@ Requires:         R-CRAN-xml2
 Provides modular, graph-based agents powered by large language models
 (LLMs) for intelligent task execution in R. Supports structured workflows
 for tasks such as forecasting, data visualization, feature engineering,
-data wrangling, data cleaning, SQL, code generation, weather reporting,
+data wrangling, data cleaning, 'SQL', code generation, weather reporting,
 and research-driven question answering. Each agent performs iterative
 reasoning: recommending steps, generating R code, executing, debugging,
 and explaining results. Includes built-in support for packages such as

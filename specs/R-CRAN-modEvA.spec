@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modEvA
-%global packver   3.33
+%global packver   3.34
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.33
+Version:          3.34
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model Evaluation and Analysis
 

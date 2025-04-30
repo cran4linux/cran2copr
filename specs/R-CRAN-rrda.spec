@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  normalize
+%global packname  rrda
 %global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Centering and Scaling of Numeric Data
+Summary:          Ridge Redundancy Analysis for High-Dimensional Omics Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,12 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-scales 
 Requires:         R-stats 
 
 %description
-Provides simple methods for centering and scaling of numeric data. Columns
-or rows can be ignored when normalizing or be normalized jointly.
+Efficient framework for ridge redundancy analysis (rrda), tailored for
+high-dimensional omics datasets where the number of predictors exceeds the
+number of samples. The method leverages Singular Value Decomposition (SVD)
+to avoid direct inversion of the covariance matrix, enhancing scalability
+and performance. It also introduces a memory-efficient storage strategy
+for coefficient matrices, enabling practical use in large-scale
+applications. The package supports cross-validation for selecting
+regularization parameters and reduced-rank dimensions, making it a robust
+and flexible tool for multivariate analysis in omics research. Please
+refer to our article (Yoshioka et al., 2025) for more details.
 
 %prep
 %setup -q -c -n %{packname}

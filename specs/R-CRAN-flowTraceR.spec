@@ -1,57 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tidytuesdayR
-%global packver   1.2.1
+%global packname  flowTraceR
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the Weekly 'TidyTuesday' Project Dataset
+Summary:          Tracing Information Flow for Inter-Software Comparisons in Mass Spectrometry-Based Bottom-Up Proteomics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-tools >= 3.1.0
-BuildRequires:    R-CRAN-lubridate >= 1.7.0
-BuildRequires:    R-CRAN-xml2 >= 1.2.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-BuildRequires:    R-CRAN-rvest >= 0.3.2
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-gh 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-comprehenr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-utils 
-Requires:         R-tools >= 3.1.0
-Requires:         R-CRAN-lubridate >= 1.7.0
-Requires:         R-CRAN-xml2 >= 1.2.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-rvest >= 0.3.2
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-gh 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-comprehenr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-utils 
 
 %description
-'TidyTuesday' is a project by the 'Data Science Learning Community' in
-which they post a weekly dataset in a public data repository
-(<https://github.com/rfordatascience/tidytuesday>) for people to analyze
-and visualize. This package provides the tools to easily download this
-data and the description of the source.
+Useful functions to standardize software outputs from ProteomeDiscoverer,
+Spectronaut, DIA-NN and MaxQuant on precursor, modified peptide and
+proteingroup level and to trace software differences for identifications
+such as varying proteingroup denotations for common precursor.
 
 %prep
 %setup -q -c -n %{packname}
