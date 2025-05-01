@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dbflobr
-%global packver   0.2.2
+%global packname  PosiR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read and Write Files to SQLite Databases
+Summary:          Post-Selection Inference via Simultaneous Confidence Intervals
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blob 
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-clisymbols 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-DBI 
-BuildRequires:    R-CRAN-flobr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RSQLite 
-Requires:         R-CRAN-blob 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-clisymbols 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-DBI 
-Requires:         R-CRAN-flobr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-RSQLite 
+BuildRequires:    R-graphics 
+BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-parallel 
+Requires:         R-stats 
 
 %description
-Reads and writes files to SQLite databases
-<https://www.sqlite.org/index.html> as flobs (a flob is a blob that
-preserves the file extension).
+Post-selection inference in linear regression models, constructing
+simultaneous confidence intervals across a user-specified universe of
+models. Implements the methodology described in Kuchibhotla, Kolassa, and
+Kuffner (2022) "Post-Selection Inference"
+<doi:10.1146/annurev-statistics-100421-044639> to ensure valid inference
+after model selection, with applications in high-dimensional settings like
+Lasso selection.
 
 %prep
 %setup -q -c -n %{packname}

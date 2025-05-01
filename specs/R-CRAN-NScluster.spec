@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NScluster
-%global packver   1.3.6-1
+%global packver   1.3.6-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6.1
+Version:          1.3.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation and Estimation of the Neyman-Scott Type Spatial Cluster Models
 

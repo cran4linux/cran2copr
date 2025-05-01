@@ -1,29 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  overlapptest
-%global packver   1.4
+%global packname  birdnetR
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Overlapping of Polygons Against Random Rotation
+Summary:          Deep Learning for Automated (Bird) Sound Identification
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-reticulate >= 1.41
+Requires:         R-CRAN-reticulate >= 1.41
 
 %description
-Tests the observed overlapping polygon area in a collection of polygons
-against a null model of random rotation, as explained in De la Cruz et al.
-(2017) <doi:10.13140/RG.2.2.12825.72801>.
+Use 'BirdNET', a state-of-the-art deep learning classifier, to
+automatically identify (bird) sounds. Analyze bioacoustic datasets without
+any computer science background using a pre-trained model or a custom
+trained classifier. Predict bird species occurrence based on location and
+week of the year. Kahl, S., Wood, C. M., Eibl, M., & Klinck, H. (2021)
+<doi:10.1016/j.ecoinf.2021.101236>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcmdrPlugin.BWS1
-%global packver   0.2-3
+%global packver   0.3-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Commander Plug-in for Case 1 Best-Worst Scaling
 
@@ -35,8 +35,8 @@ preferences for items. BWS1 is a question-based survey method that
 constructs various combinations of items (choice sets) using the
 experimental designs, asks respondents to select the best and worst items
 in each choice set, and then measures preferences for the items by
-analyzing the responses. For details on BWS1, refer to Louviere et al.
-(2015) <doi:10.1017/CBO9781107337855>.
+analyzing the responses. For details, refer to Aizaki and Fogarty (2023)
+<doi:10.1016/j.jocm.2022.100394>.
 
 %prep
 %setup -q -c -n %{packname}

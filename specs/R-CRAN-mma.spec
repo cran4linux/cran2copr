@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mma
-%global packver   10.7-1
+%global packver   10.8-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          10.7.1
+Version:          10.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiple Mediation Analysis
 

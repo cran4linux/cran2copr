@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OCA
-%global packver   0.5
+%global packname  DWaveNARDL
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Capital Allocations
+Summary:          Dual Wavelet Based NARDL Model
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,17 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mathjaxr 
-Requires:         R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-nardl 
+BuildRequires:    R-CRAN-wavelets 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-roxygen2 
+Requires:         R-CRAN-nardl 
+Requires:         R-CRAN-wavelets 
+Requires:         R-stats 
+Requires:         R-CRAN-roxygen2 
 
 %description
-Computes optimal capital allocations based on some standard principles
-such as Haircut, Overbeck type II and the Covariance Allocation Principle.
-It also provides some shortcuts for obtaining the Value at Risk and the
-Expectation Shortfall, using both the normal and the t-student
-distribution, see Urbina and Guillén
-(2014)<doi:10.1016/j.eswa.2014.05.017> and Urbina
-(2013)<http://hdl.handle.net/2099.1/19443>.
+Dual Wavelet based Nonlinear Autoregressive Distributed Lag model has been
+developed for noisy time series analysis. This package is designed to
+capture both short-run and long-run relationships in time series data,
+while incorporating wavelet transformations. The methodology combines the
+NARDL model with wavelet decomposition to better capture the nonlinear
+dynamics of the series and exogenous variables. The package is useful for
+analyzing economic and financial time series data that exhibit both
+long-term trends and short-term fluctuations. This package has been
+developed using algorithm of Jammazi et al.
+<doi:10.1016/j.intfin.2014.11.011>.
 
 %prep
 %setup -q -c -n %{packname}

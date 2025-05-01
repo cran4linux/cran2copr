@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CoImp
-%global packver   2.0.2
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parametric and Non-Parametric Copula-Based Imputation Methods
+Summary:          Parametric and Nonparametric Copula-Based Imputation Methods
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -33,7 +33,7 @@ Requires:         R-CRAN-gtools
 Requires:         R-CRAN-locfit 
 
 %description
-Copula-based imputation methods: parametric and non-parametric algorithms
+Copula-based imputation methods: parametric and nonparametric algorithms
 for missing multivariate data through conditional copulas.
 
 %prep

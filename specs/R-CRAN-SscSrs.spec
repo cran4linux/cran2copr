@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  overlapptest
-%global packver   1.4
+%global packname  SscSrs
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Overlapping of Polygons Against Random Rotation
+Summary:          Sample Size Calculator for Estimation of Population Mean and Proportion under SRS
 
-License:          GPL (>= 2)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,13 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Tests the observed overlapping polygon area in a collection of polygons
-against a null model of random rotation, as explained in De la Cruz et al.
-(2017) <doi:10.13140/RG.2.2.12825.72801>.
+It helps in determination of sample size for estimation of population mean
+and proportion based upon the availability of prior information on
+coefficient of variation (CV) of the population under Simple Random
+Sampling (SRS) with or without replacement sampling design. If there is no
+prior information on the population CV, then a small preliminary sample of
+size is selected to estimate the population CV which is then used for
+determination of final sample size. If the final sample size is more than
+the preliminary sample size, then the preliminary sample is augmented by
+drawing additional units from the remaining population units so that the
+size of the augmented sample is equal to the final sample size. On the
+other hand, if the preliminary sample size is larger than the final sample
+size, then the preliminary sample is considered as the final sample.
 
 %prep
 %setup -q -c -n %{packname}

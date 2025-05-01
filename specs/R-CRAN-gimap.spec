@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gimap
-%global packver   1.0.3
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Genetic Interactions for Paired CRISPR Targets
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-pheatmap 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-utils 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-pheatmap 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-broom 
 Requires:         R-utils 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

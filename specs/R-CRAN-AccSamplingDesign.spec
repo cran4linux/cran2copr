@@ -1,29 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  overlapptest
-%global packver   1.4
+%global packname  AccSamplingDesign
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Overlapping of Polygons Against Random Rotation
+Summary:          Acceptance Sampling Plans Design
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Tests the observed overlapping polygon area in a collection of polygons
-against a null model of random rotation, as explained in De la Cruz et al.
-(2017) <doi:10.13140/RG.2.2.12825.72801>.
+Provides tools for designing and analyzing acceptance sampling plans.
+Supports both attribute-based (Binomial and Poisson) and variable-based
+(Normal and Beta) sampling, enabling quality control for fractional and
+compositional data. Uses nonlinear programming (NLP) for sampling plan
+optimization, minimizing sample size while balancing producer's and
+consumer's risks. Operating Characteristic (OC) curves are available for
+plan visualization.
 
 %prep
 %setup -q -c -n %{packname}

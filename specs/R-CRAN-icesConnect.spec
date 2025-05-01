@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icesConnect
-%global packver   1.0.0
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Provides User Tokens for Access to ICES Web Services
 
@@ -17,23 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-whoami 
-BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-getPass 
-Requires:         R-CRAN-whoami 
-Requires:         R-CRAN-keyring 
+BuildRequires:    R-CRAN-askpass 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-getPass 
+Requires:         R-CRAN-askpass 
 
 %description
 Provides user tokens for ICES web services that require authentication and
 authorization.  Web services covered by this package are ICES VMS
-database, the ICES DATSU web services, and the ICES SharePoint site.
+database, the ICES DATSU web services, and the ICES SharePoint site
+<https://www.ices.dk/data/tools/Pages/WebServices.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

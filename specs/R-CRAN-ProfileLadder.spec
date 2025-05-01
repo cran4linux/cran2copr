@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  itsmr
-%global packver   1.10
+%global packname  ProfileLadder
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Time Series Analysis Using the Innovations Algorithm
+Summary:          Functional Profile Chain Ladder for Claims Reserving
 
-License:          FreeBSD
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ChainLadder >= 0.2.12
+BuildRequires:    R-CRAN-raw >= 0.1.8
+Requires:         R-CRAN-ChainLadder >= 0.2.12
+Requires:         R-CRAN-raw >= 0.1.8
 
 %description
-Provides functions for modeling and forecasting time series data.
-Forecasting is based on the innovations algorithm. A description of the
-innovations algorithm can be found in the textbook "Introduction to Time
-Series and Forecasting" by Peter J. Brockwell and Richard A. Davis.
-<https://link.springer.com/book/10.1007/b97391>.
+Functional claims reserving methods based on aggregated chain-ladder data,
+also known as the run-off triangle (functional) development profiles,
+implemented in three nonparametric algorithms (PARALLAX, REACT, and
+MACRAME) proposed in Maciak, Mizera, and Pešta (2022)
+<doi:10.1017/asb.2022.4>.
 
 %prep
 %setup -q -c -n %{packname}

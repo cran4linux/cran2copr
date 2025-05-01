@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  partitions
-%global packver   1.10-7
+%global packver   1.10-9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.7
+Version:          1.10.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additive Partitions of Integers
 
@@ -18,12 +19,10 @@ Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-gmp 
 BuildRequires:    R-CRAN-polynom 
 BuildRequires:    R-CRAN-sets 
-BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-gmp 
 Requires:         R-CRAN-polynom 
 Requires:         R-CRAN-sets 
-Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-Rdpack 
 
 %description
