@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  jiebaR
-%global packver   0.11.1
+%global packname  robcat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chinese Text Segmentation
+Summary:          Robust Categorical Data Analysis
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-CRAN-Rcpp >= 0.12.1
-BuildRequires:    R-CRAN-jiebaRD 
-Requires:         R-CRAN-Rcpp >= 0.12.1
-Requires:         R-CRAN-jiebaRD 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-parallel 
+Requires:         R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-stringr 
+Requires:         R-parallel 
 
 %description
-Chinese text segmentation, keyword extraction and speech tagging For R.
+Robust categorical data analysis based on the theory of C-estimation
+developed in Welz (2024) <doi:10.48550/arXiv.2403.11954>. For now, the
+package only implements robust estimation of polychoric correlation as
+proposed in Welz, Mair and Alfons (2024) <doi:10.48550/arXiv.2407.18835>
+with methods for printing and plotting. We will implement further models
+in future releases. In addition, the package is still experimental, so
+input arguments and class structure may change in future releases.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,53 +1,63 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HLAtools
-%global packver   1.6.2
+%global packname  bitfield
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for HLA Immunogenomics
+Summary:          Handle Bitfields to Record Meta Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gh 
+BuildRequires:    R-CRAN-gitcreds 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-rvest 
-Requires:         R-stats 
+Requires:         R-CRAN-gh 
+Requires:         R-CRAN-gitcreds 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr 
+Requires:         R-methods 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-yaml 
 
 %description
-A toolkit for the analysis and management of data for genes in the
-so-called "Human Leukocyte Antigen" (HLA) region. Functions extract
-reference data from the Anthony Nolan HLA Informatics Group/ImmunoGeneTics
-HLA 'GitHub' repository (ANHIG/IMGTHLA)
-<https://github.com/ANHIG/IMGTHLA>, validate Genotype List (GL) Strings,
-convert between UNIFORMAT and GL String Code (GLSC) formats, translate HLA
-alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
-Database release versions, identify differences between pairs of alleles
-at a locus, generate customized, multi-position sequence alignments, trim
-and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+Record algorithmic and analytic meta data along a workflow to store that
+in a bitfield, which can be published alongside any (modelled) data
+products.
 
 %prep
 %setup -q -c -n %{packname}

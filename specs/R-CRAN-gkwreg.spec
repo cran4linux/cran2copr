@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gkwreg
-%global packver   1.0.3
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Kumaraswamy Regression Models for Bounded Data
 
@@ -22,6 +22,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-TMB 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpubr 
@@ -33,13 +34,13 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-Formula 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-TMB 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppEigen 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpubr 

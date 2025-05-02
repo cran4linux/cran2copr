@@ -1,53 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  HLAtools
-%global packver   1.6.2
+%global packname  statdecideR
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Toolkit for HLA Immunogenomics
+Summary:          Automated Statistical Analysis and Plotting with CLD
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DescTools 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fmsb 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-agricolae 
+BuildRequires:    R-CRAN-effectsize 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-xfun 
-Requires:         R-CRAN-DescTools 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fmsb 
-Requires:         R-CRAN-rvest 
-Requires:         R-stats 
+Requires:         R-CRAN-agricolae 
+Requires:         R-CRAN-effectsize 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-xfun 
+Requires:         R-stats 
 
 %description
-A toolkit for the analysis and management of data for genes in the
-so-called "Human Leukocyte Antigen" (HLA) region. Functions extract
-reference data from the Anthony Nolan HLA Informatics Group/ImmunoGeneTics
-HLA 'GitHub' repository (ANHIG/IMGTHLA)
-<https://github.com/ANHIG/IMGTHLA>, validate Genotype List (GL) Strings,
-convert between UNIFORMAT and GL String Code (GLSC) formats, translate HLA
-alleles and GLSCs across ImmunoPolymorphism Database (IPD) IMGT/HLA
-Database release versions, identify differences between pairs of alleles
-at a locus, generate customized, multi-position sequence alignments, trim
-and convert allele-names across nomenclature epochs, and extend existing
-data-analysis methods.
+A lightweight tool that provides a reproducible workflow for selecting and
+executing appropriate statistical analysis in one-way or two-way
+experimental designs. The package automatically checks for data normality,
+conducts parametric (ANOVA) or non-parametric (Kruskal-Wallis) tests,
+performs post-hoc comparisons with Compact Letter Displays (CLD), and
+generates publication-ready boxplots, faceted plots, and heatmaps. It is
+designed for researchers seeking fast, automated statistical summaries and
+visualization. Based on established statistical methods including Shapiro
+and Wilk (1965) <doi:10.2307/2333709>, Kruskal and Wallis (1952)
+<doi:10.1080/01621459.1952.10483441>, Tukey (1949) <doi:10.2307/3001913>,
+Fisher (1925) <ISBN:0050021702>, and Wickham (2016)
+<ISBN:978-3-319-24277-4>.
 
 %prep
 %setup -q -c -n %{packname}

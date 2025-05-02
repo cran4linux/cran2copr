@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  idar
-%global packver   1.6
+%global packname  epts
+%global packver   1.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Individual Diversity-Area Relationships
+Summary:          Educational Platform Trials Simulator
 
-License:          GPL (>= 2)
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-spatstat >= 2.0.0
-BuildRequires:    R-CRAN-FD 
-BuildRequires:    R-CRAN-picante 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.explore 
-BuildRequires:    R-CRAN-spatstat.random 
-Requires:         R-CRAN-spatstat >= 2.0.0
-Requires:         R-CRAN-FD 
-Requires:         R-CRAN-picante 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.explore 
-Requires:         R-CRAN-spatstat.random 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-eefAnalytics 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-MCMCvis 
+Requires:         R-CRAN-eefAnalytics 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-MCMCvis 
 
 %description
-Computes and tests individual (species, phylogenetic and functional)
-diversity-area relationships, i.e., how species-, phylogenetic- and
-functional-diversity varies with spatial scale around the individuals of
-some species in a community. See applications of these methods in Wiegand
-et al. (2007) <doi:10.1073/pnas.0705621104> or Chacon-Labella et al.
-(2016) <doi:10.1007/s00442-016-3547-z>.
+Simulating multi-arm cluster-randomized, multi-site, and simple randomized
+trials. Includes functions for conducting multilevel analyses using both
+Bayesian and Frequentist methods. Supports futility and superiority
+analyses through Bayesian approaches, along with visualization tools to
+aid interpretation and presentation of results.
 
 %prep
 %setup -q -c -n %{packname}

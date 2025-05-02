@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mixedBayes
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Longitudinal Regularized Quantile Mixed Model
 
@@ -21,18 +21,16 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rcpp 
 
 %description
-In longitudinal studies, the same subjects are measured repeatedly over
-time, leading to correlations among the repeated measurements. Properly
-accounting for the intra-cluster correlations in the presence of data
-heterogeneity and long tailed distributions of the disease phenotype is
-challenging, especially in the context of high dimensional regressions. In
-this package, we developed a Bayesian quantile mixed effects model with
-spike- and -slab priors to dissect important gene - environment
-interactions under longitudinal genomics studies. An efficient Gibbs
-sampler has been developed to facilitate fast computation. The Markov
-chain Monte Carlo algorithms of the proposed and alternative methods are
-efficiently implemented in 'C++'. The development of this software package
-and the associated statistical methods have been partially supported by an
+With high-dimensional omics features, repeated measure ANOVA leads to
+longitudinal gene-environment interaction studies that have intra-cluster
+correlations, outlying observations and structured sparsity arising from
+the ANOVA design. In this package, we have developed robust sparse
+Bayesian mixed effect models tailored for the above studies (Fan et al.
+(2025) <doi:10.1093/jrsssc/qlaf027>). An efficient Gibbs sampler has been
+developed to facilitate fast computation. The Markov chain Monte Carlo
+algorithms of the proposed and alternative methods are efficiently
+implemented in 'C++'. The development of this software package and the
+associated statistical methods have been partially supported by an
 Innovative Research Award from Johnson Cancer Research Center, Kansas
 State University.
 

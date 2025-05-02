@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clifford
-%global packver   1.0-8
+%global packver   1.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Arbitrary Dimensional Clifford Algebras
 
@@ -14,19 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-partitions >= 1.10.4
+BuildRequires:    R-CRAN-freealg >= 1.0.4
+BuildRequires:    R-CRAN-disordR >= 0.9.8.4
 BuildRequires:    R-CRAN-Rcpp >= 0.12.5
-BuildRequires:    R-CRAN-disordR >= 0.0.8
-BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-partitions >= 1.10.4
+Requires:         R-CRAN-freealg >= 1.0.4
+Requires:         R-CRAN-disordR >= 0.9.8.4
 Requires:         R-CRAN-Rcpp >= 0.12.5
-Requires:         R-CRAN-disordR >= 0.0.8
-Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 
@@ -34,9 +34,10 @@ Requires:         R-methods
 A suite of routines for Clifford algebras, using the 'Map' class of the
 Standard Template Library.  Canonical reference: Hestenes (1987, ISBN
 90-277-1673-0, "Clifford algebra to geometric calculus").  Special cases
-including Lorentz transforms, quaternion multiplication, and Grassman
-algebra, are discussed. Conformal geometric algebra theory is implemented.
-Uses 'disordR' discipline.
+including Lorentz transforms, quaternion multiplication, and Grassmann
+algebra, are discussed. Vignettes presenting conformal geometric algebra,
+quaternions and split quaternions, dual numbers, and Lorentz transforms
+are included.  The package follows 'disordR' discipline.
 
 %prep
 %setup -q -c -n %{packname}

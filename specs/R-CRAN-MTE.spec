@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MTE
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Maximum Tangent Likelihood Estimation for Robust Linear Regression and Variable Selection
 
@@ -29,11 +29,11 @@ Requires:         R-CRAN-rqPen
 %description
 Several robust estimators for linear regression and variable selection are
 provided. Included are Maximum tangent likelihood estimator by Qin, et
-al., (2017) <arxiv:1708.05439>, least absolute deviance estimator and
-Huber regression. The penalized version of each of these estimator
-incorporates L1 penalty function, i.e., LASSO and Adaptive Lasso. They are
-able to produce consistent estimates for both fixed and high-dimensional
-settings.
+al., (2017), arXiv preprint <doi:10.48550/arXiv.1708.05439>, least
+absolute deviance estimator and Huber regression. The penalized version of
+each of these estimator incorporates L1 penalty function, i.e., LASSO and
+Adaptive Lasso. They are able to produce consistent estimates for both
+fixed and high-dimensional settings.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  healthatlas
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Explore and Import 'Metopio' Health Atlas Data and Spatial Layers
 
@@ -30,9 +30,9 @@ Requires:         R-CRAN-chk
 
 %description
 Allows for painless use of the 'Metopio' health atlas APIs
-<https://metopio.com/how-it-works/atlas/> to explore and import data.
-'Metopio' health atlases store open public health data. See what topics
-(or indicators) are available among specific populations, periods, and
+<https://metopio.com/health-atlas> to explore and import data. 'Metopio'
+health atlases store open public health data. See what topics (or
+indicators) are available among specific populations, periods, and
 geographic layers. Download relevant data along with geographic boundaries
 or point datasets. Spatial datasets are returned as 'sf' objects.
 

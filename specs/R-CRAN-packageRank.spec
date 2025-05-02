@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  packageRank
-%global packver   0.9.5
+%global packver   0.9.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.5
+Version:          0.9.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Computation and Visualization of Package Download Counts and Percentile Ranks
 
@@ -20,6 +20,7 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table >= 1.12.2
 BuildRequires:    R-CRAN-cranlogs 
 BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fasttime 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ISOcodes 
 BuildRequires:    R-CRAN-memoise 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-sugrrants
 Requires:         R-CRAN-data.table >= 1.12.2
 Requires:         R-CRAN-cranlogs 
 Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fasttime 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ISOcodes 
 Requires:         R-CRAN-memoise 

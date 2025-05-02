@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scicomptools
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools Developed by the NCEAS Scientific Computing Support Team
 
@@ -22,34 +22,26 @@ BuildRequires:    R-CRAN-data.tree
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gitcreds 
 BuildRequires:    R-CRAN-googledrive 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggwordcloud 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-SemNetCleaner 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-tidyxl 
 Requires:         R-CRAN-chromote 
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gitcreds 
 Requires:         R-CRAN-googledrive 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggwordcloud 
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-SemNetCleaner 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-tidyxl 
 
 %description

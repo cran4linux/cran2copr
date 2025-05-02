@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  TropFishR
-%global packver   1.6.5
+%global packver   1.6.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.5
+Version:          1.6.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tropical Fisheries Analysis
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-GenSA
 BuildRequires:    R-CRAN-GA 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-propagate 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-doParallel 
 Requires:         R-CRAN-Matrix 
@@ -36,7 +35,6 @@ Requires:         R-CRAN-GenSA
 Requires:         R-CRAN-GA 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-propagate 
 Requires:         R-parallel 
 Requires:         R-CRAN-doParallel 
 

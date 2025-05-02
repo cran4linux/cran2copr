@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  leafem
-%global packver   0.2.3
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'leaflet' Extensions for 'mapview'
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-htmltools >= 0.3
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-raster 
 BuildRequires:    R-CRAN-sf 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-htmltools >= 0.3
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-CRAN-raster 
 Requires:         R-CRAN-sf 
