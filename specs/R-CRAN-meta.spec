@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  meta
-%global packver   8.0-2
+%global packver   8.1-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.2
+Version:          8.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          General Package for Meta-Analysis
 
@@ -20,27 +20,33 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-metafor >= 3.0.0
 BuildRequires:    R-CRAN-metadat 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-CRAN-CompQuadForm 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-metafor >= 3.0.0
 Requires:         R-CRAN-metadat 
 Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-CompQuadForm 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-scales 
 
 %description
 User-friendly general package providing standard methods for meta-analysis

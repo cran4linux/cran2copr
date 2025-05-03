@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  equateMultiple
-%global packver   1.1.2
+%global packname  TDIagree
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Equating of Multiple Forms
+Summary:          Assessment of Agreement using the Total Deviation Index
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-equateIRT >= 2.5.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-multcomp 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-equateIRT >= 2.5.2
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-plotfunctions 
+BuildRequires:    R-CRAN-coxed 
+BuildRequires:    R-CRAN-katex 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-multcomp 
+Requires:         R-CRAN-nlme 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-plotfunctions 
+Requires:         R-CRAN-coxed 
+Requires:         R-CRAN-katex 
 
 %description
-Equating of multiple forms using Item Response Theory (IRT) methods
-(Battauz M. (2017) <doi:10.1007/s11336-016-9517-x>, Battauz and 'Leoncio'
-(2023) <doi:10.1177/01466216231151702>, Haberman S. J. (2009)
-<doi:10.1002/j.2333-8504.2009.tb02197.x>).
+The total deviation index (TDI) is an unscaled statistical measure used to
+evaluate the deviation between paired quantitative measurements when
+assessing the extent of agreement between different raters. It describes a
+boundary such that a large specified proportion of the differences in
+paired measurements are within the boundary (Lin, 2000)
+<https://pubmed.ncbi.nlm.nih.gov/10641028/>. This R package implements
+some methodologies existing in the literature for TDI estimation and
+inference in the case of two raters.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tongfen
-%global packver   0.3.6
+%global packname  ibdsegments
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Data Based on Different Geographies Comparable
+Summary:          Identity by Descent Probability in Pedigrees
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pedtools 
+BuildRequires:    R-CRAN-expm 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-pedtools 
+Requires:         R-CRAN-expm 
 
 %description
-Several functions to allow comparisons of data across different
-geographies, in particular for Canadian census data from different
-censuses.
+Identity by Descent (IBD) distributions in pedigrees. A Hidden Markov
+Model is used to compute identity coefficients, simulate IBD segments and
+to derive the distribution of total IBD sharing and segment count across
+chromosomes. The methods are applied in Kruijver (2025)
+<doi:10.3390/genes16050492>. The probability that the total IBD sharing is
+zero can be computed using the method of Donnelly (1983)
+<doi:10.1016/0040-5809(83)90004-7>.
 
 %prep
 %setup -q -c -n %{packname}

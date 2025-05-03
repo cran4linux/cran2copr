@@ -1,47 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  equateMultiple
-%global packver   1.1.2
+%global packname  cmpp
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Equating of Multiple Forms
+Summary:          Direct Parametric Inference for the Cumulative Incidence Function in Competing Risks
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-equateIRT >= 2.5.2
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-devel >= 4.1.2
+Requires:         R-core >= 4.1.2
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-statmod 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppDist 
-Requires:         R-CRAN-equateIRT >= 2.5.2
-Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-stats 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-cmprsk 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-statmod 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-cmprsk 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-stats 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Equating of multiple forms using Item Response Theory (IRT) methods
-(Battauz M. (2017) <doi:10.1007/s11336-016-9517-x>, Battauz and 'Leoncio'
-(2023) <doi:10.1177/01466216231151702>, Haberman S. J. (2009)
-<doi:10.1002/j.2333-8504.2009.tb02197.x>).
+Implements parametric (Direct) regression methods for modeling cumulative
+incidence functions (CIFs) in the presence of competing risks. Methods
+include the direct Gompertz-based approach and generalized regression
+models as described in Jeong and Fine (2006)
+<doi:10.1111/j.1467-9876.2006.00532.x> and Jeong and Fine (2007)
+<doi:10.1093/biostatistics/kxj040>. The package facilitates maximum
+likelihood estimation, variance computation, with applications to clinical
+trials and survival analysis.
 
 %prep
 %setup -q -c -n %{packname}

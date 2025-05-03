@@ -1,39 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ADSIHT
-%global packver   0.2.0
+%global packname  interprocess
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Adaptive Double Sparse Iterative Hard Thresholding
+Summary:          Mutexes, Semaphores, and Message Queues
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-mvnfast 
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-mvnfast 
+BuildRequires:    R-CRAN-BH 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-snowfall 
 
 %description
-Solving high-dimensional double sparse linear regression via an iterative
-hard thresholding algorithm. Furthermore, the method is extended to
-jointly estimate multiple graphical models.  For more details, please see
-<https://www.jmlr.org/papers/v25/23-0653.html> and
-<doi:10.48550/arXiv.2503.18722>.
+Provides access to low-level operating system mechanisms for performing
+atomic operations on shared data structures. Mutexes provide shared and
+exclusive locks. Semaphores act as counters. Message queues move text
+strings from one process to another. All these interprocess communication
+(IPC) tools can optionally block with or without a timeout. Implemented
+using the cross-platform 'boost' 'C++' library
+<https://www.boost.org/doc/libs/release/libs/interprocess/>.
 
 %prep
 %setup -q -c -n %{packname}

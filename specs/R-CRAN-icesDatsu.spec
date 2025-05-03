@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  icesDatsu
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions to Interact with the ICES Data Submission Utility (DATSU)
 
@@ -17,12 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-icesConnect >= 1.0.0
+BuildRequires:    R-CRAN-icesConnect >= 1.1.4
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-icesConnect >= 1.0.0
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-icesConnect >= 1.1.4
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-rlang 
 
 %description
 Functions to Interact with the ICES Data Submission Utility (DATSU)

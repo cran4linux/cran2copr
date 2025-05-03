@@ -1,47 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tongfen
-%global packver   0.3.6
+%global packname  tgml
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Data Based on Different Geographies Comparable
+Summary:          Treed Guided Machine Learning for Personalized Prediction and Precision Diagnostics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Several functions to allow comparisons of data across different
-geographies, in particular for Canadian census data from different
-censuses.
+Generalization of the classification and regression tree (CART) model that
+partitions subjects into terminal nodes and tailors machine learning model
+to each terminal node.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,47 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tongfen
-%global packver   0.3.6
+%global packname  multilaterals
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.6
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Data Based on Different Geographies Comparable
+Summary:          Transitive Index Numbers for Cross-Sections and Panel Data
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-tidyr >= 1.0
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-tidyr >= 1.0
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-readr 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-parallel 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-igraph 
 
 %description
-Several functions to allow comparisons of data across different
-geographies, in particular for Canadian census data from different
-censuses.
+Computing transitive (and non-transitive) index numbers (Coelli et al.,
+2005 <doi:10.1007/b136381>) for cross-sections and panel data. For the
+calculation of transitive indexes, the EKS (Coelli et al., 2005
+<doi:10.1007/b136381>; Rao et al., 2002 <doi:10.1007/978-1-4615-0851-9_4>)
+and Minimum spanning tree (Hill, 2004 <doi:10.1257/0002828043052178>)
+methods are implemented. Traditional fixed-base and chained indexes, and
+their growth rates, can also be derived using the Paasche, Laspeyres,
+Fisher and Tornqvist formulas.
 
 %prep
 %setup -q -c -n %{packname}

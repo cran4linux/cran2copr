@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  exams2forms
-%global packver   0.1-0
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Embedding 'exams' Exercises as Forms in 'rmarkdown' or 'quarto' Documents
 
@@ -17,16 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-exams >= 2.4.0
+BuildRequires:    R-CRAN-exams >= 2.4.2
 BuildRequires:    R-grDevices 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
-Requires:         R-CRAN-exams >= 2.4.0
+Requires:         R-CRAN-exams >= 2.4.2
 Requires:         R-grDevices 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  InterpolateR
-%global packver   1.2-0
+%global packver   1.3-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Toolkit for Fast and Efficient Spatial Interpolation
 
@@ -17,18 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.4.0
 Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-qmap 
-BuildRequires:    R-CRAN-hydroGOF 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-future 
+Requires:         R-stats 
+Requires:         R-CRAN-terra 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-qmap 
-Requires:         R-CRAN-hydroGOF 
 
 %description
 Spatial interpolation toolkit designed for environmental and geospatial

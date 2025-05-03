@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phylospatial
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Phylogenetic Analysis
 
@@ -29,12 +29,12 @@ Requires:         R-CRAN-terra
 Requires:         R-CRAN-vegan 
 
 %description
-Conduct various analyses on spatial phylogenetic diversity patterns. Use
-your data on an evolutionary tree and geographic distributions of the
-terminal taxa to compute diversity and endemism metrics, test significance
-with null model randomization, analyze community turnover and biotic
-regionalization, and perform spatial conservation prioritizations. All
-functions support quantitative community data in addition to binary data.
+Analyze spatial phylogenetic diversity patterns. Use your data on an
+evolutionary tree and geographic distributions of the terminal taxa to
+compute diversity and endemism metrics, test significance with null model
+randomization, analyze community turnover and biotic regionalization, and
+perform spatial conservation prioritizations. All functions support
+quantitative community data in addition to binary data.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  survParamSim
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parametric Survival Simulation with Parameter Uncertainty
 
@@ -22,6 +23,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.1
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-eha 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
@@ -35,6 +37,7 @@ Requires:         R-CRAN-tidyr >= 1.1
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-eha 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 

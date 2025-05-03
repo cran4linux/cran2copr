@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TPCselect
-%global packver   0.8.3
+%global packname  figpatch
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variable Selection via Threshold Partial Correlation
+Summary:          Easily Arrange External Figures with Patchwork Alongside 'ggplot2' Figures
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-corpcor 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-KernSmooth 
-Requires:         R-stats 
-Requires:         R-CRAN-corpcor 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-KernSmooth 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-patchwork 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-patchwork 
 
 %description
-A threshold partial correlation approach to selecting important variables
-in linear models of L. and others (2017) at <doi:10.5705/ss.202015.0473>,
-and in partial linear models of L. and others (2018) at
-<doi:10.1016/j.jmva.2018.06.005>. This package also extends the PC-simple
-algorithm of B. and others (2010) at <doi:10.1093/biomet/asq008> to
-partial linear models.
+For including external figures into an assembled {patchwork}. This enables
+the creation of more complex figures that include images alongside plots.
 
 %prep
 %setup -q -c -n %{packname}

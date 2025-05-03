@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coda.base
-%global packver   0.5.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Basic Set of Functions for Compositional Data Analysis
 
@@ -18,11 +18,9 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-stats 
-Requires:         R-CRAN-Matrix 
 
 %description
 A minimum set of functions to perform compositional data analysis using

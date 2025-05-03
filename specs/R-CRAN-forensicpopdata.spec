@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forensicpopdata
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Allele Frequency Data for Human Genetic Markers
 
@@ -24,7 +24,8 @@ Requires:         R-CRAN-xml2
 Provides allele frequency data for Short Tandem Repeat human genetic
 markers commonly used in forensic genetics for human identification and
 kinship analysis. Includes published population frequency data from the US
-National Institute of Standards and Technology and the UK government.
+National Institute of Standards and Technology, Federal Bureau of
+Investigation and the UK government.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  growthPheno
-%global packver   3.1.11
+%global packver   3.1.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.11
+Version:          3.1.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functional Analysis of Phenotypic Growth Data to Smooth and Extract Traits
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dae 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
@@ -31,6 +32,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dae 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
