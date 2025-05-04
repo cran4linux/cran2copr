@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinkr
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cast '(R)Markdown' Files to 'XML' and Back Again
 
@@ -18,21 +18,23 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-commonmark >= 1.6
+BuildRequires:    R-CRAN-rlang >= 0.4.5
 BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-xslt 
-BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-commonmark >= 1.6
+Requires:         R-CRAN-rlang >= 0.4.5
 Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-xslt 
-Requires:         R-CRAN-yaml 
 
 %description
 Parsing '(R)Markdown' files with numerous regular expressions can be

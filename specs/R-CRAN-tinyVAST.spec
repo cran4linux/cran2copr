@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tinyVAST
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Spatio-Temporal Models using Structural Equations
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-TMB >= 1.9.17
+BuildRequires:    R-CRAN-dsem >= 1.6.0
 BuildRequires:    R-CRAN-Matrix >= 1.3.0
 BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-CRAN-fmesher 
@@ -30,8 +31,11 @@ BuildRequires:    R-CRAN-units
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-sdmTMB 
+BuildRequires:    R-CRAN-insight 
+BuildRequires:    R-CRAN-cv 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB >= 1.9.17
+Requires:         R-CRAN-dsem >= 1.6.0
 Requires:         R-CRAN-Matrix >= 1.3.0
 Requires:         R-CRAN-corpcor 
 Requires:         R-CRAN-fmesher 
@@ -45,6 +49,8 @@ Requires:         R-CRAN-units
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-sdmTMB 
+Requires:         R-CRAN-insight 
+Requires:         R-CRAN-cv 
 
 %description
 Fits a wide variety of multivariate spatio-temporal models with

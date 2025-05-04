@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  india
-%global packver   0.1
+%global packver   0.1-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Influence Diagnostics in Statistical Models
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-fastmatrix 
 BuildRequires:    R-CRAN-L1pack 
 BuildRequires:    R-stats 
@@ -26,7 +25,8 @@ Requires:         R-stats
 
 %description
 Set of routines for influence diagnostics by using case-deletion in
-ordinary least squares, ridge estimation [Walker and Birch (1988).
+ordinary least squares, nonlinear regression [Ross (1987).
+<doi:10.2307/3315198>], ridge estimation [Walker and Birch (1988).
 <doi:10.1080/00401706.1988.10488370>] and least absolute deviations (LAD)
 regression [Sun and Wei (2004). <doi:10.1016/j.spl.2003.08.018>].
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JSDNE
-%global packver   4.4.4
+%global packver   4.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.4.4
+Version:          4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating the Age using Auricular Surface by DNE
 
@@ -32,11 +32,15 @@ Requires:         R-CRAN-Rvcg
 The age is estimated by calculating the Dirichlet Normal Energy (DNE) on
 the whole auricular surface and the apex of the auricular surface. It
 involves three estimation methods: principal component discriminant
-analysis (PCQDA), principal component regression analysis (PCR), and
-principal component logistic regression analysis (PCLR) methods. The
-package is created with the data from the Louis Lopes Collection in
-Lisbon, the 21st Century Identified Human Remains Collection in Coimbra,
-and the CAL Milano Cemetery Skeletal Collection in Milan.
+analysis (PCQDA), and principal component logistic regression analysis
+(PCLR) methods, principal component regression analysis with Southeast
+Asian (A_PCR), and principal component regression analysis with
+multipopulation (M_PCR). The package is created with the data from the
+Louis Lopes Collection in Lisbon, the 21st Century Identified Human
+Remains Collection in Coimbra, and the CAL Milano Cemetery Skeletal
+Collection in Milan, and the skeletal collection at Khon Kaen University
+(KKU) Human Skeletal Research Centre (HSRC), housed in the Department of
+Anatomy in the Faculty of Medicine at KKU in Khon Kaen.
 
 %prep
 %setup -q -c -n %{packname}

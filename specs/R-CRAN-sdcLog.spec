@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  sdcLog
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Statistical Disclosure Control in Research Data Centers
 
@@ -39,7 +40,7 @@ calculating extreme values that are not individual data. Also included is
 a simple function to create log files. The methods used here are described
 in the "Guidelines for the checking of output based on microdata research"
 by Bond, Brandt, and de Wolf (2015)
-<https://ec.europa.eu/eurostat/cros/system/files/dwb_standalone-document_output-checking-guidelines.pdf>.
+<https://cros.ec.europa.eu/system/files/2024-02/Output-checking-guidelines.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
