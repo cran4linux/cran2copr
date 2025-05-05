@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tLagPropOdds
-%global packver   1.9
+%global packver   1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9
+Version:          1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Proportional Odds Model with Censored, Time-Lagged Categorical Outcome
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-R.utils
 Implements a semiparametric estimator for the odds ratio model with
 censored, time-lagged, ordered categorical outcome in a randomized
 clinical trial that incorporates baseline and time-dependent information.
-Tsiatis, A. A. and Davidian, M. (2021) <arXiv:2106.15559>.
+Tsiatis AA, Davidian M, Holloway ST (2023) <doi:10.1111/biom.13603>.
 
 %prep
 %setup -q -c -n %{packname}

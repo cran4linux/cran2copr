@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dbmss
-%global packver   2.9-2
+%global packver   2.10-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.2
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance-Based Measures of Spatial Structures
 
@@ -20,27 +20,37 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.14
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-doFuture 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-spatstat.geom 
 BuildRequires:    R-CRAN-spatstat.utils 
+BuildRequires:    R-CRAN-spatstat.random 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-spatstat.geom 
-BuildRequires:    R-CRAN-spatstat.random 
 Requires:         R-CRAN-Rcpp >= 0.12.14
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-doFuture 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-methods 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-spatstat.geom 
 Requires:         R-CRAN-spatstat.utils 
+Requires:         R-CRAN-spatstat.random 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-spatstat.geom 
-Requires:         R-CRAN-spatstat.random 
 
 %description
 Simple computation of spatial statistic functions of distance to

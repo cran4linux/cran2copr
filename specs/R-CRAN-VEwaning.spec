@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VEwaning
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vaccine Efficacy Over Time
 
@@ -35,8 +35,8 @@ and placebo subjects may be crossed over to the study vaccine.  The
 methods also allow adjustment for possible confounding via inverse
 probability weighting through specification of models for the trial entry
 process, unblinding mechanisms, and the probability an unblinded placebo
-participant accepts study vaccine: Tsiatis, A. A. and Davidian, M. (2021)
-<arXiv:2102.13103> .
+participant accepts study vaccine: Tsiatis, A. A. and Davidian, M. (2022)
+<doi:10.1111/biom.13509>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  roboBayes
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Online Bayesian Monitoring
 
@@ -26,13 +26,14 @@ Requires:         R-CRAN-RcppArmadillo
 
 %description
 An implementation of Bayesian online changepoint detection (Adams and
-MacKay (2007) <arXiv:0710.3742>) with an option for probability based
-outlier detection and removal (Wendelberger et. al. (2021)
-<arXiv:2112.12899>). Building on the independent multivariate constant
-mean model implemented in the 'R' package 'ocp', this package models
-multivariate data as multivariate normal about a linear trend, defined by
-user input covariates, with an unstructured error covariance. Changepoints
-are identified based on a probability threshold for windows of points.
+MacKay (2007) <doi:10.48550/arXiv.0710.3742>) with an option for
+probability based outlier detection and removal (Wendelberger et. al.
+(2021) <doi:10.48550/arXiv.2112.12899>). Building on the independent
+multivariate constant mean model implemented in the 'R' package 'ocp',
+this package models multivariate data as multivariate normal about a
+linear trend, defined by user input covariates, with an unstructured error
+covariance. Changepoints are identified based on a probability threshold
+for windows of points.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OptimModel
-%global packver   2.0-1
+%global packver   2.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Nonlinear Regression Using 'optim' as the Optimization Engine
 
@@ -31,7 +31,7 @@ A wrapper for 'optim' for nonlinear regression problems; see Nocedal J and
 Write S (2006, ISBN: 978-0387-30303-1).  Performs ordinary least squares
 (OLS), iterative re-weighted least squares (IRWLS), and maximum likelihood
 (MLE). Also includes the robust outlier detection (ROUT) algorithm; see
-Motulsky, H and Brown, R (2006)<doi:10.1186/1471-2105-7-123>.
+Motulsky, H and Brown, R (2006) <doi:10.1186/1471-2105-7-123>.
 
 %prep
 %setup -q -c -n %{packname}

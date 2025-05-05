@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  dtrSurv
-%global packver   1.4
+%global packver   1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4
+Version:          1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Treatment Regimes for Survival Analysis
 
@@ -25,7 +26,7 @@ Requires:         R-CRAN-survival
 %description
 Provides methods for estimating multi-stage optimal dynamic treatment
 regimes for survival outcomes with dependent censoring. Cho, H., Holloway,
-S. T., and Kosorok, M. R. (2020) <arXiv:2012.03294>.
+S. T., and Kosorok, M. R. (2022) <doi:10.1093/biomet/asac047>.
 
 %prep
 %setup -q -c -n %{packname}

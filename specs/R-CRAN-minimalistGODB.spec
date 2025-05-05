@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  minimalistGODB
-%global packver   1.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Build a Minimalist Gene Ontology (GO) Database (GODB)
 
@@ -24,17 +24,24 @@ multiple database files and using these to build e.g. a 'mySQL' database.
 Accessing this database is also complicated, involving an intimate
 knowledge of the database in order to construct reliable queries. Here we
 have a more modest goal, generating GOGOA3, which is a stripped down
-version of the GODB that is restricted to human genes as designated by the
-HUGO Gene Nomenclature Committee (HGNC) (see <https://geneontology.org/>).
-This can be built in a matter of seconds from 2 easily downloaded files
-(see <https://current.geneontology.org/products/pages/downloads.html> and
+version of the GODB that was originally restricted to human genes as
+designated by the HUGO Gene Nomenclature Committee (HGNC) (see
+<https://geneontology.org/>). I have now added about two dozen additional
+species, namely all species represented on the Gene Ontology download page
+<https://current.geneontology.org/products/pages/downloads.html>. This
+covers most of the model organisms that are commonly used in bio-medical
+and basic research (assuming that anyone still has a grant to do such
+research). This can be built in a matter of seconds from 2 easily
+downloaded files (see
+<https://current.geneontology.org/products/pages/downloads.html> and
 <https://geneontology.org/docs/download-ontology/>), and it can be queried
 by e.g. w<-which(GOGOA3[,"HGNC"] %%in%% hgncList) where GOGOA3 is a matrix
 representing the minimalist GODB and hgncList is a list of gene
 identifiers. This database will be used in my upcoming package 'GoMiner'
 which is based on my previous publication (see Zeeberg, B.R., Feng, W.,
 Wang, G. et al. (2003)<doi:10.1186/gb-2003-4-4-r28>). Relevant .RData
-files are available from GitHub (<https://github.com/barryzee/GO>).
+files are available from GitHub
+(<https://github.com/barryzee/GO/tree/main/databases>).
 
 %prep
 %setup -q -c -n %{packname}

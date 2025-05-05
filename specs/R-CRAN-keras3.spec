@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keras3
-%global packver   1.3.0
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Interface to 'Keras'
 
@@ -19,7 +19,7 @@ Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tensorflow >= 2.16.0
 BuildRequires:    R-CRAN-tfruns >= 1.5.2
-BuildRequires:    R-CRAN-reticulate >= 1.41.0
+BuildRequires:    R-CRAN-reticulate >= 1.42.0
 BuildRequires:    R-CRAN-generics >= 0.0.1
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zeallot 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-dotty 
 Requires:         R-CRAN-tensorflow >= 2.16.0
 Requires:         R-CRAN-tfruns >= 1.5.2
-Requires:         R-CRAN-reticulate >= 1.41.0
+Requires:         R-CRAN-reticulate >= 1.42.0
 Requires:         R-CRAN-generics >= 0.0.1
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-zeallot 

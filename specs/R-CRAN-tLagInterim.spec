@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tLagInterim
-%global packver   1.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interim Monitoring of Clinical Trials with Time-Lagged Outcome
 
@@ -29,7 +29,7 @@ time-lagged outcome that may not be available for all enrolled subjects.
 Produces estimators, standard errors, and information that can be used to
 compute stopping boundaries using software that assumes that the
 estimators/test statistics have independent increments. Tsiatis, A. A. and
-Davidian, M., (2022) <arXiv:2204.10739> .
+Davidian, M., (2022) <doi:10.1002/sim.9580> .
 
 %prep
 %setup -q -c -n %{packname}

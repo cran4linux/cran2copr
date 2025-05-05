@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MIRES
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measurement Invariance Assessment Using Random Effects Models and Shrinkage
 
@@ -18,9 +19,9 @@ Requires:         R-core >= 4.0.0
 BuildRequires:    R-stats >= 3.4.0
 BuildRequires:    R-parallel >= 3.4.0
 BuildRequires:    R-CRAN-nlme >= 3.1
+BuildRequires:    R-CRAN-rstan >= 2.26.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-pracma >= 2.2.9
-BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
 BuildRequires:    R-CRAN-logspline >= 2.1.0
 BuildRequires:    R-CRAN-rstantools >= 2.0.0
 BuildRequires:    R-CRAN-cubature >= 2.0.0
@@ -37,8 +38,8 @@ BuildRequires:    R-CRAN-rstantools
 Requires:         R-stats >= 3.4.0
 Requires:         R-parallel >= 3.4.0
 Requires:         R-CRAN-nlme >= 3.1
+Requires:         R-CRAN-rstan >= 2.26.0
 Requires:         R-CRAN-pracma >= 2.2.9
-Requires:         R-CRAN-rstan >= 2.18.1
 Requires:         R-CRAN-logspline >= 2.1.0
 Requires:         R-CRAN-rstantools >= 2.0.0
 Requires:         R-CRAN-cubature >= 2.0.0
@@ -71,6 +72,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
