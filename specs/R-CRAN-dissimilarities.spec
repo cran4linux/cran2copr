@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WINS
-%global packver   1.5
+%global packname  dissimilarities
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The R WINS Package
+Summary:          Creating, Manipulating, and Subsetting "dist" Objects
 
-License:          GPL (>= 2)
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-proxy 
+Requires:         R-stats 
 
 %description
-Calculate the win statistics (win ratio, net benefit and win odds) for
-prioritized multiple endpoints, plot the win statistics and win
-proportions over study time if at least one time-to-event endpoint is
-analyzed, and simulate datasets with dependent endpoints. The package can
-handle any type of outcomes (continuous, ordinal, binary, time-to-event)
-and allow users to perform stratified analysis, inverse probability of
-censoring weighting (IPCW) and inverse probability of treatment weighting
-(IPTW) analysis.
+Efficiently creates, manipulates, and subsets "dist" objects, commonly
+used in cluster analysis. Designed to minimise unnecessary conversions and
+computational overhead while enabling seamless interaction with distance
+matrices.
 
 %prep
 %setup -q -c -n %{packname}

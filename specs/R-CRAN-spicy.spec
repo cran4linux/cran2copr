@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  readMDTable
-%global packver   0.3.2
+%global packname  spicy
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Read Markdown Tables into Tibbles
+Summary:          Descriptive Statistics and Data Management Tools
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-clipr 
+BuildRequires:    R-CRAN-collapse 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-clipr 
+Requires:         R-CRAN-collapse 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
 
 %description
-Efficient reading of raw markdown tables into tibbles. Designed to accept
-content from strings, files, and URLs with the ability to extract and read
-multiple tables from markdown for analysis.
+Extracts and summarizes metadata from data frames, including variable
+names, labels, types, and missing values. Computes compact descriptive
+statistics, frequency tables, and cross-tabulations to assist with
+efficient data exploration. Facilitates the identification of missing data
+patterns and structural issues in datasets. Designed to streamline initial
+data management and exploratory analysis workflows within 'R'.
 
 %prep
 %setup -q -c -n %{packname}

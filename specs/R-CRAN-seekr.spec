@@ -1,46 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WINS
-%global packver   1.5
+%global packname  seekr
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          The R WINS Package
+Summary:          Extract Matching Lines from Matching Files
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Calculate the win statistics (win ratio, net benefit and win odds) for
-prioritized multiple endpoints, plot the win statistics and win
-proportions over study time if at least one time-to-event endpoint is
-analyzed, and simulate datasets with dependent endpoints. The package can
-handle any type of outcomes (continuous, ordinal, binary, time-to-event)
-and allow users to perform stratified analysis, inverse probability of
-censoring weighting (IPCW) and inverse probability of treatment weighting
-(IPTW) analysis.
+Provides a simple interface to recursively list files from a directory,
+filter them using a regular expression, read their contents, and extract
+lines that match a user-defined pattern. The package returns a dataframe
+containing the matched lines, their line numbers, file paths, and the
+corresponding matched substrings. Designed for quick code base
+exploration, log inspection, or any use case involving pattern-based file
+and line filtering.
 
 %prep
 %setup -q -c -n %{packname}

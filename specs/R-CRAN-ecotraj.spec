@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ecotraj
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecological Trajectory Analysis
 
@@ -24,7 +24,7 @@ Requires:         R-CRAN-Kendall
 Requires:         R-CRAN-MASS 
 
 %description
-Assists ecologists in the analysis of temporal changes of ecosystems,
+Analysis of temporal changes (i.e. dynamics) of ecological entities,
 defined as trajectories on a chosen multivariate space, by providing a set
 of trajectory metrics and visual representations [De Caceres et al. (2019)
 <doi:10.1002/ecm.1350>; and Sturbois et al. (2021)

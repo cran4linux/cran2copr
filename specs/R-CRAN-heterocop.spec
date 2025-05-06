@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heterocop
-%global packver   0.1.0.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Estimation with Gaussian Copula
 
@@ -26,6 +26,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-doSNOW 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-huge 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
@@ -35,6 +36,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-doSNOW 
 Requires:         R-utils 
+Requires:         R-CRAN-huge 
 
 %description
 A method for generating random vectors which are linked by a Gaussian

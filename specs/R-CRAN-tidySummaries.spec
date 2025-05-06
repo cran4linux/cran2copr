@@ -1,46 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  WINS
-%global packver   1.5
+%global packname  tidySummaries
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The R WINS Package
+Summary:          Tidy Statistical Summaries for Exploratory Data Analysis
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-copula 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggpubr 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-survival 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-viridis 
-Requires:         R-CRAN-copula 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggpubr 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-survival 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-viridis 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-rlang 
 
 %description
-Calculate the win statistics (win ratio, net benefit and win odds) for
-prioritized multiple endpoints, plot the win statistics and win
-proportions over study time if at least one time-to-event endpoint is
-analyzed, and simulate datasets with dependent endpoints. The package can
-handle any type of outcomes (continuous, ordinal, binary, time-to-event)
-and allow users to perform stratified analysis, inverse probability of
-censoring weighting (IPCW) and inverse probability of treatment weighting
-(IPTW) analysis.
+Provides a tidy set of functions for summarising data, including
+descriptive statistics, frequency tables with normality testing, and
+group-wise significance testing. Designed for fast, readable, and easy
+exploration of both numeric and categorical data.
 
 %prep
 %setup -q -c -n %{packname}

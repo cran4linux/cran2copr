@@ -1,52 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  logrx
-%global packver   0.4.0
+%global packname  demulticoder
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Logging Utility Focus on Clinical Trial Programming Workflows
+Summary:          Simultaneous Analysis of Multiplexed Metabarcodes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.0.2
+Requires:         R-core >= 3.0.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sessioninfo >= 1.2
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-sessioninfo >= 1.2
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-A utility to facilitate the logging and review of R programs in clinical
-trial programming workflows.
+A comprehensive set of wrapper functions for the analysis of multiplex
+metabarcode data. It includes robust wrappers for 'Cutadapt' and 'DADA2'
+to trim primers, filter reads, perform amplicon sequence variant (ASV)
+inference, and assign taxonomy. The package can handle single metabarcode
+datasets, datasets with two pooled metabarcodes, or multiple datasets
+simultaneously. The final output is a matrix per metabarcode, containing
+both ASV abundance data and associated taxonomic assignments. An optional
+function converts these matrices into 'phyloseq' and 'taxmap' objects. For
+more information on 'DADA2', including information on how DADA2 infers
+samples sequences, see Callahan et al. (2016) <doi:10.1038/nmeth.3869>.
+For more details on the demulticoder R package see Sudermann et al. (2025)
+<doi:10.1094/PHYTO-02-25-0043-FI>.
 
 %prep
 %setup -q -c -n %{packname}
