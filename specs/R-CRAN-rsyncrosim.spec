@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsyncrosim
-%global packver   2.0.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          The R Interface to 'SyncroSim'
 
@@ -22,11 +22,17 @@ BuildRequires:    R-CRAN-DBI
 BuildRequires:    R-CRAN-RSQLite 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-methods 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-processx 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 'SyncroSim' is a generalized framework for managing scenario-based

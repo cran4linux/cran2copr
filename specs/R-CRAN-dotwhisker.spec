@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dotwhisker
-%global packver   0.8.3
+%global packver   0.8.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.8.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dot-and-Whisker Plots of Regression Results
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-grid 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-ggstance 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-marginaleffects 
 Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-ggstance 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-marginaleffects 
 
 %description
 Create quick and easy dot-and-whisker plots of regression results. It

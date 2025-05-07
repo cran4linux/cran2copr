@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mada
-%global packver   0.5.12
+%global packname  HeckmanStan
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnostic Accuracy
+Summary:          Heckman Selection Models Based on Bayesian Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,24 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rstan >= 2.26.23
+BuildRequires:    R-CRAN-mvtnorm >= 1.2.3
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-rstan >= 2.26.23
+Requires:         R-CRAN-mvtnorm >= 1.2.3
+Requires:         R-CRAN-loo 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-CRAN-metafor 
-Requires:         R-methods 
+Requires:         R-CRAN-rstantools
 
 %description
-Provides functions for diagnostic meta-analysis. Next to basic analysis
-and visualization the bivariate Model of Reitsma et al. (2005) that is
-equivalent to the HSROC of Rutter & Gatsonis (2001) can be fitted. A new
-approach based to diagnostic meta-analysis of Holling et al. (2012) is
-also available. Standard methods like summary, plot and so on are
-provided.
+Implements Heckman selection models using a Bayesian approach via 'Stan'
+and compares the performance of normal, Student’s t, and contaminated
+normal distributions in addressing complexities and selection bias (Heeju
+Lim, Victor E. Lachos, and Victor H. Lachos, Bayesian analysis of flexible
+Heckman selection models using Hamiltonian Monte Carlo, 2025, under
+submission).
 
 %prep
 %setup -q -c -n %{packname}

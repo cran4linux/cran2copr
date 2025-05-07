@@ -1,42 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mada
-%global packver   0.5.12
+%global packname  KOLaide
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnostic Accuracy
+Summary:          Pick and Plot Key Opinion Leaders from a Network Given Constraints
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-CRAN-metafor 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-igraph 
 Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Provides functions for diagnostic meta-analysis. Next to basic analysis
-and visualization the bivariate Model of Reitsma et al. (2005) that is
-equivalent to the HSROC of Rutter & Gatsonis (2001) can be fitted. A new
-approach based to diagnostic meta-analysis of Holling et al. (2012) is
-also available. Standard methods like summary, plot and so on are
-provided.
+Assists researchers in choosing Key Opinion Leaders (KOLs) in a network to
+help disseminate or encourage adoption of an innovation by other network
+members. Potential KOL teams are evaluated using the ABCDE framework (Neal
+et al., 2025 <doi:10.31219/osf.io/3vxy9_v1>). This framework which
+considers: (1) the team members' Availability, (2) the Breadth of the
+team's network coverage, (3) the Cost of recruiting a team of a given
+size, and (4) the Diversity of the team's members, (5) which are pooled
+into a single Evaluation score.
 
 %prep
 %setup -q -c -n %{packname}

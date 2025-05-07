@@ -1,68 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nzilbb.vowels
-%global packver   0.4.1
+%global packname  SkeletalVis
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vowel Covariation Tools
+Summary:          Exploration and Visualisation of Skeletal Transcriptomics Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-cowplot 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-rsample 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gghalves 
-BuildRequires:    R-CRAN-smacof 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-patchwork 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-cowplot 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-rsample 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gghalves 
-Requires:         R-CRAN-smacof 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-shiny 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-visNetwork 
 
 %description
-Tools to support research on vowel covariation. Methods are provided to
-support Principal Component Analysis workflows (as in Brand et al. (2021)
-<doi:10.1016/j.wocn.2021.101096> and Wilson Black et al. (2023)
-<doi:10.1515/lingvan-2022-0086>).
+Allows search and visualisation of a collection of uniformly processed
+skeletal transcriptomic datasets. Includes methods to identify datasets
+where genes of interest are differentially expressed and find datasets
+with a similar gene expression pattern to a query dataset Soul J,
+Hardingham TE, Boot-Handford RP, Schwartz JM (2019)
+<doi:10.1093/bioinformatics/bty947>.
 
 %prep
 %setup -q -c -n %{packname}

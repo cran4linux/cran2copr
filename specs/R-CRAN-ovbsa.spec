@@ -1,42 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mada
-%global packver   0.5.12
+%global packname  ovbsa
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnostic Accuracy
+Summary:          Sensitivity Analysis of Omitted Variable Bias
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lmtest 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lmtest 
 Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-CRAN-metafor 
-Requires:         R-methods 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides functions for diagnostic meta-analysis. Next to basic analysis
-and visualization the bivariate Model of Reitsma et al. (2005) that is
-equivalent to the HSROC of Rutter & Gatsonis (2001) can be fitted. A new
-approach based to diagnostic meta-analysis of Holling et al. (2012) is
-also available. Standard methods like summary, plot and so on are
-provided.
+Conduct sensitivity analysis of omitted variable bias in linear
+econometric models using the methodology presented in Basu (2025)
+<doi:10.2139/ssrn.4704246>.
 
 %prep
 %setup -q -c -n %{packname}

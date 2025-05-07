@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SomaDataIO
-%global packver   6.2.0
+%global packver   6.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.2.0
+Version:          6.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Input/Output 'SomaScan' Data
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-tidyr >= 1.1.3
 BuildRequires:    R-CRAN-dplyr >= 1.0.6
 BuildRequires:    R-CRAN-lifecycle >= 1.0.0
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-tibble >= 3.1.2
 Requires:         R-CRAN-magrittr >= 2.0.1
@@ -32,6 +33,7 @@ Requires:         R-CRAN-tidyr >= 1.1.3
 Requires:         R-CRAN-dplyr >= 1.0.6
 Requires:         R-CRAN-lifecycle >= 1.0.0
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-methods 
 
 %description

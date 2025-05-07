@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mada
-%global packver   0.5.12
+%global packname  OTBsegm
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnostic Accuracy
+Summary:          Apply Unsupervised Segmentation Algorithms from 'OTB'
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-CRAN-metafor 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-link2GI 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-link2GI 
 
 %description
-Provides functions for diagnostic meta-analysis. Next to basic analysis
-and visualization the bivariate Model of Reitsma et al. (2005) that is
-equivalent to the HSROC of Rutter & Gatsonis (2001) can be fitted. A new
-approach based to diagnostic meta-analysis of Holling et al. (2012) is
-also available. Standard methods like summary, plot and so on are
-provided.
+Apply unsupervised segmentation algorithms included in 'Orfeo ToolBox'
+software (<https://www.orfeo-toolbox.org/>), such as mean shift or
+watershed segmentation.
 
 %prep
 %setup -q -c -n %{packname}

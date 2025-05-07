@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nodeSub
-%global packver   1.2.8
+%global packver   1.2.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate DNA Alignments Using Node Substitutions
 
@@ -16,41 +16,41 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-phangorn 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-DDD 
-BuildRequires:    R-CRAN-Rmpfr 
-BuildRequires:    R-CRAN-pbapply 
-BuildRequires:    R-CRAN-phylobase 
-BuildRequires:    R-CRAN-geiger 
-BuildRequires:    R-CRAN-beautier 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-beastier 
-BuildRequires:    R-CRAN-tracerer 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-testit 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-beautier 
+BuildRequires:    R-CRAN-DDD 
+BuildRequires:    R-CRAN-geiger 
 BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-phangorn 
+BuildRequires:    R-CRAN-phylobase 
+BuildRequires:    R-CRAN-rappdirs 
+BuildRequires:    R-CRAN-Rmpfr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tracerer 
 Requires:         R-CRAN-ape 
-Requires:         R-CRAN-phangorn 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-DDD 
-Requires:         R-CRAN-Rmpfr 
-Requires:         R-CRAN-pbapply 
-Requires:         R-CRAN-phylobase 
-Requires:         R-CRAN-geiger 
-Requires:         R-CRAN-beautier 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-beastier 
-Requires:         R-CRAN-tracerer 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-testit 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-beautier 
+Requires:         R-CRAN-DDD 
+Requires:         R-CRAN-geiger 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-phangorn 
+Requires:         R-CRAN-phylobase 
+Requires:         R-CRAN-rappdirs 
+Requires:         R-CRAN-Rmpfr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-testit 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tracerer 
 
 %description
-Simulate DNA sequences for the node substitution model. In the node
+Simulate DNA sequences for the node substitution model.  In the node
 substitution model, substitutions accumulate additionally during a
 speciation event, providing a potential mechanistic explanation for
 substitution rate variation. This package provides tools to simulate such

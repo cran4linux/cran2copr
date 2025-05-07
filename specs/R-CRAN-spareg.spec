@@ -1,42 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mada
-%global packver   0.5.12
+%global packname  spareg
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnostic Accuracy
+Summary:          Sparse Projected Averaged Regression
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-CRAN-metafor 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-ROCR 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-CRAN-metafor 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-ROCR 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-glmnet 
 Requires:         R-methods 
 
 %description
-Provides functions for diagnostic meta-analysis. Next to basic analysis
-and visualization the bivariate Model of Reitsma et al. (2005) that is
-equivalent to the HSROC of Rutter & Gatsonis (2001) can be fitted. A new
-approach based to diagnostic meta-analysis of Holling et al. (2012) is
-also available. Standard methods like summary, plot and so on are
-provided.
+A flexible framework combining variable screening and random projection
+techniques for fitting ensembles of predictive generalized linear models
+to high-dimensional data. Designed for extensibility, the package
+implements key techniques as S3 classes with user-friendly constructors,
+enabling easy integration and development of new procedures for
+high-dimensional applications. For more details see Parzer et al (2024a)
+<doi:10.48550/arXiv.2312.00130> and Parzer et al (2024b)
+<doi:10.48550/arXiv.2410.00971>.
 
 %prep
 %setup -q -c -n %{packname}

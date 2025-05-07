@@ -1,42 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mada
-%global packver   0.5.12
+%global packname  EAVA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Meta-Analysis of Diagnostic Accuracy
+Summary:          Deterministic Verbal Autopsy Coding with Expert Algorithm Verbal Autopsy
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-ellipse 
-BuildRequires:    R-CRAN-mvmeta 
-BuildRequires:    R-CRAN-metafor 
-BuildRequires:    R-methods 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-ellipse 
-Requires:         R-CRAN-mvmeta 
-Requires:         R-CRAN-metafor 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
 
 %description
-Provides functions for diagnostic meta-analysis. Next to basic analysis
-and visualization the bivariate Model of Reitsma et al. (2005) that is
-equivalent to the HSROC of Rutter & Gatsonis (2001) can be fitted. A new
-approach based to diagnostic meta-analysis of Holling et al. (2012) is
-also available. Standard methods like summary, plot and so on are
-provided.
+Expert Algorithm Verbal Autopsy assigns causes of death to 2016 WHO Verbal
+Autopsy Questionnaire data. odk2EAVA() converts data to a standard input
+format for cause of death determination building on the work of Thomas
+(2021) <https://cran.r-project.org/src/contrib/Archive/CrossVA/>.
+codEAVA() uses the presence and absence of signs and symptoms reported in
+the Verbal Autopsy interview to diagnose common causes of death. A
+deterministic algorithm assigns a single cause of death to each Verbal
+Autopsy interview record using a hierarchy of all common causes for
+neonates or children 1 to 59 months of age.
 
 %prep
 %setup -q -c -n %{packname}
