@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maptiles
-%global packver   0.9.0
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Display Map Tiles
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-terra >= 1.8.21
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-slippymath 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-terra >= 1.8.21
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-digest 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-png 
-Requires:         R-CRAN-terra 
 Requires:         R-tools 
 Requires:         R-CRAN-slippymath 
 Requires:         R-utils 

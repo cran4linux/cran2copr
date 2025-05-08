@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geocodebr
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geolocalização De Endereços Brasileiros (Geocoding Brazilian Addresses)
 
@@ -16,37 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-arrow >= 15.0.1
 BuildRequires:    R-CRAN-httr2 >= 1.0.0
+BuildRequires:    R-CRAN-enderecobr >= 0.4.1
+BuildRequires:    R-CRAN-nanoarrow >= 0.3.0.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-duckdb 
-BuildRequires:    R-CRAN-enderecobr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-sfheaders 
 BuildRequires:    R-tools 
 Requires:         R-CRAN-arrow >= 15.0.1
 Requires:         R-CRAN-httr2 >= 1.0.0
+Requires:         R-CRAN-enderecobr >= 0.4.1
+Requires:         R-CRAN-nanoarrow >= 0.3.0.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-DBI 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-duckdb 
-Requires:         R-CRAN-enderecobr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-parallel 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-sfheaders 
@@ -55,7 +58,7 @@ Requires:         R-tools
 %description
 Método simples e eficiente de geolocalizar dados no Brasil. O pacote é
 baseado em conjuntos de dados espaciais abertos de endereços brasileiros,
-utilizando principalmente o Cadastro Nacional de Endereços para Fins
+utilizando como fonte principal o Cadastro Nacional de Endereços para Fins
 Estatísticos (CNEFE). O CNEFE é publicado pelo Instituto Brasileiro de
 Geografia e Estatística (IBGE), órgão oficial de estatísticas e geografia
 do Brasil. (A simple and efficient method for geolocating data in Brazil.

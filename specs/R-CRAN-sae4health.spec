@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sae4health
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Small Area Estimation for Key Health and Demographic Indicators from Household Surveys
 
@@ -99,13 +99,11 @@ Requires:         R-CRAN-sn
 %description
 Enables small area estimation (SAE) of health and demographic indicators
 in low- and middle-income countries (LMICs). It powers an R 'shiny'
-application that helps public health analysts, policymakers, and
-researchers generate subnational estimates and prevalence maps for 150+
-binary indicators from Demographic and Health Surveys (DHS). Basing its
-core SAE analysis workflow on the 'surveyPrev' package, the app ensures
-methodological rigor through guided model selection, automated fitting,
-and interactive visualization. For more details, visit
-<https://sae4health.stat.uw.edu/>.
+application for generating subnational estimates and prevalence maps of
+150+ binary indicators from Demographic and Health Surveys (DHS). It
+builds on the SAE analysis workflow from the 'surveyPrev' package. For
+documentation, visit <https://sae4health.stat.uw.edu/>. Methodological
+details can be found at Wu et al. (2025) <doi:10.48550/arXiv.2505.01467>.
 
 %prep
 %setup -q -c -n %{packname}

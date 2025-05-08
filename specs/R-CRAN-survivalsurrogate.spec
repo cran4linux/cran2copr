@@ -1,55 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dockerfiler
-%global packver   0.2.5
+%global packname  survivalsurrogate
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easy Dockerfile Creation from R
+Summary:          Evaluate a Longitudinal Surrogate with a Censored Outcome
 
-License:          MIT + file LICENSE
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.5.0
-BuildRequires:    R-CRAN-cli >= 2.3.0
-BuildRequires:    R-CRAN-remotes >= 2.2.0
-BuildRequires:    R-CRAN-usethis >= 2.0.1
-BuildRequires:    R-CRAN-jsonlite >= 1.7.2
-BuildRequires:    R-CRAN-fs >= 1.5.0
-BuildRequires:    R-CRAN-glue >= 1.4.2
-BuildRequires:    R-CRAN-desc >= 1.2.0
-BuildRequires:    R-CRAN-pkgbuild >= 1.2.0
-BuildRequires:    R-CRAN-pak >= 0.6.0
-BuildRequires:    R-CRAN-attempt >= 0.3.1
-BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-mlr3 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-rBeta2009 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.5.0
-Requires:         R-CRAN-cli >= 2.3.0
-Requires:         R-CRAN-remotes >= 2.2.0
-Requires:         R-CRAN-usethis >= 2.0.1
-Requires:         R-CRAN-jsonlite >= 1.7.2
-Requires:         R-CRAN-fs >= 1.5.0
-Requires:         R-CRAN-glue >= 1.4.2
-Requires:         R-CRAN-desc >= 1.2.0
-Requires:         R-CRAN-pkgbuild >= 1.2.0
-Requires:         R-CRAN-pak >= 0.6.0
-Requires:         R-CRAN-attempt >= 0.3.1
-Requires:         R-CRAN-memoise 
+BuildRequires:    R-CRAN-rpart 
+Requires:         R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-mlr3 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-rBeta2009 
+Requires:         R-CRAN-data.table 
 Requires:         R-utils 
+Requires:         R-CRAN-rpart 
 
 %description
-Build a Dockerfile straight from your R session. 'dockerfiler' allows you
-to create step by step a Dockerfile, and provide convenient tools to wrap
-R code inside this Dockerfile.
+Provides influence function-based methods to evaluate a longitudinal
+surrogate marker in a censored time-to-event outcome setting, with plug-in
+and targeted minimum loss-based estimation options. More details will be
+available in the future in: Agniel D and Parast L (2025+). "Robust
+Evaluation of Longitudinal Surrogate Markers with Censored Data." Journal
+of the Royal Statistical Society: Series B, In press. A tutorial for this
+package can be found at <https://www.laylaparast.com/survivalsurrogate>.
 
 %prep
 %setup -q -c -n %{packname}

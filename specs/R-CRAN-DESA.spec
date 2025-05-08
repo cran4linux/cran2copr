@@ -1,40 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NobBS
-%global packver   1.1.0
+%global packname  DESA
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Nowcasting by Bayesian Smoothing
+Summary:          Detecting Epidemics using School Absenteeism
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rjags 
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rjags 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-scales 
 
 %description
-A Bayesian approach to estimate the number of
-occurred-but-not-yet-reported cases from incomplete, time-stamped
-reporting data for disease outbreaks. 'NobBS' learns the reporting delay
-distribution and the time evolution of the epidemic curve to produce
-smoothed nowcasts in both stable and time-varying case reporting settings,
-as described in McGough et al. (2020) <doi:10.1371/journal.pcbi.1007735>.
+Provides a comprehensive framework for early epidemic detection through
+school absenteeism surveillance. The package offers three core
+functionalities: (1) simulation of population structures, epidemic spread,
+and resulting school absenteeism patterns; (2) implementation of
+surveillance models that generate alerts for impending epidemics based on
+absenteeism data and (3) evaluation of alert timeliness and accuracy
+through alert time quality metrics to optimize model parameters. These
+tools enable public health officials and researchers to develop and assess
+early warning systems before implementation. Methods are based on research
+published in Vanderkruk et al. (2023) <doi:10.1186/s12889-023-15747-z> and
+Ward et al. (2019) <doi:10.1186/s12889-019-7521-7>.
 
 %prep
 %setup -q -c -n %{packname}

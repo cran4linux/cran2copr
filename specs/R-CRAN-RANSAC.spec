@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordDisp
-%global packver   2.1.2
+%global packname  RANSAC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Separating Location and Dispersion in Ordinal Regression Models
+Summary:          Robust Model Fitting Using the RANSAC Algorithm
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-VGAM 
-Requires:         R-methods 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Estimate location-shift models or rating-scale models accounting for
-response styles (RSRS) for the regression analysis of ordinal responses.
+Provides tools for robust regression model fitting using the RANSAC
+(Random Sample Consensus) algorithm. RANSAC is an iterative method to
+estimate parameters of a model from a dataset that contains outliers. This
+package allows fitting both linear lm and nonlinear nls models using
+RANSAC, helping users obtain more reliable models in the presence of noisy
+or corrupted data. The methods are particularly useful in contexts where
+traditional least squares regression fails due to the influence of
+outliers. Implementations include support for performance metrics such as
+RMSE, MAE, and R² based on the inlier subset. For further details, see
+Fischler and Bolles (1981) <doi:10.1145/358669.358692>.
 
 %prep
 %setup -q -c -n %{packname}

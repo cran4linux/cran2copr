@@ -1,30 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordDisp
-%global packver   2.1.2
+%global packname  geotargets
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Separating Location and Dispersion in Ordinal Regression Models
+Summary:          'targets' Extensions for Geographic Spatial Formats
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-VGAM 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-cli >= 3.6.2
+BuildRequires:    R-CRAN-withr >= 3.0.0
+BuildRequires:    R-CRAN-terra >= 1.8.10
+BuildRequires:    R-CRAN-targets >= 1.8.0
+BuildRequires:    R-CRAN-rlang >= 1.1.3
+BuildRequires:    R-CRAN-zip 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-cli >= 3.6.2
+Requires:         R-CRAN-withr >= 3.0.0
+Requires:         R-CRAN-terra >= 1.8.10
+Requires:         R-CRAN-targets >= 1.8.0
+Requires:         R-CRAN-rlang >= 1.1.3
+Requires:         R-CRAN-zip 
+Requires:         R-CRAN-lifecycle 
 
 %description
-Estimate location-shift models or rating-scale models accounting for
-response styles (RSRS) for the regression analysis of ordinal responses.
+Provides extensions for various geographic spatial file formats, such as
+shape files and rasters. Currently provides support for the 'terra'
+geographic spatial formats. See the vignettes for worked examples,
+demonstrations, and explanations of how to use the various package
+extensions.
 
 %prep
 %setup -q -c -n %{packname}

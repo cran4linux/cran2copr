@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordDisp
-%global packver   2.1.2
+%global packname  geovol
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Separating Location and Dispersion in Ordinal Regression Models
+Summary:          Geopolitical Volatility (GEOVOL) Modelling
 
-License:          GPL-2
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-VGAM 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-zoo 
 
 %description
-Estimate location-shift models or rating-scale models accounting for
-response styles (RSRS) for the regression analysis of ordinal responses.
+Simulation, estimation and testing for geopolitical volatility (GEOVOL)
+based on the global common volatility model of Engle and Campos-Martins
+(2023) <doi:10.1016/j.jfineco.2022.09.009>. GEOVOL is modelled as a latent
+multiplicative volatility factor with heterogeneous factor loadings.
+Estimation is carried out as a maximization-maximization procedure, where
+GEOVOL and the GEOVOL loadings are estimated iteratively until
+convergence.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evsim
-%global packver   1.6.0
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Electric Vehicle Charging Sessions Simulation
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-dplyr 
@@ -38,9 +38,7 @@ Requires:         R-CRAN-ggplot2
 
 %description
 Simulation of Electric Vehicles charging sessions using Gaussian models,
-together with time-series power demand calculations. The simulation
-methodology is published in Cañigueral et al. (2023, ISBN:0957-4174)
-<doi:10.1016/j.eswa.2023.120318>.
+together with time-series power demand calculations.
 
 %prep
 %setup -q -c -n %{packname}

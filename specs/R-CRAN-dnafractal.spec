@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ordDisp
-%global packver   2.1.2
+%global packname  dnafractal
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Separating Location and Dispersion in Ordinal Regression Models
+Summary:          Generates a Fractal Image of a DNA Sequence
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-VGAM 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-DescTools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-DescTools 
 
 %description
-Estimate location-shift models or rating-scale models accounting for
-response styles (RSRS) for the regression analysis of ordinal responses.
+The function takes a DNA sequence, a start point, an end point in the
+sequence, dot size and dot color and draws a fractal image of the
+sequence. The fractal starts in the center of the canvas. The image is
+drawn by moving base by base along the sequence and dropping a midpoint
+between the actual point and the corner designated by the actual base. For
+more details see Jeffrey (1990) <doi:10.1093/nar/18.8.2163>, Hill,
+Schisler, and Singh (1992) <doi:10.1007/BF00178602>, and Löchel and Heider
+(2021) <doi:10.1016/j.csbj.2021.11.008>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kollaR
-%global packver   1.0.4
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Filtering, Visualization and Analysis of Eye Tracking Data
+Summary:          Event Classification, Visualization and Analysis of Eye Tracking Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,12 +45,16 @@ Requires:         R-CRAN-magick
 Requires:         R-CRAN-scales 
 
 %description
-Functions for analysing eye tracking data, including event detection
-(I-VT, I-DT and two means clustering), visualizations and area of interest
-(AOI) based analyses. See separate documentation for each function. The
-principles underlying I-VT and I-DT filters are described in Salvucci &
-Goldberg (2000,doi{10.1145/355017.355028}). Two-means clustering is
-described in Hessels et al. (2017, doi{10.3758/s13428-016-0822-1}).
+Functions for analysing eye tracking data, including event detection,
+visualizations and area of interest (AOI) based analyses. The package
+includes implementations of the IV-T, I-DT, adaptive velocity threshold,
+and Identification by two means clustering (I2MC) algorithms. See separate
+documentation for each function. The principles underlying I-VT and I-DT
+algorithms are described in Salvucci & Goldberg
+(2000,doi{10.1145/355017.355028}). Two-means clustering is described in
+Hessels et al. (2017, doi{10.3758/s13428-016-0822-1}). The adaptive
+velocity threshold algorithm is described in Nyström & Holmqvist
+(2010,doi{10.3758/BRM.42.1.188}). See a demonstration in the URL.
 
 %prep
 %setup -q -c -n %{packname}

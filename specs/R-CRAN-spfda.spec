@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  spfda
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Function-on-Scalar Regression with Group-Bridge Penalty
 
@@ -27,7 +28,7 @@ Requires:         R-CRAN-mathjaxr
 
 %description
 Implements a group-bridge penalized function-on-scalar regression model
-proposed by Wang et al. (2020) <arXiv:2006.10163>, to simultaneously
+proposed by Wang et al. (2023) <doi:10.1111/biom.13684>, to simultaneously
 estimate functional coefficient and recover the local sparsity.
 
 %prep
