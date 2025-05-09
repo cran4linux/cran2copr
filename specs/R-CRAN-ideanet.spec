@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ideanet
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrating Data Exchange and Analysis for Networks ('ideanet')
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.1.0
+BuildRequires:    R-CRAN-igraphdata 
 BuildRequires:    R-CRAN-CliquePercolation 
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-colorspace 
@@ -26,9 +28,9 @@ BuildRequires:    R-CRAN-data.table
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggthemes 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-gridGraphics 
-BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-intergraph 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-linkcomm 
@@ -38,6 +40,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-RSpectra 
 BuildRequires:    R-CRAN-shiny 
@@ -46,6 +49,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-igraph >= 2.1.0
+Requires:         R-CRAN-igraphdata 
 Requires:         R-CRAN-CliquePercolation 
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-colorspace 
@@ -55,9 +60,9 @@ Requires:         R-CRAN-data.table
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggthemes 
 Requires:         R-grDevices 
 Requires:         R-CRAN-gridGraphics 
-Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-intergraph 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-linkcomm 
@@ -67,6 +72,7 @@ Requires:         R-methods
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-RSpectra 
 Requires:         R-CRAN-shiny 

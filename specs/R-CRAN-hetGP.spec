@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hetGP
-%global packver   1.1.7
+%global packver   1.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.7
+Version:          1.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heteroskedastic Gaussian Process Modeling and Design under Replication
 
@@ -20,10 +20,14 @@ BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-DiceDesign 
+BuildRequires:    R-CRAN-mco 
+BuildRequires:    R-CRAN-quadprog 
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-MASS 
 Requires:         R-methods 
 Requires:         R-CRAN-DiceDesign 
+Requires:         R-CRAN-mco 
+Requires:         R-CRAN-quadprog 
 
 %description
 Performs Gaussian process regression with heteroskedastic noise following

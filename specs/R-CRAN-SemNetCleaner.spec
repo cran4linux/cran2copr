@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SemNetCleaner
-%global packver   1.3.4
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Automated Cleaning Tool for Semantic and Linguistic Data
 
@@ -17,31 +18,29 @@ BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-SemNetDictionaries >= 0.1.8
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-searcher 
-BuildRequires:    R-tcltk 
 BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-easycsv 
+BuildRequires:    R-CRAN-searcher 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-editData 
-BuildRequires:    R-CRAN-miniUI 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-tcltk 
 Requires:         R-CRAN-SemNetDictionaries >= 0.1.8
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-searcher 
-Requires:         R-tcltk 
 Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-readxl 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-easycsv 
+Requires:         R-CRAN-searcher 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-editData 
-Requires:         R-CRAN-miniUI 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringdist 
+Requires:         R-tcltk 
 
 %description
 Implements several functions that automates the cleaning and

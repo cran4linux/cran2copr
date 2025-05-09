@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rfvimptest
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sequential Permutation Testing of Random Forest Variable Importance Measures
 
@@ -26,13 +26,17 @@ Requires:         R-CRAN-permimp
 
 %description
 Sequential permutation testing for statistical significance of predictors
-in random forests. The main function of the package is rfvimptest(), which
-allows to test for the statistical significance of predictors in random
-forests using different (sequential) permutation test strategies. The
-advantage of sequential over conventional permutation tests is that they
-are computationally considerably less intensive, as the sequential
-procedure is stopped as soon as there is sufficient evidence for either
-the null or the alternative hypothesis.
+in random forests and other prediction methods. The main function of the
+package is rfvimptest(), which allows to test for the statistical
+significance of predictors in random forests using different (sequential)
+permutation test strategies [1]. The advantage of sequential over
+conventional permutation tests is that they are computationally
+considerably less intensive, as the sequential procedure is stopped as
+soon as there is sufficient evidence for either the null or the
+alternative hypothesis. Reference: [1] Hapfelmeier, A., Hornung, R. &
+Haller, B. (2023) Efficient permutation testing of variable importance
+measures by the example of random forests. Computational Statistics & Data
+Analysis 181:107689, <doi:10.1016/j.csda.2022.107689>.
 
 %prep
 %setup -q -c -n %{packname}

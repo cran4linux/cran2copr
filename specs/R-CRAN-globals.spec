@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  globals
-%global packver   0.17.0
+%global packver   0.18.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.17.0
+Version:          0.18.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Identify Global Objects in R Expressions
 
@@ -22,10 +22,10 @@ Requires:         R-CRAN-codetools
 
 %description
 Identifies global ("unknown" or "free") objects in R expressions by code
-inspection using various strategies (ordered, liberal, or conservative).
-The objective of this package is to make it as simple as possible to
-identify global objects for the purpose of exporting them in parallel,
-distributed compute environments.
+inspection using various strategies (ordered, liberal, conservative, or
+deep-first search). The objective of this package is to make it as simple
+as possible to identify global objects for the purpose of exporting them
+in parallel, distributed compute environments.
 
 %prep
 %setup -q -c -n %{packname}

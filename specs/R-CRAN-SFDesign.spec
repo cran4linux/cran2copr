@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DClusterm
-%global packver   1.0-2
+%global packname  SFDesign
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model-Based Detection of Disease Clusters
+Summary:          Space-Filling Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-CRAN-spacetime 
-BuildRequires:    R-CRAN-DCluster 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-xts 
-BuildRequires:    R-CRAN-lme4 
-Requires:         R-parallel 
-Requires:         R-CRAN-sp 
-Requires:         R-CRAN-spacetime 
-Requires:         R-CRAN-DCluster 
-Requires:         R-methods 
-Requires:         R-CRAN-xts 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-primes 
+BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-CRAN-spacefillr 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-primes 
+Requires:         R-CRAN-proxy 
+Requires:         R-CRAN-spacefillr 
 
 %description
-Model-based methods for the detection of disease clusters using GLMs,
-GLMMs and zero-inflated models. These methods are described in 'V.
-Gómez-Rubio et al.' (2019) <doi:10.18637/jss.v090.i14> and 'V. Gómez-Rubio
-et al.' (2018) <doi:10.1007/978-3-030-01584-8_1>.
+Construct various types of space-filling designs, including Latin
+hypercube designs, clustering-based designs, maximin designs, maximum
+projection designs, and uniform designs (Joseph 2016
+<doi:10.1080/08982112.2015.1100447>). It also offers the option to
+optimize designs based on user-defined criteria.
 
 %prep
 %setup -q -c -n %{packname}

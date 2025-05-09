@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gglasso
-%global packver   1.5.1
+%global packver   1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.1
+Version:          1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Lasso Penalized Learning Using a Unified BMD Algorithm
 
@@ -23,7 +23,7 @@ Requires:         R-methods
 A unified algorithm, blockwise-majorization-descent (BMD), for efficiently
 computing the solution paths of the group-lasso penalized least squares,
 logistic regression, Huberized SVM and squared SVM. The package is an
-implementation of Yang, Y. and Zou, H. (2015) DOI:
+implementation of Yang, Y. and Zou, H. (2015)
 <doi:10.1007/s11222-014-9498-5>.
 
 %prep

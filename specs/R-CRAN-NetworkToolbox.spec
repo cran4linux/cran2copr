@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NetworkToolbox
-%global packver   1.4.2
+%global packver   1.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Methods and Measures for Brain, Cognitive, and Psychometric Network Analysis
 
@@ -16,34 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-corrplot 
-BuildRequires:    R-CRAN-fdrtool 
-BuildRequires:    R-CRAN-R.matlab 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-ppcor 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-pwr 
+BuildRequires:    R-CRAN-fdrtool 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-IsingFit 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-pbapply 
-Requires:         R-CRAN-psych 
+BuildRequires:    R-CRAN-ppcor 
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-pwr 
+BuildRequires:    R-CRAN-R.matlab 
+BuildRequires:    R-CRAN-qgraph 
 Requires:         R-CRAN-corrplot 
-Requires:         R-CRAN-fdrtool 
-Requires:         R-CRAN-R.matlab 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-ppcor 
-Requires:         R-parallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-pwr 
+Requires:         R-CRAN-fdrtool 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-IsingFit 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-parallel 
 Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-ppcor 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-pwr 
+Requires:         R-CRAN-R.matlab 
+Requires:         R-CRAN-qgraph 
 
 %description
 Implements network analysis and graph theory measures used in
@@ -70,6 +73,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

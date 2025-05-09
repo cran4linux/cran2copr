@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iccTraj
-%global packver   1.0.4
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimates the Intraclass Correlation Coefficient for Trajectory Data
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magic 
 BuildRequires:    R-CRAN-trajectories 
@@ -25,8 +24,11 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-spacetime 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-foreach 
-Requires:         R-CRAN-doParallel 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-parallelly 
+BuildRequires:    R-CRAN-future 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magic 
 Requires:         R-CRAN-trajectories 
@@ -34,7 +36,11 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-spacetime 
 Requires:         R-CRAN-purrr 
 Requires:         R-utils 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-progressr 
+Requires:         R-parallel 
+Requires:         R-CRAN-parallelly 
+Requires:         R-CRAN-future 
 
 %description
 Estimates the intraclass correlation coefficient for trajectory data using
