@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGIRread
-%global packver   1.0.5
+%global packname  SAFEPG
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wearable Accelerometer Data File Readers
+Summary:          A Novel SAFE Model for Predicting Climate-Related Extreme Losses
 
-License:          Apache License (== 2.0)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
 
 %description
-Reads data collected from wearable acceleratometers as used in sleep and
-physical activity research. Currently supports file formats: binary data
-from 'GENEActiv' <https://activinsights.com/>, .bin-format from GENEA
-devices (not for sale), and .cwa-format from 'Axivity'
-<https://axivity.com>. Further, it has functions for reading text files
-with epoch level aggregates from 'Actical', 'Fitbit', 'Actiwatch',
-'ActiGraph', and 'PhilipsHealthBand'. Primarily designed to complement R
-package GGIR <https://CRAN.R-project.org/package=GGIR>.
+The goal of 'SAFEPG' is to predict climate-related extreme losses by
+fitting a frequency-severity model. It improves predictive performance by
+introducing a sign-aligned regularization term, which ensures consistent
+signs for the coefficients across the frequency and severity components.
+This enhancement not only increases model accuracy but also enhances its
+interpretability, making it more suitable for practical applications in
+risk assessment.
 
 %prep
 %setup -q -c -n %{packname}

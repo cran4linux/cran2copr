@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelPomp
-%global packver   1.7.0.0
+%global packname  svycoxme
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Panel Partially Observed Markov Processes
+Summary:          Mixed-Effects Cox Models for Complex Samples
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pomp >= 4.5
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pomp >= 4.5
-Requires:         R-methods 
+BuildRequires:    R-CRAN-survey 
+BuildRequires:    R-CRAN-coxme 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-parallelly 
+Requires:         R-CRAN-survey 
+Requires:         R-CRAN-coxme 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-parallelly 
 
 %description
-Data analysis based on panel partially-observed Markov process (PanelPOMP)
-models. To implement such models, simulate them and fit them to panel
-data, 'panelPomp' extends some of the facilities provided for time series
-data by the 'pomp' package. Implemented methods include filtering (panel
-particle filtering) and maximum likelihood estimation (Panel Iterated
-Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
-Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
+Mixed-effect proportional hazards models for multistage stratified,
+cluster-sampled, unequally weighted survey samples. Provides variance
+estimation by Taylor series linearisation or replicate weights.
 
 %prep
 %setup -q -c -n %{packname}

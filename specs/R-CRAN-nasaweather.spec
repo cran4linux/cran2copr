@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nasaweather
-%global packver   0.1
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Collection of datasets from the ASA 2006 data expo
+Summary:          Collection of Datasets from the ASA 2006 Data Expo
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -19,8 +19,8 @@ Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 
 %description
-This package contains tidied data from the ASA 2006 data expo, as well as
-a number of useful other related data sets.
+Tidied data from the ASA 2006 data expo, as well as a number of useful
+other related data sets.
 
 %prep
 %setup -q -c -n %{packname}

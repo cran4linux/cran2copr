@@ -1,51 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bullseye
-%global packver   1.0.0
+%global packname  vmsae
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualising Multiple Pairwise Variable Correlations and Other Scores
+Summary:          Variational Multivariate Spatial Small Area Estimation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-labeling 
-BuildRequires:    R-CRAN-ggiraph 
-BuildRequires:    R-CRAN-DendSer 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-polycor 
-BuildRequires:    R-CRAN-colorspace 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-labeling 
-Requires:         R-CRAN-ggiraph 
-Requires:         R-CRAN-DendSer 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-polycor 
-Requires:         R-CRAN-colorspace 
+Requires:         R-CRAN-reticulate 
+Requires:         R-methods 
+Requires:         R-CRAN-rlang 
 
 %description
-We provide a tidy data structure and visualisations for multiple or
-grouped variable correlations, general association measures scagnostics
-and other pairwise scores suitable for numerical, ordinal and nominal
-variables. Supported measures include distance correlation, maximal
-information, ace correlation, Kendall's tau, and polychoric correlation.
+Variational Autoencoded Multivariate Spatial Fay-Herriot models are
+designed to efficiently estimate population parameters in small area
+estimation. This package implements the variational generalized
+multivariate spatial Fay-Herriot model (VGMSFH) using 'NumPyro' and
+'PyTorch' backends, as demonstrated by Wang, Parker, and Holan (2025)
+<doi:10.48550/arXiv.2503.14710>. The 'vmsae' package provides utility
+functions to load weights of the pretrained variational autoencoders
+(VAEs) as well as tools to train custom VAEs tailored to users specific
+applications.
 
 %prep
 %setup -q -c -n %{packname}

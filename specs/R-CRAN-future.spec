@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future
-%global packver   1.40.0
+%global packver   1.49.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.40.0
+Version:          1.49.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Unified Parallel and Distributed Processing in R for Everyone
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-parallelly >= 1.43.0
+BuildRequires:    R-CRAN-parallelly >= 1.44.0
 BuildRequires:    R-CRAN-listenv >= 0.8.0
-BuildRequires:    R-CRAN-globals >= 0.16.1
+BuildRequires:    R-CRAN-globals >= 0.18.0
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-parallelly >= 1.43.0
+Requires:         R-CRAN-parallelly >= 1.44.0
 Requires:         R-CRAN-listenv >= 0.8.0
-Requires:         R-CRAN-globals >= 0.16.1
+Requires:         R-CRAN-globals >= 0.18.0
 Requires:         R-CRAN-digest 
 Requires:         R-parallel 
 Requires:         R-utils 

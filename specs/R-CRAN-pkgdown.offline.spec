@@ -1,34 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelPomp
-%global packver   1.7.0.0
+%global packname  pkgdown.offline
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Panel Partially Observed Markov Processes
+Summary:          Build 'pkgdown' Websites Offline
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pomp >= 4.5
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pomp >= 4.5
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pkgdown 
+Requires:         R-CRAN-pkgdown 
 
 %description
-Data analysis based on panel partially-observed Markov process (PanelPOMP)
-models. To implement such models, simulate them and fit them to panel
-data, 'panelPomp' extends some of the facilities provided for time series
-data by the 'pomp' package. Implemented methods include filtering (panel
-particle filtering) and maximum likelihood estimation (Panel Iterated
-Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
-Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
+Provides support for building 'pkgdown' websites without an internet
+connection. Works by bundling cached dependencies and implementing drop-in
+replacements for key 'pkgdown' functions. Enables package documentation
+websites to be built in environments where internet access is unavailable
+or restricted. For more details on generating 'pkgdown' websites, see
+Wickham et al. (2025) <doi:10.32614/CRAN.package.pkgdown>.
 
 %prep
 %setup -q -c -n %{packname}

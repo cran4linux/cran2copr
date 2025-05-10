@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelPomp
-%global packver   1.7.0.0
+%global packname  forensim
+%global packver   4.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          4.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Panel Partially Observed Markov Processes
+Summary:          Interpretation of Forensic DNA Mixtures
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pomp >= 4.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-Requires:         R-CRAN-pomp >= 4.5
+BuildRequires:    R-tcltk 
+BuildRequires:    R-CRAN-tcltk2 
+BuildRequires:    R-CRAN-tkrplot 
 Requires:         R-methods 
+Requires:         R-tcltk 
+Requires:         R-CRAN-tcltk2 
+Requires:         R-CRAN-tkrplot 
 
 %description
-Data analysis based on panel partially-observed Markov process (PanelPOMP)
-models. To implement such models, simulate them and fit them to panel
-data, 'panelPomp' extends some of the facilities provided for time series
-data by the 'pomp' package. Implemented methods include filtering (panel
-particle filtering) and maximum likelihood estimation (Panel Iterated
-Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
-Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
+Statistical methods and simulation tools for the interpretation of
+forensic DNA mixtures. The methods implemented are described in Haned et
+al. (2011) <doi:10.1111/j.1556-4029.2010.01550.x>, Haned et al. (2012)
+<doi:10.1016/j.fsigen.2012.11.002> and Gill & Haned (2013)
+<doi:10.1016/j.fsigen.2012.08.008>.
 
 %prep
 %setup -q -c -n %{packname}

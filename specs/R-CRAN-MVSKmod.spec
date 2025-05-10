@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Apoderoides
-%global packver   3.0.1
+%global packname  MVSKmod
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Prioritize and Delete Erroneous Taxa in a Large Phylogenetic Tree
+Summary:          Matrix-Variate Skew Linear Regression Models
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,19 +16,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppProgress 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppProgress 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Bessel 
+BuildRequires:    R-CRAN-clusterGeneration 
+BuildRequires:    R-CRAN-DistributionUtils 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-CRAN-maxLik 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-Bessel 
+Requires:         R-CRAN-clusterGeneration 
+Requires:         R-CRAN-DistributionUtils 
+Requires:         R-CRAN-matlib 
+Requires:         R-CRAN-maxLik 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-pracma 
 
 %description
-Finds, prioritizes and deletes erroneous taxa in a phylogenetic tree. This
-package calculates scores for taxa in a tree. Higher score means the taxon
-is more erroneous. If the score is zero for a taxon, the taxon is not
-erroneous. This package also can remove all erroneous taxa automatically
-by iterating score calculation and pruning taxa with the highest score.
+An implementation of the alternating expectation conditional maximization
+(AECM) algorithm for matrix-variate variance gamma (MVVG) and
+normal-inverse Gaussian (MVNIG) linear models. These models are designed
+for settings of multivariate analysis with clustered non-uniform
+observations and correlated responses. The package includes fitting and
+prediction functions for both models, and an example dataset from a
+periodontal on Gullah-speaking African Americans, with responses in
+gaad_res, and covariates in gaad_cov. For more details on the
+matrix-variate distributions used, see Gallaugher & McNicholas (2019)
+<doi:10.1016/j.spl.2018.08.012>.
 
 %prep
 %setup -q -c -n %{packname}

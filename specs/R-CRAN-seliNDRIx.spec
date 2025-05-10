@@ -1,49 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGIRread
-%global packver   1.0.5
+%global packname  seliNDRIx
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wearable Accelerometer Data File Readers
+Summary:          Construction of Selection Index
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-psych 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
 
 %description
-Reads data collected from wearable acceleratometers as used in sleep and
-physical activity research. Currently supports file formats: binary data
-from 'GENEActiv' <https://activinsights.com/>, .bin-format from GENEA
-devices (not for sale), and .cwa-format from 'Axivity'
-<https://axivity.com>. Further, it has functions for reading text files
-with epoch level aggregates from 'Actical', 'Fitbit', 'Actiwatch',
-'ActiGraph', and 'PhilipsHealthBand'. Primarily designed to complement R
-package GGIR <https://CRAN.R-project.org/package=GGIR>.
+Selection index is one of the efficient and acurrate method for selection
+of animals. This package is useful for construction of selection indices.
+It uses mixed and random model least squares analysis to estimate the
+heritability of traits and genetic correlation between traits. The package
+uses the sire model as it is considered as random effect. The genetic and
+phenotypic (co)variances along with the relative economic values are used
+to construct the selection index for any number of traits. It also
+estimates the accuracy of the index and the genetic gain expected for
+different traits. Fisher (1936) <doi:10.1111/j.1469-1809.1936.tb02137.x>.
 
 %prep
 %setup -q -c -n %{packname}

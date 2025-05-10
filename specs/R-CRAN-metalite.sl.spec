@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  metalite.sl
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Subject-Level Analysis Using 'metalite'
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-metalite 
 BuildRequires:    R-CRAN-metalite.ae 
-BuildRequires:    R-CRAN-forestly 
 BuildRequires:    R-CRAN-r2rtf 
 BuildRequires:    R-CRAN-reactable 
 BuildRequires:    R-CRAN-stringr 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-uuid
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-metalite 
 Requires:         R-CRAN-metalite.ae 
-Requires:         R-CRAN-forestly 
 Requires:         R-CRAN-r2rtf 
 Requires:         R-CRAN-reactable 
 Requires:         R-CRAN-stringr 

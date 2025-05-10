@@ -1,44 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fmds
+%global packname  days2lessons
 %global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multidimensional Scaling Development Kit
+Summary:          Distributes Teachers Lessons On Days in a Balanced Manner
 
-License:          BSD_2_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-graphics 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 
 %description
-Multidimensional scaling (MDS) functions for various tasks that are beyond
-the beta stage and way past the alpha stage. Currently, options are
-available for weights, restrictions, classical scaling or principal
-coordinate analysis, transformations (linear, power, Box-Cox, spline,
-ordinal), outlier mitigation (rdop), out-of-sample estimation (predict),
-negative dissimilarities, fast and faster executions with low memory
-footprints, penalized restrictions, cross-validation-based penalty
-selection, supplementary variable estimation (explain), additive constant
-estimation, mixed measurement level distance calculation, restricted
-classical scaling, etc. More will come in the future. References. Busing
-(2024) "A Simple Population Size Estimator for Local Minima Applied to
-Multidimensional Scaling". Manuscript submitted for publication. Busing
-(2025) "Node Localization by Multidimensional Scaling with Iterative
-Majorization". Manuscript submitted for publication. Busing (2025) "Faster
-Multidimensional Scaling". Manuscript in preparation. Barroso and Busing
-(2025) "e-RDOP, Relative Density-Based Outlier Probabilities, Extended to
-Proximity Mapping". Manuscript submitted for publication.
+The set of teacher/class lessons is completed with a column that allocates
+a day to each lesson, so that the distribution of lessons by day, by
+class, and by teacher is as uniform as possible.
+<https://vlad.bazon.net/>.
 
 %prep
 %setup -q -c -n %{packname}

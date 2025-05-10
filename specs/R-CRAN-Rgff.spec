@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rgff
-%global packver   0.1.6
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Utilities for GFF Files
 
@@ -21,8 +21,7 @@ BuildRequires:    R-CRAN-tibble >= 3.1.6
 BuildRequires:    R-CRAN-withr >= 2.4.3
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-stringi >= 1.7.6
-BuildRequires:    R-CRAN-RJSONIO >= 1.3.1.6
-BuildRequires:    R-CRAN-tidyr >= 1.1.4
+BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 BuildRequires:    R-CRAN-dplyr >= 1.0.7
 BuildRequires:    R-CRAN-data.tree >= 1.0.0
 BuildRequires:    R-CRAN-rlang >= 0.4.12
@@ -30,8 +29,7 @@ Requires:         R-CRAN-tibble >= 3.1.6
 Requires:         R-CRAN-withr >= 2.4.3
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-stringi >= 1.7.6
-Requires:         R-CRAN-RJSONIO >= 1.3.1.6
-Requires:         R-CRAN-tidyr >= 1.1.4
+Requires:         R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-dplyr >= 1.0.7
 Requires:         R-CRAN-data.tree >= 1.0.0
 Requires:         R-CRAN-rlang >= 0.4.12

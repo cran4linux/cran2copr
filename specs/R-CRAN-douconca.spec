@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  douconca
-%global packver   1.2.2
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Double Constrained Correspondence Analysis for Trait-Environment Analysis in Ecology
 
@@ -49,7 +49,8 @@ multivariate analysis corresponds with an unweighted (multi-trait)
 community-level analysis, instead of being weighted. The first step of the
 algorithm uses vegan::cca(). The second step uses wrda() but vegan::rda()
 if the site weights are equal. This version has a predict() function. For
-details see ter Braak et al. 2018 <doi:10.1007/s10651-017-0395-x>.
+details see ter Braak et al. 2018 <doi:10.1007/s10651-017-0395-x>. and ter
+Braak & van Rossum 2025 <doi:10.1016/j.ecoinf.2025.103143>.
 
 %prep
 %setup -q -c -n %{packname}

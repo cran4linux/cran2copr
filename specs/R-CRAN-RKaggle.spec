@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RKaggle
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Kaggle' Dataset Downloader 'API'
 
@@ -23,16 +23,16 @@ BuildRequires:    R-CRAN-withr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-readODS 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-sf 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-readODS 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-sf 
 
 %description
 Easily download datasets from Kaggle <https://www.kaggle.com/> directly

@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelPomp
-%global packver   1.7.0.0
+%global packname  codestral
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Panel Partially Observed Markov Processes
+Summary:          Chat and FIM with 'Codestral'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pomp >= 4.5
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pomp >= 4.5
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
 
 %description
-Data analysis based on panel partially-observed Markov process (PanelPOMP)
-models. To implement such models, simulate them and fit them to panel
-data, 'panelPomp' extends some of the facilities provided for time series
-data by the 'pomp' package. Implemented methods include filtering (panel
-particle filtering) and maximum likelihood estimation (Panel Iterated
-Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
-Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
+Create an addin in 'Rstudio' to do fill-in-the-middle (FIM) and chat with
+latest Mistral AI models for coding, 'Codestral' and 'Codestral Mamba'.
+For more details about 'Mistral AI API':
+<https://docs.mistral.ai/getting-started/quickstart/> and
+<https://docs.mistral.ai/api/>. For more details about 'Codestral' model:
+<https://mistral.ai/news/codestral>; about 'Codestral Mamba':
+<https://mistral.ai/news/codestral-mamba>.
 
 %prep
 %setup -q -c -n %{packname}

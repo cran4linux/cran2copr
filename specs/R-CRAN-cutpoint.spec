@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGIRread
-%global packver   1.0.5
+%global packname  cutpoint
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Wearable Accelerometer Data File Readers
+Summary:          Estimate Cutpoints of Metric Variables in the Context of Cox Regression
 
-License:          Apache License (== 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-RcppAlgos 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-matlab 
-BuildRequires:    R-CRAN-bitops 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-digest 
-Requires:         R-CRAN-Rcpp >= 0.12.10
+Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-RcppAlgos 
 Requires:         R-stats 
+Requires:         R-CRAN-survival 
 Requires:         R-utils 
-Requires:         R-CRAN-matlab 
-Requires:         R-CRAN-bitops 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-digest 
 
 %description
-Reads data collected from wearable acceleratometers as used in sleep and
-physical activity research. Currently supports file formats: binary data
-from 'GENEActiv' <https://activinsights.com/>, .bin-format from GENEA
-devices (not for sale), and .cwa-format from 'Axivity'
-<https://axivity.com>. Further, it has functions for reading text files
-with epoch level aggregates from 'Actical', 'Fitbit', 'Actiwatch',
-'ActiGraph', and 'PhilipsHealthBand'. Primarily designed to complement R
-package GGIR <https://CRAN.R-project.org/package=GGIR>.
+Estimate one or two cutpoints of a metric or ordinal-scaled variable in
+the multivariable context of survival data or time-to-event data.
+Visualise the cutpoint estimation process using contour plots, index
+plots, and spline plots. It is also possible to estimate cutpoints based
+on the assumption of a U-shaped or inverted U-shaped relationship between
+the predictor and the hazard ratio. Govindarajulu, U., and Tarpey, T.
+(2022) <doi:10.1080/02664763.2020.1846690>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ROCket
+%global packname  DTEBOP2
 %global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple and Fast ROC Curves
+Summary:          Bayesian Optimal Phase II Randomized Clinical Trial Design with Delayed Outcomes
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.13.0
-Requires:         R-CRAN-data.table >= 1.13.0
+BuildRequires:    R-CRAN-truncdist 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-invgamma 
+Requires:         R-CRAN-truncdist 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-invgamma 
 
 %description
-A set of functions for receiver operating characteristic (ROC) curve
-estimation and area under the curve (AUC) calculation. All functions are
-designed to work with aggregated data; nevertheless, they can also handle
-raw samples. In 'ROCket', we distinguish two types of ROC curve
-representations: 1) parametric curves - the true positive rate (TPR) and
-the false positive rate (FPR) are functions of a parameter (the score), 2)
-functions - TPR is a function of FPR. There are several ROC curve
-estimation methods available. An introduction to the mathematical
-background of the implemented methods (and much more) can be found in de
-Zea Bermudez, Gonçalves, Oliveira & Subtil (2014) and Cai & Pepe (2004).
+Implements a Bayesian Optimal Phase II design (DTE-BOP2) for trials with
+delayed treatment effects, particularly relevant to immunotherapy studies
+where treatment benefits may emerge after a delay. The method builds upon
+the BOP2 framework and incorporates uncertainty in the delay timepoint
+through a truncated gamma prior, informed by expert knowledge or default
+settings. Supports two-arm trial designs with functionality for sample
+size determination, interim and final analyses, and comprehensive
+simulation under various delay and design scenarios. Ensures rigorous type
+I and II error control while improving trial efficiency and power when the
+delay effect is present. A manuscript describing the methodology is under
+development and will be formally referenced upon publication.
 
 %prep
 %setup -q -c -n %{packname}

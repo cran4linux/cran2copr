@@ -1,34 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelPomp
-%global packver   1.7.0.0
+%global packname  MazamaRollUtils
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Panel Partially Observed Markov Processes
+Summary:          Efficient Rolling Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pomp >= 4.5
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pomp >= 4.5
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.10
+Requires:         R-CRAN-Rcpp >= 1.0.10
 
 %description
-Data analysis based on panel partially-observed Markov process (PanelPOMP)
-models. To implement such models, simulate them and fit them to panel
-data, 'panelPomp' extends some of the facilities provided for time series
-data by the 'pomp' package. Implemented methods include filtering (panel
-particle filtering) and maximum likelihood estimation (Panel Iterated
-Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
-Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
+A suite of compiled functions calculating rolling mins, means, maxes and
+other statistics. This package is designed to meet the needs of data
+processing systems for environmental time series.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  panelPomp
-%global packver   1.7.0.0
+%global packname  gglinedensity
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inference for Panel Partially Observed Markov Processes
+Summary:          Make DenseLines Heatmaps with 'ggplot2'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-pomp >= 4.5
-BuildRequires:    R-methods 
-Requires:         R-CRAN-pomp >= 4.5
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vctrs 
 
 %description
-Data analysis based on panel partially-observed Markov process (PanelPOMP)
-models. To implement such models, simulate them and fit them to panel
-data, 'panelPomp' extends some of the facilities provided for time series
-data by the 'pomp' package. Implemented methods include filtering (panel
-particle filtering) and maximum likelihood estimation (Panel Iterated
-Filtering) as proposed in Breto, Ionides and King (2020) "Panel Data
-Analysis via Mechanistic Models" <doi:10.1080/01621459.2019.1604367>.
+Create a raster plot of line density using a 'ggplot2' statistic
+implementing the DenseLines algorithm, which "normalizes time series by
+the arc length to compute accurate densities" (Moritz and Fisher, 2018)
+<doi:10.48550/arXiv.1808.06019>.
 
 %prep
 %setup -q -c -n %{packname}

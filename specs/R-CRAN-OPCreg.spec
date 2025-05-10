@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OPCreg
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Online Principal Component Regression for Online Datasets
 
@@ -20,11 +20,9 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-car 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-car 
 
 %description
 The online principal component regression method can process the online

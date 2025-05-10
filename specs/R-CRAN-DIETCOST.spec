@@ -1,54 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  forestdata
-%global packver   0.3.0
+%global packname  DIETCOST
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Download Forestry Data
+Summary:          Calculate the Cost and Environmental Impact of a Ideal Diet
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-archive 
-BuildRequires:    R-CRAN-foreign 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-glue 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xlsx 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-archive 
-Requires:         R-CRAN-foreign 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-glue 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-stats 
+Requires:         R-CRAN-xlsx 
+Requires:         R-CRAN-magrittr 
 
 %description
-Functions for downloading forestry and land use data for use in spatial
-analysis. This packages offers a user-friendly solution to quickly obtain
-datasets such as forest height, forest types, tree species under various
-climate change scenarios, or land use data among others.
+Easily perform a Monte Carlo simulation to evaluate the cost and carbon,
+ecological, and water footprints of a set of ideal diets. Pre-processing
+tools are also available to quickly treat the data, along with basic
+statistical features to analyze the simulation results — including the
+ability to establish confidence intervals for selected parameters, such as
+nutrients and price/emissions. A 'standard version' of the datasets
+employed is included as well, allowing users easy access to customization.
+This package brings to R the 'Python' software initially developed by
+Vandevijvere, Young, Mackay, Swinburn and Gahegan (2018)
+<doi:10.1186/s12966-018-0648-6>.
 
 %prep
 %setup -q -c -n %{packname}
