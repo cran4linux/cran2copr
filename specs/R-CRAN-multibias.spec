@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multibias
-%global packver   1.7
+%global packver   1.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          1.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simultaneous Multi-Bias Adjustment
+Summary:          Multiple Bias Analysis in Causal Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -20,10 +20,12 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.3
 BuildRequires:    R-CRAN-rlang >= 1.1.1
+BuildRequires:    R-CRAN-broom >= 1.0.5
 BuildRequires:    R-CRAN-lifecycle >= 1.0.3
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-dplyr >= 1.1.3
 Requires:         R-CRAN-rlang >= 1.1.1
+Requires:         R-CRAN-broom >= 1.0.5
 Requires:         R-CRAN-lifecycle >= 1.0.3
 
 %description

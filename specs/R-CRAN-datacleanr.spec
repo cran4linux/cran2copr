@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  datacleanr
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive and Reproducible Data Cleaning
 
@@ -30,7 +31,6 @@ BuildRequires:    R-CRAN-summarytools >= 0.9.6
 BuildRequires:    R-CRAN-shinyFiles >= 0.8.0
 BuildRequires:    R-CRAN-clipr >= 0.7.1
 BuildRequires:    R-CRAN-shinyWidgets >= 0.5.4
-BuildRequires:    R-CRAN-htmltools >= 0.5
 BuildRequires:    R-CRAN-rlang >= 0.4.9
 BuildRequires:    R-CRAN-purrr >= 0.3.4
 BuildRequires:    R-CRAN-DT >= 0.16
@@ -54,7 +54,6 @@ Requires:         R-CRAN-summarytools >= 0.9.6
 Requires:         R-CRAN-shinyFiles >= 0.8.0
 Requires:         R-CRAN-clipr >= 0.7.1
 Requires:         R-CRAN-shinyWidgets >= 0.5.4
-Requires:         R-CRAN-htmltools >= 0.5
 Requires:         R-CRAN-rlang >= 0.4.9
 Requires:         R-CRAN-purrr >= 0.3.4
 Requires:         R-CRAN-DT >= 0.16

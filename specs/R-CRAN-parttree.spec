@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  parttree
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualize Simple 2-D Decision Tree Partitions
 
@@ -14,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tinyplot >= 0.2.0
+BuildRequires:    R-CRAN-tinyplot >= 0.3.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-partykit 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rpart 
-Requires:         R-CRAN-tinyplot >= 0.2.0
+Requires:         R-CRAN-tinyplot >= 0.3.0
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-CRAN-data.table 

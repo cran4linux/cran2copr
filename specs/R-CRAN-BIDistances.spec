@@ -1,53 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  red
-%global packver   1.6.2
+%global packname  BIDistances
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          IUCN Redlisting Tools
+Summary:          Bioinformatic Distances
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-BAT 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.8
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-parallelDist 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-DataVisualizations 
+BuildRequires:    R-CRAN-diptest 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-vegan 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-predicts 
-Requires:         R-CRAN-BAT 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.8
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-parallelDist 
+Requires:         R-parallel 
+Requires:         R-CRAN-DataVisualizations 
+Requires:         R-CRAN-diptest 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-vegan 
 Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-predicts 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Includes algorithms to facilitate the assessment of extinction risk of
-species according to the IUCN (International Union for Conservation of
-Nature, see <https://iucn.org/> for more information) red list criteria.
+A selection of distances measures for bioinformatics data. Other important
+distance measures for bioinformatics data are selected from the R package
+'parallelDist'. A special distance measure for the Gene Ontology is
+available.
 
 %prep
 %setup -q -c -n %{packname}

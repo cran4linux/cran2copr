@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  betareg
-%global packver   3.2-2
+%global packver   3.2-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.2
+Version:          3.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Beta Regression
 
@@ -40,7 +40,8 @@ Beta regression for modeling beta-distributed dependent variables on the
 open unit interval (0, 1), e.g., rates and proportions, see Cribari-Neto
 and Zeileis (2010) <doi:10.18637/jss.v034.i02>. Moreover, extended-support
 beta regression models can accommodate dependent variables with boundary
-observations at 0 and/or 1. For the classical beta regression model,
+observations at 0 and/or 1, see Kosmidis and Zeileis (2024)
+<doi:10.48550/arXiv.2409.07233>. For the classical beta regression model,
 alternative specifications are provided: Bias-corrected and bias-reduced
 estimation, finite mixture models, and recursive partitioning for beta
 regression, see Grün, Kosmidis, and Zeileis (2012)

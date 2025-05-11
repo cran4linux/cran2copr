@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sivs
-%global packver   0.2.10
+%global packver   0.2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.10
+Version:          0.2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stable Iterative Variable Selection
 
@@ -33,10 +33,9 @@ Requires:         R-CRAN-varhandle
 Requires:         R-utils 
 
 %description
-An iterative feature selection method (manuscript submitted) that
-internally utilizes various Machine Learning methods that have embedded
-feature reduction in order to shrink down the feature space into a small
-and yet robust set.
+An iterative feature selection method that internally utilizes various
+Machine Learning methods that have embedded feature reduction in order to
+shrink down the feature space into a small and yet robust set.
 
 %prep
 %setup -q -c -n %{packname}
