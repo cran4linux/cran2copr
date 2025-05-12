@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  buildmer
-%global packver   2.11
+%global packver   2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.11
+Version:          2.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stepwise Elimination and Term Reordering for Mixed-Effects Regression
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-lme4
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-CRAN-nlme 
+BuildRequires:    R-CRAN-reformulas 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-graphics 
@@ -29,6 +30,7 @@ Requires:         R-CRAN-lme4
 Requires:         R-methods 
 Requires:         R-CRAN-mgcv 
 Requires:         R-CRAN-nlme 
+Requires:         R-CRAN-reformulas 
 Requires:         R-stats 
 Requires:         R-utils 
 

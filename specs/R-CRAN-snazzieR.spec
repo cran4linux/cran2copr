@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  snazzieR
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chic and Sleek Functions for Beautiful Statisticians
 
@@ -20,17 +20,22 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-kableExtra 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-kableExtra 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
 
 %description
 Because your linear models deserve better than console output. A sleek
 color palette and kable styling to make your regression results look
-sharper than they are. See the package manual at
-<https://github.com/JesusButForGayPeople/snazzieR/releases/download/v0.1.0/snazzieR_0.1.0.pdf>.
+sharper than they are. Includes support for Partial Least Squares (PLS)
+regression via both the SVD and NIPALS algorithms, along with a unified
+interface for model fitting and fabulous LaTeX and console output
+formatting. See the package manual at
+<https://github.com/JesusButForGayPeople/snazzieR/releases/download/v0.1.1/snazzieR_0.1.1.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

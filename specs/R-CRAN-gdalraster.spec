@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gdalraster
-%global packver   1.12.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bindings to the 'Geospatial Data Abstraction Library' Raster API
+Summary:          Bindings to 'GDAL'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,9 +21,11 @@ BuildRequires:    R-CRAN-bit64
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-stats 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-wk 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-RcppInt64 
 Requires:         R-CRAN-Rcpp >= 1.0.7
@@ -31,35 +33,44 @@ Requires:         R-CRAN-bit64
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-methods 
+Requires:         R-CRAN-nanoarrow 
 Requires:         R-stats 
 Requires:         R-tools 
 Requires:         R-utils 
+Requires:         R-CRAN-wk 
 Requires:         R-CRAN-xml2 
 
 %description
-Interface to the Raster API of the 'Geospatial Data Abstraction Library'
-('GDAL', <https://gdal.org>). Bindings are implemented in an exposed C++
-class encapsulating a 'GDALDataset' and its raster band objects, along
-with several stand-alone functions. These support manual creation of
-uninitialized datasets, creation from existing raster as template,
-read/set dataset parameters, low level I/O, color tables, raster attribute
-tables, virtual raster (VRT), and 'gdalwarp' wrapper for reprojection and
-mosaicing. Includes 'GDAL' algorithms ('dem_proc()', 'polygonize()',
-'rasterize()', etc.), and functions for coordinate transformation and
-spatial reference systems. Calling signatures resemble the native C, C++
-and Python APIs provided by the 'GDAL' project. Includes raster 'calc()'
-to evaluate a given R expression on a layer or stack of layers, with pixel
-x/y available as variables in the expression; and raster 'combine()' to
-identify and count unique pixel combinations across multiple input layers,
-with optional output of the pixel-level combination IDs. Provides raster
-display using base 'graphics'. Bindings to a subset of the 'OGR' API are
-also included for managing vector data sources. Bindings to a subset of
-the Virtual Systems Interface ('VSI') are also included to support
-operations on 'GDAL' virtual file systems. These are general utility
-functions that abstract file system operations on URLs, cloud storage
-services, 'Zip'/'GZip'/'7z'/'RAR' archives, and in-memory files.
-'gdalraster' may be useful in applications that need scalable, low-level
-I/O, or prefer a direct 'GDAL' API.
+API bindings to the Geospatial Data Abstraction Library ('GDAL',
+<https://gdal.org>). Implements the 'GDAL' Raster and Vector Data Models.
+Bindings are implemented with 'Rcpp' modules. Exposed C++ classes and
+stand-alone functions wrap much of the 'GDAL' API and provide additional
+functionality. Calling signatures resemble the native C, C++ and Python
+APIs provided by the 'GDAL' project. Class 'GDALRaster' encapsulates a
+'GDALDataset' and its raster band objects. Class 'GDALVector' encapsulates
+an 'OGRLayer' and the 'GDALDataset' that contains it. Class 'VSIFile'
+provides bindings to the 'GDAL' 'VSIVirtualHandle' API. Additional classes
+include 'CmbTable' for counting unique combinations of integers, and
+'RunningStats' for computing summary statistics efficiently on large data
+streams. C++ stand-alone functions provide bindings to most 'GDAL' raster
+and vector utilities including 'OGR' facilities for vector geoprocessing,
+several algorithms, the Geometry API ('GEOS' via 'GDAL' headers), the
+Spatial Reference Systems API, and methods for coordinate transformation.
+Bindings to the Virtual Systems Interface ('VSI') API implement standard
+file system operations, abstracted for URLs, cloud storage services,
+'Zip'/'GZip'/'7z'/'RAR', in-memory files, as well as regular local file
+systems. This provides a single interface for operating on file system
+objects that works the same for any storage backend. A custom raster
+calculator evaluates a user-defined R expression on a layer or stack of
+layers, with pixel x/y available as variables in the expression. Raster
+'combine()' identifies and counts unique pixel combinations across
+multiple input layers, with optional raster output of the pixel-level
+combination IDs. Basic plotting capability is provided for raster and
+vector display. 'gdalraster' leans toward minimalism and the use of
+simple, lightweight objects for holding raw data. Currently, only minimal
+S3 class interfaces have been implemented for selected R objects that
+contain spatial data. 'gdalraster' may be useful in applications that need
+scalable, low-level I/O, or prefer a direct 'GDAL' API.
 
 %prep
 %setup -q -c -n %{packname}

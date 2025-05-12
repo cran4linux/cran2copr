@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PracTools
-%global packver   1.6
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Designing and Weighting Survey Samples
 
@@ -38,8 +38,9 @@ for survey samples using stratified or clustered one-, two-, and
 three-stage sample designs, and single-stage audit sample designs.
 Functions are included that will group geographic units accounting for
 distances apart and measures of size. Other functions compute variance
-components for multistage designs and sample sizes in two-phase designs. A
-number of example data sets are included.
+components for multistage designs, sample sizes in two-phase designs, and
+a stopping rule for ending data collection. A number of example data sets
+are included.
 
 %prep
 %setup -q -c -n %{packname}

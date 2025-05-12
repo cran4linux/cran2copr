@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  calmr
-%global packver   0.6.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Canonical Associative Learning Models and their Representations
 
@@ -24,12 +24,15 @@ BuildRequires:    R-CRAN-GA
 BuildRequires:    R-CRAN-ggnetwork 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
@@ -37,12 +40,15 @@ Requires:         R-CRAN-GA
 Requires:         R-CRAN-ggnetwork 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-methods 
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
 Implementations of canonical associative learning models, with tools to
