@@ -1,37 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  flobr
-%global packver   0.2.3
+%global packname  rapr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Convert Files to and from Binary Objects (BLOBs)
+Summary:          Interface to 'Rangeland Analysis Platform' (RAP) Products
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-blob 
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-tools 
-Requires:         R-CRAN-blob 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-terra 
+Requires:         R-CRAN-terra 
 
 %description
-Converts files to and from flobs.  A flob is a file that was read into
-binary in integer-mode as little endian, saved as the single element of a
-named list (where the name is the name of the original file) and then
-serialized before being coerced into a blob.  Flobs are useful for writing
-and reading files to and from databases.
+Provides access to 'Rangeland Analysis Platform' (RAP) products
+<https://rangelands.app/products> for arbitrary extents via 'GDAL' virtual
+file system.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mooplot
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Visualizations for Multi-Objective Optimization
 
@@ -18,17 +18,17 @@ BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-collapse >= 2.0.8
+BuildRequires:    R-CRAN-moocore >= 0.1.5
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-moocore 
 Requires:         R-CRAN-collapse >= 2.0.8
+Requires:         R-CRAN-moocore >= 0.1.5
 Requires:         R-CRAN-Rdpack 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-moocore 
 
 %description
 Visualization of multi-dimensional data arising in multi-objective

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidyAML
-%global packver   0.0.5
+%global packver   0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Machine Learning with 'tidymodels'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tune >= 1.3.0
 BuildRequires:    R-CRAN-workflows >= 1.1.2
 BuildRequires:    R-CRAN-rsample >= 1.1.0
 BuildRequires:    R-CRAN-dplyr >= 1.0.10
@@ -29,6 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-broom 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-tune >= 1.3.0
 Requires:         R-CRAN-workflows >= 1.1.2
 Requires:         R-CRAN-rsample >= 1.1.0
 Requires:         R-CRAN-dplyr >= 1.0.10

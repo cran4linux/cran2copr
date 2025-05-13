@@ -1,33 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sundialr
-%global packver   0.1.6.2
+%global packname  trackopt
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interface to 'SUNDIALS' Ordinary Differential Equation (ODE) Solvers
+Summary:          Track Numerical Optimization
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.12
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-optimizeR >= 1.2.0
+BuildRequires:    R-CRAN-oeli >= 0.7.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-optimizeR >= 1.2.0
+Requires:         R-CRAN-oeli >= 0.7.2
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-stats 
+Requires:         R-CRAN-tibble 
+Requires:         R-utils 
 
 %description
-Provides a way to call the functions in 'SUNDIALS' C ODE solving library
-(<https://computing.llnl.gov/projects/sundials>). Currently the serial
-version of ODE solver, 'CVODE', sensitivity calculator 'CVODES' and
-differential algebraic solver 'IDA' from the 'SUNDIALS' library are
-implemented. The package requires ODE to be written as an 'R' or 'Rcpp'
-function and does not require the 'SUNDIALS' library to be installed on
-the local machine.
+Tracks parameter value, gradient, and Hessian at each iteration of
+numerical optimizers. Useful for analyzing optimization progress,
+diagnosing issues, and studying convergence behavior.
 
 %prep
 %setup -q -c -n %{packname}

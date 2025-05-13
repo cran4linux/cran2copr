@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stgam
-%global packver   0.0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially and Temporally Varying Coefficient Models Using Generalized Additive Models
 
@@ -14,47 +14,40 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mgcv >= 1.9.1
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-metR 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-mgcv >= 1.9.1
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
-Requires:         R-grDevices 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-metR 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-dplyr 
 
 %description
 A framework for specifying spatially, temporally and
 spatially-and-temporally varying coefficient models using Generalized
-Additive Models with Gaussian Process smooths. The smooths are
-parameterised with location and / or time attributes. Importantly the
-framework supports the investigation of the presence and nature of any
-space-time dependencies in the data, allows the user to evaluate different
-model forms (specifications) and to pick the most probable model or to
-combine multiple varying coefficient models using Bayesian Model
-Averaging. For more details see: Brunsdon et al (2023)
-<doi:10.4230/LIPIcs.GIScience.2023.17>, Comber et al (2023)
-<doi:10.4230/LIPIcs.GIScience.2023.22> and Comber et al (2024)
-<doi:10.1080/13658816.2023.2270285>.
+Additive Models with smooths. The smooths are parameterised with location,
+time and predictor variables. The framework supports the investigation of
+the presence and nature of any space-time dependencies in the data by
+evaluating multiple model forms (specifications) using a Generalized
+Cross-Validation score. The workflow sequence is to: i) Prepare the data
+by lengthening it to have a single location and time variables for each
+observation. ii) Evaluate all possible spatial and/or temporal models in
+which each predictor is specified in different ways. iii) Evaluate each
+model and pick the best one. iv) Create the final model. v) Calculate the
+varying coefficient estimates to quantify how the relationships between
+the target and predictor variables vary over space, time or space-time.
+vi) Create maps, time series plots etc. For more details see: Comber et al
+(2023) <doi:10.4230/LIPIcs.GIScience.2023.22>, Comber et al (2024)
+<doi:10.1080/13658816.2023.2270285> and Comber et al (2004)
+<doi:10.3390/ijgi13120459>.
 
 %prep
 %setup -q -c -n %{packname}

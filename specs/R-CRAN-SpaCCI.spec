@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SpaCCI
-%global packver   1.0.3
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatially Aware Cell-Cell Interaction Analysis
 
@@ -52,7 +52,7 @@ ligand-receptor pairs, including functions for local, regional, and global
 analysis using spatial transcriptomics data. Integrates with databases
 like 'CellChat' <http://www.cellchat.org/>, 'CellPhoneDB'
 <https://www.cellphonedb.org/>, 'Cellinker'
-<https://www.rna-society.org/cellinker/>, 'ICELLNET'
+<https://www.rna-society.org/cellinker/index.html>, 'ICELLNET'
 <https://github.com/soumelis-lab/ICELLNET>, and 'ConnectomeDB'
 <https://humanconnectome.org/software/connectomedb/> to identify
 ligand-receptor pairs, visualize interactions through heatmaps, chord

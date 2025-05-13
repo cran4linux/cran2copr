@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmap
-%global packver   4.0
+%global packver   4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0
+Version:          4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Maps
 
@@ -24,15 +24,17 @@ BuildRequires:    R-CRAN-cols4all >= 0.8
 BuildRequires:    R-CRAN-units >= 0.6.1
 BuildRequires:    R-CRAN-classInt >= 0.4.3
 BuildRequires:    R-CRAN-stars >= 0.4.2
-BuildRequires:    R-CRAN-leafem >= 0.1
+BuildRequires:    R-CRAN-leafem >= 0.2.4
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-leafgl 
 BuildRequires:    R-CRAN-leaflegend 
 BuildRequires:    R-CRAN-leafsync 
+BuildRequires:    R-CRAN-maptiles 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
@@ -45,15 +47,17 @@ Requires:         R-CRAN-cols4all >= 0.8
 Requires:         R-CRAN-units >= 0.6.1
 Requires:         R-CRAN-classInt >= 0.4.3
 Requires:         R-CRAN-stars >= 0.4.2
-Requires:         R-CRAN-leafem >= 0.1
+Requires:         R-CRAN-leafem >= 0.2.4
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-grid 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-leafgl 
 Requires:         R-CRAN-leaflegend 
 Requires:         R-CRAN-leafsync 
+Requires:         R-CRAN-maptiles 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 

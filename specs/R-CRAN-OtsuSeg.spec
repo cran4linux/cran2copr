@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  uniset
-%global packver   0.3.1
+%global packname  OtsuSeg
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dynamic Settings File
+Summary:          Raster Thresholding Using Otsu´s Algorithm
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-easycsv 
-Requires:         R-methods 
-Requires:         R-CRAN-easycsv 
+BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-raster 
+Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-sf 
 
 %description
-Any package (subsequently called 'target package') is enabled to provide
-its users an easily accessible, user-friendly and human readable text file
-where key=value pairs (used by functions defined in the target package)
-can be saved. This settings file lives in a location defined by the user
-of the target package, and its user-defined values remain unchanged even
-when the author of the target package is introducing or deleting keys, or
-when the target package is updated or re-installed.
+Provides tools to process raster data and apply Otsu-based thresholding
+for burned area mapping and other image segmentation tasks. Implements the
+method described by Otsu (1979) <doi:10.1109/TSMC.1979.4310076>, a
+data-driven technique that determines an optimal threshold by maximizing
+the inter-class variance of pixel intensities. It includes validation
+functions to assess segmentation accuracy against reference data using
+standard accuracy metrics such as precision, recall, and F1-score.
 
 %prep
 %setup -q -c -n %{packname}

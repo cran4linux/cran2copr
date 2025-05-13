@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epts
-%global packver   1.1.4
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Educational Platform Trials Simulator
 
@@ -27,6 +27,8 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-MCMCvis 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-eefAnalytics 
 Requires:         R-CRAN-lme4 
 Requires:         R-CRAN-ggplot2 
@@ -37,6 +39,8 @@ Requires:         R-stats
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-MCMCvis 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 
 %description
 Simulating multi-arm cluster-randomized, multi-site, and simple randomized
