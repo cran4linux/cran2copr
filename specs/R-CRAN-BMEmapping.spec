@@ -1,27 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mmconvert
-%global packver   0.12
+%global packname  BMEmapping
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mouse Map Converter
+Summary:          Spatial Interpolation using Bayesian Maximum Entropy (BME)
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-mvtnorm 
+Requires:         R-CRAN-mvtnorm 
 
 %description
-Convert mouse genome positions between the build 39 physical map and the
-genetic map of Cox et al. (2009) <doi:10.1534/genetics.109.105486>.
+Provides an accessible and robust implementation of core BME methodologies
+for spatial prediction. It enables the systematic integration of
+heterogeneous data sources including both hard data (precise measurements)
+and soft interval data (bounded or uncertain observations) while
+incorporating prior knowledge and supporting variogram-based spatial
+modeling. The BME methodology is described in Christakos (1990)
+<doi:10.1007/BF00890661> and Serre and Christakos (1999)
+<doi:10.1007/s004770050029>.
 
 %prep
 %setup -q -c -n %{packname}

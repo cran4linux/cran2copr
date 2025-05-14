@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  harbinger
-%global packver   1.1.727
+%global packver   1.2.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.727
+Version:          1.2.707
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Time Series Event Detection Framework
 
@@ -30,6 +30,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-strucchange 
 BuildRequires:    R-CRAN-tsmp 
+BuildRequires:    R-CRAN-tspredit 
 BuildRequires:    R-CRAN-wavelets 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-changepoint 
@@ -45,6 +46,7 @@ Requires:         R-stats
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-strucchange 
 Requires:         R-CRAN-tsmp 
+Requires:         R-CRAN-tspredit 
 Requires:         R-CRAN-wavelets 
 Requires:         R-CRAN-zoo 
 

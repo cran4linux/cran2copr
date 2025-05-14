@@ -1,34 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rlabkey
-%global packver   3.4.3
+%global packname  SACCR
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.3
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Exchange Between R and 'LabKey' Server
+Summary:          SA Counterparty Credit Risk under CRR2
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-httr 
+BuildArch:        noarch
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-Trading 
+Requires:         R-methods 
+Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-Trading 
 
 %description
-The 'LabKey' client library for R makes it easy for R users to load live
-data from a 'LabKey' Server, <https://www.labkey.com/>, into the R
-environment for analysis, provided users have permissions to read the
-data. It also enables R users to insert, update, and delete records stored
-on a 'LabKey' Server, provided they have appropriate permissions to do so.
+Computes the Exposure-At-Default based on the standardized approach of
+CRR2 (SA-CCR). The simplified version of SA-CCR has been included, as well
+as the OEM methodology. Multiple trade types of all the five major asset
+classes are being supported including the Other Exposure and, given the
+inheritance- based structure of the application, the addition of further
+trade types is straightforward. The application returns a list of trees
+per Counterparty and CSA after automatically separating the trades based
+on the Counterparty, the CSAs, the hedging sets, the netting sets and the
+risk factors. The basis and volatility transactions are also identified
+and treated in specific hedging sets whereby the corresponding penalty
+factors are applied. All the examples appearing on the regulatory papers
+(both for the margined and the unmargined workflow) have been implemented
+including the latest CRR2 developments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  classmap
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Classification Results
 
@@ -44,12 +44,13 @@ Requires:         R-CRAN-randomForest
 Tools to visualize the results of a classification of cases. The graphical
 displays include stacked plots, silhouette plots, quasi residual plots,
 and class maps. Implements the techniques described and illustrated in
-Raymaekers, Rousseeuw and Hubert (2021), Class maps for visualizing
-classification results, Technometrics, appeared online.
-<doi:10.1080/00401706.2021.1927849> (open access) and Raymaekers and
-Rousseeuw (2021), Silhouettes and quasi residual plots for neural nets and
-tree-based classifiers, <arXiv:2106.08814>. Examples can be found in the
-vignettes:
+Raymaekers J., Rousseeuw P.J., Hubert M. (2021). Class maps for
+visualizing classification results. emph{Technometrics}, 64(2), 151–165.
+doi{10.1080/00401706.2021.1927849} (open access) and Raymaekers J.,
+Rousseeuw P.J.(2021). Silhouettes and quasi residual plots for neural nets
+and tree-based classifiers. emph{Journal of Computational and Graphical
+Statistics}, 31(4), 1332–1343. doi{10.1080/10618600.2022.2050249}.
+Examples can be found in the vignettes:
 "Discriminant_analysis_examples","K_nearest_neighbors_examples",
 "Support_vector_machine_examples", "Rpart_examples",
 "Random_forest_examples", and "Neural_net_examples".

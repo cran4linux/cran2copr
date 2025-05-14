@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolbox
-%global packver   1.1.747
+%global packver   1.2.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.747
+Version:          1.2.707
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leveraging Experiment Lines to Data Analytics
 
@@ -25,14 +25,12 @@ BuildRequires:    R-CRAN-cluster
 BuildRequires:    R-CRAN-dbscan 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-elmNNRcpp 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-CRAN-randomForest 
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-tree 
-BuildRequires:    R-CRAN-reticulate 
 Requires:         R-CRAN-FNN 
 Requires:         R-CRAN-MLmetrics 
 Requires:         R-CRAN-caret 
@@ -41,14 +39,12 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-dbscan 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-elmNNRcpp 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-nnet 
 Requires:         R-CRAN-randomForest 
 Requires:         R-CRAN-reshape 
 Requires:         R-CRAN-tree 
-Requires:         R-CRAN-reticulate 
 
 %description
 The natural increase in the complexity of current research experiments and

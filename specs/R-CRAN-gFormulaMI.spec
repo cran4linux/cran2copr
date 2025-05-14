@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gFormulaMI
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          G-Formula for Causal Inference via Multiple Imputation
 
@@ -23,8 +23,8 @@ Requires:         R-CRAN-mice
 %description
 Implements the G-Formula method for causal inference with time-varying
 treatments and confounders using Bayesian multiple imputation methods, as
-described by Bartlett, Olarte Parra and Daniel (2023) <arXiv:2301.12026>.
-It creates multiple synthetic imputed datasets under treatment regimes of
+described by Bartlett et al (2025) <doi:10.1177/09622802251316971>. It
+creates multiple synthetic imputed datasets under treatment regimes of
 interest using the 'mice' package. These can then be analysed using rules
 developed for analysing multiple synthetic datasets.
 

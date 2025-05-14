@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heimdall
-%global packver   1.0.737
+%global packver   1.2.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.737
+Version:          1.2.707
 Release:          1%{?dist}%{?buildtag}
 Summary:          Drift Adaptable Models
 
@@ -35,14 +35,14 @@ Requires:         R-CRAN-car
 %description
 In streaming data analysis, it is crucial to detect significant shifts in
 the data distribution or the accuracy of predictive models over time, a
-phenomenon known as **concept drift**. The **heimdall** package aims to
-identify when concept drift occurs and provide methodologies for adapting
-models in non-stationary environments. It offers a range of
-state-of-the-art techniques for detecting concept drift and maintaining
-model performance. Additionally, **heimdall** provides tools for adapting
-models in response to these changes, ensuring continuous and accurate
-predictions in dynamic contexts. Methods for concept drift detection are
-described in Tavares (2022) <doi:10.1007/s12530-021-09415-z>.
+phenomenon known as concept drift. The package aims to identify when
+concept drift occurs and provide methodologies for adapting models in
+non-stationary environments. It offers a range of state-of-the-art
+techniques for detecting concept drift and maintaining model performance.
+Additionally, the package provides tools for adapting models in response
+to these changes, ensuring continuous and accurate predictions in dynamic
+contexts. Methods for concept drift detection are described in Tavares
+(2022) <doi:10.1007/s12530-021-09415-z>.
 
 %prep
 %setup -q -c -n %{packname}

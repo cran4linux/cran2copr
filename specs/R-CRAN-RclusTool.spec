@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RclusTool
-%global packver   0.91.6
+%global packver   0.91.61
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.91.6
+Version:          0.91.61
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Toolbox for Clustering and Classification of Data Frames
 

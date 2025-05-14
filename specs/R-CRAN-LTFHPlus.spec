@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LTFHPlus
-%global packver   2.1.2
+%global packver   2.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.2
+Version:          2.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implementation of LT-FH++
 
@@ -55,9 +55,9 @@ structures. LT-FH++ was first described in Pedersen, Emil M., et al.
 (2022) <doi:10.1016/j.ajhg.2022.01.009> as an extension to LT-FH with more
 flexible family structures, and again as the age-dependent liability
 threshold (ADuLT) model Pedersen, Emil M., et al. (2023)
-<doi:10.1038/s41467-023-41210-z> as an alternative to traditional
-time-to-event genome-wide association studies, where family history was
-not considered.
+<https://www.nature.com/articles/s41467-023-41210-z> as an alternative to
+traditional time-to-event genome-wide association studies, where family
+history was not considered.
 
 %prep
 %setup -q -c -n %{packname}

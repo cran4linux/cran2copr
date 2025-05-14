@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolboxdp
-%global packver   1.1.717
+%global packver   1.2.707
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.717
+Version:          1.2.707
 Release:          1%{?dist}%{?buildtag}
 Summary:          Python-Based Extensions for Data Analytics Workflows
 

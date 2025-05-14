@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  survivalAnalysis
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          High-Level Interface for Survival Analysis and Associated Plots
 
@@ -62,7 +63,9 @@ providing a clear and elegant syntax, support for use in a pipeline,
 structured output and plotting. Builds upon the 'survminer' package for
 Kaplan-Meier plots and provides a customizable implementation for forest
 plots. Kaplan & Meier (1958) <doi:10.1080/01621459.1958.10501452> Cox
-(1972) <JSTOR:2985181> Peto & Peto (1972) <JSTOR:2344317>.
+(1972) Journal of the Royal Statistical Society. Series B
+(Methodological), Vol. 34, No. 2 (1972), pp. 187-220 (34 pages) Peto &
+Peto (1972) <doi:10.2307/2344317>.
 
 %prep
 %setup -q -c -n %{packname}

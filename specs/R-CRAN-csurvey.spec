@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  csurvey
-%global packver   1.10
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Constrained Regression for Survey Data
 
@@ -14,29 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.1
+Requires:         R-core >= 4.1.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-survey >= 4.2.1
-BuildRequires:    R-CRAN-cgam >= 1.7
 BuildRequires:    R-CRAN-coneproj 
+BuildRequires:    R-CRAN-cgam 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-survey >= 4.2.1
-Requires:         R-CRAN-cgam >= 1.7
 Requires:         R-CRAN-coneproj 
+Requires:         R-CRAN-cgam 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-data.table 
 Requires:         R-stats 
 Requires:         R-CRAN-igraph 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-zeallot 
 
 %description
 Domain mean estimation with monotonicity or block monotone constraints.

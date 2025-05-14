@@ -1,27 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mmconvert
-%global packver   0.12
+%global packname  cdiWG2WS
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mouse Map Converter
+Summary:          Words and Gestures to Words and Sentences Score Conversion
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildArch:        noarch
 
 %description
-Convert mouse genome positions between the build 39 physical map and the
-genetic map of Cox et al. (2009) <doi:10.1534/genetics.109.105486>.
+Convert MacArthur-Bates Communicative Development Inventory Words and
+Gestures scores to would-be scores on Words and Sentences, based on
+modeling from the Stanford Wordbank <https://wordbank.stanford.edu/>. See
+Day et al. (2024) <doi:10.31234/osf.io/rwhcy>.
 
 %prep
 %setup -q -c -n %{packname}

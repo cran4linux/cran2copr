@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mmconvert
-%global packver   0.12
+%global packname  adverbial
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mouse Map Converter
+Summary:          Enhanced Adverbial Functions
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-Rcpp >= 0.12.12
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-pillar 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-pillar 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vctrs 
 
 %description
-Convert mouse genome positions between the build 39 physical map and the
-genetic map of Cox et al. (2009) <doi:10.1534/genetics.109.105486>.
+Provides new_partialised() and new_composed(), which extend partial() and
+compose() functions of 'purrr' to make it easier to extract and replace
+arguments and functions. It also has additional adverbial functions.
 
 %prep
 %setup -q -c -n %{packname}
