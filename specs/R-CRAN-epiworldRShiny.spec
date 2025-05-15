@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  epiworldRShiny
-%global packver   0.1-0
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'shiny' Wrapper of the R Package 'epiworldR'
 
@@ -14,27 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-epiworldR 
-BuildRequires:    R-CRAN-shinycssloaders 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-bslib 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
 Requires:         R-utils 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-epiworldR 
-Requires:         R-CRAN-shinycssloaders 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-bslib 
 
 %description
 R 'shiny' web apps for epidemiological Agent-Based Models. It provides a

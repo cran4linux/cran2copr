@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hce
-%global packver   0.7.0
+%global packver   0.7.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.7.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
@@ -23,12 +23,23 @@ Requires:         R-base
 Requires:         R-stats 
 
 %description
-Simulate and analyze hierarchical composite endpoints. Win odds is the
-main analysis method, but other win statistics (win ratio, net benefit)
-are also implemented, provided there is no censoring. See Gasparyan SB et
-al (2023) "Hierarchical Composite Endpoints in COVID-19: The DARE-19
-Trial." Case Studies in Innovative Clinical Trials, 95-148. Chapman;
-Hall/CRC. <doi:10.1201/9781003288640-7>.
+Simulate and analyze hierarchical composite endpoints. Win odds, also
+called Wilcoxon-Mann-Whitney or success odds, is the main analysis method.
+Other win statistics (win probability, win ratio, net benefit) are also
+implemented in the univariate case, provided there is no censoring. The
+win probability analysis is based on the Brunner-Munzel test and uses the
+DeLong-DeLong-Clarke-Pearson variance estimator, as described by Brunner
+and Konietschke (2025) in “An unbiased rank-based estimator of the
+Mann–Whitney variance including the case of ties” (Statistical Papers 66
+(1): 20, <doi:10.1007/s00362-024-01635-0>). Stratification and covariate
+adjustment are performed based on the methodology presented by Koch GG et
+al. in “Issues for covariance analysis of dichotomous and ordered
+categorical data from randomized clinical trials and non-parametric
+strategies for addressing them” (Statistics in Medicine 17 (15-16):
+1863–92). For a review, see Gasparyan SB et al (2021) “Adjusted win ratio
+with stratification: Calculation methods and interpretation” (Statistical
+Methods in Medical Research 30 (2): 580–611,
+<doi:10.1177/0962280220942558>).
 
 %prep
 %setup -q -c -n %{packname}

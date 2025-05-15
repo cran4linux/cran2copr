@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmap.cartogram
-%global packver   0.1
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extension to 'tmap' for Creating Cartograms
 
@@ -17,10 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tmap >= 4.0
+BuildRequires:    R-CRAN-tmap >= 4.1
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-cartogram 
-Requires:         R-CRAN-tmap >= 4.0
+Requires:         R-CRAN-tmap >= 4.1
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-cartogram 
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggalign
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A 'ggplot2' Extension for Consistent Axis Alignment
 
@@ -19,26 +19,28 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-vctrs >= 0.5.0
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-vctrs >= 0.5.0
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-cli 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-scales 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
 
 %description
 A 'ggplot2' extension offers various tools the creation of complex,

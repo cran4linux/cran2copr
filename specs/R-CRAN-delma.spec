@@ -1,42 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  usdoj
-%global packver   1.1.2
+%global packname  delma
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          For Accessing U.S. Department of Justice (DOJ) Open Data
+Summary:          Convert 'R Markdown' and 'Quarto' Documents to Ecological Metadata Language
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.4
-Requires:         R-core >= 3.4.4
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-anytime 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-lightparser 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-quarto 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-snakecase 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-anytime 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-xfun 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-lightparser 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-quarto 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-snakecase 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-xfun 
+Requires:         R-CRAN-xml2 
 
 %description
-Fetch data from the
-<https://www.justice.gov/developer/api-documentation/api_v1> API such as
-press releases, blog entries, and speeches. Optional parameters allow
-users to specify the number of results starting from the earliest or
-latest entries, and whether these results contain keywords. Data is
-cleaned for analysis and returned in a dataframe.
+Ecological Metadata Language or 'EML' is a long-established format for
+describing ecological datasets to facilitate sharing and re-use. Because
+'EML' is effectively a modified 'xml' schema, however, it is challenging
+to write and manipulate for non-expert users. 'delma' supports users to
+write metadata statements in 'R Markdown' or 'Quarto markdown' format, and
+parse them to 'EML' and (optionally) back again.
 
 %prep
 %setup -q -c -n %{packname}
