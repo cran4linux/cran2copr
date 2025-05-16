@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  beastt
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Evaluation, Analysis, and Simulation Software Tools for Trials
 
@@ -60,7 +60,9 @@ Requires:         R-CRAN-rstantools
 Bayesian dynamic borrowing with covariate adjustment via inverse
 probability weighting for simulations and data analyses in clinical
 trials. This makes it easy to use propensity score methods to balance
-covariate distributions between external and internal data.
+covariate distributions between external and internal data. This
+methodology based on Psioda et al (2025)
+<doi:10.1080/10543406.2025.2489285>.
 
 %prep
 %setup -q -c -n %{packname}

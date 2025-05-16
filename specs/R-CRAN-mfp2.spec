@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mfp2
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariable Fractional Polynomial Models with Extensions
 
@@ -29,13 +29,13 @@ Requires:         R-utils
 %description
 Multivariable fractional polynomial algorithm simultaneously selects
 variables and functional forms in both generalized linear models and Cox
-proportional hazard models. Key references for this algorithm are Royston
-and Altman (1994)<doi:10.2307/2986270> and Sauerbrei and Royston (2008,
-ISBN:978-0-470-02842-1). In addition, it can model a 'sigmoid'
-relationship between variable x and an outcome variable y using the
-approximate cumulative distribution transformation proposed by Royston
-(2014) <doi:10.1177/1536867X1401400206>. This feature distinguishes it
-from a standard fractional polynomial function, which lacks the ability to
+proportional hazard models. Key references are Royston and Altman (1994)
+<doi:10.2307/2986270> and Royston and Sauerbrei (2008,
+ISBN:978-0-470-02842-1). In addition, it can model a sigmoid relationship
+between variable x and an outcome variable y using the approximate
+cumulative distribution transformation proposed by Royston (2014)
+<doi:10.1177/1536867X1401400206>. This feature distinguishes it from a
+standard fractional polynomial function, which lacks the ability to
 achieve such modeling.
 
 %prep

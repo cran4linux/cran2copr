@@ -1,40 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EnsembleCV
-%global packver   0.9
+%global packname  ethiodate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensible Package for Cross-Validation-Based Integration of Base Learners
+Summary:          Working with Ethiopian Dates
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-EnsembleBase 
-BuildRequires:    R-parallel 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-EnsembleBase 
-Requires:         R-parallel 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-vctrs 
 
 %description
-Extends the base classes and methods of EnsembleBase package for
-cross-validation-based integration of base learners. Default
-implementation calculates average of repeated CV errors, and selects the
-base learner / configuration with minimum average error. The package takes
-advantage of the file method provided in EnsembleBase package for writing
-estimation objects to disk in order to circumvent RAM bottleneck. Special
-save and load methods are provided to allow estimation objects to be saved
-to permanent files on disk, and to be loaded again into temporary files in
-a later R session. The package can be extended, e.g. by adding variants of
-the current implementation.
+A robust and efficient solution for working with Ethiopian dates. It can
+seamlessly convert to and from Gregorian dates. It ensures lightning-fast
+computations by integrating high-performance 'C++' code through 'Rcpp'
+package.
 
 %prep
 %setup -q -c -n %{packname}

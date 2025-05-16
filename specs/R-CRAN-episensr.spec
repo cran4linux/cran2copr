@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  episensr
-%global packver   1.3.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Basic Sensitivity Analysis of Epidemiological Results
 
@@ -14,32 +14,42 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-triangle 
-BuildRequires:    R-CRAN-trapezoid 
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-actuar 
-BuildRequires:    R-CRAN-dagitty 
-BuildRequires:    R-CRAN-ggdag 
 BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dagitty 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-ggdag 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-triangle 
-Requires:         R-CRAN-trapezoid 
+BuildRequires:    R-CRAN-trapezoid 
+BuildRequires:    R-CRAN-triangle 
+BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-lifecycle 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-actuar 
-Requires:         R-CRAN-dagitty 
-Requires:         R-CRAN-ggdag 
 Requires:         R-CRAN-boot 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dagitty 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-ggdag 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-trapezoid 
+Requires:         R-CRAN-triangle 
+Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Basic sensitivity analysis of the observed relative risks adjusting for
 unmeasured confounding and misclassification of the exposure/outcome, or
 both. It follows the bias analysis methods and examples from the book by
-Lash T.L, Fox M.P, and Fink A.K. "Applying Quantitative Bias Analysis to
-Epidemiologic Data", ('Springer', 2021).
+Fox M.P., MacLehose R.F., and Lash T.L. "Applying Quantitative Bias
+Analysis to Epidemiologic Data, second ed.", ('Springer', 2021).
 
 %prep
 %setup -q -c -n %{packname}

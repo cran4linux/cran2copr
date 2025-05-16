@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geotargets
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'targets' Extensions for Geographic Spatial Formats
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.2
 BuildRequires:    R-CRAN-withr >= 3.0.0
+BuildRequires:    R-CRAN-gdalraster >= 2.0.0
 BuildRequires:    R-CRAN-terra >= 1.8.10
 BuildRequires:    R-CRAN-targets >= 1.8.0
 BuildRequires:    R-CRAN-rlang >= 1.1.3
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-zip
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-cli >= 3.6.2
 Requires:         R-CRAN-withr >= 3.0.0
+Requires:         R-CRAN-gdalraster >= 2.0.0
 Requires:         R-CRAN-terra >= 1.8.10
 Requires:         R-CRAN-targets >= 1.8.0
 Requires:         R-CRAN-rlang >= 1.1.3

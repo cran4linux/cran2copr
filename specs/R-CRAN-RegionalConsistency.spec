@@ -1,35 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sprex
-%global packver   1.4.2
+%global packname  RegionalConsistency
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Species Richness and Extrapolation
+Summary:          Calculate Regional Consistency Probabilities for Multi-Regional Clinical Trials
 
-License:          GNU General Public License
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-swfscMisc >= 1.4
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-swfscMisc >= 1.4
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 
 %description
-Functions for calculating species richness for rarefaction and
-extrapolation, primarily non-parametric species richness such as
-jackknife, Chao1, and ACE. Also available are functions for plotting
-species richness and extrapolation curves, and computing standard
-diversity and entropy indices.
+Provides methods to calculate approximate regional consistency
+probabilities using Method 1 and Method 2 proposed by the Japanese
+Ministry of Health, Labor and Welfare (2007)
+<https://www.pmda.go.jp/files/000153265.pdf>. These methods are useful for
+assessing regional consistency in multi-regional clinical trials.  The
+package can calculate unconditional, joint, and conditional regional
+consistency probabilities.  For technical details, please see Homma (2024)
+<doi:10.1002/pst.2358>.
 
 %prep
 %setup -q -c -n %{packname}

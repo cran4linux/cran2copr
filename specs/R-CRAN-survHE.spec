@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survHE
-%global packver   2.0.3
+%global packver   2.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survival Analysis in Health Economic Evaluation
 
@@ -42,17 +42,18 @@ These can be used to run survival models under a frequentist (based on
 maximum likelihood) or a Bayesian approach (both based on Integrated
 Nested Laplace Approximation or Hamiltonian Monte Carlo). To run the
 Bayesian models, the user needs to install additional modules (packages),
-i.e. 'survHEinla' and 'survHEhmc'. These can be installed using
-'remotes::install_github' from their GitHub repositories:
-(<https://github.com/giabaio/survHEhmc> and
-<https://github.com/giabaio/survHEinla/> respectively). 'survHEinla' is
-based on the package INLA, which is available for download at
-<https://inla.r-inla-download.org/R/stable/>. The user can specify a set
-of parametric models using a common notation and select the preferred mode
-of inference. The results can also be post-processed to produce
-probabilistic sensitivity analysis and can be used to export the output to
-an Excel file (e.g. for a Markov model, as often done by modellers and
-practitioners). <doi:10.18637/jss.v095.i14>.
+i.e. 'survHEinla' and 'survHEhmc'. These can be installed from
+<https://giabaio.r-universe.dev/> using 'install.packages("survHEhmc",
+repos = c("https://giabaio.r-universe.dev",
+"https://cloud.r-project.org"))' and 'install.packages("survHEinla", repos
+= c("https://giabaio.r-universe.dev", "https://cloud.r-project.org"))'
+respectively. 'survHEinla' is based on the package INLA, which is
+available for download at <https://inla.r-inla-download.org/R/stable/>.
+The user can specify a set of parametric models using a common notation
+and select the preferred mode of inference. The results can also be
+post-processed to produce probabilistic sensitivity analysis and can be
+used to export the output to an Excel file (e.g. for a Markov model, as
+often done by modellers and practitioners). <doi:10.18637/jss.v095.i14>.
 
 %prep
 %setup -q -c -n %{packname}

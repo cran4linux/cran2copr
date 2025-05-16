@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fetwfe
-%global packver   0.4.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fused Extended Two-Way Fixed Effects
 
@@ -17,9 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Matrix >= 1.6.0
 BuildRequires:    R-CRAN-expm 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-grpreg 
+Requires:         R-CRAN-Matrix >= 1.6.0
 Requires:         R-CRAN-expm 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-grpreg 
@@ -34,7 +36,9 @@ efficiency and yield valid standard errors. Provides flexible tuning
 parameters (including user-specified or data-driven choices for penalty
 parameters), detailed output including overall and cohort-specific
 treatment effects with confidence intervals, and extensive diagnostic
-tools. See details in Faletto (2024) (<doi:10.48550/arXiv.2312.05985>).
+tools. Also provides functions for generating simulated panel data
+formatted for estimating FETWFE, and running and evaluating simulations.
+See details in Faletto (2025) (<doi:10.48550/arXiv.2312.05985>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  Superpower
-%global packver   0.2.0
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulation-Based Power Analysis for Factorial Designs
 
@@ -16,24 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-afex 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-afex 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-reshape2 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 

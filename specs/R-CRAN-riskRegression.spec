@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riskRegression
-%global packver   2023.12.21
+%global packver   2025.05.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.12.21
+Version:          2025.05.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Risk Regression Models and Prediction Scores for Survival Analysis with Competing Risks
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-rms >= 5.1.3
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-prodlim >= 2018.4.18
+BuildRequires:    R-CRAN-prodlim >= 2025.4.28
 BuildRequires:    R-CRAN-survival >= 2.44.1
 BuildRequires:    R-CRAN-timereg >= 1.9.3
 BuildRequires:    R-CRAN-lava >= 1.6.5
@@ -36,10 +36,11 @@ BuildRequires:    R-CRAN-Publish
 BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-rms >= 5.1.3
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-prodlim >= 2018.4.18
+Requires:         R-CRAN-prodlim >= 2025.4.28
 Requires:         R-CRAN-survival >= 2.44.1
 Requires:         R-CRAN-timereg >= 1.9.3
 Requires:         R-CRAN-lava >= 1.6.5
@@ -57,6 +58,7 @@ Requires:         R-CRAN-Publish
 Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
+Requires:         R-CRAN-glmnet 
 
 %description
 Implementation of the following methods for event history analysis. Risk

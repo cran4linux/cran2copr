@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfpwr
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Calculations for Bayes Factor Analysis
 
@@ -23,8 +23,8 @@ Requires:         R-CRAN-lamW
 %description
 Implements z-test, t-test, and normal moment prior Bayes factors based on
 summary statistics, along with functionality to perform corresponding
-power and sample size calculations as described in Pawel and Held (2024)
-<doi:10.48550/arXiv.2406.19940>.
+power and sample size calculations as described in Pawel and Held (2025)
+<doi:10.1080/00031305.2025.2467919>.
 
 %prep
 %setup -q -c -n %{packname}

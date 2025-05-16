@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickcode
-%global packver   1.0.7
+%global packver   1.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          1.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quick and Essential 'R' Tricks for Better Scripts
 
@@ -17,19 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel > 3.6
 Requires:         R-core > 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-Polychrome >= 1.5.1
 BuildRequires:    R-utils 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-Polychrome 
 BuildRequires:    R-CRAN-fitdistrplus 
+Requires:         R-CRAN-Polychrome >= 1.5.1
 Requires:         R-utils 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-tools 
-Requires:         R-CRAN-Polychrome 
 Requires:         R-CRAN-fitdistrplus 
 
 %description

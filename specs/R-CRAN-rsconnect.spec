@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rsconnect
-%global packver   1.3.4
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.4
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Deploy Docs, Apps, and APIs to 'Posit Connect', 'shinyapps.io', and 'RPubs'
 
@@ -30,6 +30,9 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-PKI 
 BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-RcppTOML 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-yaml >= 2.1.5
 Requires:         R-CRAN-openssl >= 2.0.0
 Requires:         R-CRAN-renv >= 1.0.0
@@ -43,6 +46,9 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-PKI 
 Requires:         R-tools 
+Requires:         R-CRAN-RcppTOML 
+Requires:         R-CRAN-jose 
+Requires:         R-utils 
 
 %description
 Programmatic deployment interface for 'RPubs', 'shinyapps.io', and 'Posit

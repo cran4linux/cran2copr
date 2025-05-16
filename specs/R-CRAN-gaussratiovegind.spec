@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gaussratiovegind
-%global packver   1.0.1
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distribution of Gaussian Ratios
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
@@ -25,7 +25,9 @@ indices about this non-Gaussian nature could lead to incorrect statistical
 modeling and interpretation. This package provides tools to accurately
 handle and analyse such ratios: density function, parameter estimation,
 simulation. An example on the study of chlorophyll fluorescence can be
-found in A. El Ghaziri et al. (2023) <doi:10.3390/rs15020528>.
+found in A. El Ghaziri et al. (2023) <doi:10.3390/rs15020528> and another
+method for parameter estimation is given in Bouhlel et al. (2023)
+<doi:10.23919/EUSIPCO58844.2023.10290111>.
 
 %prep
 %setup -q -c -n %{packname}

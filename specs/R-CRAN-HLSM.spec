@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
-%global packname  EnsemblePCReg
-%global packver   1.1.4
+%global __requires_exclude ^libmpi
+%global packname  HLSM
+%global packver   0.9.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.9.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extensible Package for Principal-Component-Regression-Based Heterogeneous Ensemble Meta-Learning
+Summary:          Hierarchical Latent Space Network Model
 
-License:          GPL (>= 2)
+License:          GPL (> 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-EnsembleBase 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-EnsembleBase 
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-igraph 
+Requires:         R-grDevices 
+Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-parallel 
+Requires:         R-CRAN-abind 
+Requires:         R-stats 
 
 %description
-Extends the base classes and methods of 'EnsembleBase' package for
-Principal-Components-Regression-based (PCR) integration of base learners.
-Default implementation uses cross-validation error to choose the optimal
-number of PC components for the final predictor. The package takes
-advantage of the file method provided in 'EnsembleBase' package for
-writing estimation objects to disk in order to circumvent RAM bottleneck.
-Special save and load methods are provided to allow estimation objects to
-be saved to permanent files on disk, and to be loaded again into temporary
-files in a later R session. Users and developers can extend the package by
-extending the generic methods and classes provided in 'EnsembleBase'
-package as well as this package.
+Fits latent space models for single networks and hierarchical latent space
+models for ensembles of networks as described in Sweet, Thomas & Junker
+(2013). <DOI:10.3102/1076998612458702>.
 
 %prep
 %setup -q -c -n %{packname}
