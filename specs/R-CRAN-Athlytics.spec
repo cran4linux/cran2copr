@@ -1,56 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  doBy
-%global packver   4.6.27
+%global packname  Athlytics
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.27
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
+Summary:          Advanced Sports Performance Analysis for 'Strava' Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-cowplot 
-BuildRequires:    R-CRAN-Deriv 
-BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-modelr 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rStrava 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-methods 
-Requires:         R-CRAN-boot 
-Requires:         R-CRAN-broom 
-Requires:         R-CRAN-cowplot 
-Requires:         R-CRAN-Deriv 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-modelr 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rStrava 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-zoo 
 
 %description
-Utility package containing: 1) Facilities for working with grouped data:
-'do' something to data stratified 'by' some variables. 2) LSmeans
-(least-squares means), general linear estimates. 3) Restrict functions to
-a smaller domain. 4) Miscellaneous other utilities.
+Advanced sports performance analysis and modeling for activity data
+retrieved from 'Strava'. This package focuses on applying established
+sports science models and statistical methods to gain deeper insights into
+training load, performance prediction, recovery status, and identifying
+key performance factors, extending basic data analysis capabilities.
 
 %prep
 %setup -q -c -n %{packname}

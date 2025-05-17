@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  rashnu
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Balanced Sample Size and Power Calculation Tools
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-DT 
+Requires:         R-stats 
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+Implements sample size and power calculation methods with a focus on
+balance and fairness in study design, inspired by the Zoroastrian deity
+Rashnu, the judge who weighs truth. Supports survival analysis and various
+hypothesis testing frameworks.
 
 %prep
 %setup -q -c -n %{packname}

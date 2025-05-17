@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  gicf
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Penalised Likelihood Estimation of a Covariance Matrix
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-stats 
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+Penalised likelihood estimation of a covariance matrix via the
+ridge-regularised covglasso estimator described in Cibinel et al. (2024)
+<doi:10.48550/arXiv.2410.02403>.
 
 %prep
 %setup -q -c -n %{packname}

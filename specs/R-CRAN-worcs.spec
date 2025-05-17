@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  worcs
-%global packver   0.1.17
+%global packver   0.1.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.17
+Version:          0.1.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflow for Open Reproducible Code in Science
 

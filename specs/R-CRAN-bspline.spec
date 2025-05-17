@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bspline
-%global packver   2.4.0
+%global packver   2.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.0
+Version:          2.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          B-Spline Interpolation and Regression
 
@@ -16,12 +16,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-CRAN-nlsic >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-nlsic >= 1.0.2
 BuildRequires:    R-CRAN-arrApply 
 BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-nlsic >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.7
-Requires:         R-CRAN-nlsic >= 1.0.2
 Requires:         R-CRAN-arrApply 
 
 %description

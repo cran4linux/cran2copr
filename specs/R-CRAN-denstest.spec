@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  denstest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Density Equality Testing
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+Methods for testing the equality between groups of estimated density
+functions. The package implements FDET (Fourier-based Density Equality
+Testing) and MDET (Moment-based Density Equality Testing), two new
+approaches introduced by the author. Both methods extend an earlier
+testing approach by Delicado (2007), "Functional k-sample problem when
+data are density functions" <doi:10.1007/s00180-007-0047-y>, which is
+referred to as DET (Density Equality Testing) in this package for clarity.
+FDET compares groups of densities based on their global shape using
+Fourier transforms, while MDET tests for differences in distributional
+moments. All methods are described in Anarat, Krutmann and Schwender
+(2025), "Testing for Differences in Extrinsic Skin Aging Based on Density
+Functions" (Submitted).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  ggtreebar
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Make Treemap Bar Charts with 'ggplot2'
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-treemapify 
+BuildRequires:    R-CRAN-ggfittext 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-cli 
+Requires:         R-grid 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-treemapify 
+Requires:         R-CRAN-ggfittext 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-cli 
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+Provides 'ggplot2' geoms analogous to 'geom_col()' and 'geom_bar()' that
+allow for treemaps using 'treemapify' nested within each bar segment. Also
+provides geometries for subgroup bordering and text annotation.
 
 %prep
 %setup -q -c -n %{packname}

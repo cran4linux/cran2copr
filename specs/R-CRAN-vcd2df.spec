@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  vcd2df
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Value Change Dump to Data Frame
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,23 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+Provides the 'vcd2df' function, which loads a IEEE 1364-1995/2001 VCD
+(.vcd) file, specified as a parameter of type string containing exactly a
+file path, and returns an R dataframe containing values over time. A VCD
+file captures the register values at discrete timepoints from a simulated
+trace of execution of a hardware design in Verilog or VHDL. The returned
+dataframe contains a row for each register, by name, and a column for each
+time point, specified VCD-style using octothorpe-prefixed multiples of the
+timescale as strings. The only non-trivial implementation details are that
+(1) VCD 'x' and 'z' non-numerical values are encoded as negative value -1
+(as otherwise all bit values are positive) and (2) registers with repeated
+names in distinct modules are ignored, rather than duplicated, as we
+anticipate these registers to have the same values. Read more in arXiv
+preprint: 'vcd2df' -- Leveraging Data Science Insights for Hardware
+Security Research <doi:10.48550/arXiv.2505.06470>.
 
 %prep
 %setup -q -c -n %{packname}

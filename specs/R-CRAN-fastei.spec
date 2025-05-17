@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  fastei
+%global packver   0.0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Problem''
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+Estimates the probability matrix for the R×C Ecological Inference problem
+using the Expectation-Maximization Algorithm with four approximation
+methods for the E-Step, and an exact method as well. It also provides a
+bootstrap function to estimate the standard deviation of the estimated
+probabilities. In addition, it has functions that aggregate rows optimally
+to have more reliable estimates in cases of having few data points. For
+comparing the probability estimates of two groups, a Welch t-test routine
+is implemented. The library has data from the first round of the Chilean
+Presidential Election 2021 and can also generate synthetic election data.
+Methods described in Thraves, Charles; Ubilla, Pablo; Hermosilla, Daniel
+(2024) "A Fast Ecological Inference Algorithm for the RxC case"
+<doi:10.2139/ssrn.4832834>.
 
 %prep
 %setup -q -c -n %{packname}

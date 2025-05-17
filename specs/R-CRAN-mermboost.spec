@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mermboost
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Gradient Boosting for Generalized Additive Mixed Models
 
@@ -38,10 +38,12 @@ Requires:         R-CRAN-tibble
 
 %description
 Provides a novel framework to estimate mixed models via gradient boosting.
-The implemented functions are based on 'mboost' and 'lme4'. Hence, the
-family range is predetermined by 'lme4'. A correction mechanism for
-cluster-constant covariates is implemented as well as an estimation of
-random effects' covariance.
+The implemented functions are based on the 'mboost' and 'lme4' packages,
+and the family range is therefore determined by 'lme4'. A correction
+mechanism for cluster-constant covariates is implemented, as well as
+estimation of the covariance of random effects. These methods are
+described in the accompanying publication; see
+<doi:10.1007/s11222-025-10612-y> for details.
 
 %prep
 %setup -q -c -n %{packname}

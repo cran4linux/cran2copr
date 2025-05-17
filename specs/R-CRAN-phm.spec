@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  phm
-%global packver   1.1.2
+%global packver   1.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phrase Mining
 
@@ -32,7 +32,10 @@ Requires:         R-CRAN-NLP >= 0.2.1
 
 %description
 Functions to extract and handle commonly occurring principal phrases
-obtained from collections of texts.
+obtained from collections of texts. This package is based on, Small, E., &
+Cabrera, J. (2025). Principal phrase mining, an automated method for
+extracting meaningful phrases from text. International Journal of
+Computers and Applications, 47(1), 84–92.
 
 %prep
 %setup -q -c -n %{packname}

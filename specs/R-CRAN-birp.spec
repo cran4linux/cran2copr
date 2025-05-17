@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  smallstuff
-%global packver   1.0.5
+%global packname  birp
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Dr. Small's Functions
+Summary:          Testing for Population Trends Using Low-Cost Ecological Count Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-class >= 7.3.20
-BuildRequires:    R-CRAN-Matrix >= 1.4.1
-BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-data.table >= 1.14.2
-BuildRequires:    R-CRAN-ROCR >= 1.0.11
-BuildRequires:    R-CRAN-matlib >= 0.9.5
-BuildRequires:    R-CRAN-pryr >= 0.1.5
-Requires:         R-CRAN-class >= 7.3.20
-Requires:         R-CRAN-Matrix >= 1.4.1
-Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-data.table >= 1.14.2
-Requires:         R-CRAN-ROCR >= 1.0.11
-Requires:         R-CRAN-matlib >= 0.9.5
-Requires:         R-CRAN-pryr >= 0.1.5
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-MASS 
 
 %description
-Functions used in courses taught by Dr. Small at Drew University.
+A Bayesian tool to test for population trends and changes in trends under
+arbitrary designs, including before-after (BA), control-intervention (CI)
+and before-after-control-intervention (BACI) designs commonly used to
+assess conservation impact. It infers changes in trends jointly from data
+obtained with multiple survey methods, as well as from limited and noisy
+data not necessarily collected in standardized ecological surveys.
+Observed counts can be modeled as following either a Poisson or a negative
+binomial model, and both deterministic and stochastic trend models are
+available. For more details on the model see Singer et al. (2025)
+<doi:10.1101/2025.01.08.631844>, and the file 'AUTHORS' for a list of
+copyright holders and contributors.
 
 %prep
 %setup -q -c -n %{packname}

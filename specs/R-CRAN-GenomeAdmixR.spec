@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  GenomeAdmixR
-%global packver   2.1.7
+%global packver   2.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.7
+Version:          2.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Admixture of Genomes
 
@@ -18,7 +19,6 @@ Requires:         R-core >= 2.10
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-hierfstat 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rlang 
@@ -29,7 +29,6 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-hierfstat 
-Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rlang 

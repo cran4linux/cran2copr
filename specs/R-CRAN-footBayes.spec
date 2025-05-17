@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  footBayes
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting Bayesian and MLE Football Models
 
@@ -15,49 +15,50 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 Recommends:       pandoc
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildRequires:    R-CRAN-rstan >= 2.18.1
-BuildRequires:    R-CRAN-arm 
+BuildRequires:    R-CRAN-instantiate 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-extraDistr 
-BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-metRology 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-arm 
+Requires:         R-CRAN-instantiate 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-extraDistr 
-Requires:         R-parallel 
 Requires:         R-CRAN-metRology 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-rstantools
 
 %description
 This is the first package allowing for the estimation, visualization and
 prediction of the most well-known football models: double Poisson,
 bivariate Poisson, Skellam, student_t, diagonal-inflated bivariate
-Poisson, and zero-inflated Skellam. The package allows Hamiltonian Monte
-Carlo (HMC) estimation through the underlying Stan environment and Maximum
-Likelihood estimation (MLE, for 'static' models only). The model
+Poisson, and zero-inflated Skellam. It supports both maximum likelihood
+estimation (MLE, for 'static' models only) and Bayesian inference. For
+Bayesian methods, it incorporates several techniques: MCMC sampling with
+Hamiltonian Monte Carlo, variational inference using either the Pathfinder
+algorithm or Automatic Differentiation Variational Inference (ADVI), and
+the Laplace approximation. The package compiles all the 'CmdStan' models
+once during installation using the 'instantiate' package. The model
 construction relies on the most well-known football references, such as
 Dixon and Coles (1997) <doi:10.1111/1467-9876.00065>, Karlis and Ntzoufras
 (2003) <doi:10.1111/1467-9884.00366> and Egidi, Pauli and Torelli (2018)

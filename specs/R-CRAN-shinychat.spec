@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinychat
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat UI Component for 'shiny'
 
@@ -21,19 +21,25 @@ BuildRequires:    R-CRAN-promises >= 1.3.2
 BuildRequires:    R-CRAN-shiny >= 1.10.0
 BuildRequires:    R-CRAN-bslib 
 BuildRequires:    R-CRAN-coro 
+BuildRequires:    R-CRAN-ellmer 
+BuildRequires:    R-CRAN-fastmap 
 BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-promises >= 1.3.2
 Requires:         R-CRAN-shiny >= 1.10.0
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-coro 
+Requires:         R-CRAN-ellmer 
+Requires:         R-CRAN-fastmap 
 Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-rlang 
 
 %description
 Provides a scrolling chat interface with multiline input, suitable for
 creating chatbot apps based on Large Language Models (LLMs). Designed to
-work particularly well with the 'elmer' R package for calling LLMs.
+work particularly well with the 'ellmer' R package for calling LLMs.
 
 %prep
 %setup -q -c -n %{packname}
