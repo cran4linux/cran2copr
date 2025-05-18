@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ellmer
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Chat with Large Language Models
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-later >= 1.4.0
 BuildRequires:    R-CRAN-promises >= 1.3.1
+BuildRequires:    R-CRAN-httr2 >= 1.1.1
 BuildRequires:    R-CRAN-coro >= 1.1.0
-BuildRequires:    R-CRAN-httr2 >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-S7 >= 0.2.0
 BuildRequires:    R-CRAN-cli 
@@ -30,8 +30,8 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-R6 
 Requires:         R-CRAN-later >= 1.4.0
 Requires:         R-CRAN-promises >= 1.3.1
+Requires:         R-CRAN-httr2 >= 1.1.1
 Requires:         R-CRAN-coro >= 1.1.0
-Requires:         R-CRAN-httr2 >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-S7 >= 0.2.0
 Requires:         R-CRAN-cli 

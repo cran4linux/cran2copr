@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PTSR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Positive Time Series Regression
 
@@ -28,9 +29,10 @@ Requires:         R-CRAN-numDeriv
 %description
 A collection of functions to simulate, estimate and forecast a wide range
 of regression based dynamic models for positive time series. This package
-implements the results presented in Prass, T.S.; Carlos, J.H.; Taufemback,
-C.G. and Pumi, G. (2022). "Positive Time Series Regression"
-<arXiv:2201.03667>.
+implements the results presented in Prass, T.S.; Pumi, G.; Taufemback,
+C.G. and Carlos, J.H. (2025). "Positive time series regression models:
+theoretical and computational aspects". Computational Statistics 40,
+1185–1215. <doi:10.1007/s00180-024-01531-z>.
 
 %prep
 %setup -q -c -n %{packname}

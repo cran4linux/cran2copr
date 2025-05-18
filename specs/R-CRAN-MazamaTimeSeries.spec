@@ -1,46 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ntdr
-%global packver   0.4.0
+%global packname  MazamaTimeSeries
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Retrieve Data from the National Transit Database
+Summary:          Core Functionality for Environmental Time Series
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 0.2.3
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-MazamaCoreUtils >= 0.5.3
+BuildRequires:    R-CRAN-MazamaRollUtils >= 0.1.4
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geodist 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-httr2 >= 0.2.3
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-MazamaCoreUtils >= 0.5.3
+Requires:         R-CRAN-MazamaRollUtils >= 0.1.4
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geodist 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-stringr 
 
 %description
-Downloads the latest 'National Transit Database' data, processes it, and
-returns in a tidy data format.
+Utility functions for working with environmental time series data from
+known locations. The compact data model is structured as a list with two
+dataframes. A 'meta' dataframe contains spatial and measuring device
+metadata associated with deployments at known locations. A 'data'
+dataframe contains a 'datetime' column followed by columns of measurements
+associated with each "device-deployment". Ephemerides calculations are
+based on code originally found in NOAA's "Solar Calculator"
+<https://gml.noaa.gov/grad/solcalc/>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RItools
-%global packver   0.3-4
+%global packver   0.3-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          0.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Randomization Inference Tools
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-xtable 
@@ -25,12 +26,12 @@ BuildRequires:    R-CRAN-svd
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-SparseM 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-survival 
 Requires:         R-grDevices 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-xtable 
@@ -38,7 +39,6 @@ Requires:         R-CRAN-svd
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-methods 
-Requires:         R-CRAN-survival 
 Requires:         R-CRAN-SparseM 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
