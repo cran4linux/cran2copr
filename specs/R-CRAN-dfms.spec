@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dfms
-%global packver   0.2.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic Factor Models
 
@@ -14,18 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-collapse >= 1.8.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-collapse >= 2.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.1
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-collapse >= 1.8.0
+Requires:         R-CRAN-collapse >= 2.0.0
 Requires:         R-CRAN-Rcpp >= 1.0.1
 
 %description
 Efficient estimation of Dynamic Factor Models using the Expectation
 Maximization (EM) algorithm or Two-Step (2S) estimation, supporting
-datasets with missing data. The estimation options follow advances in the
+datasets with missing data. Factors are assumed to follow a stationary VAR
+process of order p. The estimation options follow advances in the
 econometric literature: either running the Kalman Filter and Smoother once
 with initial values from PCA - 2S estimation as in Doz, Giannone and
 Reichlin (2011) <doi:10.1016/j.jeconom.2011.02.012> - or via iterated

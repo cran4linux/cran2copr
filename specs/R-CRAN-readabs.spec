@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  readabs
-%global packver   0.4.18
+%global packver   0.4.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.18
+Version:          0.4.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Tidy Time Series Data from the Australian Bureau of Statistics
 
@@ -19,10 +19,10 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-hutils >= 1.5.0
 BuildRequires:    R-CRAN-readxl >= 1.2.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.0
 BuildRequires:    R-CRAN-fst 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-glue 
@@ -33,10 +33,10 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-labelled 
 Requires:         R-CRAN-hutils >= 1.5.0
 Requires:         R-CRAN-readxl >= 1.2.0
+Requires:         R-CRAN-purrr >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.0
 Requires:         R-CRAN-fst 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringi 
 Requires:         R-tools 
 Requires:         R-CRAN-glue 
