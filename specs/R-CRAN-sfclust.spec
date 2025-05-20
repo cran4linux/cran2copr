@@ -1,48 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  utsf
-%global packver   1.2.0
+%global packname  sfclust
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate Time Series Forecasting
+Summary:          Bayesian Spatial Functional Clustering
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Cubist 
-BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ipred 
+BuildRequires:    R-CRAN-cubelyr 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-CRAN-stars 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-ranger 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-vctsfr 
-Requires:         R-CRAN-Cubist 
-Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ipred 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-cubelyr 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-SparseM 
+Requires:         R-CRAN-stars 
+Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
-Requires:         R-CRAN-ranger 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-vctsfr 
+Requires:         R-CRAN-Matrix 
 
 %description
-An engine for univariate time series forecasting using different
-regression models in an autoregressive way. The engine provides an uniform
-interface for applying the different models. Furthermore, it is extensible
-so that users can easily apply their own regression models to univariate
-time series forecasting and benefit from all the features of the engine,
-such as preprocessings or estimation of forecast accuracy.
+Bayesian clustering of spatial regions with similar functional shapes
+using spanning trees and latent Gaussian models. The method enforces
+spatial contiguity within clusters and supports a wide range of latent
+Gaussian models, including non-Gaussian likelihoods, via the R-INLA
+framework. The algorithm is based on Zhong, R., Chacón-Montalván, E. A.,
+and Moraga, P. (2024) <doi:10.48550/arXiv.2407.12633>, extending the
+approach of Zhang, B., Sang, H., Luo, Z. T., and Huang, H. (2023)
+<doi:10.1214/22-AOAS1643>. The package includes tools for model fitting,
+convergence diagnostics, visualization, and summarization of clustering
+results.
 
 %prep
 %setup -q -c -n %{packname}

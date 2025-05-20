@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mmequiv
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Standardized Morphine Milligram Equivalent Doses
 
@@ -22,22 +22,20 @@ BuildRequires:    R-CRAN-glue
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
 
 %description
 Calculate morphine milligram equivalents (MME) for opioid dose comparison
-using standardized methods. Includes API wrapper functions to call 'NIH
-HEAL MME Online Calculator' and functions that replicate API calculations
-on the user's local machine from the comfort of 'R'. Creation of the 'NIH
-HEAL MME Online Calculator' and the MME calculations implemented in this
-package are described in Adams MCB, Sward KA, Perkins ML, Hurley RW (2025)
-<doi:10.1097/j.pain.0000000000003529>.
+using standardized methods. Can directly call the 'NIH HEAL MME Online
+Calculator' <https://research-mme.wakehealth.edu/api> API or replicate API
+calculations on the user's local machine from the comfort of 'R'. Creation
+of the 'NIH HEAL MME Online Calculator' and the MME calculations
+implemented in this package are described in Adams MCB, Sward KA, Perkins
+ML, Hurley RW (2025) <doi:10.1097/j.pain.0000000000003529>.
 
 %prep
 %setup -q -c -n %{packname}

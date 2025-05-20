@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  fairmetrics
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Fairness Evaluation Metrics with Confidence Intervals
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+A collection of functions for computing fairness metrics for machine
+learning and statistical models, including confidence intervals for each
+metric. The package supports the evaluation of group-level fairness
+criterion commonly used in fairness research, particularly in healthcare.
+It is based on the overview of fairness in machine learning written by Gao
+et al (2024) <doi:10.48550/arXiv.2406.09307>.
 
 %prep
 %setup -q -c -n %{packname}

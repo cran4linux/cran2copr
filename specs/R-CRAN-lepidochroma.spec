@@ -1,30 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  lepidochroma
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Colour Palettes Inspired by Butterflies
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+A collection of colour palettes inspired by some of our dearest butterfly
+species.  This package provides continuous and categorical palettes,
+including some colour blind friendly options.
 
 %prep
 %setup -q -c -n %{packname}

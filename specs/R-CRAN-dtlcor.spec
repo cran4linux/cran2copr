@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  oeli
-%global packver   0.7.3
+%global packname  dtlcor
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Some Utilities for Developing Data Science Software
+Summary:          Multiplicity Control on Drop-the-Losers Designs
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,35 +16,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-benchmarkme 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-cli 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-hexSticker 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-SimMultiCorrData 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-coin 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-tools 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-testthat 
-Requires:         R-CRAN-benchmarkme 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-cubature 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-hexSticker 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-SimMultiCorrData 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-coin 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-tools 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-cubature 
 
 %description
-A collection of general-purpose helper functions that I (and maybe others)
-find useful when developing data science software. Includes tools for
-simulation, data transformation, input validation, and more.
+A tool to calculate the correlation boundary for the correlation between
+the response rate and the log-rank test statistic for the binary surrogate
+endpoint and the time-to-event primary endpoint, as well as conduct
+simulation studies to obtain design operating characteristics of the
+drop-the-losers design.
 
 %prep
 %setup -q -c -n %{packname}

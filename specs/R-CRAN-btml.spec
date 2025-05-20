@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  btml
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Bayesian Treed Machine Learning for Personalized Prediction and Precision Diagnostics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-e1071 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-e1071 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+Generalization of the Bayesian classification and regression tree (CART)
+model that partitions subjects into terminal nodes and tailors machine
+learning model to each terminal node.
 
 %prep
 %setup -q -c -n %{packname}

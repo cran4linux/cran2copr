@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  recastlessons
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Explore and Interactively Adjust a Daily Distribution of Lessons
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+A set of functions to see and interactively adjust a distribution of
+lessons by day, aiming at homogenizing individual distributions (for each
+class and teacher).
 
 %prep
 %setup -q -c -n %{packname}

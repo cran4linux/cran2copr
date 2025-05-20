@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  templateICAr
-%global packver   0.9.1
+%global packver   0.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Brain Networks and Connectivity with ICA and Empirical Priors
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fMRItools >= 0.4.4
+BuildRequires:    R-CRAN-fMRItools >= 0.5.3
+BuildRequires:    R-CRAN-fMRIscrub >= 0.14.5
 BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-CRAN-fMRIscrub 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ica 
 BuildRequires:    R-CRAN-Matrix 
@@ -29,9 +29,9 @@ BuildRequires:    R-CRAN-pesel
 BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-fMRItools >= 0.4.4
+Requires:         R-CRAN-fMRItools >= 0.5.3
+Requires:         R-CRAN-fMRIscrub >= 0.14.5
 Requires:         R-CRAN-abind 
-Requires:         R-CRAN-fMRIscrub 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ica 
 Requires:         R-CRAN-Matrix 

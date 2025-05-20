@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenMx
-%global packver   2.21.13
+%global packver   2.22.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.21.13
+Version:          2.22.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Structural Equation Modelling
 
@@ -45,7 +45,7 @@ mixture distribution, categorical threshold, modern test theory,
 differential Fit functions include full information maximum likelihood,
 maximum likelihood, and weighted least squares. equations, state space,
 and many others. Support and advanced package binaries available at
-<http://openmx.ssri.psu.edu>. The software is described in Neale, Hunter,
+<https://openmx.ssri.psu.edu>. The software is described in Neale, Hunter,
 Pritikin, Zahery, Brick, Kirkpatrick, Estabrook, Bates, Maes, & Boker
 (2016) <doi:10.1007/s11336-014-9435-8>.
 

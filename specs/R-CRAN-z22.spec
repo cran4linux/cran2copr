@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  z22
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Official Gridded Data from the German Census 2022
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-arrow 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-arrow 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+Provides fast and easy access to German census grid data from the 2011 and
+2022 censuses <https://www.zensus2022.de/>, including a wide range of
+socio-economic indicators at multiple spatial resolutions (100m, 1km,
+10km). Enables efficient download, processing, and analysis of large
+census datasets covering population, households, families, dwellings, and
+buildings. Harmonized data structures allow direct comparison with the
+2011 census, supporting temporal and spatial analyses. Facilitates
+conversion of data into common formats for spatial analysis and mapping
+('terra', 'sf', 'ggplot2').
 
 %prep
 %setup -q -c -n %{packname}

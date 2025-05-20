@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AccelStab
-%global packver   2.1.1
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Stability Kinetic Modelling
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-scales
 
 %description
 Estimate the Šesták–Berggren kinetic model (degradation model) from
-experimental data. A A closed-form (analytic) solution to the degradation
+experimental data. A closed-form (analytic) solution to the degradation
 model is implemented as a non-linear fit, allowing for the extrapolation
 of the degradation of a drug product - both in time and temperature.
 Parametric bootstrap, with kinetic parameters drawn from the multivariate

@@ -1,30 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  MLBC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Bias Correction Methods for Models Using Synthetic Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-TMB 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+Implements three bias-correction techniques (additive bias correction,
+multiplicative bias correction, and one-step estimation via Template Model
+Builder (TMB)) based on Battaglia et al. (2025
+<doi:10.48550/arXiv.2402.15585>) to improve inference using synthetic
+data.
 
 %prep
 %setup -q -c -n %{packname}

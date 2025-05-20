@@ -1,55 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  omopgenerics
-%global packver   1.2.0
+%global packname  inecolr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods and Classes for the OMOP Common Data Model
+Summary:          Modeling and Plotting for Ecologist
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-betapart 
+BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dbplyr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-snakecase 
-BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-gmodels 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-multcomp 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tree 
+BuildRequires:    R-CRAN-vegan 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-betapart 
+Requires:         R-CRAN-boot 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dbplyr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-snakecase 
-Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-gmodels 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-multcomp 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tree 
+Requires:         R-CRAN-vegan 
 
 %description
-Provides definitions of core classes and methods used by analytic
-pipelines that query the OMOP (Observational Medical Outcomes Partnership)
-common data model.
+It provides multiple functions that are useful for ecological research and
+teaching statistics to ecologists. It is based on data analysis courses
+offered at the Instituto de Ecología AC (INECOL). For references and
+published evidence see, Manrique-Ascencio, et al (2024)
+<doi:10.1111/gcb.17282>, Manrique-Ascencio et al (2024)
+<doi:10.1111/plb.13683>, Ruiz-Guerra et al(2017)
+<doi:10.17129/botsci.812>, Juarez-Fragoso et al (2024)
+<doi:10.1007/s10980-024-01809-z>, Papaqui-Bello et al (2024)
+<doi:10.13102/sociobiology.v71i2.10503>.
 
 %prep
 %setup -q -c -n %{packname}

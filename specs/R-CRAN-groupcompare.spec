@@ -1,30 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vegclust
-%global packver   2.0.3
+%global packname  groupcompare
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fuzzy Clustering of Vegetation Data
+Summary:          Comparing Two Groups Using Various Descriptive Statistics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-Requires:         R-CRAN-vegan 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-vioplot 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-vioplot 
 
 %description
-A set of functions to: (1) perform fuzzy clustering of vegetation data (De
-Caceres et al, 2010) <doi:10.1111/j.1654-1103.2010.01211.x>; (2) to assess
-ecological community similarity on the basis of structure and composition
-(De Caceres et al, 2013) <doi:10.1111/2041-210X.12116>.
+Comparing two independent or paired groups across a range of descriptive
+statistics, enabling the evaluation of potential differences in central
+tendency (mean, median), dispersion (variance, interquartile range), shape
+(skewness, kurtosis), and distributional characteristics (various
+quantiles). The analytical framework incorporates parametric t-tests,
+non-parametric Wilcoxon tests, permutation tests, and bootstrap resampling
+techniques to assess the statistical significance of observed differences.
 
 %prep
 %setup -q -c -n %{packname}

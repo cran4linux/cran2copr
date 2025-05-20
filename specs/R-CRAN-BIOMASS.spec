@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BIOMASS
-%global packver   2.2.3
+%global packver   2.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.3
+Version:          2.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Aboveground Biomass and Its Uncertainty in Tropical Forests
 
@@ -43,14 +43,13 @@ Requires:         R-CRAN-terra
 Requires:         R-CRAN-ggplot2 
 
 %description
-Contains functions to estimate aboveground biomass/carbon and its
+Contains functions for estimating above-ground biomass/carbon and its
 uncertainty in tropical forests. These functions allow to (1) retrieve and
-to correct taxonomy, (2) estimate wood density and its uncertainty, (3)
-construct height-diameter models, (4) manage tree and plot coordinates,
-(5) estimate the aboveground biomass/carbon at the stand level with
-associated uncertainty. To cite 'BIOMASS', please use citation("BIOMASS").
-See more in the article of Réjou-Méchain et al. (2017)
-<doi:10.1111/2041-210X.12753>.
+correct taxonomy, (2) estimate wood density and its uncertainty, (3) build
+height-diameter models, (4) manage tree and plot coordinates, (5) estimate
+above-ground biomass/carbon at stand level with associated uncertainty. To
+cite ‘BIOMASS’, please use citation(‘BIOMASS’). For more information, see
+Réjou-Méchain et al. (2017) <doi:10.1111/2041-210X.12753>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,43 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  covid19br
-%global packver   0.1.8
+%global packname  c3dr
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Brazilian COVID-19 Pandemic Data
+Summary:          Read and Write C3D Motion Capture Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Set of functions to import COVID-19 pandemic data into R. The Brazilian
-COVID-19 data, obtained from the official Brazilian repository at
-<https://covid.saude.gov.br/>, is available at country, region, state, and
-city-levels. The package also downloads the world-level COVID-19 data from
-the John Hopkins University's repository.
+A wrapper for the 'EZC3D' library to work with C3D motion capture data.
 
 %prep
 %setup -q -c -n %{packname}
