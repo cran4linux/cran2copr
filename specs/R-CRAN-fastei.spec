@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastei
-%global packver   0.0.0.4
+%global packver   0.0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.4
+Version:          0.0.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Problem''
+Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Case''
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,11 +28,11 @@ methods for the E-Step, and an exact method as well. It also provides a
 bootstrap function to estimate the standard deviation of the estimated
 probabilities. In addition, it has functions that aggregate rows optimally
 to have more reliable estimates in cases of having few data points. For
-comparing the probability estimates of two groups, a Welch t-test routine
-is implemented. The library has data from the first round of the Chilean
+comparing the probability estimates of two groups, a Wald test routine is
+implemented. The library has data from the first round of the Chilean
 Presidential Election 2021 and can also generate synthetic election data.
 Methods described in Thraves, Charles; Ubilla, Pablo; Hermosilla, Daniel
-(2024) "A Fast Ecological Inference Algorithm for the RxC case"
+(2024) ''A Fast Ecological Inference Algorithm for the R×C case''
 <doi:10.2139/ssrn.4832834>.
 
 %prep

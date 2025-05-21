@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmdwc
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Count Words, Chars and Non-Whitespace Chars in R Markdown Docs
+Summary:          Count Words and Characters in R Markdown and Jupyter Notebooks
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,16 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rstudioapi 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rstudioapi 
 
 %description
-If you are using R Markdown documents then you have sometimes restrictions
-about the size of the documents, e.g. number of words, number of
-characters or non-whitespace characters. rmdcount() computes these counts
-with and without code chunks and returns the result as data frame.
+Computes word, character, and non-whitespace character counts in R
+Markdown documents and Jupyter notebooks, with or without code chunks.
+Returns results as a data frame.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  chatLLM
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Flexible Interface for 'LLM' API Interactions
 
@@ -19,16 +19,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.7.2
 BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-stats 
 Requires:         R-CRAN-jsonlite >= 1.7.2
 Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-stats 
 
 %description
 Provides a flexible interface for interacting with Large Language Model
-('LLM') providers such as 'OpenAI' (<https://openai.com/>), 'Groq'
-(<https://groq.com/>), and 'Anthropic' (<https://www.anthropic.com/>).
-Supports both synchronous and asynchronous API calls with features such as
-retry logic, support for additional parameters, and multi-message handling
-to streamline integration with state-of-the-art 'LLM' APIs.
+('LLM') providers including 'OpenAI', 'Groq', 'Anthropic', 'DeepSeek',
+'DashScope', and 'GitHub Models'. Supports both synchronous and
+asynchronous chat-completion APIs, with features such as retry logic,
+dynamic model selection, customizable parameters, and multi-message
+conversation handling. Designed to streamline integration with
+state-of-the-art LLM services across multiple platforms.
 
 %prep
 %setup -q -c -n %{packname}

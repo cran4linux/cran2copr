@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.geom
-%global packver   3.3-6
+%global packver   3.4-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.6
+Version:          3.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Geometrical Functionality of the 'spatstat' Family
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
+BuildRequires:    R-CRAN-spatstat.utils >= 3.1.4
 BuildRequires:    R-CRAN-spatstat.data >= 3.1
 BuildRequires:    R-CRAN-spatstat.univar >= 3.1
 BuildRequires:    R-CRAN-polyclip >= 1.10
@@ -26,7 +26,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-utils 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-spatstat.utils >= 3.1.2
+Requires:         R-CRAN-spatstat.utils >= 3.1.4
 Requires:         R-CRAN-spatstat.data >= 3.1
 Requires:         R-CRAN-spatstat.univar >= 3.1
 Requires:         R-CRAN-polyclip >= 1.10

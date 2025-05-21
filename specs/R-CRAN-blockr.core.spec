@@ -1,27 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libdeflate
-%global packver   1.23.1
+%global packname  blockr.core
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.23.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          DEFLATE Compression Static Library and Headers
+Summary:          Graphical Web-Framework for Data Manipulation and Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.5.0
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-bsicons 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-generics 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-shinyFiles 
+Requires:         R-CRAN-shiny >= 1.5.0
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-bsicons 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-generics 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-shinyFiles 
 
 %description
-Provides the 'libdeflate' static library (see
-<https://github.com/ebiggers/libdeflate>) and 'C' headers for whole-buffer
-DEFLATE-based compression and decompression, along with an R interface for
-compressing and decompressing raw vectors.
+A framework for data manipulation and visualization using a web-based
+point and click user interface where analysis pipelines are decomposed
+into re-usable and parameterizable blocks.
 
 %prep
 %setup -q -c -n %{packname}

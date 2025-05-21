@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataverse
-%global packver   0.3.14
+%global packver   0.3.15
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.14
+Version:          0.3.15
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for Dataverse 4+ Repositories
 
@@ -19,17 +19,23 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-xml2 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-httr 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-readr 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-tools 
 Requires:         R-CRAN-xml2 
 
 %description

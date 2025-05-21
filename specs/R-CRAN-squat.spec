@@ -1,45 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenomeAdmixR
-%global packver   2.1.11
+%global packname  squat
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.11
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Admixture of Genomes
+Summary:          Statistics for Quaternion Temporal Data
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-dtw 
+BuildRequires:    R-CRAN-fdacluster 
+BuildRequires:    R-CRAN-fdasrvf 
+BuildRequires:    R-CRAN-funData 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-hierfstat 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-MFPCA 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-roahd 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vcfR 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-dtw 
+Requires:         R-CRAN-fdacluster 
+Requires:         R-CRAN-fdasrvf 
+Requires:         R-CRAN-funData 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-hierfstat 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-MFPCA 
+Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-roahd 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-tidyr 
 
 %description
-Individual-based simulations forward in time, simulating how patterns in
-ancestry along the genome change after admixture. Full description can be
-found in Janzen (2021) <doi:10.1111/2041-210X.13612>.
+An implementation of statistical tools for the analysis of rotation-valued
+time series and functional data. It relies on pre-existing quaternion data
+structure provided by the 'Eigen' 'C++' library.
 
 %prep
 %setup -q -c -n %{packname}

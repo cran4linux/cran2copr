@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gglinedensity
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Make DenseLines Heatmaps with 'ggplot2'
 
@@ -30,10 +30,10 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-vctrs 
 
 %description
-Create a raster plot of line density using a 'ggplot2' statistic
-implementing the DenseLines algorithm, which "normalizes time series by
-the arc length to compute accurate densities" (Moritz and Fisher, 2018)
-<doi:10.48550/arXiv.1808.06019>.
+Visualise overlapping time series lines as a heatmap of line density.
+Provides a 'ggplot2' statistic implementing the DenseLines algorithm,
+which "normalizes time series by the arc length to compute accurate
+densities" (Moritz and Fisher, 2018) <doi:10.48550/arXiv.1808.06019>.
 
 %prep
 %setup -q -c -n %{packname}

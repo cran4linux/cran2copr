@@ -1,45 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenomeAdmixR
-%global packver   2.1.11
+%global packname  l1rotation
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.11
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Admixture of Genomes
+Summary:          Identify Loading Vectors under Sparsity in Factor Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-hierfstat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vcfR 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-hierfstat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 
 %description
-Individual-based simulations forward in time, simulating how patterns in
-ancestry along the genome change after admixture. Full description can be
-found in Janzen (2021) <doi:10.1111/2041-210X.13612>.
+Simplify the loading matrix in factor models using the l1 criterion as
+proposed in Freyaldenhoven (2025) <doi:10.21799/frbp.wp.2020.25>. Given a
+data matrix, find the rotation of the loading matrix with the smallest
+l1-norm and/or test for the presence of local factors with main function
+local_factors().
 
 %prep
 %setup -q -c -n %{packname}

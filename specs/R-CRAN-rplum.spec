@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rplum
-%global packver   0.5.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Age-Depth Modelling of Cores Dated by Pb-210
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rbacon >= 3.4.1
+BuildRequires:    R-CRAN-rbacon >= 3.5.2
 BuildRequires:    R-CRAN-rintcal >= 1.1.3
 BuildRequires:    R-CRAN-rice >= 1.1.1
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-rbacon >= 3.4.1
+Requires:         R-CRAN-rbacon >= 3.5.2
 Requires:         R-CRAN-rintcal >= 1.1.3
 Requires:         R-CRAN-rice >= 1.1.1
 Requires:         R-grDevices 

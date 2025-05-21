@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RAGFlowChainR
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval-Augmented Generation (RAG) Workflows in R with Local and Web Search
 
@@ -39,8 +39,8 @@ Requires:         R-CRAN-curl
 %description
 Enables Retrieval-Augmented Generation (RAG) workflows in R by combining
 local vector search using 'DuckDB' with optional web search via the
-'Tavily' API. Supports OpenAI- and Ollama-compatible embedding models,
-full-text and HNSW (Hierarchical Navigable Small World) indexing, and
+'Tavily' API. Supports 'OpenAI'- and 'Ollama'-compatible embedding models,
+full-text and 'HNSW' (Hierarchical Navigable Small World) indexing, and
 modular large language model (LLM) invocation. Designed for advanced
 question-answering, chat-based applications, and production-ready AI
 pipelines. This package is the R equivalent of the 'python' package

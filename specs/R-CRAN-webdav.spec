@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  webdav
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simple Interface for Interacting with 'WebDAV' Servers
 
@@ -38,8 +38,8 @@ Requires:         R-CRAN-curl
 
 %description
 An easy-to-use interface for interacting with 'WebDAV' servers, including
-'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MKCOL,
-MOVE, and others. With built-in authentication and request handling, it
+'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MOVE,
+DELETE and others. With built-in authentication and request handling, it
 allows for easy management of files and directories over the 'WebDAV'
 protocol.
 

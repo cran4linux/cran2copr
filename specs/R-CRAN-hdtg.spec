@@ -1,42 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rigr
-%global packver   1.0.7
+%global packname  hdtg
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.7
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Regression, Inference, and General Data Analysis Tools in R
+Summary:          Generate Samples from Multivariate Truncated Normal Distributions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-CRAN-RcppXsimd 
+BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-sandwich 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-CRAN-RcppXsimd 
+Requires:         R-CRAN-mgcv 
 Requires:         R-stats 
-Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rdpack 
 
 %description
-A set of tools to streamline data analysis. Learning both R and
-introductory statistics at the same time can be challenging, and so we
-created 'rigr' to facilitate common data analysis tasks and enable
-learners to focus on statistical concepts. We provide easy-to-use
-interfaces for descriptive statistics, one- and two-sample inference, and
-regression analyses. 'rigr' output includes key information while omitting
-unnecessary details that can be confusing to beginners.
-Heteroscedasticity-robust ("sandwich") standard errors are returned by
-default, and multiple partial F-tests and tests for contrasts are easy to
-specify. A single regression function can fit both linear and generalized
-linear models, allowing students to more easily make connections between
-different classes of models.
+Efficient sampling from high-dimensional truncated Gaussian distributions,
+or multivariate truncated normal (MTN). Techniques include zigzag
+Hamiltonian Monte Carlo as in Akihiko Nishimura, Zhenyu Zhang and Marc A.
+Suchard (2024) <doi:10.1080/01621459.2024.2395587>, and harmonic Monte in
+Ari Pakman and Liam Paninski (2014) <doi:10.1080/10618600.2013.788448>.
 
 %prep
 %setup -q -c -n %{packname}

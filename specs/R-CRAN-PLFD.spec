@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PLFD
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Portmanteau Local Feature Discrimination for Matrix-Variate Data
 
@@ -27,7 +27,7 @@ The portmanteau local feature discriminant approach first identifies the
 local discriminant features and their differential structures, then
 constructs the discriminant rule by pooling the identified local features
 together. This method is applicable to high-dimensional matrix-variate
-data. See the paper by Xu, Luo and Chen (2021,
+data. See the paper by Xu, Luo and Chen (2023,
 <doi:10.1007/s13171-021-00255-2>).
 
 %prep

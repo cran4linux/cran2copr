@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  finetune
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Additional Functions for Model Tuning
 
@@ -14,17 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tune >= 1.2.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.1
 BuildRequires:    R-CRAN-parsnip >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.0.0
+BuildRequires:    R-CRAN-dials >= 0.3.0
 BuildRequires:    R-CRAN-workflows >= 0.2.6
-BuildRequires:    R-CRAN-dials >= 0.1.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
@@ -34,11 +34,11 @@ BuildRequires:    R-CRAN-vctrs
 Requires:         R-CRAN-tune >= 1.2.0
 Requires:         R-CRAN-dplyr >= 1.1.1
 Requires:         R-CRAN-parsnip >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.0.0
+Requires:         R-CRAN-dials >= 0.3.0
 Requires:         R-CRAN-workflows >= 0.2.6
-Requires:         R-CRAN-dials >= 0.1.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
@@ -50,9 +50,9 @@ Requires:         R-CRAN-vctrs
 The ability to tune models is important. 'finetune' enhances the 'tune'
 package by providing more specialized methods for finding reasonable
 values of model tuning parameters.  Two racing methods described by Kuhn
-(2014) <arXiv:1405.6974> are included. An iterative search method using
-generalized simulated annealing (Bohachevsky, Johnson and Stein, 1986)
-<doi:10.1080/00401706.1986.10488128> is also included.
+(2014) <doi:10.48550/arXiv.1405.6974> are included. An iterative search
+method using generalized simulated annealing (Bohachevsky, Johnson and
+Stein, 1986) <doi:10.1080/00401706.1986.10488128> is also included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  deeplr
-%global packver   2.0.1
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'DeepL' Translation API
 
@@ -22,14 +22,18 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-tokenizers 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-utf8 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tokenizers 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-readr 
 
 %description
-A wrapper for the 'DeepL' Pro API <https://www.deepl.com/docs-api>, a web
+A wrapper for the 'DeepL' API <https://developers.deepl.com/docs>, a web
 service for translating texts between different languages. A DeepL API
 developer account is required to use the service (see
 <https://www.deepl.com/pro#developer>).

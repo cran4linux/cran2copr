@@ -1,45 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenomeAdmixR
-%global packver   2.1.11
+%global packname  LSAMBA
+%global packver   2024.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.11
+Version:          2024.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Admixture of Genomes
+Summary:          Lasso-SAMBA Algorithm
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rsmlx >= 2024.1.0
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-hierfstat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-latex2exp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-sharp 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vcfR 
-BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rsmlx >= 2024.1.0
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-hierfstat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
-Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-CRAN-latex2exp 
+Requires:         R-CRAN-MASS 
+Requires:         R-parallel 
+Requires:         R-CRAN-sharp 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vcfR 
 
 %description
-Individual-based simulations forward in time, simulating how patterns in
-ancestry along the genome change after admixture. Full description can be
-found in Janzen (2021) <doi:10.1111/2041-210X.13612>.
+Provides a lasso-based method for building mechanistic models using the
+SAMBA algorithm (Stochastic Approximation for Model Building Algorithm) (M
+Prague, M Lavielle (2022) <doi:10.1002/psp4.12742>). The package extends
+the 'Rsmlx' package (version 2024.1.0) to better handle high-dimensional
+data. It relies on the 'Monolix' software (version 2024R1; see
+(<https://monolixsuite.slp-software.com/monolix/2024R1/>), which must be
+installed beforehand.
 
 %prep
 %setup -q -c -n %{packname}
