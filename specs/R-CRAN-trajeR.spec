@@ -1,34 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TCPMOR
-%global packver   1.0
+%global packname  trajeR
+%global packver   0.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.11.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two Cut-Points with Maximum Odds Ratio
+Summary:          Group Based Modeling Trajectory
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-SemiPar 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-Rcpp >= 1.0.4.6
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-ucminf 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-capushe 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-SemiPar 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.4.6
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-ucminf 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-capushe 
 Requires:         R-stats 
 
 %description
-Enables the computation of the 'two cut-points with maximum odds ratio
-(OR) value method' for data analysis, particularly suited for binary
-classification tasks. Users can identify optimal cut-points in a
-continuous variable by maximizing the odds ratio while maintaining an
-equal risk level, useful for tasks such as medical diagnostics, risk
-assessment, or predictive modeling.
+Estimation of group-based trajectory models, including finite mixture
+models for longitudinal data, supporting censored normal, zero-inflated
+Poisson, logit, and beta distributions, using expectation-maximization and
+quasi-Newton methods, with tools for model selection, diagnostics, and
+visualization of latent trajectory groups, <doi:10.4159/9780674041318>,
+Nagin, D. (2005). Group-Based Modeling of Development. Cambridge, MA:
+Harvard University Press. and Noel (2022), <https://orbilu.uni.lu/>,
+thesis.
 
 %prep
 %setup -q -c -n %{packname}

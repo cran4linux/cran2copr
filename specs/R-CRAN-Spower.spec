@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Spower
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses using Monte Carlo Simulations
 
@@ -44,15 +44,15 @@ Requires:         R-CRAN-EnvStats
 Provides a general purpose simulation-based power analysis API for routine
 and customized simulation experimental designs. The package focuses
 exclusively on Monte Carlo simulation variants of (expected) prospective
-power analyses, criterion power analyses, compromise power analyses,
-sensitivity analyses, and prospective/post-hoc power analyses. The default
-simulation experiment functions found within the package provide
-stochastic variants of the power analyses subroutines found in the G*Power
-3 software (Faul, Erdfelder, Buchner, and Lang, 2009)
-<doi:10.3758/brm.41.4.1149>, along with various other power analysis
-examples (e.g., mediation analyses). Supporting functions are also
-included, such as for building empirical power curve estimates, which
-utilize a similar API structure.
+power analyses, criterion analyses, compromise analyses, sensitivity
+analyses, and a priori analyses. The default simulation experiment
+functions found within the package provide stochastic variants of the
+power analyses subroutines found in the G*Power 3.1 software (Faul,
+Erdfelder, Buchner, and Lang, 2009) <doi:10.3758/brm.41.4.1149>, along
+with various other parametric and non-parametric power analysis examples
+(e.g., mediation analyses). Supporting functions are also included, such
+as for building empirical power curve estimates, which utilize a similar
+API structure.
 
 %prep
 %setup -q -c -n %{packname}

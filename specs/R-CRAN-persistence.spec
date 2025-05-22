@@ -1,35 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gpg
-%global packver   1.3.0
+%global packname  persistence
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          GNU Privacy Guard for R
+Summary:          Optimal Graph Partition using the Persistence
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    gpgme-devel
-Recommends:       haveged
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-askpass 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-askpass 
 
 %description
-Bindings to GnuPG for working with OpenGPG (RFC4880) cryptographic
-methods. Includes utilities for public key encryption, creating and
-verifying digital signatures, and managing your local keyring. Some
-functionality depends on the version of GnuPG that is installed on the
-system. On Windows this package can be used together with 'GPG4Win' which
-provides a GUI for managing keys and entering passphrases.
+Calculate the optimal vertex partition of a graph using the persistence as
+objective function. These subroutines have been used in Avellone et al.
+<doi:10.1007/s10288-023-00559-z>.
 
 %prep
 %setup -q -c -n %{packname}

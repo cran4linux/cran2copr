@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesSSM
-%global packver   0.4.7
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.7
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Methods for State Space Models
 
@@ -22,15 +22,17 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Implements methods for Bayesian analysis of State Space Models. Includes
-implementations the Particle Marginal Metropolis-Hastings algorithm
+implementations of the Particle Marginal Metropolis-Hastings algorithm
 described in Andrieu et al. (2010) <doi:10.1111/j.1467-9868.2009.00736.x>
 and automatic tuning inspired by Pitt et al. (2012)
 <doi:10.1016/j.jeconom.2012.06.004> and J. Dahlin and T. B. Schön (2019)

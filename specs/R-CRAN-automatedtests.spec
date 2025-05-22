@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpp11tesseract
-%global packver   5.3.5
+%global packname  automatedtests
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.5
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Open Source OCR Engine
+Summary:          Automating Choosing Statistical Tests
 
-License:          Apache License (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-nortest 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-DescTools 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-nortest 
+Requires:         R-stats 
+Requires:         R-CRAN-DescTools 
 
 %description
-Bindings to 'tesseract': 'tesseract'
-(<https://github.com/tesseract-ocr/tesseract>) is a powerful optical
-character recognition (OCR) engine that supports over 100 languages. The
-engine is highly configurable in order to tune the detection algorithms
-and obtain the best possible results.
+Automatically selects and runs the most appropriate statistical test for
+your data, returning clear, easy-to-read results. Ideal for all experience
+levels.
 
 %prep
 %setup -q -c -n %{packname}

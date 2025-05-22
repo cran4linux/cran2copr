@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RGS
-%global packver   1.0
+%global packname  netcutter
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recursive Gradient Scanning Algorithm
+Summary:          Identification and Analysis of Co-Occurrence Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,26 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rms 
-BuildRequires:    R-CRAN-SemiPar 
-BuildRequires:    R-CRAN-survival 
-Requires:         R-CRAN-rms 
-Requires:         R-CRAN-SemiPar 
-Requires:         R-CRAN-survival 
+BuildRequires:    R-CRAN-PoissonBinomial 
+BuildRequires:    R-CRAN-rlecuyer 
+Requires:         R-CRAN-PoissonBinomial 
+Requires:         R-CRAN-rlecuyer 
 
 %description
-Provides a recursive gradient scanning algorithm for discretizing
-continuous variables in Logistic and Cox regression models. This algorithm
-is especially effective in identifying optimal cut-points for variables
-with U-shaped relationships to 'lnOR' (the natural logarithm of the odds
-ratio) or 'lnHR' (the natural logarithm of the hazard ratio), thereby
-enhancing model fit, interpretability, and predictive power. By
-iteratively scanning and calculating gradient changes, the method
-accurately pinpoints critical cut-points within nonlinear relationships,
-transforming continuous variables into categorical ones. This approach
-improves risk classification and regression analysis performance,
-increasing interpretability and practical relevance in clinical and risk
-management settings.
+Implementation of the NetCutter algorithm described in Müller and Mancuso
+(2008) <doi:10.1371/journal.pone.0003178>. The package identifies
+co-occurring terms in a list of containers. For example, it may be used to
+detect genes that co-occur across genomes.
 
 %prep
 %setup -q -c -n %{packname}

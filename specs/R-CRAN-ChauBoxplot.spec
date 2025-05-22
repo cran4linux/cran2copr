@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eatGADS
-%global packver   1.2.0
+%global packname  ChauBoxplot
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data Management of Large Hierarchical Data
+Summary:          Chauvenet-Type Boxplot
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,30 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.4.0
-BuildRequires:    R-CRAN-eatDB >= 0.5.0
-BuildRequires:    R-CRAN-eatTools >= 0.4.0
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-hms 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-stringi 
-Requires:         R-CRAN-haven >= 2.4.0
-Requires:         R-CRAN-eatDB >= 0.5.0
-Requires:         R-CRAN-eatTools >= 0.4.0
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-hms 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-stringi 
 
 %description
-Import 'SPSS' data, handle and change 'SPSS' meta data, store and access
-large hierarchical data in 'SQLite' data bases.
+Provides a modified boxplot with a new fence coefficient determined by Lin
+et al. (2025). The traditional fence coefficient k=1.5 in Tukey's boxplot
+is replaced by a coefficient based on Chauvenet's criterion, as described
+in their formula (9). The new boxplot can be implemented in 'base R' with
+function chau_boxplot(), and in 'ggplot2' with function
+geom_chau_boxplot().
 
 %prep
 %setup -q -c -n %{packname}

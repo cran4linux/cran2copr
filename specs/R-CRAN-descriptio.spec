@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  descriptio
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Descriptive Statistical Analysis
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-ggplot2
 Requires:         R-CRAN-rlang 
 
 %description
-Description of statistical associations between two variables : measures
-of local and global association between variables (phi, Cramér V,
+Description of statistical associations between variables : measures of
+local and global association between variables (phi, Cramér V,
 correlations, eta-squared, Goodman and Kruskal tau, permutation tests,
-etc.), multiple graphical representations of the associations between two
+etc.), multiple graphical representations of the associations between
 variables (using 'ggplot2') and weighted statistics.
 
 %prep

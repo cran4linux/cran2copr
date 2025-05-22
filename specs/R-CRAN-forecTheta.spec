@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  forecTheta
-%global packver   2.6.2
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.2
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecasting Time Series by Theta Models
 
@@ -19,8 +19,10 @@ Requires:         R-core >= 2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-CRAN-foreach 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-tseries 
+Requires:         R-CRAN-foreach 
 
 %description
 Routines for forecasting univariate time series using Theta Models.

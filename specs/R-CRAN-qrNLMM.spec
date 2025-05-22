@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  qrNLMM
-%global packver   3.4
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantile Regression for Nonlinear Mixed-Effects Models
 
@@ -34,9 +34,9 @@ Requires:         R-CRAN-progress
 Quantile regression (QR) for Nonlinear Mixed-Effects Models via the
 asymmetric Laplace distribution (ALD). It uses the Stochastic
 Approximation of the EM (SAEM) algorithm for deriving exact maximum
-likelihood estimates and full inference results for the fixed-effects and
-variance components. It also provides prediction and graphical summaries
-for assessing the algorithm convergence and fitting results.
+likelihood estimates and full inference result is for the fixed-effects
+and variance components. It also provides prediction and graphical
+summaries for assessing the algorithm convergence and fitting results.
 
 %prep
 %setup -q -c -n %{packname}
