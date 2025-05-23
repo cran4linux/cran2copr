@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mlergm
-%global packver   0.8
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multilevel Exponential-Family Random Graph Models
 
@@ -16,9 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ergm >= 3.10.1
-BuildRequires:    R-CRAN-sna >= 2.4
-BuildRequires:    R-CRAN-network >= 1.15
+BuildRequires:    R-CRAN-ergm >= 4.2.2
+BuildRequires:    R-CRAN-network >= 1.17.2
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-stringr 
@@ -31,9 +31,10 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lpSolve 
-Requires:         R-CRAN-ergm >= 3.10.1
-Requires:         R-CRAN-sna >= 2.4
-Requires:         R-CRAN-network >= 1.15
+BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-statnet.common 
+Requires:         R-CRAN-ergm >= 4.2.2
+Requires:         R-CRAN-network >= 1.17.2
 Requires:         R-parallel 
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-stringr 
@@ -46,6 +47,8 @@ Requires:         R-CRAN-plyr
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-sna 
+Requires:         R-CRAN-statnet.common 
 
 %description
 Estimates exponential-family random graph models for multilevel network
@@ -55,9 +58,9 @@ known blocks. The estimation method uses Monte-Carlo maximum likelihood
 estimation (MCMLE) methods to estimate a variety of canonical or curved
 exponential family models for binary random graphs. MCMLE methods for
 curved exponential-family random graph models can be found in Hunter and
-Handcock (2006) <DOI: 10.1198/106186006X133069>. The package supports
-parallel computing, and provides methods for assessing goodness-of-fit of
-models and visualization of networks.
+Handcock (JCGS, 2006). The package supports parallel computing, and
+provides methods for assessing goodness-of-fit of models and visualization
+of networks.
 
 %prep
 %setup -q -c -n %{packname}

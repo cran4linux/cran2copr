@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nzilbb.labbcat
-%global packver   1.3-0
+%global packver   1.4-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accessing Data Stored in 'LaBB-CAT' Instances
 
@@ -33,7 +33,7 @@ Requires:         R-CRAN-rstudioapi
 the New Zealand Institute of Language, Brain and Behaviour (NZILBB) - see
 <https://labbcat.canterbury.ac.nz>. This package defines functions for
 accessing corpus data in a 'LaBB-CAT' instance. You must have at least
-version 20230224.1731 of 'LaBB-CAT' to use this package. For more
+version 20230818.1400 of 'LaBB-CAT' to use this package. For more
 information about 'LaBB-CAT', see Robert Fromont and Jennifer Hay (2008)
 <doi:10.3366/E1749503208000142> or Robert Fromont (2017)
 <doi:10.1016/j.csl.2017.01.004>.

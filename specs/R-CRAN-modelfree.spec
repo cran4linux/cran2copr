@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modelfree
-%global packver   1.2
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Model-Free Estimation of a Psychometric Function
 
@@ -28,7 +28,9 @@ Requires:         R-methods
 Local linear estimation of psychometric functions. Provides functions for
 nonparametric estimation of a psychometric function and for estimation of
 a derived threshold and slope, and their standard deviations and
-confidence intervals.
+confidence intervals.For more details see Zychaluk and Foster (2009)
+<doi:10.3758/APP.71.6.1414> and Foster and Zychaluk (2007)
+<doi:10.1109/MSP.2007.4286564>.
 
 %prep
 %setup -q -c -n %{packname}

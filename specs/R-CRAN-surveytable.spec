@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  surveytable
-%global packver   0.9.7
+%global packver   0.9.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.7
+Version:          0.9.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Formatted Survey Estimates
 
@@ -22,13 +22,11 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-survey 
 BuildRequires:    R-CRAN-huxtable 
-BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-survey 
 Requires:         R-CRAN-huxtable 
-Requires:         R-CRAN-lifecycle 
 
 %description
 Short and understandable commands that generate tabulated, formatted, and

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  qra
-%global packver   0.2.7
+%global packver   0.2.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantal Response Analysis for Dose-Mortality Data
 

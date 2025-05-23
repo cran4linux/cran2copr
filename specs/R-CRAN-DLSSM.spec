@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDCPLACES
-%global packver   1.1.10
+%global packname  DLSSM
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.10
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'CDC PLACES' API
+Summary:          Dynamic Logistic State Space Prediction Model
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.10
+Requires:         R-core >= 3.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-yyjsonr 
-BuildRequires:    R-CRAN-tigris 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-zctaCrosswalk 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-yyjsonr 
-Requires:         R-CRAN-tigris 
-Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-zctaCrosswalk 
+BuildRequires:    R-CRAN-Matrix 
+Requires:         R-CRAN-Matrix 
 
 %description
-Allows users to seamlessly query several 'CDC PLACES' APIs
-(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
-state, measure, and release year. This package also contains a function to
-explore the available measures for each release year.
+Implements the dynamic logistic state space model for binary outcome data
+proposed by Jiang et al. (2021) <doi:10.1111/biom.13593>. It provides a
+computationally efficient way to update the prediction whenever new data
+becomes available. It allows for both time-varying and time-invariant
+coefficients, and use cubic smoothing splines to model varying
+coefficients. The smoothing parameters are objectively chosen by maximum
+likelihood. The model is updated using batch data accumulated at
+pre-specified time intervals.
 
 %prep
 %setup -q -c -n %{packname}

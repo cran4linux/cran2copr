@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doFuture
-%global packver   1.0.2
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Use Foreach to Parallelize via the Future Framework
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-foreach >= 1.5.0
-BuildRequires:    R-CRAN-future >= 1.32.0
+BuildRequires:    R-CRAN-future >= 1.49.0
 BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-globals 
 BuildRequires:    R-CRAN-iterators 
 BuildRequires:    R-parallel 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-foreach >= 1.5.0
-Requires:         R-CRAN-future >= 1.32.0
+Requires:         R-CRAN-future >= 1.49.0
 Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-globals 
 Requires:         R-CRAN-iterators 

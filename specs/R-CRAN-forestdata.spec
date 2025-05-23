@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CDCPLACES
-%global packver   1.1.10
+%global packname  forestdata
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.10
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access the 'CDC PLACES' API
+Summary:          Download Forestry Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,24 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-yyjsonr 
-BuildRequires:    R-CRAN-tigris 
 BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-zctaCrosswalk 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-yyjsonr 
-Requires:         R-CRAN-tigris 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-archive 
+BuildRequires:    R-CRAN-foreign 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-countrycode 
 Requires:         R-CRAN-sf 
-Requires:         R-stats 
-Requires:         R-CRAN-zctaCrosswalk 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-archive 
+Requires:         R-CRAN-foreign 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-countrycode 
 
 %description
-Allows users to seamlessly query several 'CDC PLACES' APIs
-(<https://data.cdc.gov/browse?q=PLACES%%20&sortBy=relevance>) by geography,
-state, measure, and release year. This package also contains a function to
-explore the available measures for each release year.
+Functions for downloading forestry and land use data for use in spatial
+analysis. This packages offers a user-friendly solution to quickly obtain
+datasets such as forest height, forest types, tree species under various
+climate change scenarios, or land use data among others.
 
 %prep
 %setup -q -c -n %{packname}
