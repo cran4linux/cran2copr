@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sourcoise
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Source a Script and Cache
 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-scales
 Requires:         R-CRAN-logger 
 
 %description
-Provides a function that behave nearly as base::source() but implements a
+Provides a function that behaves nearly as base::source() but implements a
 caching mechanism on disk, project based. It allows to quasi source() R
 scripts that gather data but can fail or consume to much time to respond
 even if nothing new is expected. It comes with tools to check and execute

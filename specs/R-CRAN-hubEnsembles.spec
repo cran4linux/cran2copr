@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hubEnsembles
-%global packver   0.1.9
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ensemble Methods for Combining Hub Model Outputs
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-distfromq >= 1.0.2
 BuildRequires:    R-CRAN-hubUtils >= 0.0.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-distfromq >= 1.0.2
 Requires:         R-CRAN-hubUtils >= 0.0.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenMx
-%global packver   2.22.6
+%global packver   2.22.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.22.6
+Version:          2.22.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Structural Equation Modelling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.10.0.2
 BuildRequires:    R-CRAN-BH >= 1.69.0.1
 BuildRequires:    R-CRAN-Matrix >= 1.2.16

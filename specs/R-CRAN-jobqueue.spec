@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jobqueue
-%global packver   1.6.0
+%global packver   1.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Run Interruptible Code Asynchronously
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-interprocess >= 1.2.0
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-later 
 BuildRequires:    R-CRAN-magrittr 
@@ -25,8 +26,8 @@ BuildRequires:    R-CRAN-promises
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-semaphore 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-interprocess >= 1.2.0
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-later 
 Requires:         R-CRAN-magrittr 
@@ -35,11 +36,10 @@ Requires:         R-CRAN-promises
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-semaphore 
 Requires:         R-utils 
 
 %description
-Takes an R expression and returns a Job object with a $stop() method which
+Takes an R expression and returns a job object with a $stop() method which
 can be called to terminate the background job. Also provides timeouts and
 other mechanisms for automatically terminating a background job. The
 result of the expression is available synchronously via $result or

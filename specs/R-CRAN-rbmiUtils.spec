@@ -1,41 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3learners
-%global packver   0.12.0
+%global packname  rbmiUtils
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Utility Functions to Support and Extend the 'rbmi' Package
 
-License:          LGPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.9.4
-BuildRequires:    R-CRAN-mlr3 >= 0.23.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3misc >= 0.9.4
-Requires:         R-CRAN-mlr3 >= 0.23.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-rbmi >= 1.4
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-beeca 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-rbmi >= 1.4
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-beeca 
+Requires:         R-CRAN-rlang 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' with interfaces to
-essential machine learning packages on CRAN.  This includes, but is not
-limited to: (penalized) linear and logistic regression, linear and
-quadratic discriminant analysis, k-nearest neighbors, naive Bayes, support
-vector machines, and gradient boosting.
+Provides utility functions that extend the capabilities of the
+reference-based multiple imputation package 'rbmi'. It supports clinical
+trial analysis workflows with functions for managing imputed datasets,
+applying analysis methods across imputations, and tidying results for
+reporting.
 
 %prep
 %setup -q -c -n %{packname}

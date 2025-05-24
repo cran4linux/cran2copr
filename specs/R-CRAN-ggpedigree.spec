@@ -1,57 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  csurvey
-%global packver   1.12
+%global packname  ggpedigree
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.12
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Constrained Regression for Survey Data
+Summary:          Visualizing Pedigrees with 'ggplot2' and 'plotly'
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.1
-Requires:         R-core >= 4.1.1
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-survey >= 4.2.1
-BuildRequires:    R-CRAN-cgam >= 1.27
-BuildRequires:    R-CRAN-coneproj 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-BGmisc 
+BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-survey >= 4.2.1
-Requires:         R-CRAN-cgam >= 1.27
-Requires:         R-CRAN-coneproj 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-data.table 
-Requires:         R-stats 
-Requires:         R-CRAN-igraph 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-reshape2 
+Requires:         R-CRAN-BGmisc 
+Requires:         R-CRAN-kinship2 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-zeallot 
+Requires:         R-CRAN-stringr 
+Requires:         R-utils 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-reshape2 
 
 %description
-Domain mean estimation with monotonicity or block monotone constraints.
-See Xu X, Meyer MC and Opsomer JD (2021)<doi:10.1016/j.jspi.2021.02.004>
-for more details.
+Provides plotting functions for visualizing pedigrees in behavior genetics
+and kinship research. The package complements 'BGmisc' [Garrison et al.
+(2024) <doi:10.21105/joss.06203>] by rendering pedigrees using the
+'ggplot2' framework and offers a modern alternative to the base-graphics
+pedigree plot in 'kinship2' [Sinnwell et al. (2014)
+<doi:10.1159/000363105>]. Features include support for duplicated
+individuals, complex mating structures, integration with simulated
+pedigrees, and layout customization.
 
 %prep
 %setup -q -c -n %{packname}

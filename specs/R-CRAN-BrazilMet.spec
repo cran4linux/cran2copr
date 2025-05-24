@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BrazilMet
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Processing of Automatic Weather Stations (AWS) Data of INMET-Brazil
 
@@ -21,16 +21,26 @@ BuildRequires:    R-CRAN-dplyr >= 0.3.0.1
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-terra 
 Requires:         R-CRAN-dplyr >= 0.3.0.1
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-terra 
 
 %description
-A compilation of functions to download and processing AWS data of
-INMET-Brazil, with the purpose of reference evapotranspiration (ETo)
-estimation. The package aims to make meteorological and agricultural data
-analysis more parsimonious.
+A collection of functions for downloading and processing automatic weather
+station (AWS) data from INMET (Brazil’s National Institute of
+Meteorology), designed to support the estimation of reference
+evapotranspiration (ETo). The package facilitates streamlined access to
+meteorological data and aims to simplify analyses in agricultural and
+environmental contexts.
 
 %prep
 %setup -q -c -n %{packname}

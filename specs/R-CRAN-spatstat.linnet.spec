@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spatstat.linnet
-%global packver   3.2-5
+%global packver   3.2-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.5
+Version:          3.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Networks Functionality of the 'spatstat' Family
 
@@ -16,13 +16,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-spatstat.geom >= 3.3.4
-BuildRequires:    R-CRAN-spatstat.model >= 3.3.4
-BuildRequires:    R-CRAN-spatstat.explore >= 3.3.3
-BuildRequires:    R-CRAN-spatstat.random >= 3.3.2
+BuildRequires:    R-CRAN-spatstat.explore >= 3.4.3
+BuildRequires:    R-CRAN-spatstat.geom >= 3.4.1
+BuildRequires:    R-CRAN-spatstat.random >= 3.4.1
+BuildRequires:    R-CRAN-spatstat.model >= 3.3.5
 BuildRequires:    R-CRAN-spatstat.data >= 3.1.4
-BuildRequires:    R-CRAN-spatstat.utils >= 3.1.2
-BuildRequires:    R-CRAN-spatstat.univar >= 3.1.1
+BuildRequires:    R-CRAN-spatstat.utils >= 3.1.4
+BuildRequires:    R-CRAN-spatstat.univar >= 3.1.3
 BuildRequires:    R-CRAN-spatstat.sparse >= 3.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -30,13 +30,13 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-Matrix 
-Requires:         R-CRAN-spatstat.geom >= 3.3.4
-Requires:         R-CRAN-spatstat.model >= 3.3.4
-Requires:         R-CRAN-spatstat.explore >= 3.3.3
-Requires:         R-CRAN-spatstat.random >= 3.3.2
+Requires:         R-CRAN-spatstat.explore >= 3.4.3
+Requires:         R-CRAN-spatstat.geom >= 3.4.1
+Requires:         R-CRAN-spatstat.random >= 3.4.1
+Requires:         R-CRAN-spatstat.model >= 3.3.5
 Requires:         R-CRAN-spatstat.data >= 3.1.4
-Requires:         R-CRAN-spatstat.utils >= 3.1.2
-Requires:         R-CRAN-spatstat.univar >= 3.1.1
+Requires:         R-CRAN-spatstat.utils >= 3.1.4
+Requires:         R-CRAN-spatstat.univar >= 3.1.3
 Requires:         R-CRAN-spatstat.sparse >= 3.1.0
 Requires:         R-stats 
 Requires:         R-graphics 

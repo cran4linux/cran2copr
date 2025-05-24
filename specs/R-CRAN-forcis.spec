@@ -1,41 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3learners
-%global packver   0.12.0
+%global packname  forcis
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Handle the FORCIS Foraminifera Database
 
-License:          LGPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.9.4
-BuildRequires:    R-CRAN-mlr3 >= 0.23.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3misc >= 0.9.4
-Requires:         R-CRAN-mlr3 >= 0.23.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-vroom 
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' with interfaces to
-essential machine learning packages on CRAN.  This includes, but is not
-limited to: (penalized) linear and logistic regression, linear and
-quadratic discriminant analysis, k-nearest neighbors, naive Bayes, support
-vector machines, and gradient boosting.
+Provides an interface to the 'FORCIS' database (Chaabane et al. (2024)
+<doi:10.5281/zenodo.7390791>) on global foraminifera distribution. This
+package allows to download and to handle 'FORCIS' data. It is part of the
+FRB-CESAB working group FORCIS.
+<https://www.fondationbiodiversite.fr/en/the-frb-in-action/programs-and-projects/le-cesab/forcis/>.
 
 %prep
 %setup -q -c -n %{packname}

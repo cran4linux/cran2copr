@@ -1,41 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mlr3learners
-%global packver   0.12.0
+%global packname  MixtureFitting
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Recommended Learners for 'mlr3'
+Summary:          Fitting of Univariate Mixture Distributions to Data using Various Approaches
 
-License:          LGPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-paradox >= 1.0.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.9.4
-BuildRequires:    R-CRAN-mlr3 >= 0.23.0
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-paradox >= 1.0.0
-Requires:         R-CRAN-mlr3misc >= 0.9.4
-Requires:         R-CRAN-mlr3 >= 0.23.0
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-R6 
+BuildRequires:    R-devel >= 2.0.1
+Requires:         R-core >= 2.0.1
 
 %description
-Recommended Learners for 'mlr3'. Extends 'mlr3' with interfaces to
-essential machine learning packages on CRAN.  This includes, but is not
-limited to: (penalized) linear and logistic regression, linear and
-quadratic discriminant analysis, k-nearest neighbors, naive Bayes, support
-vector machines, and gradient boosting.
+Methods for fitting mixture distributions to univariate data using
+expectation maximization, HWHM and other methods. Supports Gaussian,
+Cauchy, Student's t and von Mises mixtures. For more details see Merkys
+(2018)
+<https://www.lvb.lt/permalink/370LABT_NETWORK/1m6ui06/alma9910036312108451>.
 
 %prep
 %setup -q -c -n %{packname}
