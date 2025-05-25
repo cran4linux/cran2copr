@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ExplodeLayout
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Exploded Coordinates Based on Original Node Coordinates and Node Clustering Membership
 
@@ -40,8 +41,9 @@ sufficient separation of clusters, while reducing the overall layout size
 of the network. This package is a basic version of an earlier version
 called [epl]<https://github.com/UTMB-DIVA-Lab/epl> that searched for an
 optimal explode radius, and offered multiple ways to separate clusters in
-a network (Bhavnani et al(2017) <PMID: 28815099>). The example dataset is
-for a bipartite network, but the algorithm can work also for unipartite
+a network (Bhavnani et al(2017)
+<https://pmc.ncbi.nlm.nih.gov/articles/PMC5543384/>). The example dataset
+is for a bipartite network, but the algorithm can work also for unipartite
 networks.
 
 %prep

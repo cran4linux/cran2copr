@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missForestPredict
-%global packver   1.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Value Imputation using Random Forest for Prediction Settings
 
@@ -31,7 +31,10 @@ prediction settings. The function missForest() is used to impute a
 (training) dataset with missing values and to learn imputation models that
 can be later used for imputing new observations. The function
 missForestPredict() is used to impute one or multiple new observations
-(test set) using the models learned on the training data.
+(test set) using the models learned on the training data. For more details
+see Albu, E., Gao, S., Wynants, L., & Van Calster, B. (2024).
+missForestPredict--Missing data imputation for prediction settings
+<doi:10.48550/arXiv.2407.03379>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  visStatistics
-%global packver   0.1.3
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Selection and Visualisation of Statistical Hypothesis Tests
 
@@ -40,12 +40,19 @@ Requires:         R-CRAN-vcd
 Automatically selects and visualises appropriate statistical hypothesis
 tests between a response and a feature variable in a data frame. The
 choice of test depends on the class, distribution, and sample size of the
-input variables, as well as the user-defined 'conf.level'. Well suited for
-web-based or server-side R applications. Implemented tests: t.test(),
-wilcox.test(), aov(), oneway.test(), kruskal.test(), lm(), fisher.test(),
-chisq.test(). Tests for normality: shapiro.test(), ad.test(). Tests for
-equal variances: bartlett.test(). Post-hoc tests: TukeyHSD(),
-pairwise.wilcox.test().
+input variables, as well as the user-defined 'conf.level'. The package
+focuses on visualising the selected test using appropriate plots— such as
+box plots, bar charts, regression lines with confidence bands, mosaic
+plots, residual plots and Q–Q plots. Each plot is annotated with relevant
+test statistics and, where applicable, assumption checks and post-hoc
+results. The scripted workflow is particularly well suited for interactive
+interfaces where users access data only through a graphical front end
+backed by server-side R sessions, as well as for quick data exploration,
+for example, in statistical consulting contexts. Implemented tests:
+t.test(), wilcox.test(), aov(), oneway.test(), kruskal.test(), lm(),
+fisher.test(), chisq.test(). Tests for normality: shapiro.test(),
+ad.test(). Tests for equal variances: bartlett.test(). Post-hoc tests:
+TukeyHSD(), pairwise.wilcox.test().
 
 %prep
 %setup -q -c -n %{packname}

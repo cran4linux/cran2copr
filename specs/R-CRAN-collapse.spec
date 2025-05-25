@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  collapse
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Advanced and Fast Data Transformation
 
@@ -28,14 +28,14 @@ and data frames, which provide efficient low-level vectorizations, OpenMP
 multithreading, and skip missing values by default. These are integrated
 with fast grouping and ordering algorithms (also callable from C), and
 efficient data manipulation functions. The package also provides a
-flexible and rigorous approach to time series and panel data in R. It
-further includes fast functions for common statistical procedures,
+flexible and rigorous approach to time series and panel data in R, fast
+functions for data transformation and common statistical procedures,
 detailed (grouped, weighted) summary statistics, powerful tools to work
 with nested data, fast data object conversions, functions for memory
 efficient R programming, and helpers to effectively deal with variable
 labels, attributes, and missing data. It seamlessly supports base R
-objects/classes as well as 'units', 'integer64', 'xts'/'zoo', 'tibble',
-'grouped_df', 'data.table', 'sf', 'pseries'/'pdata.frame'.
+objects/classes as well as 'units', 'integer64', 'xts'/ 'zoo', 'tibble',
+'grouped_df', 'data.table', 'sf', and 'pseries'/'pdata.frame'.
 
 %prep
 %setup -q -c -n %{packname}
