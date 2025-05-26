@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fixes
-%global packver   0.2.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating and Visualizing Fixed-Effects Event Study Models
 

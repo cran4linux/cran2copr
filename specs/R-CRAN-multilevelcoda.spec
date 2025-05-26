@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multilevelcoda
-%global packver   1.3.1
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Bayesian Multilevel Models for Compositional Data
 
@@ -31,14 +31,16 @@ BuildRequires:    R-CRAN-abind
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinystan 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-hrbrthemes 
-BuildRequires:    R-CRAN-bslib 
-BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-bayesplot 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-hrbrthemes 
+BuildRequires:    R-CRAN-htmltools 
+BuildRequires:    R-CRAN-bslib 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fs 
 Requires:         R-CRAN-data.table >= 1.12.0
 Requires:         R-stats 
 Requires:         R-CRAN-compositions 
@@ -53,23 +55,25 @@ Requires:         R-CRAN-abind
 Requires:         R-graphics 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinystan 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-hrbrthemes 
-Requires:         R-CRAN-bslib 
-Requires:         R-CRAN-DT 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-bayesplot 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-hrbrthemes 
+Requires:         R-CRAN-htmltools 
+Requires:         R-CRAN-bslib 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fs 
 
 %description
-Implement Bayesian Multilevel Modelling for compositional data in a
-multilevel framework. Compute multilevel compositional data and Isometric
-log ratio (ILR) at between and within-person levels, fit Bayesian
-multilevel models for compositional predictors and outcomes, and run
-post-hoc analyses such as isotemporal substitution models. References: Le,
-Stanford, Dumuid, and Wiley (2024) <doi:10.48550/arXiv.2405.03985>, Le,
-Dumuid, Stanford, and Wiley (2024) <doi:10.48550/arXiv.2411.12407>.
+Implement Bayesian multilevel modelling for compositional data. Compute
+multilevel compositional data and perform log-ratio transforms at between
+and within-person levels, fit Bayesian multilevel models for compositional
+predictors and outcomes, and run post-hoc analyses such as isotemporal
+substitution models. References: Le, Stanford, Dumuid, and Wiley (2025)
+<doi:10.1037/met0000750>, Le, Dumuid, Stanford, and Wiley (2024)
+<doi:10.48550/arXiv.2411.12407>.
 
 %prep
 %setup -q -c -n %{packname}

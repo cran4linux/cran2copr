@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AccSamplingDesign
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Acceptance Sampling Plans Design
 
@@ -23,13 +23,13 @@ Requires:         R-stats
 Requires:         R-methods 
 
 %description
-Provides tools for designing and analyzing acceptance sampling plans.
-Supports both attribute-based (Binomial and Poisson) and variable-based
-(Normal and Beta) sampling, enabling quality control for fractional and
-compositional data. Uses nonlinear programming for sampling plan
-optimization, minimizing sample size while balancing producer's and
-consumer's risks. Operating Characteristic curves are available for plan
-visualization.
+Provides tools for designing and analyzing Acceptance Sampling plans.
+Supports both Attributes Sampling (Binomial and Poisson distributions) and
+Variables Sampling (Normal and Beta distributions), enabling quality
+control for fractional and compositional data. Uses nonlinear programming
+for sampling plan optimization, minimizing sample size while controlling
+producer's and consumer's risks. Operating Characteristic curves are
+available for plan visualization.
 
 %prep
 %setup -q -c -n %{packname}
