@@ -1,40 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  regclass
-%global packver   1.7
+%global packname  rencher
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for an Introductory Class in Regression and Modeling
+Summary:          Datasets from the Book "Methods of Multivariate Analysis (3rd)"
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bestglm 
-BuildRequires:    R-CRAN-leaps 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-rpart.plot 
-Requires:         R-CRAN-bestglm 
-Requires:         R-CRAN-leaps 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-rpart.plot 
 
 %description
-Contains basic tools for visualizing, interpreting, and building
-regression models.  It has been designed for use with the book
-Introduction to Regression and Modeling with R by Adam Petrie, Cognella
-Publishers, ISBN: 978-1-63189-250-9.
+Provides the datasets in the book "Methods of Multivariate Analysis
+(3rd)", such as Table 6.27 Blood Pressure Data, for statistical
+analysis,especially MANOVA. The dataset names correspond to their
+numbering in the third edition of the book, such as table6.27. Based on
+the book by Rencher and Christensen (2012, ISBN:9780470178966).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,40 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  regclass
-%global packver   1.7
+%global packname  DTS
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for an Introductory Class in Regression and Modeling
+Summary:          Discrete Tempered Stable Distributions
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-bestglm 
-BuildRequires:    R-CRAN-leaps 
-BuildRequires:    R-CRAN-VGAM 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-randomForest 
-BuildRequires:    R-CRAN-rpart.plot 
-Requires:         R-CRAN-bestglm 
-Requires:         R-CRAN-leaps 
-Requires:         R-CRAN-VGAM 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-randomForest 
-Requires:         R-CRAN-rpart.plot 
+BuildRequires:    R-CRAN-actuar 
+BuildRequires:    R-CRAN-expint 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-actuar 
+Requires:         R-CRAN-expint 
+Requires:         R-stats 
 
 %description
-Contains basic tools for visualizing, interpreting, and building
-regression models.  It has been designed for use with the book
-Introduction to Regression and Modeling with R by Adam Petrie, Cognella
-Publishers, ISBN: 978-1-63189-250-9.
+Methods for evaluating the probability mass function, cumulative
+distribution function, and generating random samples from discrete
+tempered stable distributions. For more details see Grabchak (2021)
+<doi:10.1007/s11009-021-09904-3>.
 
 %prep
 %setup -q -c -n %{packname}

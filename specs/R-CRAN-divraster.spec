@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  divraster
-%global packver   1.0.4
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diversity Metrics Calculations for Rasterized Data
 
@@ -19,12 +19,10 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-BAT 
 BuildRequires:    R-CRAN-SESraster 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-BAT 
 Requires:         R-CRAN-SESraster 
-Requires:         R-stats 
 Requires:         R-CRAN-terra 
 Requires:         R-utils 
 

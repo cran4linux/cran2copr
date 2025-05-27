@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustlmm
-%global packver   3.3-2
+%global packver   3.3-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.2
+Version:          3.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Linear Mixed Effects Models
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-fastGHQuad
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-reformulas 
 Requires:         R-CRAN-Matrix >= 1.6.2
 Requires:         R-CRAN-lme4 >= 1.1.9
 Requires:         R-CRAN-robustbase >= 0.93
@@ -40,6 +41,7 @@ Requires:         R-CRAN-fastGHQuad
 Requires:         R-parallel 
 Requires:         R-CRAN-rlang 
 Requires:         R-utils 
+Requires:         R-CRAN-reformulas 
 
 %description
 Implements the Robust Scoring Equations estimator to fit linear mixed

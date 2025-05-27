@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  keyring
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access the System Credential Store from R
 
@@ -15,25 +15,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    libsecret-devel
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-askpass 
-BuildRequires:    R-CRAN-assertthat 
 BuildRequires:    R-CRAN-filelock 
-BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-rappdirs 
-BuildRequires:    R-CRAN-sodium 
 BuildRequires:    R-tools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-yaml 
 Requires:         R-CRAN-askpass 
-Requires:         R-CRAN-assertthat 
 Requires:         R-CRAN-filelock 
-Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-rappdirs 
-Requires:         R-CRAN-sodium 
 Requires:         R-tools 
 Requires:         R-utils 
 Requires:         R-CRAN-yaml 

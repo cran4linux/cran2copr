@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  SparseBiplots
-%global packver   4.0.1
+%global packver   4.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.0.1
+Version:          4.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          'HJ-Biplot' using Different Ways of Penalization Plotting with 'ggplot2'
 
@@ -18,27 +19,21 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-gtable 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sparsepca 
-BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-gtable 
-Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-sparsepca 
-Requires:         R-CRAN-testthat 
 
 %description
-'HJ-Biplot' is a multivariate method that allow represent multivariate
-data on a subspace of low dimension, in such a way that most of the
-variability of the information is captured in a few dimensions. This
-package implements three new techniques and constructs in each case the
-'HJ-Biplot', adapting restrictions to reduce weights and / or produce zero
-weights in the dimensions, based on the regularization theories. It
-implements three methods of regularization: Ridge, LASSO and Elastic Net.
+The 'HJ-Biplot' is a multivariate method that represents high-dimensional
+data in a low-dimensional subspace, capturing most of the information’s
+variability in just a few dimensions. This package implements three new
+regularized versions of the HJ-Biplot: Ridge, LASSO, and Elastic Net.
+These versions introduce restrictions that shrink or zero-out variable
+weights to improve interpretability based on regularization theory. All
+methods provide graphical representations using 'ggplot2'.
 
 %prep
 %setup -q -c -n %{packname}

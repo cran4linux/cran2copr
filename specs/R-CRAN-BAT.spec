@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BAT
-%global packver   2.9.6
+%global packver   2.10.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.6
+Version:          2.10.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biodiversity Assessment Tools
 
@@ -28,6 +28,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-phytools 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-TreeTools 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vegan 
 Requires:         R-CRAN-ape 
@@ -41,6 +42,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-phytools 
 Requires:         R-stats 
 Requires:         R-CRAN-terra 
+Requires:         R-CRAN-TreeTools 
 Requires:         R-utils 
 Requires:         R-CRAN-vegan 
 

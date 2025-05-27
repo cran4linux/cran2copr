@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  first
-%global packver   1.1
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Factor Importance Ranking and Selection using Total Indices
 
@@ -27,10 +27,10 @@ Requires:         R-CRAN-FNN
 Requires:         R-CRAN-twinning 
 
 %description
-A model-independent factor importance ranking and selection procedure that
-is based on total Sobol' indices. Please see Huang and Joseph (2024)
-<arXiv:2401.00800>. This research is supported by U.S. National Science
-Foundation grants DMS-2310637 and DMREF-1921873.
+A model-independent factor importance ranking and selection procedure
+based on total Sobol' indices. Please see Huang and Joseph (2025)
+<doi:10.1080/00401706.2025.2483531>. This research is supported by U.S.
+National Science Foundation grants DMS-2310637 and DMREF-1921873.
 
 %prep
 %setup -q -c -n %{packname}

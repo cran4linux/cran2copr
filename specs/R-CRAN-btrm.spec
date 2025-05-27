@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  btrm
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Treed Regression Model for Personalized Prediction and Precision Diagnostics
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-pROC
 BuildRequires:    R-CRAN-arm 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MASS 
 Requires:         R-CRAN-pROC 
 Requires:         R-CRAN-arm 
 Requires:         R-stats 
 Requires:         R-graphics 
+Requires:         R-CRAN-MASS 
 
 %description
 Generalization of the Bayesian classification and regression tree (CART)
