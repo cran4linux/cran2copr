@@ -1,49 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.8.4
+%global packname  propagate
+%global packver   1.0-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Propagation of Uncertainty
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
+BuildRequires:    R-CRAN-Rcpp >= 0.10.1
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-tmvtnorm 
+BuildRequires:    R-CRAN-ff 
+BuildRequires:    R-CRAN-minpack.lm 
+Requires:         R-CRAN-Rcpp >= 0.10.1
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-tmvtnorm 
+Requires:         R-CRAN-ff 
+Requires:         R-CRAN-minpack.lm 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Propagation of uncertainty using higher-order Taylor expansion and Monte
+Carlo simulation. Calculations of propagated uncertainties are based on
+matrix calculus including covariance structure according to Arras 1998
+<doi:10.3929/ethz-a-010113668> (first order), Wang & Iyer 2005
+<doi:10.1088/0026-1394/42/5/011> (second order) and BIPM Supplement 1
+(Monte Carlo) <doi:10.59161/JCGM101-2008>.
 
 %prep
 %setup -q -c -n %{packname}

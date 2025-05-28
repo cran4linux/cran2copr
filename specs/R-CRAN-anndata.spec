@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  anndata
-%global packver   0.7.5.6
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.5.6
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'anndata' for R
 
@@ -17,13 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-reticulate >= 1.17
+BuildRequires:    R-CRAN-reticulate >= 1.41
 BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
-Requires:         R-CRAN-reticulate >= 1.17
+Requires:         R-CRAN-reticulate >= 1.41
 Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 

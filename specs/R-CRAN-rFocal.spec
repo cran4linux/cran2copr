@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.8.4
+%global packname  rFocal
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Run 'FOCAL' Language Source Code
 
-License:          Apache License (>= 2.0)
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
+BuildArch:        noarch
 BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
+BuildRequires:    R-methods 
 Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+Requires:         R-methods 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Execute 'FOCAL'
+(<https://en.wikipedia.org/wiki/FOCAL_(programming_language)>) source code
+directly in 'R'. This is achieved by translating 'FOCAL' code into
+equivalent 'R' commands and controlling the sequence of execution.
 
 %prep
 %setup -q -c -n %{packname}

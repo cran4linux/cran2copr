@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sourcoise
-%global packver   0.6.2
+%global packname  TestGenerator
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Source a Script and Cache
+Summary:          Integration Unit Tests for Pharmacoepidemiological Studies
 
-License:          MIT + file LICENSE
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,45 +17,48 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-qs2 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lobstr 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-CDMConnector 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-duckdb 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-fs 
-Requires:         R-CRAN-qs2 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-arrow 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-CRAN-omopgenerics 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lobstr 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-CDMConnector 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-duckdb 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-logger 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-testthat 
+Requires:         R-CRAN-arrow 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-CRAN-omopgenerics 
 
 %description
-Provides a function that behaves nearly as base::source() but implements a
-caching mechanism on disk, project based. It allows to quasi source() R
-scripts that gather data but can fail or consume to much time to respond
-even if nothing new is expected. It comes with tools to check and execute
-on demand or when cache is invalid the script.
+An R interface to load testing data in the 'OMOP' Common Data Model
+('CDM'). An input file, csv or xlsx, can be converted to a 'CDMConnector'
+object. This object can be used to execute and test studies that use the
+'CDM' <https://www.ohdsi.org/data-standardization/>.
 
 %prep
 %setup -q -c -n %{packname}

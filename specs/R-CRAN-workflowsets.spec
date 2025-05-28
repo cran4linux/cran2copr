@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  workflowsets
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create a Collection of 'tidymodels' Workflows
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tibble >= 3.1.0
 BuildRequires:    R-CRAN-pillar >= 1.7.0
+BuildRequires:    R-CRAN-parsnip >= 1.2.1
 BuildRequires:    R-CRAN-hardhat >= 1.2.0
-BuildRequires:    R-CRAN-parsnip >= 1.2.0
 BuildRequires:    R-CRAN-tune >= 1.2.0
 BuildRequires:    R-CRAN-workflows >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.0
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-generics >= 0.1.2
 BuildRequires:    R-CRAN-rsample >= 0.0.9
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-prettyunits 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
@@ -39,8 +38,8 @@ BuildRequires:    R-CRAN-vctrs
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-tibble >= 3.1.0
 Requires:         R-CRAN-pillar >= 1.7.0
+Requires:         R-CRAN-parsnip >= 1.2.1
 Requires:         R-CRAN-hardhat >= 1.2.0
-Requires:         R-CRAN-parsnip >= 1.2.0
 Requires:         R-CRAN-tune >= 1.2.0
 Requires:         R-CRAN-workflows >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.0
@@ -50,7 +49,6 @@ Requires:         R-CRAN-generics >= 0.1.2
 Requires:         R-CRAN-rsample >= 0.0.9
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-glue 
 Requires:         R-CRAN-prettyunits 
 Requires:         R-CRAN-purrr 
 Requires:         R-stats 

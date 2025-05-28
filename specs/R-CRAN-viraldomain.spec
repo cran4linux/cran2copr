@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viraldomain
-%global packver   0.0.6
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Applicability Domain Methods of Viral Load and CD4 Lymphocytes
 
@@ -14,21 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-applicable 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-earth 
+BuildRequires:    R-CRAN-kknn 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-workflows 
 Requires:         R-CRAN-applicable 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-earth 
+Requires:         R-CRAN-kknn 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-recipes 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 

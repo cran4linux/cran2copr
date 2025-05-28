@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.8.4
+%global packname  tranSurv
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Transformation-Based Regression under Dependent Truncation
 
-License:          Apache License (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-truncSP 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-SQUAREM 
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-truncSP 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-SQUAREM 
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+A latent, quasi-independent truncation time is assumed to be linked with
+the observed dependent truncation time, the event time, and an unknown
+transformation parameter via a structural transformation model. The
+transformation parameter is chosen to minimize the conditional Kendall's
+tau (Martin and Betensky, 2005) <doi:10.1198/016214504000001538> or the
+regression coefficient estimates (Jones and Crowley, 1992)
+<doi:10.2307/2336782>. The marginal distribution for the truncation time
+and the event time are completely left unspecified. The methodology is
+applied to survival curve estimation and regression analysis.
 
 %prep
 %setup -q -c -n %{packname}

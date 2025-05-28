@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.8.4
+%global packname  GridOnClusters
+%global packver   0.1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Cluster-Preserving Multivariate Joint Grid Discretization
 
-License:          Apache License (>= 2.0)
+License:          LGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-Ckmeans.1d.dp 
+BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-fossil 
+BuildRequires:    R-CRAN-dqrng 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-plotrix 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-Ckmeans.1d.dp 
+Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-fossil 
+Requires:         R-CRAN-dqrng 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-plotrix 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Discretize multivariate continuous data using a grid that captures the
+joint distribution via preserving clusters in the original data (Wang et
+al 2020) <doi:10.1145/3388440.3412415>. Joint grid discretization is
+applicable as a data transformation step to prepare data for model-free
+inference of association, function, or causality.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ICtest
-%global packver   0.3-5
+%global packver   0.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating and Testing the Number of Interesting Components in Linear Dimension Reduction
 
@@ -15,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-ICS >= 1.3.0
+BuildRequires:    R-CRAN-ICS >= 1.4.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.3
 BuildRequires:    R-CRAN-JADE 
 BuildRequires:    R-CRAN-ggplot2 
@@ -29,8 +30,10 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-CRAN-RcppRoll 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-ICS >= 1.3.0
+Requires:         R-CRAN-ICS >= 1.4.0
 Requires:         R-CRAN-Rcpp >= 0.12.3
 Requires:         R-CRAN-JADE 
 Requires:         R-CRAN-ggplot2 
@@ -44,6 +47,8 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-xts 
 Requires:         R-CRAN-RcppRoll 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-progress 
+Requires:         R-utils 
 
 %description
 For different linear dimension reduction methods like principal components

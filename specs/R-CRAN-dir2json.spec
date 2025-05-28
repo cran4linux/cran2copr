@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.8.4
+%global packname  dir2json
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Convert Directory to JSON
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Convert a directory structure into a JSON format. This package lets you
+recursively traverse a directory and convert its contents into a JSON
+object, making it easier to import code base from file systems into large
+language models.
 
 %prep
 %setup -q -c -n %{packname}

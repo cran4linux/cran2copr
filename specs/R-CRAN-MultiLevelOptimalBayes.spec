@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  binsegRcpp
-%global packver   2025.5.13
+%global packname  MultiLevelOptimalBayes
+%global packver   0.0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.5.13
+Version:          0.0.1.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Efficient Implementation of Binary Segmentation
+Summary:          Regularized Bayesian Estimator for Two-Level Latent Variable Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-Rcpp 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-pracma 
 
 %description
-Standard template library containers are used to implement an efficient
-binary segmentation algorithm, which is log-linear on average and
-quadratic in the worst case.
+Implements a regularized Bayesian estimator that optimizes the estimation
+of between-group coefficients for multilevel latent variable models by
+minimizing mean squared error (MSE) and balancing variance and bias. The
+package provides more reliable estimates in scenarios with limited data,
+offering a robust solution for accurate parameter estimation in two-level
+latent variable models. It is designed for researchers in psychology,
+education, and related fields who face challenges in estimating
+between-group effects under small sample sizes and low intraclass
+correlation coefficients. Dashuk et al. (2024)
+<doi:10.13140/RG.2.2.18148.39048> derived the optimal regularized Bayesian
+estimator; Dashuk et al. (2024) <doi:10.13140/RG.2.2.34350.01604> extended
+it to the multivariate case; and Luedtke et al. (2008)
+<doi:10.1037/a0012869> formalized the two-level latent variable framework.
 
 %prep
 %setup -q -c -n %{packname}

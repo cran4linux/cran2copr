@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reflimR
-%global packver   1.0.6
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reference Limit Estimation Using Routine Laboratory Data
 
@@ -26,11 +26,12 @@ Requires:         R-grDevices
 
 %description
 Uses an indirect method based on truncated quantile-quantile plots to
-estimate reference limits from routine laboratory data. The principle of
-the method was developed by Robert G Hoffmann (1963)
+estimate reference limits from routine laboratory data: Georg Hoffmann and
+colleagues (2024) <doi: 10.3390/jcm13154397>. The principle of the method
+was developed by Robert G Hoffmann (1963)
 <doi:10.1001/jama.1963.03060110068020> and modified by Georg Hoffmann and
-colleagues (2015) <doi:10.1515/labmed-2015-0104>, (2020)
-<doi:10.1515/labmed-2020-0005>, and (2022)
+colleagues (2015) <doi:10.1515/labmed-2015-0104>, and Frank Klawonn and
+colleagues (2020) <doi:10.1515/labmed-2020-0005>, (2022)
 <doi:10.1007/978-3-031-15509-3_31>.
 
 %prep

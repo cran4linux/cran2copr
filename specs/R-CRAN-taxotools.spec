@@ -1,49 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  paws.common
-%global packver   0.8.4
+%global packname  taxotools
+%global packver   0.0.148
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.4
+Version:          0.0.148
 Release:          1%{?dist}%{?buildtag}
-Summary:          Paws Low-Level Amazon Web Services API
+Summary:          Taxonomic List Processing
 
-License:          Apache License (>= 2.0)
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       pandoc
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-xml2 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-taxize 
+BuildRequires:    R-CRAN-wikitaxa 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sqldf 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-rmarkdown 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-taxize 
+Requires:         R-CRAN-wikitaxa 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sqldf 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-rmarkdown 
+Requires:         R-CRAN-stringi 
 
 %description
-Functions for making low-level API requests to Amazon Web Services
-<https://aws.amazon.com>. The functions handle building, signing, and
-sending requests, and receiving responses. They are designed to help build
-higher-level interfaces to individual services, such as Simple Storage
-Service (S3).
+Taxonomic lists matching and merging, casting and melting scientific
+names, managing taxonomic lists from Global Biodiversity Information
+Facility 'GBIF' <https://www.gbif.org/> or Integrated Taxonomic
+Information System 'ITIS', <https://itis.gov/> harvesting names from
+Wikipedia and fuzzy matching.
 
 %prep
 %setup -q -c -n %{packname}

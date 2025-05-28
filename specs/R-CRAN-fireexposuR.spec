@@ -1,46 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AccelStab
-%global packver   2.2.1
+%global packname  fireexposuR
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Accelerated Stability Kinetic Modelling
+Summary:          Compute and Visualize Wildfire Exposure
 
-License:          AGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggspatial 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-maptiles 
+BuildRequires:    R-CRAN-MultiscaleDTM 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-tidyterra 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-stats 
-Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggspatial 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-maptiles 
+Requires:         R-CRAN-MultiscaleDTM 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-tidyterra 
 
 %description
-Estimate the Šesták–Berggren kinetic model (degradation model) from
-experimental data. A closed-form (analytic) solution to the degradation
-model is implemented as a non-linear fit, allowing for the extrapolation
-of the degradation of a drug product - both in time and temperature.
-Parametric bootstrap, with kinetic parameters drawn from the multivariate
-t-distribution, and analytical formulae (the delta method) are available
-options to calculate the confidence and prediction intervals. The results
-(modelling, extrapolations and statistical intervals) can be visualised
-with multiple plots. The examples illustrate the accelerated stability
-modelling in drugs and vaccines development.
+Methods for computing and visualizing wildfire igntion exposure and
+directional vulnerability that are published in a series of scientific
+publications are automated by the functions in this package. See Beverly
+et al. (2010) <doi:10.1071/WF09071>, Beverly et al. (2021)
+<doi:10.1007/s10980-020-01173-8>, and Beverly and Forbes (2023)
+<doi:10.1007/s11069-023-05885-3> for background and methodology.
 
 %prep
 %setup -q -c -n %{packname}

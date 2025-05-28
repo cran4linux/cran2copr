@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  viralmodels
-%global packver   1.3.3
+%global packver   1.3.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.3
+Version:          1.3.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Viral Load and CD4 Lymphocytes Regression Models
 
@@ -17,28 +17,46 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-baguette 
+BuildRequires:    R-CRAN-Cubist 
 BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-hardhat 
+BuildRequires:    R-CRAN-kernlab 
+BuildRequires:    R-CRAN-kknn 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ranger 
 BuildRequires:    R-CRAN-recipes 
 BuildRequires:    R-CRAN-rsample 
+BuildRequires:    R-CRAN-rules 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-tune 
+BuildRequires:    R-CRAN-viraldomain 
 BuildRequires:    R-CRAN-workflows 
 BuildRequires:    R-CRAN-workflowsets 
+Requires:         R-CRAN-baguette 
+Requires:         R-CRAN-Cubist 
 Requires:         R-CRAN-dials 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-hardhat 
+Requires:         R-CRAN-kernlab 
+Requires:         R-CRAN-kknn 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ranger 
 Requires:         R-CRAN-recipes 
 Requires:         R-CRAN-rsample 
+Requires:         R-CRAN-rules 
 Requires:         R-stats 
 Requires:         R-CRAN-tidyselect 
 Requires:         R-CRAN-tune 
+Requires:         R-CRAN-viraldomain 
 Requires:         R-CRAN-workflows 
 Requires:         R-CRAN-workflowsets 
 

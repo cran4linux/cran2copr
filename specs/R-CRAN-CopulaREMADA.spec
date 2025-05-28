@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CopulaREMADA
-%global packver   1.7.3
+%global packver   1.7.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.3
+Version:          1.7.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Copula Mixed Models for Multivariate Meta-Analysis of Diagnostic Test Accuracy Studies
 
-License:          GPL (>= 3.5.0)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -48,7 +48,7 @@ copula mixed model for meta-analysis of two diagnostic tests accounting
 for within and between studies dependence in Nikoloulopoulos (2024)
 <doi:10.1177/09622802241269645>. The 1-truncated D-vine copula mixed
 models for meta-analysis of diagnostic accuracy studies without a gold
-standard (Nikoloulopoulos, 2024).
+standard (Nikoloulopoulos, 2025) <doi:10.1093/biomtc/ujaf037>.
 
 %prep
 %setup -q -c -n %{packname}

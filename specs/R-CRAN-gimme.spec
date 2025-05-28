@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gimme
-%global packver   0.8.1
+%global packver   0.8.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.8.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Iterative Multiple Model Estimation
 
@@ -28,6 +28,7 @@ BuildRequires:    R-graphics
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-tseries 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-imputeTS >= 3.0
 Requires:         R-CRAN-qgraph >= 1.9.8
 Requires:         R-CRAN-igraph >= 1.0.0
@@ -39,6 +40,7 @@ Requires:         R-graphics
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-tseries 
+Requires:         R-utils 
 
 %description
 Data-driven approach for arriving at person-specific time series models.
