@@ -1,36 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DER
-%global packver   1.1
+%global packname  SplitWise
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Income Polarization Index
+Summary:          'SplitWise': Hybrid Stepwise Regression with Single-Split Dummy Encoding
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-rpart 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
+Requires:         R-CRAN-rpart 
 Requires:         R-stats 
 
 %description
-The DER (or PaF) income polarization index as proposed by Duclos J. Y.,
-Esteban, J. and Ray D. (2004). "Polarization: concepts, measurement,
-estimation". Econometrica, 72(6): 1737--1772.
-<doi:10.1111/j.1468-0262.2004.00552.x>. The index may be computed for a
-single or for a range of values of the alpha-parameter. Bootstrapping is
-also available.
+Implements 'SplitWise', a hybrid regression approach that transforms
+numeric variables into either single-split (0/1) dummy variables or
+retains them as continuous predictors. The transformation is followed by
+stepwise selection to identify the most relevant variables. The default
+'iterative' mode adaptively explores partial synergies among variables to
+enhance model performance, while an alternative 'univariate' mode applies
+simpler transformations independently to each predictor. For details, see
+Kurbucz et al. (2025) <doi:10.48550/arXiv.2505.15423>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MVN
-%global packver   5.9
+%global packver   6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.9
+Version:          6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normality Tests
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -20,26 +21,40 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-psych 
 BuildRequires:    R-CRAN-boot 
-BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-car 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-energy 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-methods 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-moments 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-psych 
 Requires:         R-CRAN-boot 
-Requires:         R-CRAN-energy 
 Requires:         R-CRAN-car 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-energy 
+Requires:         R-CRAN-plotly 
 
 %description
-Performs multivariate normality tests and graphical approaches and
-implements multivariate outlier detection and univariate normality of
-marginal distributions through plots and tests, and performs multivariate
-Box-Cox transformation (Korkmaz et al, (2014),
+A suite of multivariate normality tests (Mardia, Henze–Zirkler, Royston,
+Doornik–Hansen, Energy), univariate diagnostics, robust outlier detection,
+bivariate density plots, and Box–Cox transformations (Korkmaz et al,
+(2014),
 <https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>).
 
 %prep
@@ -50,6 +65,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

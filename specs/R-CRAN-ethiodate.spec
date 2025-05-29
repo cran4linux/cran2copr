@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ethiodate
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with Ethiopian Dates
 
@@ -25,9 +25,10 @@ Requires:         R-CRAN-vctrs
 
 %description
 A robust and efficient solution for working with Ethiopian dates. It can
-seamlessly convert to and from Gregorian dates. It ensures lightning-fast
-computations by integrating high-performance 'C++' code through 'Rcpp'
-package.
+seamlessly convert to and from Gregorian dates. It is designed to be
+compatible with the 'tidyverse' data workflow, including plotting with
+'ggplot2'. It ensures lightning-fast computations by integrating
+high-performance 'C++' code through 'Rcpp' package.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  midrangeMCP
-%global packver   3.1.1
+%global packver   3.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multiples Comparisons Procedures Based on Studentized Midrange and Range Distributions
+Summary:          Multiple Comparisons Procedures Based on Studentized Midrange and Range Distributions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,7 +40,8 @@ Apply tests of multiple comparisons based on studentized 'midrange' and
 Student-Newman-Keuls Midrange ('SNKM' test), Means Grouping Midrange
 ('MGM' test) and Means Grouping Range ('MGR' test). The first two tests
 were published by Batista and Ferreira (2020)
-<doi:10.1590/1413-7054202044008020>. The last two are being published.
+<doi:10.1590/1413-7054202044008020>. The last two were published by
+Batista and Ferreira (2023) <doi:10.28951/bjb.v41i4.640>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -49,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

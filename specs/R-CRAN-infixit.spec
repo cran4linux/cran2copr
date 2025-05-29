@@ -1,36 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DER
-%global packver   1.1
+%global packname  infixit
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Income Polarization Index
+Summary:          Helpful Additional Infix Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
-Requires:         R-stats 
 
 %description
-The DER (or PaF) income polarization index as proposed by Duclos J. Y.,
-Esteban, J. and Ray D. (2004). "Polarization: concepts, measurement,
-estimation". Econometrica, 72(6): 1737--1772.
-<doi:10.1111/j.1468-0262.2004.00552.x>. The index may be computed for a
-single or for a range of values of the alpha-parameter. Bootstrapping is
-also available.
+Infix functions in R are those that comes between its arguments such as
+%%in%%, +, and *. These are useful in R programming when manipulating data,
+performing logical operations, and making new functions. 'infixit' extends
+the infix functions found in R to simplify frequent tasks, such as finding
+elements that are NOT in a set, in-line text concatenation, augmented
+assignment operations, additional logical and control flow operators, and
+identifying if a number or date lies between two others.
 
 %prep
 %setup -q -c -n %{packname}

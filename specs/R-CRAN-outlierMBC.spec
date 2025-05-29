@@ -1,36 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DER
-%global packver   1.1
+%global packname  outlierMBC
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Income Polarization Index
+Summary:          Sequential Outlier Identification for Model-Based Clustering
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
+BuildRequires:    R-CRAN-ClusterR 
+BuildRequires:    R-CRAN-dbscan 
+BuildRequires:    R-CRAN-flexCWM 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mixture 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-spatstat.univar 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
+Requires:         R-CRAN-ClusterR 
+Requires:         R-CRAN-dbscan 
+Requires:         R-CRAN-flexCWM 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mixture 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-spatstat.univar 
 Requires:         R-stats 
 
 %description
-The DER (or PaF) income polarization index as proposed by Duclos J. Y.,
-Esteban, J. and Ray D. (2004). "Polarization: concepts, measurement,
-estimation". Econometrica, 72(6): 1737--1772.
-<doi:10.1111/j.1468-0262.2004.00552.x>. The index may be computed for a
-single or for a range of values of the alpha-parameter. Bootstrapping is
-also available.
+Sequential outlier identification for Gaussian mixture models using the
+distribution of Mahalanobis distances. The optimal number of outliers is
+chosen based on the dissimilarity between the theoretical and observed
+distributions of the scaled squared sample Mahalanobis distances. Also
+includes an extension for Gaussian linear cluster-weighted models using
+the distribution of studentized residuals. Doherty, McNicholas, and White
+(2025) <doi:10.48550/arXiv.2505.11668>.
 
 %prep
 %setup -q -c -n %{packname}

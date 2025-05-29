@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  inventorize
-%global packver   1.1.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inventory Analytics, Pricing and Markdowns
 
@@ -37,16 +38,15 @@ calculations of inventory metrics, stock-out calculations and ABC analysis
 calculations. The package includes revenue management techniques such as
 Multi-product optimization,logit and polynomial model optimization. The
 functions are referenced from : 1-Harris, Ford W. (1913). "How many parts
-to make at once". Factory, The Magazine of Management. <isbn10: 135–136,
-152>. 2- Nahmias, S. Production and Operations Analysis. McGraw-Hill
-International Edition. <isbn: 0-07- 2231265-3. Chapter 4>. 3-Silver, E.A.,
-Pyke, D.F., Peterson, R. Inventory Management and Production Planning and
-Scheduling. <isbn: 978-0471119470>. 4-Ballou, R.H. Business Logistics
-Management. <isbn: 978-0130661845>. Chapter 9. 5-MIT Micromasters Program.
-6- Columbia University course for supply and demand analysis. 8- Price
-Elasticity of Demand MATH 104,Mark Mac Lean (with assistance from Patrick
-Chan) 2011W For further details or correspondence
-:<www.linkedin.com/in/haythamomar>, <www.rescaleanalytics.com>.
+to make at once". Factory, The Magazine of Management. 2- Nahmias, S.
+Production and Operations Analysis. McGraw-Hill International Edition.
+3-Silver, E.A., Pyke, D.F., Peterson, R. Inventory Management and
+Production Planning and Scheduling. 4-Ballou, R.H. Business Logistics
+Management. 5-MIT Micromasters Program. 6- Columbia University course for
+supply and demand analysis. 8- Price Elasticity of Demand MATH 104,Mark
+Mac Lean (with assistance from Patrick Chan) 2011W For further details or
+correspondence :<www.linkedin.com/in/haythamomar>,
+<www.rescaleanalytics.com>.
 
 %prep
 %setup -q -c -n %{packname}

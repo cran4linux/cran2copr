@@ -1,36 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DER
-%global packver   1.1
+%global packname  SRMData
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Income Polarization Index
+Summary:          Data Files Supporting "Scientific Research and Methodology" by Peter K. Dunn (2025)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-Rfast2 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-Rfast2 
-Requires:         R-stats 
 
 %description
-The DER (or PaF) income polarization index as proposed by Duclos J. Y.,
-Esteban, J. and Ray D. (2004). "Polarization: concepts, measurement,
-estimation". Econometrica, 72(6): 1737--1772.
-<doi:10.1111/j.1468-0262.2004.00552.x>. The index may be computed for a
-single or for a range of values of the alpha-parameter. Bootstrapping is
-also available.
+Provides most of the data files used in the textbook "Scientific Research
+and Methodology" by Dunn (2025, ISBN:9781032496726; forthcoming).
 
 %prep
 %setup -q -c -n %{packname}

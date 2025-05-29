@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  konfound
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantify the Robustness of Causal Inferences
 
@@ -30,6 +30,7 @@ BuildRequires:    R-CRAN-tidyr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-pbkrtest 
+BuildRequires:    R-CRAN-ppcor 
 Requires:         R-CRAN-lme4 >= 1.1.35.1
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-broom.mixed 
@@ -43,6 +44,7 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-pbkrtest 
+Requires:         R-CRAN-ppcor 
 
 %description
 Statistical methods that quantify the conditions necessary to alter

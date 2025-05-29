@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  simDAG
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Simulate Data from a DAG and Associated Node Information
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph >= 2.0.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-igraph 
+Requires:         R-CRAN-igraph >= 2.0.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-Rfast 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-igraph 
 
 %description
 Simulate complex data from a given directed acyclic graph and information
