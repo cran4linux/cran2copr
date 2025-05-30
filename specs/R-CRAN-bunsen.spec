@@ -1,33 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  bunsen
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Marginal Survival Estimation with Covariate Adjustment
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-clustermq 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-clustermq 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Provides an efficient and robust implementation for estimating marginal
+Hazard Ratio (HR) and Restricted Mean Survival Time (RMST) with covariate
+adjustment using Daniel et al. (2021) <doi:10.1002/bimj.201900297> and
+Karrison et al. (2018) <doi:10.1177/1740774518759281>.
 
 %prep
 %setup -q -c -n %{packname}

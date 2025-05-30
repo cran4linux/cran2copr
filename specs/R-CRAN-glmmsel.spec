@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  glmmsel
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Generalised Linear Mixed Model Selection
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Provides tools for fitting sparse generalised linear mixed models with l0
+regularisation. Selects fixed and random effects under the hierarchy
+constraint that fixed effects must precede random effects. Uses coordinate
+descent and local search algorithms to rapidly deliver near-optimal
+estimates. Gaussian and binomial response families are currently
+supported. For more details see Stroup, Ptukhina, and Garai (2024)
+<doi:10.1201/9780429092060>.
 
 %prep
 %setup -q -c -n %{packname}

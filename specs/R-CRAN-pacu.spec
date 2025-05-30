@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pacu
-%global packver   0.1.44
+%global packver   0.1.63
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.44
+Version:          0.1.63
 Release:          1%{?dist}%{?buildtag}
 Summary:          Precision Agriculture Computational Utilities
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tmap >= 4.1
 BuildRequires:    R-CRAN-apsimx 
 BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-CRAN-httr 
@@ -26,7 +27,7 @@ BuildRequires:    R-CRAN-stars
 BuildRequires:    R-CRAN-units 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-concaveman 
-BuildRequires:    R-CRAN-tmap 
+Requires:         R-CRAN-tmap >= 4.1
 Requires:         R-CRAN-apsimx 
 Requires:         R-CRAN-gstat 
 Requires:         R-CRAN-httr 
@@ -36,7 +37,6 @@ Requires:         R-CRAN-stars
 Requires:         R-CRAN-units 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-concaveman 
-Requires:         R-CRAN-tmap 
 
 %description
 Support for a variety of commonly used precision agriculture operations.

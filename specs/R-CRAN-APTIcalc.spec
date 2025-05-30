@@ -1,33 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  APTIcalc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Air Pollution Tolerance Index (APTI) Calculator
 
-License:          GPL (>= 2)
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-ggplot2 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+It calculates the Air Pollution Tolerance Index (APTI) of plant species
+using biochemical parameters such as chlorophyll content, leaf extract pH,
+relative water content, and ascorbic acid content. It helps in identifying
+tolerant species for greenbelt development and pollution mitigation
+studies. It includes a 'shiny' app for interactive APTI calculation and
+visualisation. For method details see, Sahu et al.
+(2020).<DOI:10.1007/s42452-020-3120-6>.
 
 %prep
 %setup -q -c -n %{packname}

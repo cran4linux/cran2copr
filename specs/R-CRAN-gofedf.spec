@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gofedf
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Goodness of Fit Tests Based on Empirical Distribution Functions
 
@@ -31,8 +31,8 @@ Requires:         R-CRAN-statmod
 %description
 Routines that allow the user to run goodness of fit tests based on
 empirical distribution functions for formal model evaluation in a general
-likelihood model. In addition, functions are provided to test a sample
-against Normal or Gamma distributions, validate the normality assumptions
+likelihood model. In addition, functions are provided to test if a sample
+follows Normal or Gamma distributions, validate the normality assumptions
 in a linear model, and examine the appropriateness of a Gamma distribution
 in generalized linear models with various link functions. Michael Arthur
 Stephens (1976) <http://www.jstor.org/stable/2958206>.

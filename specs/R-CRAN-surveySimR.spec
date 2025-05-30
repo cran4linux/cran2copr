@@ -1,40 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  arules
-%global packver   1.7-11
+%global packname  surveySimR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.11
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Mining Association Rules and Frequent Itemsets
+Summary:          Estimation of Population Total under Complex Sampling Design
 
-License:          GPL-3
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.5.0
-Requires:         R-core >= 4.5.0
-BuildRequires:    R-CRAN-Matrix >= 1.4.0
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-Matrix >= 1.4.0
-Requires:         R-CRAN-generics 
-Requires:         R-graphics 
-Requires:         R-methods 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-moments 
 Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-Provides the infrastructure for representing, manipulating and analyzing
-transaction data and patterns (frequent itemsets and association rules).
-Also provides C implementations of the association mining algorithms
-Apriori and Eclat.  Hahsler, Gruen and Hornik (2005)
-<doi:10.18637/jss.v014.i15>.
+Sample surveys use scientific methods to draw inferences about population
+parameters by observing a representative part of the population, called
+sample. The SRSWOR (Simple Random Sampling Without Replacement) is one of
+the most widely used probability sampling designs, wherein every unit has
+an equal chance of being selected and units are not repeated.This function
+draws multiple SRSWOR samples from a finite population and estimates the
+population parameter i.e. total of HT, Ratio, and Regression estimators.
+Repeated simulations (e.g., 500 times) are used to assess and compare
+estimators using metrics such as percent relative bias (%%RB), percent
+relative root means square error (%%RRMSE).For details on sampling
+methodology, see, Cochran (1977) "Sampling Techniques"
+<https://archive.org/details/samplingtechniqu0000coch_t4x6>.
 
 %prep
 %setup -q -c -n %{packname}

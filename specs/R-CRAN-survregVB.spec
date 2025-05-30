@@ -1,33 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  survregVB
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Variational Bayesian Analysis of Survival Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE | LGPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bayestestR 
+BuildRequires:    R-CRAN-invgamma 
+Requires:         R-stats 
+Requires:         R-CRAN-bayestestR 
+Requires:         R-CRAN-invgamma 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Implements Bayesian inference in accelerated failure time (AFT) models for
+right-censored survival times assuming a log-logistic distribution.
+Details of the variational Bayes algorithms, with and without shared
+frailty, are described in Xian et al. (2024)
+<doi:10.1007/s11222-023-10365-6> and Xian et al. (2024)
+<doi:10.48550/arXiv.2408.00177>, respectively.
 
 %prep
 %setup -q -c -n %{packname}

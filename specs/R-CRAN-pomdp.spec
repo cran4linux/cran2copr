@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pomdp
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Infrastructure for Partially Observable Markov Decision Processes (POMDP)
 
@@ -37,8 +37,8 @@ Requires:         R-CRAN-igraph
 Provides the infrastructure to define and analyze the solutions of
 Partially Observable Markov Decision Process (POMDP) models. Interfaces
 for various exact and approximate solution algorithms are available
-including value iteration, point-based value iteration and SARSOP.
-Smallwood and Sondik (1973) <doi:10.1287/opre.21.5.1071>.
+including value iteration, point-based value iteration and SARSOP. Hahsler
+and Cassandra <doi:10.32614/RJ-2024-021>.
 
 %prep
 %setup -q -c -n %{packname}

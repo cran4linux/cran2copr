@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  rcoins
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Identify Naturally Continuous Lines in a Spatial Network
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-sfheaders 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-sfheaders 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Provides functionality to group lines that form naturally continuous lines
+in a spatial network. The algorithm implemented is based on the Continuity
+in Street Networks (COINS) method from Tripathy et al. (2021)
+<doi:10.1177/2399808320967680>, which identifies continuous "strokes" in
+the network as the line strings that maximize the angles between
+consecutive segments.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,33 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  bases
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Basis Expansions for Regression Modeling
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Provides various basis expansions for flexible regression modeling,
+including random Fourier features (Rahimi & Recht, 2007)
+<https://proceedings.neurips.cc/paper_files/paper/2007/file/013a006f03dbc5392effeb8f18fda755-Paper.pdf>,
+exact kernel / Gaussian process feature maps, Bayesian Additive Regression
+Trees (BART) (Chipman et al., 2010) <doi:10.1214/09-AOAS285> prior
+features, and a helpful interface for n-way interactions. The provided
+functions may be used within any modeling formula, allowing the use of
+kernel methods and other basis expansions in modeling functions that do
+not otherwise support them. Along with the basis expansions, a number of
+kernel functions are also provided, which support kernel arithmetic to
+form new kernels. Basic ridge regression functionality is included as
+well.
 
 %prep
 %setup -q -c -n %{packname}

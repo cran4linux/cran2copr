@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  TVMVP
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Time-Varying Minimum Variance Portfolio
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-prettyunits 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-prettyunits 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Provides the estimation of a time-dependent covariance matrix of returns
+with the intended use for portfolio optimization. The package offers
+methods for determining the optimal number of factors to be used in the
+covariance estimation, a hypothesis test of time-varying covariance, and
+user-friendly functions for portfolio optimization and rolling window
+evaluation. The local PCA method, method for determining the number of
+factors, and associated hypothesis test are based on Su and Wang (2017)
+<doi:10.1016/j.jeconom.2016.12.004>. The approach to time-varying
+portfolio optimization follows Fan et al. (2024)
+<doi:10.1016/j.jeconom.2022.08.007>. The regularisation applied to the
+residual covariance matrix adopts the technique introduced by Chen et al.
+(2019) <doi:10.1016/j.jeconom.2019.04.025>.
 
 %prep
 %setup -q -c -n %{packname}

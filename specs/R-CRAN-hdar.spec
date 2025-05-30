@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hdar
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REST' API Client for Accessing Data on 'WEkEO HDA V2'
 
-License:          EUPL (>= 1.2) | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,14 +23,16 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-humanize 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-progress 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-humanize 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-progress 
 
 %description
 Provides seamless access to the WEkEO Harmonised Data Access (HDA) API,

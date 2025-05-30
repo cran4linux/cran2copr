@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ncdfCF
-%global packver   0.5.0
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Access to NetCDF Files with CF Metadata Conventions
 
@@ -17,13 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-CFtime >= 1.6.0
+BuildRequires:    R-CRAN-CFtime >= 1.6
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-RNetCDF 
 BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-CFtime >= 1.6.0
+Requires:         R-CRAN-CFtime >= 1.6
 Requires:         R-CRAN-abind 
 Requires:         R-methods 
 Requires:         R-CRAN-R6 

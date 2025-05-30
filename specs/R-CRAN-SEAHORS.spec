@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SEAHORS
-%global packver   1.8.0
+%global packver   1.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          1.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Exploration of ArcHaeological Objects in R Shiny
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyBS 
 BuildRequires:    R-CRAN-shinythemes 
 BuildRequires:    R-CRAN-shinyjs 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -34,6 +35,7 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinythemes 
 Requires:         R-CRAN-shinyjs 
 Requires:         R-CRAN-shinyWidgets 

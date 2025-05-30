@@ -1,33 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RcppDate
-%global packver   0.0.6
+%global packname  morseDR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'date' C++ Header Library for Date and Time Functionality
+Summary:          Bayesian Inference of Binary, Count and Continuous Data in Toxicology
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-rjags 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-CRAN-rjags 
+Requires:         R-stats 
 
 %description
-A header-only C++ library is provided with support for dates, time zones,
-ISO weeks, Julian dates, and Islamic dates. 'date' offers extensive date
-and time functionality for the C++11, C++14 and C++17 standards and was
-written by Howard Hinnant and released under the MIT license. A slightly
-modified version has been accepted (along with 'tz.h') as part of C++20.
-This package regroups all header files from the upstream repository by
-Howard Hinnant so that other R packages can use them in their C++ code. At
-present, few of the types have explicit 'Rcpp' wrappers though these may
-be added as needed.
+Advanced methods for a valuable quantitative environmental risk assessment
+using Bayesian inference of several type of toxicological data. 'binary'
+(e.g., survival, mobility), 'count' (e.g., reproduction) and 'continuous'
+(e.g., growth as length, weight).  Estimation procedures can be used
+without a deep knowledge of their underlying probabilistic model or
+inference methods. Rather, they were designed to behave as well as
+possible without requiring a user to provide values for some obscure
+parameters. That said, models can also be used as a first step to tailor
+new models for more specific situations.
 
 %prep
 %setup -q -c -n %{packname}
