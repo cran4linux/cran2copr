@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  legendry
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extended Legends and Axes for 'ggplot2'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-grid >= 4.1.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-scales >= 1.1.1
 BuildRequires:    R-CRAN-rlang >= 1.1.0
 BuildRequires:    R-CRAN-vctrs >= 0.6.0
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-gtable 
 BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-grid >= 4.1.0
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-scales >= 1.1.1
 Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-vctrs >= 0.6.0

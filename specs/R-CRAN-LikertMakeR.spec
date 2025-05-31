@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LikertMakeR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Synthesise and Correlate Likert Scale and Rating-Scale Data Based on Summary Statistics Only
+Summary:          Synthesise and Correlate Likert Scale and Rating-Scale Data Based on Summary Statistics
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -28,8 +28,10 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Generate and correlate synthetic Likert and rating-scale data with
-predefined means, standard deviations, _Cronbach's Alpha_, _Factor Loading
-table_, and other summary statistics.
+predefined means, standard deviations, Cronbach's Alpha, Factor Loading
+table, and other summary statistics.  Worked examples and documentation
+are available in the package vignettes, accessible via
+browseVignettes("LikertMakeR").
 
 %prep
 %setup -q -c -n %{packname}

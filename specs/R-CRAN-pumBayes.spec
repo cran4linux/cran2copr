@@ -1,44 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrbin
-%global packver   1.9.3
+%global packname  pumBayes
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Metabolomics Data Analysis Functions
+Summary:          Bayesian Estimation of Probit Unfolding Models for Binary Preference Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppDist 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-RcppTN 
+Requires:         R-CRAN-Rcpp 
 
 %description
-A collection of functions for processing and analyzing metabolite data.
-The namesake function mrbin() converts 1D or 2D Nuclear Magnetic Resonance
-data into a matrix of values suitable for further data analysis and
-performs basic processing steps in a reproducible way. Negative values, a
-common issue in such data, can be replaced by positive values
-(<doi:10.1021/acs.jproteome.0c00684>). All used parameters are stored in a
-readable text file and can be restored from that file to enable exact
-reproduction of the data at a later time. The function fia() ranks
-features according to their impact on classifier models, especially
-artificial neural network models.
+Bayesian estimation and analysis methods for Probit Unfolding Models
+(PUMs), a novel class of scaling models designed for binary preference
+data. These models allow for both monotonic and non-monotonic response
+functions. The package supports Bayesian inference for both static and
+dynamic PUMs using Markov chain Monte Carlo (MCMC) algorithms with minimal
+or no tuning. Key functionalities include posterior sampling,
+hyperparameter selection, data preprocessing, model fit evaluation, and
+visualization. The methods are particularly suited to analyzing voting
+data, such as from the U.S. Congress or Supreme Court, but can also be
+applied in other contexts where non-monotonic responses are expected. For
+methodological details, see Shi et al. (2025)
+<doi:10.48550/arXiv.2504.00423>.
 
 %prep
 %setup -q -c -n %{packname}

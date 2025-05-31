@@ -1,46 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haven
-%global packver   2.5.5
+%global packname  mvout
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
+Summary:          Robust Multivariate Outlier Detection
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-forcats >= 0.2.0
-BuildRequires:    R-CRAN-readr >= 0.1.0
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-forcats >= 0.2.0
-Requires:         R-CRAN-readr >= 0.1.0
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-robustbase 
+Requires:         R-CRAN-robustbase 
 
 %description
-Import foreign statistical formats into R via the embedded 'ReadStat' C
-library, <https://github.com/WizardMac/ReadStat>.
+Detection of multivariate outliers using robust estimates of location and
+scale. The Minimum Covariance Determinant (MCD) estimator is used to
+calculate robust estimates of the mean vector and covariance matrix.
+Outliers are determined based on robust Mahalanobis distances using either
+an unstructured covariance matrix, a principal components structured
+covariance matrix, or a factor analysis structured covariance matrix.
+Includes options for specifying the direction of interest for outlier
+detection for each variable.
 
 %prep
 %setup -q -c -n %{packname}

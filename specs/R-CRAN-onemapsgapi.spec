@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haven
-%global packver   2.5.5
+%global packname  onemapsgapi
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
+Summary:          R Wrapper for the 'OneMap.Sg API'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-forcats >= 0.2.0
-BuildRequires:    R-CRAN-readr >= 0.1.0
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-forcats >= 0.2.0
-Requires:         R-CRAN-readr >= 0.1.0
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-furrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-furrr 
 
 %description
-Import foreign statistical formats into R via the embedded 'ReadStat' C
-library, <https://github.com/WizardMac/ReadStat>.
+An R wrapper for the 'OneMap.Sg' API <https://www.onemap.gov.sg/docs/>.
+Functions help users query data from the API and return raw JSON data in
+"tidy" formats. Support is also available for users to retrieve data from
+multiple API calls and integrate results into single dataframes, without
+needing to clean and merge the data themselves. This package is best
+suited for users who would like to perform analyses with Singapore's
+spatial data without having to perform excessive data cleaning.
 
 %prep
 %setup -q -c -n %{packname}

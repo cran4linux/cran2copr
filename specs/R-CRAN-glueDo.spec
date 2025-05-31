@@ -1,46 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haven
-%global packver   2.5.5
+%global packname  glueDo
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
+Summary:          Wrapper Functions for the 'glue' Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-forcats >= 0.2.0
-BuildRequires:    R-CRAN-readr >= 0.1.0
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-forcats >= 0.2.0
-Requires:         R-CRAN-readr >= 0.1.0
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-glue >= 1.8.0
 
 %description
-Import foreign statistical formats into R via the embedded 'ReadStat' C
-library, <https://github.com/WizardMac/ReadStat>.
+Provides convenient wrapper functions around the 'glue' library for common
+string interpolation tasks. The package simplifies the process of
+combining 'glue' string templating with common R functions like message(),
+warning(), stop(), print(), cat(), and file writing operations. Instead of
+manually calling glue() and then passing the result to these functions,
+'glueDo' provides direct wrapper functions that handle both steps in a
+single call. This is particularly useful for logging, error handling, and
+formatted output in R scripts and packages. The main reference for the
+underlying 'glue' package is Hester and Bryan (2022)
+<https://CRAN.R-project.org/package=glue>.
 
 %prep
 %setup -q -c -n %{packname}

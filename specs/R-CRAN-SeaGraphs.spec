@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haven
-%global packver   2.5.5
+%global packname  SeaGraphs
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
+Summary:          Sea Currents to Connectivity Transformation
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-forcats >= 0.2.0
-BuildRequires:    R-CRAN-readr >= 0.1.0
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-sfnetworks 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-leaflet.minicharts 
+BuildRequires:    R-CRAN-leaflet.extras2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-forcats >= 0.2.0
-Requires:         R-CRAN-readr >= 0.1.0
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-sfnetworks 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-leaflet.minicharts 
+Requires:         R-CRAN-leaflet.extras2 
 Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-stats 
 
 %description
-Import foreign statistical formats into R via the embedded 'ReadStat' C
-library, <https://github.com/WizardMac/ReadStat>.
+Transformation of sea currents to connectivity data. Two files of
+horizontal and vertical currents flows are transformed into connectivity
+data in the form of sfnetwork, shapefile, edge list and adjacency matrix.
+An application example is shown at Nagkoulis et al. (2025)
+<doi:10.1016/j.dib.2024.111268>.
 
 %prep
 %setup -q -c -n %{packname}

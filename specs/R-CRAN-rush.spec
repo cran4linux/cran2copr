@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rush
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Rapid Parallel and Distributed Computing
+Summary:          Rapid Asynchronous and Distributed Computing
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,32 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mirai >= 2.0.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ids 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-processx 
-BuildRequires:    R-CRAN-redux 
 BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-redux 
 BuildRequires:    R-CRAN-uuid 
+Requires:         R-CRAN-mirai >= 2.0.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ids 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-mlr3misc 
 Requires:         R-parallel 
 Requires:         R-CRAN-processx 
-Requires:         R-CRAN-redux 
 Requires:         R-CRAN-R6 
+Requires:         R-CRAN-redux 
 Requires:         R-CRAN-uuid 
 
 %description
-Parallel computing with a network of local and remote workers. Fast
-exchange of results between the workers through a 'Redis' database. Key
-features include task queues, local caching, and sophisticated error
-handling.
+Package to tackle large-scale problems asynchronously across a distributed
+network. Employing a database centric model, rush enables workers to
+communicate tasks and their results over a shared 'Redis' database. Key
+features include low task overhead, efficient caching, and robust error
+handling. The package powers the asynchronous optimization algorithms in
+the 'bbotk' and 'mlr3tuning' packages.
 
 %prep
 %setup -q -c -n %{packname}

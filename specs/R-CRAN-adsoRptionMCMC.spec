@@ -1,44 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  mrbin
-%global packver   1.9.3
+%global packname  adsoRptionMCMC
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.9.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Metabolomics Data Analysis Functions
+Summary:          Bayesian Estimation of Adsorption Isotherms via MCMC
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-grDevices 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
-Requires:         R-grDevices 
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-CRAN-coda 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-methods 
+Requires:         R-graphics 
 
 %description
-A collection of functions for processing and analyzing metabolite data.
-The namesake function mrbin() converts 1D or 2D Nuclear Magnetic Resonance
-data into a matrix of values suitable for further data analysis and
-performs basic processing steps in a reproducible way. Negative values, a
-common issue in such data, can be replaced by positive values
-(<doi:10.1021/acs.jproteome.0c00684>). All used parameters are stored in a
-readable text file and can be restored from that file to enable exact
-reproduction of the data at a later time. The function fia() ranks
-features according to their impact on classifier models, especially
-artificial neural network models.
+Provides tools for Bayesian parameter estimation of adsorption isotherm
+models using Markov Chain Monte Carlo (MCMC) methods. This package enables
+users to fit non-linear and linear adsorption isotherm models—Freundlich,
+Langmuir, and Temkin—within a probabilistic framework, capturing
+uncertainty and parameter correlations. It provides posterior summaries,
+95%% credible intervals, convergence diagnostics (Gelman-Rubin), and
+visualizations through trace and density plots. With this R package,
+researchers can rigorously analyze adsorption behavior in environmental
+and chemical systems using robust Bayesian inference. For more details,
+see Gilks et al. (1995) <doi:10.1201/b14835>, and Gamerman & Lopes (2006)
+<doi:10.1201/9781482296426>.
 
 %prep
 %setup -q -c -n %{packname}

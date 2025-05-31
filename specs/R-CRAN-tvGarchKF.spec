@@ -1,46 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  haven
-%global packver   2.5.5
+%global packname  tvGarchKF
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.5
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import and Export 'SPSS', 'Stata' and 'SAS' Files
+Summary:          Time-Varying Garch Models Through a State-Space Representation
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildRequires:    R-CRAN-cli >= 3.0.0
-BuildRequires:    R-CRAN-rlang >= 0.4.0
-BuildRequires:    R-CRAN-vctrs >= 0.3.0
-BuildRequires:    R-CRAN-forcats >= 0.2.0
-BuildRequires:    R-CRAN-readr >= 0.1.0
-BuildRequires:    R-CRAN-hms 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-cli >= 3.0.0
-Requires:         R-CRAN-rlang >= 0.4.0
-Requires:         R-CRAN-vctrs >= 0.3.0
-Requires:         R-CRAN-forcats >= 0.2.0
-Requires:         R-CRAN-readr >= 0.1.0
-Requires:         R-CRAN-hms 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-methods 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-fGarch 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-stats 
+Requires:         R-CRAN-fGarch 
+Requires:         R-graphics 
 
 %description
-Import foreign statistical formats into R via the embedded 'ReadStat' C
-library, <https://github.com/WizardMac/ReadStat>.
+Estimates the time-varying (tv) parameters of the GARCH(1,1) model,
+enabling the modeling of non-stationary volatilities by allowing the model
+parameters to change gradually over time. The estimation and prediction
+processes are facilitated through the application of the Kalman filter and
+state-space equations. This package supports the estimation of tv
+parameters for various deterministic functions, which can be identified
+through exploratory analysis of different time periods or segments of
+return data. The methodology is grounded in the framework presented by
+Ferreira et al. (2017) <doi:10.1080/00949655.2017.1334778>.
 
 %prep
 %setup -q -c -n %{packname}

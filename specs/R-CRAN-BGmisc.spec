@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BGmisc
-%global packver   1.3.5
+%global packver   1.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.5
+Version:          1.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          An R Package for Extended Behavior Genetics Analysis
 
@@ -40,7 +40,7 @@ using path-tracing methods [Wright (1922) <doi:10.1086/279872>; McArdle &
 McDonald (1984) <doi:10.1111/j.2044-8317.1984.tb00802.x>], inference of
 relatedness, pedigree conversion, and simulation of multi-generational
 family data [Lyu et al. (2024) <doi:10.1101/2024.12.19.629449>]. For a
-full overview, see Garrison et al. (2024) <doi:10.21105/joss.06203>.
+full overview, see [Garrison et al. (2024) <doi:10.21105/joss.06203>].
 
 %prep
 %setup -q -c -n %{packname}

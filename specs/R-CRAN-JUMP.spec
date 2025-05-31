@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JUMP
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Replicability Analysis of High-Throughput Experiments
 
@@ -28,7 +28,7 @@ Requires:         R-stats
 Implementing a computationally scalable false discovery rate control
 procedure for replicability analysis based on maximum of p-values. Please
 cite the manuscript corresponding to this package [Lyu, P. et al., (2023),
-<https://www.biorxiv.org/content/10.1101/2023.02.13.528417v2>].
+<doi:10.1093/bioinformatics/btad366>].
 
 %prep
 %setup -q -c -n %{packname}
