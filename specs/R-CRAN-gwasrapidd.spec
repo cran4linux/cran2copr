@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gwasrapidd
-%global packver   0.99.17
+%global packver   0.99.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.17
+Version:          0.99.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          'REST' 'API' Client for the 'NHGRI'-'EBI' 'GWAS' Catalog
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-pingr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-concatenate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
@@ -44,7 +43,6 @@ Requires:         R-CRAN-httr
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-pingr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-concatenate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 

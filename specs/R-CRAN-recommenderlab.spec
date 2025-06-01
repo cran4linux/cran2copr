@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  recommenderlab
-%global packver   1.0.6
+%global packver   1.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.6
+Version:          1.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lab for Developing and Testing Recommender Algorithms
 
@@ -14,12 +14,12 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-arules >= 1.7.11
 BuildRequires:    R-CRAN-proxy >= 0.4.26
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-arules 
 BuildRequires:    R-CRAN-registry 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
@@ -27,9 +27,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-irlba 
 BuildRequires:    R-CRAN-recosystem 
 BuildRequires:    R-CRAN-matrixStats 
+Requires:         R-CRAN-arules >= 1.7.11
 Requires:         R-CRAN-proxy >= 0.4.26
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-arules 
 Requires:         R-CRAN-registry 
 Requires:         R-methods 
 Requires:         R-utils 

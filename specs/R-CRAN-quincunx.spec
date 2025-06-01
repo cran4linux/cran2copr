@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quincunx
-%global packver   0.1.9
+%global packver   0.1.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.1.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          REST API Client for the 'PGS' Catalog
 
@@ -33,7 +33,6 @@ BuildRequires:    R-CRAN-rvest
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-writexl 
-BuildRequires:    R-CRAN-concatenate 
 BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-readr 
 Requires:         R-CRAN-stringr 
@@ -52,7 +51,6 @@ Requires:         R-CRAN-rvest
 Requires:         R-CRAN-progress 
 Requires:         R-methods 
 Requires:         R-CRAN-writexl 
-Requires:         R-CRAN-concatenate 
 Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-readr 
 
