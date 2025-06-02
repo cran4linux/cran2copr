@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssmodels
-%global packver   1.0.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Selection Models
 
@@ -34,18 +34,21 @@ existing in the literature, we created the 'ssmodels' package. Our package
 allows the adjustment of the classic Heckman model (Heckman (1976),
 Heckman (1979) <doi:10.2307/1912352>), and the estimation of the
 parameters of this model via the maximum likelihood method and two-step
-method, in addition to the adjustment of the Heckman-t models, introduced
+method, in addition to the adjustment of the Heckman-t models introduced
 in the literature by Marchenko and Genton (2012)
 <doi:10.1080/01621459.2012.656011> and the Heckman-Skew model introduced
 in the literature by Ogundimu and Hutton (2016) <doi:10.1111/sjos.12171>.
 We also implemented functions to adjust the generalized version of the
 Heckman model, introduced by Bastos, Barreto-Souza, and Genton (2021)
 <doi:10.5705/ss.202021.0068>, that allows the inclusion of covariables to
-the dispersion and correlation parameters and a function to adjust the
+the dispersion and correlation parameters, and a function to adjust the
 Heckman-BS model introduced by Bastos and Barreto-Souza (2020)
 <doi:10.1080/02664763.2020.1780570> that uses the Birnbaum-Saunders
 distribution as a joint distribution of the selection and primary
-regression variables.
+regression variables. This package extends and complements existing R
+packages such as 'sampleSelection' (Toomet and Henningsen, 2008) and
+'ssmrob' (Zhelonkin et al., 2016), providing additional robust and
+flexible sample selection models.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DAISIE
-%global packver   4.5.0
+%global packver   4.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.5.0
+Version:          4.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamical Assembly of Islands by Speciation, Immigration and Extinction
 
@@ -20,34 +20,34 @@ BuildRequires:    R-CRAN-DDD >= 5.0
 BuildRequires:    R-CRAN-BH >= 1.81.0.1
 BuildRequires:    R-CRAN-Rcpp >= 1.0.10
 BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-subplex 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-tensor 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-CRAN-testit 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-subplex 
+BuildRequires:    R-CRAN-tensor 
+BuildRequires:    R-CRAN-testit 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-DDD >= 5.0
 Requires:         R-CRAN-Rcpp >= 1.0.10
 Requires:         R-CRAN-deSolve 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-subplex 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-tensor 
-Requires:         R-CRAN-pracma 
-Requires:         R-CRAN-testit 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-graphics 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-parallel 
+Requires:         R-CRAN-pracma 
+Requires:         R-stats 
+Requires:         R-CRAN-subplex 
+Requires:         R-CRAN-tensor 
+Requires:         R-CRAN-testit 
+Requires:         R-utils 
 
 %description
 Simulates and computes the (maximum) likelihood of a dynamical model of
