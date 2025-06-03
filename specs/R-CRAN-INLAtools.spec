@@ -1,35 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TRMF
-%global packver   0.2.1
+%global packname  INLAtools
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Temporally Regularized Matrix Factorization
+Summary:          Functionalities for the 'INLA' Package
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Matrix >= 1.3.3
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-generics 
-Requires:         R-CRAN-Matrix >= 1.3.3
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-generics 
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-Matrix 
+Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Functions to estimate temporally regularized matrix factorizations (TRMF)
-for forecasting and imputing values in short but high-dimensional time
-series. Uses regularized alternating least squares to compute the
-factorization, allows for several types of constraints on matrix factors
-and natively handles weighted and missing data.
+Contain code to work with latent Gaussian Markov random field (GMRF)
+models. Queries for the 'cgeneric' interface, specified as a way to
+implement new GMRF models to be fitted as model components in the 'INLA'
+package (<https://www.r-inla.org>). The implemented functionalities
+leverage the use of 'cgeneric' models and provide a way to debug the code
+as well to work with the prior for the model parameters and to sample from
+it. A Kronecker product method is also implemented to work with the four
+possible combinations between a 'cgeneric' and a 'rgeneric' model.
 
 %prep
 %setup -q -c -n %{packname}

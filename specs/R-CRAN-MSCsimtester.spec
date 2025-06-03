@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  MSCsimtester
-%global packver   1.0.0
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests of Multispecies Coalescent Gene Tree Simulator Output
 
@@ -21,16 +22,20 @@ BuildRequires:    R-CRAN-Rdpack
 BuildRequires:    R-CRAN-kSamples 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-ape >= 5.0
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-kSamples 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-methods 
 
 %description
 Statistical tests for validating multispecies coalescent gene tree
-simulators, using pairwise distances and rooted triple counts. Background
-is given by Allman, Banos, and Rhodes (2019) <arXiv:1908.01424>.
+simulators, using pairwise distances and rooted triple counts. See Allman
+ES, Baños HD, Rhodes JA 2023. Testing multispecies coalescent simulators
+using summary statistics, IEEE/ACM Trans Comput Biol Bioinformat,
+20(2):1613–1618. <doi:10.1109/TCBB.2022.3177956>.
 
 %prep
 %setup -q -c -n %{packname}

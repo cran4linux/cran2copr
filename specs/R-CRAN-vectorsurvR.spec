@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vectorsurvR
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Access and Analytical Tools for 'VectorSurv' Users
 
@@ -24,7 +24,7 @@ BuildRequires:    R-CRAN-kableExtra
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-DT 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-kableExtra
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-DT 

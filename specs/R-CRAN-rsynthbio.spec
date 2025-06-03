@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LIM
-%global packver   1.4.7.2
+%global packname  rsynthbio
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.7.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Inverse Model Examples and Solution Methods
+Summary:          Synthesize Bio API Wrapper
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.01
-Requires:         R-core >= 2.01
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-limSolve 
-BuildRequires:    R-CRAN-diagram 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-limSolve 
-Requires:         R-CRAN-diagram 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-getPass 
+BuildRequires:    R-CRAN-keyring 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-CRAN-getPass 
+Requires:         R-CRAN-keyring 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
 
 %description
-Functions that read and solve linear inverse problems (food web problems,
-linear programming problems). These problems find solutions to linear or
-quadratic functions: min or max (f(x)), where f(x) = ||Ax-b||^2 or f(x) =
-sum(ai*xi) subject to equality constraints Ex=f and inequality constraints
-Gx>=h.
+Access Synthesize Bio models from their API <https://app.synthesize.bio/>
+using this wrapper that provides a convenient interface to the Synthesize
+Bio API, allowing users to generate realistic gene expression data based
+on specified biological conditions. This package enables researchers to
+easily access AI-generated transcriptomic data for various modalities
+including bulk RNA-seq, single-cell RNA-seq, microarray data, and more.
 
 %prep
 %setup -q -c -n %{packname}

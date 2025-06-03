@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shrinkTVP
-%global packver   3.0.1
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.1
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient Bayesian Inference for Time-Varying Parameter Models with Shrinkage
 
@@ -42,6 +42,7 @@ and Frühwirth-Schnatter (2019) <doi:10.1016/j.jeconom.2018.11.006> and
 Cadonna et al. (2020) <doi:10.3390/econometrics8020020> and Knaus and
 Frühwirth-Schnatter (2023) <doi:10.48550/arXiv.2312.10487>. For details on
 the package, please see Knaus et al. (2021) <doi:10.18637/jss.v100.i13>.
+For the multivariate extension, see the 'shrinkTVPVAR' package.
 
 %prep
 %setup -q -c -n %{packname}

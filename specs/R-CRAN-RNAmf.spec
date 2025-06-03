@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RNAmf
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Recursive Non-Additive Emulator for Multi-Fidelity Data
 
@@ -31,7 +31,7 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-foreach 
 
 %description
-Performs RNA emulation and active learning proposed by Heo and Sung (2024)
+Performs RNA emulation and active learning proposed by Heo and Sung (2025)
 <doi:10.1080/00401706.2024.2376173> for multi-fidelity computer
 experiments. The RNA emulator is particularly useful when the simulations
 with different fidelity level are nonlinearly correlated. The

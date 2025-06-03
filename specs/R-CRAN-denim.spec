@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  denim
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generate and Simulate Deterministic Discrete-Time Compartmental Models
 
@@ -17,12 +17,12 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.6
-BuildRequires:    R-CRAN-viridisLite 
+BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-testthat 
 Requires:         R-CRAN-Rcpp >= 1.0.6
-Requires:         R-CRAN-viridisLite 
+Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-glue 
 

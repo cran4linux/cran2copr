@@ -1,49 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  LMest
-%global packver   3.2.5
+%global packname  tangles
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.5
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generalized Latent Markov Models
+Summary:          Anonymisation of Spatial Point Patterns and Grids
 
-License:          GPL (>= 2)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mclust >= 5.4.6
-BuildRequires:    R-CRAN-diagram >= 1.6.4
-BuildRequires:    R-CRAN-Formula >= 1.2.3
-BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-MultiLCIRT 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-mvtnorm 
-BuildRequires:    R-CRAN-mix 
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-mclust >= 5.4.6
-Requires:         R-CRAN-diagram >= 1.6.4
-Requires:         R-CRAN-Formula >= 1.2.3
-Requires:         R-CRAN-scatterplot3d >= 0.3.41
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-MultiLCIRT 
-Requires:         R-stats 
-Requires:         R-CRAN-mvtnorm 
-Requires:         R-CRAN-mix 
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-grDevices 
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-digest 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-digest 
 
 %description
-Latent Markov models for longitudinal continuous and categorical data. See
-Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
+Methods for anonymisation of spatial datasets while preserving spatial
+structure and relationships. Original coordinates or raster geometries are
+transformed using randomized or predefined vertical shifts, horizontal
+shifts, and rotations. Compatible with point-based data in 'matrix',
+'data.frame', or 'sf' formats, as well as 'terra' raster objects. Supports
+reversible anonymisation workflows, hash-based validation, shapefile
+export, and consistent tangling across related datasets using stored
+transformation sequences. Approach informed by the De-Identification
+Decision Making Framework (CM O’Keefe, S Otorepec, M Elliot, E Mackey, and
+K O’Hara 2017) <doi:10.4225/08/59c169433efd4>.
 
 %prep
 %setup -q -c -n %{packname}

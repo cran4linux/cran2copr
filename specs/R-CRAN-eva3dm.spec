@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eva3dm
-%global packver   0.99.1
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.99.1
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Evaluation of 3D Meteorological and Air Quality Models
 

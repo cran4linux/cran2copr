@@ -1,39 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  RobustCalibration
-%global packver   0.5.5
+%global packname  chess2plyrs
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.5
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Calibration of Imperfect Mathematical Models
+Summary:          Chess Game Creation and Tools
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-nloptr >= 1.0.4
-BuildRequires:    R-CRAN-RobustGaSP >= 0.6.4
-BuildRequires:    R-CRAN-Rcpp >= 0.12.3
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-nloptr >= 1.0.4
-Requires:         R-CRAN-RobustGaSP >= 0.6.4
-Requires:         R-CRAN-Rcpp >= 0.12.3
-Requires:         R-methods 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.4
+BuildRequires:    R-stats 
+Requires:         R-CRAN-ggplot2 >= 3.4.4
+Requires:         R-stats 
 
 %description
-Implements full Bayesian analysis for calibrating mathematical models with
-new methodology for modeling the discrepancy function. It allows for
-emulation, calibration and prediction using complex mathematical model
-outputs and experimental data. See the reference: Mengyang Gu and Long
-Wang, 2018, Journal of Uncertainty Quantification; Mengyang Gu, Fangzheng
-Xie and Long Wang, 2022, Journal of Uncertainty Quantification; Mengyang
-Gu, Kyle Anderson and Erika McPhillips, 2023, Technometrics.
+A chess program which allows the user to create a game, add moves, check
+for legal moves and game result, plot the board, take back, read and write
+FEN (Forsyth–Edwards Notation). A basic chess engine based on minimax is
+implemented.
 
 %prep
 %setup -q -c -n %{packname}

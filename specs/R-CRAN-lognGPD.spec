@@ -1,37 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  m5
-%global packver   0.1.1
+%global packname  lognGPD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'M5 Forecasting' Challenges Data
+Summary:          Estimation of a Lognormal - Generalized Pareto Mixture
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringi 
-BuildRequires:    R-CRAN-lubridate 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringi 
-Requires:         R-CRAN-lubridate 
+BuildRequires:    R-CRAN-evd 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-LNPar 
+BuildRequires:    R-CRAN-EnvStats 
+Requires:         R-CRAN-evd 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-parallel 
+Requires:         R-CRAN-LNPar 
+Requires:         R-CRAN-EnvStats 
 
 %description
-Contains functions, which facilitate downloading, loading and preparing
-data from 'M5 Forecasting' challenges (by 'University of Nicosia', hosted
-on 'Kaggle'). The data itself is set of time series of different product
-sales in 'Walmart'. The package also includes a ready-to-use built-in M5
-subset named 'tiny_m5'. For detailed information about the challenges,
-see: Makridakis, S. & Spiliotis, E. & Assimakopoulos, V. (2020).
-<doi:10.1016/j.ijforecast.2021.10.009>.
+Estimation of a lognormal - Generalized Pareto mixture via the
+Expectation-Maximization algorithm. Computation of bootstrap standard
+errors is supported and performed via parallel computing. Functions for
+random number simulation and density evaluation are also available. For
+more details see Bee and Santi (2025) <doi:10.48550/arXiv.2505.22507>.
 
 %prep
 %setup -q -c -n %{packname}

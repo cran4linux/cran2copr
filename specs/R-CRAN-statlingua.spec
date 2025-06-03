@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  limSolve
-%global packver   1.5.7.2
+%global packname  statlingua
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.7.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solving Linear Inverse Models
+Summary:          Explain Statistical Output with Large Language Models
 
-License:          GPL
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-lpSolve 
-BuildRequires:    R-CRAN-MASS 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-lpSolve 
-Requires:         R-CRAN-MASS 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
 
 %description
-Functions that (1) find the minimum/maximum of a linear or quadratic
-function: min or max (f(x)), where f(x) = ||Ax-b||^2 or f(x) =
-sum(a_i*x_i) subject to equality constraints Ex=f and/or inequality
-constraints Gx>=h, (2) sample an underdetermined- or overdetermined system
-Ex=f subject to Gx>=h, and if applicable Ax~=b, (3) solve a linear system
-Ax=B for the unknown x. It includes banded and tridiagonal linear systems.
+Transform complex statistical output into straightforward, understandable,
+and context-aware natural language descriptions using Large Language
+Models (LLMs), making complex analyses more accessible to individuals with
+varying statistical expertise. It relies on the 'ellmer' package to
+interface with LLM providers including OpenAI <https://openai.com/>,
+Google AI Studio <https://aistudio.google.com/>, and Anthropic
+<https://www.anthropic.com/> (API keys are required and managed via
+'ellmer').
 
 %prep
 %setup -q -c -n %{packname}
