@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   1.3.1
+%global packname  NetGreg
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          Network-Guided Penalized Regression (NetGreg)
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-huge 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plsgenomics 
+Requires:         R-CRAN-huge 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-dplyr 
+Requires:         R-stats 
+Requires:         R-CRAN-plsgenomics 
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+A network-guided penalized regression framework that integrates network
+characteristics from Gaussian graphical models with partial penalization,
+accounting for both network structure (hubs and non-hubs) and clinical
+covariates in high-dimensional omics data, including transcriptomics and
+proteomics. The full methodological details can be found in our recent
+preprint by Ahn S and Oh EJ (2025) <doi:10.48550/arXiv.2505.22986>.
 
 %prep
 %setup -q -c -n %{packname}

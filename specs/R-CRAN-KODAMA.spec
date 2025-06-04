@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  KODAMA
-%global packver   2.4.1
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Knowledge Discovery by Accuracy Maximization
 
@@ -18,24 +18,27 @@ BuildRequires:    R-devel >= 2.10.0
 Requires:         R-core >= 2.10.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-minerva 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-CRAN-Rnanoflann 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-stats 
-Requires:         R-CRAN-minerva 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-umap 
+Requires:         R-CRAN-Rnanoflann 
+Requires:         R-methods 
+Requires:         R-CRAN-Matrix 
 
 %description
-An unsupervised and semi-supervised learning algorithm that performs
-feature extraction from noisy and high-dimensional data. It facilitates
-identification of patterns representing underlying groups on all samples
-in a data set. Based on Cacciatore S, Tenori L, Luchinat C, Bennett PR,
-MacIntyre DA. (2017) Bioinformatics <doi:10.1093/bioinformatics/btw705>
-and Cacciatore S, Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
-<doi:10.1073/pnas.1220873111>.
+A self-guided, weakly supervised learning algorithm for feature extraction
+from noisy and high-dimensional data. It facilitates the identification of
+patterns that reflect underlying group structures across all samples in a
+dataset. The method incorporates a novel strategy to integrate spatial
+information, improving the interpretability of results in spatially
+resolved data.
 
 %prep
 %setup -q -c -n %{packname}

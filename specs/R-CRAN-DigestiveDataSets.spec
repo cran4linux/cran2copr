@@ -1,49 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  manydata
-%global packver   1.0.2
+%global packname  DigestiveDataSets
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Portal for Global Governance Data
+Summary:          A Curated Collection of Digestive System and Gastrointestinal Disease Datasets
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-messydates >= 0.5.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dtplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-remotes 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-messydates >= 0.5.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dtplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-remotes 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-utils 
 
 %description
-This is the core package for the many packages universe. It includes
-functions to help researchers work with and contribute to event datasets
-on global governance.
+Provides an extensive and curated collection of datasets related to the
+digestive system, stomach, intestines, liver, pancreas, and associated
+diseases. This package includes clinical trials, observational studies,
+experimental datasets, cohort data, and case series involving
+gastrointestinal disorders such as gastritis, ulcers, pancreatitis, liver
+cirrhosis, colon cancer, colorectal conditions, Helicobacter pylori
+infection, irritable bowel syndrome, intestinal infections, and
+post-surgical outcomes. The datasets support educational, clinical, and
+research applications in gastroenterology, public health, epidemiology,
+and biomedical sciences. Designed for researchers, clinicians, data
+scientists, students, and educators interested in digestive diseases, the
+package facilitates reproducible analysis, modeling, and hypothesis
+testing using real-world and historical data.
 
 %prep
 %setup -q -c -n %{packname}

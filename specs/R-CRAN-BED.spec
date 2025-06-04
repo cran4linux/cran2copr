@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BED
-%global packver   1.6.0
+%global packver   1.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Biological Entity Dictionary (BED)
 
@@ -16,7 +16,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
-BuildArch:        noarch
 BuildRequires:    R-CRAN-neo2R >= 2.4.1
 BuildRequires:    R-CRAN-rstudioapi >= 0.5
 BuildRequires:    R-CRAN-shiny >= 0.13
@@ -26,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-DT 
 Requires:         R-CRAN-neo2R >= 2.4.1
 Requires:         R-CRAN-rstudioapi >= 0.5
@@ -36,6 +36,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-stringr 
 Requires:         R-utils 
+Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-DT 
 
 %description

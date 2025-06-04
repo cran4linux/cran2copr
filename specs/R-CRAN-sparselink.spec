@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  plasso
-%global packver   0.1.2
+%global packname  sparselink
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Cross-Validated (Post-) Lasso
+Summary:          Sparse Regression for Related Problems
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-methods 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-spls 
+BuildRequires:    R-CRAN-xrnet 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Matrix 
-Requires:         R-methods 
-Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-pROC 
+Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-spls 
+Requires:         R-CRAN-xrnet 
 
 %description
-Built on top of the 'glmnet' library by Friedman, Hastie and Tibshirani
-(2010) <doi:10.18637/jss.v033.i01>, the 'plasso' package follows Knaus
-(2022) <doi:10.1093/ectj/utac015> and comes up with two functions that
-estimate least squares Lasso and Post-Lasso models. The plasso() function
-adds coefficient paths for a Post-Lasso model to the standard 'glmnet'
-output. On top of that cv.plasso() cross-validates the coefficient paths
-for both the Lasso and Post-Lasso model and provides optimal
-hyperparameter values for the penalty term lambda.
+Estimates sparse regression models (i.e., with few non-zero coefficients)
+in high-dimensional multi-task learning and transfer learning settings, as
+proposed by Rauschenberger et al. (2025)
+<https://orbilu.uni.lu/handle/10993/63425>.
 
 %prep
 %setup -q -c -n %{packname}

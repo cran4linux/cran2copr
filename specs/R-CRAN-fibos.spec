@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fibos
-%global packver   1.2.3
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Occlusion Surface Using the Occluded Surface and Fibonacci Occluded Surface
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.0
-Requires:         R-core >= 3.3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-dplyr 
@@ -36,9 +36,9 @@ Requires:         R-CRAN-glue
 The Occluded Surface (OS) algorithm is a widely used approach for
 analyzing atomic packing in biomolecules as described by Pattabiraman N,
 Ward KB, Fleming PJ (1995) <doi:10.1002/jmr.300080603>. Here, we introduce
-'fibos', an 'R' and 'Python' package that extends the 'OS''' methodology,
-as presented in Soares HHM, Romanelli JPR, Fleming PJ, da Silveira CH
-(2024) <doi:10.1101/2024.11.01.621530>.
+'fibos', an 'R' and 'Python' package that extends the 'OS' methodology, as
+presented in Soares HHM, Romanelli JPR, Fleming PJ, da Silveira CH (2024)
+<doi:10.1101/2024.11.01.621530>.
 
 %prep
 %setup -q -c -n %{packname}

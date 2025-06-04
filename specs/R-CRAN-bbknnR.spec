@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bbknnR
-%global packver   1.1.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Batch Balanced KNN in R
 
@@ -17,31 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-uwot >= 0.1.14
+BuildRequires:    R-CRAN-uwot >= 0.2.1
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-RcppAnnoy 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-RcppEigen 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rnndescent 
 BuildRequires:    R-CRAN-Rtsne 
 BuildRequires:    R-CRAN-Seurat 
 BuildRequires:    R-CRAN-SeuratObject 
 BuildRequires:    R-CRAN-tidytable 
-Requires:         R-CRAN-uwot >= 0.1.14
+Requires:         R-CRAN-uwot >= 0.2.1
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Rcpp >= 1.0.8
 Requires:         R-CRAN-RcppAnnoy 
-Requires:         R-CRAN-reticulate 
+Requires:         R-CRAN-RcppEigen 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rnndescent 
 Requires:         R-CRAN-Rtsne 
 Requires:         R-CRAN-Seurat 
 Requires:         R-CRAN-SeuratObject 

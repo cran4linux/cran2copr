@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  manydata
-%global packver   1.0.2
+%global packname  riskdiff
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Portal for Global Governance Data
+Summary:          Robust Risk Difference Estimation with Multiple Link Functions
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
-BuildRequires:    R-CRAN-messydates >= 0.5.0
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-dtplyr 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
-Requires:         R-CRAN-messydates >= 0.5.0
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-dtplyr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tidyr 
+Requires:         R-stats 
 
 %description
-This is the core package for the many packages universe. It includes
-functions to help researchers work with and contribute to event datasets
-on global governance.
+Calculates risk differences (or prevalence differences for cross-sectional
+data) using generalized linear models with automatic link function
+selection. Provides robust model fitting with fallback methods, support
+for stratification and adjustment variables, and publication-ready output
+formatting. Handles model convergence issues gracefully and provides
+confidence intervals using multiple approaches. Methods are based on
+approaches described in Mark W. Donoghoe and Ian C. Marschner (2018)
+"logbin: An R Package for Relative Risk Regression Using the Log-Binomial
+Model" <doi:10.18637/jss.v086.i09> for robust GLM fitting, and standard
+epidemiological methods for risk difference estimation as described in
+Kenneth J. Rothman, Sander Greenland and Timothy L. Lash (2008,
+ISBN:9780781755641) "Modern Epidemiology".
 
 %prep
 %setup -q -c -n %{packname}

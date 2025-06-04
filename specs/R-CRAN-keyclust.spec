@@ -1,30 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cheapr
-%global packver   1.3.1
+%global packname  keyclust
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Functions to Save Time and Memory
+Summary:          A Model for Semi-Supervised Keyword Extraction from Word Embedding Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-collapse >= 2.0.0
-BuildRequires:    R-CRAN-cpp11 
-Requires:         R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-data.table >= 1.14.8
+BuildRequires:    R-CRAN-textstem >= 0.1.4
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-data.table >= 1.14.8
+Requires:         R-CRAN-textstem >= 0.1.4
 
 %description
-Fast and memory-efficient (or 'cheap') tools to facilitate efficient
-programming, saving time and memory. It aims to provide 'cheaper'
-alternatives to common base R functions, as well as some additional
-functions.
+A fast and computationally efficient algorithm designed to enable
+researchers to efficiently and quickly extract semantically-related
+keywords using a fitted embedding model. For more details about the
+methods applied, see Chester (2025). <doi:10.17605/OSF.IO/5B7RQ>.
 
 %prep
 %setup -q -c -n %{packname}

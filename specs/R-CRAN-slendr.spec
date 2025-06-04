@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  slendr
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Simulation Framework for Spatiotemporal Population Genetics
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-shinyWidgets
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-ggrepel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-shinyWidgets
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-digest 
+Requires:         R-CRAN-ggrepel 
 
 %description
 A framework for simulating spatially explicit genomic data which leverages

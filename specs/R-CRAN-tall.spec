@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tall
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis for All
 
@@ -19,87 +19,91 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-shinyWidgets 
-BuildRequires:    R-CRAN-shinydashboardPlus 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-ca 
 BuildRequires:    R-CRAN-chromote 
-BuildRequires:    R-CRAN-later 
-BuildRequires:    R-CRAN-promises 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-RSpectra 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-visNetwork 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-udpipe 
-BuildRequires:    R-CRAN-topicmodels 
-BuildRequires:    R-CRAN-pdftools 
-BuildRequires:    R-CRAN-textrank 
-BuildRequires:    R-CRAN-strucchange 
-BuildRequires:    R-CRAN-sparkline 
-BuildRequires:    R-CRAN-tidygraph 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-readtext 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-fontawesome 
 BuildRequires:    R-CRAN-ggraph 
-BuildRequires:    R-CRAN-ca 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-shinyFiles 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-later 
+BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-pagedown 
-BuildRequires:    R-CRAN-word2vec 
-BuildRequires:    R-CRAN-umap 
 BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-pdftools 
+BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readtext 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RSpectra 
+BuildRequires:    R-CRAN-shinycssloaders 
+BuildRequires:    R-CRAN-shinydashboardPlus 
+BuildRequires:    R-CRAN-shinyFiles 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-shinyWidgets 
+BuildRequires:    R-CRAN-sparkline 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-strucchange 
+BuildRequires:    R-CRAN-textrank 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-topicmodels 
+BuildRequires:    R-CRAN-udpipe 
+BuildRequires:    R-CRAN-umap 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-word2vec 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-Rcpp >= 1.0.3
 Requires:         R-CRAN-shiny 
-Requires:         R-graphics 
-Requires:         R-CRAN-shinyWidgets 
-Requires:         R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-ca 
 Requires:         R-CRAN-chromote 
-Requires:         R-CRAN-later 
-Requires:         R-CRAN-promises 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-RSpectra 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-DT 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-visNetwork 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-udpipe 
-Requires:         R-CRAN-topicmodels 
-Requires:         R-CRAN-pdftools 
-Requires:         R-CRAN-textrank 
-Requires:         R-CRAN-strucchange 
-Requires:         R-CRAN-sparkline 
-Requires:         R-CRAN-tidygraph 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-readtext 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-fontawesome 
 Requires:         R-CRAN-ggraph 
-Requires:         R-CRAN-ca 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-shinyFiles 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-curl 
+Requires:         R-graphics 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-later 
+Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-pagedown 
-Requires:         R-CRAN-word2vec 
-Requires:         R-CRAN-umap 
 Requires:         R-parallel 
-Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-pdftools 
+Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readtext 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RSpectra 
+Requires:         R-CRAN-shinycssloaders 
+Requires:         R-CRAN-shinydashboardPlus 
+Requires:         R-CRAN-shinyFiles 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-shinyWidgets 
+Requires:         R-CRAN-sparkline 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-strucchange 
+Requires:         R-CRAN-textrank 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-topicmodels 
+Requires:         R-CRAN-udpipe 
+Requires:         R-CRAN-umap 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-word2vec 
 
 %description
 An R 'shiny' app designed for diverse text analysis tasks, offering a wide
