@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  nasa
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Access National Aeronautics and Space Administration (NASA) APIs
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-magick 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-magick 
+Requires:         R-CRAN-dplyr 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Provides functions to access and download data from various NASA APIs
+<https://api.nasa.gov/#browseAPI>, including: Astronomy Picture of the Day
+(APOD), Mars Rover Photos, Earth Polychromatic Imaging Camera (EPIC), Near
+Earth Object Web Service (NeoWs), Earth Observatory Natural Event Tracker
+(EONET), and NASA Earthdata CMR Search. Most endpoints require a NASA API
+key for access. Data is retrieved, cleaned for analysis, and returned in a
+dataframe-friendly format.
 
 %prep
 %setup -q -c -n %{packname}

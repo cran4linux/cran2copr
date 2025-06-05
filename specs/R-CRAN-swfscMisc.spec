@@ -1,49 +1,56 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  marginaleffects
-%global packver   0.27.0
+%global packname  swfscMisc
+%global packver   1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.0
+Version:          1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Predictions, Comparisons, Slopes, Marginal Means, and Hypothesis Tests
+Summary:          Miscellaneous Functions for Southwest Fisheries Science Center
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildRequires:    R-CRAN-insight >= 1.3.0
-BuildRequires:    R-CRAN-data.table >= 1.16.4
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-backports 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-HDInterval 
+BuildRequires:    R-CRAN-kknn 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-modeest 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-insight >= 1.3.0
-Requires:         R-CRAN-data.table >= 1.16.4
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-backports 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-generics 
-Requires:         R-CRAN-Formula 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-abind 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-HDInterval 
+Requires:         R-CRAN-kknn 
 Requires:         R-methods 
+Requires:         R-CRAN-modeest 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-spatstat.geom 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
 
 %description
-Compute and plot predictions, slopes, marginal means, and comparisons
-(contrasts, risk ratios, odds, etc.) for over 100 classes of statistical
-and machine learning models in R. Conduct linear and non-linear hypothesis
-tests, or equivalence tests. Calculate uncertainty estimates using the
-delta method, bootstrapping, or simulation-based inference. Details can be
-found in Arel-Bundock, Greifer, and Heiss (2024)
-<doi:10.18637/jss.v111.i09>.
+Collection of conversion, analytical, geodesic, mapping, and plotting
+functions. Used to support packages and code written by researchers at the
+Southwest Fisheries Science Center of the National Oceanic and Atmospheric
+Administration.
 
 %prep
 %setup -q -c -n %{packname}

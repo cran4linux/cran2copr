@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  baseline
+%global packver   1.3-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.3.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Baseline Correction of Spectra
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-SparseM 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-methods 
+Requires:         R-graphics 
+Requires:         R-CRAN-SparseM 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-methods 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Collection of baseline correction algorithms, along with a framework and a
+Tcl/Tk enabled GUI for optimising baseline algorithm parameters. Typical
+use of the package is for removing background effects from spectra
+originating from various types of spectroscopy and spectrometry, possibly
+optimizing this with regard to regression or classification results.
+Correction methods include polynomial fitting, weighted local smoothers
+and many more.
 
 %prep
 %setup -q -c -n %{packname}

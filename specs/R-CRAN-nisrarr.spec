@@ -1,58 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ipumsr
-%global packver   0.9.0
+%global packname  nisrarr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Interface for Downloading, Reading, and Handling IPUMS Data
+Summary:          Download Data from the NISRA Data Portal
 
-License:          Mozilla Public License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-haven >= 2.2.0
-BuildRequires:    R-CRAN-dplyr >= 0.7.0
-BuildRequires:    R-CRAN-hipread >= 0.2.0
-BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-pillar 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rjstat 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-zeallot 
-Requires:         R-CRAN-haven >= 2.2.0
-Requires:         R-CRAN-dplyr >= 0.7.0
-Requires:         R-CRAN-hipread >= 0.2.0
-Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-pillar 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rjstat 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-vctrs 
 Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-zeallot 
 
 %description
-An easy way to work with census, survey, and geographic data provided by
-IPUMS in R. Generate and download data through the IPUMS API and load
-IPUMS files into R with their associated metadata to make analysis easier.
-IPUMS data describing 1.4 billion individuals drawn from over 750 censuses
-and surveys is available free of charge from the IPUMS website
-<https://www.ipums.org>.
+Download data from the Northern Ireland Statistics and Research Agency
+(NISRA) data portal, accessed at <https://data.nisra.gov.uk>. NISRA is a
+government agency and the principal source of official statistics and
+social research on Northern Ireland.
 
 %prep
 %setup -q -c -n %{packname}

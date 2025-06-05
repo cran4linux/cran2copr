@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MLBC
-%global packver   0.1.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bias Correction Methods for Models Using Synthetic Data
 
@@ -14,11 +14,17 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-TMB 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-TMB 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-stats 
 
 %description
 Implements three bias-correction techniques (additive bias correction,

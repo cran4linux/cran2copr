@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  gchartsmap
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Access 'Google Charts' Map Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tigris 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tigris 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Connects to the 'Google Charts' geographic data resources hosted at
+<https://www.gstatic.com/charts/geochart/10/mapfiles/US-500_METROS.js>,
+allowing the user to download contents to use as a reference for related
+services like 'Google Trends'.
 
 %prep
 %setup -q -c -n %{packname}

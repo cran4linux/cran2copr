@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  clinical
+%global packver   0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Analysis of Clinical Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-minerva 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-clinfun 
+BuildRequires:    R-methods 
+Requires:         R-stats 
+Requires:         R-CRAN-minerva 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-clinfun 
+Requires:         R-methods 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+A collection of tools to easily analyze clinical data, including functions
+for correlation analysis, and statistical testing. The package facilitates
+the integration of clinical metadata with other omics layers, enabling
+exploration of quantitative variables. It also includes the utility for
+frequency matching samples across a dataset based on patient variables.
 
 %prep
 %setup -q -c -n %{packname}

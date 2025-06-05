@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  ROCS
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Receiver Operating Characteristics Surface
 
-License:          GPL-3
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-poibin 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-poibin 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Plots the Receiver Operating Characteristics Surface for high-throughput
+class-skewed data, calculates the Volume under the Surface (VUS) and the
+FDR-Controlled Area Under the Curve (FCAUC), and conducts tests to compare
+two ROC surfaces. Computes eROC curve and the corresponding AUC for
+imperfect reference standard.
 
 %prep
 %setup -q -c -n %{packname}

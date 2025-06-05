@@ -1,30 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  upset.hp
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Generate UpSet Plots of VP and HP Based on the ASV Concept
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-MuMIn 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-glmm.hp 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-MuMIn 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-glmm.hp 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-grDevices 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Using matrix layout to visualize the unique, common, or individual
+contribution of each predictor (or matrix of predictors) towards explained
+variation on different models. These contributions were derived from
+variation partitioning (VP) and hierarchical partitioning (HP), applying
+the algorithm of "Lai et al. (2022) Generalizing hierarchical and
+variation partitioning in multiple regression and canonical analyses using
+the rdacca.hp R package.Methods in Ecology and Evolution, 13: 782-788
+<doi:10.1111/2041-210X.13800>".
 
 %prep
 %setup -q -c -n %{packname}

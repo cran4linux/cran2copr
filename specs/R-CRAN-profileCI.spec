@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  profileCI
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          Profiling a Log-Likelihood to Calculate Confidence Intervals
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-itp 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-itp 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+Provides tools for profiling a user-supplied log-likelihood function to
+calculate confidence intervals for model parameters. Speed of computation
+can be improved by adjusting the step sizes in the profiling and/or
+starting the profiling from limits based on the approximate large sample
+normal distribution for the maximum likelihood estimator of a parameter.
+The accuracy of the limits can be set by the user. A plot method
+visualises the log-likelihood and confidence interval. Only convex
+log-likelihoods are supported, that is, disjoint confidence intervals will
+not be found.
 
 %prep
 %setup -q -c -n %{packname}

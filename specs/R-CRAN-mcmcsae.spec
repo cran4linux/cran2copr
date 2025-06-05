@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mcmcsae
-%global packver   0.7.8
+%global packver   0.7.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.8
+Version:          0.7.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Markov Chain Monte Carlo Small Area Estimation
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-loo >= 2.0.0
-BuildRequires:    R-CRAN-Matrix >= 1.5.0
+BuildRequires:    R-CRAN-Matrix >= 1.6.2
 BuildRequires:    R-CRAN-GIGrvg >= 0.7
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-collapse 
 BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-loo >= 2.0.0
-Requires:         R-CRAN-Matrix >= 1.5.0
+Requires:         R-CRAN-Matrix >= 1.6.2
 Requires:         R-CRAN-GIGrvg >= 0.7
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-methods 
-Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-collapse 
 
 %description
 Fit multi-level models with possibly correlated random effects using

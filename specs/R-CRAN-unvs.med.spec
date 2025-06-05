@@ -1,30 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  easyNCDF
-%global packver   0.1.3
+%global packname  unvs.med
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools to Easily Read/Write NetCDF Files into/from Multidimensional R Arrays
+Summary:          A Universal Approach for Causal Mediation Analysis
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ncdf4 
-BuildRequires:    R-CRAN-abind 
-Requires:         R-CRAN-ncdf4 
-Requires:         R-CRAN-abind 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-snowfall 
+Requires:         R-CRAN-data.table 
+Requires:         R-parallel 
+Requires:         R-CRAN-snowfall 
 
 %description
-Set of wrappers for the 'ncdf4' package to simplify and extend its
-reading/writing capabilities into/from multidimensional R arrays.
+This program realizes a universal estimation approach that accommodates
+multi-category variables and effect scales, making up for the deficiencies
+of the existing approaches when dealing with non-binary exposures and
+complex models. The estimation via bootstrapping can simultaneously
+provide results of causal mediation on risk difference (RD), odds ratio
+(OR) and risk ratio (RR) scales with tests of the effects' difference. The
+estimation is also applicable to many other settings, e.g., moderated
+mediation, inconsistent covariates, panel data, etc. The high flexibility
+and compatibility make it possible to apply for any type of model, greatly
+meeting the needs of current empirical researches.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HLSM
-%global packver   0.9.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hierarchical Latent Space Network Model
 
-License:          GPL (> 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -36,7 +36,7 @@ Requires:         R-stats
 %description
 Fits latent space models for single networks and hierarchical latent space
 models for ensembles of networks as described in Sweet, Thomas & Junker
-(2013). <DOI:10.3102/1076998612458702>.
+(2013).
 
 %prep
 %setup -q -c -n %{packname}

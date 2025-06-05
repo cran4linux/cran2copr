@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordinalsimr
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Compare Ordinal Endpoints Using Simulations
 
@@ -27,7 +27,6 @@ BuildRequires:    R-CRAN-coin
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rhandsontable 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rms 
@@ -47,7 +46,6 @@ Requires:         R-CRAN-coin
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rhandsontable 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rms 

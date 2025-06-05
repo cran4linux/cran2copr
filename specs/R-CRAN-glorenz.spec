@@ -1,46 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MetChem
-%global packver   0.5
+%global packname  glorenz
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Chemical Structural Similarity Analysis
+Summary:          Transformed and Relative Lorenz Curves for Survey Weighted Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rcdk >= 3.4.3
-BuildRequires:    R-CRAN-KODAMA >= 3.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-fingerprint 
-Requires:         R-CRAN-rcdk >= 3.4.3
-Requires:         R-CRAN-KODAMA >= 3.0
+BuildRequires:    R-CRAN-LorenzRegression 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-fingerprint 
+Requires:         R-CRAN-LorenzRegression 
+Requires:         R-CRAN-rlang 
 
 %description
-A new pipeline to explore chemical structural similarity across
-metabolites. It allows the metabolite classification in
-structurally-related modules and identifies common shared functional
-groups. The KODAMA algorithm is used to highlight structural similarity
-between metabolites. See Cacciatore S, Tenori L, Luchinat C, Bennett PR,
-MacIntyre DA. (2017) Bioinformatics <doi:10.1093/bioinformatics/btw705>,
-Cacciatore S, Luchinat C, Tenori L. (2014) Proc Natl Acad Sci USA
-<doi:10.1073/pnas.1220873111>, and Abdel-Shafy EA, Melak T, MacIntyre DA,
-Zadra G, Zerbini LF, Piazza S, Cacciatore S. (2023) Bioinformatics
-Advances <doi:10.1093/bioadv/vbad053>.
+Functions for constructing Transformed and Relative Lorenz curves with
+survey sampling weights. Given a variable of interest measured in two
+groups with scaled survey weights so that their hypothetical populations
+are of equal size, tlorenz() computes the proportion of members of the
+group with smaller values (ordered from smallest to largest) needed for
+their sum to match the sum of the top qth percentile of the group with
+higher values. rlorenz() shows the fraction of the total value of the
+group with larger values held by the pth percentile of those in the group
+with smaller values. Fd() is a survey weighted cumulative distribution
+function and Eps() is a survey weighted inverse cdf used in rlorenz().
+Ramos, Graubard, and Gastwirth (2025) <doi:10.1093/jrsssa/qnaf044>.
 
 %prep
 %setup -q -c -n %{packname}

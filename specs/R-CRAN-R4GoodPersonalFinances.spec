@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R4GoodPersonalFinances
-%global packver   0.2.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Make Better Financial Decisions
+Summary:          Make Optimal Financial Decisions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -32,7 +32,15 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-furrr 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-cachem 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-bsicons 
 Requires:         R-CRAN-bslib 
 Requires:         R-CRAN-dplyr 
@@ -48,17 +56,30 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-furrr 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-cachem 
+Requires:         R-CRAN-rlang 
 
 %description
-Make informed, data-driven decisions for your personal or household
-finances. Use tools and methods that are selected carefully to align with
-academic consensus, bridging the gap between theoretical knowledge and
-practical application. They assist you in finding optimal asset
-allocation, preparing for retirement or financial independence,
-calculating optimal spending, and more. For more details see: Haghani V.,
-White J. (2023, ISBN:978-1-119-74791-8), Idzorek T., Kaplan P. (2024,
-ISBN:9781952927379).
+Make optimal decisions for your personal or household finances. Use tools
+and methods that are selected carefully to align with academic consensus,
+bridging the gap between theoretical knowledge and practical application.
+They help you find your own personalized optimal discretionary spending or
+optimal asset allocation, and prepare you for retirement or financial
+independence. The optimal solution to this problems is extremely complex,
+and we only have a single lifetime to get it right. Fortunately, we now
+have the user-friendly tools implemented, that integrate life-cycle models
+with single-period net-worth mean-variance optimization models. Those
+tools can be used by anyone who wants to see what highly-personalized
+optimal decisions can look like. For more details see: Idzorek T., Kaplan
+P. (2024, ISBN:9781952927379), Haghani V., White J. (2023,
+ISBN:9781119747918).
 
 %prep
 %setup -q -c -n %{packname}
