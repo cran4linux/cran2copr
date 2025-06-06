@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OpenMindat
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Quickly Retrieve Datasets from the 'mindat.org' API
+Summary:          Quickly Retrieve Datasets from the 'Mindat' API
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,38 +18,24 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-jsonlite >= 1.8.4
-BuildRequires:    R-CRAN-httr >= 1.4.4
 BuildRequires:    R-CRAN-readxl >= 1.4.3
+BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-usethis 
 Requires:         R-CRAN-jsonlite >= 1.8.4
-Requires:         R-CRAN-httr >= 1.4.4
 Requires:         R-CRAN-readxl >= 1.4.3
+Requires:         R-CRAN-httr 
 Requires:         R-utils 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-usethis 
 
 %description
-'Mindat' ('mindat.org') is one of the world's most widely used databases
-of mineral species and their distribution. Many scientists in mineralogy,
-geochemistry, petrology, and other Earth and planetary disciplines have
-been using the 'Mindat' data. Still, an open data service and the machine
-interface have never been fully established. To meet the overwhelming data
-needs, the 'Mindat' team has built an API
-(<https://api.mindat.org/schema/redoc/>) for data access.'OpenMindat' R
-package provides valuable functions to bridge the data highway, connecting
-users' data requirements to the 'Mindat' API server and assist with
-retrieval and initial processing to improve efficiency further and lower
-the barrier of data query and access to scientists. 'OpenMindat' provides
-friendly and extensible data retrieval functions, including the subjects
-of geomaterials (e.g., rocks, minerals, synonyms, variety, mixture, and
-commodity), localities, and the IMA (International Mineralogical
-Association)-approved mineral list. 'OpenMindat' R package will accelerate
-the process of data-intensive studies in mineral informatics and lead to
-more scientific discoveries.
+Provide functions for users or machines to quickly and easily retrieve
+datasets from the 'mindat.org' API
+(<https://api.mindat.org/schema/redoc/>).
 
 %prep
 %setup -q -c -n %{packname}

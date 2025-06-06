@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastplyr
-%global packver   0.5.1
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Alternatives to 'tidyverse' Functions
 
@@ -14,24 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-collapse >= 2.0.0
+BuildRequires:    R-CRAN-cheapr >= 1.3.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-cheapr >= 0.9.91
 BuildRequires:    R-CRAN-vctrs >= 0.6.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-cpp11 
 Requires:         R-CRAN-collapse >= 2.0.0
+Requires:         R-CRAN-cheapr >= 1.3.1
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-cheapr >= 0.9.91
 Requires:         R-CRAN-vctrs >= 0.6.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 

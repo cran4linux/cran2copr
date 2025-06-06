@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fossilbrush
-%global packver   1.0.5
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automated Cleaning of Fossil Occurrence Data
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-pbapply 
 BuildRequires:    R-CRAN-stringdist 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-pbapply 
 Requires:         R-CRAN-stringdist 

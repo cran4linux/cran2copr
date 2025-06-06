@@ -1,55 +1,59 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  survivalsurrogate
-%global packver   1.1
+%global packname  PND.heter.cluster
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Evaluate a Longitudinal Surrogate with a Censored Outcome
+Summary:          Estimating the Cluster Specific Treatment Effects in Partially Nested Designs
 
-License:          GPL
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-SuperLearner 
+BuildRequires:    R-CRAN-ranger 
+BuildRequires:    R-CRAN-xgboost 
+BuildRequires:    R-CRAN-nnet 
+BuildRequires:    R-CRAN-origami 
+BuildRequires:    R-CRAN-boot 
+BuildRequires:    R-CRAN-tidyverse 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-mlr3 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-SparseM 
-BuildRequires:    R-CRAN-rBeta2009 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-rpart 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-SuperLearner 
+Requires:         R-CRAN-ranger 
+Requires:         R-CRAN-xgboost 
+Requires:         R-CRAN-nnet 
+Requires:         R-CRAN-origami 
+Requires:         R-CRAN-boot 
+Requires:         R-CRAN-tidyverse 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-mlr3 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-SparseM 
-Requires:         R-CRAN-rBeta2009 
-Requires:         R-CRAN-data.table 
-Requires:         R-utils 
-Requires:         R-CRAN-rpart 
 
 %description
-Provides influence function-based methods to evaluate a longitudinal
-surrogate marker in a censored time-to-event outcome setting, with plug-in
-and targeted maximum likelihood estimation options. Details are described
-in: Agniel D and Parast L (2025). "Robust Evaluation of Longitudinal
-Surrogate Markers with Censored Data." Journal of the Royal Statistical
-Society: Series B <doi:10.1093/jrsssb/qkae119>. A tutorial for this
-package can be found at <https://www.laylaparast.com/survivalsurrogate>
-and a Shiny App implementing the package can be found at
-<https://parastlab.shinyapps.io/survivalsurrogateApp/>.
+Implements the methods for assessing heterogeneous cluster-specific
+treatment effects in partially nested designs as described in Liu (2024)
+<doi:10.1037/met0000723>. The estimation uses the multiply robust method,
+allowing for the use of machine learning methods in model estimation
+(e.g., random forest, neural network, and the super learner ensemble).
+Partially nested designs (also known as partially clustered designs) are
+designs where individuals in the treatment arm are assigned to clusters
+(e.g., teachers, tutoring groups, therapists), whereas individuals in the
+control arm have no such clustering.
 
 %prep
 %setup -q -c -n %{packname}

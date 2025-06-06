@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  boinet
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conduct Simulation Study of Bayesian Optimal Interval Design with BOIN-ET Family
 
@@ -14,15 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Iso 
 BuildRequires:    R-CRAN-mfp 
 BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-gt 
+BuildRequires:    R-CRAN-tibble 
 Requires:         R-CRAN-Iso 
 Requires:         R-CRAN-mfp 
 Requires:         R-CRAN-copula 
+Requires:         R-CRAN-gt 
+Requires:         R-CRAN-tibble 
 
 %description
 Bayesian optimal interval based on both efficacy and toxicity outcomes

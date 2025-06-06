@@ -1,27 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treesitter.r
-%global packver   1.2.0
+%global packname  bfboin
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R' Grammar for 'Tree-Sitter'
+Summary:          Operating Characteristics for the Bayesian Optimal Interval Design with Back Filling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-BOIN 
+BuildRequires:    R-CRAN-purrr 
+Requires:         R-CRAN-BOIN 
+Requires:         R-CRAN-purrr 
 
 %description
-Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
-alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
-trees for source files of any language, and can efficiently update those
-syntax trees as the source file is edited.
+Calculate the operating characteristics of the Bayesian Optimal Interval
+with Back Filling Design for dose escalation in early-phase oncology
+trials.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bayesforecast
-%global packver   1.0.1
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Time Series Modeling with Stan
 
@@ -16,40 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-loo >= 2.2.0
-BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-rstantools >= 2.4.0
+BuildRequires:    R-CRAN-rstan >= 2.32.0
 BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
-BuildRequires:    R-CRAN-rstantools >= 2.0.0
+BuildRequires:    R-CRAN-loo >= 2.1.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
 BuildRequires:    R-CRAN-bayesplot >= 1.5.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
 BuildRequires:    R-CRAN-bridgesampling >= 0.3.0
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-astsa 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-rstantools
 Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-loo >= 2.2.0
-Requires:         R-CRAN-rstan >= 2.18.1
-Requires:         R-CRAN-rstantools >= 2.0.0
+Requires:         R-CRAN-rstantools >= 2.4.0
+Requires:         R-CRAN-rstan >= 2.32.0
+Requires:         R-CRAN-loo >= 2.1.0
 Requires:         R-CRAN-bayesplot >= 1.5.0
 Requires:         R-CRAN-bridgesampling >= 0.3.0
 Requires:         R-CRAN-Rcpp >= 0.12.0
-Requires:         R-methods 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-StanHeaders >= 2.18.0
-Requires:         R-CRAN-astsa 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
 Requires:         R-CRAN-prophet 
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-rstantools
@@ -59,7 +57,7 @@ Fit Bayesian time series models using 'Stan' for full Bayesian inference.
 A wide range of distributions and models are supported, allowing users to
 fit Seasonal ARIMA, ARIMAX, Dynamic Harmonic Regression, GARCH, t-student
 innovation GARCH models, asymmetric GARCH, Random Walks, stochastic
-volatility models for univariate time series.  Prior specifications are
+volatility models for univariate time series. Prior specifications are
 flexible and explicitly encourage users to apply prior distributions that
 actually reflect their beliefs. Model fit can easily be assessed and
 compared with typical visualization methods, information criteria such as
@@ -75,6 +73,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

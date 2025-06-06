@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fluxible
-%global packver   1.1.2
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Ecosystem Gas Fluxes Calculations for Closed Loop Chamber Setup
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-zoo
 BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-purrrlyr 
 BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-broom 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggforce 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-zoo
 Requires:         R-CRAN-progress 
 Requires:         R-CRAN-purrrlyr 
 Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-lifecycle 
 
 %description
 Processes the raw data from closed loop flux chamber (or tent) setups into

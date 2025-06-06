@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treesitter.r
-%global packver   1.2.0
+%global packname  AudioScatter
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R' Grammar for 'Tree-Sitter'
+Summary:          Audiogram Scattergrams
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-tidyverse 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-tidyverse 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-scales 
 
 %description
-Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
-alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
-trees for source files of any language, and can efficiently update those
-syntax trees as the source file is edited.
+Creates pre- and post- intervention scattergrams based on audiometric
+data. These scattergrams are formatted for publication in Otology &
+Neurotology and other otolaryngology journals. For more details, see
+Gurgel et al (2012) <doi:10.1177/0194599812458401>, Oghalai and Jackler
+(2016) <doi:10.1177/0194599816638314>.
 
 %prep
 %setup -q -c -n %{packname}

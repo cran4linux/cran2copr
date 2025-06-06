@@ -1,27 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treesitter.r
-%global packver   1.2.0
+%global packname  causens
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R' Grammar for 'Tree-Sitter'
+Summary:          Perform Causal Sensitivity Analyses Using Various Statistical Methods
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
-alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
-trees for source files of any language, and can efficiently update those
-syntax trees as the source file is edited.
+While data from randomized experiments remain the gold standard for causal
+inference, estimation of causal estimands from observational data is
+possible through various confounding adjustment methods. However, the
+challenge of unmeasured confounding remains a concern in causal inference,
+where failure to account for unmeasured confounders can lead to biased
+estimates of causal estimands. Sensitivity analysis within the framework
+of causal inference can help adjust for possible unmeasured confounding.
+In `causens`, three main methods are implemented: adjustment via
+sensitivity functions (Brumback, Hernán, Haneuse, and Robins (2004)
+<doi:10.1002/sim.1657> and Li, Shen, Wu, and Li (2011)
+<doi:10.1093/aje/kwr096>), Bayesian parametric modelling and Monte Carlo
+approaches (McCandless, Lawrence C and Gustafson, Paul (2017)
+<doi:10.1002/sim.7298>).
 
 %prep
 %setup -q -c -n %{packname}

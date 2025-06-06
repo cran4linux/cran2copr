@@ -1,27 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treesitter.r
-%global packver   1.2.0
+%global packname  musicMCT
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R' Grammar for 'Tree-Sitter'
+Summary:          Analyze the Structure of Musical Scales
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-igraph 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
-Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
-alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
-trees for source files of any language, and can efficiently update those
-syntax trees as the source file is edited.
+Analysis of musical scales (& modes, grooves, etc.) in the vein of
+Sherrill 2025 <https://collections.lib.utah.edu/ark:/87278/s6d2gr78>. The
+initials MCT in the package title refer to the article's title: "Modal
+Color Theory." Offers support for conventional musical pitch class set
+theory as developed by Forte (1973, ISBN: 9780300016109) and David Lewin
+(1987, ISBN: 9780300034936), as well as for the continuous geometries of
+Callender, Quinn, & Tymoczko (2008) <doi:10.1126/science.1153021>.
+Identifies structural properties of scales and calculates derived values
+(sign vector, color number, brightness ratio, etc.). Creates plots such as
+"brightness graphs" which visualize these properties.
 
 %prep
 %setup -q -c -n %{packname}

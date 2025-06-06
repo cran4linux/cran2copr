@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SDModels
-%global packver   1.0.10
+%global packver   1.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spectrally Deconfounded Models
 
@@ -20,6 +20,8 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.tree 
 BuildRequires:    R-CRAN-DiagrammeR 
 BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-GPUmatrix 
 BuildRequires:    R-CRAN-gridExtra 
@@ -34,6 +36,8 @@ BuildRequires:    R-CRAN-rlang
 Requires:         R-CRAN-data.tree 
 Requires:         R-CRAN-DiagrammeR 
 Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-future 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-GPUmatrix 
 Requires:         R-CRAN-gridExtra 

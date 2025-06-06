@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ParallelLogger
-%global packver   3.4.1
+%global packver   3.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          3.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Support for Parallel Computation, Logging, and Function Automation
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-memuse 
 Requires:         R-CRAN-snow 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-methods 
 Requires:         R-utils 
 Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-memuse 
 
 %description
 Support for parallel computation with progress bar, and option to stop or

@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treesitter.r
-%global packver   1.2.0
+%global packname  ebdm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R' Grammar for 'Tree-Sitter'
+Summary:          Implementation of Estimating Binary Dependency from Marginal Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
-alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
-trees for source files of any language, and can efficiently update those
-syntax trees as the source file is edited.
+Provides a maximum likelihood estimation method to recover the joint
+distribution of two binary variables using only marginal summary data from
+multiple studies. This approach allows for privacy-preserving estimation
+in settings where individual-level data are unavailable. The method is
+fully described in the manuscript by Shang, Tsao and Zhang (2025)
+<doi:10.48550/arXiv.2505.03995>: "Estimating the Joint Distribution of Two
+Binary Variables from Their Marginal Summaries".
 
 %prep
 %setup -q -c -n %{packname}

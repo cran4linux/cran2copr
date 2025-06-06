@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Colossus
-%global packver   1.2
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Risk Model Regression and Analysis with Complex Non-Linear Models"
 
@@ -53,12 +53,12 @@ Proportional hazards
 <https://en.wikipedia.org/wiki/Poisson_regression>, and Fine-Gray
 competing risks
 <https://www.publichealth.columbia.edu/research/population-health-methods/competing-risk-analysis>
-regression are supported. This work was sponsored by NASA Grant
-80NSSC19M0161 through a subcontract from the National Council on Radiation
-Protection and Measurements (NCRP). The computing for this project was
-performed on the Beocat Research Cluster at Kansas State University, which
-is funded in part by NSF grants CNS-1006860, EPS-1006860, EPS-0919443,
-ACI-1440548, CHE-1726332, and NIH P20GM113109.
+regression are supported. This work was sponsored by NASA Grants
+80NSSC19M0161 and 80NSSC23M0129 through a subcontract from the National
+Council on Radiation Protection and Measurements (NCRP). The computing for
+this project was performed on the Beocat Research Cluster at Kansas State
+University, which is funded in part by NSF grants CNS-1006860,
+EPS-1006860, EPS-0919443, ACI-1440548, CHE-1726332, and NIH P20GM113109.
 
 %prep
 %setup -q -c -n %{packname}

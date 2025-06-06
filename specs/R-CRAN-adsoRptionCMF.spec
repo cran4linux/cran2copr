@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  evolvability
-%global packver   2.0.1
+%global packname  adsoRptionCMF
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Calculation of Evolvability Parameters
+Summary:          Classical Model Fitting of Adsorption Isotherms
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-nls2 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-coda 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-lme4 
+BuildRequires:    R-CRAN-Metrics 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-nls2 
 Requires:         R-stats 
+Requires:         R-CRAN-Metrics 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-boot 
 
 %description
-Provides tools for calculating evolvability parameters from estimated
-G-matrices as defined in Hansen and Houle (2008)
-<doi:10.1111/j.1420-9101.2008.01573.x> and fits phylogenetic comparative
-models that link the rate of evolution of a trait to the state of another
-evolving trait (see Hansen et al. 2021 Systematic Biology
-<doi:10.1093/sysbio/syab079>). The package was released with Bolstad et
-al. (2014) <doi:10.1098/rstb.2013.0255>, which contains some examples of
-use.
+Provides tools for classical parameter estimation of adsorption isotherm
+models, including both linear and nonlinear forms of the Freundlich,
+Langmuir, and Temkin isotherms. This package allows users to fit these
+models to experimental data, providing parameter estimates along with fit
+statistics such as Akaike Information Criterion (AIC) and Bayesian
+Information Criterion (BIC). Error metrics are computed to evaluate model
+performance, and the package produces model fit plots with bootstrapped
+95%% confidence intervals. Additionally, it generates residual plots for
+diagnostic assessment of the models. Researchers and engineers in material
+science, environmental engineering, and chemical engineering can
+rigorously analyze adsorption behavior in their systems using this
+straightforward, non-Bayesian approach. For more details, see Harding
+(1907) <doi:10.2307/2987516>.
 
 %prep
 %setup -q -c -n %{packname}

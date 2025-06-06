@@ -1,38 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  groupedHyperframe
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Grouped Hyper Data Frame: An Extension of Hyper Data Frame Object
+Summary:          Grouped Hyper Data Frame: An Extension of Hyper Data Frame
 
 License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.4
-Requires:         R-core >= 4.4
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-parallel 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-pracma 
 BuildRequires:    R-CRAN-spatstat.explore 
 BuildRequires:    R-CRAN-spatstat.geom 
+BuildRequires:    R-CRAN-SpatialPack 
 Requires:         R-CRAN-cli 
 Requires:         R-parallel 
-Requires:         R-stats 
-Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-pracma 
 Requires:         R-CRAN-spatstat.explore 
 Requires:         R-CRAN-spatstat.geom 
+Requires:         R-CRAN-SpatialPack 
 
 %description
 An S3 class 'groupedHyperframe' that inherits from hyper data frame. Batch

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vegan
-%global packver   2.6-10
+%global packver   2.7-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.10
+Version:          2.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Community Ecology Package
 
@@ -17,14 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-permute >= 0.9.0
-BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-mgcv 
 Requires:         R-CRAN-permute >= 0.9.0
-Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-cluster 
+Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-mgcv 
 
 %description

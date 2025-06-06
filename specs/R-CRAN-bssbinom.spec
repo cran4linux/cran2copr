@@ -1,27 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  treesitter.r
-%global packver   1.2.0
+%global packname  bssbinom
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'R' Grammar for 'Tree-Sitter'
+Summary:          Bayesian Sample Size for Binomial Proportions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pscl 
+BuildRequires:    R-CRAN-TeachingDemos 
+Requires:         R-CRAN-pscl 
+Requires:         R-CRAN-TeachingDemos 
 
 %description
-Provides bindings to an 'R' grammar for 'Tree-sitter', to be used
-alongside the 'treesitter' package. 'Tree-sitter' builds concrete syntax
-trees for source files of any language, and can efficiently update those
-syntax trees as the source file is edited.
+Computation of the minimum sample size using the Average Coverage
+Criterion or the Average Length Criterion for estimating binomial
+proportions using beta prior distributions. For more details see Costa
+(2025) <DOI:10.1007/978-3-031-72215-8_14>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  redcapAPI
-%global packver   2.10.0
+%global packver   2.11.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10.0
+Version:          2.11.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'REDCap'
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shelter >= 0.2.1
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-curl 
@@ -24,9 +25,7 @@ BuildRequires:    R-CRAN-jsonlite
 BuildRequires:    R-CRAN-labelVector 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-keyring 
-BuildRequires:    R-CRAN-getPass 
-BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-shelter >= 0.2.1
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-curl 
@@ -34,9 +33,6 @@ Requires:         R-CRAN-jsonlite
 Requires:         R-CRAN-labelVector 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-mime 
-Requires:         R-CRAN-keyring 
-Requires:         R-CRAN-getPass 
-Requires:         R-CRAN-yaml 
 
 %description
 Access data stored in 'REDCap' databases using the Application Programming

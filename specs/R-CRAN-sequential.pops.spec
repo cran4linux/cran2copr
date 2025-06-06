@@ -1,56 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bbknnR
-%global packver   2.0.1
+%global packname  sequential.pops
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Perform Batch Balanced KNN in R
+Summary:          Sequential Analysis of Biological Population Sizes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.8
-BuildRequires:    R-CRAN-uwot >= 0.2.1
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-future 
-BuildRequires:    R-CRAN-future.apply 
-BuildRequires:    R-CRAN-glmnet 
-BuildRequires:    R-CRAN-RcppAnnoy 
-BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-emdbook 
+BuildRequires:    R-CRAN-truncdist 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rnndescent 
-BuildRequires:    R-CRAN-Rtsne 
-BuildRequires:    R-CRAN-Seurat 
-BuildRequires:    R-CRAN-SeuratObject 
-BuildRequires:    R-CRAN-tidytable 
-Requires:         R-CRAN-uwot >= 0.2.1
 Requires:         R-methods 
-Requires:         R-utils 
-Requires:         R-CRAN-future 
-Requires:         R-CRAN-future.apply 
-Requires:         R-CRAN-glmnet 
-Requires:         R-CRAN-Rcpp >= 1.0.8
-Requires:         R-CRAN-RcppAnnoy 
-Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-emdbook 
+Requires:         R-CRAN-truncdist 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rnndescent 
-Requires:         R-CRAN-Rtsne 
-Requires:         R-CRAN-Seurat 
-Requires:         R-CRAN-SeuratObject 
-Requires:         R-CRAN-tidytable 
 
 %description
-A fast and intuitive batch effect removal tool for single-cell data. BBKNN
-is originally used in the 'scanpy' python package, and now can be used
-with 'Seurat' seamlessly.
+In population management, data come at more or less regular intervals over
+time in sampling batches (bouts) and decisions should be made with the
+minimum number of samples and as quickly as possible. This package
+provides tools to implement, produce charts with stop lines, summarize
+results and assess sequential analyses that test hypotheses about
+population sizes. Two approaches are included: the sequential test of
+Bayesian posterior probabilities (Rincon, D.F. et al. 2025
+<doi:10.1111/2041-210X.70053>), and the sequential probability ratio test
+(Wald, A. 1945 <http://www.jstor.org/stable/2235829>).
 
 %prep
 %setup -q -c -n %{packname}

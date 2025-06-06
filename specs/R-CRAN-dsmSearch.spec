@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dsmSearch
-%global packver   1.1.1
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          DSM and LiDAR downloader
 
@@ -23,6 +23,8 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-CRAN-lidR 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-forestdata 
+BuildRequires:    R-CRAN-nominatimlite 
 BuildRequires:    R-CRAN-imager 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-sf 
@@ -30,6 +32,8 @@ Requires:         R-CRAN-sp
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-lidR 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-forestdata 
+Requires:         R-CRAN-nominatimlite 
 Requires:         R-CRAN-imager 
 
 %description
