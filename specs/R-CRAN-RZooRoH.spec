@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RZooRoH
-%global packver   0.3.2.1
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2.1
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partitioning of Individual Autozygosity into Multiple Homozygous-by-Descent Classes
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
@@ -44,7 +44,8 @@ recent common ancestor). The functions allow to estimate the parameters of
 the model (rates of the exponential distributions, mixing proportions), to
 estimate global and local autozygosity probabilities and to identify HBD
 segments with the Viterbi decoding. The method is fully described in Druet
-and Gautier (2017) <doi:10.1111/mec.14324>.
+and Gautier (2017) <doi:10.1111/mec.14324> and Druet and Gautier (2022)
+<doi:10.1016/j.tpb.2022.03.001>.
 
 %prep
 %setup -q -c -n %{packname}

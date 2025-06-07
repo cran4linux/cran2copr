@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesERtools
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Exposure-Response Analysis Tools
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rstanemax >= 0.1.8
+BuildRequires:    R-CRAN-rstanemax >= 0.1.9
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
@@ -28,9 +28,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rstanarm 
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-tidybayes 
-BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-CRAN-posterior 
-Requires:         R-CRAN-rstanemax >= 0.1.8
+Requires:         R-CRAN-rstanemax >= 0.1.9
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
@@ -41,7 +40,6 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-rstanarm 
 Requires:         R-CRAN-loo 
 Requires:         R-CRAN-tidybayes 
-Requires:         R-CRAN-bayestestR 
 Requires:         R-CRAN-posterior 
 
 %description

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heterocop
-%global packver   0.1.1
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Parametric Estimation with Gaussian Copula
 
@@ -39,9 +39,10 @@ Requires:         R-utils
 Requires:         R-CRAN-huge 
 
 %description
-A method for generating random vectors which are linked by a Gaussian
-copula. It also enables to estimate the correlation matrix of the Gaussian
-copula in order to identify independencies within the data.
+A method for estimating the correlation matrix of the Gaussian copula from
+the observed data. This package also contains a penalized estimation of
+the corresponding precision matrix, and enables to generate random vectors
+that are distributed according to a Gaussian copula.
 
 %prep
 %setup -q -c -n %{packname}

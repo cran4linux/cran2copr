@@ -1,32 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  switchboard
-%global packver   0.1
+%global packname  CovCorTest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Agile Widget Engine for Real-Time, Dynamic Visualizations
+Summary:          Statistical Tests for Covariance and Correlation Matrices and their Structures
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    xorg-x11-server-Xvfb
-BuildRequires:    R-devel >= 3.3.2
-Requires:         R-core >= 3.3.2
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-MANOVA.RM 
+BuildRequires:    R-CRAN-matrixcalc 
+Requires:         R-CRAN-MANOVA.RM 
+Requires:         R-CRAN-matrixcalc 
 
 %description
-An unsorted collection of visualization widgets rendered in
-'Tcl/Tk'<https://www.tcl.tk/> to generate agile dashboards for your
-iterative simulations. Widgets include progress bars, counters,
-eavesdroppers, injectors, switches, and sliders for dynamic manipulation
-and visualization of simulation parameters.
+A compilation of tests for hypotheses regarding covariance and correlation
+matrices for one or more groups. The hypothesis can be specified through a
+corresponding hypothesis matrix and a vector or by choosing one of the
+basic hypotheses, while for the structure test, only the latter works.
+Thereby Monte-Carlo and Bootstrap-techniques are used, and the respective
+method must be chosen, and the functions provide p-values and mostly also
+estimators of calculated covariance matrices of test statistics. For more
+details on the methodology, see Sattler et al. (2022)
+<doi:10.1016/j.jspi.2021.12.001>, Sattler and Pauly (2024)
+<doi:10.1007/s11749-023-00906-6>, and Sattler and Dobler (2025)
+<doi:10.48550/arXiv.2310.11799>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -46,7 +53,7 @@ find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} 
 %install
 
 mkdir -p %{buildroot}%{rlibdir}
-xvfb-run %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 # remove buildroot from installed files

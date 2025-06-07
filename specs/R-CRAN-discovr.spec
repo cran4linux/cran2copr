@@ -1,32 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.6-0
+%global packname  discovr
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Interactive Tutorials and Data for "Discovering Statistics Using R and RStudio"
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-learnr >= 0.11.4
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-learnr >= 0.11.4
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
+Requires:         R-grDevices 
+Requires:         R-CRAN-scales 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included, plus the forward direction of the 'CIECAM02' color
-appearance model.
+Interactive 'R' tutorials and datasets for the textbook Field (2026),
+"Discovering Statistics Using R and RStudio",
+<https://www.discovr.rocks/>.  Interactive tutorials cover general
+workflow in 'R' and 'RStudio', summarizing data, visualizing data, fitting
+models and bias, correlation, the general linear model (GLM), moderation,
+mediation, missing values, comparing means using the GLM (analysis of
+variance), comparing adjusted means (analysis of covariance), factorial
+designs, repeated measures designs, exploratory factor analysis (EFA).
+There are no functions, only datasets and interactive tutorials.
 
 %prep
 %setup -q -c -n %{packname}

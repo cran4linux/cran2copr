@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brickster
-%global packver   0.2.8
+%global packname  CBASSED50
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Toolkit for 'Databricks'
+Summary:          Process CBASS-Derived PAM Data
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.4
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ini 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-nanoarrow 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-drc 
+BuildRequires:    R-CRAN-rlog 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.4
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ini 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-nanoarrow 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-glue 
+Requires:         R-CRAN-drc 
+Requires:         R-CRAN-rlog 
+Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-glue 
 
 %description
-Collection of utilities that improve using 'Databricks' from R. Primarily
-functions that wrap specific 'Databricks' APIs
-(<https://docs.databricks.com/api>), 'RStudio' connection pane support,
-quality of life functions to make 'Databricks' simpler to use.
+Tools to process CBASS-derived PAM data efficiently. Minimal requirements
+are PAM-based photosynthetic efficiency data (or data from any other
+continuous variable that changes with temperature, e.g. relative bleaching
+scores) from 4 coral samples (nubbins) subjected to 4 temperature profiles
+of at least 2 colonies from 1 coral species from 1 site. Please refer to
+the following CBASS (Coral Bleaching Automated Stress System) papers for
+in-depth information regarding CBASS acute thermal stress assays,
+experimental design considerations, and ED5/ED50/ED95 thermal parameters:
+Nicolas R. Evensen et al. (2023) <doi:10.1002/lom3.10555> Christian R.
+Voolstra et al. (2020) <doi:10.1111/gcb.15148> Christian R. Voolstra et
+al. (2025) <doi:10.1146/annurev-marine-032223-024511>.
 
 %prep
 %setup -q -c -n %{packname}

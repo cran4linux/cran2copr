@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  brickster
-%global packver   0.2.8
+%global packname  rifttable
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Toolkit for 'Databricks'
+Summary:          Results Tables to Bridge the Rift Between Epidemiologists and Their Data
 
-License:          Apache License (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,35 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 >= 1.0.4
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ini 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-dplyr >= 1.0.8
+BuildRequires:    R-CRAN-broom >= 0.7.0
+BuildRequires:    R-CRAN-risks >= 0.4.3
+BuildRequires:    R-CRAN-rlang >= 0.4.0
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-httr2 >= 1.0.4
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ini 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-nanoarrow 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.0.8
+Requires:         R-CRAN-broom >= 0.7.0
+Requires:         R-CRAN-risks >= 0.4.3
+Requires:         R-CRAN-rlang >= 0.4.0
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 
 %description
-Collection of utilities that improve using 'Databricks' from R. Primarily
-functions that wrap specific 'Databricks' APIs
-(<https://docs.databricks.com/api>), 'RStudio' connection pane support,
-quality of life functions to make 'Databricks' simpler to use.
+Presentation-ready results tables for epidemiologists in an automated,
+reproducible fashion. The user provides the final analytical dataset and
+specifies the design of the table, with rows and/or columns defined by
+exposure(s), effect modifier(s), and estimands as desired, allowing to
+show descriptors and inferential estimates in one table -- bridging the
+rift between epidemiologists and their data, one table at a time. See
+Rothman (2017) <doi:10.1007/s10654-017-0314-3>.
 
 %prep
 %setup -q -c -n %{packname}

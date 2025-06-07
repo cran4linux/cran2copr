@@ -1,32 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.6-0
+%global packname  VoronoiBiomedPlot
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Projection Visualization Plots for Dimensionally Reduced Data
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-deldir 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-deldir 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included, plus the forward direction of the 'CIECAM02' color
-appearance model.
+Creates visualization plots for 2D projected data including ellipse plots,
+Voronoi diagram plots, and combined ellipse-Voronoi plots. Designed to
+visualize class separation in dimensionally reduced data from techniques
+like principal component analysis (PCA), partial least squares
+discriminant analysis (PLS-DA) or others. For more details see Lötsch and
+Ultsch (2024) <doi:10.1016/j.imu.2024.101573>.
 
 %prep
 %setup -q -c -n %{packname}

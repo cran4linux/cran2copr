@@ -1,47 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  expectreg
-%global packver   0.53
+%global packname  RMCDA
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.53
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Expectile and Quantile Regression
+Summary:          Multi-Criteria Decision Analysis
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-mboost >= 2.1.0
-BuildRequires:    R-CRAN-colorspace >= 0.97
-BuildRequires:    R-CRAN-BayesX >= 0.2.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-stats 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-splines 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-mboost >= 2.1.0
-Requires:         R-CRAN-colorspace >= 0.97
-Requires:         R-CRAN-BayesX >= 0.2.4
-Requires:         R-CRAN-Rcpp >= 0.11.2
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-fmsb 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-matlib 
+BuildRequires:    R-CRAN-nloptr 
+BuildRequires:    R-CRAN-matrixStats 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-dplyr 
 Requires:         R-stats 
-Requires:         R-parallel 
-Requires:         R-CRAN-Matrix 
-Requires:         R-splines 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-fields 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-fmsb 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-matlib 
+Requires:         R-CRAN-nloptr 
+Requires:         R-CRAN-matrixStats 
+Requires:         R-CRAN-pracma 
 
 %description
-Expectile and quantile regression of models with nonlinear effects e.g.
-spatial, random, ridge using least asymmetric weighed squares / absolutes
-as well as boosting; also supplies expectiles for common distributions.
+Supporting decision making involving multiple criteria. Annice Najafi,
+Shokoufeh Mirzaei (2025) RMCDA: The Comprehensive R Library for applying
+multi-criteria decision analysis methods, Volume 24, e100762
+<doi:10.1016/j.simpa.2025.100762>.
 
 %prep
 %setup -q -c -n %{packname}

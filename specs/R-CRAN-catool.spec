@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.6-0
+%global packname  catool
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Compensation Analysis Tool for Instructor Overload Pay
 
-License:          GPL (>= 3)
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included, plus the forward direction of the 'CIECAM02' color
-appearance model.
+Calculates equitable overload compensation for college instructors based
+on institutional policies, enrollment thresholds, and regular teaching
+load limits. Compensation is awarded only for credit hours that exceed the
+regular load and meet minimum enrollment criteria. When enrollment is
+below a specified threshold, pay is prorated accordingly. The package
+prioritizes compensation from high-enrollment courses, or optionally from
+low-enrollment courses for fairness, depending on user-defined strategy.
+Includes tools for flexible policy settings, instructor filtering, and
+produces clean, audit-ready summary tables suitable for payroll and
+administrative reporting.
 
 %prep
 %setup -q -c -n %{packname}

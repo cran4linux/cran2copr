@@ -1,44 +1,33 @@
 %global __brp_check_rpaths %{nil}
-%global packname  locpolExpectile
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  compareCstat
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Local Polynomial Expectile Regression
+Summary:          Compare C-Statistics (Concordance) Between Survival Models
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-locpol 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-expectreg 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-matrixcalc 
-BuildRequires:    R-CRAN-lestat 
-Requires:         R-CRAN-locpol 
-Requires:         R-stats 
-Requires:         R-CRAN-expectreg 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-matrixcalc 
-Requires:         R-CRAN-lestat 
+BuildRequires:    R-CRAN-boot 
+Requires:         R-CRAN-boot 
 
 %description
-Provides the local polynomial expectile regression method and different
-bandwidth selection procedures. The codes include local polynomial
-univariate expectile regression with several data-driven methods for
-bandwidth selection; local linear bivariate and trivariate expectile
-regression; and partially linear expectile regression, allowing for
-different errors structures (homoscedastic error and various
-heteroscedastic error structures). For more details, see Adam and Gijbels
-(2021a) <doi:10.1007/s10463-021-00799-y> and Adam and Gijbels (2021b)
-<doi:10.1007/978-3-030-73249-3_8>.
+Compare C-statistics (concordance statistics) between two survival models,
+using either bootstrap resampling (Harrell's C) or Uno's C with
+perturbation-resampling (from the survC1 package). Returns confidence
+intervals and a p-value for the difference in C-statistics. Useful for
+evaluating and comparing predictive performance of survival models.
+Methods implemented for Uno's C are described in Uno et al. (2011)
+<doi:10.1002/sim.4154>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  future.batchtools
-%global packver   0.12.1
+%global packver   0.12.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.1
+Version:          0.12.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Future API for Parallel and Distributed Processing using 'batchtools'
 
@@ -17,22 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.31.0
+BuildRequires:    R-CRAN-future >= 1.49.0
 BuildRequires:    R-CRAN-batchtools >= 0.9.16
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.31.0
+Requires:         R-CRAN-future >= 1.49.0
 Requires:         R-CRAN-batchtools >= 0.9.16
 Requires:         R-CRAN-parallelly 
 Requires:         R-utils 
 
 %description
-Implementation of the Future API on top of the 'batchtools' package. This
-allows you to process futures, as defined by the 'future' package, in
-parallel out of the box, not only on your local machine or ad-hoc cluster
-of machines, but also via high-performance compute ('HPC') job schedulers
-such as 'LSF', 'OpenLava', 'Slurm', 'SGE', and 'TORQUE' / 'PBS', e.g. 'y
-<- future.apply::future_lapply(files, FUN = process)'.
+Implementation of the Future API <doi:10.32614/RJ-2021-048> on top of the
+'batchtools' package. This allows you to process futures, as defined by
+the 'future' package, in parallel out of the box, not only on your local
+machine or ad-hoc cluster of machines, but also via high-performance
+compute ('HPC') job schedulers such as 'LSF', 'OpenLava', 'Slurm', 'SGE',
+and 'TORQUE' / 'PBS', e.g. 'y <- future.apply::future_lapply(files, FUN =
+process)'.
 
 %prep
 %setup -q -c -n %{packname}

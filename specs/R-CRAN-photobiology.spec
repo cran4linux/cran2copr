@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  photobiology
-%global packver   0.12.0
+%global packver   0.13.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.12.0
+Version:          0.13.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Photobiological Calculations
 
@@ -14,10 +14,10 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-tibble >= 3.1.6
+BuildRequires:    R-CRAN-tibble >= 3.2.0
 BuildRequires:    R-CRAN-lubridate >= 1.9.3
 BuildRequires:    R-CRAN-plyr >= 1.8.9
 BuildRequires:    R-CRAN-zoo >= 1.8.12
@@ -25,12 +25,13 @@ BuildRequires:    R-CRAN-polynom >= 1.4.1
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-splus2R >= 1.3.3
 BuildRequires:    R-CRAN-tidyr >= 1.3.1
+BuildRequires:    R-CRAN-caTools >= 1.18.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.4
-BuildRequires:    R-CRAN-SunCalcMeeus >= 0.1.1
+BuildRequires:    R-CRAN-SunCalcMeeus >= 0.1.2
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
-Requires:         R-CRAN-tibble >= 3.1.6
+Requires:         R-CRAN-tibble >= 3.2.0
 Requires:         R-CRAN-lubridate >= 1.9.3
 Requires:         R-CRAN-plyr >= 1.8.9
 Requires:         R-CRAN-zoo >= 1.8.12
@@ -38,9 +39,10 @@ Requires:         R-CRAN-polynom >= 1.4.1
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-splus2R >= 1.3.3
 Requires:         R-CRAN-tidyr >= 1.3.1
+Requires:         R-CRAN-caTools >= 1.18.0
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.4
-Requires:         R-CRAN-SunCalcMeeus >= 0.1.1
+Requires:         R-CRAN-SunCalcMeeus >= 0.1.2
 Requires:         R-stats 
 Requires:         R-grDevices 
 

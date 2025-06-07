@@ -1,32 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  spacesXYZ
-%global packver   1.6-0
+%global packname  agpower
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          CIE XYZ and some of Its Derived Color Spaces
+Summary:          Recurrent Event Analysis Planning for Robust Andersen-Gill Model
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-logger 
-Requires:         R-CRAN-logger 
+BuildRequires:    R-stats 
+Requires:         R-stats 
 
 %description
-Functions for converting among CIE XYZ, xyY, Lab, and Luv. Calculate
-Correlated Color Temperature (CCT) and the Planckian and daylight loci.
-The XYZs of some standard illuminants and some standard linear chromatic
-adaptation transforms (CATs) are included. Three standard color difference
-metrics are included, plus the forward direction of the 'CIECAM02' color
-appearance model.
+Power and associated functions useful in prospective planning and
+monitoring of a clinical trial when a recurrent event endpoint is to be
+assessed by the robust Andersen-Gill model, see Lin, Wei, Yang, and Ying
+(2010) <doi:10.1111/1467-9868.00259>. The equations developed in Ingel and
+Jahn-Eimermacher (2014) <doi:10.1002/bimj.201300090> and their
+consequences are employed.
 
 %prep
 %setup -q -c -n %{packname}
