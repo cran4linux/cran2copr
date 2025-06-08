@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  receptiviti
-%global packver   0.1.8
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Text Analysis Through the 'Receptiviti' API
 
@@ -29,8 +29,8 @@ Requires:         R-CRAN-progressr
 Requires:         R-CRAN-stringi 
 
 %description
-Send text to the <https://www.receptiviti.com> API to be scored by all
-available frameworks.
+Sends texts to the <https://www.receptiviti.com> API to be scored, and
+facilitates the creation of custom norms and local results databases.
 
 %prep
 %setup -q -c -n %{packname}

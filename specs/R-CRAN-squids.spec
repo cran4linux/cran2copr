@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  squids
-%global packver   25.5.6
+%global packver   25.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          25.5.6
+Version:          25.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Short Quasi-Unique Identifiers (SQUIDs)
 

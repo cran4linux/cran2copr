@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  FoReco
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Forecast Reconciliation
 
@@ -32,7 +32,7 @@ Requires:         R-CRAN-cli
 Classical (bottom-up and top-down), optimal combination and heuristic
 point (Di Fonzo and Girolimetto, 2023
 <doi:10.1016/j.ijforecast.2021.08.004>) and probabilistic (Girolimetto et
-al. 2023 <doi:10.1016/j.ijforecast.2023.10.003>) forecast reconciliation
+al. 2024 <doi:10.1016/j.ijforecast.2023.10.003>) forecast reconciliation
 procedures for linearly constrained time series (e.g., hierarchical or
 grouped time series) in cross-sectional, temporal, or cross-temporal
 frameworks.

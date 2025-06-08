@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ifo
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Client for the Ifo Institute Time Series
 
@@ -17,15 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description

@@ -1,38 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  randomForestSRC
-%global packver   3.4.1
+%global packname  dataSDA
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast Unified Random Forests for Survival, Regression, and Classification (RF-SRC)
+Summary:          Datasets and Basic Statistics for Symbolic Data Analysis
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-DiagrammeR 
-Requires:         R-parallel 
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-DiagrammeR 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RSDA 
+BuildRequires:    R-CRAN-HistDAWass 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-RSDA 
+Requires:         R-CRAN-HistDAWass 
 
 %description
-Fast OpenMP parallel computing of Breiman's random forests for univariate,
-multivariate, unsupervised, survival, competing risks, class imbalanced
-classification and quantile regression. New Mahalanobis splitting for
-correlated outcomes.  Extreme random forests and randomized splitting.
-Suite of imputation methods for missing data.  Fast random forests using
-subsampling. Confidence regions and standard errors for variable
-importance. New improved holdout importance. Case-specific importance.
-Minimal depth variable importance. Visualize trees on your Safari or
-Google Chrome browser. Anonymous random forests for data privacy.
+Collects a diverse range of symbolic data and offers a comprehensive set
+of functions that facilitate the conversion of traditional data into the
+symbolic data format.
 
 %prep
 %setup -q -c -n %{packname}
