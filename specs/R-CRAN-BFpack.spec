@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFpack
-%global packver   1.4.2
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.2
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible Bayes Factor Testing of Scientific Expectations
 
@@ -31,6 +31,7 @@ BuildRequires:    R-CRAN-QRM
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-metaBMA 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-berryFunctions 
 Requires:         R-CRAN-bain 
 Requires:         R-stats 
 Requires:         R-utils 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-QRM
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-metaBMA 
 Requires:         R-methods 
+Requires:         R-CRAN-berryFunctions 
 
 %description
 Implementation of default Bayes factors for testing statistical hypotheses

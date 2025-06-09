@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micsr
-%global packver   0.1-1
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microeconometrics with R
 
@@ -14,43 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-Formula 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-numDeriv 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-CompQuadForm 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-numDeriv 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-CompQuadForm 
 
 %description
-Functions, data sets and examples for the book: Yves Croissant (2024)
-"Microeconometrics with R", Chapman and Hall/CRC The R Series. The package
-includes a set of estimators for models used in microeconometrics,
-especially for count data and limited dependent variables. Test functions
-include score test, Hausman test, Vuong test, Sargan test and conditional
-moment test. A small subset of the data set used in the book is also
-included.
+Functions, data sets and examples for the book: Yves Croissant (2025)
+"Microeconometrics with R", Chapman and Hall/CRC The R Series
+<doi:10.1201/9781003100263>. The package includes a set of estimators for
+models used in microeconometrics, especially for count data and limited
+dependent variables. Test functions include score test, Hausman test,
+Vuong test, Sargan test and conditional moment test. A small subset of the
+data set used in the book is also included.
 
 %prep
 %setup -q -c -n %{packname}
