@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  positron.tutorials
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tutorials for Learning 'Positron' and Related Tools
 
@@ -17,16 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-mime 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-mime 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-tibble 
+BuildRequires:    R-CRAN-tutorial.helpers 
+BuildRequires:    R-CRAN-usethis 
+Requires:         R-CRAN-tutorial.helpers 
+Requires:         R-CRAN-usethis 
 
 %description
 Collection of tutorials for working with 'Positron'. Covers scripts,

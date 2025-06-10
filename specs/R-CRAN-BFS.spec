@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BFS
-%global packver   0.5.13
+%global packver   0.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.13
+Version:          0.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Data from the Swiss Federal Statistical Office
 
@@ -26,13 +26,12 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rstac 
 BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-pxweb 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-xml2 
@@ -42,13 +41,12 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rstac 
 Requires:         R-CRAN-curl 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-fs 
 Requires:         R-tools 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
 
 %description
 Search and download data from the Swiss Federal Statistical Office (BFS)

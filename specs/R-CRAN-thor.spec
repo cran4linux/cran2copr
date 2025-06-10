@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thor
-%global packver   1.1.6
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'LMDB'
 
@@ -23,7 +23,7 @@ Requires:         R-CRAN-storr
 
 %description
 Key-value store, implemented as a wrapper around 'LMDB'; the "lightning
-memory-mapped database" <https://www.symas.com/lmdb>. 'LMDB' is a
+memory-mapped database" <https://www.symas.com/mdb>. 'LMDB' is a
 transactional key value store that uses a memory map for efficient access.
 This package wraps the entire 'LMDB' interface (except duplicated keys),
 and provides objects for transactions and cursors.

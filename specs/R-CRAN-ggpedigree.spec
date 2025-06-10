@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpedigree
-%global packver   0.4.1
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualizing Pedigrees with 'ggplot2' and 'plotly'
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BGmisc 
+BuildRequires:    R-CRAN-BGmisc >= 1.4.1
 BuildRequires:    R-CRAN-kinship2 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
@@ -27,7 +27,10 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-BGmisc 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-paletteer 
+Requires:         R-CRAN-BGmisc >= 1.4.1
 Requires:         R-CRAN-kinship2 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
@@ -37,6 +40,9 @@ Requires:         R-CRAN-stringr
 Requires:         R-utils 
 Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-paletteer 
 
 %description
 Provides plotting functions for visualizing pedigrees in behavior genetics

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cgmanalysis
-%global packver   3.1.0
+%global packver   3.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.0
+Version:          3.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clean and Analyze Continuous Glucose Monitor Data
 
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-readxl
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-XML 
 BuildRequires:    R-CRAN-MESS 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-parsedate 
 Requires:         R-CRAN-lubridate 
@@ -39,6 +40,7 @@ Requires:         R-CRAN-readxl
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-XML 
 Requires:         R-CRAN-MESS 
+Requires:         R-CRAN-rlang 
 
 %description
 This code provides several different functions for cleaning and analyzing

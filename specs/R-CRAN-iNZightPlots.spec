@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  iNZightPlots
-%global packver   2.15.3
+%global packver   2.16.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.15.3
+Version:          2.16.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Graphical Tools for Exploring Data with 'iNZight'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-boot
 BuildRequires:    R-CRAN-chron 
 BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dichromat 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-emmeans 
 BuildRequires:    R-CRAN-expss 
 BuildRequires:    R-grDevices 
@@ -46,6 +47,7 @@ Requires:         R-CRAN-boot
 Requires:         R-CRAN-chron 
 Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dichromat 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-emmeans 
 Requires:         R-CRAN-expss 
 Requires:         R-grDevices 
