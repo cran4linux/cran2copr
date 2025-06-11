@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dad
-%global packver   4.1.6
+%global packname  L0TFinv
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Way / Multigroup Data Analysis Through Densities
+Summary:          A Splicing Approach to the Inverse Problem of L0 Trend Filtering
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-Matrix 
+Requires:         R-stats 
 
 %description
-The data consist of a set of variables measured on several groups of
-individuals. To each group is associated an estimated probability density
-function. The package provides tools to create or manage such data and
-functional methods (principal component analysis, multidimensional
-scaling, cluster analysis, discriminant analysis...) for such probability
-densities.
+Trend filtering is a widely used nonparametric method for knot detection.
+This package provides an efficient solution for L0 trend filtering,
+avoiding the traditional methods of using Lagrange duality or Alternating
+Direction Method of Multipliers algorithms. It employ a splicing approach
+that minimizes L0-regularized sparse approximation by transforming the L0
+trend filtering problem. The package excels in both efficiency and
+accuracy of trend estimation and changepoint detection in segmented
+functions. References: Wen et al. (2020) <doi:10.18637/jss.v094.i04>; Zhu
+et al. (2020)<doi:10.1073/pnas.2014241117>; Wen et al. (2023)
+<doi:10.1287/ijoc.2021.0313>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  TSPred
-%global packver   5.1
+%global packver   5.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.1
+Version:          5.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Benchmarking Time Series Prediction
 
@@ -20,9 +21,7 @@ BuildRequires:    R-CRAN-forecast
 BuildRequires:    R-CRAN-KFAS 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-EMD 
 BuildRequires:    R-CRAN-wavelets 
-BuildRequires:    R-CRAN-vars 
 BuildRequires:    R-CRAN-ModelMetrics 
 BuildRequires:    R-CRAN-RSNNS 
 BuildRequires:    R-CRAN-Rlibeemd 
@@ -40,9 +39,7 @@ Requires:         R-CRAN-forecast
 Requires:         R-CRAN-KFAS 
 Requires:         R-stats 
 Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-EMD 
 Requires:         R-CRAN-wavelets 
-Requires:         R-CRAN-vars 
 Requires:         R-CRAN-ModelMetrics 
 Requires:         R-CRAN-RSNNS 
 Requires:         R-CRAN-Rlibeemd 
@@ -73,6 +70,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RtsEva
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Performs the Transformed-Stationary Extreme Values Analysis
 
@@ -30,7 +30,6 @@ BuildRequires:    R-CRAN-texmex
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-xts 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-changepoint 
 Requires:         R-CRAN-dplyr 
@@ -46,7 +45,6 @@ Requires:         R-CRAN-texmex
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-xts 
 Requires:         R-grDevices 
-Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-changepoint 
 

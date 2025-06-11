@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spdep
-%global packver   1.3-11
+%global packver   1.3-13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.11
+Version:          1.3.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Dependence: Weighting Schemes, Statistics
 
@@ -70,13 +70,19 @@ these measures is described in 'Bivand' and 'Wong' (2018)
 dependence in linear models are provided ('Anselin et al'. 1996)
 <doi:10.1016/0166-0462(95)02111-6>, as are 'Rao' score tests for
 hypothesised spatial 'Durbin' models based on linear models ('Koley' and
-'Bera' 2023) <doi:10.1080/17421772.2023.2256810>. A local indicators for
-categorical data (LICD) implementation based on 'Carrer et al.' (2021)
+'Bera' 2023) <doi:10.1080/17421772.2023.2256810>. Additions in 2024
+include Local Indicators for Categorical Data based on 'Carrer' et al.
+(2021) <doi:10.1016/j.jas.2020.105306> and 'Bivand' et al. (2017)
+<doi:10.1016/j.spasta.2017.03.003>; also Weighted Multivariate Spatial
+Autocorrelation Measures ('Bavaud' 2024) <doi:10.1111/gean.12390>.
+<doi:10.1080/17421772.2023.2256810>. A local indicators for categorical
+data (LICD) implementation based on 'Carrer et al.' (2021)
 <doi:10.1016/j.jas.2020.105306> and 'Bivand et al.' (2017)
-<doi:10.1016/j.spasta.2017.03.003> was added in 1.3-7. From 'spdep' and
-'spatialreg' versions >= 1.2-1, the model fitting functions previously
-present in this package are defunct in 'spdep' and may be found in
-'spatialreg'.
+<doi:10.1016/j.spasta.2017.03.003> was added in 1.3-7. Multivariate
+'spatialdelta' ('Bavaud' 2024) <doi:10.1111/gean.12390> was added in
+1.3-13. From 'spdep' and 'spatialreg' versions >= 1.2-1, the model fitting
+functions previously present in this package are defunct in 'spdep' and
+may be found in 'spatialreg'.
 
 %prep
 %setup -q -c -n %{packname}

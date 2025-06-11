@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  weights
-%global packver   1.0.4
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighting and Weighted Statistics
 
@@ -18,20 +19,29 @@ Requires:         R-core
 BuildRequires:    R-CRAN-Hmisc 
 BuildRequires:    R-CRAN-mice 
 BuildRequires:    R-CRAN-gdata 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-lme4 
 Requires:         R-CRAN-Hmisc 
 Requires:         R-CRAN-mice 
 Requires:         R-CRAN-gdata 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-utils 
 Requires:         R-CRAN-lme4 
 
 %description
 Provides a variety of functions for producing simple weighted statistics,
 such as weighted Pearson's correlations, partial correlations, Chi-Squared
-statistics, histograms, and t-tests.  Also now includes some software for
-quickly recoding survey data and plotting estimates from interaction terms
-in regressions (and multiply imputed regressions) both with and without
-weights. NOTE: Weighted partial correlation calculations pulled to address
-a bug.
+statistics, histograms, and t-tests as well as simple weighting graphics
+including weighted histograms, box plots, bar plots, and violin plots.
+Also includes software for quickly recoding survey data and plotting
+estimates from interaction terms in regressions (and multiply imputed
+regressions) both with and without weights and summarizing various types
+of regressions. Some portions of this package were assisted by
+AI-generated suggestions using OpenAI's GPT model, with human review and
+integration.
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +51,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

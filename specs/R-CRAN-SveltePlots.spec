@@ -1,52 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  questionr
-%global packver   0.8.1
+%global packname  SveltePlots
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Make Surveys Processing Easier
+Summary:          A Wrapper for a Svelte Custom Web Component
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       xclip
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-labelled >= 2.6.0
-BuildRequires:    R-CRAN-shiny >= 1.0.5
-BuildRequires:    R-CRAN-miniUI 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-highr 
-BuildRequires:    R-CRAN-styler 
-BuildRequires:    R-CRAN-classInt 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-labelled >= 2.6.0
-Requires:         R-CRAN-shiny >= 1.0.5
-Requires:         R-CRAN-miniUI 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-highr 
-Requires:         R-CRAN-styler 
-Requires:         R-CRAN-classInt 
-Requires:         R-CRAN-htmltools 
-Requires:         R-graphics 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-padr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-padr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Set of functions to make the processing and analysis of surveys easier :
-interactive shiny apps and addins for data recoding, contingency tables,
-dataset metadata handling, and several convenience functions.
+An interactive charting library built on 'Svelte' and 'D3' to easily
+produce SVG charts in R. Designed to simplify 'shiny' development by
+eliminating the need for renderUI(), insertUI(), removeUI(), and 'shiny'
+proxy functions, using 'Svelte''s reactive state system instead.
 
 %prep
 %setup -q -c -n %{packname}

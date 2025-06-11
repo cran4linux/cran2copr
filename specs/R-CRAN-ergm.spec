@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm
-%global packver   4.8.1
+%global packver   4.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.8.1
+Version:          4.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Networks
 
@@ -14,39 +14,39 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
-BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17.12
-BuildRequires:    R-CRAN-statnet.common >= 4.11.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildRequires:    R-CRAN-lpSolveAPI >= 5.5.2.0.17.14
+BuildRequires:    R-CRAN-statnet.common >= 4.12.0
 BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6.2
+BuildRequires:    R-CRAN-Rdpack >= 2.6.4
 BuildRequires:    R-CRAN-magrittr >= 2.0.3
 BuildRequires:    R-CRAN-memoise >= 2.0.1
+BuildRequires:    R-CRAN-knitr >= 1.50
 BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-knitr >= 1.49
 BuildRequires:    R-CRAN-network >= 1.19.0
-BuildRequires:    R-CRAN-rlang >= 1.1.4
-BuildRequires:    R-CRAN-purrr >= 1.0.2
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-purrr >= 1.0.4
 BuildRequires:    R-CRAN-robustbase >= 0.99.4.1
-BuildRequires:    R-CRAN-rle >= 0.9.2
 BuildRequires:    R-CRAN-coda >= 0.19.4.1
+BuildRequires:    R-CRAN-rle >= 0.10.0
 BuildRequires:    R-CRAN-trust >= 0.1.8
 BuildRequires:    R-parallel 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.12
-Requires:         R-CRAN-statnet.common >= 4.11.0
+Requires:         R-CRAN-lpSolveAPI >= 5.5.2.0.17.14
+Requires:         R-CRAN-statnet.common >= 4.12.0
 Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-Rdpack >= 2.6.2
+Requires:         R-CRAN-Rdpack >= 2.6.4
 Requires:         R-CRAN-magrittr >= 2.0.3
 Requires:         R-CRAN-memoise >= 2.0.1
+Requires:         R-CRAN-knitr >= 1.50
 Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-knitr >= 1.49
 Requires:         R-CRAN-network >= 1.19.0
-Requires:         R-CRAN-rlang >= 1.1.4
-Requires:         R-CRAN-purrr >= 1.0.2
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-purrr >= 1.0.4
 Requires:         R-CRAN-robustbase >= 0.99.4.1
-Requires:         R-CRAN-rle >= 0.9.2
 Requires:         R-CRAN-coda >= 0.19.4.1
+Requires:         R-CRAN-rle >= 0.10.0
 Requires:         R-CRAN-trust >= 0.1.8
 Requires:         R-parallel 
 Requires:         R-methods 

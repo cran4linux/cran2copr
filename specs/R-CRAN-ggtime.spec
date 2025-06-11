@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rd2d
-%global packver   0.0.2
+%global packname  ggtime
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Boundary Regression Discontinuity Designs
+Summary:          Grammar of Graphics and Plot Helpers for Time Series Visualization
 
-License:          GPL-2
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,21 +17,38 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-expm 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-timechange 
+BuildRequires:    R-CRAN-tsibble 
+BuildRequires:    R-CRAN-fabletools 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-expm 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-timechange 
+Requires:         R-CRAN-tsibble 
+Requires:         R-CRAN-fabletools 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-vctrs 
 
 %description
-Provides estimation and inference procedures for boundary regression
-discontinuity (RD) designs using local polynomial methods, based on either
-bivariate coordinates or distance-based approaches. Methods are developed
-in Cattaneo, Titiunik, and Yu (2025)
-<https://mdcattaneo.github.io/papers/Cattaneo-Titiunik-Yu_2025_BoundaryRD.pdf>.
+Extends the capabilities of 'ggplot2' by providing grammatical elements
+and plot helpers designed for visualizing temporal patterns. The package
+implements a grammar of temporal graphics, which leverages calendar
+structures to highlight changes over time. The package also provides plot
+helper functions to quickly produce commonly used time series graphics,
+including time plots, season plots, and seasonal sub-series plots.
 
 %prep
 %setup -q -c -n %{packname}

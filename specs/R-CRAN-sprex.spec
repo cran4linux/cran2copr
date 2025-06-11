@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dad
-%global packver   4.1.6
+%global packname  sprex
+%global packver   1.4.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          1.4.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Way / Multigroup Data Analysis Through Densities
+Summary:          Species Richness and Extrapolation
 
-License:          GPL (>= 2)
+License:          GNU General Public License
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-swfscMisc >= 1.4
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-swfscMisc >= 1.4
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-DescTools 
+Requires:         R-stats 
 
 %description
-The data consist of a set of variables measured on several groups of
-individuals. To each group is associated an estimated probability density
-function. The package provides tools to create or manage such data and
-functional methods (principal component analysis, multidimensional
-scaling, cluster analysis, discriminant analysis...) for such probability
-densities.
+Functions for calculating species richness for rarefaction and
+extrapolation, primarily non-parametric species richness such as
+jackknife, Chao1, and ACE. Also available are functions for plotting
+species richness and extrapolation curves, and computing standard
+diversity and entropy indices.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,46 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dad
-%global packver   4.1.6
+%global packname  NPLStoolbox
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Way / Multigroup Data Analysis Through Densities
+Summary:          N-Way Partial Least Squares Modelling of Multi-Way Data
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-parafac4microbiome 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-rTensor 
 BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-parafac4microbiome 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-rTensor 
 Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-DescTools 
 
 %description
-The data consist of a set of variables measured on several groups of
-individuals. To each group is associated an estimated probability density
-function. The package provides tools to create or manage such data and
-functional methods (principal component analysis, multidimensional
-scaling, cluster analysis, discriminant analysis...) for such probability
-densities.
+Creation and selection of N-way Partial Least Squares (NPLS) models.
+Selection of the optimal number of components can be done using
+ncrossreg(). NPLS was originally described by Rasmus Bro, see
+<doi:10.1002/%%28SICI%%291099-128X%%28199601%%2910%%3A1%%3C47%%3A%%3AAID-CEM400%%3E3.0.CO%%3B2-C>.
 
 %prep
 %setup -q -c -n %{packname}

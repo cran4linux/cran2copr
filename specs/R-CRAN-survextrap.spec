@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rts2
-%global packver   0.8.0
+%global packname  survextrap
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Real-Time Disease Surveillance
+Summary:          Bayesian Flexible Parametric Survival Modelling and Extrapolation
 
-License:          CC BY-SA 4.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,48 +17,44 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
-BuildRequires:    R-CRAN-raster >= 3.6.1
-BuildRequires:    R-CRAN-StanHeaders >= 2.32.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-rstan >= 2.26.0
-BuildRequires:    R-CRAN-rstantools >= 2.1.1
-BuildRequires:    R-CRAN-lubridate >= 1.9.0
+BuildRequires:    R-CRAN-StanHeaders >= 2.26.0
 BuildRequires:    R-CRAN-BH >= 1.66.0
-BuildRequires:    R-CRAN-sf >= 1.0.14
-BuildRequires:    R-CRAN-glmmrBase >= 0.7.1
-BuildRequires:    R-CRAN-stars >= 0.6.1
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
-BuildRequires:    R-CRAN-SparseChol >= 0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-posterior 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-RcppParallel >= 5.0.1
-Requires:         R-CRAN-raster >= 3.6.1
+Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-rstan >= 2.26.0
-Requires:         R-CRAN-rstantools >= 2.1.1
-Requires:         R-CRAN-lubridate >= 1.9.0
-Requires:         R-CRAN-sf >= 1.0.14
-Requires:         R-CRAN-stars >= 0.6.1
 Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-loo 
 Requires:         R-methods 
-Requires:         R-CRAN-R6 
+Requires:         R-CRAN-posterior 
+Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rstantools
 
 %description
-Supports modelling real-time case data to facilitate the real-time
-surveillance of infectious diseases and other point phenomena. The package
-provides automated computational grid generation over an area of interest
-with methods to map covariates between geographies, model fitting
-including spatially aggregated case counts, and predictions and
-visualisation. Both Bayesian and maximum likelihood methods are provided.
-Log-Gaussian Cox Processes are described by Diggle et al. (2013)
-<doi:10.1214/13-STS441> and we provide both the low-rank approximation for
-Gaussian processes described by Solin and Särkkä (2020)
-<doi:10.1007/s11222-019-09886-w> and Riutort-Mayol et al (2023)
-<doi:10.1007/s11222-022-10167-2> and the nearest neighbour Gaussian
-process described by Datta et al (2016)
-<doi:10.1080/01621459.2015.1044091>. 'cmdstanr' can be downloaded at
-<https://mc-stan.org/cmdstanr/>.
+Survival analysis using a flexible Bayesian model for individual-level
+right-censored data, optionally combined with aggregate data on counts of
+survivors in different periods of time. An M-spline is used to describe
+the hazard function, with a prior on the coefficients that controls
+over-fitting. Proportional hazards or flexible non-proportional hazards
+models can be used to relate survival to predictors. Additive hazards
+(relative survival) models, waning treatment effects, and mixture cure
+models are also supported. Priors can be customised and calibrated to
+substantive beliefs. Posterior distributions are estimated using 'Stan',
+and outputs are arranged in a tidy format. See Jackson (2023)
+<doi:10.1186/s12874-023-02094-1>.
 
 %prep
 %setup -q -c -n %{packname}

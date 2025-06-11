@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MVN
-%global packver   6.0
+%global packver   6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          6.0
+Version:          6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Normality Tests
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-nortest 
@@ -33,6 +33,7 @@ BuildRequires:    R-CRAN-viridis
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-energy 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-mice 
 Requires:         R-methods 
 Requires:         R-CRAN-nortest 
 Requires:         R-CRAN-moments 
@@ -49,13 +50,19 @@ Requires:         R-CRAN-viridis
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-energy 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-mice 
 
 %description
-A suite of multivariate normality tests (Mardia, Henze–Zirkler, Royston,
-Doornik–Hansen, Energy), univariate diagnostics, robust outlier detection,
-bivariate density plots, and Box–Cox transformations (Korkmaz et al,
-(2014),
-<https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>).
+A comprehensive suite for assessing multivariate normality using six
+statistical tests (Mardia, Henze–Zirkler, Henze–Wagner, Royston,
+Doornik–Hansen, Energy). Also includes univariate diagnostics, bivariate
+density visualization, robust outlier detection, power transformations
+(e.g., Box–Cox, Yeo–Johnson), and imputation strategies ("mean", "median",
+"mice") for handling missing data. Bootstrap resampling is supported for
+selected tests to improve p-value accuracy in small samples. Diagnostic
+plots are available via both 'ggplot2' and interactive 'plotly'
+visualizations. See Korkmaz et al. (2014)
+<https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

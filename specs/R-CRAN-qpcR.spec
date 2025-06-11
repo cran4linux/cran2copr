@@ -1,46 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dad
-%global packver   4.1.6
+%global packname  qpcR
+%global packver   1.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          1.4.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Way / Multigroup Data Analysis Through Densities
+Summary:          Modelling and Analysis of Real-Time PCR Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 2.13.0
+Requires:         R-core >= 2.13.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-minpack.lm 
+BuildRequires:    R-CRAN-rgl 
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-DescTools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-minpack.lm 
+Requires:         R-CRAN-rgl 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-DescTools 
 
 %description
-The data consist of a set of variables measured on several groups of
-individuals. To each group is associated an estimated probability density
-function. The package provides tools to create or manage such data and
-functional methods (principal component analysis, multidimensional
-scaling, cluster analysis, discriminant analysis...) for such probability
-densities.
+Sigmoidal model fitting, optimal model selection and calculation of
+various features that are essential in the analysis of quantitative
+real-time polymerase chain reaction (qPCR), according to Ritz & Spiess
+(2008) <doi:10.1093/bioinformatics/btn227> and Spiess et al. (2008)
+<doi:10.1186/1471-2105-9-221>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  starnet
-%global packver   0.0.7
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stacked Elastic Net
 
@@ -27,9 +27,9 @@ Requires:         R-CRAN-cornet
 Requires:         R-CRAN-Matrix 
 
 %description
-Implements stacked elastic net regression (Rauschenberger 2021,
+Implements stacked elastic net regression (Rauschenberger 2021
 <doi:10.1093/bioinformatics/btaa535>). The elastic net generalises ridge
-and lasso regularisation (Zou 2005,
+and lasso regularisation (Zou 2005
 <doi:10.1111/j.1467-9868.2005.00503.x>). Instead of fixing or tuning the
 mixing parameter alpha, we combine multiple alpha by stacked
 generalisation (Wolpert 1992 <doi:10.1016/S0893-6080(05)80023-1>).

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  discord
-%global packver   1.2.3
+%global packver   1.2.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Functions for Discordant Kinship Modeling
 
@@ -26,7 +26,7 @@ quasi-experimental designs). Contains data restructuring functions and
 functions for generating biometrically informed data for kin pairs. See
 [Garrison and Rodgers, 2016 <doi:10.1016/j.intell.2016.08.008>], [Sims,
 Trattner, and Garrison, 2024 <doi:10.3389/fpsyg.2024.1430978>] for
-empirical examples, and Garrison et al for theoretical work
+empirical examples, and Garrison and colleagues for theoretical work
 <https://osf.io/zpdwt/>.
 
 %prep

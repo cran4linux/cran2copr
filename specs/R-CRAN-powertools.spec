@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  powertools
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power and Sample Size Tools
 
@@ -39,7 +39,8 @@ individually randomized group treatment trials, multisite trials,
 treatment-by-covariate interaction effects and nonparametric tests of
 location. Utilities are provided for computing various effect sizes.
 Companion package to the book "Power and Sample Size in R", Crespi (2025,
-ISBN:9781138591622).
+ISBN:9781138591622). Further resources available at
+<https://powerandsamplesize.org/>.
 
 %prep
 %setup -q -c -n %{packname}

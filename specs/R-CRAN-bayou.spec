@@ -1,46 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dad
-%global packver   4.1.6
+%global packname  bayou
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Way / Multigroup Data Analysis Through Densities
+Summary:          Bayesian Fitting of Ornstein-Uhlenbeck Models to Phylogenies
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
-BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-devel >= 2.15.0
+Requires:         R-core >= 2.15.0
+BuildRequires:    R-CRAN-ape >= 3.0.6
+BuildRequires:    R-CRAN-geiger >= 2.0
+BuildRequires:    R-CRAN-Rcpp >= 0.10.3
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-phytools 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-denstrip 
+BuildRequires:    R-CRAN-fitdistrplus 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-mnormt 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-ape >= 3.0.6
+Requires:         R-CRAN-geiger >= 2.0
+Requires:         R-CRAN-Rcpp >= 0.10.3
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-phytools 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-denstrip 
+Requires:         R-CRAN-fitdistrplus 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-DescTools 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-mnormt 
+Requires:         R-stats 
 
 %description
-The data consist of a set of variables measured on several groups of
-individuals. To each group is associated an estimated probability density
-function. The package provides tools to create or manage such data and
-functional methods (principal component analysis, multidimensional
-scaling, cluster analysis, discriminant analysis...) for such probability
-densities.
+Fits and simulates multi-optima Ornstein-Uhlenbeck models to phylogenetic
+comparative data using Bayesian reversible-jump methods. See Uyeda and
+Harmon (2014) <DOI:10.1093/sysbio/syu057>.
 
 %prep
 %setup -q -c -n %{packname}

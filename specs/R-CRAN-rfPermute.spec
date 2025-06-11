@@ -1,46 +1,58 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dad
-%global packver   4.1.6
+%global packname  rfPermute
+%global packver   2.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.1.6
+Version:          2.5.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Three-Way / Multigroup Data Analysis Through Densities
+Summary:          Estimate Permutation p-Values for Random Forest Importance Metrics
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-randomForest >= 4.6
+BuildRequires:    R-CRAN-ggplot2 >= 3.3
+BuildRequires:    R-CRAN-tibble >= 3.1
+BuildRequires:    R-CRAN-swfscMisc >= 1.5
+BuildRequires:    R-CRAN-abind >= 1.4
+BuildRequires:    R-CRAN-tidyr >= 1.1
+BuildRequires:    R-CRAN-dplyr >= 1.0
 BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-DescTools 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-graphics 
+Requires:         R-CRAN-randomForest >= 4.6
+Requires:         R-CRAN-ggplot2 >= 3.3
+Requires:         R-CRAN-tibble >= 3.1
+Requires:         R-CRAN-swfscMisc >= 1.5
+Requires:         R-CRAN-abind >= 1.4
+Requires:         R-CRAN-tidyr >= 1.1
+Requires:         R-CRAN-dplyr >= 1.0
 Requires:         R-grDevices 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-DescTools 
 
 %description
-The data consist of a set of variables measured on several groups of
-individuals. To each group is associated an estimated probability density
-function. The package provides tools to create or manage such data and
-functional methods (principal component analysis, multidimensional
-scaling, cluster analysis, discriminant analysis...) for such probability
-densities.
+Estimate significance of importance metrics for a Random Forest model by
+permuting the response variable. Produces null distribution of importance
+metrics for each predictor variable and p-value of observed. Provides
+summary and visualization functions for 'randomForest' results.
 
 %prep
 %setup -q -c -n %{packname}
