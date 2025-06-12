@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  StempCens
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Estimation and Prediction for Censored/Missing Responses
 
@@ -23,7 +24,6 @@ BuildRequires:    R-CRAN-tmvtnorm
 BuildRequires:    R-CRAN-MCMCglmm 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-distances 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
@@ -34,18 +34,16 @@ Requires:         R-CRAN-tmvtnorm
 Requires:         R-CRAN-MCMCglmm 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
-Requires:         R-CRAN-distances 
 Requires:         R-CRAN-Rdpack 
 
 %description
-It estimates the parameters of a censored or missing data in
-spatio-temporal models using the SAEM algorithm (Delyon et al., 1999).
-This algorithm is a stochastic approximation of the widely used EM
-algorithm and an important tool for models in which the E-step does not
-have an analytic form. Besides the expressions obtained to estimate the
-parameters to the proposed model, we include the calculations for the
+It estimates the parameters of spatio-temporal models with censored or
+missing data using the SAEM algorithm (Delyon et al., 1999). This
+algorithm is a stochastic approximation of the widely used EM algorithm
+and is particularly valuable for models in which the E-step lacks a
+closed-form expression. It also provides a function to compute the
 observed information matrix using the method developed by Louis (1982). To
-examine the performance of the fitted model, case-deletion measure are
+assess the performance of the fitted model, case-deletion diagnostics are
 provided.
 
 %prep
@@ -56,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

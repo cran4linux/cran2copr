@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jmv
-%global packver   2.5.6
+%global packver   2.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.6
+Version:          2.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'jamovi' Analyses
 
@@ -40,6 +40,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-matrixStats 
 Requires:         R-CRAN-car >= 3.0.0
 Requires:         R-CRAN-jmvcore >= 2.4.2
 Requires:         R-CRAN-ggplot2 >= 2.2.1
@@ -63,6 +64,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-matrixStats 
 
 %description
 A suite of common statistical methods such as descriptives, t-tests,

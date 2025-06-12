@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multifear
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multiverse Analyses for Conditioning Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.3
-Requires:         R-core >= 3.6.3
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ez >= 4.4.0
 BuildRequires:    R-stats >= 3.6.2
@@ -34,6 +34,8 @@ BuildRequires:    R-CRAN-esc >= 0.5.1
 BuildRequires:    R-CRAN-effectsize >= 0.4.1
 BuildRequires:    R-CRAN-purrr >= 0.3.3
 BuildRequires:    R-CRAN-bayestestR >= 0.10.0
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ez >= 4.4.0
 Requires:         R-stats >= 3.6.2
 Requires:         R-CRAN-ggplot2 >= 3.2.1
@@ -51,6 +53,8 @@ Requires:         R-CRAN-esc >= 0.5.1
 Requires:         R-CRAN-effectsize >= 0.4.1
 Requires:         R-CRAN-purrr >= 0.3.3
 Requires:         R-CRAN-bayestestR >= 0.10.0
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-rlang 
 
 %description
 A suite of functions for performing analyses, based on a multiverse

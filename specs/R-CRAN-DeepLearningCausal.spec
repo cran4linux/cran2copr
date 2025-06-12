@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DeepLearningCausal
-%global packver   0.0.104
+%global packver   0.0.106
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.104
+Version:          0.0.106
 Release:          1%{?dist}%{?buildtag}
 Summary:          Causal Inference with Super Learner and Deep Neural Networks
 
@@ -29,6 +29,10 @@ BuildRequires:    R-CRAN-gam
 BuildRequires:    R-CRAN-e1071 
 BuildRequires:    R-CRAN-gbm 
 BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-weights 
 Requires:         R-CRAN-ROCR 
 Requires:         R-CRAN-caret 
@@ -42,6 +46,10 @@ Requires:         R-CRAN-gam
 Requires:         R-CRAN-e1071 
 Requires:         R-CRAN-gbm 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-weights 
 
 %description
@@ -50,7 +58,7 @@ Population Average Treatment Effects on the Treated (PATT) from
 experimental or observational data using the Super Learner (SL) ensemble
 method and Deep neural networks. The package first provides functions to
 implement meta-learners such as the Single-learner (S-learner) and
-Two-learner (T-learner) described in Künzel et al. (2019)
+Two-learner (T-learner) described in KC<nzel et al. (2019)
 <doi:10.1073/pnas.1804597116> for estimating the CATE. The S- and
 T-learner are each estimated using the SL ensemble method and deep neural
 networks. It then provides functions to implement the Ottoboni and Poulos

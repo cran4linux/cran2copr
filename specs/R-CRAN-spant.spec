@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spant
-%global packver   3.3.0
+%global packver   3.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.3.0
+Version:          3.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MR Spectroscopy Analysis Tools
 
@@ -58,8 +58,9 @@ Requires:         R-CRAN-jsonlite
 %description
 Tools for reading, visualising and processing Magnetic Resonance
 Spectroscopy data. The package includes methods for spectral fitting:
-Wilson (2021) <DOI:10.1002/mrm.28385> and spectral alignment: Wilson
-(2018) <DOI:10.1002/mrm.27605>.
+Wilson (2021) <DOI:10.1002/mrm.28385>, Wilson (2025)
+<DOI:10.1002/mrm.30462> and spectral alignment: Wilson (2018)
+<DOI:10.1002/mrm.27605>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dndR
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dungeons & Dragons Functions for Players and Dungeon Masters
 
@@ -35,7 +35,7 @@ The goal of 'dndR' is to provide a suite of Dungeons & Dragons related
 functions. This package is meant to be useful both to players and Dungeon
 Masters (DMs). Some functions apply to many tabletop role-playing games
 (e.g., dice rolling), but others are focused on Fifth Edition (a.k.a.
-"5e") and where possible both there 2014 and 2024 versions are supported.
+"5e") and where possible both the 2014 and 2024 versions are supported.
 
 %prep
 %setup -q -c -n %{packname}

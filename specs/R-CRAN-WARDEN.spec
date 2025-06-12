@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WARDEN
-%global packver   1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflows for Health Technology Assessments in R using Discrete EveNts
 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-MASS
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 
@@ -42,6 +43,7 @@ Requires:         R-CRAN-MASS
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tidyr 
 
 %description

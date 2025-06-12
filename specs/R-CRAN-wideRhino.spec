@@ -1,47 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpop
-%global packver   1.0.8
+%global packname  wideRhino
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detection of Multiple Changes in Slope in Univariate Time-Series
+Summary:          High-Dimensional Methods via Generalised Singular Decomposition
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-CRAN-crops 
-BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-Rdpack 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-geigen 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-crops 
-Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-geigen 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-pracma 
-Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
 
 %description
-Detects multiple changes in slope using the CPOP dynamic programming
-approach of Fearnhead, Maidstone, and Letchford (2019)
-<doi:10.1080/10618600.2018.1512868>. This method finds the best continuous
-piecewise linear fit to data under a criterion that measures fit to data
-using the residual sum of squares, but penalizes complexity based on an L0
-penalty on changes in slope. Further information regarding the use of this
-package with detailed examples can be found in Fearnhead and Grose (2024)
-<doi:10.18637/jss.v109.i07>.
+Construct a Canonical Variate Analysis Biplot via the Generalised Singular
+Value Decomposition, for cases when the number of samples is less than the
+number of variables. For more information on biplots, see Gower JC, Lubbe
+SG, Le Roux NJ (2011) <doi:10.1002/9780470973196> and for more information
+on the generalised singular value decomposition, see Edelman A, Wang Y
+(2020) <doi:10.1137/18M1234412>.
 
 %prep
 %setup -q -c -n %{packname}

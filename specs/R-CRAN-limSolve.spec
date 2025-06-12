@@ -1,38 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdlim
-%global packver   0.5.0
+%global packname  limSolve
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Distributed Lag Interaction Models
+Summary:          Solving Linear Inverse Models
 
-License:          GPL (>= 3)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-BayesLogit 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
-Requires:         R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-MASS 
 
 %description
-Estimation and interpretation of Bayesian distributed lag interaction
-models (BDLIMs). A BDLIM regresses a scalar outcome on repeated measures
-of exposure and allows for modification by a categorical variable under
-four specific patterns of modification. The main function is bdlim().
-There are also summary and plotting files. Details on methodology are
-described in Wilson et al. (2017) <doi:10.1093/biostatistics/kxx002>.
+Functions that (1) find the minimum/maximum of a linear or quadratic
+function: min or max (f(x)), where f(x) = ||Ax-b||^2 or f(x) =
+sum(a_i*x_i) subject to equality constraints Ex=f and/or inequality
+constraints Gx>=h, (2) sample an underdetermined- or overdetermined system
+Ex=f subject to Gx>=h, and if applicable Ax~=b, (3) solve a linear system
+Ax=B for the unknown x. It includes banded and tridiagonal linear systems.
 
 %prep
 %setup -q -c -n %{packname}

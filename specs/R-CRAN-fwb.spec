@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fwb
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fractional Weighted Bootstrap
 
@@ -17,18 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-chk 
-BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pbapply >= 1.7.2
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-chk >= 0.10.0
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-chk 
-Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pbapply >= 1.7.2
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-chk >= 0.10.0
+Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-graphics 
 
 %description
 An implementation of the fractional weighted bootstrap to be used as a

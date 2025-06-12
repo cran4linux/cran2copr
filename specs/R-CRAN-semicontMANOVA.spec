@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  semicontMANOVA
-%global packver   0.1-8
+%global packver   0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.8
+Version:          0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate ANalysis of VAriance with Ridge Regularization for Semicontinuous High-Dimensional Data
 
@@ -29,7 +29,9 @@ data. The method can be applied also in presence of low-dimensional data.
 The p-value can be obtained through asymptotic distribution or using a
 permutation procedure. The package gives also the possibility to simulate
 this type of data. Method is described in Elena Sabbioni, Claudio
-Agostinelli and Alessio Farcomeni (2024) <arXiv:2401.04036>.
+Agostinelli and Alessio Farcomeni (2025) A regularized MANOVA test for
+semicontinuous high-dimensional data. Biometrical Journal, 67:e70054. DOI
+<doi:10.1002/bimj.70054>, arXiv DOI <doi:10.48550/arXiv.2401.04036>.
 
 %prep
 %setup -q -c -n %{packname}

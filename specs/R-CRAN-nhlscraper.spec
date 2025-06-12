@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdlim
-%global packver   0.5.0
+%global packname  nhlscraper
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Distributed Lag Interaction Models
+Summary:          Scraper for National Hockey League Data
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-BayesLogit 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
-Requires:         R-CRAN-BayesLogit 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
 
 %description
-Estimation and interpretation of Bayesian distributed lag interaction
-models (BDLIMs). A BDLIM regresses a scalar outcome on repeated measures
-of exposure and allows for modification by a categorical variable under
-four specific patterns of modification. The main function is bdlim().
-There are also summary and plotting files. Details on methodology are
-described in Wilson et al. (2017) <doi:10.1093/biostatistics/kxx002>.
+Scrapes data from the 'NHL' API into 'tibble's. It primarily wraps
+endpoints documented by Zach Maludzinski (2023)
+<https://github.com/Zmalski/NHL-API-Reference>. It covers data from
+high-level multi-season summaries to low-level play-by-play logs.
 
 %prep
 %setup -q -c -n %{packname}

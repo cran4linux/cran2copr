@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggtibble
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Tibbles and Lists of 'ggplot' Figures for Reporting
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.3
 Requires:         R-core >= 4.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
@@ -26,6 +27,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 

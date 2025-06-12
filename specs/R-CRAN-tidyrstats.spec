@@ -1,47 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  cpop
-%global packver   1.0.8
+%global packname  tidyrstats
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detection of Multiple Changes in Slope in Univariate Time-Series
+Summary:          Tidy Common R Statistical Functions
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildRequires:    R-CRAN-Rcpp >= 0.12.13
-BuildRequires:    R-CRAN-crops 
-BuildRequires:    R-CRAN-pacman 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-mathjaxr 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-Rcpp >= 0.12.13
-Requires:         R-CRAN-crops 
-Requires:         R-CRAN-pacman 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-mathjaxr 
-Requires:         R-CRAN-pracma 
-Requires:         R-methods 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-stats 
 
 %description
-Detects multiple changes in slope using the CPOP dynamic programming
-approach of Fearnhead, Maidstone, and Letchford (2019)
-<doi:10.1080/10618600.2018.1512868>. This method finds the best continuous
-piecewise linear fit to data under a criterion that measures fit to data
-using the residual sum of squares, but penalizes complexity based on an L0
-penalty on changes in slope. Further information regarding the use of this
-package with detailed examples can be found in Fearnhead and Grose (2024)
-<doi:10.18637/jss.v109.i07>.
+Provides functions to scale, log-transform and fit linear models within a
+'tidyverse'-style R code framework. Intended to smooth over
+inconsistencies in output of base R statistical functions, allowing ease
+of teaching, learning and daily use. Inspired by the tidy principles used
+in 'broom' Robinson (2017) <doi:10.21105/joss.00341>.
 
 %prep
 %setup -q -c -n %{packname}

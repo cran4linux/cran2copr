@@ -1,38 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bdlim
-%global packver   0.5.0
+%global packname  alternativeROC
+%global packver   0.0.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.0.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Distributed Lag Interaction Models
+Summary:          Alternative and Fast ROC Analysis
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-LaplacesDemon 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-parallel 
-BuildRequires:    R-CRAN-BayesLogit 
-Requires:         R-CRAN-LaplacesDemon 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-parallel 
-Requires:         R-CRAN-BayesLogit 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.9
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-pROC 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-sn 
+BuildRequires:    R-CRAN-Hmisc 
+Requires:         R-CRAN-Rcpp >= 1.0.9
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-CRAN-pROC 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-sn 
+Requires:         R-CRAN-Hmisc 
 
 %description
-Estimation and interpretation of Bayesian distributed lag interaction
-models (BDLIMs). A BDLIM regresses a scalar outcome on repeated measures
-of exposure and allows for modification by a categorical variable under
-four specific patterns of modification. The main function is bdlim().
-There are also summary and plotting files. Details on methodology are
-described in Wilson et al. (2017) <doi:10.1093/biostatistics/kxx002>.
+Alternative and fast algorithms for the analysis of receiver operating
+characteristics curves (ROC curves) as described in Thomas et al. (2017)
+<doi:10.1186/s41512-017-0017-y> and Thomas et al. (2023)
+<doi:10.1016/j.ajogmf.2023.101110>.
 
 %prep
 %setup -q -c -n %{packname}
