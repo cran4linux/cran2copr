@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmesher
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Triangle Meshes and Related Geometry Tools
 
@@ -45,7 +45,7 @@ Requires:         R-CRAN-Rcpp
 
 %description
 Generate planar and spherical triangle meshes, compute finite element
-calculations for 1- and 2-dimensional flat and curved manifolds with
+calculations for 1-, 2-, and 3-dimensional flat and curved manifolds with
 associated basis function spaces, methods for lines and polygons, and
 transparent handling of coordinate reference systems and coordinate
 transformation, including 'sf' and 'sp' geometries. The core 'fmesher'

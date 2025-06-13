@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  bootSVD
-%global packver   1.1
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast, Exact Bootstrap Principal Component Analysis for High Dimensional Data
 
@@ -24,13 +25,14 @@ Requires:         R-parallel
 %description
 Implements fast, exact bootstrap Principal Component Analysis and Singular
 Value Decompositions for high dimensional data, as described in
-<doi:10.1080/01621459.2015.1062383> (see also <arXiv:1405.0922> ). For
-data matrices that are too large to operate on in memory, users can input
-objects with class 'ff' (see the 'ff' package), where the actual data is
-stored on disk. In response, this package will implement a block matrix
-algebra procedure for calculating the principal components (PCs) and
-bootstrap PCs. Depending on options set by the user, the 'parallel'
-package can be used to parallelize the calculation of the bootstrap PCs.
+<doi:10.1080/01621459.2015.1062383> (see also
+<doi:10.48550/arXiv.1405.0922>). For data matrices that are too large to
+operate on in memory, users can input objects with class 'ff' (see the
+'ff' package), where the actual data is stored on disk. In response, this
+package will implement a block matrix algebra procedure for calculating
+the principal components (PCs) and bootstrap PCs. Depending on options set
+by the user, the 'parallel' package can be used to parallelize the
+calculation of the bootstrap PCs.
 
 %prep
 %setup -q -c -n %{packname}
@@ -40,6 +42,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

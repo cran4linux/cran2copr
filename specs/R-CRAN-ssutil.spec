@@ -1,39 +1,47 @@
 %global __brp_check_rpaths %{nil}
-%global packname  iscoCrosswalks
+%global __requires_exclude ^libmpi
+%global packname  ssutil
 %global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Crosswalks Between Classifications of Occupations
+Summary:          Sample Size Calculation Tools
 
-License:          MIT + file LICENSE
+License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-labourR 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-labourR 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-broom 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-gsDesign 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-broom 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-gsDesign 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-tibble 
 
 %description
-Allows the user to perform approximate matching between the occupational
-classifications using concordances provided by the Institute for
-Structural Research and Faculty of Economics, University of Warsaw,
-<doi:10.1111/ecot.12145>. The crosswalks offer a complete step-by-step
-mapping of Standard Occupational Classification (2010) data to the
-International Standard Classification of Occupations (2008). We propose a
-mapping method based on the aforementioned research that converts
-measurements to the smallest possible unit of the target taxonomy, and
-then performs an aggregation/estimate to the requested degree Occupational
-Hierarchical level.
+Functions for sample size estimation and simulation in clinical trials.
+Includes methods for selecting the best group using the Indifference-zone
+approach, as well as designs for non-inferiority, equivalence, and
+negative binomial models. For the sample size calculation for
+non-inferiority of vaccines, the approach is based on Fleming, Powers, and
+Huang (2021) <doi:10.1177/1740774520988244>. The Indifference-zone
+approach is based on Sobel and Huyett (1957)
+<doi:10.1002/j.1538-7305.1957.tb02411.x> and Bechhofer, Santner, and
+Goldsman (1995, ISBN:978-0-471-57427-9).
 
 %prep
 %setup -q -c -n %{packname}

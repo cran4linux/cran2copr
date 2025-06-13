@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gasmodel
-%global packver   0.6.0
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Autoregressive Score Models
 
@@ -14,12 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-arrangements 
-BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-copula 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-pracma
 BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-arrangements 
-Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-copula 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  splineCox
-%global packver   0.0.3
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.3
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
 
@@ -18,13 +18,19 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-joint.Cox 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-joint.Cox 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Implements a two-stage estimation approach for Cox regression using
 five-parameter M-spline functions to model the baseline hazard. It allows
 for flexible hazard shapes and model selection based on log-likelihood
-criteria.
+criteria as described in Teranishi et al.(2025). In addition, the package
+provides functions for constructing and evaluating B-spline copulas based
+on five M-spline or I-spline basis functions, allowing users to flexibly
+model and compute bivariate dependence structures. Both the copula
+function and its density can be evaluated.
 
 %prep
 %setup -q -c -n %{packname}

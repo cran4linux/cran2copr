@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hrqglas
-%global packver   1.1.0
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Group Variable Selection for Quantile and Robust Mean Regression
 
@@ -16,18 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-quantreg 
-Requires:         R-CRAN-Rcpp >= 1.0.4
 Requires:         R-stats 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-Matrix 
 Requires:         R-graphics 
-Requires:         R-CRAN-quantreg 
 
 %description
 A program that conducts group variable selection for quantile and robust

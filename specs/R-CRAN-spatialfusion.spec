@@ -1,46 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  shinyMolBio
-%global packver   0.2
+%global packname  spatialfusion
+%global packver   0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Molecular Biology Visualization Tools for 'Shiny' Apps
+Summary:          Multivariate Analysis of Spatial Data Using a Unifying Spatial Fusion Framework
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-RDML 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-whisker 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-RColorBrewer 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-RDML 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-whisker 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-RColorBrewer 
+BuildRequires:    R-methods 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-rstan 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-CRAN-deldir 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-methods 
+Requires:         R-graphics 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-rstan 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-spam 
+Requires:         R-CRAN-deldir 
+Requires:         R-CRAN-rstantools
 
 %description
-Interactive visualization of 'RDML' files via 'shiny' apps. Package
-provides (1) PCR plate interface with ability to select individual tubes
-and (2) amplification/melting plots with fast hiding and highlighting
-individual curves.
+Multivariate modelling of geostatistical (point), lattice (areal) and
+point pattern data in a unifying spatial fusion framework. Details are
+given in Wang and Furrer (2021) <doi:10.1016/j.csda.2021.107240>. Model
+inference is done using either 'Stan' <https://mc-stan.org/> or 'INLA'
+<https://www.r-inla.org/>.
 
 %prep
 %setup -q -c -n %{packname}
