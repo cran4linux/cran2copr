@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rnmamod
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Network Meta-Analysis with Missing Participants
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda >= 0.13
 BuildRequires:    R-CRAN-cluster 
 BuildRequires:    R-CRAN-dendextend 
-BuildRequires:    R-CRAN-fdrtool 
 BuildRequires:    R-CRAN-gemtc 
 BuildRequires:    R-CRAN-ggfittext 
 BuildRequires:    R-CRAN-ggplot2 
@@ -29,15 +29,15 @@ BuildRequires:    R-CRAN-heatmaply
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-mcmcplots 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-coda >= 0.13
 Requires:         R-CRAN-cluster 
 Requires:         R-CRAN-dendextend 
-Requires:         R-CRAN-fdrtool 
 Requires:         R-CRAN-gemtc 
 Requires:         R-CRAN-ggfittext 
 Requires:         R-CRAN-ggplot2 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-heatmaply
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-mcmcplots 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-R2jags 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
@@ -61,13 +61,25 @@ participant outcome data. The package covers core Bayesian one-stage
 models implemented in a systematic review with multiple interventions,
 including fixed-effect and random-effects network meta-analysis,
 meta-regression, evaluation of the consistency assumption via the
-node-splitting approach and the unrelated mean effects model, and
-sensitivity analysis. Missing participant outcome data are addressed in
-all models of the package. The robustness to primary analysis results can
-also be investigated using a novel intuitive index. Methods to evaluate
-the transitivity assumption quantitatively are provided. The package also
-offers a rich, user-friendly visualisation toolkit that aids in appraising
-and interpreting the results thoroughly and preparing the manuscript for
+node-splitting approach and the unrelated mean effects model (original and
+revised model proposed by Spineli, (2022)
+<doi:10.1177/0272989X211068005>), and sensitivity analysis (see Spineli et
+al., (2021) <doi:10.1186/s12916-021-02195-y>). Missing participant outcome
+data are addressed in all models of the package (see Spineli, (2019)
+<doi:10.1186/s12874-019-0731-y>, Spineli et al., (2019)
+<doi:10.1002/sim.8207>, Spineli, (2019)
+<doi:10.1016/j.jclinepi.2018.09.002>, and Spineli et al., (2021)
+<doi:10.1002/jrsm.1478>). The robustness to primary analysis results can
+also be investigated using a novel intuitive index (see Spineli et al.,
+(2021) <doi:10.1177/0962280220983544>). Methods to evaluate the
+transitivity assumption using trial dissimilarities and hierarchical
+clustering are provided (see Spineli, (2024)
+<doi:10.1186/s12874-024-02436-7>, and Spineli et al., (2025)
+<doi:10.1002/sim.70068>). A novel index to facilitate interpretation of
+local inconsistency is also available (see Spineli, (2024)
+<doi:10.1186/s13643-024-02680-4>) The package also offers a rich,
+user-friendly visualisation toolkit that aids in appraising and
+interpreting the results thoroughly and preparing the manuscript for
 journal submission. The visualisation tools comprise the network plot,
 forest plots, panel of diagnostic plots, heatmaps on the extent of missing
 participant outcome data in the network, league heatmaps on estimation and

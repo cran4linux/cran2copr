@@ -1,48 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MSCA
-%global packver   1.2.1
+%global packname  gammaFuncModel
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Unsupervised Clustering of Multiple Censored Time-to-Event Endpoints
+Summary:          Non-Linear Mixed Effects Model Based on the Gamma Function Form
 
-License:          GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-RcppParallel >= 5.1.10
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-fastkmedoids 
-BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-nlme 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-cubature 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-RcppParallel >= 5.1.10
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-fastkmedoids 
-Requires:         R-CRAN-data.table 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-cubature 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-rlang 
+Requires:         R-grDevices 
+Requires:         R-stats 
+Requires:         R-grid 
 
 %description
-Provides basic tools and wrapper functions for computing clusters of
-instances described by multiple time-to-event censored endpoints. From
-long-format datasets, where one instance is described by one or more dated
-records, the main function, `make_state_matrices()`, creates state
-matrices. Based on these matrices, optimised procedures using the Jaccard
-distance between instances enable the construction of longitudinal
-typologies. The package is under active development, with additional tools
-for graphical representation of typologies planned. For methodological
-details, see our accompanying paper: `Delord M, Douiri A (2025)
-<doi:10.1186/s12874-025-02476-7>`.
+Identifies biomarkers that exhibit differential response dynamics by time
+across groups and estimates kinetic properties of biomarkers.
 
 %prep
 %setup -q -c -n %{packname}

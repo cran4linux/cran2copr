@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoslider.core
-%global packver   0.2.4
+%global packver   0.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          0.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slide Automation for Tables, Listings and Figures
 
@@ -18,15 +18,15 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli >= 3.6.3
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
-BuildRequires:    R-CRAN-checkmate >= 2.3.2
-BuildRequires:    R-CRAN-yaml >= 2.3.10
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-yaml >= 2.3.7
 BuildRequires:    R-CRAN-gridExtra >= 2.3
-BuildRequires:    R-CRAN-gtsummary >= 2.1.0
-BuildRequires:    R-CRAN-stringr >= 1.5.1
-BuildRequires:    R-CRAN-tidyr >= 1.3.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.4
-BuildRequires:    R-CRAN-rlang >= 1.1.4
+BuildRequires:    R-CRAN-checkmate >= 2.2.0
+BuildRequires:    R-CRAN-gtsummary >= 2.0.3
+BuildRequires:    R-CRAN-stringr >= 1.5.0
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.3
+BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-forcats >= 1.0.0
 BuildRequires:    R-CRAN-tern >= 0.9.8
 BuildRequires:    R-CRAN-flextable >= 0.9.4
@@ -40,15 +40,15 @@ BuildRequires:    R-grid
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-cli >= 3.6.3
-Requires:         R-CRAN-ggplot2 >= 3.5.1
-Requires:         R-CRAN-checkmate >= 2.3.2
-Requires:         R-CRAN-yaml >= 2.3.10
+Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-yaml >= 2.3.7
 Requires:         R-CRAN-gridExtra >= 2.3
-Requires:         R-CRAN-gtsummary >= 2.1.0
-Requires:         R-CRAN-stringr >= 1.5.1
-Requires:         R-CRAN-tidyr >= 1.3.1
-Requires:         R-CRAN-dplyr >= 1.1.4
-Requires:         R-CRAN-rlang >= 1.1.4
+Requires:         R-CRAN-checkmate >= 2.2.0
+Requires:         R-CRAN-gtsummary >= 2.0.3
+Requires:         R-CRAN-stringr >= 1.5.0
+Requires:         R-CRAN-tidyr >= 1.3.0
+Requires:         R-CRAN-dplyr >= 1.1.3
+Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-forcats >= 1.0.0
 Requires:         R-CRAN-tern >= 0.9.8
 Requires:         R-CRAN-flextable >= 0.9.4

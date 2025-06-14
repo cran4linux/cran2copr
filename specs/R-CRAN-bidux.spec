@@ -1,36 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.7.6
+%global packname  bidux
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Behavior Insight Design: A Toolkit for Integrating Behavioral Science in UI/UX Design
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-cli >= 3.6.5
+BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-readr >= 2.1.5
+BuildRequires:    R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-stringdist >= 0.9.15
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli >= 3.6.5
+Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-readr >= 2.1.5
+Requires:         R-CRAN-jsonlite >= 2.0.0
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-stringdist >= 0.9.15
+Requires:         R-utils 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves, merging of taxa as well
-as calculation and sorting of synoptic tables.
+Provides a framework and toolkit to guide 'shiny' developers in
+implementing the Behavior Insight Design (BID) framework. The package
+offers functions for documenting each of the five stages (Notice,
+Interpret, Structure, Anticipate, and Validate), along with a
+comprehensive concept dictionary.
 
 %prep
 %setup -q -c -n %{packname}

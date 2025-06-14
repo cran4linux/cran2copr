@@ -1,36 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.7.6
+%global packname  polarzonoid
+%global packver   0.1-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Compute Maps and Properties of Polar Zonoids
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-logger 
+Requires:         R-CRAN-logger 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves, merging of taxa as well
-as calculation and sorting of synoptic tables.
+In each odd dimension is a convex body - the polar zonoid - whose
+generating functions are trigonometric polynomials.  The polar zonoid is a
+straightforward generalization of the polar zonohedron in dimension 3. The
+package has some applications of the polar zonoid, including the
+properties of configuration spaces of arcs on the circle and 3x3 rotation
+matrices.  There is also a root solver for trigonometric polynomials.
 
 %prep
 %setup -q -c -n %{packname}

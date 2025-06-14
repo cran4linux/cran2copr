@@ -1,36 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.7.6
+%global packname  dci
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          Calculate the Dendritic Connectivity Index in River Networks
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.50
+Requires:         R-core >= 3.50
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
-BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
-Requires:         R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-units 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidygraph 
+BuildRequires:    R-CRAN-sfnetworks 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-units 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidygraph 
+Requires:         R-CRAN-sfnetworks 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-tidyselect 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves, merging of taxa as well
-as calculation and sorting of synoptic tables.
+Calculate and analyze ecological connectivity across the watercourse of
+river networks using the Dendritic Connectivity Index.
 
 %prep
 %setup -q -c -n %{packname}

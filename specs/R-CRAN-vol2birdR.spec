@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vol2birdR
-%global packver   1.0.9
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Vertical Profiles of Biological Signals in Weather Radar Data
 

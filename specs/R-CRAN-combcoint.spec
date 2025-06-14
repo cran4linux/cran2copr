@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  goeveg
-%global packver   0.7.6
+%global packname  combcoint
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Community Data and Ordinations
+Summary:          A Joint Test-Statistic for the Null of Non-Cointegration
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-mgcv 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-Hmisc 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-mgcv 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tsDyn 
+BuildRequires:    R-CRAN-urca 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tsDyn 
+Requires:         R-CRAN-urca 
 
 %description
-A collection of functions useful in (vegetation) community analyses and
-ordinations. Includes automatic species selection for ordination diagrams,
-NMDS stress/scree plots, species response curves, merging of taxa as well
-as calculation and sorting of synoptic tables.
+Implements a joint cointegration testing approach that combines
+Engle-Granger, Johansen maximum eigenvalue, Boswijk, and Banerjee tests
+into a unified test-statistic for the null of non-cointegration. Also see
+Bayer and Hanck (2013) <doi:10.1111/j.1467-9892.2012.00814.x>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,57 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  survivoR
-%global packver   2.3.6
+%global packname  Bchron
+%global packver   4.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.6
+Version:          4.7.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Data from all Seasons of Survivor (US) TV Series in Tidy Format
+Summary:          Age-Depth Radiocarbon Modelling
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-CRAN-shinycssloaders 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-CRAN-shinyjs 
-Requires:         R-CRAN-tidyr 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-methods 
+Requires:         R-utils 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-readr 
-Requires:         R-CRAN-shinycssloaders 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-DT 
-Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-checkmate 
+Requires:         R-methods 
 
 %description
-Datasets detailing the results, castaways, and events of each season of
-Survivor for the US, Australia, South Africa, New Zealand, and the UK.
-This includes details on the cast, voting history, immunity and reward
-challenges, jury votes, boot order, advantage details, and episode
-ratings. Use this for analysis of trends and statistics of the game.
+Enables quick calibration of radiocarbon dates under various calibration
+curves (including user generated ones); age-depth modelling as per the
+algorithm of Haslett and Parnell (2008)
+<DOI:10.1111/j.1467-9876.2008.00623.x>; Relative sea level rate estimation
+incorporating time uncertainty in polynomial regression models (Parnell
+and Gehrels 2015) <DOI:10.1002/9781118452547.ch32>; non-parametric phase
+modelling via Gaussian mixtures as a means to determine the activity of a
+site (and as an alternative to the 'Oxcal' function SUM(); currently
+unpublished), and reverse calibration of dates from calibrated into 14C
+years (also unpublished).
 
 %prep
 %setup -q -c -n %{packname}
