@@ -1,43 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghighlight
-%global packver   0.5.0
+%global packname  GPAbin
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Lines and Points in 'ggplot2'
+Summary:          Unifying Multiple Biplot Visualisations into a Single Display
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-ca 
+BuildRequires:    R-CRAN-jomo 
+BuildRequires:    R-CRAN-mi 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-missMDA 
+BuildRequires:    R-CRAN-mitools 
+BuildRequires:    R-CRAN-stringr 
+Requires:         R-CRAN-ca 
+Requires:         R-CRAN-jomo 
+Requires:         R-CRAN-mi 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-missMDA 
+Requires:         R-CRAN-mitools 
+Requires:         R-CRAN-stringr 
 
 %description
-Make it easier to explore data with highlights.
+Aligning multiple visualisations by utilising generalised orthogonal
+Procrustes analysis (GPA) before combining coordinates into a single
+biplot display as described in Nienkemper-Swanepoel, le Roux and Lubbe
+(2023)<doi:10.1080/03610918.2021.1914089>. This is mainly suitable to
+combine visualisations constructed from multiple imputations, however, it
+can be generalised to combine variations of visualisations from the same
+datasets (i.e. resamples).
 
 %prep
 %setup -q -c -n %{packname}

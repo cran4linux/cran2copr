@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ows4R
-%global packver   0.4
+%global packver   0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to OGC Web-Services (OWS)
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-XML >= 3.96.1.1
-BuildRequires:    R-CRAN-geometa >= 0.7.1
+BuildRequires:    R-CRAN-geometa >= 0.9
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-httr 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-terra
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-crayon 
 Requires:         R-CRAN-XML >= 3.96.1.1
-Requires:         R-CRAN-geometa >= 0.7.1
+Requires:         R-CRAN-geometa >= 0.9
 Requires:         R-methods 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-httr 

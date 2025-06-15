@@ -1,43 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghighlight
-%global packver   0.5.0
+%global packname  Analitica
+%global packver   1.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Lines and Points in 'ggplot2'
+Summary:          Exploratory Data Analysis and Group Comparison Tools
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggridges 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-multcompView 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggridges 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grDevices 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-multcompView 
 
 %description
-Make it easier to explore data with highlights.
+Provides tools for descriptive statistics, graphical exploration, outlier
+detection, homoscedasticity tests, and multiple comparison procedures.
+Includes manual implementations of Levene's test, Bartlett's test,
+Fligner-Killeen, and post hoc comparisons such as Tukey, Scheffe,
+Games-Howell, Brunner-Munzel, and others. Useful for teaching, applied
+analysis, and reproducible research.
 
 %prep
 %setup -q -c -n %{packname}

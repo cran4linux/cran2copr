@@ -1,43 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gghighlight
-%global packver   0.5.0
+%global packname  dataviewR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Highlight Lines and Points in 'ggplot2'
+Summary:          dataviewR: An Interactive and Feature-Rich Data Viewer
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-dplyr >= 1.0.4
-BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-shinyjs 
+BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-labelled 
+BuildRequires:    R-CRAN-forcats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-dplyr >= 1.0.4
-Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-datamods 
+BuildRequires:    R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-shinyjs 
+Requires:         R-CRAN-DT 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-labelled 
+Requires:         R-CRAN-forcats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-scales 
-Requires:         R-grDevices 
+Requires:         R-CRAN-datamods 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Make it easier to explore data with highlights.
+Provides an interactive viewer for 'data.frame' and 'tibble' objects using
+'shiny' <https://shiny.posit.co/> and 'DT'
+<https://rstudio.github.io/DT/>. It supports complex filtering, column
+selection, and automatic generation of reproducible 'dplyr'
+<https://dplyr.tidyverse.org/> code for data manipulation. The package is
+designed for ease of use in data exploration and reporting workflows.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,58 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  countries
-%global packver   1.2.2
+%global packname  fuzzylink
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Deal with Country Data in an Easy Way
+Summary:          Probabilistic Record Linkage Using Pretrained Text Embeddings
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-stringdist 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-fastmatch 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-utils 
-BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-stringdist 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-fastmatch 
-Requires:         R-CRAN-lubridate 
-Requires:         R-utils 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-ranger 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-viridis 
-Requires:         R-grDevices 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-ranger 
 
 %description
-Wrangle country data more effectively and quickly. This package contains
-functions to easily identify and convert country names, download country
-information, merge country data from different sources, and make quick
-world maps.
+Links datasets through fuzzy string matching using pretrained text
+embeddings. Produces more accurate record linkage when lexical string
+distance metrics are a poor guide to match quality (e.g., "Patricia" is
+more lexically similar to "Patrick" than it is to "Trish"). Capable of
+performing multilingual record linkage. Methods are described in Ornstein
+(2025) <https://joeornstein.github.io/publications/fuzzylink.pdf>.
 
 %prep
 %setup -q -c -n %{packname}
