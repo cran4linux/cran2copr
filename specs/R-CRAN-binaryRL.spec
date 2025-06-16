@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  binaryRL
-%global packver   0.8.7
+%global packver   0.8.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.7
+Version:          0.8.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reinforcement Learning Tools for Two-Alternative Forced Choice Tasks
 

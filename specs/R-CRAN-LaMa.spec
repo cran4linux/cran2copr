@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LaMa
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast Numerical Maximum Likelihood Estimation for Latent Markov Models
 
@@ -25,7 +25,6 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-splines2 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-CRAN-circular 
 BuildRequires:    R-CRAN-sn 
 BuildRequires:    R-CRAN-numDeriv 
@@ -39,7 +38,6 @@ Requires:         R-utils
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-splines2 
 Requires:         R-methods 
-Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-circular 
 Requires:         R-CRAN-sn 
 Requires:         R-CRAN-numDeriv 

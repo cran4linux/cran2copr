@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ergm.multi
-%global packver   0.2.1.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fit, Simulate and Diagnose Exponential-Family Models for Multiple or Multilayer Networks
 
@@ -14,29 +14,31 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-statnet.common >= 4.9.0
-BuildRequires:    R-CRAN-ergm >= 4.6.0
-BuildRequires:    R-CRAN-tibble >= 3.2.1
-BuildRequires:    R-CRAN-Rdpack >= 2.6
-BuildRequires:    R-CRAN-glue >= 1.7.0
-BuildRequires:    R-CRAN-network >= 1.18.2
-BuildRequires:    R-CRAN-rlang >= 1.1.3
-BuildRequires:    R-CRAN-purrr >= 1.0.2
-BuildRequires:    R-CRAN-rle >= 0.9.2
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-CRAN-ergm >= 4.9.0
+BuildRequires:    R-CRAN-statnet.common >= 4.12.0
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-Rdpack >= 2.6.4
+BuildRequires:    R-CRAN-glue >= 1.8.0
+BuildRequires:    R-CRAN-network >= 1.19.0
+BuildRequires:    R-CRAN-rlang >= 1.1.6
+BuildRequires:    R-CRAN-networkLite >= 1.1.0
+BuildRequires:    R-CRAN-purrr >= 1.0.4
+BuildRequires:    R-CRAN-rle >= 0.10.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-parallel 
-Requires:         R-CRAN-statnet.common >= 4.9.0
-Requires:         R-CRAN-ergm >= 4.6.0
-Requires:         R-CRAN-tibble >= 3.2.1
-Requires:         R-CRAN-Rdpack >= 2.6
-Requires:         R-CRAN-glue >= 1.7.0
-Requires:         R-CRAN-network >= 1.18.2
-Requires:         R-CRAN-rlang >= 1.1.3
-Requires:         R-CRAN-purrr >= 1.0.2
-Requires:         R-CRAN-rle >= 0.9.2
+Requires:         R-CRAN-ergm >= 4.9.0
+Requires:         R-CRAN-statnet.common >= 4.12.0
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-Rdpack >= 2.6.4
+Requires:         R-CRAN-glue >= 1.8.0
+Requires:         R-CRAN-network >= 1.19.0
+Requires:         R-CRAN-rlang >= 1.1.6
+Requires:         R-CRAN-networkLite >= 1.1.0
+Requires:         R-CRAN-purrr >= 1.0.4
+Requires:         R-CRAN-rle >= 0.10.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-parallel 

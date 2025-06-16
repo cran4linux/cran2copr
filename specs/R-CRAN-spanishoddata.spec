@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spanishoddata
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Get Spanish Origin-Destination Data
 
@@ -17,18 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-curl >= 5.0.0
 BuildRequires:    R-CRAN-duckdb >= 0.5.0
+BuildRequires:    R-CRAN-paws.storage >= 0.4.0
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-here 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-memuse 
+BuildRequires:    R-CRAN-memoise 
+BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-parallelly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-readr 
@@ -38,18 +41,21 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-xml2 
-Requires:         R-CRAN-curl >= 5.0.0
 Requires:         R-CRAN-duckdb >= 0.5.0
+Requires:         R-CRAN-paws.storage >= 0.4.0
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-digest 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-here 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-memuse 
+Requires:         R-CRAN-memoise 
+Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-parallelly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-readr 
