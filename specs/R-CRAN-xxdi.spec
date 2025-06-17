@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  xxdi
-%global packver   1.2.3
+%global packver   1.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.3
+Version:          1.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculate Expertise Indices
 
@@ -44,7 +44,9 @@ areas. These indices offer a nuanced understanding of institutional
 research capabilities, aiding stakeholders in research management and
 resource allocation decisions. Lathabai, H.H., Nandy, A., and Singh, V.K.
 (2021) <doi:10.1007/s11192-021-04188-3>. Nandy, A., Lathabai, H.H., and
-Singh, V.K. (2023) <doi:10.5281/zenodo.8305585>.
+Singh, V.K. (2023) <doi:10.5281/zenodo.8305585>. This package provides the
+h, g, x, and xd indices for use with standard format of Web of Science
+(WoS) scrapped datasets.
 
 %prep
 %setup -q -c -n %{packname}

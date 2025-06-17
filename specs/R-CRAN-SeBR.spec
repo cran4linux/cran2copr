@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SeBR
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semiparametric Bayesian Regression Analysis
 
@@ -17,30 +17,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-GpGp 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-quantreg 
-BuildRequires:    R-CRAN-spikeSlabGAM 
-BuildRequires:    R-CRAN-statmod 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-GpGp 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-quantreg 
-Requires:         R-CRAN-spikeSlabGAM 
-Requires:         R-CRAN-statmod 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
+Requires:         R-graphics 
+Requires:         R-stats 
 
 %description
-Monte Carlo and MCMC sampling algorithms for semiparametric Bayesian
-regression analysis. These models feature a nonparametric (unknown)
-transformation of the data paired with widely-used regression models
-including linear regression, spline regression, quantile regression, and
-Gaussian processes. The transformation enables broader applicability of
-these key models, including for real-valued, positive, and
-compactly-supported data with challenging distributional features. The
-samplers prioritize computational scalability and, for most cases, Monte
-Carlo (not MCMC) sampling for greater efficiency. Details of the methods
-and algorithms are provided in Kowal and Wu (2023) <arXiv:2306.05498>.
+Monte Carlo sampling algorithms for semiparametric Bayesian regression
+analysis. These models feature a nonparametric (unknown) transformation of
+the data paired with widely-used regression models including linear
+regression, spline regression, quantile regression, and Gaussian
+processes. The transformation enables broader applicability of these key
+models, including for real-valued, positive, and compactly-supported data
+with challenging distributional features. The samplers prioritize
+computational scalability and, for most cases, Monte Carlo (not MCMC)
+sampling for greater efficiency. Details of the methods and algorithms are
+provided in Kowal and Wu (2024) <doi:10.1080/01621459.2024.2395586>.
 
 %prep
 %setup -q -c -n %{packname}

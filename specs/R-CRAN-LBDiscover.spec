@@ -1,41 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ciu
-%global packver   0.8
+%global packname  LBDiscover
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Contextual Importance and Utility
+Summary:          Literature-Based Discovery Tools for Biomedical Research
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-jsonlite >= 1.7.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-xml2 >= 1.3.0
+BuildRequires:    R-CRAN-Matrix >= 1.3.0
+BuildRequires:    R-CRAN-igraph >= 1.2.0
+BuildRequires:    R-CRAN-rentrez >= 1.2.0
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggbeeswarm 
-Requires:         R-graphics 
+BuildRequires:    R-graphics 
+BuildRequires:    R-tools 
+Requires:         R-CRAN-jsonlite >= 1.7.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-xml2 >= 1.3.0
+Requires:         R-CRAN-Matrix >= 1.3.0
+Requires:         R-CRAN-igraph >= 1.2.0
+Requires:         R-CRAN-rentrez >= 1.2.0
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
 Requires:         R-grDevices 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-graphics 
+Requires:         R-tools 
 
 %description
-Implementation of the Contextual Importance and Utility (CIU) concepts for
-Explainable AI (XAI). A description of CIU can be found in e.g. Främling
-(2020) <doi:10.1007/978-3-030-51924-7_4>.
+A suite of tools for literature-based discovery in biomedical research.
+Provides functions for retrieving scientific articles from 'PubMed' and
+other NCBI databases, extracting biomedical entities (diseases, drugs,
+genes, etc.), building co-occurrence networks, and applying various
+discovery models including 'ABC', 'AnC', 'LSI', and 'BITOLA'. The package
+also includes visualization tools for exploring discovered connections.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ciu
-%global packver   0.8
+%global packname  mos
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Contextual Importance and Utility
+Summary:          Simulation and Moment Computation for Order Statistics
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggbeeswarm 
-Requires:         R-graphics 
+BuildRequires:    R-CRAN-hypergeo2 
 Requires:         R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-grDevices 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggbeeswarm 
+Requires:         R-CRAN-hypergeo2 
 
 %description
-Implementation of the Contextual Importance and Utility (CIU) concepts for
-Explainable AI (XAI). A description of CIU can be found in e.g. Främling
-(2020) <doi:10.1007/978-3-030-51924-7_4>.
+Provides a comprehensive set of tools for working with order statistics,
+including functions for simulating order statistics, censored samples
+(Type I and Type II), and record values from various continuous
+distributions. Additionally, it offers functions to compute moments (mean,
+variance, skewness, kurtosis) of order statistics for several continuous
+distributions. These tools assist researchers and statisticians in
+understanding and analyzing the properties of order statistics and related
+data. The methods and algorithms implemented in this package are based on
+several published works, including Ahsanullah et al (2013,
+ISBN:9789491216831), Arnold and Balakrishnan (2012, ISBN:1461236444),
+Harter and Balakrishnan (1996, ISBN:9780849394522), Balakrishnan and
+Sandhu (1995) <doi:10.1080/00031305.1995.10476150>, Genç (2012)
+<doi:10.1007/s00362-010-0320-y>, Makouei et al (2021)
+<doi:10.1016/j.cam.2021.113386> and Nagaraja (2013)
+<doi:10.1016/j.spl.2013.06.028>.
 
 %prep
 %setup -q -c -n %{packname}

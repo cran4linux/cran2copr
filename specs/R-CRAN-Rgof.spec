@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rgof
-%global packver   3.2.0
+%global packver   3.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          3.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          1d Goodness of Fit Tests
 
@@ -22,12 +22,14 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-microbenchmark 
+BuildRequires:    R-CRAN-nortest 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-parallel 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-CRAN-microbenchmark 
+Requires:         R-CRAN-nortest 
 
 %description
 Routines that allow the user to run a large number of goodness-of-fit

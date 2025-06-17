@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  randPedPCA
-%global packver   1.0.1
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast PCA for Large Pedigrees
 
@@ -21,16 +21,18 @@ BuildRequires:    R-CRAN-spam
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-pedigreeTools 
+BuildRequires:    R-CRAN-RSpectra 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
 Requires:         R-CRAN-pedigreeTools 
+Requires:         R-CRAN-RSpectra 
 
 %description
 Carry out principal component analysis (PCA) of very large pedigrees such
-as found in breeding populations! This package, 'randPedPCA', exploits
-sparse matrices and randomised linear algebra to deliver a gazillion-times
-speed-up compared to naive singular value decoposition (SVD) (and eigen
+as found in breeding populations! This package exploits sparse matrices
+and randomised linear algebra to deliver a gazillion-times speed-up
+compared to naive singular value decoposition (SVD) (and eigen
 decomposition).
 
 %prep

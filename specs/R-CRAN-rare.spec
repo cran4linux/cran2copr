@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rare
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linear Model with Tree-Based Lasso Regularization for Rare Features
 
@@ -27,11 +27,11 @@ Requires:         R-CRAN-Rcpp
 %description
 Implementation of an alternating direction method of multipliers algorithm
 for fitting a linear model with tree-based lasso regularization, which is
-proposed in Algorithm 1 of Yan and Bien (2018) <arXiv:1803.06675>. The
-package allows efficient model fitting on the entire 2-dimensional
-regularization path for large datasets. The complete set of functions also
-makes the entire process of tuning regularization parameters and
-visualizing results hassle-free.
+proposed in Algorithm 1 of Yan and Bien (2020)
+<doi:10.1080/01621459.2020.1796677>. The package allows efficient model
+fitting on the entire 2-dimensional regularization path for large
+datasets. The complete set of functions also makes the entire process of
+tuning regularization parameters and visualizing results hassle-free.
 
 %prep
 %setup -q -c -n %{packname}

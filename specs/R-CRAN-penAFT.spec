@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  penAFT
-%global packver   0.3.0
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fit the Regularized Gehan Estimator with Elastic Net and Sparse Group Lasso Penalties
+Summary:          Fit the Semiparametric Accelerated Failure Time Model with Elastic Net and Sparse Group Lasso Penalties
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -29,13 +29,13 @@ Requires:         R-CRAN-irlba
 %description
 The semiparametric accelerated failure time (AFT) model is an attractive
 alternative to the Cox proportional hazards model. This package provides a
-suite of functions for fitting one popular estimator of the semiparametric
-AFT model, the regularized Gehan estimator. Specifically, we provide
-functions for cross-validation, prediction, coefficient extraction, and
-visualizing both trace plots and cross-validation curves. For further
-details, please see Suder, P. M. and Molstad, A. J., (2022+) Scalable
-algorithms for semiparametric accelerated failure time models in high
-dimensions, to appear in Statistics in Medicine <doi:10.1002/sim.9264>.
+suite of functions for fitting one popular rank-based estimator of the
+semiparametric AFT model, the regularized Gehan estimator. Specifically,
+we provide functions for cross-validation, prediction, coefficient
+extraction, and visualizing both trace plots and cross-validation curves.
+For further details, please see Suder, P. M. and Molstad, A. J., (2022)
+Scalable algorithms for semiparametric accelerated failure time models in
+high dimensions, Statistics in Medicine <doi:10.1002/sim.9264>.
 
 %prep
 %setup -q -c -n %{packname}

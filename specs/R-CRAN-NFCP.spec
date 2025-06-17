@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  NFCP
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          N-Factor Commodity Pricing Through Term Structure Estimation
 
@@ -25,7 +26,6 @@ BuildRequires:    R-CRAN-rgenoud
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-mathjaxr 
 BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-curl 
 Requires:         R-CRAN-FKF.SP 
 Requires:         R-CRAN-LSMRealOptions 
 Requires:         R-CRAN-MASS 
@@ -35,7 +35,6 @@ Requires:         R-CRAN-rgenoud
 Requires:         R-stats 
 Requires:         R-CRAN-mathjaxr 
 Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-curl 
 
 %description
 Commodity pricing models are (systems of) stochastic differential
