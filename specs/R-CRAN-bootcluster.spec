@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bootcluster
-%global packver   0.4.1
+%global packver   0.4.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bootstrapping Estimates of Clustering Stability
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.1
 Requires:         R-core >= 3.5.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-mclust >= 5.0.0
 BuildRequires:    R-CRAN-igraph >= 1.2.0
 BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-mclust 
 BuildRequires:    R-CRAN-flexclust 
 BuildRequires:    R-CRAN-fpc 
 BuildRequires:    R-CRAN-plyr 
@@ -29,6 +29,7 @@ BuildRequires:    R-CRAN-foreach
 BuildRequires:    R-stats 
 BuildRequires:    R-parallel 
 BuildRequires:    R-grid 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-intergraph 
@@ -36,9 +37,10 @@ BuildRequires:    R-CRAN-GGally
 BuildRequires:    R-CRAN-network 
 BuildRequires:    R-CRAN-kernlab 
 BuildRequires:    R-CRAN-sna 
+BuildRequires:    R-CRAN-progress 
+Requires:         R-CRAN-mclust >= 5.0.0
 Requires:         R-CRAN-igraph >= 1.2.0
 Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-mclust 
 Requires:         R-CRAN-flexclust 
 Requires:         R-CRAN-fpc 
 Requires:         R-CRAN-plyr 
@@ -48,6 +50,7 @@ Requires:         R-CRAN-foreach
 Requires:         R-stats 
 Requires:         R-parallel 
 Requires:         R-grid 
+Requires:         R-grDevices 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-intergraph 
@@ -55,6 +58,7 @@ Requires:         R-CRAN-GGally
 Requires:         R-CRAN-network 
 Requires:         R-CRAN-kernlab 
 Requires:         R-CRAN-sna 
+Requires:         R-CRAN-progress 
 
 %description
 Implementation of the bootstrapping approach for the estimation of

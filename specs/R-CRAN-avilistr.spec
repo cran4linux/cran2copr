@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GameTheoryAllocation
-%global packver   1.0
+%global packname  avilistr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tools for Calculating Allocations in Game Theory
+Summary:          Access and Work with the 'AviList' Global Avian Checklist
 
-License:          GPL-2
+License:          CC0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-lpSolveAPI 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-lpSolveAPI 
 
 %description
-Many situations can be modeled as game theoretic situations. Some
-procedures are included in this package to calculate the most important
-allocations rules in Game Theory: Shapley value, Owen value or nucleolus,
-among other. First, we must define as an argument the value of the unions
-of the envolved agents with the characteristic function.
+Provides easy access to the 'AviList' Global Avian Checklist, the first
+unified global bird taxonomy that harmonizes previous differences between
+International Ornithological Committee ('IOC'), 'Clements', and 'BirdLife'
+checklists. This package contains the complete 'AviList' dataset as R data
+objects ready for ornithological research and analysis. For more details
+see 'AviList' Core Team (2025) <doi:10.2173/avilist.v2025>.
 
 %prep
 %setup -q -c -n %{packname}

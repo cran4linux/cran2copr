@@ -1,26 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Rtwalk
-%global packver   1.8.0
+%global packname  ukhsadatR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          The R Implementation of the 't-walk' MCMC Algorithm
+Summary:          R Interface to Access UKHSA Dashboard Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.8.0
-Requires:         R-core >= 2.8.0
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-utils 
 
 %description
-The 't-walk' is a general-purpose MCMC sampler for arbitrary continuous
-distributions that requires no tuning.
+Programmatic interface to access data from the UK Health Security Agency
+(UKHSA) Data Dashboard API. The package was originally based on the
+'ukcovid19' package by Pouria Hadjibagheri and has been substantially
+rewritten and extended. For more information on the API, see
+<https://ukhsa-dashboard.data.gov.uk/access-our-data>.
 
 %prep
 %setup -q -c -n %{packname}

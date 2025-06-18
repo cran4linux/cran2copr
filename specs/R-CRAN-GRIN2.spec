@@ -1,61 +1,62 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  earlywarnings
-%global packver   1.1.29
+%global packname  GRIN2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.29
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Early Warning Signals for Critical Transitions in Time Series
+Summary:          Genomic Random Interval (GRIN)
 
-License:          BSD_2_clause + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.2
-Requires:         R-core >= 3.0.2
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-circlize 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-moments 
-BuildRequires:    R-CRAN-tgp 
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-CRAN-fields 
-BuildRequires:    R-CRAN-nortest 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-quadprog 
-BuildRequires:    R-CRAN-Kendall 
-BuildRequires:    R-CRAN-KernSmooth 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-lmtest 
-BuildRequires:    R-CRAN-som 
-BuildRequires:    R-CRAN-spam 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-writexl 
+Requires:         R-CRAN-circlize 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-moments 
-Requires:         R-CRAN-tgp 
-Requires:         R-CRAN-tseries 
-Requires:         R-CRAN-fields 
-Requires:         R-CRAN-nortest 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-quadprog 
-Requires:         R-CRAN-Kendall 
-Requires:         R-CRAN-KernSmooth 
-Requires:         R-methods 
-Requires:         R-CRAN-lmtest 
-Requires:         R-CRAN-som 
-Requires:         R-CRAN-spam 
+Requires:         R-grid 
+Requires:         R-CRAN-magrittr 
 Requires:         R-stats 
-Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-utils 
+Requires:         R-CRAN-writexl 
 
 %description
-The Early-Warning-Signals Toolbox provides methods for estimating
-statistical changes in time series that can be used for identifying nearby
-critical transitions.
+Improved version of 'GRIN' software that streamlines its use in practice
+to analyze genomic lesion data, accelerate its computing, and expand its
+analysis capabilities to answer additional scientific questions including
+a rigorous evaluation of the association of genomic lesions with RNA
+expression. Pounds, Stan, et al. (2013)
+<DOI:10.1093/bioinformatics/btt372>.
 
 %prep
 %setup -q -c -n %{packname}

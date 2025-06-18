@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gma
-%global packver   1.0
+%global packname  RSD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Granger Mediation Analysis
+Summary:          Compares Random Prospects using Stochastic Dominance
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,28 +17,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-car 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-car 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
 
 %description
-Performs Granger mediation analysis (GMA) for time series. This package
-includes a single level GMA model and a two-level GMA model, for time
-series with hierarchically nested structure. The single level GMA model
-for the time series of a single participant performs the causal mediation
-analysis which integrates the structural equation modeling and the Granger
-causality frameworks. A vector autoregressive model of order p is employed
-to account for the spatiotemporal dependencies in the data. Meanwhile, the
-model introduces the unmeasured confounding effect through a nonzero
-correlation parameter. Under the two-level model, by leveraging the
-variabilities across participants, the parameters are identifiable and
-consistently estimated based on a full conditional likelihood or a
-two-stage method. See Zhao, Y., & Luo, X. (2017), Granger Mediation
-Analysis of Multiple Time Series with an Application to fMRI,
-<arXiv:1709.05328> for details.
+The Stochastic Dominance (SD) is the classical way of comparing two random
+prospects, using their distribution functions. Almost Stochastic Dominance
+(ASD) has also been developed to cover the SD failures due to the extreme
+utility functions. This package focuses on classical and heuristic methods
+for testing the first and second SD and ASD methods given the probability
+mass function (PMF) of the random prospects. The goal is to apply these
+methods easily, efficiently, and effectively on real-world datasets. For
+more details see Hanoch and Levy (1969) <doi:10.2307/2296431>, Leshno and
+Levy (2002) <doi:10.1287/mnsc.48.8.1074.169>, and Tzeng et al. (2012)
+<doi:10.1287/mnsc.1120.1616>.
 
 %prep
 %setup -q -c -n %{packname}

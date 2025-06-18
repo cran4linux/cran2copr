@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rmsMD
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Output Results from 'rms' Models for Medical Journals
 
@@ -18,18 +18,24 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rms 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cowplot 
 Requires:         R-CRAN-rms 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cowplot 
 
 %description
-This takes the output of models performed using the 'rms' package and
-returns a dataframe with the results. This output is in the format
-required by medical journals. For example for cox regression models, the
-hazard ratios, their 95%% confidence intervals, and p values will be
-provided. There are additional functions for outputs when the model
-included restricted cubic spline (RCS) terms. Models using imputed data
-(eg from aregimpute()) and fitted used fit.mult.impute() can also be
-processed. The dataframe which is returned can easily be turned into a
-publication ready table with packages 'flextable' and 'officer'.
+Provides streamlined functions for summarising and visualising regression
+models fitted with the 'rms' package, in the preferred format for medical
+journals. The 'modelsummary_rms()' function produces concise summaries for
+linear, logistic, and Cox regression models, including automatic handling
+of models containing restricted cubic spline (RCS) terms. The resulting
+summary dataframe can be easily converted into publication-ready documents
+using the 'flextable' and 'officer' packages. The 'ggrmsMD()' function
+creates clear and customizable plots ('ggplot2' objects) to visualise RCS
+terms.
 
 %prep
 %setup -q -c -n %{packname}

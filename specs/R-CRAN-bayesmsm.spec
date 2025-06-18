@@ -1,44 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ADMUR
-%global packver   1.0.3
+%global __requires_exclude ^libmpi
+%global packname  bayesmsm
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ancient Demographic Modelling Using Radiocarbon
+Summary:          Fitting Bayesian Marginal Structural Models for Longitudinal Observational Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-coda >= 0.19.4
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-mathjaxr 
+BuildRequires:    R-CRAN-MCMCpack 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-R2jags 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-coda >= 0.19.4
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-CRAN-mathjaxr 
+Requires:         R-CRAN-MCMCpack 
+Requires:         R-parallel 
+Requires:         R-CRAN-R2jags 
 Requires:         R-stats 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-zoo 
 
 %description
-Provides tools to directly model underlying population dynamics using date
-datasets (radiocarbon and other) with a Continuous Piecewise Linear (CPL)
-model framework. Various other model types included. Taphonomic loss
-included optionally as a power function. Model comparison framework using
-BIC. Package also calibrates 14C samples, generates Summed Probability
-Distributions (SPD), and performs SPD simulation analysis to generate a
-Goodness-of-fit test for the best selected model. Details about the method
-can be found in Timpson A., Barberena R., Thomas M. G., Mendez C., Manning
-K. (2020) <doi:10.1098/rstb.2019.0723>.
+Implements Bayesian marginal structural models for causal effect
+estimation with time-varying treatment and confounding. It includes an
+extension to handle informative right censoring. The Bayesian importance
+sampling weights are estimated using JAGS. See Saarela (2015)
+<doi:10.1111/biom.12269> for methodological details.
 
 %prep
 %setup -q -c -n %{packname}
@@ -48,6 +53,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

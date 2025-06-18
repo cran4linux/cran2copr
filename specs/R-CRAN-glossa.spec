@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glossa
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly 'shiny' App for Bayesian Species Distribution Models
 
@@ -64,16 +64,16 @@ Requires:         R-CRAN-zip
 
 %description
 A user-friendly 'shiny' application for Bayesian machine learning analysis
-of marine species distributions. GLOSSA (Global Species Spatiotemporal
-Analysis) uses Bayesian Additive Regression Trees (BART; Chipman, George,
-and McCulloch (2010) <doi:10.1214/09-AOAS285>) to model species
-distributions with intuitive workflows for data upload, processing, model
-fitting, and result visualization. It supports presence-absence and
-presence-only data (with pseudo-absence generation), spatial thinning,
-cross-validation, and scenario-based projections. GLOSSA is designed to
-facilitate ecological research by providing easy-to-use tools for
-analyzing and visualizing marine species distributions across different
-spatial and temporal scales.
+of marine species distributions. GLOSSA (Global Ocean Species
+Spatio-temporal Analysis) uses Bayesian Additive Regression Trees (BART;
+Chipman, George, and McCulloch (2010) <doi:10.1214/09-AOAS285>) to model
+species distributions with intuitive workflows for data upload,
+processing, model fitting, and result visualization. It supports
+presence-absence and presence-only data (with pseudo-absence generation),
+spatial thinning, cross-validation, and scenario-based projections. GLOSSA
+is designed to facilitate ecological research by providing easy-to-use
+tools for analyzing and visualizing marine species distributions across
+different spatial and temporal scales.
 
 %prep
 %setup -q -c -n %{packname}

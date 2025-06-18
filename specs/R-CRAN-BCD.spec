@@ -1,47 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  slickR
-%global packver   0.6.0
+%global packname  BCD
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create Interactive Carousels with the 'JavaScript' 'Slick' Library
+Summary:          Bivariate Distributions via Conditional Specification
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-utils 
-BuildRequires:    R-tools 
-BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-base64enc 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-htmltools 
-Requires:         R-utils 
-Requires:         R-tools 
-Requires:         R-CRAN-lifecycle 
 Requires:         R-stats 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-base64enc 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-checkmate 
 
 %description
-Create and customize interactive carousels using the 'Slick' 'JavaScript'
-library and the 'htmlwidgets' package. The carousels can contain plots
-produced in R, images, 'iframes', videos and other 'htmlwidgets'.  These
-carousels can be created directly from the R console, and viewed in the
-'RStudio' internal viewer, in 'Shiny' apps and R Markdown documents.
+Implementation of bivariate binomial, geometric, and Poisson distributions
+based on conditional specifications. The package also includes tools for
+data generation and goodness-of-fit testing for these three distribution
+families. For methodological details, see Ghosh, Marques, and Chakraborty
+(2025) <doi:10.1080/03610926.2024.2315294>, Ghosh, Marques, and
+Chakraborty (2023) <doi:10.1080/03610918.2021.2004419>, and Ghosh,
+Marques, and Chakraborty (2021) <doi:10.1080/02664763.2020.1793307>.
 
 %prep
 %setup -q -c -n %{packname}

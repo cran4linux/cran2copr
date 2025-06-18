@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3pipelines
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preprocessing Operators and Pipelines for 'mlr3'
 
@@ -14,11 +14,11 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-mlr3 >= 0.20.0
-BuildRequires:    R-CRAN-mlr3misc >= 0.16.0
+BuildRequires:    R-CRAN-mlr3misc >= 0.17.0
 BuildRequires:    R-CRAN-backports 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-data.table 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-paradox
 BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-mlr3 >= 0.20.0
-Requires:         R-CRAN-mlr3misc >= 0.16.0
+Requires:         R-CRAN-mlr3misc >= 0.17.0
 Requires:         R-CRAN-backports 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-data.table 

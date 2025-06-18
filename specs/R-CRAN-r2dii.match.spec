@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  r2dii.match
-%global packver   0.4.0
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Match Corporate Lending Portfolios with Climate Data
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr >= 0.8.5
 BuildRequires:    R-CRAN-r2dii.data >= 0.4.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-lifecycle 
@@ -33,6 +34,7 @@ BuildRequires:    R-CRAN-tidyselect
 BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr >= 0.8.5
 Requires:         R-CRAN-r2dii.data >= 0.4.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-lifecycle 

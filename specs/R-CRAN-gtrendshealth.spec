@@ -1,30 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  Inventorymodel
-%global packver   1.1.0.1
+%global packname  gtrendshealth
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Inventory Models
+Summary:          Query the 'Google Trends for Health' API
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.15.0
-Requires:         R-core >= 2.15.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-e1071 
-BuildRequires:    R-CRAN-GameTheoryAllocation 
-Requires:         R-CRAN-e1071 
-Requires:         R-CRAN-GameTheoryAllocation 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-httr 
+Requires:         R-utils 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
 
 %description
-Determination of the optimal policy in inventory problems from a
-game-theoretic perspective.
+Connects to the 'Google Trends for Health' API hosted at
+<https://trends.google.com/trends/>, allowing projects authorized to use
+the health research data to query 'Google Trends'.
 
 %prep
 %setup -q -c -n %{packname}

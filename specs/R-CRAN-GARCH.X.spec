@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MCMC.OTU
-%global packver   1.0.10
+%global packname  GARCH.X
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Analysis of Multivariate Counts Data in DNA Metabarcoding and Ecology
+Summary:          Estimation and Exogenous Covariate Selection for GARCH-X Models
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,26 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MCMCglmm 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-coda 
-Requires:         R-CRAN-MCMCglmm 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-coda 
+BuildRequires:    R-CRAN-GA 
+BuildRequires:    R-CRAN-GenSA 
+BuildRequires:    R-CRAN-pso 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-GA 
+Requires:         R-CRAN-GenSA 
+Requires:         R-CRAN-pso 
+Requires:         R-stats 
 
 %description
-Poisson-lognormal generalized linear mixed model analysis of multivariate
-counts data using MCMC, aiming to infer the changes in relative
-proportions of individual variables. The package was originally designed
-for sequence-based analysis of microbial communities ("metabarcoding",
-variables = operational taxonomic units, OTUs), but can be used for other
-types of multivariate counts, such as in ecological applications
-(variables = species). The results are summarized and plotted using
-'ggplot2' functions. Includes functions to remove sample and variable
-outliers and reformat counts into normalized log-transformed values for
-correlation and principal component/coordinate analysis. Walkthrough and
-examples:
-http://www.bio.utexas.edu/research/matz_lab/matzlab/Methods_files/walkthroughExample_mcmcOTU_R.txt.
+Estimates the parameters of a GARCH-X model with exogenous covariates,
+performs hypothesis tests for the parameters returning the p-values, and
+uses False Discovery Rate p-value corrections to select the exogenous
+variables.
 
 %prep
 %setup -q -c -n %{packname}

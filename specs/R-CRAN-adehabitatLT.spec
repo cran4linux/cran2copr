@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  adehabitatLT
-%global packver   0.3.28
+%global packver   0.3.29
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.28
+Version:          0.3.29
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analysis of Animal Movements
 
@@ -20,7 +20,6 @@ BuildRequires:    R-CRAN-sp
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ade4 
 BuildRequires:    R-CRAN-adehabitatMA 
-BuildRequires:    R-CRAN-CircStats 
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
@@ -29,7 +28,6 @@ Requires:         R-CRAN-sp
 Requires:         R-methods 
 Requires:         R-CRAN-ade4 
 Requires:         R-CRAN-adehabitatMA 
-Requires:         R-CRAN-CircStats 
 Requires:         R-stats 
 Requires:         R-graphics 
 Requires:         R-grDevices 

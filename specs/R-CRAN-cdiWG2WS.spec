@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cdiWG2WS
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Words and Gestures to Words and Sentences Score Conversion
 
@@ -22,7 +22,7 @@ BuildArch:        noarch
 Convert MacArthur-Bates Communicative Development Inventory Words and
 Gestures scores to would-be scores on Words and Sentences, based on
 modeling from the Stanford Wordbank <https://wordbank.stanford.edu/>. See
-Day et al. (2024) <doi:10.31234/osf.io/rwhcy>.
+Day et al. (2025) <doi:10.1111/desc.70036>.
 
 %prep
 %setup -q -c -n %{packname}

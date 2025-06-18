@@ -1,40 +1,49 @@
 %global __brp_check_rpaths %{nil}
-%global packname  habCluster
-%global packver   1.0.5
+%global __requires_exclude ^libmpi
+%global packname  thisutils
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Detecting Spatial Clustering Based on Connection Cost Between Grids
+Summary:          Collection of Utility Functions for Data Analysis and Computing
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-igraph >= 1.3.0
-BuildRequires:    R-CRAN-sf >= 1.0.0
-BuildRequires:    R-CRAN-stars >= 0.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-raster 
-Requires:         R-CRAN-igraph >= 1.3.0
-Requires:         R-CRAN-sf >= 1.0.0
-Requires:         R-CRAN-stars >= 0.5.0
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppParallel 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-parallel 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-raster 
+Requires:         R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-RcppParallel 
+Requires:         R-stats 
 
 %description
-Based on landscape connectivity, spatial boundaries were identified using
-community detection algorithm at grid level. Methods using raster as input
-and the value of each cell of the raster is the "smoothness" to indicate
-how easy the cell connecting with neighbor cells. Details about the
-'habCluster' package methods can be found in Zhang et al.
-<bioRxiv:2022.05.06.490926>.
+Provides a collection of utility functions commonly used in data analysis
+and scientific computing. Includes functions for parallel processing,
+matrix operations, correlation calculations, and other computational tasks
+to streamline R workflows.
 
 %prep
 %setup -q -c -n %{packname}

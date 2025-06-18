@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SSHAARP
-%global packver   2.0.5
+%global packver   2.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.5
+Version:          2.0.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Searching Shared HLA Amino Acid Residue Prevalence
 
@@ -22,7 +22,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-gtools 
-BuildRequires:    R-CRAN-BIGDAWG 
 BuildRequires:    R-CRAN-gmt 
 BuildRequires:    R-CRAN-DescTools 
 BuildRequires:    R-CRAN-dplyr 
@@ -34,7 +33,6 @@ BuildRequires:    R-CRAN-HLAtools
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-gtools 
-Requires:         R-CRAN-BIGDAWG 
 Requires:         R-CRAN-gmt 
 Requires:         R-CRAN-DescTools 
 Requires:         R-CRAN-dplyr 
