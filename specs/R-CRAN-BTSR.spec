@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BTSR
-%global packver   0.1.5
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bounded Time Series Regression
 
@@ -14,17 +14,16 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Simulate, estimate and forecast a wide range of regression based dynamic
 models for bounded time series, covering the most commonly applied models
-in the literature. The main calculations are done in 'FORTRAN', which
-translates into very fast algorithms. The main references are Bayer et al.
-(2017) <doi:10.1016/j.jhydrol.2017.10.006>, Pumi et al. (2019)
-<doi:10.1016/j.jspi.2018.10.001>, Pumi et al. (2021)
-<doi:10.1111/sjos.12439> and Pumi et al. (2022) <arXiv:2211.02097>.
+in the literature. The main calculations are done in FORTRAN, which
+translates into very fast algorithms.
 
 %prep
 %setup -q -c -n %{packname}

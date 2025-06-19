@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggforce
-%global packver   0.4.2
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.2
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerating 'ggplot2'
 
@@ -16,8 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
-BuildRequires:    R-CRAN-ggplot2 >= 3.3.6
-BuildRequires:    R-CRAN-Rcpp >= 0.12.2
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-tweenr >= 0.1.5
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-scales 
@@ -34,9 +33,8 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-systemfonts 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-ggplot2 >= 3.3.6
-Requires:         R-CRAN-Rcpp >= 0.12.2
+BuildRequires:    R-CRAN-cpp11 
+Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tweenr >= 0.1.5
 Requires:         R-grid 
 Requires:         R-CRAN-scales 

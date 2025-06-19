@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyetools
-%global packver   0.8.1
+%global packver   0.9.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.1
+Version:          0.9.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analyse Eye Data
 
@@ -29,6 +29,8 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-zoo 
+BuildRequires:    R-CRAN-png 
+BuildRequires:    R-grid 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-viridis 
@@ -41,6 +43,8 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-zoo 
+Requires:         R-CRAN-png 
+Requires:         R-grid 
 
 %description
 Enables the automation of actions across the pipeline, including initial

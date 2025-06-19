@@ -1,29 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libopenexr
-%global packver   3.4.0
+%global packname  cpgfR
+%global packver   0.0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.4.0
+Version:          0.0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Static Library and Headers for 'OpenEXR' Image I/O
+Summary:          Consolidates Information from the Federal Government Payment Card
 
-License:          BSD_3_clause + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3.0
-Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-libimath 
-BuildRequires:    R-CRAN-libdeflate 
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-osfr 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-deflateBR 
+BuildRequires:    R-CRAN-curl 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-osfr 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-deflateBR 
+Requires:         R-CRAN-curl 
 
 %description
-Provides the 'OpenEXR' static library and 'C++' headers for
-high-dynamic-range image I/O (see <https://openexr.com/>) needed to link R
-packages against the 'OpenEXR' library, along with a basic R interface to
-load 'EXR' images.
+Provides access to consolidated information from the Brazilian Federal
+Government Payment Card. Includes functions to retrieve, clean, and
+organize data directly from the Transparency Portal
+<https://portaldatransparencia.gov.br/download-de-dados/cpgf/> and a
+curated dataset hosted on the Open Science Framework
+<https://osf.io/z2mxc/>. Useful for public spending analysis, transparency
+research, and reproducible workflows in auditing or investigative
+journalism.
 
 %prep
 %setup -q -c -n %{packname}

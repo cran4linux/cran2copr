@@ -1,34 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rashnu
-%global packver   0.1.1
+%global packname  gseries
+%global packver   3.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          3.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Balanced Sample Size and Power Calculation Tools
+Summary:          Improve the Coherence of Your Time Series Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-osqp 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xmpdf 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggtext 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-osqp 
 Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-xmpdf 
 
 %description
-Implements sample size and power calculation methods with a focus on
-balance and fairness in study design, inspired by the Zoroastrian deity
-Rashnu, the judge who weighs truth. Supports survival analysis and various
-hypothesis testing frameworks.
+'R' version of 'G-Series', Statistics Canada's generalized system devoted
+to the benchmarking and reconciliation of time series data. The methods
+used in 'G-Series' essentially come from Dagum, E. B., and P. Cholette
+(2006) <doi:10.1007/0-387-35439-5>.
 
 %prep
 %setup -q -c -n %{packname}

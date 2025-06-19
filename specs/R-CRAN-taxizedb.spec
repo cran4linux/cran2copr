@@ -1,34 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rashnu
-%global packver   0.1.1
+%global packname  taxizedb
+%global packver   0.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.3.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Balanced Sample Size and Power Calculation Tools
+Summary:          Offline Access to Taxonomic Databases
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-curl >= 2.4
+BuildRequires:    R-CRAN-magrittr >= 1.5
+BuildRequires:    R-CRAN-RSQLite >= 1.1.2
+BuildRequires:    R-CRAN-readr >= 1.1.1
+BuildRequires:    R-CRAN-dbplyr >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.0
+BuildRequires:    R-CRAN-DBI >= 0.6.1
+BuildRequires:    R-CRAN-hoardr >= 0.1.0
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-vroom 
+Requires:         R-CRAN-curl >= 2.4
+Requires:         R-CRAN-magrittr >= 1.5
+Requires:         R-CRAN-RSQLite >= 1.1.2
+Requires:         R-CRAN-readr >= 1.1.1
+Requires:         R-CRAN-dbplyr >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.0
+Requires:         R-CRAN-DBI >= 0.6.1
+Requires:         R-CRAN-hoardr >= 0.1.0
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-vroom 
 
 %description
-Implements sample size and power calculation methods with a focus on
-balance and fairness in study design, inspired by the Zoroastrian deity
-Rashnu, the judge who weighs truth. Supports survival analysis and various
-hypothesis testing frameworks.
+Download taxonomic databases, convert them into 'SQLite' format, and query
+them locally for fast, reliable, and reproducible access to taxonomic
+data.
 
 %prep
 %setup -q -c -n %{packname}

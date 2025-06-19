@@ -1,34 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rashnu
-%global packver   0.1.1
+%global packname  DPI
+%global packver   2025.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          2025.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Balanced Sample Size and Power Calculation Tools
+Summary:          The Directed Prediction Index
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-qgraph 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-qgraph 
 
 %description
-Implements sample size and power calculation methods with a focus on
-balance and fairness in study design, inspired by the Zoroastrian deity
-Rashnu, the judge who weighs truth. Supports survival analysis and various
-hypothesis testing frameworks.
+The Directed Prediction Index ('DPI') is a simulation-based and
+conservative method for quantifying the relative endogeneity (relative
+dependence) of outcome (Y) versus predictor (X) variables in multiple
+linear regression models. By comparing the proportion of variance
+explained (R-squared) between the Y-as-outcome model and the X-as-outcome
+model while controlling for a sufficient number of potential confounding
+variables, it suggests a more plausible influence direction from a more
+exogenous variable (X) to a more endogenous variable (Y). Methodological
+details are provided at <https://psychbruce.github.io/DPI/>.
 
 %prep
 %setup -q -c -n %{packname}

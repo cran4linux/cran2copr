@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gloBFPr
-%global packver   0.1.0
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access Global Building Height Datasets
 
@@ -22,13 +22,17 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-lwgeom 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-terra 
 Requires:         R-utils 
+Requires:         R-CRAN-lwgeom 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 
 %description
 Provides tools to access, search, and download global 3D building

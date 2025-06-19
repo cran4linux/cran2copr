@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3
-%global packver   0.23.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.23.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Machine Learning in R - Next Generation
 
@@ -14,18 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-checkmate >= 2.0.0
+BuildRequires:    R-CRAN-backports >= 1.5.0
 BuildRequires:    R-CRAN-future.apply >= 1.5.0
 BuildRequires:    R-CRAN-data.table >= 1.15.0
 BuildRequires:    R-CRAN-paradox >= 1.0.1
 BuildRequires:    R-CRAN-mlr3measures >= 1.0.0
 BuildRequires:    R-CRAN-lgr >= 0.3.4
-BuildRequires:    R-CRAN-mlr3misc >= 0.15.0
-BuildRequires:    R-CRAN-backports 
+BuildRequires:    R-CRAN-mlr3misc >= 0.17.0
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-evaluate 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-mlbench 
@@ -34,13 +35,14 @@ BuildRequires:    R-CRAN-palmerpenguins
 BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-checkmate >= 2.0.0
+Requires:         R-CRAN-backports >= 1.5.0
 Requires:         R-CRAN-future.apply >= 1.5.0
 Requires:         R-CRAN-data.table >= 1.15.0
 Requires:         R-CRAN-paradox >= 1.0.1
 Requires:         R-CRAN-mlr3measures >= 1.0.0
 Requires:         R-CRAN-lgr >= 0.3.4
-Requires:         R-CRAN-mlr3misc >= 0.15.0
-Requires:         R-CRAN-backports 
+Requires:         R-CRAN-mlr3misc >= 0.17.0
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-evaluate 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-mlbench 

@@ -1,34 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rashnu
-%global packver   0.1.1
+%global packname  wqc
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Balanced Sample Size and Power Calculation Tools
+Summary:          Wavelet Quantile Correlation Analysis
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-waveslim 
+BuildRequires:    R-CRAN-QCSIS 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-viridisLite 
+Requires:         R-CRAN-waveslim 
+Requires:         R-CRAN-QCSIS 
 Requires:         R-stats 
+Requires:         R-CRAN-lattice 
+Requires:         R-grid 
+Requires:         R-CRAN-viridisLite 
 
 %description
-Implements sample size and power calculation methods with a focus on
-balance and fairness in study design, inspired by the Zoroastrian deity
-Rashnu, the judge who weighs truth. Supports survival analysis and various
-hypothesis testing frameworks.
+Estimate and plot wavelet quantile correlations(Kumar and Padakandla,2022)
+between two time series. Wavelet quantile correlation is used to capture
+the dependency between two time series across quantiles and different
+frequencies. This method is useful in identifying potential hedges and
+safe-haven instruments for investment purposes. See Kumar and
+Padakandla(2022) <doi:10.1016/j.frl.2022.102707> for further details.
 
 %prep
 %setup -q -c -n %{packname}

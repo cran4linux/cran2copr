@@ -1,32 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libdeflate
-%global packver   1.24-0
+%global packname  STDistance
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.0
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          DEFLATE Compression and Static Library
+Summary:          Spatial Transcriptomics Distance Calculation and Visualization
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-Hmisc 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-Hmisc 
+Requires:         R-CRAN-scales 
+Requires:         R-stats 
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-tidyr 
 
 %description
-Whole-buffer DEFLATE-based compression and decompression of raw vectors
-using the 'libdeflate' library (see
-<https://github.com/ebiggers/libdeflate>). Provides the user with
-additional control over the speed and the quality of DEFLATE compression
-compared to the fixed level of compression offered in R's 'memCompress()'
-function. Also provides the 'libdeflate' static library and 'C' headers
-along with a 'CMake' target and 'package‑config' file that ease linking of
-'libdeflate' in packages that compile and statically link bundled
-libraries using 'CMake'.
+Analysis of spatial relationships between cell types in spatial
+transcriptomics data. Spatial proximity is a critical factor in cell-cell
+communication. The package calculates nearest neighbor distances between
+specified cell types and provides visualization tools to explore spatial
+patterns. Applications include studying cell-cell interactions, immune
+microenvironment characterization, and spatial organization of tissues.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  blocking
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Various Blocking Methods for Entity Resolution
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-mlpack
 BuildRequires:    R-CRAN-rnndescent 
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-RcppAlgos 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-utils 
@@ -38,7 +37,6 @@ Requires:         R-CRAN-mlpack
 Requires:         R-CRAN-rnndescent 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-RcppAlgos 
 Requires:         R-methods 
 Requires:         R-CRAN-readr 
 Requires:         R-utils 

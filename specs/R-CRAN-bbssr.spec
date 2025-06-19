@@ -1,34 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rashnu
-%global packver   0.1.1
+%global packname  bbssr
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Balanced Sample Size and Power Calculation Tools
+Summary:          Blinded Sample Size Re-Estimation for Binary Endpoints
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-fpCompare 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-DT 
+Requires:         R-CRAN-fpCompare 
 Requires:         R-stats 
 
 %description
-Implements sample size and power calculation methods with a focus on
-balance and fairness in study design, inspired by the Zoroastrian deity
-Rashnu, the judge who weighs truth. Supports survival analysis and various
-hypothesis testing frameworks.
+Provides comprehensive tools for blinded sample size re-estimation (BSSR)
+in two-arm clinical trials with binary endpoints. Unlike traditional
+fixed-sample designs, BSSR allows adaptive sample size adjustments during
+trials while maintaining statistical integrity and study blinding.
+Implements five exact statistical tests: Pearson chi-squared, Fisher
+exact, Fisher mid-p, Z-pooled exact unconditional, and Boschloo exact
+unconditional tests. Supports restricted, unrestricted, and weighted BSSR
+approaches with exact Type I error control. Statistical methods based on
+Mehrotra et al. (2003) <doi:10.1111/1541-0420.00051> and Kieser (2020)
+<doi:10.1007/978-3-030-49528-2_21>.
 
 %prep
 %setup -q -c -n %{packname}

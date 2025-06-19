@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesCureRateModel
-%global packver   1.3
+%global packver   1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3
+Version:          1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Cure Rate Modeling for Time-to-Event Data
 
@@ -43,7 +43,8 @@ Requires:         R-CRAN-flexsurv
 %description
 A fully Bayesian approach in order to estimate a general family of cure
 rate models under the presence of covariates, see Papastamoulis and
-Milienos (2024) <doi:10.1007/s11749-024-00942-w>. The promotion time can
+Milienos (2024) <doi:10.1007/s11749-024-00942-w> and Papastamoulis and
+Milienos (2024b) <doi:10.48550/arXiv.2409.10221>. The promotion time can
 be modelled (a) parametrically using typical distributional assumptions
 for time to event data (including the Weibull, Exponential, Gompertz,
 log-Logistic distributions), or (b) semiparametrically using finite

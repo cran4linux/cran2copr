@@ -1,27 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libimath
-%global packver   3.1.9-1
+%global packname  rdocdump
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.9.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'Imath' Computer Graphics Linear Algebra Static Library
+Summary:          Dump 'R' Package Source, Documentation, and Vignettes into One File
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildArch:        noarch
 
 %description
-Provides a static library for 'Imath' (see
-<https://github.com/AcademySoftwareFoundation/Imath>), a library for
-functions and data types common in computer graphics applications,
-including a 16-bit floating-point type.
+Dump source code, documentation and vignettes of an 'R' package into a
+single file. Supports installed packages, tar.gz archives, and package
+source directories. If the package is not installed, only its source is
+automatically downloaded from CRAN for processing. The output is a single
+plain text file or a character vector, which is useful to ingest complete
+package documentation and source into a large language model (LLM) or pass
+it further to other tools, such as 'ragnar'
+<https://github.com/tidyverse/ragnar> to create a Retrieval-Augmented
+Generation (RAG) workflow.
 
 %prep
 %setup -q -c -n %{packname}

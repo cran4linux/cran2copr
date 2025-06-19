@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  multiocc
-%global packver   0.2.1
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fits Multivariate Spatio-Temporal Occupancy Model
 
@@ -36,8 +36,7 @@ Requires:         R-CRAN-interp
 Spatio-temporal multivariate occupancy models can handle multiple species
 in occupancy models.  This method for fitting such models is described in
 Hepler and Erhardt (2021) "A spatiotemporal model for multivariate
-occupancy data"
-<https://onlinelibrary.wiley.com/doi/abs/10.1002/env.2657>.
+occupancy data".
 
 %prep
 %setup -q -c -n %{packname}
