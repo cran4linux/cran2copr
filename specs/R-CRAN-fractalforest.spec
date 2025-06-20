@@ -1,35 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nFactors
-%global packver   2.4.1.2
+%global packname  fractalforest
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Analysis and Other Non Graphical Solutions to the Cattell Scree Test
+Summary:          Simulate Fractal Trees and Forests
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-cowplot 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-cowplot 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-rlang 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-lattice 
+Requires:         R-utils 
 
 %description
-Indices, heuristics, simulations and strategies to help determine the
-number of factors/components to retain in exploratory factor analysis and
-principal component analysis.
+Create and visualize fractal trees and fractal forests, based on the
+Lindenmayer system (L-system). For more details see Lindenmayer (1968a)
+<doi:10.1016/0022-5193(68)90079-9> and Lindenmayer (1968b)
+<doi:10.1016/0022-5193(68)90080-5>.
 
 %prep
 %setup -q -c -n %{packname}

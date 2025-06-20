@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nFactors
-%global packver   2.4.1.2
+%global packname  QuantilePeer
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Analysis and Other Non Graphical Solutions to the Cattell Scree Test
+Summary:          Quantile Peer Effect Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.0
+BuildRequires:    R-CRAN-formula.tools 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-lattice 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppNumerical 
+Requires:         R-CRAN-Rcpp >= 1.0.0
+Requires:         R-CRAN-formula.tools 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-lattice 
 
 %description
-Indices, heuristics, simulations and strategies to help determine the
-number of factors/components to retain in exploratory factor analysis and
-principal component analysis.
+Simulating and estimating peer effect models including the quantile-based
+specification (Houndetoungan, 2025 <doi:10.48550/arXiv.2506.12920>), and
+the models with Constant Elasticity of Substitution (CES)-based social
+norm (Boucher et al., 2024 <doi:10.3982/ECTA21048>).
 
 %prep
 %setup -q -c -n %{packname}

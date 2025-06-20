@@ -1,56 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  OmopSketch
-%global packver   0.5.1
+%global packname  rextendr
+%global packver   0.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.4.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Characterise Tables of an OMOP Common Data Model Instance
+Summary:          Call Rust Code from R using the 'extendr' Crate
 
-License:          Apache License (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
+Recommends:       cargo
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-PatientProfiles >= 1.3.1
-BuildRequires:    R-CRAN-CDMConnector >= 1.3.0
-BuildRequires:    R-CRAN-omopgenerics >= 0.4.1
-BuildRequires:    R-CRAN-CohortConstructor >= 0.3.1
+BuildRequires:    R-CRAN-glue >= 1.7.0
+BuildRequires:    R-CRAN-pkgbuild >= 1.4.0
+BuildRequires:    R-CRAN-rlang >= 1.0.5
+BuildRequires:    R-CRAN-brio 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-clock 
+BuildRequires:    R-CRAN-desc 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-PatientProfiles >= 1.3.1
-Requires:         R-CRAN-CDMConnector >= 1.3.0
-Requires:         R-CRAN-omopgenerics >= 0.4.1
-Requires:         R-CRAN-CohortConstructor >= 0.3.1
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-glue >= 1.7.0
+Requires:         R-CRAN-pkgbuild >= 1.4.0
+Requires:         R-CRAN-rlang >= 1.0.5
+Requires:         R-CRAN-brio 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-clock 
+Requires:         R-CRAN-desc 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-vctrs 
+Requires:         R-CRAN-withr 
 
 %description
-Summarises key information in data mapped to the Observational Medical
-Outcomes Partnership (OMOP) common data model. Assess suitability to
-perform specific epidemiological studies and explore the different domains
-to obtain feasibility counts and trends.
+Provides functions to compile and load Rust code from R, similar to how
+'Rcpp' or 'cpp11' allow easy interfacing with C++ code. Also provides
+helper functions to create R packages that use Rust code. Under the hood,
+the Rust crate 'extendr' is used to do all the heavy lifting.
 
 %prep
 %setup -q -c -n %{packname}

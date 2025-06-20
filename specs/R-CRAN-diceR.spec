@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  diceR
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Diverse Cluster Ensemble in R
 
@@ -23,7 +23,6 @@ BuildRequires:    R-CRAN-assertthat
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-clue 
 BuildRequires:    R-CRAN-clusterCrit 
-BuildRequires:    R-CRAN-clv 
 BuildRequires:    R-CRAN-clValid 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
@@ -45,7 +44,6 @@ Requires:         R-CRAN-assertthat
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-clue 
 Requires:         R-CRAN-clusterCrit 
-Requires:         R-CRAN-clv 
 Requires:         R-CRAN-clValid 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 

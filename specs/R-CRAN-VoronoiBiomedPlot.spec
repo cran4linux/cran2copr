@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  VoronoiBiomedPlot
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Visualization Plots for Dimensionally Reduced Data
 
@@ -29,7 +29,7 @@ Creates visualization plots for 2D projected data including ellipse plots,
 Voronoi diagram plots, and combined ellipse-Voronoi plots. Designed to
 visualize class separation in dimensionally reduced data from techniques
 like principal component analysis (PCA), partial least squares
-discriminant analysis (PLS-DA) or others. For more details see Lötsch and
+discriminant analysis (PLS-DA) or others. For more details see Lotsch and
 Ultsch (2024) <doi:10.1016/j.imu.2024.101573>.
 
 %prep

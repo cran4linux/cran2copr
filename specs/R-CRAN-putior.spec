@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nFactors
-%global packver   2.4.1.2
+%global packname  putior
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Analysis and Other Non Graphical Solutions to the Cattell Scree Test
+Summary:          "Register In- and Outputs for Workflow Visualization"
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,19 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-lattice 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-tools 
+Requires:         R-tools 
 
 %description
-Indices, heuristics, simulations and strategies to help determine the
-number of factors/components to retain in exploratory factor analysis and
-principal component analysis.
+Provides tools for extracting and processing structured annotations from
+'R' and 'Python' source files to facilitate workflow visualization. The
+package scans source files for special 'PUT' annotations that define
+nodes, connections, and metadata within a data processing workflow. These
+annotations can then be used to generate visual representations of data
+flows and processing steps across polyglot software environments. Builds
+on concepts from literate programming Knuth (1984)
+<doi:10.1093/comjnl/27.2.97> and utilizes directed acyclic graph (DAG)
+theory for workflow representation Foraita, Spallek, and Zeeb (2014)
+<doi:10.1007/978-0-387-09834-0_65>. Diagram generation powered by
+'Mermaid' Sveidqvist (2014) <https://mermaid.js.org/>.
 
 %prep
 %setup -q -c -n %{packname}

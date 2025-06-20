@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nFactors
-%global packver   2.4.1.2
+%global packname  FunctionalCalibration
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Analysis and Other Non Graphical Solutions to the Cattell Scree Test
+Summary:          Aggregated Functional Data Calibration using Splines and Wavelets
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-lattice 
-Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-lattice 
+BuildRequires:    R-CRAN-wavethresh 
+Requires:         R-CRAN-wavethresh 
 
 %description
-Indices, heuristics, simulations and strategies to help determine the
-number of factors/components to retain in exploratory factor analysis and
-principal component analysis.
+Implements methods for calibrating an aggregated functional data model
+using wavelets or splines. Each aggregated curve is modeled as a linear
+combination of component functions and known weights. The component
+functions are estimated using wavelets or splines. The package is based on
+dos Santos Sousa (2024) <doi:10.1515/mcma-2023-2016> and Saraiva and Dias
+(2009) <doi:10.47749/T/UNICAMP.2009.471073>.
 
 %prep
 %setup -q -c -n %{packname}

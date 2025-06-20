@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PH1XBAR
-%global packver   0.11.2
+%global packver   0.11.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.11.2
+Version:          0.11.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Phase I Shewhart X-Bar Chart
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-VGAM 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-VGAM 
 
 %description
 The purpose of 'PH1XBAR' is to build a Phase I Shewhart control chart for

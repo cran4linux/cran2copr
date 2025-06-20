@@ -1,35 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  nFactors
-%global packver   2.4.1.2
+%global packname  eqtesting
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parallel Analysis and Other Non Graphical Solutions to the Cattell Scree Test
+Summary:          Equivalence Testing Functions
 
-License:          GPL-3
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-rdd 
+BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-psych 
-BuildRequires:    R-CRAN-lattice 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-rdd 
+Requires:         R-graphics 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-psych 
-Requires:         R-CRAN-lattice 
 
 %description
-Indices, heuristics, simulations and strategies to help determine the
-number of factors/components to retain in exploratory factor analysis and
-principal component analysis.
+Contains several functions for equivalence testing and practical
+significance testing. First, the tsti() command provides an automatic
+computation of three-sided testing results for a given estimate, standard
+error, and region of practical equivalence. For details, see Goeman,
+Solari, & Stijnen (2010) <doi:10.1002/sim.4002> and Isager & Fitzgerald
+(2024) <doi:10.31234/osf.io/8y925>. Second, the lddtest() command performs
+logarithmic density discontinuity equivalence testing for regression
+discontinuity designs. For reference, see Fitzgerald (2025)
+<doi:10.31222/osf.io/2dgrp_v1>.
 
 %prep
 %setup -q -c -n %{packname}

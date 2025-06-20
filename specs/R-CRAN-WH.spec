@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WH
-%global packver   1.1.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhanced Implementation of Whittaker-Henderson Smoothing
 
@@ -16,15 +16,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
-BuildArch:        noarch
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 
 %description
 An enhanced implementation of Whittaker-Henderson smoothing for the
-gradation of one-dimensional and two-dimensional actuarial tables used to
+graduation of one-dimensional and two-dimensional actuarial tables used to
 quantify Life Insurance risks. 'WH' is based on the methods described in
-Biessy (2023) <doi:10.48550/arXiv.2306.06932>. Among other features, it
+Biessy (2025) <doi:10.48550/arXiv.2306.06932>. Among other features, it
 generalizes the original smoothing algorithm to maximum likelihood
 estimation, automatically selects the smoothing parameter(s) and
 extrapolates beyond the range of data.
