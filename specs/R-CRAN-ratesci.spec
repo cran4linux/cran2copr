@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ratesci
-%global packver   0.5.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Confidence Intervals for Comparisons of Binomial or Poisson Rates
+Summary:          Confidence Intervals and Tests for Comparisons of Binomial Proportions or Poisson Rates
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,29 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-polynom 
-Requires:         R-CRAN-polynom 
 
 %description
-Computes confidence intervals for the rate (or risk) difference ('RD') or
+Computes confidence intervals for binomial or Poisson rates and their
+differences or ratios. Including the rate (or risk) difference ('RD') or
 rate ratio (or relative risk, 'RR') for binomial proportions or Poisson
-rates, or for odds ratio ('OR', binomial only). Also confidence intervals
-for a single binomial or Poisson rate, and intervals for matched pairs.
-Includes skewness-corrected asymptotic score ('SCAS') methods, which have
-been developed in Laud (2017) <doi:10.1002/pst.1813> from Miettinen &
-Nurminen (1985) <doi:10.1002/sim.4780040211> and Gart & Nam (1988)
-<doi:10.2307/2531848>. The same score produces hypothesis tests analogous
-to the test for binomial RD and RR by Farrington & Manning (1990)
-<doi:10.1002/sim.4780091208>, or the McNemar test for paired data. The
-package also includes MOVER methods (Method Of Variance Estimates
-Recovery) for all contrasts, derived from the Newcombe method but with
-options to use equal-tailed intervals in place of the Wilson score method,
-and generalised for Bayesian applications incorporating prior information.
-So-called 'exact' methods for strictly conservative coverage are
-approximated using continuity corrections, and the amount of correction
-can be selected to avoid over-conservative coverage. Also includes methods
-for stratified calculations (e.g. meta-analysis), either assuming fixed
-effects (matching the CMH test) or incorporating stratum heterogeneity.
+rates, and odds ratio ('OR', binomial only). Also confidence intervals for
+RD, RR or OR for paired binomial data, and estimation of a proportion from
+clustered binomial data. Includes skewness-corrected asymptotic score
+('SCAS') methods, which have been developed in Laud (2017)
+<doi:10.1002/pst.1813> from Miettinen and Nurminen (1985)
+<doi:10.1002/sim.4780040211> and Gart and Nam (1988)
+<doi:10.2307/2531848>, and in Laud (2025, under review) for paired
+proportions. The same score produces hypothesis tests that are improved
+versions of the non-inferiority test for binomial RD and RR by Farrington
+and Manning (1990) <doi:10.1002/sim.4780091208>, or a generalisation of
+the McNemar test for paired data. The package also includes MOVER methods
+(Method Of Variance Estimates Recovery) for all contrasts, derived from
+the Newcombe method but with options to use equal-tailed intervals in
+place of the Wilson score method, and generalised for Bayesian
+applications incorporating prior information. So-called 'exact' methods
+for strictly conservative coverage are approximated using continuity
+adjustments, and the amount of adjustment can be selected to avoid
+over-conservative coverage.  Also includes methods for stratified
+calculations (e.g. meta-analysis), either with fixed effect assumption
+(matching the CMH test) or incorporating stratum heterogeneity.
 
 %prep
 %setup -q -c -n %{packname}

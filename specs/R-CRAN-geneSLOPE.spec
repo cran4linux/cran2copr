@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geneSLOPE
-%global packver   0.38.2
+%global packver   0.38.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.38.2
+Version:          0.38.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Genome-Wide Association Study with SLOPE
 
@@ -33,12 +33,9 @@ Requires:         R-stats
 %description
 Genome-wide association study (GWAS) performed with SLOPE, short for
 Sorted L-One Penalized Estimation, a method for estimating the vector of
-coefficients in a linear model. In the first step of GWAS, single
-nucleotide polymorphisms (SNPs) are clumped according to their
-correlations and distances. Then, SLOPE is performed on the data where
-each clump has one representative. Malgorzata Bogdan, Ewout van den Berg,
-Chiara Sabatti, Weijie Su and Emmanuel Candes (2014) "SLOPE - Adaptive
-Variable Selection via Convex Optimization" <arXiv:1407.3824>.
+coefficients in linear model. In the first step of GWAS, SNPs are clumped
+according to their correlations and distances. Then, SLOPE is performed on
+data where each clump has one representative.
 
 %prep
 %setup -q -c -n %{packname}

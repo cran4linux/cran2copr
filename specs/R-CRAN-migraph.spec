@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  migraph
-%global packver   1.4.5
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.4.5
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Univariate and Multivariate Tests for Multimodal and Other Networks
+Summary:          Inferential Methods for Multimodal and Other Networks
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -22,14 +22,12 @@ BuildRequires:    R-CRAN-manynet >= 1.0.5
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-furrr 
 BuildRequires:    R-CRAN-generics 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-purrr 
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-manynet >= 1.0.5
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-furrr 
 Requires:         R-CRAN-generics 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-purrr 
 
 %description

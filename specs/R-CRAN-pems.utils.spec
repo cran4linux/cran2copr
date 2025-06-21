@@ -1,45 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GenomeAdmixR
-%global packver   2.1.12
+%global packname  pems.utils
+%global packver   0.3.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.12
+Version:          0.3.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simulate Admixture of Genomes
+Summary:          Portable Emissions (and Other Mobile) Measurement System Utilities
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-loa >= 0.3.1
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-methods 
+BuildRequires:    R-utils 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-baseline 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggridges 
-BuildRequires:    R-CRAN-hierfstat 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-vcfR 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-loa >= 0.3.1
+Requires:         R-CRAN-lattice 
+Requires:         R-methods 
+Requires:         R-utils 
+Requires:         R-grid 
+Requires:         R-CRAN-baseline 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggridges 
-Requires:         R-CRAN-hierfstat 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-vcfR 
+Requires:         R-CRAN-dplyr 
 
 %description
-Individual-based simulations forward in time, simulating how patterns in
-ancestry along the genome change after admixture. Full description can be
-found in Janzen (2021) <doi:10.1111/2041-210X.13612>.
+Utility functions for the handling, analysis and visualisation of data
+from portable emissions measurement systems ('PEMS') and other similar
+mobile activity monitoring devices. The package includes a dedicated
+'pems' data class that manages many of the quality control, unit handling
+and data archiving issues that can hinder efforts to standardise 'PEMS'
+research.
 
 %prep
 %setup -q -c -n %{packname}

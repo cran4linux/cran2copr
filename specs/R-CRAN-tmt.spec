@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmt
-%global packver   0.3.4-0
+%global packver   0.3.6-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4.0
+Version:          0.3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimation of the Rasch Model for Multistage Tests
 
@@ -31,9 +31,9 @@ Requires:         R-CRAN-rlang
 Provides conditional maximum likelihood (CML) item parameter estimation of
 both sequential and cumulative deterministic multistage designs (Zwitser &
 Maris, 2015, <doi:10.1007/s11336-013-9369-6>) and probabilistic sequential
-and cumulative multistage designs (Steinfeld & Robitzsch, 2021,
-<doi:10.31234/osf.io/ew27f>). Supports CML item parameter estimation of
-conventional linear designs and additional functions for the likelihood
+and cumulative multistage designs (Steinfeld & Robitzsch, 2024,
+<doi:10.1007/s41237-024-00228-3>). Supports CML item parameter estimation
+of conventional linear designs and additional functions for the likelihood
 ratio test (Andersen, 1973, <doi:10.1007/BF02291180>) as well as functions
 for simulating various types of multistage designs.
 

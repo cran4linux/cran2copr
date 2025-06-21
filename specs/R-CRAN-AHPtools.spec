@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AHPtools
-%global packver   0.3.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Consistency in the Analytic Hierarchy Process
 
@@ -17,6 +17,10 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-data.tree 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-data.tree 
 
 %description
 A Swiss Army knife of utility functions for users of the Analytic

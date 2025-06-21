@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SIMPLE.REGRESSION
-%global packver   0.2.3
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          OLS, Moderated, Logistic, and Count Regressions Made Simple
 
@@ -46,6 +46,8 @@ Factors and, if requested, regression coefficients from Bayesian Markov
 Chain Monte Carlo analyses. There are numerous options for model plots.
 The REGIONS_OF_SIGNIFICANCE function also provides Johnson-Neyman regions
 of significance and plots of interactions for both lm and lme models.
+There is also a function for partial and semipartial correlations and a
+function for conducting Cohen's set correlation analyses.
 
 %prep
 %setup -q -c -n %{packname}

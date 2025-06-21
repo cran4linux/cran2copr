@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fasterRaster
-%global packver   8.4.0.7
+%global packver   8.4.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.4.0.7
+Version:          8.4.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Faster Raster and Spatial Vector Processing Using 'GRASS GIS'
+Summary:          Faster Raster and Spatial Vector Processing Using 'GRASS'
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -42,12 +42,12 @@ Requires:         R-utils
 
 %description
 Processing of large-in-memory/large-on disk rasters and spatial vectors
-using 'GRASS GIS' <https://grass.osgeo.org/>. Most functions in the
-'terra' package are recreated. Processing of medium-sized and smaller
-spatial objects will nearly always be faster using 'terra' or 'sf', but
-for large-in-memory/large-on-disk objects, 'fasterRaster' may be faster.
-To use most of the functions, you must have the stand-alone version (not
-the 'OSGeoW4' installer version) of 'GRASS GIS' 8.0 or higher.
+using 'GRASS' <https://grass.osgeo.org/>. Most functions in the 'terra'
+package are recreated. Processing of medium-sized and smaller spatial
+objects will nearly always be faster using 'terra' or 'sf', but for
+large-in-memory/large-on-disk objects, 'fasterRaster' may be faster. To
+use most of the functions, you must have the stand-alone version (not the
+'OSGeoW4' installer version) of 'GRASS' 8.0 or higher.
 
 %prep
 %setup -q -c -n %{packname}

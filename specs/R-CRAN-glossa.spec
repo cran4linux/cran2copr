@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glossa
-%global packver   1.2.0
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          User-Friendly 'shiny' App for Bayesian Species Distribution Models
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bs4Dash 
 BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-automap 
 BuildRequires:    R-CRAN-blockCV 
 BuildRequires:    R-CRAN-dbarts 
 BuildRequires:    R-CRAN-dplyr 
@@ -26,7 +27,6 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-GeoThinneR 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-leaflet 
 BuildRequires:    R-CRAN-markdown 
 BuildRequires:    R-CRAN-mcp 
@@ -41,6 +41,7 @@ BuildRequires:    R-CRAN-waiter
 BuildRequires:    R-CRAN-zip 
 Requires:         R-CRAN-bs4Dash 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-automap 
 Requires:         R-CRAN-blockCV 
 Requires:         R-CRAN-dbarts 
 Requires:         R-CRAN-dplyr 
@@ -48,7 +49,6 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-GeoThinneR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-leaflet 
 Requires:         R-CRAN-markdown 
 Requires:         R-CRAN-mcp 

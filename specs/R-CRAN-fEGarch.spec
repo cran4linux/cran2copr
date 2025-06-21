@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fEGarch
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation of a Broad Family of EGARCH Models
+Summary:          SM/LM EGARCH & GARCH, VaR/ES Backtesting & Dual LM Extensions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -51,19 +51,25 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-numDeriv 
 
 %description
-Implement and fit a variety of models from a very broad family of
-exponential generalized autoregressive conditional heteroskedasticity
-(EGARCH) models, such as a MEGARCH (modified EGARCH), FIEGARCH
-(fractionally integrated EGARCH), FIMLog-GARCH (fractionally integrated
-modulus Log-GARCH), and more. The FIMLog-GARCH as part of the EGARCH
-family is discussed in Feng et al. (2023)
+Implement and fit a variety of short-memory (SM) and long-memory (LM)
+models from a very broad family of exponential generalized autoregressive
+conditional heteroskedasticity (EGARCH) models, such as a MEGARCH
+(modified EGARCH), FIEGARCH (fractionally integrated EGARCH), FIMLog-GARCH
+(fractionally integrated modulus Log-GARCH), and more. The FIMLog-GARCH as
+part of the EGARCH family is discussed in Feng et al. (2023)
 <https://econpapers.repec.org/paper/pdnciepap/156.htm>. For convenience
-and the purpose of comparison, a variety of other popular GARCH-type
-models, like an APARCH model, a fractionally integrated APARCH (FIAPARCH)
-model, standard GARCH and fractionally integrated GARCH (FIGARCH) models,
-GJR-GARCH and FIGJR-GARCH models, TGARCH and FITGARCH models, are
-implemented. Models are fitted through quasi-maximum-likelihood
-estimation.
+and the purpose of comparison, a variety of other popular SM and LM
+GARCH-type models, like an APARCH model, a fractionally integrated APARCH
+(FIAPARCH) model, standard GARCH and fractionally integrated GARCH
+(FIGARCH) models, GJR-GARCH and FIGJR-GARCH models, TGARCH and FITGARCH
+models, are implemented as well as dual models with simultaneous modelling
+of the mean, including dual long-memory models with a fractionally
+integrated autoregressive moving average (FARIMA) model in the mean and a
+long-memory model in the variance, and semiparametric volatility model
+extensions. Parametric models and parametric model parts are fitted
+through quasi-maximum-likelihood estimation. Furthermore, common
+forecasting and backtesting functions for value-at-risk (VaR) and expected
+shortfall (ES) based on the package's models are provided.
 
 %prep
 %setup -q -c -n %{packname}

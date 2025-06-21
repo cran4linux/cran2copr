@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tsnet
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fitting, Comparing, and Visualizing Networks Based on Time Series Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
 BuildRequires:    R-CRAN-rstantools >= 2.3.1.1
 BuildRequires:    R-CRAN-rstan >= 2.18.1
@@ -28,6 +28,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggdist 
 BuildRequires:    R-CRAN-ggokabeito 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-posterior 
 BuildRequires:    R-CRAN-rlang 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggdist 
 Requires:         R-CRAN-ggokabeito 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-loo 
 Requires:         R-methods 
 Requires:         R-CRAN-posterior 
 Requires:         R-CRAN-rlang 
