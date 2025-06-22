@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vmsae
-%global packver   0.1.1
+%global packname  geospt
+%global packver   1.0-6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Variational Multivariate Spatial Small Area Estimation
+Summary:          Geostatistical Analysis and Design of Optimal Spatial Sampling Networks
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,42 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-reticulate 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-genalg 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-plyr 
+BuildRequires:    R-CRAN-TeachingDemos 
+BuildRequires:    R-CRAN-sgeostat 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-reticulate 
+BuildRequires:    R-graphics 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-genalg 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-plyr 
+Requires:         R-CRAN-TeachingDemos 
+Requires:         R-CRAN-sgeostat 
+Requires:         R-grDevices 
+Requires:         R-stats 
 Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+Requires:         R-graphics 
+Requires:         R-utils 
 
 %description
-Variational Autoencoded Multivariate Spatial Fay-Herriot models are
-designed to efficiently estimate population parameters in small area
-estimation. This package implements the variational generalized
-multivariate spatial Fay-Herriot model (VGMSFH) using 'NumPyro' and
-'PyTorch' backends, as demonstrated by Wang, Parker, and Holan (2025)
-<doi:10.48550/arXiv.2503.14710>. The 'vmsae' package provides utility
-functions to load weights of the pretrained variational autoencoders
-(VAEs) as well as tools to train custom VAEs tailored to users specific
-applications.
+Estimation of the variogram through trimmed mean, radial basis functions
+(optimization, prediction and cross-validation), summary statistics from
+cross-validation, pocket plot, and design of optimal sampling networks
+through sequential and simultaneous points methods.
 
 %prep
 %setup -q -c -n %{packname}

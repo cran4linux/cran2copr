@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  patchwork
-%global packver   1.3.0
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Composer of Plots
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.0.0
 BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-gtable 
+BuildRequires:    R-CRAN-gtable >= 0.3.6
 BuildRequires:    R-grid 
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
@@ -29,7 +29,7 @@ BuildRequires:    R-CRAN-cli
 BuildRequires:    R-CRAN-farver 
 Requires:         R-CRAN-ggplot2 >= 3.0.0
 Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-gtable 
+Requires:         R-CRAN-gtable >= 0.3.6
 Requires:         R-grid 
 Requires:         R-stats 
 Requires:         R-grDevices 

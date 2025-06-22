@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SFDesign
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Space-Filling Designs
 
@@ -35,7 +35,8 @@ Construct various types of space-filling designs, including Latin
 hypercube designs, clustering-based designs, maximin designs, maximum
 projection designs, and uniform designs (Joseph 2016
 <doi:10.1080/08982112.2015.1100447>). It also offers the option to
-optimize designs based on user-defined criteria.
+optimize designs based on user-defined criteria. This work is supported by
+U.S. National Science Foundation grant DMS-2310637.
 
 %prep
 %setup -q -c -n %{packname}

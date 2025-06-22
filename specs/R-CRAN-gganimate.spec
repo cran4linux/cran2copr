@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gganimate
-%global packver   1.0.9
+%global packver   1.0.10
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          1.0.10
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Grammar of Animated Graphics
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
 BuildRequires:    R-CRAN-tweenr >= 2.0.3
 BuildRequires:    R-CRAN-transformr >= 0.1.5
 BuildRequires:    R-CRAN-cli 
@@ -31,7 +31,7 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
+Requires:         R-CRAN-ggplot2 >= 3.5.2
 Requires:         R-CRAN-tweenr >= 2.0.3
 Requires:         R-CRAN-transformr >= 0.1.5
 Requires:         R-CRAN-cli 

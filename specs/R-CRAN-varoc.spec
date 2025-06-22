@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  varoc
-%global packver   0.2.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Value Added Receiver Operating Characteristics Curve
 
@@ -32,8 +32,8 @@ Requires:         R-utils
 
 %description
 A continuous version of the receiver operating characteristics (ROC) curve
-to visualize and assess the classification and continuity performances of
-biomarkers, diagnostic tests, or risk prediction models.
+to assess both classification and continuity performances of biomarkers,
+diagnostic tests, or risk prediction models.
 
 %prep
 %setup -q -c -n %{packname}

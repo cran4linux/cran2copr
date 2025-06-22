@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kbal
-%global packver   0.1.2
+%global packname  geosptdb
+%global packver   1.0-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Kernel Balancing
+Summary:          Spatio-Temporal Radial Basis Functions with Distance-Based Methods (Optimization, Prediction and Cross Validation)
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,24 +16,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
-BuildRequires:    R-CRAN-Rcpp >= 0.11.0
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-RSpectra 
-Requires:         R-CRAN-RcppParallel >= 4.4.4
-Requires:         R-CRAN-Rcpp >= 0.11.0
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-RSpectra 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-FD 
+BuildRequires:    R-CRAN-StatMatch 
+BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-gsl 
+BuildRequires:    R-CRAN-geospt 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-FD 
+Requires:         R-CRAN-StatMatch 
+Requires:         R-CRAN-fields 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-gsl 
+Requires:         R-CRAN-geospt 
+Requires:         R-grDevices 
+Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-Provides a weighting approach that employs kernels to make one group have
-a similar distribution to another group on covariates. This method matches
-not only means or marginal distributions but also higher-order
-transformations implied by the choice of kernel. 'kbal' is applicable to
-both treatment effect estimation and survey reweighting problems. Based on
-Hazlett, C. (2020) "Kernel Balancing: A flexible non-parametric weighting
-procedure for estimating causal effects." Statistica Sinica.
-<https://www.researchgate.net/publication/299013953_Kernel_Balancing_A_flexible_non-parametric_weighting_procedure_for_estimating_causal_effects/stats>.
+Spatio-temporal radial basis functions (optimization, prediction and
+cross-validation), summary statistics from cross-validation, Adjusting
+distance-based linear regression model and generation of the principal
+coordinates of a new individual from Gower's distance.
 
 %prep
 %setup -q -c -n %{packname}

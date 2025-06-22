@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eDNAjoint
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Joint Modeling of Traditional and Environmental DNA Survey Data in a Bayesian Framework
 
@@ -57,7 +57,7 @@ replicated eDNA detection/nondetection data via polymerase chain reaction
 (i.e., PCR or qPCR) from multiple survey locations. Estimated parameters
 include probability of a false positive eDNA detection, a site-level
 covariates that scale the sensitivity of eDNA surveys relative to
-traditional surveys, and catchability coefficients for traditional gear
+traditional surveys, and gear scaling coefficients for traditional gear
 types. Models are implemented with a Bayesian framework (Markov chain
 Monte Carlo) using the 'Stan' probabilistic programming language.
 

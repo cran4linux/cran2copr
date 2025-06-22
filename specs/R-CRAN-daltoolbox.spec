@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolbox
-%global packver   1.2.707
+%global packver   1.2.717
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.707
+Version:          1.2.717
 Release:          1%{?dist}%{?buildtag}
 Summary:          Leveraging Experiment Lines to Data Analytics
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-FNN 
-BuildRequires:    R-CRAN-MLmetrics 
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-class 
 BuildRequires:    R-CRAN-cluster 
@@ -32,7 +31,6 @@ BuildRequires:    R-CRAN-randomForest
 BuildRequires:    R-CRAN-reshape 
 BuildRequires:    R-CRAN-tree 
 Requires:         R-CRAN-FNN 
-Requires:         R-CRAN-MLmetrics 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-class 
 Requires:         R-CRAN-cluster 
