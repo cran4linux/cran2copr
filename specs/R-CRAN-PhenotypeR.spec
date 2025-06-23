@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PhenotypeR
-%global packver   0.1.5
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assess Study Cohorts Using a Common Data Model
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-CodelistGenerator >= 3.4.0
 BuildRequires:    R-CRAN-IncidencePrevalence >= 1.2.0
 BuildRequires:    R-CRAN-omopgenerics >= 1.2.0
 BuildRequires:    R-CRAN-CohortCharacteristics >= 1.0.0
+BuildRequires:    R-CRAN-OmopSketch >= 0.5.0
 BuildRequires:    R-CRAN-CohortConstructor >= 0.4.0
-BuildRequires:    R-CRAN-OmopSketch >= 0.3.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-magrittr 
@@ -33,8 +33,8 @@ Requires:         R-CRAN-CodelistGenerator >= 3.4.0
 Requires:         R-CRAN-IncidencePrevalence >= 1.2.0
 Requires:         R-CRAN-omopgenerics >= 1.2.0
 Requires:         R-CRAN-CohortCharacteristics >= 1.0.0
+Requires:         R-CRAN-OmopSketch >= 0.5.0
 Requires:         R-CRAN-CohortConstructor >= 0.4.0
-Requires:         R-CRAN-OmopSketch >= 0.3.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-magrittr 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tspredit
-%global packver   1.2.707
+%global packver   1.2.727
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.707
+Version:          1.2.727
 Release:          1%{?dist}%{?buildtag}
 Summary:          Time Series Prediction with Integrated Tuning
 
