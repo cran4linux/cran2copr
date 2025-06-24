@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  psborrow
-%global packver   0.2.2
+%global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          0.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Dynamic Borrowing with Propensity Score
 
@@ -17,11 +17,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rjags 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-parallel 
@@ -29,11 +29,11 @@ BuildRequires:    R-CRAN-MatchIt
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-futile.logger 
 BuildRequires:    R-methods 
-Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-doParallel 
 Requires:         R-parallel 

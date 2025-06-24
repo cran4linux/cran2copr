@@ -1,33 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  carrier
-%global packver   0.2.0
+%global packname  SCE
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isolate Functions for Remote Execution
+Summary:          Stepwise Clustered Ensemble
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-lobstr 
+BuildRequires:    R-stats >= 3.5.0
+BuildRequires:    R-utils >= 3.5.0
+Requires:         R-stats >= 3.5.0
+Requires:         R-utils >= 3.5.0
 
 %description
-Sending functions to remote processes can be wasteful of resources because
-they carry their environments with them. With the carrier package, it is
-easy to create functions that are isolated from their environment. These
-isolated functions, also called crates, print at the console with their
-total size and can be easily tested locally before being sent to a remote.
+Implementation of Stepwise Clustered Ensemble (SCE) and Stepwise Cluster
+Analysis (SCA) for multivariate data analysis. The package provides
+comprehensive tools for feature selection, model training, prediction, and
+evaluation in hydrological and environmental modeling applications. Key
+functionalities include recursive feature elimination (RFE), Wilks feature
+importance analysis, model validation through out-of-bag (OOB) validation,
+and ensemble prediction capabilities. The package supports both single and
+multivariate response variables, making it suitable for complex
+environmental modeling scenarios. For more details see Li et al. (2021)
+<doi:10.5194/hess-25-4947-2021>.
 
 %prep
 %setup -q -c -n %{packname}

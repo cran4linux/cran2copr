@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3resampling
-%global packver   2025.3.30
+%global packver   2025.6.23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2025.3.30
+Version:          2025.6.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Resampling Algorithms for 'mlr3' Framework
 
-License:          GPL-3
+License:          LGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-R6
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-mlr3misc 
+BuildRequires:    R-CRAN-batchtools 
+BuildRequires:    R-CRAN-filelock 
 Requires:         R-CRAN-mlr3 >= 0.21.1
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-R6 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-mlr3misc 
+Requires:         R-CRAN-batchtools 
+Requires:         R-CRAN-filelock 
 
 %description
 A supervised learning algorithm inputs a train set, and outputs a
@@ -38,7 +42,7 @@ know if subsets are similar enough so that we can get accurate predictions
 on one subset, after training on Other subsets? And how do we know if
 training on All subsets would improve prediction accuracy, relative to
 training on the Same subset? SOAK, Same/Other/All K-fold cross-validation,
-<doi:10.48550/arXiv.2410.08643> can be used to answer these question, by
+<doi:10.48550/arXiv.2410.08643> can be used to answer these questions, by
 fixing a test subset, training models on Same/Other/All subsets, and then
 comparing test error rates (Same versus Other and Same versus All). Also
 provides code for estimating how many train samples are required to get

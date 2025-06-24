@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shapviz
-%global packver   0.10.0
+%global packver   0.10.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.10.0
+Version:          0.10.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          SHAP Visualizations
 
@@ -17,23 +17,23 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
+BuildRequires:    R-CRAN-patchwork >= 1.3.0
 BuildRequires:    R-CRAN-ggfittext >= 0.8.0
 BuildRequires:    R-CRAN-rlang >= 0.3.0
 BuildRequires:    R-CRAN-gggenes 
 BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xgboost 
-Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-ggplot2 >= 3.5.2
+Requires:         R-CRAN-patchwork >= 1.3.0
 Requires:         R-CRAN-ggfittext >= 0.8.0
 Requires:         R-CRAN-rlang >= 0.3.0
 Requires:         R-CRAN-gggenes 
 Requires:         R-CRAN-ggrepel 
 Requires:         R-grid 
-Requires:         R-CRAN-patchwork 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-xgboost 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  moveHMM
-%global packver   1.10
+%global packver   1.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10
+Version:          1.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Animal Movement Modelling using Hidden Markov Models
 
@@ -14,9 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-CircStats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-MASS 
@@ -26,7 +25,6 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-ggmap 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-CircStats 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-MASS 

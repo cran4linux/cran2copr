@@ -1,33 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  carrier
-%global packver   0.2.0
+%global packname  thamesmix
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isolate Functions for Remote Execution
+Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood for Mixtures
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-lobstr 
+BuildRequires:    R-CRAN-uniformly 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sparsediscrim 
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-CRAN-gor 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-combinat 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-uniformly 
+Requires:         R-stats 
+Requires:         R-CRAN-sparsediscrim 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-igraph 
+Requires:         R-CRAN-gor 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-combinat 
+Requires:         R-CRAN-withr 
 
 %description
-Sending functions to remote processes can be wasteful of resources because
-they carry their environments with them. With the carrier package, it is
-easy to create functions that are isolated from their environment. These
-isolated functions, also called crates, print at the console with their
-total size and can be easily tested locally before being sent to a remote.
+Implements the truncated harmonic mean estimator (THAMES) of the
+reciprocal marginal likelihood for uni- and multivariate mixture models
+using posterior samples and unnormalized log posterior values via
+reciprocal importance sampling. Metodiev, Irons, Perrot-Dockès, Latouche &
+Raftery (2025) <doi:10.48550/arXiv.2504.21812>.
 
 %prep
 %setup -q -c -n %{packname}

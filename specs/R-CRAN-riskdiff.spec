@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riskdiff
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Risk Difference Estimation with Multiple Link Functions
+Summary:          Risk Difference Estimation with Multiple Link Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -36,12 +36,16 @@ Requires:         R-stats
 Calculates risk differences (or prevalence differences for cross-sectional
 data) using generalized linear models with automatic link function
 selection. Provides robust model fitting with fallback methods, support
-for stratification and adjustment variables, and publication-ready output
-formatting. Handles model convergence issues gracefully and provides
-confidence intervals using multiple approaches. Methods are based on
-approaches described in Mark W. Donoghoe and Ian C. Marschner (2018)
+for stratification and adjustment variables, inverse probability of
+treatment weighting (IPTW) for causal inference, and publication-ready
+output formatting. Handles model convergence issues gracefully and
+provides confidence intervals using multiple approaches. Methods are based
+on approaches described in Mark W. Donoghoe and Ian C. Marschner (2018)
 "logbin: An R Package for Relative Risk Regression Using the Log-Binomial
-Model" <doi:10.18637/jss.v086.i09> for robust GLM fitting, and standard
+Model" <doi:10.18637/jss.v086.i09> for robust GLM fitting, Peter C. Austin
+(2011) "An Introduction to Propensity Score Methods for Reducing the
+Effects of Confounding in Observational Studies"
+<doi:10.1080/00273171.2011.568786> for IPTW methods, and standard
 epidemiological methods for risk difference estimation as described in
 Kenneth J. Rothman, Sander Greenland and Timothy L. Lash (2008,
 ISBN:9780781755641) "Modern Epidemiology".

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scStability
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring the Stability of Dimension Reduction and Cluster Assignment in scRNA-Seq Experiments
 
@@ -56,7 +56,7 @@ using either Louvain or Leiden algorithms and calculating the Normalized
 Mutual Information (NMI) between all pairs of cluster assignments. For
 background on UMAP and t-SNE algorithms, see McInnes et al. (2020,
 <doi:10.21105/joss.00861>) and van der Maaten & Hinton (2008,
-<https://lvdmaaten.github.io/tsne/>), respectively.
+<https://github.com/lvdmaaten/bhtsne>), respectively.
 
 %prep
 %setup -q -c -n %{packname}

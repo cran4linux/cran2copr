@@ -1,33 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  carrier
-%global packver   0.2.0
+%global packname  letsHerp
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isolate Functions for Remote Execution
+Summary:          An Interface to the Reptile Database
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-lobstr 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-pbapply 
+BuildRequires:    R-CRAN-pbmcapply 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-xml2 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-parallel 
+Requires:         R-CRAN-pbapply 
+Requires:         R-CRAN-pbmcapply 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
+Requires:         R-CRAN-xml2 
 
 %description
-Sending functions to remote processes can be wasteful of resources because
-they carry their environments with them. With the carrier package, it is
-easy to create functions that are isolated from their environment. These
-isolated functions, also called crates, print at the console with their
-total size and can be easily tested locally before being sent to a remote.
+Provides tools to retrieve and summarize taxonomic information and
+synonymy data for reptile species using data scraped from The Reptile
+Database website (<https://reptile-database.reptarium.cz/>). Outputs
+include clean and structured data frames useful for ecological,
+evolutionary, and conservation research.
 
 %prep
 %setup -q -c -n %{packname}

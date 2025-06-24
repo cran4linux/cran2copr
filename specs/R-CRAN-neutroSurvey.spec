@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  gimme
-%global packver   0.8.3
+%global packname  neutroSurvey
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Group Iterative Multiple Model Estimation
+Summary:          Neutrosophic Survey Data Analysis
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,38 +17,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-imputeTS >= 3.0
-BuildRequires:    R-CRAN-qgraph >= 1.9.8
-BuildRequires:    R-CRAN-igraph >= 1.0.0
-BuildRequires:    R-CRAN-lavaan >= 0.6.17
-BuildRequires:    R-CRAN-MIIVsem >= 0.5.4
-BuildRequires:    R-CRAN-data.tree 
-BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-moments 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-tseries 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-imputeTS >= 3.0
-Requires:         R-CRAN-qgraph >= 1.9.8
-Requires:         R-CRAN-igraph >= 1.0.0
-Requires:         R-CRAN-lavaan >= 0.6.17
-Requires:         R-CRAN-MIIVsem >= 0.5.4
-Requires:         R-CRAN-data.tree 
-Requires:         R-CRAN-nloptr 
-Requires:         R-graphics 
+Requires:         R-CRAN-moments 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-tseries 
-Requires:         R-utils 
 
 %description
-Data-driven approach for arriving at person-specific time series models.
-The method first identifies which relations replicate across the majority
-of individuals to detect signal from noise. These group-level relations
-are then used as a foundation for starting the search for person-specific
-(or individual-level) relations. See Gates & Molenaar (2012)
-<doi:10.1016/j.neuroimage.2012.06.026>.
+Apply neutrosophic regression type estimator and performs neutrosophic
+interval analysis including metric calculations for survey data.
 
 %prep
 %setup -q -c -n %{packname}

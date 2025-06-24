@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  loopevd
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Loop Functions for Extreme Value Distributions
 
@@ -22,11 +22,15 @@ BuildRequires:    R-CRAN-evd
 BuildRequires:    R-CRAN-ncdf4 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ismev 
+BuildRequires:    R-parallel 
 Requires:         R-CRAN-terra 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-ncdf4 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-ismev 
+Requires:         R-parallel 
 
 %description
 Performs extreme value analysis at multiple locations using functions from

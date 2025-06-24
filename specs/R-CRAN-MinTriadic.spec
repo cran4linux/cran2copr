@@ -1,33 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  carrier
-%global packver   0.2.0
+%global packname  MinTriadic
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isolate Functions for Remote Execution
+Summary:          Extension to the 'Lolog' Package for 'Triadic' Network Statistics
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-lobstr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 0.10.0
+BuildRequires:    R-CRAN-lolog 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.10.0
+Requires:         R-CRAN-lolog 
 
 %description
-Sending functions to remote processes can be wasteful of resources because
-they carry their environments with them. With the carrier package, it is
-easy to create functions that are isolated from their environment. These
-isolated functions, also called crates, print at the console with their
-total size and can be easily tested locally before being sent to a remote.
+Provides an extension to the 'lolog' package by introducing the
+minTriadicClosure() statistic to capture higher-order interactions among
+triplets of nodes. This function facilitates improved modelling of group
+formations and 'triadic' closure in networks. A smoothing parameter has
+been incorporated to avoid numerical errors.
 
 %prep
 %setup -q -c -n %{packname}

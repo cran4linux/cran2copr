@@ -1,44 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  opendataformat
-%global packver   2.2.0
+%global packname  midr
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reading and Writing Open Data Format Files
+Summary:          Learning from Black-Box Models by Maximum Interpretation Decomposition
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-zip 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-zip 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-RcppEigen 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-The Open Data Format (ODF) is a new, non-proprietary, multilingual,
-metadata enriched, and zip-compressed data format with metadata structured
-in the Data Documentation Initiative (DDI) Codebook standard. This package
-allows reading and writing of data files in the Open Data Format (ODF) in
-R, and displaying metadata in different languages. For further information
-on the Open Data Format, see <https://opendataformat.github.io/>.
+The goal of 'midr' is to provide a model-agnostic method for interpreting
+and explaining black-box predictive models by creating a globally
+interpretable surrogate model. The package implements 'Maximum
+Interpretation Decomposition' (MID), a functional decomposition technique
+that finds an optimal additive approximation of the original model. This
+approximation is achieved by minimizing the squared error between the
+predictions of the black-box model and the surrogate model. The
+theoretical foundations of MID are described in Iwasawa & Matsumori (2025)
+[Forthcoming], and the package itself is detailed in Asashiba et al.
+(2025) <doi:10.48550/arXiv.2506.08338>.
 
 %prep
 %setup -q -c -n %{packname}

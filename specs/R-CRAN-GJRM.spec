@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GJRM
-%global packver   0.2-6.7
+%global packver   0.2-6.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.6.7
+Version:          0.2.6.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Joint Regression Modelling
 
@@ -69,8 +69,7 @@ Requires:         R-CRAN-distrEx
 %description
 Routines for fitting various joint (and univariate) regression models,
 with several types of covariate effects, in the presence of equations'
-errors association, endogeneity, non-random sample selection or partial
-observability.
+errors association.
 
 %prep
 %setup -q -c -n %{packname}

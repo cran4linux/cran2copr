@@ -1,33 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  carrier
-%global packver   0.2.0
+%global packname  kerdiest
+%global packver   1.3-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Isolate Functions for Remote Execution
+Summary:          Nonparametric Kernel Estimation of Distribution Function
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 4.5.0
+Requires:         R-core >= 4.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-lobstr 
-Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-lobstr 
 
 %description
-Sending functions to remote processes can be wasteful of resources because
-they carry their environments with them. With the carrier package, it is
-easy to create functions that are isolated from their environment. These
-isolated functions, also called crates, print at the console with their
-total size and can be easily tested locally before being sent to a remote.
+Nonparametric kernel distribution function estimation is performed. Three
+bandwidth selectors are implemented: the plug-in selectors of Altman and
+Leger and of Polansky and Baker, and the cross-validation selector of
+Bowman, Hall and Prvan. The exceedance function, the mean return period
+and the return level are also computed. For details, see Quintela-del-Río
+and Estévez-Pérez (2012) <doi:10.18637/jss.v050.i08>.
 
 %prep
 %setup -q -c -n %{packname}

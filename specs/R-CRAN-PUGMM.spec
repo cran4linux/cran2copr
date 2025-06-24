@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PUGMM
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parsimonious Ultrametric Gaussian Mixture Models
 
@@ -37,15 +37,12 @@ Requires:         R-CRAN-mcompanion
 Requires:         R-CRAN-ppclust 
 
 %description
-Finite Gaussian mixture models with parsimonious extended ultrametric
-covariance structures estimated via a grouped coordinate ascent algorithm,
-which is equivalent to the Expectation-Maximization algorithm. The
-thirteen ultrametric covariance structures implemented allow for the
-inspection of different hierarchical relationships among variables. The
-estimation of an ultrametric correlation matrix is included as a function.
-The methodologies are described in Cavicchia, Vichi, Zaccaria (2024)
-<doi:10.1007/s11222-024-10405-9>, Cavicchia, Vichi, Zaccaria (2022)
-<doi:10.1007/s11634-021-00488-x> and Cavicchia, Vichi, Zaccaria (2020)
+Parsimonious Ultrametric Gaussian Mixture Models via grouped coordinate
+ascent (equivalent to EM) algorithm characterized by the inspection of
+hierarchical relationships among variables via parsimonious extended
+ultrametric covariance structures. The methodologies are described in
+Cavicchia, Vichi, Zaccaria (2024) <doi:10.1007/s11222-024-10405-9>, (2022)
+<doi:10.1007/s11634-021-00488-x> and (2020)
 <doi:10.1007/s11634-020-00400-z>.
 
 %prep

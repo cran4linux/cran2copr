@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  echos
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Echo State Networks for Time Series Modeling and Forecasting
 
@@ -17,27 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildRequires:    R-CRAN-Rcpp >= 1.0.3
+BuildRequires:    R-CRAN-fabletools >= 0.3.0
 BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-fabletools 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-distributional 
-BuildRequires:    R-CRAN-forecast 
 Requires:         R-CRAN-Rcpp >= 1.0.3
+Requires:         R-CRAN-fabletools >= 0.3.0
 Requires:         R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-fabletools 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-distributional 
-Requires:         R-CRAN-forecast 
 
 %description
 Provides a lightweight implementation of functions and methods for fast

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torch
-%global packver   0.14.2
+%global packver   0.15.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.14.2
+Version:          0.15.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tensors and Neural Networks with 'GPU' Acceleration
 

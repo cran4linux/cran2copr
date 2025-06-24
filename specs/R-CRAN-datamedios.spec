@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  datamedios
-%global packver   1.2.1
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scraping Chilean Media
 
@@ -32,6 +32,7 @@ BuildRequires:    R-CRAN-xml2
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-plotly 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-magrittr 
@@ -47,6 +48,7 @@ Requires:         R-CRAN-xml2
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-DT 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-plotly 
 
 %description
 A system for extracting news from Chilean media, specifically through Web
