@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pacta.loanbook
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easily Install and Load PACTA for Banks Packages
 
@@ -14,13 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-r2dii.data >= 0.6.0
+BuildRequires:    R-CRAN-r2dii.plot >= 0.5.2
 BuildRequires:    R-CRAN-r2dii.analysis >= 0.5.1
-BuildRequires:    R-CRAN-r2dii.plot >= 0.5.1
-BuildRequires:    R-CRAN-r2dii.match >= 0.4.0
+BuildRequires:    R-CRAN-r2dii.match >= 0.4.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggrepel 
@@ -32,9 +32,9 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyselect 
 Requires:         R-CRAN-r2dii.data >= 0.6.0
+Requires:         R-CRAN-r2dii.plot >= 0.5.2
 Requires:         R-CRAN-r2dii.analysis >= 0.5.1
-Requires:         R-CRAN-r2dii.plot >= 0.5.1
-Requires:         R-CRAN-r2dii.match >= 0.4.0
+Requires:         R-CRAN-r2dii.match >= 0.4.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggrepel 

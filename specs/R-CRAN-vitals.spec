@@ -1,64 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  EDCimport
-%global packver   0.6.0
+%global packname  vitals
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Import Data from EDC Software
+Summary:          Large Language Model Evaluation
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ellmer >= 0.2.1
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httpuv 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rstudioapi 
+BuildRequires:    R-CRAN-S7 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-ellmer >= 0.2.1
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-fs 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-httpuv 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-readr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-scales 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rstudioapi 
+Requires:         R-CRAN-S7 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-withr 
 
 %description
-A convenient toolbox to import data exported from Electronic Data Capture
-(EDC) software 'TrialMaster'.
+A port of 'Inspect', a widely adopted 'Python' framework for large
+language model evaluation. Specifically aimed at 'ellmer' users who want
+to measure the effectiveness of their large language model-based products,
+the package supports prompt engineering, tool usage, multi-turn dialog,
+and model graded evaluations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppRedis
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Bindings for 'Redis' using the 'hiredis' Library
 
@@ -25,10 +25,10 @@ Requires:         R-CRAN-RApiSerialize >= 0.1.4
 Requires:         R-methods 
 
 %description
-Connection to the 'Redis' key/value store using the C-language client
-library 'hiredis' (included as a fallback) with 'MsgPack' encoding
-provided via 'RcppMsgPack' headers. It now also includes the pub/sub
-functions from the 'rredis' package.
+Connection to the 'Redis' (or 'Valkey') key/value store using the
+C-language client library 'hiredis' (included as a fallback) with
+'MsgPack' encoding provided via 'RcppMsgPack' headers. It now also
+includes the pub/sub functions from the 'rredis' package.
 
 %prep
 %setup -q -c -n %{packname}

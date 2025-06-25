@@ -1,40 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eNchange
-%global packver   1.1
+%global packname  limSolve
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Multiple Change-Point Detection
+Summary:          Solving Linear Inverse Models
 
-License:          GPL (>= 2)
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-hawkes 
-BuildRequires:    R-CRAN-ACDm 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-hawkes 
-Requires:         R-CRAN-ACDm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildRequires:    R-CRAN-quadprog 
+BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-CRAN-quadprog 
+Requires:         R-CRAN-lpSolve 
+Requires:         R-CRAN-MASS 
 
 %description
-Implements a segmentation algorithm for multiple change-point detection in
-univariate time series using the Ensemble Binary Segmentation of Korkas
-(2022) <Journal of the Korean Statistical Society, 51(1), pp.65-86.>.
+Functions that (1) find the minimum/maximum of a linear or quadratic
+function: min or max (f(x)), where f(x) = ||Ax-b||^2 or f(x) =
+sum(a_i*x_i) subject to equality constraints Ex=f and/or inequality
+constraints Gx>=h, (2) sample an underdetermined- or overdetermined system
+Ex=f subject to Gx>=h, and if applicable Ax~=b, (3) solve a linear system
+Ax=B for the unknown x. It includes banded and tridiagonal linear systems.
 
 %prep
 %setup -q -c -n %{packname}

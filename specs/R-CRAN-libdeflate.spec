@@ -1,40 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eNchange
-%global packver   1.1
+%global packname  libdeflate
+%global packver   1.24-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.24.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Multiple Change-Point Detection
+Summary:          DEFLATE Compression and Static Library
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-hawkes 
-BuildRequires:    R-CRAN-ACDm 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-hawkes 
-Requires:         R-CRAN-ACDm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Implements a segmentation algorithm for multiple change-point detection in
-univariate time series using the Ensemble Binary Segmentation of Korkas
-(2022) <Journal of the Korean Statistical Society, 51(1), pp.65-86.>.
+Whole-buffer DEFLATE-based compression and decompression of raw vectors
+using the 'libdeflate' library (see
+<https://github.com/ebiggers/libdeflate>). Provides the user with
+additional control over the speed and the quality of DEFLATE compression
+compared to the fixed level of compression offered in R's 'memCompress()'
+function. Also provides the 'libdeflate' static library and 'C' headers
+along with a 'CMake' target and 'package‑config' file that ease linking of
+'libdeflate' in packages that compile and statically link bundled
+libraries using 'CMake'.
 
 %prep
 %setup -q -c -n %{packname}

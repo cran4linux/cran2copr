@@ -1,40 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eNchange
-%global packver   1.1
+%global packname  ggmRSCU
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Multiple Change-Point Detection
+Summary:          Visualizing Multi-Species Relative Synonymous Codon Usage and Extensible Data Exploration
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-hawkes 
-BuildRequires:    R-CRAN-ACDm 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-hawkes 
-Requires:         R-CRAN-ACDm 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Implements a segmentation algorithm for multiple change-point detection in
-univariate time series using the Ensemble Binary Segmentation of Korkas
-(2022) <Journal of the Korean Statistical Society, 51(1), pp.65-86.>.
+Facilitates efficient visualization of Relative Synonymous Codon Usage
+patterns across species. Based on analytical outputs from 'codonW',
+'MEGA', and 'Phylosuite', it supports multi-species 'RSCU' comparisons and
+allows users to explore visual analysis of structurally similar datasets.
 
 %prep
 %setup -q -c -n %{packname}

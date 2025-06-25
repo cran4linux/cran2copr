@@ -1,40 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eNchange
-%global packver   1.1
+%global packname  OpenBARD
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Multiple Change-Point Detection
+Summary:          Open British Arboricultural Record Dataset
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-hawkes 
-BuildRequires:    R-CRAN-ACDm 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-hawkes 
-Requires:         R-CRAN-ACDm 
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
+BuildArch:        noarch
 
 %description
-Implements a segmentation algorithm for multiple change-point detection in
-univariate time series using the Ensemble Binary Segmentation of Korkas
-(2022) <Journal of the Korean Statistical Society, 51(1), pp.65-86.>.
+Data used in compiling the Handbook of UK Urban Tree Allometric Equations
+and Size Characteristics (Fennel 2024). The data include measurements of
+height, crown radius and diameter at breast height (DBH) for UK urban
+trees. For more details see Fennell (2024) Handbook of UK Urban Tree
+Allometric Equations and Size Characteristics (Version 1.4).
+<doi:10.13140/RG.2.2.28745.04961>.
 
 %prep
 %setup -q -c -n %{packname}

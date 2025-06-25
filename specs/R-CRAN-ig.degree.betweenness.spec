@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ig.degree.betweenness
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          "Smith-Pittman Community Detection Algorithm for 'igraph' Objects (2024)"
 
@@ -22,11 +22,19 @@ BuildRequires:    R-CRAN-igraphdata
 BuildRequires:    R-CRAN-rlist 
 BuildRequires:    R-CRAN-BBmisc 
 BuildRequires:    R-CRAN-qgraph 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-igraph 
 Requires:         R-CRAN-igraphdata 
 Requires:         R-CRAN-rlist 
 Requires:         R-CRAN-BBmisc 
 Requires:         R-CRAN-qgraph 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Implements the "Smith-Pittman" community detection algorithm for network

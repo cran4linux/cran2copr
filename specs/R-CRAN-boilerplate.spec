@@ -1,40 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eNchange
-%global packver   1.1
+%global packname  boilerplate
+%global packver   1.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1
+Version:          1.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ensemble Methods for Multiple Change-Point Detection
+Summary:          Managing and Compiling Manuscript Templates
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 0.12.12
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-iterators 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-hawkes 
-BuildRequires:    R-CRAN-ACDm 
-Requires:         R-CRAN-Rcpp >= 0.12.12
-Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-iterators 
-Requires:         R-CRAN-doParallel 
-Requires:         R-methods 
-Requires:         R-CRAN-hawkes 
-Requires:         R-CRAN-ACDm 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-jsonvalidate 
+BuildRequires:    R-tools 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-jsonvalidate 
+Requires:         R-tools 
+Requires:         R-utils 
 
 %description
-Implements a segmentation algorithm for multiple change-point detection in
-univariate time series using the Ensemble Binary Segmentation of Korkas
-(2022) <Journal of the Korean Statistical Society, 51(1), pp.65-86.>.
+Managing and generating standardised text for methods and results sections
+of scientific reports. It handles template variable substitution and
+supports hierarchical organisation of text through dot-separated paths.
+The package supports both RDS and JSON database formats, enabling version
+control and cross-language compatibility.
 
 %prep
 %setup -q -c -n %{packname}

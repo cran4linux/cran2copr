@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mlr3fairness
-%global packver   0.3.2
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fairness Auditing and Debiasing for 'mlr3'
 
@@ -19,33 +19,33 @@ Requires:         R-core >= 3.4.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-R6 >= 2.4.1
 BuildRequires:    R-CRAN-data.table >= 1.13.6
-BuildRequires:    R-CRAN-mlr3 >= 0.13.0
+BuildRequires:    R-CRAN-mlr3 >= 0.23.0.9000
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-paradox 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-mlr3learners 
 BuildRequires:    R-CRAN-mlr3measures 
 BuildRequires:    R-CRAN-mlr3misc 
 BuildRequires:    R-CRAN-mlr3pipelines 
-BuildRequires:    R-CRAN-mlr3learners 
+BuildRequires:    R-CRAN-paradox 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-R6 >= 2.4.1
 Requires:         R-CRAN-data.table >= 1.13.6
-Requires:         R-CRAN-mlr3 >= 0.13.0
+Requires:         R-CRAN-mlr3 >= 0.23.0.9000
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-paradox 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-mlr3learners 
 Requires:         R-CRAN-mlr3measures 
 Requires:         R-CRAN-mlr3misc 
 Requires:         R-CRAN-mlr3pipelines 
-Requires:         R-CRAN-mlr3learners 
+Requires:         R-CRAN-paradox 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 
 
 %description
 Integrates fairness auditing and bias mitigation methods for the 'mlr3'
-ecosystem. This includes fairness metrics, reporting tools, visualizations
-and bias mitigation techniques such as "Reweighing" described in 'Kamiran,
-Calders' (2012) <doi:10.1007/s10115-011-0463-8> and "Equalized Odds"
-described in 'Hardt et al.' (2016)
+ecosystem.  This includes fairness metrics, reporting tools,
+visualizations and bias mitigation techniques such as "Reweighing"
+described in 'Kamiran, Calders' (2012) <doi:10.1007/s10115-011-0463-8> and
+"Equalized Odds" described in 'Hardt et al.' (2016)
 <https://papers.nips.cc/paper/2016/file/9d2682367c3935defcb1f9e247a97c0d-Paper.pdf>.
 Integration with 'mlr3' allows for auditing of ML models as well as
 convenient joint tuning of machine learning algorithms and debiasing

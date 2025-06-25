@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bartXViz
-%global packver   1.0.3
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualization of BART and BARP using SHAP
 
@@ -63,19 +63,23 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-missForest 
 
 %description
-The contribution of variables in Bayesian Additive Regression Trees (BART)
-and Bayesian Additive Regression Trees with Post-Stratification (BARP)
-models is computed using permutation-based Shapley values. The computed
-SHAP values are then utilized to visualize the contribution of each
-variable through various plots. The computation of SHAP values for most
-models follows the methodology proposed by Strumbel and Kononenko (2014)
-<doi:10.1007/s10115-013-0679-x>, while for XGBoost, the approach
-introduced by Lundberg et al. (2020) <doi:10.1038/s42256-019-0138-9> was
-also considered. The BART model was referenced based on the works of
-Chipman, George, and McCulloch (2010) <doi:10.1214/09-AOAS285> and
-Kapelner and Bleich (2013) <doi:10.18637/jss.v070.i04>, while the
-methodology for the BARP model was based on Bisbee (2019)
-<doi:10.1017/S0003055419000480>.
+Complex machine learning models are often difficult to interpret. Shapley
+values serve as a powerful tool to understand and explain why a model
+makes a particular prediction. This package computes variable
+contributions using permutation-based Shapley values for Bayesian Additive
+Regression Trees (BART) and its extension with Post-Stratification (BARP).
+The permutation-based SHAP method proposed by Strumbel and Kononenko
+(2014) <doi:10.1007/s10115-013-0679-x> is grounded in data obtained via
+MCMC sampling. Similar to the BART model introduced by Chipman, George,
+and McCulloch (2010) <doi:10.1214/09-AOAS285>, this package leverages
+Bayesian posterior samples generated during model estimation, allowing
+variable contributions to be computed without requiring additional
+sampling. For XGBoost and baseline adjustments, the approach by Lundberg
+et al. (2020) <doi:10.1038/s42256-019-0138-9> is also considered.The BARP
+model proposed by Bisbee (2019) <doi:10.1017/S0003055419000480> extends
+post-stratification by computing variable contributions within each
+stratum defined by stratifying variables. The resulting Shapley values are
+visualized through both global and local explanation methods.
 
 %prep
 %setup -q -c -n %{packname}

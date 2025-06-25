@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ssifs
-%global packver   1.0.4
+%global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Stochastic Search Inconsistency Factor Selection
 
@@ -25,7 +25,6 @@ BuildRequires:    R-CRAN-netmeta >= 3.0.2
 BuildRequires:    R-CRAN-Rdpack >= 2.3
 BuildRequires:    R-CRAN-plyr >= 1.8.7
 BuildRequires:    R-CRAN-igraph >= 1.3.1
-BuildRequires:    R-CRAN-RevEcoR >= 0.99.3
 BuildRequires:    R-CRAN-R2jags >= 0.7.1
 Requires:         R-CRAN-meta >= 8.0.1
 Requires:         R-utils >= 4.2.0
@@ -35,7 +34,6 @@ Requires:         R-CRAN-netmeta >= 3.0.2
 Requires:         R-CRAN-Rdpack >= 2.3
 Requires:         R-CRAN-plyr >= 1.8.7
 Requires:         R-CRAN-igraph >= 1.3.1
-Requires:         R-CRAN-RevEcoR >= 0.99.3
 Requires:         R-CRAN-R2jags >= 0.7.1
 
 %description
