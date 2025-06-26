@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lares
-%global packver   5.2.13
+%global packver   5.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.2.13
+Version:          5.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Analytics & Machine Learning Sidekick
+Summary:          Lean Analytics and Robust Exploration Sidekick
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,36 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rpart >= 4.1.0
+BuildRequires:    R-CRAN-openxlsx >= 3.5.10
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-rpart.plot >= 3.1.0
+BuildRequires:    R-CRAN-yaml >= 2.2.4
+BuildRequires:    R-CRAN-jsonlite >= 1.8.0
+BuildRequires:    R-CRAN-lubridate >= 1.7.9
+BuildRequires:    R-CRAN-httr >= 1.4.3
+BuildRequires:    R-CRAN-stringr >= 1.4.2
+BuildRequires:    R-CRAN-patchwork >= 1.3.0
+BuildRequires:    R-CRAN-pROC >= 1.18.5
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-rvest >= 1.0.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-openxlsx 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-pROC 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-rpart 
-BuildRequires:    R-CRAN-rpart.plot 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-rlang >= 0.6.3
+Requires:         R-CRAN-rpart >= 4.1.0
+Requires:         R-CRAN-openxlsx >= 3.5.10
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-rpart.plot >= 3.1.0
+Requires:         R-CRAN-yaml >= 2.2.4
+Requires:         R-CRAN-jsonlite >= 1.8.0
+Requires:         R-CRAN-lubridate >= 1.7.9
+Requires:         R-CRAN-httr >= 1.4.3
+Requires:         R-CRAN-stringr >= 1.4.2
+Requires:         R-CRAN-patchwork >= 1.3.0
+Requires:         R-CRAN-pROC >= 1.18.5
 Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-rvest >= 1.0.0
 Requires:         R-CRAN-tidyr >= 1.0.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-openxlsx 
-Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-pROC 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-rpart 
-Requires:         R-CRAN-rpart.plot 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-yaml 
+Requires:         R-CRAN-rlang >= 0.6.3
 
 %description
 Auxiliary package for better/faster analytics, visualization, data mining,

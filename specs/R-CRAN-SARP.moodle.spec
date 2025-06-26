@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  SARP.moodle
-%global packver   1.0.4
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.4
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          XML Output Functions for Easy Creation of Moodle Questions
 
@@ -18,9 +18,11 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-magick 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-magick 
 Requires:         R-stats 
 Requires:         R-utils 
 

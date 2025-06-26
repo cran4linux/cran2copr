@@ -1,58 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bvhar
-%global packver   2.3.0
+%global packname  kvkapiR
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Bayesian Vector Heterogeneous Autoregressive Modeling
+Summary:          Interface to the Dutch Chamber of Commerce (KvK) API
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-CRAN-BH >= 1.87.0.0
-BuildRequires:    R-CRAN-RcppEigen >= 0.3.4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 0.10.0
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-optimParallel 
-BuildRequires:    R-CRAN-posterior 
-BuildRequires:    R-CRAN-bayesplot 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-RcppSpdlog 
-BuildRequires:    R-CRAN-RcppThread 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-Rcpp >= 0.10.0
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
-Requires:         R-CRAN-optimParallel 
-Requires:         R-CRAN-posterior 
-Requires:         R-CRAN-bayesplot 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
 
 %description
-Tools to model and forecast multivariate time series including Bayesian
-Vector heterogeneous autoregressive (VHAR) model by Kim & Baek (2023)
-(<doi:10.1080/00949655.2023.2281644>). 'bvhar' can model Vector
-Autoregressive (VAR), VHAR, Bayesian VAR (BVAR), and Bayesian VHAR (BVHAR)
-models.
+Access business registration data from the Dutch Chamber of Commerce
+(Kamer van Koophandel, KvK) through their official API
+<https://developers.kvk.nl/>. Search for companies by name, location, or
+registration number. Retrieve detailed business profiles, establishment
+information, and company name histories. Built on 'httr2' for robust API
+interaction with automatic pagination, error handling, and usage tracking.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survcompare
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nested Cross-Validation to Compare Cox-PH, Cox-Lasso, Survival Random Forests
 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-timeROC
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-randomForestSRC 
+BuildRequires:    R-CRAN-missForestPredict 
 Requires:         R-CRAN-survival >= 3.0
 Requires:         R-stats 
 Requires:         R-CRAN-timeROC 
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-randomForestSRC 
+Requires:         R-CRAN-missForestPredict 
 
 %description
 Performs repeated nested cross-validation for Cox Proportionate Hazards,

@@ -1,42 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vol2birdR
-%global packver   1.1.1
+%global packname  psgp
+%global packver   0.3-22
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.3.22
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vertical Profiles of Biological Signals in Weather Radar Data
+Summary:          Projected Spatial Gaussian Process Methods
 
-License:          LGPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.0
+BuildRequires:    R-CRAN-intamap 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-automap 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-intamap 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-automap 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 
 %description
-'R' implementation of the 'vol2bird' software for generating vertical
-profiles of birds and other biological signals in weather radar data. See
-Dokter et al. (2011) <doi:10.1098/rsif.2010.0116> for a paper describing
-the methodology.
+Implements projected sparse Gaussian process Kriging ('Ingram et. al.',
+2008, <doi:10.1007/s00477-007-0163-9>) as an additional method for the
+'intamap' package. More details on implementation ('Barillec et. al.',
+2010, <doi:10.1016/j.cageo.2010.05.008>).
 
 %prep
 %setup -q -c -n %{packname}

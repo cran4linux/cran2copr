@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scoringutils
-%global packver   2.1.0
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Utilities for Scoring and Assessing Predictions
 
@@ -14,26 +14,26 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0
-Requires:         R-core >= 4.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
 BuildRequires:    R-CRAN-data.table >= 1.16.0
+BuildRequires:    R-CRAN-scoringRules >= 1.1.3
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Metrics 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-scoringRules 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-ggplot2 >= 3.4.0
 Requires:         R-CRAN-data.table >= 1.16.0
+Requires:         R-CRAN-scoringRules >= 1.1.3
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-methods 
 Requires:         R-CRAN-Metrics 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-scoringRules 
 Requires:         R-stats 
 
 %description

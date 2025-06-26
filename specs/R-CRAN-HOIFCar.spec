@@ -1,42 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vol2birdR
-%global packver   1.1.1
+%global packname  HOIFCar
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vertical Profiles of Biological Signals in Weather Radar Data
+Summary:          Covariate Adjustment in RCT by Higher-Order Influence Functions
 
-License:          LGPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
 
 %description
-'R' implementation of the 'vol2bird' software for generating vertical
-profiles of birds and other biological signals in weather radar data. See
-Dokter et al. (2011) <doi:10.1098/rsif.2010.0116> for a paper describing
-the methodology.
+Estimates treatment effects using covariate adjustment methods in
+Randomized Clinical Trials (RCT) motivated by higher-order influence
+functions (HOIF). Provides point estimates, oracle bias, variance, and
+approximate variance for HOIF-adjusted estimators. For methodology
+details, see Zhao et al. (2024) <doi:10.48550/arXiv.2411.08491>.
 
 %prep
 %setup -q -c -n %{packname}

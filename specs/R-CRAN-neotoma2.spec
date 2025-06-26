@@ -1,52 +1,64 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  denguedatahub
-%global packver   3.2.0
+%global packname  neotoma2
+%global packver   1.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2.0
+Version:          1.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Tidy Format Datasets of Dengue by Country
+Summary:          Working with the Neotoma Paleoecology Database
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 0.4.11
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-rvest 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-here 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-geojsonsf 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-tabulapdf 
-Requires:         R-CRAN-rlang >= 0.4.11
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-rvest 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-gtools 
+BuildRequires:    R-CRAN-leaflet 
+BuildRequires:    R-CRAN-assertthat 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-progress 
+BuildRequires:    R-CRAN-wk 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-here 
-Requires:         R-utils 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-geojsonsf 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-tabulapdf 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-methods 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-gtools 
+Requires:         R-CRAN-leaflet 
+Requires:         R-CRAN-assertthat 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-progress 
+Requires:         R-CRAN-wk 
+Requires:         R-CRAN-uuid 
+Requires:         R-utils 
+Requires:         R-CRAN-tidyr 
 
 %description
-Provides a weekly, monthly, yearly summary of dengue cases by state/
-province/ country.
+Access and manipulation of data using the Neotoma Paleoecology Database.
+<https://api.neotomadb.org/api-docs/>.
 
 %prep
 %setup -q -c -n %{packname}

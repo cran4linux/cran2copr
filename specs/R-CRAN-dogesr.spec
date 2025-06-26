@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dogesr
-%global packver   0.5.0
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Work with the Doges/Dogaresse Dataset
 
@@ -37,7 +37,7 @@ Requires:         R-CRAN-rmarkdown
 %description
 Work with data on Venetian doges and dogaresse and the noble families of
 the Republic of Venice, and use it for social network analysis, as used in
-Merelo (2022) <arXiv:2209.07334>.
+Merelo (2022) <doi:10.48550/arXiv.2209.07334>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,42 +1,54 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  vol2birdR
-%global packver   1.1.1
+%global packname  GOCompare
+%global packver   1.0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.0.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vertical Profiles of Biological Signals in Weather Radar Data
+Summary:          Comprehensive GO Terms Comparison Between Species
 
-License:          LGPL (>= 3)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
-BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-pkgbuild 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-RcppGSL 
-Requires:         R-CRAN-Rcpp >= 1.0.4
-Requires:         R-CRAN-assertthat 
-Requires:         R-methods 
-Requires:         R-CRAN-pkgbuild 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+BuildArch:        noarch
+BuildRequires:    R-base >= 3.5
+BuildRequires:    R-utils >= 3.5
+BuildRequires:    R-methods >= 3.5
+BuildRequires:    R-stats 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ape 
+BuildRequires:    R-CRAN-vegan 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-igraph 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-mathjaxr 
+Requires:         R-base >= 3.5
+Requires:         R-utils >= 3.5
+Requires:         R-methods >= 3.5
+Requires:         R-stats 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ape 
+Requires:         R-CRAN-vegan 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-igraph 
+Requires:         R-parallel 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-mathjaxr 
 
 %description
-'R' implementation of the 'vol2bird' software for generating vertical
-profiles of birds and other biological signals in weather radar data. See
-Dokter et al. (2011) <doi:10.1098/rsif.2010.0116> for a paper describing
-the methodology.
+Supports the assessment of functional enrichment analyses obtained for
+several lists of genes and provides a workflow to analyze them between two
+species via weighted graphs. Methods are described in Sosa et al. (2023)
+<doi:10.1016/j.ygeno.2022.110528>.
 
 %prep
 %setup -q -c -n %{packname}

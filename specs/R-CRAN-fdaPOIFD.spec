@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fdaPOIFD
-%global packver   1.0.3
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partially Observed Integrated Functional Depth
 
@@ -16,31 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-fdapace 
-BuildRequires:    R-CRAN-FastGP 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-igraph 
+Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-patchwork 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-fdapace 
-Requires:         R-CRAN-FastGP 
-Requires:         R-stats 
+Requires:         R-CRAN-igraph 
 
 %description
-Applications to visualization, outlier detection and classification.
-Software companion for Elías, Antonio, Jiménez, Raúl, Paganoni, Anna M.
-and Sangalli, Laura M., (2022), "Integrated Depth for Partially Observed
-Functional Data". Journal of Computational and Graphical Statistics.
-<doi:10.1080/10618600.2022.2070171>.
+Integrated Functional Depth for Partially Observed Functional Data and
+applications to visualization, outlier detection and classification. It
+implements the methods proposed in: Elías, A., Jiménez, R., Paganoni, A.
+M. and Sangalli, L. M., (2023), "Integrated Depth for Partially Observed
+Functional Data", Journal of Computational and Graphical Statistics,
+<doi:10.1080/10618600.2022.2070171>. Elías, A., Jiménez, R., & Shang, H.
+L. (2023), "Depth-based reconstruction method for incomplete functional
+data", Computational Statistics, <doi:10.1007/s00180-022-01282-9>. Elías,
+A., Nagy, S. (2024), "Statistical properties of partially observed
+integrated functional depths", TEST, <doi:10.1007/s11749-024-00954-6>.
 
 %prep
 %setup -q -c -n %{packname}

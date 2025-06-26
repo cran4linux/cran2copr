@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mirai
-%global packver   2.3.0
+%global packver   2.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          2.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Minimalist Async Evaluation Framework for R
 
@@ -17,20 +17,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-nanonext >= 1.6.0
-Requires:         R-CRAN-nanonext >= 1.6.0
+BuildRequires:    R-CRAN-nanonext >= 1.6.1
+Requires:         R-CRAN-nanonext >= 1.6.1
 
 %description
 Designed for simplicity, a 'mirai' evaluates an R expression
 asynchronously in a parallel process, locally or distributed over the
-network. Modern networking and concurrency, built on 'nanonext' and 'NNG'
-(Nanomsg Next Gen), ensures reliable and efficient scheduling over fast
-inter-process communications or TCP/IP secured by TLS. Distributed
-computing can launch remote resources via SSH or cluster managers. A
-queued architecture readily handles more tasks than available processes,
-requiring no storage on the file system. Innovative features include
-event-driven promises, asynchronous parallel map, and automatic
-serialization of otherwise non-exportable reference objects.
+network. Modern networking and concurrency, built on 'nanonext' and 'NNG',
+ensures reliable scheduling over fast inter-process communications or
+TCP/IP secured by TLS.  Launch remote resources via SSH or cluster
+managers for distributed computing. The queued architecture scales
+efficiently to millions of tasks over thousands of connections, requiring
+no storage on the file system.  Innovative features include event-driven
+promises, asynchronous parallel map, and seamless serialization of
+otherwise non-exportable reference objects.
 
 %prep
 %setup -q -c -n %{packname}

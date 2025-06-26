@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PepMapViz
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Versatile Toolkit for Peptide Mapping, Visualization, and Comparative Exploration
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-ggforce 
@@ -24,6 +25,8 @@ BuildRequires:    R-CRAN-ggh4x
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-DT 
+Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-ggforce 
@@ -31,6 +34,7 @@ Requires:         R-CRAN-ggh4x
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-DT 
 
 %description
 A versatile R visualization package that empowers researchers with
@@ -42,9 +46,9 @@ Potential applications of 'PepMapViz' include the visualization of
 cross-software mass spectrometry results at the peptide level for specific
 protein and domain details in a linearized format and post-translational
 modification coverage across different experimental conditions; unraveling
-insights into disease mechanisms. It also enables visualization of major
-histocompatibility complex-presented peptides in different antibody
-regions predicting immunogenicity in antibody drug development.
+insights into disease mechanisms. It also enables visualization of Major
+histocompatibility complex-presented peptide clusters in different
+antibody regions predicting immunogenicity in antibody drug development.
 
 %prep
 %setup -q -c -n %{packname}

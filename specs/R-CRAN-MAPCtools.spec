@@ -1,50 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  bonsai
-%global packver   0.4.0
+%global packname  MAPCtools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Wrappers for Tree-Based Models
+Summary:          Multivariate Age-Period-Cohort (MAPC) Modeling for Health Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rlang >= 1.1.0
-BuildRequires:    R-CRAN-parsnip >= 1.0.1
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-dials 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyselect 
+BuildRequires:    R-CRAN-fastDummies 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-stats 
+BuildRequires:    R-grid 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-rlang >= 1.1.0
-Requires:         R-CRAN-parsnip >= 1.0.1
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-dials 
+BuildRequires:    R-CRAN-survey 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyselect 
+Requires:         R-CRAN-fastDummies 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-scales 
 Requires:         R-CRAN-purrr 
-Requires:         R-stats 
+Requires:         R-grid 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-tibble 
-Requires:         R-utils 
-Requires:         R-CRAN-withr 
+Requires:         R-CRAN-survey 
 
 %description
-Bindings for additional tree-based model engines for use with the
-'parsnip' package. Models include gradient boosted decision trees with
-'LightGBM' (Ke et al, 2017.), conditional inference trees and conditional
-random forests with 'partykit' (Hothorn and Zeileis, 2015. and Hothorn et
-al, 2006. <doi:10.1198/106186006X133933>), and accelerated oblique random
-forests with 'aorsf' (Jaeger et al, 2022 <doi:10.5281/zenodo.7116854>).
+Bayesian multivariate age-period-cohort (MAPC) models for analyzing health
+data, with support for model fitting, visualization, stratification, and
+model comparison. Inference focuses on identifiable cross-strata
+differences, as described by Riebler and Held (2010)
+<doi:10.1093/biostatistics/kxp037>. Methods for handling complex survey
+data via the 'survey' package are included, as described in Mercer et al.
+(2014) <doi:10.1016/j.spasta.2013.12.001>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  analogue
-%global packver   0.18.0
+%global packver   0.18.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.0
+Version:          0.18.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Analogue and Weighted Averaging Methods for Palaeoecology
 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robcp
-%global packver   0.3.8
+%global packver   0.3.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.8
+Version:          0.3.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Change-Point Tests
 
@@ -18,8 +18,14 @@ BuildRequires:    R-devel >= 3.3.1
 Requires:         R-core >= 3.3.1
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-pracma 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-pracma 
 
 %description
 Provides robust methods to detect change-points in uni- or multivariate
