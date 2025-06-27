@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  glmmsel
-%global packver   1.0.2
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalised Linear Mixed Model Selection
 
@@ -28,8 +28,8 @@ regularisation. Selects fixed and random effects under the hierarchy
 constraint that fixed effects must precede random effects. Uses coordinate
 descent and local search algorithms to rapidly deliver near-optimal
 estimates. Gaussian and binomial response families are currently
-supported. For more details see Stroup, Ptukhina, and Garai (2024)
-<doi:10.1201/9780429092060>.
+supported. For more details see Thompson, Wand, and Wang (2025)
+<doi:10.48550/arXiv.2506.20425>.
 
 %prep
 %setup -q -c -n %{packname}

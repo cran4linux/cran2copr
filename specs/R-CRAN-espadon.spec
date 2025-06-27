@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  espadon
-%global packver   1.11.0
+%global packver   1.11.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.11.0
+Version:          1.11.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Easy Study of Patient DICOM Data in Oncology
 
@@ -31,7 +31,7 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-misc3d 
 BuildRequires:    R-CRAN-openxlsx 
 BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-qs 
+BuildRequires:    R-CRAN-qs2 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shinyWidgets 
@@ -52,7 +52,7 @@ Requires:         R-methods
 Requires:         R-CRAN-misc3d 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-progress 
-Requires:         R-CRAN-qs 
+Requires:         R-CRAN-qs2 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shinyWidgets 

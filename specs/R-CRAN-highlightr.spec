@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  highlightr
-%global packver   1.0.2
+%global packver   1.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Highlight Conserved Edits Across Versions of a Document
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-fuzzyjoin 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-purrr 
@@ -29,8 +28,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tm 
+BuildRequires:    R-CRAN-zoomerjoin 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-fuzzyjoin 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-purrr 
@@ -41,6 +40,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tm 
+Requires:         R-CRAN-zoomerjoin 
 
 %description
 Input multiple versions of a source document, and receive HTML code for a
