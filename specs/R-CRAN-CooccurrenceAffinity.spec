@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CooccurrenceAffinity
-%global packver   1.0
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Affinity in Co-Occurrence Data
 
@@ -34,7 +34,9 @@ co-occurrence (using binary presence/absence data). The metric and its
 MLE, alpha hat, were advanced in Mainali, Slud, et al, 2021
 <doi:10.1126/sciadv.abj9204>. Various types of confidence intervals and
 median interval were developed in Mainali and Slud, 2022
-<doi:10.1101/2022.11.01.514801>.
+<doi:10.1101/2022.11.01.514801>. The `finches` dataset is now bundled
+internally (no longer pulled via the cooccur package, which has been
+dropped).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LorenzRegression
-%global packver   2.1.0
+%global packver   2.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lorenz and Penalized Lorenz Regressions
 
@@ -19,7 +19,6 @@ Requires:         R-core >= 3.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.11.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-parsnip 
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-rsample 
@@ -28,13 +27,12 @@ BuildRequires:    R-CRAN-doParallel
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-GA 
-BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-CRAN-Rearrangement 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.11.0
 Requires:         R-stats 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-parsnip 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-rsample 
@@ -43,8 +41,8 @@ Requires:         R-CRAN-doParallel
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-GA 
-Requires:         R-CRAN-locpol 
 Requires:         R-CRAN-Rearrangement 
+Requires:         R-CRAN-progress 
 
 %description
 Inference for the Lorenz and penalized Lorenz regressions. More broadly,

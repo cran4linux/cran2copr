@@ -1,30 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  sleev
-%global packver   1.1.4
+%global packname  REMixed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Semiparametric Likelihood Estimation with Errors in Variables
+Summary:          Regularized Estimation in Mixed Effect Model
 
-License:          GPL (>= 2)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-Rcpp >= 1.0.7
-BuildRequires:    R-CRAN-RcppArmadillo 
-BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-Rcpp >= 1.0.7
+BuildArch:        noarch
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-CRAN-Rsmlx 
+BuildRequires:    R-CRAN-doSNOW 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fastGHQuad 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-snow 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-Rmpfr 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-deSolve 
+Requires:         R-CRAN-Rsmlx 
+Requires:         R-CRAN-doSNOW 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fastGHQuad 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-snow 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-Rmpfr 
 
 %description
-Efficient regression analysis under general two-phase sampling, where
-Phase I includes error-prone data and Phase II contains validated data on
-a subset.
+Implementation of an algorithm in two steps to estimate parameters of a
+model whose latent dynamics are inferred through latent processes, jointly
+regularized. This package uses 'Monolix' software
+(<https://monolixsuite.slp-software.com/>), which provide robust
+statistical method for non-linear mixed effects modeling. 'Monolix' must
+have been installed prior to use.
 
 %prep
 %setup -q -c -n %{packname}

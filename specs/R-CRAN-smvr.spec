@@ -1,45 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httptest2
-%global packver   1.2.0
+%global packname  smvr
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Helpers for 'httr2'
+Summary:          Simple Implementation of Semantic Versioning
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-testthat 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-cli >= 3.4.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-vctrs 
+Requires:         R-CRAN-cli >= 3.4.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-vctrs 
 
 %description
-Testing and documenting code that communicates with remote servers can be
-painful. This package helps with writing tests for packages that use
-'httr2'. It enables testing all of the logic on the R sides of the API
-without requiring access to the remote service, and it also allows
-recording real API responses to use as test fixtures. The ability to save
-responses and load them offline also enables writing vignettes and other
-dynamic documents that can be distributed without access to a live server.
+Simple implementation of Semantic Versioning 2.0.0 on the 'vctrs' package.
+This package provides a simple way to create, compare, and manipulate
+semantic versions in R. It is designed to be lightweight and easy to use.
 
 %prep
 %setup -q -c -n %{packname}

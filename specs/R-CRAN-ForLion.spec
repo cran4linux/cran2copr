@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ForLion
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'ForLion' Algorithms to Find Optimal Experimental Designs with Mixed Factors
+Summary:          'ForLion' Algorithm to Find D-Optimal Designs for Experiments
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,8 +30,7 @@ factors with general parametric statistical models using the 'ForLion'
 algorithm and 'EW ForLion' algorithm. The algorithms will search for
 locally optimal designs and EW optimal designs under the D-criterion.
 Reference: Huang, Y., Li, K., Mandal, A., & Yang, J.,
-(2024)<doi:10.1007/s11222-024-10465-x>. Lin, S., Huang, Y., & Yang, J.
-(2025) <doi:10.48550/arXiv.2505.00629>.
+(2024)<doi:10.1007/s11222-024-10465-x>.
 
 %prep
 %setup -q -c -n %{packname}

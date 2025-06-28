@@ -1,45 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httptest2
-%global packver   1.2.0
+%global packname  BayesRegDTR
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Helpers for 'httr2'
+Summary:          Bayesian Regression for Dynamic Treatment Regimes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.13.1
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.13.1
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-progressr 
 Requires:         R-stats 
-Requires:         R-CRAN-testthat 
-Requires:         R-utils 
+Requires:         R-CRAN-future 
 
 %description
-Testing and documenting code that communicates with remote servers can be
-painful. This package helps with writing tests for packages that use
-'httr2'. It enables testing all of the logic on the R sides of the API
-without requiring access to the remote service, and it also allows
-recording real API responses to use as test fixtures. The ability to save
-responses and load them offline also enables writing vignettes and other
-dynamic documents that can be distributed without access to a live server.
+Methods to estimate optimal dynamic treatment regimes using Bayesian
+likelihood-based regression approach as described in Yu, W., & Bondell, H.
+D. (2023) <doi:10.1093/jrsssb/qkad016> Uses backward induction and dynamic
+programming theory for computing expected values. Offers options for
+future parallel computing.
 
 %prep
 %setup -q -c -n %{packname}

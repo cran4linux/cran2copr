@@ -1,45 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httptest2
-%global packver   1.2.0
+%global packname  safeframe
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Helpers for 'httr2'
+Summary:          Generic Data Tagging and Validation Tool
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-testthat 
-Requires:         R-utils 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Testing and documenting code that communicates with remote servers can be
-painful. This package helps with writing tests for packages that use
-'httr2'. It enables testing all of the logic on the R sides of the API
-without requiring access to the remote service, and it also allows
-recording real API responses to use as test fixtures. The ability to save
-responses and load them offline also enables writing vignettes and other
-dynamic documents that can be distributed without access to a live server.
+Provides tools to help tag and validate data according to user-specified
+rules. The 'safeframe' class adds variable level attributes to
+'data.frame' columns. Once tagged, these variables can be seamlessly used
+in downstream analyses, making data pipelines clearer, more robust, and
+more reliable.
 
 %prep
 %setup -q -c -n %{packname}

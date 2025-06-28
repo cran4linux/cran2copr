@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  coat
-%global packver   0.2.1
+%global packname  gemR
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Conditional Method Agreement Trees (COAT)
+Summary:          General Effect Modelling
 
-License:          GPL-2 | GPL-3
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,18 +17,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-partykit 
-Requires:         R-CRAN-partykit 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-glmnet 
+BuildRequires:    R-CRAN-pls 
+BuildRequires:    R-CRAN-plsVarSel 
+BuildRequires:    R-CRAN-mixlm 
+BuildRequires:    R-CRAN-HDANOVA 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-neuralnet 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-scales 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-glmnet 
+Requires:         R-CRAN-pls 
+Requires:         R-CRAN-plsVarSel 
+Requires:         R-CRAN-mixlm 
+Requires:         R-CRAN-HDANOVA 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-neuralnet 
 
 %description
-Agreement of continuously scaled measurements made by two techniques,
-devices or methods is usually evaluated by the well-established
-Bland-Altman analysis or plot. Conditional method agreement trees (COAT),
-proposed by Karapetyan, Zeileis, Henriksen, and Hapfelmeier (2023)
-<doi:10.48550/arXiv.2306.04456>, embed the Bland-Altman analysis in the
-framework of recursive partitioning to explore heterogeneous method
-agreement in dependence of covariates. COAT can also be used to perform a
-Bland-Altman test for differences in method agreement.
+Two-step modeling with separation of sources of variation through analysis
+of variance and subsequent multivariate modeling through a range of
+unsupervised and supervised statistical methods. Separation can focus on
+removal of interfering effects or isolation of effects of interest. EF
+Mosleth et al. (2021) <doi:10.1038/s41598-021-82388-w> and EF Mosleth et
+al. (2020) <doi:10.1016/B978-0-12-409547-2.14882-6>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eratosthenes
-%global packver   0.0.2
+%global packver   0.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Archaeological Synchronism
 
@@ -16,18 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-paletteer 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-paletteer 
 
 %description
-Estimates unknown historical or archaeological dates subject to
-relationships with other dates and absolute constraints, derived as
-marginal densities from the full joint conditional distribution. Includes
-rule-based estimation of the production dates of artifact types.
-Collins-Elliott (2024)
-<https://volweb.utk.edu/~scolli46/sceGUTChronology.pdf>.
+Estimation of unknown historical or archaeological dates subject to
+relationships with other relative dates and absolute constraints, derived
+as marginal densities from the full joint conditional, using a two-stage
+Gibbs sampler with consistent batch means to assess convergence. Features
+reporting on Monte Carlo standard errors, as well as tools for rule-based
+estimation of dates of production and use of artifact types, aligning and
+checking relative sequences, and evaluating the impact of the omission of
+relative/absolute events upon one another.
 
 %prep
 %setup -q -c -n %{packname}

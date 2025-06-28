@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DistributionIV
-%global packver   0.1.0
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distributional Instrumental Variable (DIV) Model
 
@@ -19,10 +19,8 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-torch 
 BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-torch 
 Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-vctrs 
 
 %description
 Distributional instrumental variable (DIV) model for estimation of the

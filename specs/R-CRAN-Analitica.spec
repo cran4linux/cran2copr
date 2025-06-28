@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Analitica
-%global packver   1.8.1
+%global packver   1.8.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.8.1
+Version:          1.8.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Exploratory Data Analysis and Group Comparison Tools
+Summary:          Exploratory Data Analysis, Group Comparison Tools, and Other Procedures
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -39,12 +39,15 @@ Requires:         R-CRAN-tidyselect
 Requires:         R-CRAN-multcompView 
 
 %description
-Provides tools for descriptive statistics, graphical exploration, outlier
-detection, homoscedasticity tests, and multiple comparison procedures.
-Includes manual implementations of Levene's test, Bartlett's test,
-Fligner-Killeen, and post hoc comparisons such as Tukey, Scheffe,
-Games-Howell, Brunner-Munzel, and others. Useful for teaching, applied
-analysis, and reproducible research.
+Provides a comprehensive set of tools for descriptive statistics,
+graphical data exploration, outlier detection, homoscedasticity testing,
+and multiple comparison procedures. Includes manual implementations of
+Levene's test, Bartlett's test, and the Fligner-Killeen test, as well as
+post hoc comparison methods such as Tukey, Scheffé, Games-Howell,
+Brunner-Munzel, and others. This version introduces two new procedures:
+the Jonckheere-Terpstra trend test and the Jarque-Bera test with
+Glinskiy's (2024) correction. Designed for use in teaching, applied
+statistical analysis, and reproducible research.
 
 %prep
 %setup -q -c -n %{packname}

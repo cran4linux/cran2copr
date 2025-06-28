@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EMC2
-%global packver   3.1.1
+%global packver   3.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.1
+Version:          3.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Hierarchical Analysis of Cognitive Models of Choice
 
@@ -18,7 +18,6 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-coda 
-BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-magic 
@@ -41,7 +40,6 @@ BuildRequires:    R-CRAN-WienR
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-abind 
 Requires:         R-CRAN-coda 
-Requires:         R-CRAN-corpcor 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-magic 

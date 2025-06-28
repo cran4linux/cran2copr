@@ -1,29 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  madshapR
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Technical Processes Following 'Maelstrom Research' Standards
+Summary:          Functions to Support Data Management and Processing Using the Maelstrom Research Approach
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-fabR >= 2.0.0
+BuildRequires:    R-CRAN-fabR >= 2.1.1
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-lubridate 
@@ -38,14 +37,12 @@ BuildRequires:    R-CRAN-readr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-lifecycle 
-Requires:         R-CRAN-fabR >= 2.0.0
+Requires:         R-CRAN-fabR >= 2.1.1
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-crayon 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-tidytext 
 Requires:         R-grDevices 
 Requires:         R-graphics 
 Requires:         R-CRAN-lubridate 
@@ -60,18 +57,16 @@ Requires:         R-CRAN-readr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-fs 
 Requires:         R-utils 
-Requires:         R-CRAN-lifecycle 
 
 %description
-Functions to support rigorous processes in data cleaning, evaluation, and
-documentation across datasets from different studies based on Maelstrom
-Research guidelines. The package includes the core functions to evaluate
-and format the main inputs that define the process, diagnose errors, and
-summarize and evaluate datasets and their associated data dictionaries.
-The main outputs are clean datasets and associated metadata, and tabular
-and visual summary reports. As described in Maelstrom Research guidelines
-for rigorous retrospective data harmonization (Fortier I and al. (2017)
-<doi:10.1093/ije/dyw075>).
+Functions to support data cleaning, evaluation, and description, developed
+for integration with Maelstrom Research software tools. 'madshapR'
+provides functions primarily to evaluate and manipulate datasets and data
+dictionaries in preparation for data harmonization with the package
+'Rmonize' and to facilitate integration and transfer between RStudio
+servers and secure Opal environments. 'madshapR' functions can be used
+independently but are optimized in conjunction with ‘Rmonize’ functions
+for streamlined and coherent harmonization processing.
 
 %prep
 %setup -q -c -n %{packname}

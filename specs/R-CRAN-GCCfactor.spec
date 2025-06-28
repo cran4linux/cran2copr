@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GCCfactor
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          GCC Estimation of the Multilevel Factor Model
 
@@ -25,11 +25,11 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-sandwich 
 
 %description
-Provides methods for model selection, estimation, bootstrap inference, and
+Provides methods for model selection, estimation, inference, and
 simulation for the multilevel factor model, based on the principal
 component estimation and generalised canonical correlation approach.
 Details can be found in "Generalised Canonical Correlation Estimation of
-the Multilevel Factor Model." Lin and Shin (2023)
+the Multilevel Factor Model." Lin and Shin (2025)
 <doi:10.2139/ssrn.4295429>.
 
 %prep

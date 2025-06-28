@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httptest2
-%global packver   1.2.0
+%global packname  ClimaRep
+%global packver   0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Helpers for 'httr2'
+Summary:          Estimating Climate Representativeness
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,29 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
-Requires:         R-stats 
-Requires:         R-CRAN-testthat 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-tidyterra 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-terra 
 Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-tidyterra 
 
 %description
-Testing and documenting code that communicates with remote servers can be
-painful. This package helps with writing tests for packages that use
-'httr2'. It enables testing all of the logic on the R sides of the API
-without requiring access to the remote service, and it also allows
-recording real API responses to use as test fixtures. The ability to save
-responses and load them offline also enables writing vignettes and other
-dynamic documents that can be distributed without access to a live server.
+Offers tools to estimate the climate representativeness of defined areas
+and quantifies and analyzes its transformation under future climate change
+scenarios. Approaches described in Mingarro and Lobo (2018)
+<doi:10.32800/abc.2018.41.0333> and Mingarro and Lobo (2022)
+<doi:10.1017/S037689292100014X>.
 
 %prep
 %setup -q -c -n %{packname}

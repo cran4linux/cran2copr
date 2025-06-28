@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mapi
-%global packver   1.0.5
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mapping Averaged Pairwise Information
 
@@ -13,18 +14,22 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3
-Requires:         R-core >= 3.3
-BuildRequires:    R-parallel >= 3.3
-BuildRequires:    R-CRAN-pbapply >= 1.3
-BuildRequires:    R-CRAN-data.table >= 1.10
-BuildRequires:    R-CRAN-sf >= 0.5
-BuildRequires:    R-CRAN-Rcpp >= 0.10.0
-Requires:         R-parallel >= 3.3
-Requires:         R-CRAN-pbapply >= 1.3
-Requires:         R-CRAN-data.table >= 1.10
-Requires:         R-CRAN-sf >= 0.5
-Requires:         R-CRAN-Rcpp >= 0.10.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-fmesher 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-s2 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-fmesher 
+Requires:         R-CRAN-foreach 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-s2 
+Requires:         R-CRAN-sf 
 
 %description
 Mapping Averaged Pairwise Information (MAPI) is an exploratory method

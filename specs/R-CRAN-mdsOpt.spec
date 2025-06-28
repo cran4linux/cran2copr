@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  upset.hp
-%global packver   0.0.2
+%global packname  mdsOpt
+%global packver   0.7-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.7.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Generate UpSet Plots of VP and HP Based on the ASV Concept
+Summary:          Searching for Optimal MDS Procedure for Metric and Interval-Valued Data
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,28 +17,32 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-MuMIn 
-BuildRequires:    R-CRAN-vegan 
-BuildRequires:    R-CRAN-glmm.hp 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-patchwork 
-BuildRequires:    R-grDevices 
-Requires:         R-CRAN-MuMIn 
-Requires:         R-CRAN-vegan 
-Requires:         R-CRAN-glmm.hp 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-patchwork 
-Requires:         R-grDevices 
+BuildRequires:    R-CRAN-smacof 
+BuildRequires:    R-CRAN-clusterSim 
+BuildRequires:    R-CRAN-symbolicDA 
+BuildRequires:    R-CRAN-animation 
+BuildRequires:    R-CRAN-plotrix 
+BuildRequires:    R-CRAN-spdep 
+Requires:         R-CRAN-smacof 
+Requires:         R-CRAN-clusterSim 
+Requires:         R-CRAN-symbolicDA 
+Requires:         R-CRAN-animation 
+Requires:         R-CRAN-plotrix 
+Requires:         R-CRAN-spdep 
 
 %description
-Using matrix layout to visualize the unique, common, or individual
-contribution of each predictor (or matrix of predictors) towards explained
-variation on different models. These contributions were derived from
-variation partitioning (VP) and hierarchical partitioning (HP), applying
-the algorithm of "Lai et al. (2022) Generalizing hierarchical and
-variation partitioning in multiple regression and canonical analyses using
-the rdacca.hp R package.Methods in Ecology and Evolution, 13: 782-788
-<doi:10.1111/2041-210X.13800>".
+Selecting the optimal multidimensional scaling (MDS) procedure for metric
+data via metric MDS (ratio, interval, mspline) and nonmetric MDS
+(ordinal). Selecting the optimal multidimensional scaling (MDS) procedure
+for interval-valued data via metric MDS (ratio, interval,
+mspline).Selecting the optimal multidimensional scaling procedure for
+interval-valued data by varying all combinations of normalization and
+optimization methods.Selecting the optimal MDS procedure for statistical
+data referring to the evaluation of tourist attractiveness of Lower
+Silesian counties. (Borg, I., Groenen, P.J.F., Mair, P. (2013)
+<doi:10.1007/978-3-642-31848-1>, Walesiak, M. (2016)
+<doi:10.15611/ekt.2016.2.01>, Walesiak, M. (2017)
+<doi:10.15611/ekt.2017.3.01>).
 
 %prep
 %setup -q -c -n %{packname}

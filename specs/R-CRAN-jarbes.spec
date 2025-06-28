@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  jarbes
-%global packver   2.2.5
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.5
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Just a Rather Bayesian Evidence Synthesis
 
@@ -26,12 +26,12 @@ BuildRequires:    R-CRAN-ggExtra
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-gridExtra 
-BuildRequires:    R-CRAN-mcmcplots 
 BuildRequires:    R-CRAN-bookdown 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-GGally 
 BuildRequires:    R-CRAN-qpdf 
+BuildRequires:    R-CRAN-bayesplot 
 Requires:         R-CRAN-rjags 
 Requires:         R-CRAN-R2jags 
 Requires:         R-stats 
@@ -41,12 +41,12 @@ Requires:         R-CRAN-ggExtra
 Requires:         R-CRAN-MASS 
 Requires:         R-grid 
 Requires:         R-CRAN-gridExtra 
-Requires:         R-CRAN-mcmcplots 
 Requires:         R-CRAN-bookdown 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-GGally 
 Requires:         R-CRAN-qpdf 
+Requires:         R-CRAN-bayesplot 
 
 %description
 Provides a new class of Bayesian meta-analysis models that incorporates a

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  dataRetrieval
-%global packver   2.7.18
+%global packver   2.7.19
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.18
+Version:          2.7.19
 Release:          1%{?dist}%{?buildtag}
 Summary:          Retrieval Functions for USGS and EPA Hydrology and Water Quality Data
 
@@ -17,30 +17,31 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-curl >= 6.0.0
 BuildRequires:    R-CRAN-lubridate >= 1.5.0
 BuildRequires:    R-CRAN-readr >= 1.4.0
-BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-xml2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-whisker 
+BuildRequires:    R-CRAN-sf 
+Requires:         R-CRAN-curl >= 6.0.0
 Requires:         R-CRAN-lubridate >= 1.5.0
 Requires:         R-CRAN-readr >= 1.4.0
-Requires:         R-CRAN-curl 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-whisker 
+Requires:         R-CRAN-sf 
 
 %description
 Collection of functions to help retrieve U.S. Geological Survey and U.S.
 Environmental Protection Agency water quality and hydrology data from web
-services. Data are discovered from National Water Information System
-<https://waterservices.usgs.gov/> and <https://waterdata.usgs.gov/nwis>.
-Water quality data are obtained from the Water Quality Portal
-<https://www.waterqualitydata.us/>.
+services.
 
 %prep
 %setup -q -c -n %{packname}

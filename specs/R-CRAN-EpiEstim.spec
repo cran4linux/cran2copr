@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EpiEstim
-%global packver   2.2-4.1
+%global packver   2.2-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.4.1
+Version:          2.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimate Time Varying Reproduction Numbers from Epidemic Curves
 

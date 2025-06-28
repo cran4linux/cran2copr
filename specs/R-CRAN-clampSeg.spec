@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  httptest2
-%global packver   1.2.0
+%global packname  clampSeg
+%global packver   1.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Test Helpers for 'httr2'
+Summary:          Idealisation of Patch Clamp Recordings
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.3.0
+Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-digest 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stepR >= 2.1.0
+BuildRequires:    R-CRAN-lowpassFilter 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-testthat 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-digest 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-stepR >= 2.1.0
+Requires:         R-CRAN-lowpassFilter 
 Requires:         R-stats 
-Requires:         R-CRAN-testthat 
-Requires:         R-utils 
+Requires:         R-methods 
 
 %description
-Testing and documenting code that communicates with remote servers can be
-painful. This package helps with writing tests for packages that use
-'httr2'. It enables testing all of the logic on the R sides of the API
-without requiring access to the remote service, and it also allows
-recording real API responses to use as test fixtures. The ability to save
-responses and load them offline also enables writing vignettes and other
-dynamic documents that can be distributed without access to a live server.
+Implements the model-free multiscale idealisation approaches:
+Jump-Segmentation by MUltiResolution Filter (JSMURF), Hotz et al. (2013)
+<doi:10.1109/TNB.2013.2284063>, JUmp Local dEconvolution Segmentation
+filter (JULES), Pein et al. (2018) <doi:10.1109/TNB.2018.2845126>, and
+Heterogeneous Idealization by Local testing and DEconvolution (HILDE),
+Pein et al. (2021) <doi:10.1109/TNB.2020.3031202>. Further details on how
+to use them are given in the accompanying vignette.
 
 %prep
 %setup -q -c -n %{packname}
