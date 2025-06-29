@@ -1,35 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dissimilarities
-%global packver   0.3.0
+%global packname  robustsur
+%global packver   0.0-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Manipulating, and Subsetting "dist" Objects
+Summary:          Robust Estimation for Seemingly Unrelated Regression Models
 
-License:          CC BY 4.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-proxy 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.0.0
+Requires:         R-core >= 3.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-robustbase 
+BuildRequires:    R-CRAN-robreg3S 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-GSE 
+Requires:         R-CRAN-robustbase 
+Requires:         R-CRAN-robreg3S 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-GSE 
 
 %description
-Efficiently creates, manipulates, and subsets "dist" objects, commonly
-used in cluster analysis. Designed to minimise unnecessary conversions and
-computational overhead while enabling seamless interaction with distance
-matrices.
+Data sets are often corrupted by outliers. When data are multivariate
+outliers can be classified as case-wise or cell-wise. The latters are
+particularly challenge to handle. We implement a robust estimation
+procedure for Seemingly Unrelated Regression Models which is able to cope
+well with both type of outliers. Giovanni Saraceno, Fatemah Alqallaf,
+Claudio Agostinelli (2021) <doi:10.48550/arXiv.2107.00975>.
 
 %prep
 %setup -q -c -n %{packname}

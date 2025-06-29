@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dissimilarities
-%global packver   0.3.0
+%global packname  EMMAgeo
+%global packver   0.9.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.9.9
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Manipulating, and Subsetting "dist" Objects
+Summary:          End-Member Modelling of Grain-Size Data
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-proxy 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.5
+Requires:         R-core >= 4.5
+BuildArch:        noarch
+BuildRequires:    R-CRAN-GPArotation 
+BuildRequires:    R-CRAN-nnls 
+BuildRequires:    R-CRAN-caTools 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-GPArotation 
+Requires:         R-CRAN-nnls 
+Requires:         R-CRAN-caTools 
+Requires:         R-CRAN-shiny 
 
 %description
-Efficiently creates, manipulates, and subsets "dist" objects, commonly
-used in cluster analysis. Designed to minimise unnecessary conversions and
-computational overhead while enabling seamless interaction with distance
-matrices.
+End-member modelling analysis of grain-size data is an approach to unmix a
+data set's underlying distributions and their contribution to the data
+set. EMMAgeo provides deterministic and robust protocols for that purpose.
 
 %prep
 %setup -q -c -n %{packname}

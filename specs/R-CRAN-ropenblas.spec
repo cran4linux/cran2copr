@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ropenblas
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download, Compile and Link 'OpenBLAS' Library with R
 
@@ -18,33 +18,31 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-getPass 
-BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-git2r 
-BuildRequires:    R-CRAN-RCurl 
-BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-pingr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-getPass 
+BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-rvest 
 Requires:         R-CRAN-glue 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-getPass 
-Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-git2r 
-Requires:         R-CRAN-RCurl 
-Requires:         R-CRAN-XML 
-Requires:         R-CRAN-cli 
 Requires:         R-CRAN-pingr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-getPass 
+Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-rvest 
 
 %description
 The 'ropenblas' package (<https://prdm0.github.io/ropenblas/>) is useful

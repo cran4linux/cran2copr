@@ -1,35 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dissimilarities
-%global packver   0.3.0
+%global packname  MultiLCIRT
+%global packver   2.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          2.12
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Manipulating, and Subsetting "dist" Objects
+Summary:          Multidimensional Latent Class Item Response Theory Models
 
-License:          CC BY 4.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-proxy 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 2.0.0
+Requires:         R-core >= 2.0.0
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-limSolve 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-limSolve 
 
 %description
-Efficiently creates, manipulates, and subsets "dist" objects, commonly
-used in cluster analysis. Designed to minimise unnecessary conversions and
-computational overhead while enabling seamless interaction with distance
-matrices.
+Framework for the Item Response Theory analysis of dichotomous and ordinal
+polytomous outcomes under the assumption of multidimensionality and
+discreteness of the latent traits. The fitting algorithms allow for
+missing responses and for different item parameterizations and are based
+on the Expectation-Maximization paradigm. Individual covariates affecting
+the class weights may be included in the new version (since 2.1).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  geofacet
-%global packver   0.2.1
+%global packver   0.2.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          'ggplot2' Faceting Utilities for Geographical Data
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2
-Requires:         R-core >= 3.2
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.1
 BuildRequires:    R-CRAN-gtable 
@@ -23,22 +23,22 @@ BuildRequires:    R-graphics
 BuildRequires:    R-CRAN-rnaturalearth 
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-ggrepel 
-BuildRequires:    R-CRAN-imguR 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-geogrid 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-httr2 
 Requires:         R-CRAN-ggplot2 >= 3.2.1
 Requires:         R-CRAN-gtable 
 Requires:         R-graphics 
 Requires:         R-CRAN-rnaturalearth 
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-ggrepel 
-Requires:         R-CRAN-imguR 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-geogrid 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-httr2 
 
 %description
 Provides geographical faceting functionality for 'ggplot2'. Geographical

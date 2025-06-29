@@ -1,35 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dissimilarities
-%global packver   0.3.0
+%global packname  flir
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Manipulating, and Subsetting "dist" Objects
+Summary:          Find and Fix Lints in R Code
 
-License:          CC BY 4.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-proxy 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-proxy 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
+BuildArch:        noarch
+BuildRequires:    R-CRAN-astgrepr >= 0.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-digest 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-git2r 
+BuildRequires:    R-CRAN-rprojroot 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-astgrepr >= 0.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-digest 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-git2r 
+Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-yaml 
 
 %description
-Efficiently creates, manipulates, and subsets "dist" objects, commonly
-used in cluster analysis. Designed to minimise unnecessary conversions and
-computational overhead while enabling seamless interaction with distance
-matrices.
+Lints are code patterns that are not optimal because they are inefficient,
+forget corner cases, or are less readable. 'flir' provides a small set of
+functions to detect those lints and automatically fix them. It builds on
+'astgrepr', which itself uses the 'Rust' crate 'ast-grep' to parse and
+navigate R code.
 
 %prep
 %setup -q -c -n %{packname}

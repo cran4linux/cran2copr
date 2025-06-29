@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dissimilarities
-%global packver   0.3.0
+%global packname  LMest
+%global packver   3.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          3.2.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Manipulating, and Subsetting "dist" Objects
+Summary:          Generalized Latent Markov Models
 
-License:          CC BY 4.0
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-proxy 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-mclust >= 5.4.6
+BuildRequires:    R-CRAN-diagram >= 1.6.4
+BuildRequires:    R-CRAN-Formula >= 1.2.3
+BuildRequires:    R-CRAN-scatterplot3d >= 0.3.41
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-MultiLCIRT 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-proxy 
+BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-CRAN-mix 
+BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+Requires:         R-CRAN-mclust >= 5.4.6
+Requires:         R-CRAN-diagram >= 1.6.4
+Requires:         R-CRAN-Formula >= 1.2.3
+Requires:         R-CRAN-scatterplot3d >= 0.3.41
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-MultiLCIRT 
 Requires:         R-stats 
+Requires:         R-CRAN-mvtnorm 
+Requires:         R-CRAN-mix 
+Requires:         R-utils 
+Requires:         R-graphics 
+Requires:         R-grDevices 
 
 %description
-Efficiently creates, manipulates, and subsets "dist" objects, commonly
-used in cluster analysis. Designed to minimise unnecessary conversions and
-computational overhead while enabling seamless interaction with distance
-matrices.
+Latent Markov models for longitudinal continuous and categorical data. See
+Bartolucci, Pandolfi, Pennoni (2017)<doi:10.18637/jss.v081.i04>.
 
 %prep
 %setup -q -c -n %{packname}

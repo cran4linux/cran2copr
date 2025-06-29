@@ -1,35 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  VizTest
-%global packver   0.4
+%global packname  door
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Optimal Confidence Intervals for Visual Testing
+Summary:          Design of Clinical Trials with the Desirability of Outcome Ranking Methodology
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-HDInterval 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-forestplot 
+BuildRequires:    R-CRAN-scales 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-labeling 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-HDInterval 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-forestplot 
+Requires:         R-CRAN-scales 
+Requires:         R-methods 
+Requires:         R-CRAN-labeling 
 
 %description
-Identifies the optimal confidence level to represent the results of a set
-of pairwise tests as suggested by Armstrong and Poirier (2025)
-<doi:10.1017/pan.2024.24>.
+Statistical methods and related graphical representations for the
+Desirability of Outcome Ranking (DOOR) methodology. The DOOR is a paradigm
+for the design, analysis, interpretation of clinical trials and other
+research studies based on the patient centric benefit risk evaluation. The
+package provides functions for generating summary statistics from
+individual level/summary level datasets, conduct DOOR probability-based
+inference, and visualization of the results. For more details of DOOR
+methodology, see "Handbook of Generalized Pairwise Comparisons", Chapter
+13 <doi:10.1201/9781003390855>. For more explanation of the statistical
+methods and the graphics, see the technical document and user manual of
+the DOOR 'Shiny' apps at <https://methods.bsc.gwu.edu>.
 
 %prep
 %setup -q -c -n %{packname}

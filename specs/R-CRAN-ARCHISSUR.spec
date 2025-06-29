@@ -1,35 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dissimilarities
-%global packver   0.3.0
+%global packname  ARCHISSUR
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Creating, Manipulating, and Subsetting "dist" Objects
+Summary:          Active Recovery of a Constrained and Hidden Set by Stepwise Uncertainty Reduction Strategy
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-microbenchmark 
-BuildRequires:    R-CRAN-proxy 
+BuildArch:        noarch
+BuildRequires:    R-CRAN-GPCsign 
+BuildRequires:    R-CRAN-DiceKriging 
+BuildRequires:    R-CRAN-KrigInv 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-stats 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-microbenchmark 
-Requires:         R-CRAN-proxy 
+BuildRequires:    R-CRAN-TruncatedNormal 
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-rgenoud 
+BuildRequires:    R-graphics 
+Requires:         R-CRAN-GPCsign 
+Requires:         R-CRAN-DiceKriging 
+Requires:         R-CRAN-KrigInv 
+Requires:         R-CRAN-future.apply 
 Requires:         R-stats 
+Requires:         R-CRAN-TruncatedNormal 
+Requires:         R-CRAN-randtoolbox 
+Requires:         R-CRAN-rgenoud 
+Requires:         R-graphics 
 
 %description
-Efficiently creates, manipulates, and subsets "dist" objects, commonly
-used in cluster analysis. Designed to minimise unnecessary conversions and
-computational overhead while enabling seamless interaction with distance
-matrices.
+Stepwise Uncertainty Reduction criterion and algorithm for sequentially
+learning a Gaussian Process Classifier as described in Menz et al. (2025).
 
 %prep
 %setup -q -c -n %{packname}
