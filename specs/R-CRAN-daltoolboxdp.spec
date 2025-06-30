@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  daltoolboxdp
-%global packver   1.2.717
+%global packver   1.2.727
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.717
+Version:          1.2.727
 Release:          1%{?dist}%{?buildtag}
 Summary:          Python-Based Extensions for Data Analytics Workflows
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tspredit 
 BuildRequires:    R-CRAN-daltoolbox 
 BuildRequires:    R-CRAN-leaps 
 BuildRequires:    R-CRAN-FSelector 
@@ -25,6 +26,7 @@ BuildRequires:    R-CRAN-glmnet
 BuildRequires:    R-CRAN-smotefamily 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-stats 
+Requires:         R-CRAN-tspredit 
 Requires:         R-CRAN-daltoolbox 
 Requires:         R-CRAN-leaps 
 Requires:         R-CRAN-FSelector 

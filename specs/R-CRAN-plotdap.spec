@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  plotdap
-%global packver   1.0.3
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.3
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Easily Visualize Data from 'ERDDAP' Servers via the 'rerddap' Package
+Summary:          Easily Visualize Data from 'ERDDAP™' Servers via the 'rerddap' Package
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.1.0
-BuildRequires:    R-CRAN-rerddap >= 0.8.0
+BuildRequires:    R-CRAN-rerddap >= 1.0.0
 BuildRequires:    R-CRAN-cmocean 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-gganimate 
@@ -29,12 +29,13 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-mapdata 
 BuildRequires:    R-CRAN-maps 
 BuildRequires:    R-CRAN-raster 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-viridis 
 Requires:         R-CRAN-ggplot2 >= 3.1.0
-Requires:         R-CRAN-rerddap >= 0.8.0
+Requires:         R-CRAN-rerddap >= 1.0.0
 Requires:         R-CRAN-cmocean 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gganimate 
@@ -45,6 +46,7 @@ Requires:         R-CRAN-magrittr
 Requires:         R-CRAN-mapdata 
 Requires:         R-CRAN-maps 
 Requires:         R-CRAN-raster 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tidyr 

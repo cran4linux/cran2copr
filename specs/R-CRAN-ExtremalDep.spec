@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ExtremalDep
-%global packver   0.0.4-4
+%global packver   0.0.4-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4.4
+Version:          0.0.4.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extremal Dependence Models
 
@@ -29,6 +29,7 @@ BuildRequires:    R-parallel
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-cluster 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-evd 
 Requires:         R-CRAN-sn 
@@ -42,6 +43,7 @@ Requires:         R-parallel
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-cluster 
+Requires:         R-methods 
 
 %description
 A set of procedures for parametric and non-parametric modelling of the

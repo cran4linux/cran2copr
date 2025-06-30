@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  spcosa
-%global packver   0.4-3
+%global packver   0.4-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatial Coverage Sampling and Random Sampling from Compact Geographical Strata
 

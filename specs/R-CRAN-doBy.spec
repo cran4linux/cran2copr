@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  doBy
-%global packver   4.6.27
+%global packver   4.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          4.6.27
+Version:          4.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Groupwise Statistics, LSmeans, Linear Estimates, Utilities
 
@@ -47,10 +47,12 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 
 %description
-Utility package containing: 1) Facilities for working with grouped data:
-'do' something to data stratified 'by' some variables. 2) LSmeans
-(least-squares means), general linear estimates. 3) Restrict functions to
-a smaller domain. 4) Miscellaneous other utilities.
+Utility package containing: Main categories: Working with grouped data:
+'do' something to data when stratified 'by' some variables.  General
+linear estimates. Data handling utilities. Functional programming, in
+particular restrict functions to a smaller domain. Miscellaneous functions
+for data handling. Model stability in connection with model selection.
+Miscellaneous other tools.
 
 %prep
 %setup -q -c -n %{packname}

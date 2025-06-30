@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  harbinger
-%global packver   1.2.717
+%global packver   1.2.727
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.717
+Version:          1.2.727
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Unified Time Series Event Detection Framework
 
@@ -17,12 +17,15 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tspredit 
 BuildRequires:    R-CRAN-changepoint 
 BuildRequires:    R-CRAN-daltoolbox 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-hht 
 BuildRequires:    R-CRAN-RcppHungarian 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-dtwclust 
 BuildRequires:    R-CRAN-rugarch 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-stringr 
@@ -30,12 +33,15 @@ BuildRequires:    R-CRAN-strucchange
 BuildRequires:    R-CRAN-tsmp 
 BuildRequires:    R-CRAN-wavelets 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-tspredit 
 Requires:         R-CRAN-changepoint 
 Requires:         R-CRAN-daltoolbox 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-hht 
 Requires:         R-CRAN-RcppHungarian 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-dtwclust 
 Requires:         R-CRAN-rugarch 
 Requires:         R-stats 
 Requires:         R-CRAN-stringr 

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ddplot
-%global packver   0.0.2
+%global packname  SimBaRepro
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Create D3 Based SVG Graphics
+Summary:          Simulation-Based, Finite-Sample Inference via Repro Samples
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,15 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-r2d3 
-Requires:         R-CRAN-r2d3 
+BuildRequires:    R-CRAN-ddalpha 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-ddalpha 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Create 'D3' based 'SVG' ('Scalable Vector Graphics') graphics using a
-simple 'R' API. The package aims to simplify the creation of many 'SVG'
-plot types using a straightforward 'R' API. The package relies on the
-'r2d3' 'R' package and the 'D3' 'JavaScript' library. See
-<https://rstudio.github.io/r2d3/> and <https://d3js.org/> respectively.
+Functions for obtaining p-values (for hypothesis tests), confidence
+intervals, and multivariate confidence sets. In particular, the method is
+compatible with differentially private dataset, as long as the privacy
+mechanism is known. For more details, see Awan and Wang (2024),
+"Simulation-based, Finite-sample Inference for Privatized Data",
+<doi:10.48550/arXiv.2303.05328>.
 
 %prep
 %setup -q -c -n %{packname}

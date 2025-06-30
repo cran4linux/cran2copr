@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  JFE
-%global packver   2.5.10
+%global packver   2.5.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.5.10
+Version:          2.5.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Analyzing Time Series Data of Just Finance and Econometrics
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-xts
 Requires:         R-CRAN-xts 
 
 %description
-Offers procedures to support financial-economic time series modelling and
+Offer procedures to download financial-economic time series data and
 enhanced procedures for computing the investment performance indices of
 Bacon (2004) <DOI:10.1002/9781119206309>.
 
