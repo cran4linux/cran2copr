@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  zCompositions
-%global packver   1.5.0-4
+%global packver   1.5.0-5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0.4
+Version:          1.5.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Treatment of Zeros, Left-Censored and Missing Values in Compositional Data Sets
 
@@ -19,12 +19,12 @@ Requires:         R-core >= 2.14.0
 BuildArch:        noarch
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-NADA 
 BuildRequires:    R-CRAN-truncnorm 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-methods 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-NADA 
 Requires:         R-CRAN-truncnorm 
+Requires:         R-CRAN-survival 
 
 %description
 Principled methods for the imputation of zeros, left-censored and missing

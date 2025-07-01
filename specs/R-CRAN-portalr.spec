@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  portalr
-%global packver   0.4.3
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Create Useful Summaries of the Portal Data
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-lubridate
 BuildRequires:    R-CRAN-lunar 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-zoo 
 Requires:         R-CRAN-tidyselect >= 1.2.1
@@ -39,6 +40,7 @@ Requires:         R-CRAN-lubridate
 Requires:         R-CRAN-lunar 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-zoo 
 

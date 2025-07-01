@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ctsem
-%global packver   3.10.3
+%global packver   3.10.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.10.3
+Version:          3.10.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Continuous Time Structural Equation Modelling
 
@@ -84,14 +84,14 @@ and random effects on all parameters are possible, using either max
 likelihood / max a posteriori optimization (with optional importance
 sampling) or Stan's Hamiltonian Monte Carlo sampling. See
 <https://github.com/cdriveraus/ctsem/raw/master/vignettes/hierarchicalmanual.pdf>
-for details. Priors may be used. For the conceptual overview of the
+for details. See <https://osf.io/preprints/psyarxiv/4q9ex_v2> for a
+detailed tutorial. Priors may be used. For the conceptual overview of the
 hierarchical Bayesian linear SDE approach, see
 <https://www.researchgate.net/publication/324093594_Hierarchical_Bayesian_Continuous_Time_Dynamic_Modeling>.
 Exogenous inputs may also be included, for an overview of such
 possibilities see
 <https://www.researchgate.net/publication/328221807_Understanding_the_Time_Course_of_Interventions_with_Continuous_Time_Dynamic_Models>
-. Stan based functions are not available on 32 bit Windows systems at
-present. <https://cdriver.netlify.app/> contains some tutorial blog posts.
+. <https://cdriver.netlify.app/> contains some tutorial blog posts.
 
 %prep
 %setup -q -c -n %{packname}

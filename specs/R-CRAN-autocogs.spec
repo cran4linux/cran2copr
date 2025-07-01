@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  autocogs
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Automatic Cognostic Summaries
 
@@ -16,30 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4.0
 Requires:         R-core >= 3.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-checkmate 
-BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-broom 
-BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-diptest 
-BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-hexbin 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mclust 
+BuildRequires:    R-CRAN-moments 
+BuildRequires:    R-CRAN-progress 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-hexbin 
-BuildRequires:    R-CRAN-progress 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-checkmate 
-Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-broom 
-Requires:         R-CRAN-moments 
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-diptest 
-Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-hexbin 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mclust 
+Requires:         R-CRAN-moments 
+Requires:         R-CRAN-progress 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
-Requires:         R-CRAN-hexbin 
-Requires:         R-CRAN-progress 
 
 %description
 Automatically calculates cognostic groups for plot objects and list column
@@ -53,6 +54,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

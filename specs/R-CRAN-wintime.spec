@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wintime
-%global packver   0.3.0
+%global packver   0.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Win Time Methods for Time-to-Event Data in Clinical Trials
 
@@ -22,13 +22,14 @@ Requires:         R-CRAN-survival
 
 %description
 Performs an analysis of time-to-event clinical trial data using various
-"win time" methods, including 'ewt', 'ewtr', 'rmt', 'max', 'wtr', 'rwtr',
-and 'pwt'. These methods are used to calculate and compare treatment
-effects on ordered composite endpoints. The package handles event times,
-event indicators, and treatment arm indicators and supports calculations
-on observed and resampled data. Detailed explanations of each method and
-usage examples are provided in "Use of win time for ordered composite
-endpoints in clinical trials," by Troendle et al.
+"win time" methods, including 'ewt', 'ewtr', 'rmt', 'ewtp', 'rewtp',
+'ewtpr', 'rewtpr', 'max', 'wtr', 'rwtr', 'pwt', and 'rpwt'. These methods
+are used to calculate and compare treatment effects on ordered composite
+endpoints. The package handles event times, event indicators, and
+treatment arm indicators and supports calculations on observed and
+resampled data. Detailed explanations of each method and usage examples
+are provided in "Use of win time for ordered composite endpoints in
+clinical trials," by Troendle et al.
 (2024)<https://pubmed.ncbi.nlm.nih.gov/38417455/>. For more information,
 see the package documentation or the vignette titled "Introduction to
 wintime."

@@ -1,23 +1,24 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Rmonize
-%global packver   1.1.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Support Retrospective Harmonization of Data
+Summary:          Tools for Data Harmonization
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4
-Requires:         R-core >= 3.4
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-fabR >= 2.0.0
+BuildRequires:    R-CRAN-madshapR >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -26,9 +27,8 @@ BuildRequires:    R-CRAN-crayon
 BuildRequires:    R-CRAN-haven 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-fs 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-madshapR 
 Requires:         R-CRAN-fabR >= 2.0.0
+Requires:         R-CRAN-madshapR >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
@@ -37,24 +37,22 @@ Requires:         R-CRAN-crayon
 Requires:         R-CRAN-haven 
 Requires:         R-utils 
 Requires:         R-CRAN-fs 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-madshapR 
 
 %description
-Functions to support rigorous retrospective data harmonization processing,
-evaluation, and documentation across datasets from different studies based
-on Maelstrom Research guidelines. The package includes the core functions
-to evaluate and format the main inputs that define the harmonization
-process, apply specified processing rules to generate harmonized data,
-diagnose processing errors, and summarize and evaluate harmonized outputs.
-The main inputs that define the processing are a DataSchema (list and
-definitions of harmonized variables to be generated) and Data Processing
-Elements (processing rules to be applied to generate harmonized variables
-from study-specific variables). The main outputs of processing are
-harmonized datasets, associated metadata, and tabular and visual summary
-reports. As described in Maelstrom Research guidelines for rigorous
-retrospective data harmonization (Fortier I and al. (2017)
-<doi:10.1093/ije/dyw075>).
+Integrated tools to support rigorous and well documented data
+harmonization based on Maelstrom Research guidelines. The package includes
+functions to assess and prepare input elements, apply specified processing
+rules to generate harmonized datasets, validate data processing and
+identify processing errors, and document and summarize harmonized outputs.
+The harmonization process is defined and structured by two key
+user-generated documents: the DataSchema (specifying the list of
+harmonized variables to generate across datasets) and the Data Processing
+Elements (specifying the input elements and processing algorithms to
+generate harmonized variables in DataSchema formats). The package was
+developed to address key challenges of retrospective data harmonization in
+epidemiology (as described in Fortier I and al. (2017)
+<doi:10.1093/ije/dyw075>) but can be used for any data harmonization
+initiative.
 
 %prep
 %setup -q -c -n %{packname}

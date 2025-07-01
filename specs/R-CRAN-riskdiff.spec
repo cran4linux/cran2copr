@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  riskdiff
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Risk Difference Estimation with Multiple Link Functions
+Summary:          Risk Difference Estimation with Multiple Link Functions and Inverse Probability of Treatment Weighting
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr >= 1.0.0
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tibble 
@@ -31,6 +32,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-stringr 
 Requires:         R-stats 
+Requires:         R-CRAN-ggplot2 
 
 %description
 Calculates risk differences (or prevalence differences for cross-sectional

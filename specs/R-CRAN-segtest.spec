@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  segtest
-%global packver   1.0.2
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tests for Segregation Distortion in Polyploids
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.4.0
-Requires:         R-core >= 3.4.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-doFuture 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-iterators 
+BuildRequires:    R-CRAN-minqa 
+BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-updog 
 BuildRequires:    R-CRAN-RcppArmadillo 
@@ -29,18 +31,23 @@ Requires:         R-CRAN-doRNG
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-iterators 
+Requires:         R-CRAN-minqa 
+Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-updog 
 
 %description
-Provides a suite of tests for segregation distortion in F1 polyploid
-populations (for now, just tetraploids). This is under different
-assumptions of meiosis. Details of these methods are described in Gerard
-et al. (2025) <doi:10.1007/s00122-025-04816-z>. This material is based
-upon work supported by the National Science Foundation under Grant No.
-2132247.  The opinions, findings, and conclusions or recommendations
-expressed are those of the author and do not necessarily reflect the views
-of the National Science Foundation.
+Provides tests for segregation distortion in F1 polyploid populations
+under different assumptions of meiosis. These tests can account for double
+reduction, partial preferential pairing, and genotype uncertainty through
+the use of genotype likelihoods. Parallelization support is provided.
+Details of these methods are described in Gerard et al. (2025a)
+<doi:10.1007/s00122-025-04816-z> and Gerard et al. (2025b)
+<doi:10.1101/2025.06.23.661114>. Part of this material is based upon work
+supported by the National Science Foundation under Grant No. 2132247.  The
+opinions, findings, and conclusions or recommendations expressed are those
+of the author and do not necessarily reflect the views of the National
+Science Foundation.
 
 %prep
 %setup -q -c -n %{packname}
