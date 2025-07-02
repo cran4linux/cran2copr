@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  quantdr
-%global packver   1.2.2
+%global packver   1.3.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.3.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dimension Reduction Techniques for Conditional Quantiles
 
@@ -16,11 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.2.0
 Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dr 
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-quantreg 
-Requires:         R-CRAN-dr 
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-mvtnorm 
 Requires:         R-CRAN-quantreg 

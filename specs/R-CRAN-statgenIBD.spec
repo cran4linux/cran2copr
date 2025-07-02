@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenIBD
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculation of IBD Probabilities
 
@@ -20,6 +20,7 @@ BuildRequires:    R-CRAN-statgenGWAS >= 1.0.9
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-R.utils 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-stringi 
@@ -28,6 +29,7 @@ Requires:         R-CRAN-statgenGWAS >= 1.0.9
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-R.utils 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-stringi 

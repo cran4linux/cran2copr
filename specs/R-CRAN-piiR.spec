@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  piiR
-%global packver   0.2.1
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Predictive Information Index ('PII')
 
@@ -18,16 +18,10 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-stats >= 3.6.0
-BuildRequires:    R-CRAN-infotheo >= 1.2.0
-BuildRequires:    R-CRAN-pROC >= 1.18.0
 Requires:         R-stats >= 3.6.0
-Requires:         R-CRAN-infotheo >= 1.2.0
-Requires:         R-CRAN-pROC >= 1.18.0
 
 %description
-A simple implementation of the Predictive Information Index ('PII') using
-mutual information and entropy from the 'infotheo' package. For related
-methodology, see Wells (2025) <https://github.com/TheotherDrWells/piiR>.
+A simple implementation of the Predictive Information Index ('PII').
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggsurveillance
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Outbreak Investigation/Infectious Disease Surveillance
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-forcats 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-ISOweek 
+BuildRequires:    R-CRAN-legendry 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
@@ -36,6 +37,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-forcats 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-ISOweek 
+Requires:         R-CRAN-legendry 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
@@ -43,16 +45,17 @@ Requires:         R-CRAN-tidyr
 Requires:         R-CRAN-tidyselect 
 
 %description
-Create epicurves or epigantt charts in 'ggplot2'. Prepare data for
-visualisation or other reporting for infectious disease surveillance and
-outbreak investigation. Includes tidy functions to solve date based
-transformations for common reporting tasks, like (A) seasonal date
-alignment for respiratory disease surveillance, (B) date-based case
-binning based on specified time intervals like isoweek, epiweek, month and
-more, (C) automated detection and marking of the new year based on the
-date/datetime axis of the 'ggplot2'. An introduction on how to use
-epicurves can be found on the US CDC website (2012,
-<https://www.cdc.gov/training/quicklearns/epimode/index.html>).
+Create epicurves, epigantt charts, and diverging bar charts using
+'ggplot2'. Prepare data for visualisation or other reporting for
+infectious disease surveillance and outbreak investigation (time series
+data).  Includes tidy functions to solve date based transformations for
+common reporting tasks, like (A) seasonal date alignment for respiratory
+disease surveillance, (B) date-based case binning based on specified time
+intervals like isoweek, epiweek, month and more, (C) automated detection
+and marking of the new year based on the date/datetime axis of the
+'ggplot2', (D) labelling of the last value of a time-series.  An
+introduction on how to use epicurves can be found on the US CDC website
+(2012, <https://www.cdc.gov/training/quicklearns/epimode/index.html>).
 
 %prep
 %setup -q -c -n %{packname}

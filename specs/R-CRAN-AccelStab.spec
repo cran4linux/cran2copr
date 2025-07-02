@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AccelStab
-%global packver   2.2.1
+%global packver   2.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          2.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Accelerated Stability Kinetic Modelling
 
@@ -20,13 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-minpack.lm 
-BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-minpack.lm 
-Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
 Requires:         R-CRAN-scales 
 

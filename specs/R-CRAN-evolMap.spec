@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  evolMap
-%global packver   1.3.8
+%global packver   1.3.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.8
+Version:          1.3.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Dynamic and Interactive Maps
 
