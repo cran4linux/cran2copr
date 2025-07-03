@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  survivalPLANN
-%global packver   0.1
+%global packver   0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1
+Version:          0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Neural Networks to Predict Survival
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-survival
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-RISCA 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-nnet 
 Requires:         R-methods 
 Requires:         R-stats 
+Requires:         R-CRAN-RISCA 
 
 %description
 Several functions and S3 methods to predict survival by using neural

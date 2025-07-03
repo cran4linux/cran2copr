@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aplot
-%global packver   0.2.7
+%global packver   0.2.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.7
+Version:          0.2.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Decorate a 'ggplot' with Associated Information
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-patchwork
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-pillar 
 Requires:         R-CRAN-yulab.utils >= 0.1.9
 Requires:         R-CRAN-ggfun >= 0.1.3
 Requires:         R-CRAN-ggplot2 
@@ -33,6 +34,7 @@ Requires:         R-CRAN-patchwork
 Requires:         R-CRAN-magrittr 
 Requires:         R-methods 
 Requires:         R-utils 
+Requires:         R-CRAN-pillar 
 
 %description
 For many times, we are not just aligning plots as what 'cowplot' and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  pdcor
-%global packver   1.0
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fast and Light-Weight Partial Distance Correlation
 
@@ -37,7 +37,9 @@ Vogelstein J. T. (2022). "The Chi-Square Test of Distance Correlation".
 Journal of Computational and Graphical Statistics, 31(1): 254--262.
 <doi:10.1080/10618600.2021.1938585>. Szekely G. J. and Rizzo M. L. (2023).
 "The Energy of Data and Distance Correlation". Chapman and Hall/CRC.
-<ISBN:9781482242744>.
+<ISBN:9781482242744>. Kontemeniotis N., Vargiakakis R. and Tsagris M.
+(2025). On independence testing using the (partial) distance correlation.
+<doi:10.48550/arXiv.2506.15659>.
 
 %prep
 %setup -q -c -n %{packname}

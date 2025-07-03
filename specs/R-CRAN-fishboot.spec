@@ -1,49 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  prettifyAddins
-%global packver   2.6.1
+%global packname  fishboot
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.6.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          'RStudio' Addins to Prettify 'JavaScript', 'C++', 'Python', and More
+Summary:          Bootstrap-Based Methods for the Study of Fish Stocks and Aquatic Populations
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-chromote 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-rstudioapi 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-tools 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-graphics 
+BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-webdriver 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-XRJulia 
-Requires:         R-CRAN-chromote 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-rstudioapi 
-Requires:         R-CRAN-shiny 
-Requires:         R-tools 
+BuildRequires:    R-CRAN-ks 
+BuildRequires:    R-CRAN-TropFishR 
+BuildRequires:    R-CRAN-fishmethods 
+Requires:         R-CRAN-doParallel 
+Requires:         R-parallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-grDevices 
+Requires:         R-graphics 
+Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-webdriver 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-XRJulia 
+Requires:         R-CRAN-ks 
+Requires:         R-CRAN-TropFishR 
+Requires:         R-CRAN-fishmethods 
 
 %description
-Provides 'RStudio' addins to prettify 'HTML', 'CSS', 'SCSS', 'JavaScript',
-'JSX', 'Markdown', 'C(++)', 'LaTeX', 'Python', 'Julia', 'XML', 'Java',
-'JSON', 'Ruby', and to reindent 'C(++)', 'Fortran', 'Java', 'Julia',
-'Python', 'SAS', 'Scala', 'Shell', 'SQL' and "TypeScript". Two kinds of
-addins are provided: 'Prettify' and 'Indent'. The 'Indent' addins only
-reindent the code, while the 'Prettify' addins also modify the code, e.g.
-trailing semi-colons are added to 'JavaScript' code when they are missing.
+A suite of bootstrap-based models and tools for analyzing fish stocks and
+aquatic populations. Designed for ecologists and fisheries scientists, it
+supports data from length-frequency distributions, tag-and-recapture
+studies, and hard structure readings (e.g., otoliths). See Schwamborn et
+al., 2019 <doi:10.1016/j.ecolmodel.2018.12.001> for background. The
+package includes functions for bootstrapped fitting of growth curves and
+plotting.
 
 %prep
 %setup -q -c -n %{packname}

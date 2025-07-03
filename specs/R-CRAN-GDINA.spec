@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GDINA
-%global packver   2.9.9
+%global packver   2.9.12
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.9.9
+Version:          2.9.12
 Release:          1%{?dist}%{?buildtag}
 Summary:          The Generalized DINA Model Framework
 
@@ -18,6 +18,7 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.1
 BuildRequires:    R-CRAN-alabama 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
@@ -31,6 +32,7 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp >= 0.12.1
 Requires:         R-CRAN-alabama 
+Requires:         R-CRAN-foreach 
 Requires:         R-graphics 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rddtools
-%global packver   1.6.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Toolbox for Regression Discontinuity Design ('RDD')
 
@@ -27,7 +28,6 @@ BuildRequires:    R-CRAN-Formula
 BuildRequires:    R-CRAN-locpol 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rdrobust 
-BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-AER 
 Requires:         R-CRAN-np 
 Requires:         R-CRAN-KernSmooth 
@@ -39,7 +39,6 @@ Requires:         R-CRAN-Formula
 Requires:         R-CRAN-locpol 
 Requires:         R-methods 
 Requires:         R-CRAN-rdrobust 
-Requires:         R-CRAN-rmarkdown 
 
 %description
 Set of functions for Regression Discontinuity Design ('RDD'), for data

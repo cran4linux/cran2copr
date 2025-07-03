@@ -1,33 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parzer
-%global packver   0.4.3
+%global packname  autograph
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.3
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Parse Messy Geographic Coordinates
+Summary:          Automatic Plotting of Many Graphs
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.2
-BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-Rcpp >= 1.0.2
-Requires:         R-CRAN-withr 
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+BuildRequires:    R-CRAN-manynet 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-ggdendro 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-manynet 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-ggdendro 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tidyr 
 
 %description
-Parse messy geographic coordinates from various character formats to
-decimal degree numeric values. Parse coordinates into their parts (degree,
-minutes, seconds); calculate hemisphere from coordinates; pull out
-individually degrees, minutes, or seconds; add and subtract degrees,
-minutes, and seconds. C++ code herein originally inspired from code
-written by Jeffrey D. Bogan, but then completely re-written.
+Visual exploration and presentation of networks should not be difficult.
+This package includes functions for plotting networks and network-related
+metrics with sensible and pretty defaults. It includes 'ggplot2'-based
+plot methods for many popular network package classes. It also includes
+some novel layout algorithms, and options for straightforward, consistent
+themes.
 
 %prep
 %setup -q -c -n %{packname}

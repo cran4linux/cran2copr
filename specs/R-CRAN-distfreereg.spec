@@ -1,41 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rim
-%global packver   0.8.0
+%global packname  distfreereg
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interface to 'Maxima', Enabling Symbolic Computation
+Summary:          Distribution-Free Goodness-of-Fit Testing for Regression
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-Recommends:       maxima
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.4
+Requires:         R-core >= 4.4
+BuildArch:        noarch
+BuildRequires:    R-CRAN-calculus 
+BuildRequires:    R-CRAN-clue 
+BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-GlobalOptions 
+Requires:         R-CRAN-calculus 
+Requires:         R-CRAN-clue 
+Requires:         R-CRAN-lme4 
 Requires:         R-methods 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-GlobalOptions 
 
 %description
-An interface to the powerful and fairly complete computer algebra system
-'Maxima'. It can be used to start and control 'Maxima' from within R by
-entering 'Maxima' commands. Results from 'Maxima' can be parsed and
-evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
-and 'MathML'. 2D and 3D plots can be displayed directly. This package also
-registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
-'RMarkdown' documents.
+Implements the distribution-free goodness-of-fit regression test for the
+mean structure of parametric models introduced in Khmaladze (2021)
+<doi:10.1007/s10463-021-00786-3>. The test is implemented for general
+functions with minimal distributional assumptions as well as common models
+(e.g., lm, glm) with the usual assumptions.
 
 %prep
 %setup -q -c -n %{packname}

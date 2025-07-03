@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bspcov
-%global packver   1.0.1
+%global packver   1.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Sparse Estimation of a Covariance Matrix
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-GIGrvg 
 BuildRequires:    R-CRAN-coda 
@@ -40,6 +40,7 @@ BuildRequires:    R-CRAN-ggmcmc
 BuildRequires:    R-CRAN-caret 
 BuildRequires:    R-CRAN-FinCovRegularization 
 BuildRequires:    R-CRAN-mvtnorm 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-GIGrvg 
 Requires:         R-CRAN-coda 
 Requires:         R-CRAN-progress 
@@ -63,14 +64,20 @@ Requires:         R-CRAN-ggmcmc
 Requires:         R-CRAN-caret 
 Requires:         R-CRAN-FinCovRegularization 
 Requires:         R-CRAN-mvtnorm 
+Requires:         R-stats 
 
 %description
-Provides functions which perform Bayesian estimations of a covariance
-matrix for multivariate normal data. Assumes that the covariance matrix is
-sparse or band matrix and positive-definite. This software has been
-developed using funding supported by Basic Science Research Program
-through the National Research Foundation of Korea ('NRF') funded by the
-Ministry of Education ('RS-2023-00211979', 'NRF-2022R1A5A7033499',
+Bayesian estimations of a covariance matrix for multivariate normal data.
+Assumes that the covariance matrix is sparse or band matrix and
+positive-definite. Methods implemented include the beta-mixture shrinkage
+prior (Lee et al. (2022) <doi:10.1016/j.jmva.2022.105067>), screened
+beta-mixture prior (Lee et al. (2024) <doi:10.1214/24-BA1495>), and
+post-processed posteriors for banded and sparse covariances (Lee et al.
+(2023) <doi:10.1214/22-BA1333>; Lee and Lee (2023)
+<doi:10.1016/j.jeconom.2023.105475>). This software has been developed
+using funding supported by Basic Science Research Program through the
+National Research Foundation of Korea ('NRF') funded by the Ministry of
+Education ('RS-2023-00211979', 'NRF-2022R1A5A7033499',
 'NRF-2020R1A4A1018207' and 'NRF-2020R1C1C1A01013338').
 
 %prep

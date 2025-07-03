@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statgenHTP
-%global packver   1.0.8
+%global packver   1.0.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.8
+Version:          1.0.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          High Throughput Phenotyping (HTP) Data Analysis
 
@@ -20,7 +20,6 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
 BuildRequires:    R-CRAN-SpATS >= 1.0.13
 BuildRequires:    R-CRAN-animation 
-BuildRequires:    R-CRAN-factoextra 
 BuildRequires:    R-CRAN-ggforce 
 BuildRequires:    R-CRAN-ggnewscale 
 BuildRequires:    R-grid 
@@ -31,13 +30,11 @@ BuildRequires:    R-CRAN-LMMsolver
 BuildRequires:    R-CRAN-locfit 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-reshape2 
 BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-spam 
 Requires:         R-CRAN-ggplot2 >= 3.3.0
 Requires:         R-CRAN-SpATS >= 1.0.13
 Requires:         R-CRAN-animation 
-Requires:         R-CRAN-factoextra 
 Requires:         R-CRAN-ggforce 
 Requires:         R-CRAN-ggnewscale 
 Requires:         R-grid 
@@ -48,7 +45,6 @@ Requires:         R-CRAN-LMMsolver
 Requires:         R-CRAN-locfit 
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-reshape2 
 Requires:         R-CRAN-scales 
 Requires:         R-CRAN-spam 
 
@@ -56,7 +52,7 @@ Requires:         R-CRAN-spam
 Phenotypic analysis of data coming from high throughput phenotyping (HTP)
 platforms, including different types of outlier detection, spatial
 analysis, and parameter estimation. The package is being developed within
-the EPPN2020 project (<https://eppn2020.plant-phenotyping.eu/>). Some
+the EPPN2020 project (<https://cordis.europa.eu/project/id/731013>). Some
 functions have been created to be used in conjunction with the R package
 'asreml' for the 'ASReml' software, which can be obtained upon purchase
 from 'VSN' international (<https://vsni.co.uk/software/asreml-r/>).

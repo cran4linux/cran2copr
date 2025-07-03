@@ -1,32 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  libdeflate
-%global packver   1.24-4
+%global packname  libimath
+%global packver   3.1.9-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.24.4
+Version:          3.1.9.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          DEFLATE Compression and Static Library
+Summary:          'Imath' Computer Graphics Linear Algebra Static Library
 
-License:          MIT + file LICENSE
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Whole-buffer DEFLATE-based compression and decompression of raw vectors
-using the 'libdeflate' library (see
-<https://github.com/ebiggers/libdeflate>). Provides the user with
-additional control over the speed and the quality of DEFLATE compression
-compared to the fixed level of compression offered in R's 'memCompress()'
-function. Also provides the 'libdeflate' static library and 'C' headers
-along with a 'CMake' target and 'package‑config' file that ease linking of
-'libdeflate' in packages that compile and statically link bundled
-libraries using 'CMake'.
+Provides a static library for 'Imath' (see
+<https://github.com/AcademySoftwareFoundation/Imath>), a library for
+functions and data types common in computer graphics applications,
+including a 16-bit floating-point type.
 
 %prep
 %setup -q -c -n %{packname}

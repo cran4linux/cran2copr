@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppArmadillo
-%global packver   14.4.3-1
+%global packver   14.6.0-1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          14.4.3.1
+Version:          14.6.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra Library
 

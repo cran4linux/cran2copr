@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  AgroR
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Experimental Statistics and Graphics for Agricultural Sciences
 
@@ -67,7 +67,8 @@ binomial and Poisson family in CRD and RBD (Carvalho, FJ (2019),
 <doi:10.14393/ufu.te.2019.1244>). It can also be used to obtain
 descriptive measures and graphics, in addition to correlations and
 creative graphics used in agricultural sciences (Agronomy, Zootechnics,
-Food Science and related areas).
+Food Science and related areas). Shimizu, G. D., Marubayashi, R. Y. P.,
+Goncalves, L. S. A. (2025) <doi:10.4025/actasciagron.v47i1.73889>.
 
 %prep
 %setup -q -c -n %{packname}

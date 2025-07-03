@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  missingHE
-%global packver   1.5.0
+%global packver   1.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Missing Outcome Data in Health Economic Evaluation
 
@@ -14,10 +14,9 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mcmcplots 
 BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-CRAN-ggmcmc 
 BuildRequires:    R-CRAN-ggthemes 
@@ -31,7 +30,6 @@ BuildRequires:    R-CRAN-R2jags
 BuildRequires:    R-CRAN-loo 
 BuildRequires:    R-CRAN-coda 
 BuildRequires:    R-CRAN-mcmcr 
-Requires:         R-CRAN-mcmcplots 
 Requires:         R-CRAN-ggpubr 
 Requires:         R-CRAN-ggmcmc 
 Requires:         R-CRAN-ggthemes 

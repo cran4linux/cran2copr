@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Robyn
-%global packver   3.11.1
+%global packver   3.12.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.11.1
+Version:          3.12.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Semi-Automated Marketing Mix Modeling (MMM) from Meta Marketing Science
 
@@ -17,36 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.4.0
+BuildRequires:    R-CRAN-patchwork >= 1.3.1
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-doRNG 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggridges 
 BuildRequires:    R-CRAN-glmnet 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lares 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-minpack.lm 
 BuildRequires:    R-CRAN-nloptr 
-BuildRequires:    R-CRAN-patchwork 
 BuildRequires:    R-CRAN-prophet 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 >= 3.4.0
+Requires:         R-CRAN-patchwork >= 1.3.1
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-doRNG 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggridges 
 Requires:         R-CRAN-glmnet 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lares 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-minpack.lm 
 Requires:         R-CRAN-nloptr 
-Requires:         R-CRAN-patchwork 
 Requires:         R-CRAN-prophet 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-stringr 

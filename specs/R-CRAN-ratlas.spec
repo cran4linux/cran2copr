@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ratlas
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          ATLAS Formatting Functions and Templates
 
@@ -21,11 +21,11 @@ BuildRequires:    R-CRAN-ggplot2 >= 3.3.2
 BuildRequires:    R-CRAN-tibble >= 2.1.3
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-colorspace >= 1.4.1
+BuildRequires:    R-CRAN-scales >= 1.4.0
 BuildRequires:    R-CRAN-stringr >= 1.4.0
 BuildRequires:    R-CRAN-glue >= 1.3.1
 BuildRequires:    R-CRAN-knitr >= 1.22
 BuildRequires:    R-CRAN-fs >= 1.2.7
-BuildRequires:    R-CRAN-scales >= 1.0.0
 BuildRequires:    R-CRAN-bookdown >= 0.9
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
 BuildRequires:    R-CRAN-dplyr >= 0.8.1
@@ -36,17 +36,16 @@ BuildRequires:    R-CRAN-officedown >= 0.2.2
 BuildRequires:    R-CRAN-extrafont >= 0.17
 BuildRequires:    R-CRAN-xfun >= 0.12
 BuildRequires:    R-CRAN-xaringan >= 0.11
-BuildRequires:    R-CRAN-ggtext >= 0.1.1
 BuildRequires:    R-grDevices 
 Requires:         R-CRAN-ggplot2 >= 3.3.2
 Requires:         R-CRAN-tibble >= 2.1.3
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-colorspace >= 1.4.1
+Requires:         R-CRAN-scales >= 1.4.0
 Requires:         R-CRAN-stringr >= 1.4.0
 Requires:         R-CRAN-glue >= 1.3.1
 Requires:         R-CRAN-knitr >= 1.22
 Requires:         R-CRAN-fs >= 1.2.7
-Requires:         R-CRAN-scales >= 1.0.0
 Requires:         R-CRAN-bookdown >= 0.9
 Requires:         R-CRAN-tidyr >= 0.8.3
 Requires:         R-CRAN-dplyr >= 0.8.1
@@ -57,7 +56,6 @@ Requires:         R-CRAN-officedown >= 0.2.2
 Requires:         R-CRAN-extrafont >= 0.17
 Requires:         R-CRAN-xfun >= 0.12
 Requires:         R-CRAN-xaringan >= 0.11
-Requires:         R-CRAN-ggtext >= 0.1.1
 Requires:         R-grDevices 
 
 %description

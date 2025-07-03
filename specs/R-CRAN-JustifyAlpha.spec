@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  JustifyAlpha
-%global packver   0.1.1
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Justifying Alpha Levels for Hypothesis Tests
 
@@ -21,18 +22,12 @@ BuildRequires:    R-CRAN-BayesFactor
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-Superpower 
-BuildRequires:    R-CRAN-pwr 
-BuildRequires:    R-CRAN-shinydashboard 
 BuildRequires:    R-CRAN-qpdf 
 Requires:         R-stats 
 Requires:         R-CRAN-BayesFactor 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-Superpower 
-Requires:         R-CRAN-pwr 
-Requires:         R-CRAN-shinydashboard 
 Requires:         R-CRAN-qpdf 
 
 %description

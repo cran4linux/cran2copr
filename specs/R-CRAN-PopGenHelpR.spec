@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PopGenHelpR
-%global packver   1.3.2
+%global packver   1.4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Population Genomic and Genetic Analyses
 
@@ -25,8 +25,11 @@ BuildRequires:    R-CRAN-reshape2
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scatterpie 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-spData 
+BuildRequires:    R-CRAN-geodata 
+BuildRequires:    R-CRAN-terra 
+BuildRequires:    R-CRAN-ggspatial 
 BuildRequires:    R-CRAN-spdep 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vcfR 
 Requires:         R-CRAN-dplyr 
@@ -37,8 +40,11 @@ Requires:         R-CRAN-reshape2
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scatterpie 
 Requires:         R-stats 
-Requires:         R-CRAN-spData 
+Requires:         R-CRAN-geodata 
+Requires:         R-CRAN-terra 
+Requires:         R-CRAN-ggspatial 
 Requires:         R-CRAN-spdep 
+Requires:         R-CRAN-sf 
 Requires:         R-utils 
 Requires:         R-CRAN-vcfR 
 

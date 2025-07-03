@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fetwfe
-%global packver   1.0.0
+%global packver   1.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Fused Extended Two-Way Fixed Effects
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-Matrix >= 1.6.0
 BuildRequires:    R-CRAN-expm 
@@ -32,13 +32,14 @@ unbiased and efficient estimation of difference-in-differences in panel
 data with staggered treatment adoption. This estimator eliminates bias
 inherent in conventional two-way fixed effects estimators, while also
 employing a novel bridge regression regularization approach to improve
-efficiency and yield valid standard errors. Provides flexible tuning
-parameters (including user-specified or data-driven choices for penalty
-parameters), detailed output including overall and cohort-specific
-treatment effects with confidence intervals, and extensive diagnostic
-tools. Also provides functions for generating simulated panel data
-formatted for estimating FETWFE, and running and evaluating simulations.
-See details in Faletto (2025) (<doi:10.48550/arXiv.2312.05985>).
+efficiency and yield valid standard errors. Also implements extended TWFE
+(etwfe) and bridge-penalized ETWFE (betwfe). Provides S3 classes for
+streamlined workflow and supports flexible tuning (ridge and
+rank-condition guarantees), automatic covariate centering/scaling, and
+detailed overall and cohort-specific effect estimates with valid standard
+errors. Includes simulation and formatting utilities, extensive diagnostic
+tools, vignettes, and examples. See Faletto (2025)
+(<doi:10.48550/arXiv.2312.05985>).
 
 %prep
 %setup -q -c -n %{packname}
