@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vosonSML
-%global packver   0.32.7
+%global packver   0.35.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.32.7
+Version:          0.35.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collecting Social Media Data and Generating Networks for Analysis
 
@@ -17,26 +17,26 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr >= 1.3.0
-BuildRequires:    R-CRAN-dplyr >= 1.0
-BuildRequires:    R-CRAN-rlang >= 1.0
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-textutils 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-Requires:         R-CRAN-httr >= 1.3.0
-Requires:         R-CRAN-dplyr >= 1.0
-Requires:         R-CRAN-rlang >= 1.0
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-lubridate 
 Requires:         R-methods 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-textutils 
 Requires:         R-CRAN-tidyr 
@@ -44,8 +44,8 @@ Requires:         R-CRAN-tibble
 
 %description
 A suite of easy to use functions for collecting social media data and
-generating networks for analysis. Supports Twitter, YouTube, Reddit and
-web site data sources.
+generating networks for analysis. Supports Mastodon, YouTube, Reddit and
+Web 1.0 data sources.
 
 %prep
 %setup -q -c -n %{packname}

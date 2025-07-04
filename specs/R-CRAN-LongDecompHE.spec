@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eventstudyr
-%global packver   1.1.4
+%global packname  LongDecompHE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Visualization of Linear Panel Event Studies
+Summary:          Longitudinal Decomposition of Health Expectancy by Age and Cause
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,33 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-estimatr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-copula 
+BuildRequires:    R-CRAN-corpcor 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-estimatr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-patchwork 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-copula 
+Requires:         R-CRAN-corpcor 
 Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-patchwork 
+Requires:         R-grDevices 
+Requires:         R-CRAN-tidyr 
 
 %description
-Estimates linear panel event study models. Plots coefficients following
-the recommendations in Freyaldenhoven et al. (2021) <doi:10.3386/w29170>.
-Includes sup-t bands, testing for key hypotheses, least wiggly path
-through the Wald region. Allows instrumental variables estimation
-following Freyaldenhoven et al. (2019) <doi:10.1257/aer.20180609>.
+Provides tools to decompose differences in cohort health expectancy (HE)
+by age and cause using longitudinal data. The package implements a novel
+longitudinal attribution method based on a semiparametric additive hazards
+model with time-dependent covariates, specifically designed to address
+interval censoring and semi-competing risks via a copula framework. The
+resulting age-cause-specific contributions to disability prevalence and
+death probability can be used to quantify and decompose differences in
+cohort HE between groups. The package supports stepwise replacement
+decomposition algorithms and is applicable to cohort-based health
+disparity research across diverse populations. Related methods include Sun
+et al. (2023) <doi:10.1177/09622802221133552>.
 
 %prep
 %setup -q -c -n %{packname}

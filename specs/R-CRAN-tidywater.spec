@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tidywater
-%global packver   0.8.2
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Water Quality Models for Drinking Water Treatment Processes
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
@@ -44,12 +44,15 @@ Requires:         R-CRAN-deSolve
 
 %description
 Provides multiple water chemistry-based models and published empirical
-models in one standard format. Functions can be chained together to model
-a complete treatment process and are designed to work in a 'tidyverse'
-workflow. Models are primarily based on these sources: Benjamin, M. M.
-(2002, ISBN:147862308X), Crittenden, J. C., Trussell, R., Hand, D., Howe,
-J. K., & Tchobanoglous, G., Borchardt, J. H. (2012, ISBN:9781118131473),
-USEPA. (2001)
+models in one standard format. As many models have been included as
+possible, however, users should be aware that models have varying degrees
+of accuracy and applicability. To learn more, read the references provided
+below for the models implemented. Functions can be chained together to
+model a complete treatment process and are designed to work in a
+'tidyverse' workflow. Models are primarily based on these sources:
+Benjamin, M. M. (2002, ISBN:147862308X), Crittenden, J. C., Trussell, R.,
+Hand, D., Howe, J. K., & Tchobanoglous, G., Borchardt, J. H. (2012,
+ISBN:9781118131473), USEPA. (2001)
 <https://www.epa.gov/sites/default/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf>.
 
 %prep

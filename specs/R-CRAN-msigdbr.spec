@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  msigdbr
-%global packver   24.1.0
+%global packver   25.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          24.1.0
+Version:          25.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          MSigDB Gene Sets for Multiple Organisms in a Tidy Data Format
 

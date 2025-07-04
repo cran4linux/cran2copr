@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  acro
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Tool for Semi-Automating the Statistical Disclosure Control of Research Outputs
 
@@ -25,12 +25,8 @@ Requires:         R-CRAN-admiraldev
 Requires:         R-CRAN-png 
 
 %description
-Assists researchers and output checkers by distinguishing between research
-output that is safe to publish, output that requires further analysis, and
-output that cannot be published because of substantial disclosure risk. A
-paper about the tool was presented at the UNECE Expert Meeting on
-Statistical Data Confidentiality 2023; see
-<https://uwe-repository.worktribe.com/output/11060964>.
+A Tool for Semi-Automating the Statistical Disclosure Control of Research
+Outputs.
 
 %prep
 %setup -q -c -n %{packname}

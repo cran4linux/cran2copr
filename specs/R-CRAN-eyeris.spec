@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyeris
-%global packver   1.2.1
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Extensible, & Reproducible Pupillometry Preprocessing
 
@@ -34,6 +34,9 @@ BuildRequires:    R-CRAN-progress
 BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-withr 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-viridis 
+BuildRequires:    R-CRAN-fields 
 Requires:         R-CRAN-eyelinker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gsignal 
@@ -51,6 +54,9 @@ Requires:         R-CRAN-progress
 Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-withr 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-viridis 
+Requires:         R-CRAN-fields 
 
 %description
 Pupillometry offers a non-invasive window into the mind and has been used
@@ -59,18 +65,21 @@ with cognitive processes like attention, stress, and emotional states
 [Clewett et al. (2020) <doi:10.1038/s41467-020-17851-9>; Kret & Sjak-Shie
 (2018) <doi:10.3758/s13428-018-1075-y>; Strauch (2024)
 <doi:10.1016/j.tins.2024.06.002>]. Yet, despite decades of pupillometry
-research, many established packages and workflows to date unfortunately
-lack design patterns based on Findability, Accessibility,
-Interoperability, and Reusability (FAIR) principles [see Wilkinson et al.
-(2016) <doi:10.1038/sdata.2016.18>]. 'eyeris', on the other hand, follows
-a design philosophy that provides users with an intuitive, modular,
-performant, and extensible pupillometry data preprocessing framework
-out-of-the-box. 'eyeris' introduces a Brain Imaging Data Structure
-(BIDS)-like organization for derivative (i.e., preprocessed) pupillometry
-data as well as an intuitive workflow for inspecting preprocessed pupil
-epochs using interactive output report files [Esteban et al. (2019)
+research, many established packages and workflows to date lack design
+patterns based on Findability, Accessibility, Interoperability, and
+Reusability (FAIR) principles [see Wilkinson et al. (2016)
+<doi:10.1038/sdata.2016.18>]. 'eyeris' provides a modular, performant, and
+extensible preprocessing framework for pupillometry data with BIDS-like
+organization and interactive output reports [Esteban et al. (2019)
 <doi:10.1038/s41592-018-0235-4>; Gorgolewski et al. (2016)
-<doi:10.1038/sdata.2016.44>].
+<doi:10.1038/sdata.2016.44>]. Development was supported, in part, by the
+Stanford Wu Tsai Human Performance Alliance, Stanford Ric Weiland Graduate
+Fellowship, Stanford Center for Mind, Brain, Computation and Technology,
+NIH National Institute on Aging Grants (R01-AG065255, R01-AG079345), NSF
+GRFP (DGE-2146755), McKnight Brain Research Foundation Clinical
+Translational Research Scholarship in Cognitive Aging and Age-Related
+Memory Loss, American Brain Foundation, and the American Academy of
+Neurology.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,49 +1,48 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eventstudyr
-%global packver   1.1.4
+%global packname  contdid
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Estimation and Visualization of Linear Panel Event Studies
+Summary:          Difference-in-Differences with a Continuous Treatment
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-estimatr 
+BuildRequires:    R-CRAN-BMisc >= 1.4.8
+BuildRequires:    R-CRAN-ptetools 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-splines2 
+BuildRequires:    R-CRAN-sandwich 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-pracma 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-stringr 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-estimatr 
+BuildRequires:    R-CRAN-npiv 
+Requires:         R-CRAN-BMisc >= 1.4.8
+Requires:         R-CRAN-ptetools 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-splines2 
+Requires:         R-CRAN-sandwich 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-pracma 
-Requires:         R-stats 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-npiv 
 
 %description
-Estimates linear panel event study models. Plots coefficients following
-the recommendations in Freyaldenhoven et al. (2021) <doi:10.3386/w29170>.
-Includes sup-t bands, testing for key hypotheses, least wiggly path
-through the Wald region. Allows instrumental variables estimation
-following Freyaldenhoven et al. (2019) <doi:10.1257/aer.20180609>.
+Provides methods for difference-in-differences with a continuous treatment
+and staggered treatment adoption. Includes estimation of treatment effects
+and causal responses as a function of the dose, event studies indexed by
+length of exposure to the treatment, and aggregation into overall average
+effects. Uniform inference procedures are included, along with both
+parametric and nonparametric models for treatment effects. The methods are
+based on Callaway, Goodman-Bacon, and Sant'Anna (2025)
+<doi:10.48550/arXiv.2107.02637>.
 
 %prep
 %setup -q -c -n %{packname}

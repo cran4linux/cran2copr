@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ideanet
-%global packver   1.1.0
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Integrating Data Exchange and Analysis for Networks ('ideanet')
 
@@ -33,7 +33,6 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-CRAN-gridGraphics 
 BuildRequires:    R-CRAN-intergraph 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-linkcomm 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
@@ -65,7 +64,6 @@ Requires:         R-grDevices
 Requires:         R-CRAN-gridGraphics 
 Requires:         R-CRAN-intergraph 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-linkcomm 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-Matrix 
 Requires:         R-methods 

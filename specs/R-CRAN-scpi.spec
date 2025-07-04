@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scpi
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Prediction Intervals for Synthetic Control Methods with Multiple Treated Units and Staggered Adoption
 
@@ -24,6 +24,7 @@ BuildRequires:    R-parallel >= 4.1.0
 BuildRequires:    R-stats >= 4.1.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.3.3
 BuildRequires:    R-CRAN-tibble >= 3.1.2
+BuildRequires:    R-CRAN-Rdpack >= 2.4
 BuildRequires:    R-CRAN-magrittr >= 2.0.1
 BuildRequires:    R-CRAN-fastDummies >= 1.6.3
 BuildRequires:    R-CRAN-Qtools >= 1.5.6
@@ -46,6 +47,7 @@ Requires:         R-parallel >= 4.1.0
 Requires:         R-stats >= 4.1.0
 Requires:         R-CRAN-ggplot2 >= 3.3.3
 Requires:         R-CRAN-tibble >= 3.1.2
+Requires:         R-CRAN-Rdpack >= 2.4
 Requires:         R-CRAN-magrittr >= 2.0.1
 Requires:         R-CRAN-fastDummies >= 1.6.3
 Requires:         R-CRAN-Qtools >= 1.5.6
@@ -67,12 +69,11 @@ Implementation of prediction and inference procedures for Synthetic
 Control methods using least square, lasso, ridge, or simplex-type
 constraints. Uncertainty is quantified with prediction intervals as
 developed in Cattaneo, Feng, and Titiunik (2021)
-<https://nppackages.github.io/references/Cattaneo-Feng-Titiunik_2021_JASA.pdf>
-for a single treated unit and in Cattaneo, Feng, Palomba, and Titiunik
-(2023) <doi:10.48550/arXiv.2210.05026> for multiple treated units and
-staggered adoption. More details about the software implementation can be
-found in Cattaneo, Feng, Palomba, and Titiunik (2024)
-<doi:10.48550/arXiv.2202.05984>.
+<doi:10.1080/01621459.2021.1979561> for a single treated unit and in
+Cattaneo, Feng, Palomba, and Titiunik (2025) <doi:10.1162/rest_a_01588>
+for multiple treated units and staggered adoption. More details about the
+software implementation can be found in Cattaneo, Feng, Palomba, and
+Titiunik (2025) <doi:10.18637/jss.v113.i01>.
 
 %prep
 %setup -q -c -n %{packname}

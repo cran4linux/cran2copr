@@ -1,33 +1,29 @@
 %global __brp_check_rpaths %{nil}
-%global packname  simpleMLP
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  ciflyr
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Multilayer Perceptron Neural Network
+Summary:          Reachability-Based Primitives for Graphical Causal Inference
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-readr 
-BuildRequires:    R-stats 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-readr 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 
 %description
-Create and train a multilayer perceptron, a type of feedforward, fully
-connected neural network. Features 2 ReLU hidden layers. Learn more about
-about the activation functions and backpropagation used by this network in
-Goodfellow et al. (2016, ISBN: 9780262035613) "Deep Learning".
+Provides a framework for specifying and running flexible linear-time
+reachability-based algorithms for graphical causal inference. Rule tables
+are used to encode and customize the reachability algorithm to typical
+causal and probabilistic reasoning tasks such as finding d-connected nodes
+or more advanced applications. For more information, see Wienöbst,
+Weichwald and Henckel (2025) <doi:10.48550/arXiv.2506.15758>.
 
 %prep
 %setup -q -c -n %{packname}
@@ -37,6 +33,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

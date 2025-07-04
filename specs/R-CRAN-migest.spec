@@ -1,21 +1,21 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  migest
-%global packver   2.0.4
+%global packver   2.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.4
+Version:          2.0.5
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for the Indirect Estimation of Bilateral Migration
+Summary:          Tools for Estimating, Measuring and Working with Migration Data
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-purrr 
@@ -32,6 +32,8 @@ BuildRequires:    R-CRAN-circlize
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-mipfp 
+BuildRequires:    R-CRAN-CVXR 
+BuildRequires:    R-CRAN-lpSolve 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-tidyr 
@@ -47,9 +49,13 @@ Requires:         R-CRAN-circlize
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-mipfp 
+Requires:         R-CRAN-CVXR 
+Requires:         R-CRAN-lpSolve 
 
 %description
-Tools for estimating, measuring and working with migration data.
+Provides tools for estimating, measuring, and analyzing migration data.
+Designed to assist researchers and analysts in working effectively with
+migration data.
 
 %prep
 %setup -q -c -n %{packname}

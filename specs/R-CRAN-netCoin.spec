@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  netCoin
-%global packver   2.1.0
+%global packver   2.1.9
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.0
+Version:          2.1.9
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive Analytic Networks
 
@@ -20,14 +20,14 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3
 BuildRequires:    R-CRAN-GPArotation >= 2022.4
 BuildRequires:    R-CRAN-Matrix >= 1.2.4
-BuildRequires:    R-CRAN-rD3plot >= 1.1.0
+BuildRequires:    R-CRAN-rD3plot >= 1.1.37
 BuildRequires:    R-CRAN-haven >= 1.1.0
 BuildRequires:    R-CRAN-igraph >= 1.0.1
 BuildRequires:    R-methods 
 Requires:         R-CRAN-MASS >= 7.3
 Requires:         R-CRAN-GPArotation >= 2022.4
 Requires:         R-CRAN-Matrix >= 1.2.4
-Requires:         R-CRAN-rD3plot >= 1.1.0
+Requires:         R-CRAN-rD3plot >= 1.1.37
 Requires:         R-CRAN-haven >= 1.1.0
 Requires:         R-CRAN-igraph >= 1.0.1
 Requires:         R-methods 
