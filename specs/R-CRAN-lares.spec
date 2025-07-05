@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lares
-%global packver   5.3.0
+%global packver   5.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.3.0
+Version:          5.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Lean Analytics and Robust Exploration Sidekick
 

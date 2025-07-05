@@ -1,42 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clmplus
-%global packver   1.0.0
+%global packname  HaDeX
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Tool-Box of Chain Ladder Plus Models
+Summary:          Analysis and Visualisation of Hydrogen/Deuterium Exchange Mass Spectrometry Data
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.0
+Requires:         R-core >= 3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-StMoMo 
-BuildRequires:    R-CRAN-ChainLadder 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-forecast 
-BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-latex2exp 
 BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-StMoMo 
-Requires:         R-CRAN-ChainLadder 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-shiny 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-forecast 
-Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-latex2exp 
 Requires:         R-CRAN-reshape2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implementation of the age-period-cohort models for the claim development
-presented in the manuscript 'Replicating and extending chain-ladder via an
-age-period-cohort structure on the claim development in a run-off
-triangle' <doi:10.48550/arXiv.2301.03858>.
+Functions for processing, analysis and visualization of Hydrogen Deuterium
+eXchange monitored by Mass Spectrometry experiments (HDX-MS)
+(<doi:10.1093/bioinformatics/btaa587>). 'HaDeX' introduces a new
+standardized and reproducible workflow for the analysis of the HDX-MS
+data, including novel uncertainty intervals. Additionally, it covers data
+exploration, quality control and generation of publication-quality
+figures. All functionalities are also available in the in-built 'Shiny'
+app.
 
 %prep
 %setup -q -c -n %{packname}

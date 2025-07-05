@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  PPSFS
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Partial Profile Score Feature Selection in High-Dimensional Generalized Linear Interaction Models
 
@@ -25,7 +26,7 @@ Requires:         R-CRAN-brglm2
 This is an implementation of the partial profile score feature selection
 (PPSFS) approach to generalized linear (interaction) models. The PPSFS is
 highly scalable even for ultra-high-dimensional feature space. See the
-paper by Xu, Luo and Chen (2021, <doi:10.4310/21-SII706>).
+paper by Xu, Luo and Chen (2022, <doi:10.4310/21-SII706>).
 
 %prep
 %setup -q -c -n %{packname}

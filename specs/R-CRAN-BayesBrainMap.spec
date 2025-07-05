@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  latrend
-%global packver   1.6.2
+%global packname  BayesBrainMap
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Framework for Clustering Longitudinal Data
+Summary:          Estimate Brain Networks and Connectivity with Population-Derived Priors
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,39 +17,40 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6.0
 Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rmarkdown >= 1.18
-BuildRequires:    R-CRAN-data.table >= 1.15.4
-BuildRequires:    R-CRAN-assertthat >= 0.2.1
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-fMRItools >= 0.5.3
+BuildRequires:    R-CRAN-fMRIscrub >= 0.14.5
+BuildRequires:    R-CRAN-abind 
 BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-matrixStats 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-rmarkdown >= 1.18
-Requires:         R-CRAN-data.table >= 1.15.4
-Requires:         R-CRAN-assertthat >= 0.2.1
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-R.utils 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-pesel 
+BuildRequires:    R-CRAN-SQUAREM 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-fMRItools >= 0.5.3
+Requires:         R-CRAN-fMRIscrub >= 0.14.5
+Requires:         R-CRAN-abind 
 Requires:         R-CRAN-foreach 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-matrixStats 
-Requires:         R-CRAN-rlang 
+Requires:         R-methods 
+Requires:         R-CRAN-pesel 
+Requires:         R-CRAN-SQUAREM 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
-A framework for clustering longitudinal datasets in a standardized way.
-The package provides an interface to existing R packages for clustering
-longitudinal univariate trajectories, facilitating reproducible and
-transparent analyses. Additionally, standard tools are provided to support
-cluster analyses, including repeated estimation, model validation, and
-model assessment. The interface enables users to compare results between
-methods, and to implement and evaluate new methods with ease. The
-'akmedoids' package is available from
-<https://github.com/MAnalytics/akmedoids>.
+Implements Bayesian brain mapping models, including the prior ICA
+(independent components analysis) model proposed in Mejia et al. (2020)
+<doi:10.1080/01621459.2019.1679638> and the spatial prior ICA model
+proposed in proposed in Mejia et al. (2022)
+<doi:10.1080/10618600.2022.2104289>. Both models estimate subject-level
+brain as deviations from known population-level networks, which are
+estimated using standard ICA algorithms. Both models employ an
+expectation-maximization algorithm for estimation of the latent brain
+networks and unknown model parameters. Includes direct support for
+'CIFTI', 'GIFTI', and 'NIFTI' neuroimaging file formats.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggpedigree
-%global packver   0.8.0
+%global packname  semEffect
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing Pedigrees with 'ggplot2' and 'plotly'
+Summary:          Structural Equation Model Effect Analysis and Visualization
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BGmisc >= 1.4.1
-BuildRequires:    R-CRAN-kinship2 
+BuildRequires:    R-CRAN-lavaan 
+BuildRequires:    R-CRAN-piecewiseSEM 
+BuildRequires:    R-CRAN-plspm 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-BGmisc >= 1.4.1
-Requires:         R-CRAN-kinship2 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-RColorBrewer 
+Requires:         R-CRAN-lavaan 
+Requires:         R-CRAN-piecewiseSEM 
+Requires:         R-CRAN-plspm 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-utils 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-RColorBrewer 
 
 %description
-Provides plotting functions for visualizing pedigrees in behavior genetics
-and kinship research. The package complements 'BGmisc' [Garrison et al.
-(2024) <doi:10.21105/joss.06203>] by rendering pedigrees using the
-'ggplot2' framework and offers a modern alternative to the base-graphics
-pedigree plot in 'kinship2' [Sinnwell et al. (2014)
-<doi:10.1159/000363105>]. Features include support for duplicated
-individuals, complex mating structures, integration with simulated
-pedigrees, and layout customization.
+Provides standardized effect decomposition (direct, indirect, and total
+effects) for three major structural equation modeling frameworks:
+'lavaan', 'piecewiseSEM', and 'plspm'. Automatically handles zero-effect
+variables, generates publication-ready 'ggplot2' visualizations, and
+returns both wide-format and long-format effect tables. Supports effect
+filtering, multi-model object inputs, and customizable visualization
+parameters. For a general overview of the methods used in this package,
+see Rosseel (2012) <doi:10.18637/jss.v048.i02> and Lefcheck (2016)
+<doi:10.1111/2041-210X.12512>.
 
 %prep
 %setup -q -c -n %{packname}

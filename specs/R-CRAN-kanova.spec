@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kanova
-%global packver   0.3-17
+%global packver   0.3-18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.17
+Version:          0.3.18
 Release:          1%{?dist}%{?buildtag}
-Summary:          Pseudo Anova for K-Functions
+Summary:          Quasi Analysis of Variance for K-Functions
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}

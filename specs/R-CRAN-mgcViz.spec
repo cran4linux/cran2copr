@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mgcViz
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Visualisations for Generalized Additive Models
 
@@ -27,8 +27,6 @@ BuildRequires:    R-CRAN-GGally
 BuildRequires:    R-CRAN-KernSmooth 
 BuildRequires:    R-CRAN-gridExtra 
 BuildRequires:    R-CRAN-plyr 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-miniUI 
 Requires:         R-CRAN-mgcv >= 1.9
 Requires:         R-CRAN-qgam >= 1.2.3
 Requires:         R-CRAN-ggplot2 
@@ -39,8 +37,6 @@ Requires:         R-CRAN-GGally
 Requires:         R-CRAN-KernSmooth 
 Requires:         R-CRAN-gridExtra 
 Requires:         R-CRAN-plyr 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-miniUI 
 
 %description
 Extension of the 'mgcv' package, providing visual tools for Generalized

@@ -1,30 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pharmaversesdtm
-%global packver   1.3.0
+%global packname  viralx
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          SDTM Test Data for the 'Pharmaverse' Family of Packages
+Summary:          Explainers for Regression Models in HIV Research
 
-License:          Apache License (>= 2.0)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-DALEX 
+BuildRequires:    R-CRAN-DALEXtra 
+BuildRequires:    R-CRAN-parsnip 
+BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-workflows 
+Requires:         R-CRAN-DALEX 
+Requires:         R-CRAN-DALEXtra 
+Requires:         R-CRAN-parsnip 
+Requires:         R-CRAN-recipes 
+Requires:         R-stats 
+Requires:         R-CRAN-workflows 
 
 %description
-A set of Study Data Tabulation Model (SDTM) datasets from the Clinical
-Data Interchange Standards Consortium (CDISC) pilot project used for
-testing and developing Analysis Data Model (ADaM) datasets inside the
-pharmaverse family of packages. SDTM dataset specifications are described
-in the CDISC SDTM implementation guide, accessible by creating a free
-account on <https://www.cdisc.org/>.
+A dedicated viral-explainer model tool designed to empower researchers in
+the field of HIV research, particularly in viral load and CD4 (Cluster of
+Differentiation 4) lymphocytes regression modeling. Drawing inspiration
+from the 'tidymodels' framework for rigorous model building of Max Kuhn
+and Hadley Wickham (2020) <https://www.tidymodels.org>, and the 'DALEXtra'
+tool for explainability by Przemyslaw Biecek (2020)
+<doi:10.48550/arXiv.2009.13248>. It aims to facilitate interpretable and
+reproducible research in biostatistics and computational biology for the
+benefit of understanding HIV dynamics.
 
 %prep
 %setup -q -c -n %{packname}

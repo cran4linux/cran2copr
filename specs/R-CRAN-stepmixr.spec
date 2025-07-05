@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stepmixr
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to 'Python' Package 'StepMix'
 
@@ -30,6 +30,7 @@ Expectation-Maximization (EM) estimation methods based on pseudolikelihood
 theory. Additional features include support for covariates and distal
 outcomes, various simulation utilities, and non-parametric bootstrapping,
 which allows inference in semi-supervised and unsupervised settings.
+Software paper available at <doi:10.18637/jss.v113.i08>.
 
 %prep
 %setup -q -c -n %{packname}

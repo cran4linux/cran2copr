@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tern.mmrm
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tables and Graphs for Mixed Models for Repeated Measures (MMRM)
 
@@ -22,10 +22,10 @@ BuildRequires:    R-CRAN-parallelly >= 1.25.0
 BuildRequires:    R-CRAN-emmeans >= 1.10.4
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang >= 1.0.1
-BuildRequires:    R-CRAN-tern >= 0.9.5
+BuildRequires:    R-CRAN-tern >= 0.9.9
 BuildRequires:    R-CRAN-tidyr >= 0.8.3
-BuildRequires:    R-CRAN-rtables >= 0.6.10
-BuildRequires:    R-CRAN-formatters >= 0.5.9
+BuildRequires:    R-CRAN-rtables >= 0.6.13
+BuildRequires:    R-CRAN-formatters >= 0.5.11
 BuildRequires:    R-CRAN-mmrm >= 0.3.5
 BuildRequires:    R-CRAN-lifecycle >= 0.2.0
 BuildRequires:    R-CRAN-cowplot 
@@ -38,10 +38,10 @@ Requires:         R-CRAN-parallelly >= 1.25.0
 Requires:         R-CRAN-emmeans >= 1.10.4
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang >= 1.0.1
-Requires:         R-CRAN-tern >= 0.9.5
+Requires:         R-CRAN-tern >= 0.9.9
 Requires:         R-CRAN-tidyr >= 0.8.3
-Requires:         R-CRAN-rtables >= 0.6.10
-Requires:         R-CRAN-formatters >= 0.5.9
+Requires:         R-CRAN-rtables >= 0.6.13
+Requires:         R-CRAN-formatters >= 0.5.11
 Requires:         R-CRAN-mmrm >= 0.3.5
 Requires:         R-CRAN-lifecycle >= 0.2.0
 Requires:         R-CRAN-cowplot 

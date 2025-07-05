@@ -1,54 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggpedigree
-%global packver   0.8.0
+%global packname  hmde
+%global packver   1.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.0
+Version:          1.2.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualizing Pedigrees with 'ggplot2' and 'plotly'
+Summary:          Hierarchical Methods for Differential Equations
 
-License:          GPL-3
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-BGmisc >= 1.4.1
-BuildRequires:    R-CRAN-kinship2 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-RcppParallel >= 5.0.1
+BuildRequires:    R-CRAN-rstantools >= 2.3.1.1
+BuildRequires:    R-CRAN-rstan >= 2.18.1
+BuildRequires:    R-CRAN-StanHeaders >= 2.18.0
+BuildRequires:    R-CRAN-BH >= 1.66.0
+BuildRequires:    R-CRAN-RcppEigen >= 0.3.3.3.0
+BuildRequires:    R-CRAN-Rcpp >= 0.12.0
+BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-reshape2 
-BuildRequires:    R-CRAN-scales 
-BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-BGmisc >= 1.4.1
-Requires:         R-CRAN-kinship2 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-rstantools
+Requires:         R-CRAN-RcppParallel >= 5.0.1
+Requires:         R-CRAN-rstantools >= 2.3.1.1
+Requires:         R-CRAN-rstan >= 2.18.1
+Requires:         R-CRAN-Rcpp >= 0.12.0
+Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-stringr 
-Requires:         R-utils 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-reshape2 
-Requires:         R-CRAN-scales 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-rstantools
 
 %description
-Provides plotting functions for visualizing pedigrees in behavior genetics
-and kinship research. The package complements 'BGmisc' [Garrison et al.
-(2024) <doi:10.21105/joss.06203>] by rendering pedigrees using the
-'ggplot2' framework and offers a modern alternative to the base-graphics
-pedigree plot in 'kinship2' [Sinnwell et al. (2014)
-<doi:10.1159/000363105>]. Features include support for duplicated
-individuals, complex mating structures, integration with simulated
-pedigrees, and layout customization.
+Wrapper for Stan that offers a number of in-built models to implement a
+hierarchical Bayesian longitudinal model for repeat observation data.
+Model choice selects the differential equation that is fit to the
+observations. Single and multi-individual models are available. O'Brien et
+al. (2024) <doi:10.1111/2041-210X.14463>.
 
 %prep
 %setup -q -c -n %{packname}
