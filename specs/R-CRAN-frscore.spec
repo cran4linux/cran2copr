@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  frscore
-%global packver   0.5.1
+%global packver   0.5.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.1
+Version:          0.5.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions for Calculating Fit-Robustness of CNA-Solutions
+Summary:          Calculate the Fit-Robustness of CNA-Solutions
 
 License:          AGPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -37,10 +37,9 @@ Requires:         R-CRAN-visNetwork
 Requires:         R-CRAN-igraph 
 
 %description
-Functions for automatically performing a reanalysis series on a data set
-using CNA, and for calculating the fit-robustness of the resulting models,
-as described in Parkkinen and Baumgartner (2021)
-<doi:10.1177/0049124120986200>.
+Automatically perform a reanalysis series on a data set using CNA, and
+calculate the fit-robustness of the resulting models, as described in
+Parkkinen and Baumgartner (2021) <doi:10.1177/0049124120986200>.
 
 %prep
 %setup -q -c -n %{packname}

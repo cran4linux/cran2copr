@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mseapca
-%global packver   2.0.3
+%global packver   2.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.3
+Version:          2.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metabolite Set Enrichment Analysis for Loadings
 
@@ -24,8 +24,10 @@ Requires:         R-CRAN-XML
 
 %description
 Computing metabolite set enrichment analysis (MSEA) (Yamamoto, H. et al.
-(2014) <doi:10.1186/1471-2105-15-51>) and single sample enrichment
-analysis (SSEA) (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>).
+(2014) <doi:10.1186/1471-2105-15-51>), single sample enrichment analysis
+(SSEA) (Yamamoto, H. (2023) <doi:10.51094/jxiv.262>) and
+over-representation analysis (ORA) that accounts for undetected
+metabolites (Yamamoto, H. (2024) <doi:10.51094/jxiv.954>).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,30 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.6
+%global packname  reptiledb.data
+%global packver   0.0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          0.0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          Reptile Database Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+Provides easy access to 'The Reptile Database', a comprehensive catalogue
+of all living reptile species and their classification. This package
+includes taxonomic data for over 10,000 reptile species, approximately
+2,800 of which are subspecies, covering all extant reptiles. The dataset
+features taxonomic names, synonyms, distribution data, type specimens, and
+literature references, making it ready for research and analysis. Data is
+sourced from 'The Reptile Database' <http://www.reptile-database.org/>.
 
 %prep
 %setup -q -c -n %{packname}

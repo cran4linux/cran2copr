@@ -1,35 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggpackets
-%global packver   0.2.2
+%global packname  rtestim
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Package Plot Layers for Easier Portability and Modularization
+Summary:          Estimate the Effective Reproductive Number with Trend Filtering
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.1.0
-Requires:         R-core >= 3.1.0
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.2
+Requires:         R-core >= 3.6.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dspline 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tvdenoising 
+BuildRequires:    R-CRAN-vctrs 
+BuildRequires:    R-CRAN-BH 
+BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-testthat 
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dspline 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-utils 
+Requires:         R-CRAN-Matrix 
 Requires:         R-methods 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tvdenoising 
+Requires:         R-CRAN-vctrs 
 
 %description
-Create groups of 'ggplot2' layers that can be easily migrated from one
-plot to another, reducing redundant code and improving the ability to
-format many plots that draw from the same source 'ggpacket' layers.
+Use trend filtering, a type of regularized nonparametric regression, to
+estimate the instantaneous reproduction number, also called Rt. This value
+roughly says how many new infections will result from each new infection
+today.  Values larger than 1 indicate that an epidemic is growing while
+those less than 1 indicate decline. For more details about this
+methodology, see Liu, Cai, Gustafson, and McDonald (2024)
+<doi:10.1371/journal.pcbi.1012324>.
 
 %prep
 %setup -q -c -n %{packname}

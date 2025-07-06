@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  smvr
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Simple Implementation of Semantic Versioning
+Summary:          Simple Implementation of Semantic Versioning (SemVer)
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -25,9 +25,10 @@ Requires:         R-CRAN-rlang >= 1.1.0
 Requires:         R-CRAN-vctrs 
 
 %description
-Simple implementation of Semantic Versioning 2.0.0 on the 'vctrs' package.
-This package provides a simple way to create, compare, and manipulate
-semantic versions in R. It is designed to be lightweight and easy to use.
+Simple implementation of Semantic Versioning 2.0.0 ('SemVer') on the
+'vctrs' package.  This package provides a simple way to create, compare,
+and manipulate semantic versions in R. It is designed to be lightweight
+and easy to use.
 
 %prep
 %setup -q -c -n %{packname}

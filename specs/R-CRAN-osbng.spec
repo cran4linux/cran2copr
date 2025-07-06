@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ggsmc
-%global packver   0.1.2.0
+%global packname  osbng
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualising Output from Sequential Monte Carlo Samplers and Ensemble-Based Methods
+Summary:          Geospatial Grid Indexing with the British National Grid
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-poorman 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-gganimate 
-Requires:         R-CRAN-poorman 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-gganimate 
+BuildRequires:    R-CRAN-geos 
+Requires:         R-CRAN-geos 
 
 %description
-Functions for plotting, and animating, the output of importance samplers,
-sequential Monte Carlo samplers (SMC) and ensemble-based methods. The
-package can be used to plot and animate histograms, densities, scatter
-plots and time series, and to plot the genealogy of an SMC or
-ensemble-based algorithm. These functions all rely on algorithm output to
-be supplied in tidy format. A function is provided to transform algorithm
-output from matrix format (one Monte Carlo point per row) to the tidy
-format required by the plotting and animating functions.
+Offers a streamlined programmatic interface to Ordnance Survey's British
+National Grid (BNG) index system, enabling efficient spatial indexing and
+analysis based on grid references. It supports a range of geospatial
+applications, including statistical aggregation, data visualisation, and
+interoperability across datasets. Designed for developers and analysts
+working with geospatial data in Great Britain, 'osbng' simplifies
+integration with geospatial workflows and provides intuitive tools for
+exploring the structure and logic of the BNG system.
 
 %prep
 %setup -q -c -n %{packname}

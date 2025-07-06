@@ -1,42 +1,51 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  rrcov3way
-%global packver   0.6-1
+%global packname  ino
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Robust Methods for Multiway Data Analysis, Applicable also for Compositional Data
+Summary:          Initialization of Numerical Optimization
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rrcov 
-BuildRequires:    R-CRAN-robustbase 
-BuildRequires:    R-CRAN-ThreeWay 
-BuildRequires:    R-CRAN-nnls 
-BuildRequires:    R-CRAN-pracma 
-Requires:         R-CRAN-rrcov 
-Requires:         R-CRAN-robustbase 
-Requires:         R-CRAN-ThreeWay 
-Requires:         R-CRAN-nnls 
-Requires:         R-CRAN-pracma 
+BuildRequires:    R-CRAN-optimizeR >= 1.2.1
+BuildRequires:    R-CRAN-oeli >= 0.7.4
+BuildRequires:    R-CRAN-normalize >= 0.1.2
+BuildRequires:    R-CRAN-portion >= 0.1.2
+BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-utils 
+Requires:         R-CRAN-optimizeR >= 1.2.1
+Requires:         R-CRAN-oeli >= 0.7.4
+Requires:         R-CRAN-normalize >= 0.1.2
+Requires:         R-CRAN-portion >= 0.1.2
+Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-tidyr 
+Requires:         R-utils 
 
 %description
-Provides methods for multiway data analysis by means of Parafac and Tucker
-3 models. Robust versions (Engelen and Hubert (2011)
-<doi:10.1016/j.aca.2011.04.043>) and versions for compositional data are
-also provided (Gallo (2015) <doi:10.1080/03610926.2013.798664>, Di Palma
-et al. (2018) <doi:10.1080/02664763.2017.1381669>). Several optimization
-methods alternative to ALS are available (Simonacci and Gallo (2019)
-<doi:10.1016/j.chemolab.2019.103822>, Simonacci and Gallo (2020)
-<doi:10.1007/s00500-019-04320-9>).
+Analysis of the initialization for numerical optimization of real-valued
+functions, particularly likelihood functions of statistical models. See
+<https://loelschlaeger.de/ino/> for more details.
 
 %prep
 %setup -q -c -n %{packname}

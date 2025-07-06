@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  banffIT
-%global packver   1.0.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Automatize Diagnosis Standardized Assignation Using the Banff Classification
+Summary:          Automated Standardized Assignment of the Banff Classification
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.4
 Requires:         R-core >= 3.4
 BuildArch:        noarch
+BuildRequires:    R-CRAN-madshapR >= 2.0.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-tools 
@@ -27,7 +28,7 @@ BuildRequires:    R-CRAN-fs
 BuildRequires:    R-CRAN-lubridate 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-fabR 
-BuildRequires:    R-CRAN-madshapR 
+Requires:         R-CRAN-madshapR >= 2.0.0
 Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-rlang 
 Requires:         R-tools 
@@ -38,7 +39,6 @@ Requires:         R-CRAN-fs
 Requires:         R-CRAN-lubridate 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-fabR 
-Requires:         R-CRAN-madshapR 
 
 %description
 Assigns standardized diagnoses using the Banff Classification (Category 1

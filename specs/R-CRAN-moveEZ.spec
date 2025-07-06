@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.6
+%global packname  moveEZ
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          Animated Biplots
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-biplotEZ 
+BuildRequires:    R-CRAN-gganimate 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-GPAbin 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-biplotEZ 
+Requires:         R-CRAN-gganimate 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-GPAbin 
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+Create animated biplots that enables dynamic visualisation of temporal or
+sequential changes in multivariate data by animating a single biplot
+across the levels of a time variable. It builds on objects from the
+'biplotEZ' package, Lubbe S, le Roux N, Nienkemper-Swanepoel J, Ganey R,
+Buys R, Adams Z, Manefeldt P (2024) <doi:10.32614/CRAN.package.biplotEZ>,
+allowing users to create animated biplots that reveal how both samples and
+variables evolve over time.
 
 %prep
 %setup -q -c -n %{packname}

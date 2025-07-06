@@ -1,30 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.6
+%global packname  MIDASim
+%global packver   2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          Simulating Realistic Microbiome Data using 'MIDASim'
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-psych 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-scam 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-psych 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-scam 
+Requires:         R-stats 
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+The 'MIDASim' package is a microbiome data simulator for generating
+realistic microbiome datasets by adapting a user-provided template. It
+supports the controlled introduction of experimental signals-such as
+shifts in taxon relative abundances, prevalence, and sample library
+sizes-to create distinct synthetic populations under diverse simulation
+scenarios. For more details, see He et al. (2024)
+<doi:10.1186/s40168-024-01822-z>.
 
 %prep
 %setup -q -c -n %{packname}

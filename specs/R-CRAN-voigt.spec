@@ -1,30 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  avesperu
-%global packver   0.0.6
+%global packname  voigt
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.6
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access to the List of Birds Species of Peru
+Summary:          The Voigt Distribution
 
-License:          MIT + file LICENSE
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-invgamma 
+BuildRequires:    R-CRAN-coda 
+BuildRequires:    R-CRAN-pracma 
+Requires:         R-CRAN-invgamma 
+Requires:         R-CRAN-coda 
+Requires:         R-CRAN-pracma 
 
 %description
-Allows access to the data found in the species list featured in the
-renowned 'List of the Birds of Peru' Plenge, M. A. (2023)
-<https://sites.google.com/site/boletinunop/checklist>. This publication
-stands as one of Peru's most comprehensive reviews of bird diversity. The
-dataset incorporates detailed species accounts and has been meticulously
-structured for effortless utilization within the R environment.
+Random generation, density function and parameter estimation for the Voigt
+distribution. The main objective of this package is to provide R users
+with efficient estimation of Voigt parameters using classic iid data in a
+Bayesian framework. The estimating function allows flexible prior
+specification, specification of fixed parameters and several options for
+MCMC posterior simulation. A basic version of the algorithm is described
+in: Cannas M. and Piras, N. (2025) <doi:10.1007/978-3-031-96303-2_53>.
 
 %prep
 %setup -q -c -n %{packname}

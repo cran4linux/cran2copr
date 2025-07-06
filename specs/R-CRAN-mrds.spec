@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mrds
-%global packver   3.0.0
+%global packver   3.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mark-Recapture Distance Sampling
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0
-Requires:         R-core >= 3.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-optimx >= 2013.8.6
 BuildRequires:    R-CRAN-mgcv 
@@ -23,12 +23,14 @@ BuildRequires:    R-methods
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-nloptr 
 BuildRequires:    R-CRAN-Rsolnp 
+BuildRequires:    R-CRAN-Rdpack 
 Requires:         R-CRAN-optimx >= 2013.8.6
 Requires:         R-CRAN-mgcv 
 Requires:         R-methods 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-nloptr 
 Requires:         R-CRAN-Rsolnp 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Animal abundance estimation via conventional, multiple covariate and
