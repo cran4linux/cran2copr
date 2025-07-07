@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AHPtools
-%global packver   1.0.1
+%global packname  kbal
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistency in the Analytic Hierarchy Process
+Summary:          Kernel Balancing
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-data.tree 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-data.tree 
+BuildRequires:    R-CRAN-RcppParallel >= 4.4.4
+BuildRequires:    R-CRAN-Rcpp >= 0.11.0
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-RSpectra 
+Requires:         R-CRAN-RcppParallel >= 4.4.4
+Requires:         R-CRAN-Rcpp >= 0.11.0
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-RSpectra 
 
 %description
-An integrated set of functions for building, analyzing, and visualizing
-Analytic Hierarchy Process (AHP) models, designed to support structured
-decision-making in consultancy, policy analysis, and research (Bose 2022
-<doi:10.1002/mcda.1784>; Bose 2023 <doi:10.1002/mcda.1821>). In addition
-to tools for assessing and improving the consistency of pairwise
-comparison matrices (PCMs), the package supports full-hierarchy weight
-computation, intuitive tree-based visualization, sensitivity analysis,
-along with convenient PCM generation from user preferences.
+Provides a weighting approach that employs kernels to make one group have
+a similar distribution to another group on covariates. This method matches
+not only means or marginal distributions but also higher-order
+transformations implied by the choice of kernel. 'kbal' is applicable to
+both treatment effect estimation and survey reweighting problems. Based on
+Hazlett, C. (2020) "Kernel Balancing: A flexible non-parametric weighting
+procedure for estimating causal effects." Statistica Sinica.
+<https://www.researchgate.net/publication/299013953_Kernel_Balancing_A_flexible_non-parametric_weighting_procedure_for_estimating_causal_effects>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ctrialsgov
-%global packver   0.2.5
+%global packver   0.2.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Query Data from U.S. National Library of Medicine's Clinical Trials Database
 
@@ -18,9 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-stringi 
@@ -28,12 +27,9 @@ BuildRequires:    R-CRAN-tibble
 BuildRequires:    R-CRAN-DBI 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-dplyr 
 Requires:         R-utils 
-Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-plotly 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-stringi 
@@ -41,15 +37,13 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-DBI 
 Requires:         R-methods 
 Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-htmlwidgets 
 
 %description
 Tools to create and query database from the U.S. National Library of
 Medicine's Clinical Trials database <https://clinicaltrials.gov/>.
 Functions provide access a variety of techniques for searching the data
 using range queries, categorical filtering, and by searching for full-text
-keywords. Minimal graphical tools are also provided for interactively
-exploring the constructed data.
+keywords.
 
 %prep
 %setup -q -c -n %{packname}

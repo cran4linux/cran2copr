@@ -1,36 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AHPtools
-%global packver   1.0.1
+%global packname  birp
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Consistency in the Analytic Hierarchy Process
+Summary:          Testing for Population Trends Using Low-Cost Ecological Count Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-data.tree 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-data.tree 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rcpp >= 1.0.12
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp >= 1.0.12
+Requires:         R-CRAN-MASS 
 
 %description
-An integrated set of functions for building, analyzing, and visualizing
-Analytic Hierarchy Process (AHP) models, designed to support structured
-decision-making in consultancy, policy analysis, and research (Bose 2022
-<doi:10.1002/mcda.1784>; Bose 2023 <doi:10.1002/mcda.1821>). In addition
-to tools for assessing and improving the consistency of pairwise
-comparison matrices (PCMs), the package supports full-hierarchy weight
-computation, intuitive tree-based visualization, sensitivity analysis,
-along with convenient PCM generation from user preferences.
+A Bayesian tool to test for population trends and changes in trends under
+arbitrary designs, including before-after (BA), control-intervention (CI)
+and before-after-control-intervention (BACI) designs commonly used to
+assess conservation impact. It infers changes in trends jointly from data
+obtained with multiple survey methods, as well as from limited and noisy
+data not necessarily collected in standardized ecological surveys.
+Observed counts can be modeled as following either a Poisson or a negative
+binomial model, and both deterministic and stochastic trend models are
+available. For more details on the model see Singer et al. (2025)
+<doi:10.1101/2025.01.08.631844>, and the file 'AUTHORS' for a list of
+copyright holders and contributors.
 
 %prep
 %setup -q -c -n %{packname}
