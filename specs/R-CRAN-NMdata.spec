@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NMdata
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Preparation, Checking and Post-Processing Data for PK/PD Modeling
 
@@ -25,10 +25,9 @@ Requires:         R-CRAN-fst
 %description
 Efficient tools for preparation, checking and post-processing of data in
 PK/PD (pharmacokinetics/pharmacodynamics) modeling, with focus on use of
-Nonmem. Attention is paid to ensure consistency, traceability, and Nonmem
-compatibility of Data. Rigorously checks final Nonmem datasets.
-Implemented in 'data.table', but easily integrated with 'base' and
-'tidyverse'.
+Nonmem, including consistency, traceability, and Nonmem compatibility of
+Data. Rigorously checks final Nonmem datasets. Implemented in
+'data.table', but easily integrated with 'base' and 'tidyverse'.
 
 %prep
 %setup -q -c -n %{packname}

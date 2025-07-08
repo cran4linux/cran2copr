@@ -1,39 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swash
-%global packver   1.2.2
+%global packname  DRPT
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Swash-Backwash Model for the Single Epidemic Wave
+Summary:          Density Ratio Permutation Test
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spdep 
-Requires:         R-methods 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-Rdpack >= 2.6
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-BiasedUrn 
+BuildRequires:    R-CRAN-rootSolve 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+Requires:         R-CRAN-Rdpack >= 2.6
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-BiasedUrn 
+Requires:         R-CRAN-rootSolve 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
 
 %description
-The Swash-Backwash Model for the Single Epidemic Wave was developed by
-Cliff and Haggett (2006) <doi:10.1007/s10109-006-0027-8> to model the
-velocity of spread of infectious diseases across space. This package
-enables the calculation of the Swash-Backwash Model for user-supplied
-panel data on regional infections. The package also provides additional
-functions for bootstrap confidence intervals, country comparison,
-visualization of results, and data management.
+Implementation of the Density Ratio Permutation Test for testing the
+goodness-of-fit of a hypothesised ratio of two densities, as described in
+Bordino and Berrett (2025) <doi:10.48550/arXiv.2505.24529>.
 
 %prep
 %setup -q -c -n %{packname}

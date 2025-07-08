@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  apc
-%global packver   2.0.1
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.1
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Age-Period-Cohort Analysis
 
@@ -43,8 +43,9 @@ Functions for age-period-cohort analysis. Aggregate data can be organised
 in matrices indexed by age-cohort, age-period or cohort-period. The data
 can include dose and response or just doses. The statistical model is a
 generalized linear model (GLM) allowing for 3,2,1 or 0 of the
-age-period-cohort factors. Individual-level data should have a row for
-each individual and columns for each of age, period, and cohort. The
+age-period-cohort factors. 2-sample analysis is possible. Mixed frequency
+data are possible. Individual-level data should have a row for each
+individual and columns for each of age, period, and cohort. The
 statistical model for repeated cross-section is a generalized linear
 model. The statistical model for panel data is ordinary least squares. The
 canonical parametrisation of Kuang, Nielsen and Nielsen (2008)

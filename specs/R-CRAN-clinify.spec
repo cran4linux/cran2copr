@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clinify
-%global packver   0.1.2
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Clinical Table Styling Tools and Utilities
 
@@ -17,16 +17,16 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
+BuildRequires:    R-CRAN-officer >= 0.6.9
 BuildRequires:    R-CRAN-flextable 
-BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-htmltools 
 BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-zoo 
+Requires:         R-CRAN-officer >= 0.6.9
 Requires:         R-CRAN-flextable 
-Requires:         R-CRAN-officer 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-knitr 

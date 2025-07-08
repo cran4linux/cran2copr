@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  OPSR
-%global packver   0.1.2
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Ordinal Probit Switching Regression
+Summary:          Ordered Probit Switching Regression
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rdpack >= 0.7
 BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-maxLik 
 BuildRequires:    R-methods 
@@ -32,6 +33,7 @@ BuildRequires:    R-CRAN-RcppArmadillo
 Requires:         R-CRAN-Rdpack >= 0.7
 Requires:         R-CRAN-car 
 Requires:         R-CRAN-Formula 
+Requires:         R-graphics 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-maxLik 
 Requires:         R-methods 
@@ -43,7 +45,7 @@ Requires:         R-CRAN-texreg
 Requires:         R-utils 
 
 %description
-Estimates ordinal probit switching regression models - a Heckman type
+Estimates ordered probit switching regression models - a Heckman type
 selection model with an ordinal selection and continuous outcomes.
 Different model specifications are allowed for each treatment/regime. For
 more details on the method, see Wang & Mokhtarian (2024)

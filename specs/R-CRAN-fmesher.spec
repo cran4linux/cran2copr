@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fmesher
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Triangle Meshes and Related Geometry Tools
 
@@ -22,26 +22,28 @@ BuildRequires:    R-graphics
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-splancs 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-withr 
-BuildRequires:    R-CRAN-Rcpp 
 Requires:         R-methods 
 Requires:         R-CRAN-dplyr 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-splancs 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
 Requires:         R-CRAN-withr 
-Requires:         R-CRAN-Rcpp 
 
 %description
 Generate planar and spherical triangle meshes, compute finite element

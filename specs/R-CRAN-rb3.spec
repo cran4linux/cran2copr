@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rb3
-%global packver   0.0.12
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.12
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Download and Parse Public Data Released by B3 Exchange
 
@@ -19,42 +19,42 @@ Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-bizdays 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-proto 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rvest 
+BuildRequires:    R-CRAN-arrow 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-ascii 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-yaml 
 BuildRequires:    R-CRAN-digest 
 BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-XML 
-BuildRequires:    R-CRAN-readxl 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-R.utils 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-RSQLite 
 Requires:         R-CRAN-bizdays 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-proto 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rvest 
+Requires:         R-CRAN-arrow 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-ascii 
 Requires:         R-CRAN-rlang 
-Requires:         R-methods 
 Requires:         R-CRAN-yaml 
 Requires:         R-CRAN-digest 
 Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-XML 
-Requires:         R-CRAN-readxl 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-R.utils 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-RSQLite 
 
 %description
 Download and parse public files released by B3 and convert them into

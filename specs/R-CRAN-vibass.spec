@@ -1,44 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  econid
-%global packver   0.0.2
+%global packname  vibass
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Economic Entity Identifier Standardization
+Summary:          Materials for Introductory Course on Bayesian Learning
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shiny >= 1.5
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-extraDistr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-golem 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-R2BayesX 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-shiny >= 1.5
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-extraDistr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-golem 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-R2BayesX 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 
 %description
-Provides utility functions for standardizing economic entity (economy,
-aggregate, institution, etc.) name and id in economic datasets such as
-those published by the International Monetary Fund and World Bank. Aims to
-facilitate consistent data analysis, reporting, and joining across
-datasets. Used as a foundational building block in the 'econdataverse'
-family of packages (<https://www.econdataverse.org>).
+Practicals, data sets, helper functions and interactive 'Shiny' apps used
+in the introductory course on Bayesian inference at the Valencia
+International Bayesian Summer School. Installing 'vibass' installs all the
+other packages used during the course and downloads all necessary
+materials for working off line.
 
 %prep
 %setup -q -c -n %{packname}

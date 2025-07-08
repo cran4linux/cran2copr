@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  disaggR
-%global packver   1.0.5.3
+%global packname  rampage
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Two-Steps Benchmarks for Time Series Disaggregation
+Summary:          Calibrated Color Ramps
 
-License:          MIT + file LICENSE
+License:          CC BY 4.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6.0
-Requires:         R-core >= 3.6.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
-BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-RColorBrewer >= 1.1.2
-Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
 
 %description
-The twoStepsBenchmark() and threeRuleSmooth() functions allow you to
-disaggregate a low-frequency time series with higher frequency time
-series, using the French National Accounts methodology. The aggregated sum
-of the resulting time series is strictly equal to the low-frequency time
-series within the benchmarking window. Typically, the low-frequency time
-series is an annual one, unknown for the last year, and the high frequency
-one is either quarterly or monthly. See "Methodology of quarterly national
-accounts", Insee Méthodes N°126, by Insee (2012, ISBN:978-2-11-068613-8,
-<https://www.insee.fr/en/information/2579410>).
+Value-calibrated color ramps can be useful to emphasize patterns in data
+from complex distributions. Colors can be tied to specific values, and the
+association can be expanded into full color ramps that also include the
+relationship between colors and values. Such ramps can be used in a
+variety of cases when heatmap-type plots are necessary, including the
+visualization of vector and raster spatial data, such as topographies.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoneProfileR
-%global packver   3.1
+%global packver   4.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1
+Version:          4.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools to Study Bone Compactness
 
@@ -17,16 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-HelpersMG >= 6.1
+BuildRequires:    R-CRAN-HelpersMG >= 6.4
 BuildRequires:    R-CRAN-imager 
 BuildRequires:    R-CRAN-knitr 
 BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-shiny 
-Requires:         R-CRAN-HelpersMG >= 6.1
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-HelpersMG >= 6.4
 Requires:         R-CRAN-imager 
 Requires:         R-CRAN-knitr 
 Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-shiny 
+Requires:         R-CRAN-Rdpack 
 
 %description
 Bone Profiler is a scientific method and a software used to model bone

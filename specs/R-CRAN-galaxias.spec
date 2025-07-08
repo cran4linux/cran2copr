@@ -1,44 +1,61 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  econid
-%global packver   0.0.2
+%global packname  galaxias
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Economic Entity Identifier Standardization
+Summary:          Describe, Package, and Share Biodiversity Data
 
-License:          MIT + file LICENSE
+License:          MPL-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-corella 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-delma 
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-fs 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-readr 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-zip 
+Requires:         R-CRAN-corella 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-delma 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-fs 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-readr 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-withr 
+Requires:         R-CRAN-zip 
 
 %description
-Provides utility functions for standardizing economic entity (economy,
-aggregate, institution, etc.) name and id in economic datasets such as
-those published by the International Monetary Fund and World Bank. Aims to
-facilitate consistent data analysis, reporting, and joining across
-datasets. Used as a foundational building block in the 'econdataverse'
-family of packages (<https://www.econdataverse.org>).
+The Darwin Core data standard is widely used to share biodiversity
+information, most notably by the Global Biodiversity Information Facility
+and its partner nodes; but converting data to this standard can be tricky.
+'galaxias' is functionally similar to 'devtools', but with a focus on
+building Darwin Core Archives rather than R packages, enabling data to be
+shared and re-used with relative ease. For details see Wieczorek and
+colleagues (2012) <doi:10.1371/journal.pone.0029715>.
 
 %prep
 %setup -q -c -n %{packname}

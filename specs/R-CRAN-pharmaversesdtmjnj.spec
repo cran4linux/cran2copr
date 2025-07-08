@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  swash
-%global packver   1.2.2
+%global packname  pharmaversesdtmjnj
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.2
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Swash-Backwash Model for the Single Epidemic Wave
+Summary:          J&J Innovative Medicine SDTM Test Data
 
-License:          GPL (>= 2)
+License:          Apache License (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,23 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-spdep 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-spdep 
-Requires:         R-methods 
+BuildRequires:    R-CRAN-pharmaversesdtm >= 1.2.0
+Requires:         R-CRAN-pharmaversesdtm >= 1.2.0
 
 %description
-The Swash-Backwash Model for the Single Epidemic Wave was developed by
-Cliff and Haggett (2006) <doi:10.1007/s10109-006-0027-8> to model the
-velocity of spread of infectious diseases across space. This package
-enables the calculation of the Swash-Backwash Model for user-supplied
-panel data on regional infections. The package also provides additional
-functions for bootstrap confidence intervals, country comparison,
-visualization of results, and data management.
+A set of Study Data Tabulation Model (SDTM) datasets constructed by
+modifying the 'pharmaversesdtm' package to meet J&J Innovative Medicine's
+standard data structure for Clinical and Statistical Programming.
 
 %prep
 %setup -q -c -n %{packname}

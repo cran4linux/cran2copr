@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fixes
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Creating and Visualizing Fixed-Effects Event Study Models
 
@@ -32,7 +32,9 @@ Requires:         R-CRAN-rlang
 
 %description
 Provides functions for creating, analyzing, and visualizing event study
-models using fixed-effects regression.
+models using fixed-effects regression. Supports staggered adoption,
+multiple confidence intervals, flexible clustering, and panel/time
+transformations in a simple workflow.
 
 %prep
 %setup -q -c -n %{packname}
