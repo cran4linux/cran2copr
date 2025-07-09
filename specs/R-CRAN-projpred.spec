@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  projpred
-%global packver   2.8.0
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.0
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Predictive Feature Selection
 
@@ -58,12 +58,12 @@ models (Piironen, Paasiniemi, and Vehtari, 2020, <doi:10.1214/20-EJS1711>)
 with or without multilevel or additive terms (Catalina, Bürkner, and
 Vehtari, 2022, <https://proceedings.mlr.press/v151/catalina22a.html>), for
 some ordinal and nominal regression models (Weber, Glass, and Vehtari,
-2023, <arXiv:2301.01660>), and for many other regression models (using the
-latent projection by Catalina, Bürkner, and Vehtari, 2021,
-<arXiv:2109.04702>, which can also be applied to most of the former
-models). The package is compatible with the 'rstanarm' and 'brms'
-packages, but other reference models can also be used. See the vignettes
-and the documentation for more information and examples.
+2025, <doi:10.1007/s00180-024-01506-0>), and for many other regression
+models (using the latent projection by Catalina, Bürkner, and Vehtari,
+2021, <doi:10.48550/arXiv.2109.04702>, which can also be applied to most
+of the former models). The package is compatible with the 'rstanarm' and
+'brms' packages, but other reference models can also be used. See the
+vignettes and the documentation for more information and examples.
 
 %prep
 %setup -q -c -n %{packname}

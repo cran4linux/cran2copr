@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ageutils
-%global packver   0.0.9
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Functions for Working with Age Intervals
 
@@ -20,9 +20,11 @@ BuildArch:        noarch
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-vctrs 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-vctrs 
 
 %description
 Provides a collection of efficient functions for working with individual

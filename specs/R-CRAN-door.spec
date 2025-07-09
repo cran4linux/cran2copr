@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  door
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Design of Clinical Trials with the Desirability of Outcome Ranking Methodology
+Summary:          Analysis of Clinical Trials with the Desirability of Outcome Ranking Methodology
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -40,10 +40,10 @@ research studies based on the patient centric benefit risk evaluation. The
 package provides functions for generating summary statistics from
 individual level/summary level datasets, conduct DOOR probability-based
 inference, and visualization of the results. For more details of DOOR
-methodology, see "Handbook of Generalized Pairwise Comparisons", Chapter
-13 <doi:10.1201/9781003390855>. For more explanation of the statistical
-methods and the graphics, see the technical document and user manual of
-the DOOR 'Shiny' apps at <https://methods.bsc.gwu.edu>.
+methodology, see Hamasaki and Evans (2025) <doi:10.1201/9781003390855>.
+For more explanation of the statistical methods and the graphics, see the
+technical document and user manual of the DOOR 'Shiny' apps at
+<https://methods.bsc.gwu.edu>.
 
 %prep
 %setup -q -c -n %{packname}

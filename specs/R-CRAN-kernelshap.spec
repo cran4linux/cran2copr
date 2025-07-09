@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kernelshap
-%global packver   0.7.0
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.0
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Kernel SHAP
 
@@ -27,12 +27,15 @@ Requires:         R-stats
 Requires:         R-utils 
 
 %description
-Efficient implementation of Kernel SHAP, see Lundberg and Lee (2017), and
-Covert and Lee (2021) <http://proceedings.mlr.press/v130/covert21a>.
-Furthermore, for up to 14 features, exact permutation SHAP values can be
-calculated.  The package plays well together with meta-learning packages
-like 'tidymodels', 'caret' or 'mlr3'.  Visualizations can be done using
-the R package 'shapviz'.
+Efficient implementation of Kernel SHAP (Lundberg and Lee, 2017,
+<doi:10.48550/arXiv.1705.07874>) permutation SHAP, and additive SHAP for
+model interpretability.  For Kernel SHAP and permutation SHAP, if the
+number of features is too large for exact calculations, the algorithms
+iterate until the SHAP values are sufficiently precise in terms of their
+standard errors.  The package integrates smoothly with meta-learning
+packages such as 'tidymodels', 'caret' or 'mlr3'. It supports multi-output
+models, case weights, and parallel computations.  Visualizations can be
+done using the R package 'shapviz'.
 
 %prep
 %setup -q -c -n %{packname}

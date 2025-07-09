@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  EHRmuse
-%global packver   0.0.2.1
+%global packver   0.0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2.1
+Version:          0.0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multi-Cohort Selection Bias Correction using IPW and AIPW Methods
 
@@ -16,25 +16,28 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
-BuildArch:        noarch
 BuildRequires:    R-CRAN-nnet >= 7.3.17
 BuildRequires:    R-CRAN-survey >= 4.1.0
 BuildRequires:    R-CRAN-nleqslv >= 3.3.2
 BuildRequires:    R-CRAN-xgboost >= 1.4.1
 BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-simplexreg >= 0.1
+BuildRequires:    R-CRAN-Formula 
+BuildRequires:    R-CRAN-plotrix 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
 Requires:         R-CRAN-nnet >= 7.3.17
 Requires:         R-CRAN-survey >= 4.1.0
 Requires:         R-CRAN-nleqslv >= 3.3.2
 Requires:         R-CRAN-xgboost >= 1.4.1
 Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-simplexreg >= 0.1
+Requires:         R-CRAN-Formula 
+Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-MASS 
 Requires:         R-stats 
+Requires:         R-graphics 
 
 %description
 Comprehensive toolkit for addressing selection bias in binary disease

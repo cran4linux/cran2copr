@@ -1,41 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  teal.logger
-%global packver   0.4.0
+%global packname  ArgentinAPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logging Setup for the 'teal' Family of Packages
+Summary:          Access Argentine Economic, Social, and Geopolitical Data via RESTful APIs and Curated Datasets
 
-License:          Apache License 2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.1.0
-BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-glue >= 1.0.0
-BuildRequires:    R-CRAN-logger >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-withr >= 2.1.0
-Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-glue >= 1.0.0
-Requires:         R-CRAN-logger >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lubridate 
 Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lubridate 
 
 %description
-Utilizing the 'logger' framework to record events within a package,
-specific to 'teal' family of packages.  Supports logging namespaces,
-hierarchical logging, various log destinations, vectorization, and more.
+Provides functions to access data from the 'ArgentinaDatos API' and the
+'REST Countries API' related to Argentina's exchange rates, inflation,
+political figures, holidays, and general country-level indicators.
+Additionally, the package includes curated datasets related to Argentina,
+covering topics such as economic indicators, biodiversity, agriculture,
+human rights, genetic data, and consumer prices. The package supports
+research and analysis focused on Argentina by integrating open APIs with
+high-quality datasets from various domains. For more details on the
+'ArgentinaDatos API', see <https://argentinadatos.com/> and for 'REST
+Countries', see <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

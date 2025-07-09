@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vecmatch
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Generalized Propensity Score Estimation and Matching for Multiple Groups
 
@@ -18,8 +18,11 @@ BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-brglm2 
+BuildRequires:    R-CRAN-callr 
 BuildRequires:    R-CRAN-chk 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-doRNG 
+BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggpp 
 BuildRequires:    R-CRAN-ggpubr 
@@ -37,8 +40,11 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-VGAM 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-brglm2 
+Requires:         R-CRAN-callr 
 Requires:         R-CRAN-chk 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-doRNG 
+Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggpp 
 Requires:         R-CRAN-ggpubr 

@@ -1,41 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  teal.logger
-%global packver   0.4.0
+%global packname  Transition
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logging Setup for the 'teal' Family of Packages
+Summary:          Characterise Transitions in Test Result Status in Longitudinal Studies
 
-License:          Apache License 2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
-BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.1.0
-BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-glue >= 1.0.0
-BuildRequires:    R-CRAN-logger >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-withr >= 2.1.0
-Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-glue >= 1.0.0
-Requires:         R-CRAN-logger >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
-Requires:         R-utils 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.14
+Requires:         R-CRAN-Rcpp >= 1.0.14
 
 %description
-Utilizing the 'logger' framework to record events within a package,
-specific to 'teal' family of packages.  Supports logging namespaces,
-hierarchical logging, various log destinations, vectorization, and more.
+Analyse data from longitudinal studies to characterise changes in values
+of semi-quantitative outcome variables within individual subjects, using
+high performance C++ code to enable rapid processing of large datasets. A
+flexible methodology is available for codifying these state transitions.
 
 %prep
 %setup -q -c -n %{packname}

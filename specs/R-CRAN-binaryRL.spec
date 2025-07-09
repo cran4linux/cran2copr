@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  binaryRL
-%global packver   0.8.9
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.9
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Reinforcement Learning Tools for Two-Alternative Forced Choice Tasks
 
@@ -33,7 +33,7 @@ Tools for building reinforcement learning (RL) models specifically
 tailored for Two-Alternative Forced Choice (TAFC) tasks, commonly employed
 in psychological research. These models build upon the foundational
 principles of model-free reinforcement learning detailed in Sutton and
-Barto (1998) <ISBN:0262039249>. The package allows for the intuitive
+Barto (2018) <ISBN:9780262039246>. The package allows for the intuitive
 definition of RL models using simple if-else statements. Our approach to
 constructing and evaluating these computational models is informed by the
 guidelines proposed in Wilson & Collins (2019) <doi:10.7554/eLife.49547>.

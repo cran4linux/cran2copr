@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggpmisc
-%global packver   0.6.1
+%global packver   0.6.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.6.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Extensions to 'ggplot2'
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-MASS >= 7.3.60.0.1
 BuildRequires:    R-CRAN-quantreg >= 5.97
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-tibble >= 3.2.1
+BuildRequires:    R-CRAN-nlme >= 3.1.160
 BuildRequires:    R-CRAN-lubridate >= 1.9.3
 BuildRequires:    R-CRAN-plyr >= 1.8.9
 BuildRequires:    R-CRAN-lmodel2 >= 1.7.3
@@ -28,6 +29,7 @@ BuildRequires:    R-CRAN-multcomp >= 1.4.25
 BuildRequires:    R-CRAN-polynom >= 1.4.1
 BuildRequires:    R-CRAN-splus2R >= 1.3.5
 BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-caTools >= 1.18.3
 BuildRequires:    R-CRAN-dplyr >= 1.1.4
 BuildRequires:    R-CRAN-rlang >= 1.1.3
 BuildRequires:    R-CRAN-confintr >= 1.0.2
@@ -40,6 +42,7 @@ Requires:         R-CRAN-MASS >= 7.3.60.0.1
 Requires:         R-CRAN-quantreg >= 5.97
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-tibble >= 3.2.1
+Requires:         R-CRAN-nlme >= 3.1.160
 Requires:         R-CRAN-lubridate >= 1.9.3
 Requires:         R-CRAN-plyr >= 1.8.9
 Requires:         R-CRAN-lmodel2 >= 1.7.3
@@ -47,6 +50,7 @@ Requires:         R-CRAN-multcomp >= 1.4.25
 Requires:         R-CRAN-polynom >= 1.4.1
 Requires:         R-CRAN-splus2R >= 1.3.5
 Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-caTools >= 1.18.3
 Requires:         R-CRAN-dplyr >= 1.1.4
 Requires:         R-CRAN-rlang >= 1.1.3
 Requires:         R-CRAN-confintr >= 1.0.2
@@ -59,13 +63,16 @@ Requires:         R-stats
 %description
 Extensions to 'ggplot2' respecting the grammar of graphics paradigm.
 Statistics: locate and tag peaks and valleys; label plot with the equation
-of a fitted polynomial or other types of models; labels with P-value, R^2
-or adjusted R^2 or information criteria for fitted models; label with
-ANOVA table for fitted models; label with summary for fitted models. Model
-fit classes for which suitable methods are provided by package 'broom' and
-'broom.mixed' are supported. Scales and stats to build volcano and
-quadrant plots based on outcomes, fold changes, p-values and false
-discovery rates.
+of a fitted polynomial or other types of models including major axis,
+quantile and robust and resistant regression. Labels for P-value, R^2 or
+adjusted R^2 or information criteria for fitted models; parametric and
+non-parametric correlation; label with ANOVA table for fitted models;
+label with summary table for fitted models; annotations for multiple
+comparisons with adjusted P-values. Model fit classes for which suitable
+methods are provided by package 'broom' and 'broom.mixed' are supported as
+well as user-defined wrappers on model fit functions. Scales and stats to
+build volcano and quadrant plots based on outcomes, fold changes, p-values
+and false discovery rates.
 
 %prep
 %setup -q -c -n %{packname}

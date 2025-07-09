@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  froggeR
-%global packver   0.4.0
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Enhance 'Quarto' Project Workflows and Standards
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-glue >= 1.6.0
 BuildRequires:    R-CRAN-stringr >= 1.5.0
 BuildRequires:    R-CRAN-quarto >= 1.3.0
 BuildRequires:    R-CRAN-here >= 1.0.1
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-yaml 
@@ -34,6 +35,7 @@ Requires:         R-CRAN-glue >= 1.6.0
 Requires:         R-CRAN-stringr >= 1.5.0
 Requires:         R-CRAN-quarto >= 1.3.0
 Requires:         R-CRAN-here >= 1.0.1
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-yaml 
@@ -43,16 +45,11 @@ Streamlines 'Quarto' workflows by providing tools for consistent project
 setup and documentation. Enables portability through reusable metadata,
 automated project structure creation, and standardized templates. Features
 include enhanced project initialization, pre-formatted 'Quarto' documents,
-comprehensive data protection settings, custom styling, and structured
-documentation generation. Designed to improve efficiency and collaboration
-in R data science projects by reducing repetitive setup tasks while
-maintaining consistent formatting across multiple documents. There are
-many valuable resources providing in-depth explanations of customizing
-'Quarto' templates and theme styling by the Posit team:
-<https://quarto.org/docs/output-formats/html-themes.html#customizing-themes>
-& <https://quarto.org/docs/output-formats/html-themes-more.html>, and at
-the Bootstrap community's GitHub at
-<https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss>.
+inclusion of 'Quarto' brand functionality, comprehensive data protection
+settings, custom styling, and structured documentation generation.
+Designed to improve efficiency and collaboration in R data science
+projects by reducing repetitive setup tasks while maintaining consistent
+formatting across multiple documents.
 
 %prep
 %setup -q -c -n %{packname}

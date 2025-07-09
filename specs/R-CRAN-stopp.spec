@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  stopp
-%global packver   0.2.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Spatio-Temporal Point Pattern Methods, Model Fitting, Diagnostics, Simulation, Local Tests
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-stats 
 BuildRequires:    R-graphics 
@@ -68,7 +68,9 @@ al. 2018<doi:10.1002/env.2463>; Adelfio et al.
 2022<doi:10.1007/s00362-022-01338-4>; D’Angelo, Adelfio, and Mateu
 2023<doi:10.1016/j.csda.2022.107679>). The main topics include modeling,
 statistical inference, and simulation issues on spatio-temporal point
-processes on Euclidean space and linear networks.
+processes on Euclidean space and linear networks. Version 1.0.0 has been
+updated for accompanying the journal publication D Angelo and Adelfio 2025
+<doi:10.18637/jss.v113.i10>.
 
 %prep
 %setup -q -c -n %{packname}

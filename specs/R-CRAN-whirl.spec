@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  whirl
-%global packver   0.2.0
+%global packver   0.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Log Execution of Scripts
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-kableExtra 
 BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-quarto 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-rlang 
@@ -44,6 +45,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-kableExtra 
 Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-quarto 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-rlang 
@@ -58,7 +60,7 @@ Requires:         R-CRAN-yaml
 
 %description
 Logging of scripts suitable for clinical trials using 'Quarto' to create
-nice human readable logs.  'whirl' enables execution of scripts in batch,
+nice human readable logs. 'whirl' enables execution of scripts in batch,
 while simultaneously creating logs for the execution of each script, and
 providing an overview summary log of the entire batch execution.
 

@@ -1,34 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  DistributionIV
-%global packver   0.1.2
+%global packname  smsets
+%global packver   1.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.2.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Distributional Instrumental Variable (DIV) Model
+Summary:          Simple Multivariate Statistical Estimation and Tests
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-torch 
-BuildRequires:    R-CRAN-checkmate 
-Requires:         R-CRAN-torch 
-Requires:         R-CRAN-checkmate 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-Hotelling 
+BuildRequires:    R-CRAN-biotools 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-Hotelling 
+Requires:         R-CRAN-biotools 
 
 %description
-Distributional instrumental variable (DIV) model for estimation of the
-interventional distribution of the outcome Y under a do-intervention on
-the treatment X. Instruments, predictors and targets can be univariate or
-multivariate. Functionality includes estimation of the (conditional)
-interventional mean and quantiles, as well as sampling from the fitted
-(conditional) interventional distribution.
+A collection of simple parameter estimation and tests for the comparison
+of multivariate means and variation, to accompany Chapters 4 and 5 of the
+book Multivariate Statistical Methods. A Primer (5th edition), by Manly
+BFJ, Navarro Alberto JA & Gerow K (2024) <doi:10.1201/9781003453482>.
 
 %prep
 %setup -q -c -n %{packname}

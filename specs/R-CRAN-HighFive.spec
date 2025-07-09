@@ -1,41 +1,26 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  teal.logger
-%global packver   0.4.0
+%global packname  HighFive
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Logging Setup for the 'teal' Family of Packages
+Summary:          The 'HighFive' 'C++' Interface to 'HDF5'
 
-License:          Apache License 2.0
+License:          BSL-1.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-withr >= 2.1.0
-BuildRequires:    R-CRAN-shiny >= 1.6.0
-BuildRequires:    R-CRAN-glue >= 1.0.0
-BuildRequires:    R-CRAN-logger >= 0.4.0
-BuildRequires:    R-CRAN-lifecycle >= 0.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-withr >= 2.1.0
-Requires:         R-CRAN-shiny >= 1.6.0
-Requires:         R-CRAN-glue >= 1.0.0
-Requires:         R-CRAN-logger >= 0.4.0
-Requires:         R-CRAN-lifecycle >= 0.2.0
-Requires:         R-methods 
-Requires:         R-utils 
 
 %description
-Utilizing the 'logger' framework to record events within a package,
-specific to 'teal' family of packages.  Supports logging namespaces,
-hierarchical logging, various log destinations, vectorization, and more.
+A modern idiomatic header-only C++ interface for 'libhdf5'. Original
+software can be found at <https://github.com/highfive-devs/highfive/>.
 
 %prep
 %setup -q -c -n %{packname}
