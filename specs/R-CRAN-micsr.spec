@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  micsr
-%global packver   0.1-2
+%global packver   0.1-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Microeconometrics with R
 
@@ -24,6 +24,7 @@ BuildRequires:    R-CRAN-numDeriv
 BuildRequires:    R-CRAN-survival 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-CompQuadForm 
+BuildRequires:    R-CRAN-dfidx 
 Requires:         R-CRAN-Formula 
 Requires:         R-CRAN-Rdpack 
 Requires:         R-CRAN-sandwich 
@@ -32,6 +33,7 @@ Requires:         R-CRAN-numDeriv
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-CompQuadForm 
+Requires:         R-CRAN-dfidx 
 
 %description
 Functions, data sets and examples for the book: Yves Croissant (2025)

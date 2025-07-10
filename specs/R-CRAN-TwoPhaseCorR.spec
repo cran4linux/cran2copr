@@ -1,46 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.27.0
+%global packname  TwoPhaseCorR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Construction and Analysis of Two-Phase Experimental Designs with Correlated Errors
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.3.1
-BuildRequires:    R-CRAN-datawizard >= 1.1.0
-BuildRequires:    R-CRAN-bayestestR >= 0.16.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.3.1
-Requires:         R-CRAN-datawizard >= 1.1.0
-Requires:         R-CRAN-bayestestR >= 0.16.1
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-ggplot2 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-ggplot2 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Tools for constructing and analyzing two-phase experimental designs under
+correlated error structures. Includes cyclic constructions of designs and
+computes information matrices for Phase I residual treatment effects,
+Phase II direct treatment effects, and their interaction along with the
+canonical efficiency factor.
 
 %prep
 %setup -q -c -n %{packname}

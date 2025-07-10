@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  edeaR
-%global packver   0.9.4
+%global packver   0.9.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.4
+Version:          0.9.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Exploratory and Descriptive Event-Based Data Analysis
 
@@ -36,6 +36,7 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-zoo 
 BuildRequires:    R-CRAN-hms 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
 Requires:         R-CRAN-cli >= 3.2.0
 Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-bupaR >= 0.5.1
@@ -55,6 +56,7 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-zoo 
 Requires:         R-CRAN-hms 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
 
 %description
 Exploratory and descriptive analysis of event based data. Provides methods

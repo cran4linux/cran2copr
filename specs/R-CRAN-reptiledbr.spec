@@ -1,46 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.27.0
+%global packname  reptiledbr
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          Interface to the Reptile Database for Querying and Retrieving Taxonomic Data
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.3.1
-BuildRequires:    R-CRAN-datawizard >= 1.1.0
-BuildRequires:    R-CRAN-bayestestR >= 0.16.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.3.1
-Requires:         R-CRAN-datawizard >= 1.1.0
-Requires:         R-CRAN-bayestestR >= 0.16.1
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-fuzzyjoin 
+Requires:         R-CRAN-xml2 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
 Requires:         R-utils 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-fuzzyjoin 
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Provides tools to search, access, and format taxonomic information from
+the Reptile Database (<http://reptile-database.org>) directly within R.
+Users can retrieve species-level data, distribution, etymology, synonyms,
+common names, and other relevant information for reptiles. Designed for
+taxonomists, ecologists, and biodiversity researchers.
 
 %prep
 %setup -q -c -n %{packname}

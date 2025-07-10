@@ -1,46 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  parameters
-%global packver   0.27.0
+%global packname  copernicusR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.27.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing of Model Parameters
+Summary:          R Interface to Copernicus Marine Service
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-insight >= 1.3.1
-BuildRequires:    R-CRAN-datawizard >= 1.1.0
-BuildRequires:    R-CRAN-bayestestR >= 0.16.1
-BuildRequires:    R-graphics 
-BuildRequires:    R-methods 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-insight >= 1.3.1
-Requires:         R-CRAN-datawizard >= 1.1.0
-Requires:         R-CRAN-bayestestR >= 0.16.1
-Requires:         R-graphics 
-Requires:         R-methods 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-reticulate >= 1.20
+Requires:         R-CRAN-reticulate >= 1.20
 
 %description
-Utilities for processing the parameters of various statistical models.
-Beyond computing p values, CIs, and other indices for a wide variety of
-models (see list of supported models using the function
-'insight::supported_models()'), this package implements features like
-bootstrapping or simulating of parameters and models, feature reduction
-(feature extraction and variable selection) as well as functions to
-describe data and variable characteristics (e.g. skewness, kurtosis,
-smoothness or distribution).
+Provides an R interface to the Copernicus Marine Service for downloading
+and accessing marine data. Integrates with the official 'copernicusmarine'
+Python library through 'reticulate'. Requires Python 3.7+ and a free
+Copernicus Marine account. See <https://marine.copernicus.eu/> and
+<https://pypi.org/project/copernicusmarine/> for more information.
 
 %prep
 %setup -q -c -n %{packname}

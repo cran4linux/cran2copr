@@ -1,43 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  valueSetCompare
-%global packver   1.0.0
+%global packname  BrazilDataAPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Comparing HRQoL Instrument Value Sets
+Summary:          Access Brazilian Economic, Demographic, Environmental, and Geopolitical Data via RESTful APIs and Curated Datasets
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-eq5dsuite 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-eq5dsuite 
 
 %description
-The number of countries with multiple Health Related Quality of Life
-(HRQL) value sets is growing, and this trend is expected to continue. Each
-instrument and value set characterizes and values health differently.
-Identical health states can yield different utility values when valued
-using different value sets. The 'valueSetCompare' package facilitates
-comparisons of HRQoL value sets, enabling both theoretical and empirical
-comparisons. For empirical comparisons, it employs a novel
-simulation-based method by Jiang et al. (2022)
-<doi:10.1186/s12955-022-02031-8>, allowing users to investigate the
-responsiveness of HRQoL instruments across the entire health spectrum
-using cross-sectional data with external health anchors.
+Provides functions to access data from the 'BrasilAPI' and the 'REST
+Countries API', related to Brazil's postal codes, banks, holidays, company
+registrations, and international country indicators. Additionally, the
+package includes curated datasets related to Brazil, covering topics such
+as demographic data (males and females by state and year), river levels,
+environmental emission factors, film festivals, and yellow fever outbreak
+records. The package supports research and analysis focused on Brazil by
+integrating open APIs with high-quality datasets from multiple domains.
+For more details on the 'BrasilAPI', see <https://brasilapi.com.br/>, and
+for 'REST Countries', see <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}
