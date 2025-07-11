@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BayesMortalityPlus
-%global packver   0.2.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Mortality Modelling
 
@@ -52,7 +52,8 @@ also implemented to fit historical mortality tables time series to predict
 the mortality in the following years and to do improvement analysis, as
 seen in Lee, R. D., & Carter, L. R. (1992)
 <doi:10.1080/01621459.1992.10475265> and Pedroza, C. (2006)
-<doi:10.1093/biostatistics/kxj024>.
+<doi:10.1093/biostatistics/kxj024>. Journal publication available at
+<doi:10.18637/jss.v113.i09>.
 
 %prep
 %setup -q -c -n %{packname}

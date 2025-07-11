@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ordr
-%global packver   0.1.2
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A 'tidyverse' Extension for Ordinations and Biplots
+Summary:          A 'Tidyverse' Extension for Ordinations and Biplots
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -19,6 +19,7 @@ Requires:         R-core >= 3.3.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tidyselect 
@@ -31,8 +32,10 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-labeling 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-gggda 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tidyselect 
@@ -45,6 +48,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-labeling 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-gggda 
 
 %description
 Ordination comprises several multivariate exploratory and explanatory
@@ -61,7 +65,7 @@ overlay of their scatterplots on these axes, introduced by Gabriel (1971)
 <doi:10.1093/biomet/58.3.453>, is called a biplot. 'ordr' provides
 inspection, extraction, manipulation, and visualization tools for several
 popular ordination classes supported by a set of recovery methods. It is
-inspired by and designed to integrate into 'tidyverse' workflows provided
+inspired by and designed to integrate into 'Tidyverse' workflows provided
 by Wickham et al (2019) <doi:10.21105/joss.01686>.
 
 %prep

@@ -1,41 +1,57 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  eqtesting
-%global packver   0.1.0
+%global packname  pvEBayes
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Equivalence Testing Functions
+Summary:          Empirical Bayes Methods for Pharmacovigilance
 
-License:          CC BY 4.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-rdd 
+BuildRequires:    R-CRAN-ggdist 
+BuildRequires:    R-CRAN-ggfittext 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-SobolSequence 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-wacolors 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-REBayes 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-RcppEigen 
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-rdd 
+Requires:         R-CRAN-ggdist 
+Requires:         R-CRAN-ggfittext 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-glue 
 Requires:         R-graphics 
+Requires:         R-CRAN-magrittr 
+Requires:         R-methods 
+Requires:         R-CRAN-SobolSequence 
 Requires:         R-stats 
+Requires:         R-CRAN-wacolors 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-REBayes 
+Requires:         R-splines 
 
 %description
-Contains several functions for equivalence testing and practical
-significance testing. First, the tsti() command provides an automatic
-computation of three-sided testing results for a given estimate, standard
-error, and region of practical equivalence. For details, see Goeman,
-Solari, & Stijnen (2010) <doi:10.1002/sim.4002> and Isager & Fitzgerald
-(2024) <doi:10.31234/osf.io/8y925>. Second, the lddtest() command performs
-logarithmic density discontinuity equivalence testing for regression
-discontinuity designs. For reference, see Fitzgerald (2025)
-<doi:10.31222/osf.io/2dgrp_v1>.
+A suite of empirical Bayes methods to use in pharmacovigilance. Contains
+various model fitting and post-processing functions. For more details see
+Tan et al. (2025) <doi:10.48550/arXiv.2502.09816>, Koenker and Mizera
+(2014) <doi:10.1080/01621459.2013.869224> and Efron (2016)
+<doi:10.1093/biomet/asv068>.
 
 %prep
 %setup -q -c -n %{packname}

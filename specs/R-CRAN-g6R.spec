@@ -1,39 +1,37 @@
 %global __brp_check_rpaths %{nil}
-%global packname  vICC
-%global packver   1.0.0
+%global __requires_exclude ^libmpi
+%global packname  g6R
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Varying Intraclass Correlation Coefficients
+Summary:          Graph Visualisation Engine Widget for R and 'shiny' Apps
 
-License:          GPL-2
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-rjags >= 4.10
-BuildRequires:    R-CRAN-coda >= 0.19.4
-BuildRequires:    R-CRAN-Rdpack >= 0.11
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-nlme 
-Requires:         R-CRAN-rjags >= 4.10
-Requires:         R-CRAN-coda >= 0.19.4
-Requires:         R-CRAN-Rdpack >= 0.11
-Requires:         R-CRAN-ggplot2 
-Requires:         R-methods 
-Requires:         R-CRAN-nlme 
+BuildRequires:    R-CRAN-htmlwidgets 
+BuildRequires:    R-CRAN-shiny 
+Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-shiny 
 
 %description
-Compute group-specific intraclass correlation coefficients, Bayesian
-testing of homogenous within-group variance, and spike-and-slab model
-selection to determine which groups share a common within-group variance
-in a one-way random effects model <10.31234/osf.io/hpq7w>.
+Create stunning network experiences powered by the 'G6' graph
+visualisation engine 'JavaScript' library
+<https://g6.antv.antgroup.com/en>. In 'shiny' mode, modify your graph
+directly from the server function to dynamically interact with nodes and
+edges. Select your favorite layout among 20 choices. 15 behaviors are
+available such as interactive edge creation, collapse-expand and brush
+select. 17 plugins designed to improve the user experience such as a
+mini-map, toolbars and grid lines. Customise the look and feel of your
+graph with comprehensive options for nodes, edges and more.
 
 %prep
 %setup -q -c -n %{packname}
@@ -43,6 +41,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

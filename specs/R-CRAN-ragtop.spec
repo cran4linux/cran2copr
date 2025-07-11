@@ -1,41 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  handyFunctions
-%global packver   0.1.0
+%global packname  ragtop
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Useful Functions for Handfully Manipulating and Analyzing Data with Data.frame Format
+Summary:          Pricing Equity Derivatives with Extensions of Black-Scholes
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.0
-BuildRequires:    R-stats >= 3.0
-BuildRequires:    R-CRAN-stringr >= 1.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-ggplot2 >= 3.0
-Requires:         R-stats >= 3.0
-Requires:         R-CRAN-stringr >= 1.0
-Requires:         R-methods 
-Requires:         R-CRAN-rlang 
+BuildRequires:    R-methods >= 3.2.2
+BuildRequires:    R-CRAN-limSolve >= 2.0.1
+BuildRequires:    R-CRAN-futile.logger >= 1.4.1
+Requires:         R-methods >= 3.2.2
+Requires:         R-CRAN-limSolve >= 2.0.1
+Requires:         R-CRAN-futile.logger >= 1.4.1
 
 %description
-Some useful functions for simply manipulating and analyzing data with
-data.frame format. It mainly includes the following sections:
-ReformatDataframe (reformat dataframe with the modifiers),
-InteractDataframe, and Post-VCF (for downstream analysis for data
-generated from 'vcftools' Petr et al (2011)
-<doi:10.1093/bioinformatics/btr330> or 'plink' Chang et al (2015)
-<doi:10.1186/s13742-015-0047-8>.
+Algorithms to price American and European equity options, convertible
+bonds and a variety of other financial derivatives. It uses an extension
+of the usual Black-Scholes model in which jump to default may occur at a
+probability specified by a power-law link between stock price and hazard
+rate as found in the paper by Takahashi, Kobayashi, and Nakagawa (2001)
+<doi:10.3905/jfi.2001.319302>.  We use ideas and techniques from Andersen
+and Buffum (2002) <doi:10.2139/ssrn.355308> and Linetsky (2006)
+<doi:10.1111/j.1467-9965.2006.00271.x>.
 
 %prep
 %setup -q -c -n %{packname}

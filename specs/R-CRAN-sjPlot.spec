@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sjPlot
-%global packver   2.8.17
+%global packver   2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.8.17
+Version:          2.9.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Data Visualization for Statistics in Social Science
 
@@ -14,48 +14,46 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.6
-Requires:         R-core >= 3.6
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ggplot2 >= 3.2.0
 BuildRequires:    R-CRAN-sjmisc >= 2.8.2
+BuildRequires:    R-CRAN-insight >= 1.3.1
 BuildRequires:    R-CRAN-sjlabelled >= 1.1.2
+BuildRequires:    R-CRAN-datawizard >= 1.1.0
 BuildRequires:    R-CRAN-tidyr >= 1.0.0
+BuildRequires:    R-CRAN-parameters >= 0.27.0
 BuildRequires:    R-CRAN-sjstats >= 0.17.8
+BuildRequires:    R-CRAN-bayestestR >= 0.16.1
+BuildRequires:    R-CRAN-performance >= 0.15.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-bayestestR 
-BuildRequires:    R-CRAN-datawizard 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-ggeffects 
 BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-insight 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-parameters 
-BuildRequires:    R-CRAN-performance 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-scales 
 Requires:         R-CRAN-ggplot2 >= 3.2.0
 Requires:         R-CRAN-sjmisc >= 2.8.2
+Requires:         R-CRAN-insight >= 1.3.1
 Requires:         R-CRAN-sjlabelled >= 1.1.2
+Requires:         R-CRAN-datawizard >= 1.1.0
 Requires:         R-CRAN-tidyr >= 1.0.0
+Requires:         R-CRAN-parameters >= 0.27.0
 Requires:         R-CRAN-sjstats >= 0.17.8
+Requires:         R-CRAN-bayestestR >= 0.16.1
+Requires:         R-CRAN-performance >= 0.15.0
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-stats 
 Requires:         R-utils 
-Requires:         R-CRAN-bayestestR 
-Requires:         R-CRAN-datawizard 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-ggeffects 
 Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-insight 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-parameters 
-Requires:         R-CRAN-performance 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-scales 

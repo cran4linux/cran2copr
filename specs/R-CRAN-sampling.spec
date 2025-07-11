@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sampling
-%global packver   2.10
+%global packver   2.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.10
+Version:          2.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Survey Sampling
 
@@ -14,12 +14,14 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-lpSolve 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-lpSolve 
+Requires:         R-utils 
 
 %description
 Functions to draw random samples using different sampling schemes are

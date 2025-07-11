@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  CompositionalRF
-%global packver   1.2
+%global packver   1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2
+Version:          1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Random Forest with Compositional Responses
 
@@ -17,22 +17,18 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.0
 Requires:         R-core >= 4.0
 BuildRequires:    R-CRAN-Compositional 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-Compositional 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
 
 %description
-Non linear regression with compositional responses and Euclidean
+Multivariate random forests with compositional responses and Euclidean
 predictors is performed. The compositional data are first transformed
 using the additive log-ratio transformation, and then the multivariate
 random forest of Rahman R., Otridge J. and Pal R. (2017),

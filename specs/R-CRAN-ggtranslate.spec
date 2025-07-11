@@ -1,46 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  epimdr2
-%global packver   1.0-9
+%global packname  ggtranslate
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.9
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions and Data for "Epidemics: Models and Data in R (2nd Edition)"
+Summary:          A 'ggplot2' Extension for Translating Plot Text
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-deSolve 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-polspline 
-BuildRequires:    R-CRAN-phaseR 
 BuildRequires:    R-CRAN-ggplot2 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-deSolve 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-polspline 
-Requires:         R-CRAN-phaseR 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rlang 
 
 %description
-Functions, data sets and shiny apps for "Epidemics: Models and Data in R
-(2nd edition)" by Ottar N. Bjornstad (2022, ISBN: 978-3-031-12055-8)
-<https://link.springer.com/book/10.1007/978-3-319-97487-3>. The package
-contains functions to study the Susceptible-Exposed-Infected-Removed SEIR
-model, spatial and age-structured Susceptible-Infected-Removed SIR models;
-time-series SIR and chain-binomial stochastic models; catalytic disease
-models; coupled map lattice models of spatial transmission and network
-models for social spread of infection. The package is also an advanced
-quantitative companion to the 'Coursera' Epidemics Massive Online Open
-Course <https://www.coursera.org/learn/epidemics>.
+Provides a simple way to translate text elements in 'ggplot2' plots using
+a dictionary-based approach.
 
 %prep
 %setup -q -c -n %{packname}

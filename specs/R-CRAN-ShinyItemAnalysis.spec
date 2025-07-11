@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ShinyItemAnalysis
-%global packver   1.5.4
+%global packver   1.5.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.4
+Version:          1.5.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Test and Item Analysis via Shiny
 
@@ -21,6 +21,7 @@ BuildRequires:    R-CRAN-difR >= 5.0
 BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
 BuildRequires:    R-CRAN-psych >= 2.1.9
 BuildRequires:    R-CRAN-mirt >= 1.43
+BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-lme4 
 BuildRequires:    R-methods 
@@ -29,11 +30,11 @@ BuildRequires:    R-CRAN-purrr
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rstudioapi 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
 Requires:         R-CRAN-difR >= 5.0
 Requires:         R-CRAN-ggplot2 >= 3.5.0
 Requires:         R-CRAN-psych >= 2.1.9
 Requires:         R-CRAN-mirt >= 1.43
+Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-lme4 
 Requires:         R-methods 
@@ -42,7 +43,6 @@ Requires:         R-CRAN-purrr
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rstudioapi 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
 
 %description
 Package including functions and interactive shiny application for the

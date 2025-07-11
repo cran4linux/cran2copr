@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WARDEN
-%global packver   1.2.4
+%global packver   1.2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.4
+Version:          1.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Workflows for Health Technology Assessments in R using Discrete EveNts
 
@@ -51,7 +51,7 @@ Toolkit to support and perform discrete event simulations without resource
 constraints in the context of health technology assessments (HTA). The
 package focuses on cost-effectiveness modelling and aims to be
 submission-ready to relevant HTA bodies in alignment with 'NICE TSD 15'
-<https://www.sheffield.ac.uk/nice-dsu/tsds/patient-level-simulation>. More
+<https://sheffield.ac.uk/nice-dsu/tsds/patient-level-simulation>. More
 details an examples can be found in the package website
 <https://jsanchezalv.github.io/WARDEN/>.
 

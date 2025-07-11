@@ -1,14 +1,15 @@
 %global __brp_check_rpaths %{nil}
-%global packname  opera
-%global packver   1.2.0
+%global __requires_exclude ^libmpi
+%global packname  IBclust
+%global packver   1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.0
+Version:          1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Online Prediction by Expert Aggregation
+Summary:          Information Bottleneck Methods for Clustering Mixed-Type Data
 
-License:          LGPL
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -16,28 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-rAmCharts 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-CRAN-pipeR 
-BuildRequires:    R-CRAN-alabama 
-BuildRequires:    R-methods 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-np 
+BuildRequires:    R-CRAN-rje 
 BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-CRAN-RcppEigen 
+BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-rAmCharts 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-CRAN-pipeR 
-Requires:         R-CRAN-alabama 
-Requires:         R-methods 
+Requires:         R-stats 
+Requires:         R-utils 
+Requires:         R-CRAN-np 
+Requires:         R-CRAN-rje 
 Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-RcppEigen 
 
 %description
-Misc methods to form online predictions, for regression-oriented
-time-series, by combining a finite set of forecasts provided by the user.
-See Cesa-Bianchi and Lugosi (2006) <doi:10.1017/CBO9780511546921> for an
-overview.
+Implements multiple variants of the Information Bottleneck ('IB') method
+for clustering datasets containing mixed-type variables (nominal, ordinal,
+and continuous). The package provides deterministic, agglomerative,
+generalized, and standard 'IB' clustering algorithms that preserve
+relevant information while forming interpretable clusters. The
+Deterministic Information Bottleneck is described in Costa et al. (2024)
+<doi:10.48550/arXiv.2407.03389>. The standard 'IB' method originates from
+Tishby et al. (2000) <doi:10.48550/arXiv.physics/0004057>, the
+agglomerative variant from Slonim and Tishby (1999)
+<https://papers.nips.cc/paper/1651-agglomerative-information-bottleneck>,
+and the generalized 'IB' for Gaussian variables from Chechik et al. (2005)
+<https://www.jmlr.org/papers/volume6/chechik05a/chechik05a.pdf>.
 
 %prep
 %setup -q -c -n %{packname}

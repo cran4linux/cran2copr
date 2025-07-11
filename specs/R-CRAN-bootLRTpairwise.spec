@@ -1,46 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  TensorTools
-%global packver   1.0.0
+%global packname  bootLRTpairwise
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Multilinear Algebra
+Summary:          Bootstrap Hypothesis Tests for Treatment Effects in One-Way ANOVA with Unequal Variances
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-raster 
-BuildRequires:    R-CRAN-png 
-BuildRequires:    R-CRAN-wavethresh 
-BuildRequires:    R-CRAN-gsignal 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-matrixcalc 
-Requires:         R-methods 
-Requires:         R-CRAN-raster 
-Requires:         R-CRAN-png 
-Requires:         R-CRAN-wavethresh 
-Requires:         R-CRAN-gsignal 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-matrixcalc 
 
 %description
-A set of tools for basic tensor operators.  A tensor in the context of
-data analysis in a multidimensional array. The tools in this package rely
-on using any discrete transformation (e.g. Fast Fourier Transform (FFT)).
-Standard tools included are the Eigenvalue decomposition of a tensor, the
-QR decomposition and LU decomposition.  Other functionality includes the
-inverse of a tensor and the transpose of a symmetric tensor. Functionality
-in the package is outlined in Kernfeld, E., Kilmer, M., and Aeron, S.
-(2015) <doi:10.1016/j.laa.2015.07.021>.
+Implements three test procedures using bootstrap resampling techniques for
+assessing treatment effects in one-way ANOVA models with unequal variances
+(heteroscedasticity). It includes a parametric bootstrap likelihood ratio
+test (PB_LRT()), a pairwise parametric bootstrap mean test (PPBMT()), and
+a Rademacher wild pairwise non-parametric bootstrap test (RWPNPBT()).
+These methods provide robust alternatives to classical ANOVA and standard
+pairwise comparisons when the assumption of homogeneity of variances is
+violated.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  clv
-%global packver   0.3-2.4
+%global packver   0.3-2.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2.4
+Version:          0.3.2.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Validation Techniques
 
@@ -22,11 +22,11 @@ Requires:         R-CRAN-cluster
 Requires:         R-CRAN-class 
 
 %description
-Package contains most of the popular internal and external cluster
-validation methods ready to use for the most of the outputs produced by
-functions coming from package "cluster". Package contains also functions
-and examples of usage for cluster stability approach that might be applied
-to algorithms implemented in "cluster" package as well as user defined
+Contains most of the popular internal and external cluster validation
+methods ready to use for the most of the outputs produced by functions
+coming from package "cluster". Package contains also functions and
+examples of usage for cluster stability approach that might be applied to
+algorithms implemented in "cluster" package as well as user defined
 clustering algorithms.
 
 %prep

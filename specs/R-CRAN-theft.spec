@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  theft
-%global packver   0.6.3
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Handling Extraction of Features from Time Series
 
@@ -18,28 +18,28 @@ BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildArch:        noarch
 BuildRequires:    R-utils 
+BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tsibble 
 BuildRequires:    R-CRAN-fabletools 
-BuildRequires:    R-CRAN-tsfeatures 
 BuildRequires:    R-CRAN-feasts 
+BuildRequires:    R-CRAN-tsfeatures 
 BuildRequires:    R-CRAN-Rcatch22 
 BuildRequires:    R-CRAN-reticulate 
 BuildRequires:    R-CRAN-R.matlab 
 Requires:         R-utils 
+Requires:         R-stats 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tsibble 
 Requires:         R-CRAN-fabletools 
-Requires:         R-CRAN-tsfeatures 
 Requires:         R-CRAN-feasts 
+Requires:         R-CRAN-tsfeatures 
 Requires:         R-CRAN-Rcatch22 
 Requires:         R-CRAN-reticulate 
 Requires:         R-CRAN-R.matlab 

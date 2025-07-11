@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  splineCox
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Two-Stage Estimation Approach to Cox Regression Using M-Spline Function
 
@@ -30,7 +30,9 @@ criteria as described in Teranishi et al.(2025). In addition, the package
 provides functions for constructing and evaluating B-spline copulas based
 on five M-spline or I-spline basis functions, allowing users to flexibly
 model and compute bivariate dependence structures. Both the copula
-function and its density can be evaluated.
+function and its density can be evaluated. Furthermore, the package
+supports computation of dependence measures such as Kendall's tau and
+Spearman's rho, derived analytically from the copula parameters.
 
 %prep
 %setup -q -c -n %{packname}
