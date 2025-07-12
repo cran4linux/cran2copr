@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  wikiTools
-%global packver   1.2.8
+%global packver   1.2.14
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.8
+Version:          1.2.14
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools for Wikidata and Wikipedia
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-ratelimitr 
 BuildRequires:    R-CRAN-collections 
+BuildRequires:    R-CRAN-netCoin 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-ratelimitr 
 Requires:         R-CRAN-collections 
+Requires:         R-CRAN-netCoin 
 
 %description
 A set of wrappers intended to check, read and download information from

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coat
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Conditional Method Agreement Trees (COAT)
 
@@ -24,8 +24,8 @@ Requires:         R-CRAN-partykit
 Agreement of continuously scaled measurements made by two techniques,
 devices or methods is usually evaluated by the well-established
 Bland-Altman analysis or plot. Conditional method agreement trees (COAT),
-proposed by Karapetyan, Zeileis, Henriksen, and Hapfelmeier (2023)
-<doi:10.48550/arXiv.2306.04456>, embed the Bland-Altman analysis in the
+proposed by Karapetyan, Zeileis, Henriksen, and Hapfelmeier (2025)
+<doi:10.1093/jrsssc/qlae077>, embed the Bland-Altman analysis in the
 framework of recursive partitioning to explore heterogeneous method
 agreement in dependence of covariates. COAT can also be used to perform a
 Bland-Altman test for differences in method agreement.

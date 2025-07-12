@@ -1,53 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  red
-%global packver   1.6.3
+%global packname  spinebil
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          IUCN Redlisting Tools
+Summary:          Investigating New Projection Pursuit Index Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAT 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-tourr 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-predicts 
-Requires:         R-CRAN-BAT 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tictoc 
+BuildRequires:    R-CRAN-cassowaryr 
+Requires:         R-CRAN-tourr 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-tibble 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-predicts 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tictoc 
+Requires:         R-CRAN-cassowaryr 
 
 %description
-Includes algorithms to facilitate the assessment of extinction risk of
-species according to the IUCN (International Union for Conservation of
-Nature, see <https://iucn.org/> for more information) red list criteria.
+Projection pursuit is used to find interesting low-dimensional projections
+of high-dimensional data by optimizing an index over all possible
+projections. The 'spinebil' package contains methods to evaluate the
+performance of projection pursuit index functions using tour methods. A
+paper describing the methods can be found at
+<doi:10.1007/s00180-020-00954-8>.
 
 %prep
 %setup -q -c -n %{packname}

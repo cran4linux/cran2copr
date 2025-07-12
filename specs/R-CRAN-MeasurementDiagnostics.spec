@@ -1,53 +1,47 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  red
-%global packver   1.6.3
+%global packname  MeasurementDiagnostics
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          IUCN Redlisting Tools
+Summary:          Diagnostics for Lists of Codes Based on Measurements
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAT 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-predicts 
-Requires:         R-CRAN-BAT 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-predicts 
+BuildRequires:    R-CRAN-PatientProfiles >= 1.4.0
+BuildRequires:    R-CRAN-omopgenerics >= 1.2.0
+BuildRequires:    R-CRAN-CohortConstructor >= 0.4.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-DBI 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-PatientProfiles >= 1.4.0
+Requires:         R-CRAN-omopgenerics >= 1.2.0
+Requires:         R-CRAN-CohortConstructor >= 0.4.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-DBI 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tidyr 
 
 %description
-Includes algorithms to facilitate the assessment of extinction risk of
-species according to the IUCN (International Union for Conservation of
-Nature, see <https://iucn.org/> for more information) red list criteria.
+Diagnostics of list of codes based on concepts from the domains
+measurement and observation. This package works for data mapped to the
+Observational Medical Outcomes Partnership Common Data Model.
 
 %prep
 %setup -q -c -n %{packname}

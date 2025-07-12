@@ -1,30 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  earthdatalogin
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          NASA 'EarthData' Login Utilities
+Summary:          NASA 'EarthData' Access Utilities
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-openssl 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-jsonlite 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-openssl 
 Requires:         R-CRAN-purrr 
 Requires:         R-utils 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-jsonlite 
 
 %description
 Providing easy, portable access to NASA 'EarthData' products through the
@@ -36,12 +42,12 @@ compute resources running inside 'us-west-2' Data Center in Portland,
 Oregon, which allows NASA to avoid being charged data egress rates. This
 package provides public access to the data from any networked device by
 using the 'EarthData' login application programming interface (API),
-<https://www.earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/earthdata-login>,
-providing convenient authentication and access to cloud-hosted NASA
-'EarthData' products. This makes access to a wide range of earth
-observation data from any location straight forward and compatible with R
-packages that are widely used with cloud native earth observation data
-(such as 'terra', 'sf', etc.)
+<https://www.earthdata.nasa.gov/data/earthdata-login>, providing
+convenient authentication and access to cloud-hosted NASA 'EarthData'
+products. This makes access to a wide range of earth observation data from
+any location straight forward and compatible with R packages that are
+widely used with cloud native earth observation data (such as 'terra',
+'sf', etc.)
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  downloadthis
-%global packver   0.4.1
+%global packver   0.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Implement Download Buttons in 'rmarkdown'
 
@@ -26,7 +26,7 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-zip 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-b64 
+BuildRequires:    R-CRAN-base64enc 
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-readr 
 Requires:         R-CRAN-writexl 
@@ -36,7 +36,7 @@ Requires:         R-CRAN-htmltools
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-zip 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-b64 
+Requires:         R-CRAN-base64enc 
 
 %description
 Implement download buttons in HTML output from 'rmarkdown' without the

@@ -1,53 +1,40 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  red
-%global packver   1.6.3
+%global packname  LoTTA
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IUCN Redlisting Tools
+Summary:          Bayesian Inference in Regression Discontinuity Designs
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAT 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-runjags 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-ggpubr 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-bayestestR 
 BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-predicts 
-Requires:         R-CRAN-BAT 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-runjags 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-ggpubr 
 Requires:         R-stats 
+Requires:         R-CRAN-bayestestR 
 Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-predicts 
 
 %description
-Includes algorithms to facilitate the assessment of extinction risk of
-species according to the IUCN (International Union for Conservation of
-Nature, see <https://iucn.org/> for more information) red list criteria.
+Implementation of the LoTTA (Local Trimmed Taylor Approximation) model
+described in "Bayesian Regression Discontinuity Design with Unknown
+Cutoff" by Kowalska, van de Wiel, van der Pas (2024)
+<doi:10.48550/arXiv.2406.11585>.
 
 %prep
 %setup -q -c -n %{packname}

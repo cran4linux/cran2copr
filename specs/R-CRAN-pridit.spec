@@ -1,53 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  red
-%global packver   1.6.3
+%global packname  pridit
+%global packver   1.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          IUCN Redlisting Tools
+Summary:          Principal Component Analysis Applied to Ridit Scoring
 
-License:          GPL-3
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAT 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-predicts 
-Requires:         R-CRAN-BAT 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
-Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-predicts 
 
 %description
-Includes algorithms to facilitate the assessment of extinction risk of
-species according to the IUCN (International Union for Conservation of
-Nature, see <https://iucn.org/> for more information) red list criteria.
+Implements the 'PRIDIT' (Principal Component Analysis applied to 'RIDITs')
+scoring system described in Brockett et al. (2002)
+<doi:10.1111/1539-6975.00027>. Provides functions for ridit scoring
+originally developed by Bross (1958) <doi:10.2307/2527727>, calculating
+'PRIDIT' weights, and computing final 'PRIDIT' scores for multivariate
+analysis of ordinal data.
 
 %prep
 %setup -q -c -n %{packname}

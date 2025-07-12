@@ -1,42 +1,43 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  profileCI
-%global packver   1.1.0
+%global packname  fusedTree
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling a Log-Likelihood to Calculate Confidence Intervals
+Summary:          Fused Partitioned Regression for Clinical and Omics Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-itp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-itp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-splitTools 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-treeClust 
+Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-splitTools 
+Requires:         R-CRAN-survival 
+Requires:         R-CRAN-treeClust 
 
 %description
-Provides tools for profiling a user-supplied log-likelihood function to
-calculate confidence intervals for model parameters. Speed of computation
-can be improved by adjusting the step sizes in the profiling and/or
-starting the profiling from limits based on the approximate large sample
-normal distribution for the maximum likelihood estimator of a parameter.
-The accuracy of the limits can be set by the user. A plot method
-visualises the log-likelihood and confidence interval. Cases where the
-profile log-likelihood flattens above the value at which a confidence
-limit is defined can be handled, leading to a limit at plus or minus
-infinity. Disjoint confidence intervals will not be found.
+Fit (generalized) linear regression models in each leaf node of a tree.
+The tree is constructed using clinical variables only. The linear
+regression models are constructed using (high-dimensional) omics variables
+only. The leaf-node-specific regression models are estimated using the
+penalized likelihood including a standard ridge (L2) penalty and a fusion
+penalty that links the leaf-node-specific regression models to one
+another. The intercepts of the leaf nodes reflect the effects of the
+clinical variables and are left unpenalized. The tree, fitted with the
+clinical variables only, should be constructed outside of the package with
+the 'rpart' 'R' package. See Goedhart and others (2024)
+<doi:10.48550/arXiv.2411.02396> for details on the method.
 
 %prep
 %setup -q -c -n %{packname}

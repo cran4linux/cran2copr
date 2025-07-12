@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hce
-%global packver   0.7.2
+%global packver   0.8.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.7.2
+Version:          0.8.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Design and Analysis of Hierarchical Composite Endpoints
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
@@ -23,9 +23,14 @@ Requires:         R-base
 Requires:         R-stats 
 
 %description
-Simulate and analyze hierarchical composite endpoints. Win odds, also
-called Wilcoxon-Mann-Whitney or success odds, is the main analysis method.
-Other win statistics (win probability, win ratio, net benefit) are also
+Simulate and analyze hierarchical composite endpoints. Includes
+implementation for the kidney hierarchical composite endpoint as defined
+in Heerspink HL et al (2023) “Development and validation of a new
+hierarchical composite end point for clinical trials of kidney disease
+progression” (Journal of the American Society of Nephrology 34 (2):
+2025–2038, <doi:10.1681/ASN.0000000000000243>). Win odds, also called
+Wilcoxon-Mann-Whitney or success odds, is the main analysis method. Other
+win statistics (win probability, win ratio, net benefit) are also
 implemented in the univariate case, provided there is no censoring. The
 win probability analysis is based on the Brunner-Munzel test and uses the
 DeLong-DeLong-Clarke-Pearson variance estimator, as described by Brunner

@@ -1,53 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  red
-%global packver   1.6.3
+%global packname  CompositionalHDDA
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.6.3
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          IUCN Redlisting Tools
+Summary:          High Dimensional Discriminant Analysis with Compositional Data
 
-License:          GPL-3
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.0.0
-Requires:         R-core >= 3.0.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-BAT 
-BuildRequires:    R-CRAN-dismo 
-BuildRequires:    R-CRAN-gdistance 
-BuildRequires:    R-CRAN-geosphere 
-BuildRequires:    R-graphics 
-BuildRequires:    R-grDevices 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-Compositional 
+BuildRequires:    R-CRAN-HDclassif 
+BuildRequires:    R-CRAN-Rfast 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-predicts 
-Requires:         R-CRAN-BAT 
-Requires:         R-CRAN-dismo 
-Requires:         R-CRAN-gdistance 
-Requires:         R-CRAN-geosphere 
-Requires:         R-graphics 
-Requires:         R-grDevices 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-sp 
+Requires:         R-CRAN-Compositional 
+Requires:         R-CRAN-HDclassif 
+Requires:         R-CRAN-Rfast 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-predicts 
 
 %description
-Includes algorithms to facilitate the assessment of extinction risk of
-species according to the IUCN (International Union for Conservation of
-Nature, see <https://iucn.org/> for more information) red list criteria.
+High dimensional discriminant analysis with compositional data is
+performed. The compositional data are first transformed using the
+alpha-transformation of Tsagris M., Preston S. and Wood A.T.A. (2011)
+<doi:10.48550/arXiv.1106.1451>, and then the High Dimensional Discriminant
+Analysis (HDDA) algorithm of Bouveyron C. Girard S. and Schmid C. (2007)
+<doi:10.1080/03610920701271095> is applied.
 
 %prep
 %setup -q -c -n %{packname}

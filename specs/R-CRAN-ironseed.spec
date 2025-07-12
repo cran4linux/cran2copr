@@ -1,42 +1,27 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  profileCI
-%global packver   1.1.0
+%global packname  ironseed
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Profiling a Log-Likelihood to Calculate Confidence Intervals
+Summary:          Improved Random Number Generator Seeding
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-itp 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-graphics 
-Requires:         R-CRAN-itp 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
 
 %description
-Provides tools for profiling a user-supplied log-likelihood function to
-calculate confidence intervals for model parameters. Speed of computation
-can be improved by adjusting the step sizes in the profiling and/or
-starting the profiling from limits based on the approximate large sample
-normal distribution for the maximum likelihood estimator of a parameter.
-The accuracy of the limits can be set by the user. A plot method
-visualises the log-likelihood and confidence interval. Cases where the
-profile log-likelihood flattens above the value at which a confidence
-limit is defined can be handled, leading to a limit at plus or minus
-infinity. Disjoint confidence intervals will not be found.
+A procedure for seeding R's built in random number generators using a
+variable-length sequence of values. Accumulates input entropy into a
+256-bit hash digest or "ironseed" and is able to generate a
+variable-length sequence of output seeds from an ironseed.
 
 %prep
 %setup -q -c -n %{packname}

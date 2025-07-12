@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Distance
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Distance Sampling Detection Function and Abundance Estimation
 
@@ -14,17 +14,19 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-mrds >= 3.0.0
+BuildRequires:    R-CRAN-mrds >= 3.0.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-rlang 
-Requires:         R-CRAN-mrds >= 3.0.0
+BuildRequires:    R-CRAN-Rdpack 
+Requires:         R-CRAN-mrds >= 3.0.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-Rdpack 
 
 %description
 A simple way of fitting detection functions to distance sampling data for
@@ -33,8 +35,8 @@ truncation as well as monotonicity constraints and binning are supported.
 Abundance and density estimates can also be calculated (via a
 Horvitz-Thompson-like estimator) if survey area information is provided.
 See Miller et al. (2019) <doi:10.18637/jss.v089.i01> for more information
-on methods and <https://examples.distancesampling.org/> for example
-analyses.
+on methods and <https://distancesampling.org/resources/vignettes.html> for
+example analyses.
 
 %prep
 %setup -q -c -n %{packname}
