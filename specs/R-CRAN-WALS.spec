@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  WALS
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Weighted-Average Least Squares Model Averaging
 
@@ -18,12 +18,12 @@ BuildRequires:    R-devel >= 4.0.0
 Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-MASS >= 7.3.51.6
-BuildRequires:    R-CRAN-Rdpack >= 2.1
+BuildRequires:    R-CRAN-Rdpack >= 2.1.3
 BuildRequires:    R-CRAN-Formula >= 1.2.3
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-MASS >= 7.3.51.6
-Requires:         R-CRAN-Rdpack >= 2.1
+Requires:         R-CRAN-Rdpack >= 2.1.3
 Requires:         R-CRAN-Formula >= 1.2.3
 Requires:         R-methods 
 Requires:         R-stats 

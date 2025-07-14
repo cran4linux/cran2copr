@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  literanger
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Random Forests for Multiple Imputation Based on 'ranger'
+Summary:          Fast Serializable Random Forests Based on 'ranger'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -30,10 +30,11 @@ in 'Multiple Imputation by Chained Equations' (MICE) by van Buuren (2007)
 trees are currently supported. Sparse data of class 'dgCMatrix' (R package
 'Matrix') can be directly analyzed. Conventional bagged predictions are
 available alongside an efficient prediction for MICE via the algorithm
-proposed by Doove et al (2014) <doi:10.1016/j.csda.2013.10.025>. Survival
-and probability forests are not supported in the update, nor is data of
-class 'gwaa.data' (R package 'GenABEL'); use the original 'ranger' package
-for these analyses.
+proposed by Doove et al (2014) <doi:10.1016/j.csda.2013.10.025>. Trained
+forests can be written to and read from storage. Survival and probability
+forests are not supported in the update, nor is data of class 'gwaa.data'
+(R package 'GenABEL'); use the original 'ranger' package for these
+analyses.
 
 %prep
 %setup -q -c -n %{packname}

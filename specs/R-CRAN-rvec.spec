@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rvec
-%global packver   0.0.7
+%global packver   0.0.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.7
+Version:          0.0.8
 Release:          1%{?dist}%{?buildtag}
-Summary:          Vector Representing a Random Variable
+Summary:          Vectors Representing Random Variables
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -45,7 +45,7 @@ Requires:         R-CRAN-vctrs
 %description
 Random vectors, called rvecs. An rvec holds multiple draws, but tries to
 behave like a standard R vector, including working well in data frames.
-Rvecs are useful for working with output from a simulation or a Bayesian
+Rvecs are useful for analysing output from a simulation or a Bayesian
 analysis.
 
 %prep

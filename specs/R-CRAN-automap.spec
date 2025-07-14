@@ -1,37 +1,45 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ReliaGrowR
-%global packver   0.1.5
+%global packname  automap
+%global packver   1.1-20
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.5
+Version:          1.1.20
 Release:          1%{?dist}%{?buildtag}
-Summary:          Reliability Growth Analysis
+Summary:          Automatic Interpolation Package
 
-License:          CC BY 4.0
+License:          GPL
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 2.10.0
+Requires:         R-core >= 2.10.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-reshape 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-stars 
 BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-segmented 
-Requires:         R-stats 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-reshape 
+Requires:         R-methods 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-sf 
+Requires:         R-CRAN-stars 
 Requires:         R-graphics 
-Requires:         R-CRAN-segmented 
 
 %description
-Modeling and plotting functions for Reliability Growth Analysis (RGA).
-Models include the Duane (1962) <doi:10.1109/TA.1964.4319640>,
-Non-Homogeneous Poisson Process (NHPP) by Crow (1975)
-<https://apps.dtic.mil/sti/citations/ADA020296>, Piecewise Weibull NHPP by
-Guo et al. (2010) <doi:10.1109/RAMS.2010.5448029>, and Piecewise Weibull
-NHPP with Change Point Detection based on the 'segmented' package by
-Muggeo (2024) <https://cran.r-project.org/package=segmented>.
+An automatic interpolation is done by automatically estimating the
+variogram and then calling gstat. An overview is given by Hiemstra et al
+(2008) <doi:10.1016/j.cageo.2008.10.011>.
 
 %prep
 %setup -q -c -n %{packname}
