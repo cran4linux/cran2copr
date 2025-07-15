@@ -1,31 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thames
-%global packver   0.1.2
+%global packname  conMItion
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood
+Summary:          Conditional Mutual Information Estimation for Multi-Omics Data
 
-License:          GPL (>= 3)
+License:          GPL-2
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
 
 %description
-Implements the truncated harmonic mean estimator (THAMES) of the
-reciprocal marginal likelihood using posterior samples and unnormalized
-log posterior values via reciprocal importance sampling. Metodiev,
-Perrot-Dockès, Ouadah, Irons, Latouche, & Raftery (2024). Bayesian
-Analysis. <doi:10.1214/24-BA1422>.
+The biases introduced in association measures, particularly mutual
+information, are influenced by factors such as tumor purity, mutation
+burden, and hypermethylation. This package provides the estimation of
+conditional mutual information (CMI) and its statistical significance with
+a focus on its application to multi-omics data. Utilizing B-spline
+functions (inspired by Daub et al. (2004) <doi:10.1186/1471-2105-5-118>),
+the package offers tools to estimate the association between heterogeneous
+multi- omics data, while removing the effects of confounding factors. This
+helps to unravel complex biological interactions. In addition, it includes
+methods to evaluate the statistical significance of these associations,
+providing a robust framework for multi-omics data integration and
+analysis. This package is ideal for researchers in computational biology,
+bioinformatics, and systems biology seeking a comprehensive tool for
+understanding interdependencies in omics data.
 
 %prep
 %setup -q -c -n %{packname}

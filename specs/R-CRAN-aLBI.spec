@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  aLBI
-%global packver   0.1.7
+%global packver   0.1.8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Length-Based Indicators for Fish Stock
 
@@ -14,11 +14,23 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-openxlsx 
+BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-openxlsx 
+Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-grDevices 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-utils 
 
 %description
 Provides tools for estimating length-based indicators from length
@@ -44,8 +56,9 @@ frequency distributions, and provides data frames containing calculated
 values. FishSS(): Makes decisions based on input from Cope and Punt (2009)
 <doi:10.1577/C08-025.1> and parameters calculated by FishPar() (e.g.,
 Pobj, Pmat, Popt, LM_ratio) to determine stock status as target spawning
-biomass (TSB40) and limit spawning biomass (LSB25). These tools support
-fisheries management decisions by providing robust, data-driven insights.
+biomass (TSB40) and limit spawning biomass (LSB25). LWR(): Fits and
+visualizes length-weight relationships using linear regression, with
+options for log-transformation and customizable plotting.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thamesmix
-%global packver   0.1.2
+%global packver   0.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood for Mixtures
 
@@ -17,7 +17,6 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-uniformly 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-sparsediscrim 
 BuildRequires:    R-CRAN-quadprog 
@@ -27,7 +26,6 @@ BuildRequires:    R-CRAN-Rfast
 BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-CRAN-combinat 
 BuildRequires:    R-CRAN-withr 
-Requires:         R-CRAN-uniformly 
 Requires:         R-stats 
 Requires:         R-CRAN-sparsediscrim 
 Requires:         R-CRAN-quadprog 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  quickPlot
-%global packver   1.0.2
+%global packver   1.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          1.0.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          A System of Plotting Optimized for Speed and Modularity
 
@@ -14,19 +14,21 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1
-Requires:         R-core >= 4.1
+BuildRequires:    R-devel >= 4.3
+Requires:         R-core >= 4.3
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table >= 1.10.4
+BuildRequires:    R-CRAN-data.table 
 BuildRequires:    R-CRAN-fpCompare 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-terra 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-data.table >= 1.10.4
+Requires:         R-CRAN-data.table 
 Requires:         R-CRAN-fpCompare 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-grDevices 
 Requires:         R-grid 
 Requires:         R-methods 
@@ -41,9 +43,7 @@ package. The objective of the package is to provide a plotting system that
 is built for speed and modularity. This is useful for quick visualizations
 when testing code and for plotting multiple figures to the same device
 from independent sources that may be independent of one another (i.e.,
-different function or modules the create the visualizations).  The
-suggested package 'fastshp' can be installed from the repository
-(<https://PredictiveEcology.r-universe.dev>).
+different function or modules the create the visualizations).
 
 %prep
 %setup -q -c -n %{packname}

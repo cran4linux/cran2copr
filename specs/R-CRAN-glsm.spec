@@ -1,54 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  AgePopDenom
-%global packver   0.4.0
+%global packname  glsm
+%global packver   0.0.0.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.0.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Model Fine-Scale Age-Structured Population Data using Open-Source Data
+Summary:          Saturated Model Log-Likelihood for Multinomial Outcomes
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-TMB 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-exactextractr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-pdist 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-sf 
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-httr 
-Requires:         R-CRAN-TMB 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-exactextractr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-pdist 
-Requires:         R-utils 
-Requires:         R-CRAN-sf 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-httr 
+BuildRequires:    R-CRAN-dplyr >= 1.0.0
+BuildRequires:    R-CRAN-ggplot2 >= 1.0.0
+BuildRequires:    R-CRAN-VGAM >= 1.0.0
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-dplyr >= 1.0.0
+Requires:         R-CRAN-ggplot2 >= 1.0.0
+Requires:         R-CRAN-VGAM >= 1.0.0
+Requires:         R-stats 
+Requires:         R-CRAN-plyr 
 
 %description
-Automate the modelling of age-structured population data using survey
-data, grid population estimates and urban-rural extents.
+When the response variable Y takes one of R > 1 values, the function
+'glsm()' computes the maximum likelihood estimates (MLEs) of the
+parameters under four models: null, complete, saturated, and logistic. It
+also calculates the log-likelihood values for each model. This method
+assumes independent, non-identically distributed variables. For grouped
+data with a multinomial outcome, where observations are divided into J
+populations, the function 'glsm()' provides estimation for any number K of
+explanatory variables.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,31 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thames
-%global packver   0.1.2
+%global packname  genderapi
+%global packver   1.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.0.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood
+Summary:          Client for 'GenderAPI.io'
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
 
 %description
-Implements the truncated harmonic mean estimator (THAMES) of the
-reciprocal marginal likelihood using posterior samples and unnormalized
-log posterior values via reciprocal importance sampling. Metodiev,
-Perrot-Dockès, Ouadah, Irons, Latouche, & Raftery (2024). Bayesian
-Analysis. <doi:10.1214/24-BA1422>.
+Provides an interface to the 'GenderAPI.io' web service
+(<https://www.genderapi.io>) for determining gender from personal names,
+email addresses, or social media usernames. Functions are available to
+submit single or batch queries and retrieve additional information such as
+accuracy scores and country-specific gender predictions. This package
+simplifies integration of 'GenderAPI.io' into R workflows for data
+cleaning, user profiling, and analytics tasks.
 
 %prep
 %setup -q -c -n %{packname}

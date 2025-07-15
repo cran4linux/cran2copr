@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  RcppPlanc
-%global packver   2.0.12
+%global packver   2.0.13
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.12
+Version:          2.0.13
 Release:          1%{?dist}%{?buildtag}
 Summary:          Parallel Low-Rank Approximation with Nonnegativity Constraints
 
@@ -25,6 +25,7 @@ BuildRequires:    R-CRAN-Matrix
 BuildRequires:    R-CRAN-hdf5r.Extra 
 BuildRequires:    R-CRAN-RcppArmadillo 
 BuildRequires:    R-CRAN-RcppProgress 
+BuildRequires:    R-CRAN-HighFive 
 Requires:         R-methods 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-Matrix 

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  LogicForest
-%global packver   2.1.1
+%global packver   2.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.1
+Version:          2.1.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Logic Forest
 
@@ -19,18 +19,16 @@ Requires:         R-core >= 2.10
 BuildArch:        noarch
 BuildRequires:    R-CRAN-LogicReg 
 BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-survival 
 Requires:         R-CRAN-LogicReg 
 Requires:         R-methods 
+Requires:         R-CRAN-survival 
 
 %description
-Two classification ensemble methods based on logic regression models.
-LogForest() uses a bagging approach to construct an ensemble of logic
-regression models.  LBoost() uses a combination of boosting and
-cross-validation to construct an ensemble of logic regression models.
-Both methods are used for classification of binary responses based on
-binary predictors and for identification of important variables and
-variable interactions predictive of a binary outcome. Wolf, B.J., Slate,
-E.H., Hill, E.G. (2010) <doi:10.1093/bioinformatics/btq354>.
+Logic Forest is an ensemble machine learning method that identifies
+important and interpretable combinations of binary predictors using logic
+regression trees to model complex relationships with an outcome. Wolf,
+B.J., Slate, E.H., Hill, E.G. (2010) <doi:10.1093/bioinformatics/btq354>.
 
 %prep
 %setup -q -c -n %{packname}

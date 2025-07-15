@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thames
-%global packver   0.1.2
+%global packname  argminCS
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood
+Summary:          Argmin Inference over a Discrete Candidate Set
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,34 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-BSDA 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-LDATS 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rdpack 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-BSDA 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-LDATS 
+Requires:         R-CRAN-MASS 
+Requires:         R-methods 
+Requires:         R-CRAN-Rdpack 
 Requires:         R-stats 
+Requires:         R-CRAN-withr 
 
 %description
-Implements the truncated harmonic mean estimator (THAMES) of the
-reciprocal marginal likelihood using posterior samples and unnormalized
-log posterior values via reciprocal importance sampling. Metodiev,
-Perrot-Dockès, Ouadah, Irons, Latouche, & Raftery (2024). Bayesian
-Analysis. <doi:10.1214/24-BA1422>.
+Provides methods to construct frequentist confidence sets with valid
+marginal coverage for identifying the population-level argmin or argmax
+based on IID data. For instance, given an n by p loss matrix—where n is
+the sample size and p is the number of models—the CS.argmin() method
+produces a discrete confidence set that contains the model with the
+minimal (best) expected risk with desired probability. The argmin.HT()
+method helps check if a specific model should be included in such a
+confidence set. The main implemented method is proposed by Tianyu Zhang,
+Hao Lee and Jing Lei (2024) "Winners with confidence: Discrete argmin
+inference with an application to model selection".
 
 %prep
 %setup -q -c -n %{packname}

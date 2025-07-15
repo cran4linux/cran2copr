@@ -1,51 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  metacore
-%global packver   0.2.0
+%global packname  emodnet.wfs
+%global packver   2.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          2.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Centralized Metadata Object Focus on Clinical Trial Data Programming Workflows
+Summary:          Access 'EMODnet' Web Feature Service Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ows4R >= 0.5
+BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-memoise 
 BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-BuildRequires:    R-CRAN-xml2 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-whoami 
+Requires:         R-CRAN-ows4R >= 0.5
+Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-memoise 
 Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-sf 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
-Requires:         R-CRAN-xml2 
+Requires:         R-utils 
+Requires:         R-CRAN-whoami 
 
 %description
-Create an immutable container holding metadata for the purpose of better
-enabling programming activities and functionality of other packages within
-the clinical programming workflow.
+Access and interrogate 'EMODnet' (European Marine Observation and Data
+Network) Web Feature Service data
+<https://emodnet.ec.europa.eu/en/emodnet-web-service-documentation#data-download-services>.
+This includes listing existing data sources, and getting data from each of
+them.
 
 %prep
 %setup -q -c -n %{packname}

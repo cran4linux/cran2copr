@@ -1,44 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  NHSRwaitinglist
-%global packver   0.1.1
+%global packname  wpeR
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Waiting List Metrics Using Queuing Theory
+Summary:          Streamlined Analysis of Wild Pedigree Data
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-randomNames 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-rlang 
-Requires:         R-utils 
+Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-sf 
 Requires:         R-stats 
-Requires:         R-CRAN-randomNames 
-Requires:         R-methods 
+Requires:         R-utils 
 
 %description
-Waiting list management using queuing theory to analyse, predict and
-manage queues, based on the approach described in Fong et al. (2022)
-<doi:10.1101/2022.08.23.22279117>.  Aimed at UK National Health Service
-(NHS) applications, waiting list summary statistics, target-value
-calculations, waiting list simulation, and scheduling functions are
-included.
+Analyzing pedigree data of wild populations. While primarily designed to
+process outputs from the 'COLONY' (Jones & Wang (2010)
+<doi:10.1111/j.1755-0998.2009.02787.x>) pedigree reconstruction software,
+it can also accommodate data from other sources. By linking reconstructed
+pedigrees with genetic sample metadata, 'wpeR' produces spatial and
+temporal visualizations as well as tabular summaries that support
+interpretation of family structures and dynamics. The main goal of the
+package is to provide a solution for the analysis of complex wild pedigree
+data and to help the user to gain insights into genetic relationships
+within wild animal populations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thames
-%global packver   0.1.2
+%global packname  multimediate
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood
+Summary:          Causal Mediation Analysis in Presence of Multiple Mediators Uncausally Related
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,15 +17,27 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rmutil 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-mvtnorm 
 BuildRequires:    R-stats 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-timereg 
+Requires:         R-CRAN-rmutil 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-mvtnorm 
 Requires:         R-stats 
+Requires:         R-graphics 
+Requires:         R-CRAN-timereg 
 
 %description
-Implements the truncated harmonic mean estimator (THAMES) of the
-reciprocal marginal likelihood using posterior samples and unnormalized
-log posterior values via reciprocal importance sampling. Metodiev,
-Perrot-Dockès, Ouadah, Irons, Latouche, & Raftery (2024). Bayesian
-Analysis. <doi:10.1214/24-BA1422>.
+Estimates key quantities in causal mediation analysis - including average
+causal mediation effects (indirect effects), average direct effects, total
+effects, and proportions mediated - in the presence of multiple uncausally
+related mediators. Methods are described by Jérolon et al., (2021)
+<doi:10.1515/ijb-2019-0088> and extended to accommodate survival outcomes
+as described by Domingo-Relloso et al., (2024)
+<doi:10.1101/2024.02.16.24302923>.
 
 %prep
 %setup -q -c -n %{packname}

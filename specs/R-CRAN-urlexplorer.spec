@@ -1,31 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  thames
-%global packver   0.1.2
+%global packname  urlexplorer
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Truncated Harmonic Mean Estimator of the Marginal Likelihood
+Summary:          Structural Analysis and Pattern Discovery in URL Datasets
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-stats 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
 
 %description
-Implements the truncated harmonic mean estimator (THAMES) of the
-reciprocal marginal likelihood using posterior samples and unnormalized
-log posterior values via reciprocal importance sampling. Metodiev,
-Perrot-Dockès, Ouadah, Irons, Latouche, & Raftery (2024). Bayesian
-Analysis. <doi:10.1214/24-BA1422>.
+Offers tools for parsing and analyzing URL datasets, extracting key
+components and identifying common patterns. It aids in examining website
+architecture and identifying SEO issues, helping users optimize web
+presence and content strategy.
 
 %prep
 %setup -q -c -n %{packname}

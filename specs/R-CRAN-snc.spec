@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  i2extras
-%global packver   0.2.1
+%global packname  snc
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Functions to Work with 'incidence2' Objects
+Summary:          Strongest Neighbor Coherence
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,38 +17,13 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-incidence2 >= 2.0.0
-BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-ciTools 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-vctrs 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-incidence2 >= 2.0.0
-Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-ciTools 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-vctrs 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Provides functions to work with 'incidence2' objects, including a
-simplified interface for trend fitting and peak estimation. This package
-is part of the RECON (<https://www.repidemicsconsortium.org/>) toolkit for
-outbreak analysis (<https://www.reconverse.org/).
+Computes Strongest Neighbor Coherence (SNC), a structural diagnostic that
+replaces Cronbach's alpha using top-k correlation structure. For
+methodology, see Wells (2025) <https://github.com/TheotherDrWells/snc>.
 
 %prep
 %setup -q -c -n %{packname}
