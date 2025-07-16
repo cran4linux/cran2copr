@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NNS
-%global packver   11.4
+%global packver   11.4.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          11.4
+Version:          11.4.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Nonparametric Statistics
 
@@ -38,10 +38,11 @@ Requires:         R-CRAN-xts
 Requires:         R-CRAN-zoo 
 
 %description
-Nonlinear nonparametric statistics using partial moments.  Partial moments
-are the elements of variance and asymptotically approximate the area of
-f(x).  These robust statistics provide the basis for nonlinear analysis
-while retaining linear equivalences.  NNS offers: Numerical integration,
+NNS (Nonlinear Nonparametric Statistics) leverages partial moments – the
+fundamental elements of variance that asymptotically approximate the area
+under f(x) – to provide a robust foundation for nonlinear analysis while
+maintaining linear equivalences.  NNS delivers a comprehensive suite of
+advanced statistical techniques, including: Numerical integration,
 Numerical differentiation, Clustering, Correlation, Dependence, Causal
 analysis, ANOVA, Regression, Classification, Seasonality, Autoregressive
 modeling, Normalization, Stochastic dominance and Advanced Monte Carlo

@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  otargen
-%global packver   1.1.5
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.5
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Open Target Genetics
+Summary:          Access Open Target
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -18,37 +18,27 @@ BuildRequires:    R-devel >= 3.1.0
 Requires:         R-core >= 3.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-ghql 
-BuildRequires:    R-CRAN-janitor 
-BuildRequires:    R-CRAN-ggiraphExtra 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-ggrepel 
 BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-CRAN-ghql 
-Requires:         R-CRAN-janitor 
-Requires:         R-CRAN-ggiraphExtra 
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-ggrepel 
 Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr 
 
 %description
-Interact seamlessly with Open Target Genetics' GraphQL endpoint to query
-and retrieve tidy data tables, facilitating the analysis of genetic data.
-For more information about the Open Target Genetics API
-(<https://genetics.opentargets.org/api>).
+Interact seamlessly with Open Target GraphQL endpoint to query and
+retrieve tidy data tables, facilitating the analysis of gene, disease,
+drug, and genetic data. For more information about the Open Target API
+(<https://platform.opentargets.org/api>).
 
 %prep
 %setup -q -c -n %{packname}

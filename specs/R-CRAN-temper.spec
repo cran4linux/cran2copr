@@ -1,28 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ILSAstats
-%global packver   0.4.0
+%global packname  temper
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for International Large-Scale Assessments (ILSA)
+Summary:          Temporal Encoder-Masked Probabilistic Ensemble Regressor
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 2.10
+Requires:         R-core >= 2.10
 BuildArch:        noarch
+BuildRequires:    R-CRAN-ggplot2 >= 3.5.1
+BuildRequires:    R-CRAN-imputeTS >= 3.3
+BuildRequires:    R-CRAN-lubridate >= 1.9.2
+BuildRequires:    R-CRAN-scales >= 1.3.0
+BuildRequires:    R-CRAN-purrr >= 1.0.1
+BuildRequires:    R-CRAN-torch >= 0.11.0
+Requires:         R-CRAN-ggplot2 >= 3.5.1
+Requires:         R-CRAN-imputeTS >= 3.3
+Requires:         R-CRAN-lubridate >= 1.9.2
+Requires:         R-CRAN-scales >= 1.3.0
+Requires:         R-CRAN-purrr >= 1.0.1
+Requires:         R-CRAN-torch >= 0.11.0
 
 %description
-Calculates point estimates and standard errors using replicate weights and
-plausible values for International Large-Scale Assessments (ILSA),
-including: means, proportions, quantiles, correlations, singlelevel
-regressions, and multilevel regressions.
+Implements a probabilistic ensemble time-series forecaster that combines
+an auto-encoder with a neural decision forest whose split variables are
+learned through a differentiable feature-mask layer. Functions are written
+with 'torch' tensors and provide CRPS (Continuous Ranked Probability
+Scores) training plus mixture-distribution post-processing.
 
 %prep
 %setup -q -c -n %{packname}

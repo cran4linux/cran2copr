@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bibliometrix
-%global packver   5.0.1
+%global packver   5.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          5.0.1
+Version:          5.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Comprehensive Science Mapping Analysis
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-shinycssloaders >= 1.1.0
 BuildRequires:    R-stats 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-bibliometrixData 
@@ -42,9 +43,11 @@ BuildRequires:    R-CRAN-SnowballC
 BuildRequires:    R-CRAN-stringdist 
 BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tidytext 
 BuildRequires:    R-CRAN-visNetwork 
+Requires:         R-CRAN-shinycssloaders >= 1.1.0
 Requires:         R-stats 
 Requires:         R-grDevices 
 Requires:         R-CRAN-bibliometrixData 
@@ -70,6 +73,7 @@ Requires:         R-CRAN-SnowballC
 Requires:         R-CRAN-stringdist 
 Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tidytext 
 Requires:         R-CRAN-visNetwork 

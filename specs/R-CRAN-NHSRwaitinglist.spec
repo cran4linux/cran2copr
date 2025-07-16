@@ -1,28 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ILSAstats
-%global packver   0.4.0
+%global packname  NHSRwaitinglist
+%global packver   0.1.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for International Large-Scale Assessments (ILSA)
+Summary:          Waiting List Metrics Using Queuing Theory
 
-License:          GPL (>= 3)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-utils 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-randomNames 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-utils 
+Requires:         R-stats 
+Requires:         R-CRAN-randomNames 
 
 %description
-Calculates point estimates and standard errors using replicate weights and
-plausible values for International Large-Scale Assessments (ILSA),
-including: means, proportions, quantiles, correlations, singlelevel
-regressions, and multilevel regressions.
+Waiting list management using queuing theory to analyse, predict and
+manage queues, based on the approach described in Fong et al. (2022)
+<doi:10.1101/2022.08.23.22279117>.  Aimed at UK National Health Service
+(NHS) applications, waiting list summary statistics, target-value
+calculations, waiting list simulation, and scheduling functions are
+included.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ILSAstats
-%global packver   0.4.0
+%global packname  pickmax
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for International Large-Scale Assessments (ILSA)
+Summary:          Split and Coalesce Duplicated Records
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-magrittr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-magrittr 
 
 %description
-Calculates point estimates and standard errors using replicate weights and
-plausible values for International Large-Scale Assessments (ILSA),
-including: means, proportions, quantiles, correlations, singlelevel
-regressions, and multilevel regressions.
+Deduplicates datasets by retaining the most complete and informative
+records. Identifies duplicated entries based on a specified key column,
+calculates completeness scores for each row, and compares values within
+groups. When differences between duplicates exceed a user-defined
+threshold, records are split into unique IDs; otherwise, they are
+coalesced into a single, most complete entry. Returns a list containing
+the original duplicates, the split entries, and the final coalesced
+dataset. Useful for cleaning survey or administrative data where
+duplicated IDs may reflect minor data entry inconsistencies.
 
 %prep
 %setup -q -c -n %{packname}

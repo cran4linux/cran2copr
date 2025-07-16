@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ggfun
-%global packver   0.1.9
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Miscellaneous Functions for 'ggplot2'
 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-dplyr
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-scales 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-yulab.utils >= 0.1.6
 Requires:         R-CRAN-cli 
@@ -30,6 +31,7 @@ Requires:         R-CRAN-dplyr
 Requires:         R-CRAN-ggplot2 
 Requires:         R-grid 
 Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-scales 
 Requires:         R-utils 
 
 %description

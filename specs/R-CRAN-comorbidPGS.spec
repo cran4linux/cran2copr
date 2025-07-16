@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  comorbidPGS
-%global packver   0.3.4
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.4
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Assessing Predisposition Between Phenotypes using Polygenic Scores
 
@@ -23,12 +23,14 @@ BuildRequires:    R-utils
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-nnet 
 BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-ivreg 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-stats 
 Requires:         R-utils 
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-nnet 
 Requires:         R-parallel 
+Requires:         R-CRAN-ivreg 
 
 %description
 Using polygenic scores (PGS, or PRS/GRS for binary outcomes), this package

@@ -1,28 +1,30 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ILSAstats
-%global packver   0.4.0
+%global packname  pharmaverseadamjnj
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for International Large-Scale Assessments (ILSA)
+Summary:          J&J Innovative Medicine ADaM Test Data
 
-License:          GPL (>= 3)
+License:          Apache License (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
+BuildRequires:    R-CRAN-pharmaverseadam 
+Requires:         R-CRAN-pharmaverseadam 
 
 %description
-Calculates point estimates and standard errors using replicate weights and
-plausible values for International Large-Scale Assessments (ILSA),
-including: means, proportions, quantiles, correlations, singlelevel
-regressions, and multilevel regressions.
+A set of Analysis Data Model (ADaM) datasets constructed by modifying the
+ADaM datasets in the 'pharmaverseadam' package to meet J&J Innovative
+Medicine's standard data structure for Clinical and Statistical
+Programming.
 
 %prep
 %setup -q -c -n %{packname}

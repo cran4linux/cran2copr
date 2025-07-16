@@ -1,28 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ILSAstats
-%global packver   0.4.0
+%global packname  RobustCalibration
+%global packver   0.5.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.0
+Version:          0.5.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Statistics for International Large-Scale Assessments (ILSA)
+Summary:          Robust Calibration of Imperfect Mathematical Models
 
-License:          GPL (>= 3)
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
-BuildArch:        noarch
+BuildRequires:    R-devel
+Requires:         R-core
+BuildRequires:    R-CRAN-nloptr >= 1.0.4
+BuildRequires:    R-CRAN-RobustGaSP >= 0.6.4
+BuildRequires:    R-CRAN-Rcpp >= 0.12.3
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-RcppEigen 
+Requires:         R-CRAN-nloptr >= 1.0.4
+Requires:         R-CRAN-RobustGaSP >= 0.6.4
+Requires:         R-CRAN-Rcpp >= 0.12.3
+Requires:         R-methods 
 
 %description
-Calculates point estimates and standard errors using replicate weights and
-plausible values for International Large-Scale Assessments (ILSA),
-including: means, proportions, quantiles, correlations, singlelevel
-regressions, and multilevel regressions.
+Implements full Bayesian analysis for calibrating mathematical models with
+new methodology for modeling the discrepancy function. It allows for
+emulation, calibration and prediction using complex mathematical model
+outputs and experimental data. See the reference: Mengyang Gu and Long
+Wang, 2018, Journal of Uncertainty Quantification; Mengyang Gu, Fangzheng
+Xie and Long Wang, 2022, Journal of Uncertainty Quantification; Mengyang
+Gu, Kyle Anderson and Erika McPhillips, 2023, Technometrics.
 
 %prep
 %setup -q -c -n %{packname}

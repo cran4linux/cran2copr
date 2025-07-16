@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  extractox
-%global packver   1.0.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extract Tox Info from Various Databases
 
@@ -18,18 +18,26 @@ BuildRequires:    R-devel >= 4.1
 Requires:         R-core >= 4.1
 BuildArch:        noarch
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-condathis 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-fs 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-janitor 
 BuildRequires:    R-CRAN-pingr 
 BuildRequires:    R-CRAN-readxl 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-rvest 
 BuildRequires:    R-CRAN-webchem 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-condathis 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-fs 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-janitor 
 Requires:         R-CRAN-pingr 
 Requires:         R-CRAN-readxl 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rvest 
 Requires:         R-CRAN-webchem 
 Requires:         R-CRAN-withr 
@@ -38,13 +46,8 @@ Requires:         R-CRAN-withr
 Extract toxicological and chemical information from databases maintained
 by scientific agencies and resources, including the Comparative
 Toxicogenomics Database <https://ctdbase.org/>, the Integrated Chemical
-Environment <https://ice.ntp.niehs.nih.gov/>, the Integrated Risk
-Information System <https://cfpub.epa.gov/ncea/iris/>, Provisional
-Peer-Reviewed Toxicity Values
-<https://www.epa.gov/pprtv/provisional-peer-reviewed-toxicity-values-pprtvs-assessments>,
-the CompTox Chemicals Dashboard Resource Hub
-<https://www.epa.gov/comptox-tools/comptox-chemicals-dashboard-resource-hub>,
-PubChem <https://pubchem.ncbi.nlm.nih.gov/>, and others.
+Environment <https://ice.ntp.niehs.nih.gov/>, the PubChem
+<https://pubchem.ncbi.nlm.nih.gov/>, and others EPA databases s.
 
 %prep
 %setup -q -c -n %{packname}

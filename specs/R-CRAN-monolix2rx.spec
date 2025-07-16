@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  monolix2rx
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Converts 'Monolix' Models to 'rxode2'
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-rxode2 >= 3.0.0
+BuildRequires:    R-CRAN-rxode2 >= 3.0.4
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-stringi
 BuildRequires:    R-CRAN-crayon 
 BuildRequires:    R-CRAN-lotri 
 BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-rxode2 >= 3.0.0
+Requires:         R-CRAN-rxode2 >= 3.0.4
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 

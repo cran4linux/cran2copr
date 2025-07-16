@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  kinesis
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'shiny' Applications for the 'tesselle' Packages
 
@@ -18,14 +18,14 @@ BuildRequires:    R-devel >= 4.2
 Requires:         R-core >= 4.2
 BuildArch:        noarch
 BuildRequires:    R-CRAN-tabula >= 3.3.1
+BuildRequires:    R-CRAN-mirai >= 2.4.0
 BuildRequires:    R-CRAN-kairos >= 2.3.0
-BuildRequires:    R-CRAN-mirai >= 2.3.0
 BuildRequires:    R-CRAN-folio >= 1.5.1
 BuildRequires:    R-CRAN-aion >= 1.5.0
 BuildRequires:    R-CRAN-isopleuros >= 1.4.0
 BuildRequires:    R-CRAN-khroma >= 1.16.0
+BuildRequires:    R-CRAN-shiny >= 1.11.1
 BuildRequires:    R-CRAN-arkhe >= 1.11.0
-BuildRequires:    R-CRAN-shiny >= 1.10.0
 BuildRequires:    R-CRAN-gt >= 1.0.0
 BuildRequires:    R-CRAN-bslib >= 0.9.0
 BuildRequires:    R-CRAN-nexus >= 0.6.0
@@ -37,14 +37,14 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
 Requires:         R-CRAN-tabula >= 3.3.1
+Requires:         R-CRAN-mirai >= 2.4.0
 Requires:         R-CRAN-kairos >= 2.3.0
-Requires:         R-CRAN-mirai >= 2.3.0
 Requires:         R-CRAN-folio >= 1.5.1
 Requires:         R-CRAN-aion >= 1.5.0
 Requires:         R-CRAN-isopleuros >= 1.4.0
 Requires:         R-CRAN-khroma >= 1.16.0
+Requires:         R-CRAN-shiny >= 1.11.1
 Requires:         R-CRAN-arkhe >= 1.11.0
-Requires:         R-CRAN-shiny >= 1.10.0
 Requires:         R-CRAN-gt >= 1.0.0
 Requires:         R-CRAN-bslib >= 0.9.0
 Requires:         R-CRAN-nexus >= 0.6.0

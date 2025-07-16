@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tna
-%global packver   1.0.0
+%global packname  tidysummary
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Transition Network Analysis (TNA)
+Summary:          An Elegant Approach to Summarizing Clinical Data
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,43 +17,37 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-car 
 BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-colorspace 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-qgraph 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-fBasics 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-qqplotr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyplots 
 BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tidyselect 
-Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-car 
 Requires:         R-CRAN-cli 
-Requires:         R-CRAN-colorspace 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-graphics 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-qgraph 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-fBasics 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-qqplotr 
 Requires:         R-CRAN-rlang 
 Requires:         R-stats 
+Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyplots 
 Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tidyselect 
 
 %description
-Provides tools for performing Transition Network Analysis (TNA) to study
-relational dynamics, including functions for building and plotting TNA
-models, calculating centrality measures, and identifying dominant events
-and patterns. TNA statistical techniques (e.g., bootstrapping and
-permutation tests) ensure the reliability of observed insights and confirm
-that identified dynamics are meaningful. See (Saqr et al., 2025)
-<doi:10.1145/3706468.3706513> for more details on TNA.
+Streamlines the analysis of clinical data by automatically selecting
+appropriate statistical descriptions and inference methods based on
+variable types. For method details see Motulsky H J (2016)
+<https://www.graphpad.com/guides/prism/10/statistics/index.htm> and
+d'Agostino R B (1971) <doi:10.1093/biomet/58.2.341>.
 
 %prep
 %setup -q -c -n %{packname}
