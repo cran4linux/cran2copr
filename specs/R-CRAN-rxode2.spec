@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rxode2
-%global packver   3.0.4
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.4
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Facilities for Simulating from ODE-Based Models
 

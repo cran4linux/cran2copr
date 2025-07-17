@@ -1,35 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.1
+%global packname  AncReg
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Ancestor Regression
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-CRAN-tsutils 
+BuildRequires:    R-CRAN-Rdpack 
+BuildRequires:    R-methods 
+Requires:         R-CRAN-tsutils 
+Requires:         R-CRAN-Rdpack 
+Requires:         R-methods 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+Causal discovery in linear structural equation models (Schultheiss, and
+Bühlmann (2023) <doi:10.1093/biomet/asad008>) and vector autoregressive
+models (Schultheiss, Ulmer, and Bühlmann (2025)
+<doi:10.1515/jci-2024-0011>) with explicit error control for false
+discovery, at least asymptotically.
 
 %prep
 %setup -q -c -n %{packname}

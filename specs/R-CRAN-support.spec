@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.1
+%global packname  support
+%global packver   0.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Support Points
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,20 +16,20 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-CRAN-Rcpp >= 0.12.4
+BuildRequires:    R-CRAN-randtoolbox 
+BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-BH 
+Requires:         R-CRAN-Rcpp >= 0.12.4
+Requires:         R-CRAN-randtoolbox 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+The functions sp() and sp_seq() compute the support points in Mak and
+Joseph (2018) <DOI:10.1214/17-AOS1629>. Support points can be used as a
+representative sample of a desired distribution, or a representative
+reduction of a big dataset (e.g., an "optimal" thinning of Markov-chain
+Monte Carlo sample chains). This work was supported by USARO grant
+W911NF-14-1-0024 and NSF DMS grant 1712642.
 
 %prep
 %setup -q -c -n %{packname}

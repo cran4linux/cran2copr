@@ -1,43 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  ruimtehol
-%global packver   0.3.2
+%global packname  toporanga
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Learn Text 'Embeddings' with 'Starspace'
+Summary:          Topological Sort-Based Hierarchy Inference
 
-License:          MPL-2.0
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
-BuildRequires:    R-CRAN-Rcpp >= 0.11.5
-BuildRequires:    R-utils 
-BuildRequires:    R-graphics 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-BH 
-Requires:         R-CRAN-Rcpp >= 0.11.5
-Requires:         R-utils 
-Requires:         R-graphics 
-Requires:         R-stats 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Wraps the 'StarSpace' library
-<https://github.com/facebookresearch/StarSpace> allowing users to
-calculate word, sentence, article, document, webpage, link and entity
-'embeddings'. By using the 'embeddings', you can perform text based
-multi-label classification, find similarities between texts and
-categories, do collaborative-filtering based recommendation as well as
-content-based recommendation, find out relations between entities,
-calculate graph 'embeddings' as well as perform semi-supervised learning
-and multi-task learning on plain text. The techniques are explained in
-detail in the paper: 'StarSpace: Embed All The Things!' by Wu et al.
-(2017), available at <arXiv:1709.03856>.
+Deciphering hierarchy of agents exhibiting observable dominance events is
+a crucial problem in several disciplines, in particular in behavioural
+analysis of social animals, but also in social sciences and game theory.
+This package implements an inference approach based on graph theory,
+namely to extract the optimal acyclic subset of a weighted graph of
+dominance; this allows for hierarchy estimation through topological
+sorting. The package also contains infrastructure to investigate partially
+defined hierarchies and hierarchy dynamics.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,34 +1,37 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  pageviews
-%global packver   0.6.0
+%global packname  ggchord
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An API Client for Wikimedia Traffic Data
+Summary:          Multi-Sequence 'BLAST' Alignment Chord Diagram Visualization Tool
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.6.0
+Requires:         R-core >= 3.6.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-ggplot2 >= 3.3.0
+BuildRequires:    R-CRAN-ggnewscale >= 0.5.0
+BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-grid 
+Requires:         R-CRAN-ggplot2 >= 3.3.0
+Requires:         R-CRAN-ggnewscale >= 0.5.0
+Requires:         R-CRAN-RColorBrewer 
+Requires:         R-grDevices 
+Requires:         R-grid 
 
 %description
-Pageview data from the 'Wikimedia' sites, such as 'Wikipedia'
-<https://www.wikipedia.org/>, from entire projects to per-article levels
-of granularity, through the new RESTful API and data source
-<https://wikimedia.org/api/rest_v1/?doc>.
+A function built on 'ggplot2' that visualizes pairwise 'BLAST' alignment
+results as chord diagrams, intuitively displaying homologous regions
+between query and subject sequences.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  lpda
-%global packver   1.2.1
+%global packname  ChileDataAPI
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Linear Programming Discriminant Analysis
+Summary:          Access Chilean Data via APIs and Curated Datasets
 
-License:          GPL (>= 2)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-Rglpk 
-BuildRequires:    R-CRAN-multiway 
-Requires:         R-CRAN-Rglpk 
-Requires:         R-CRAN-multiway 
+BuildRequires:    R-utils 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-utils 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-dplyr 
 
 %description
-Classification method obtained through linear programming. It is
-advantageous with respect to the classical developments when the
-distribution of the variables involved is unknown or when the number of
-variables is much greater than the number of individuals. Mathematical
-details behind the method are published in Nueda, et al. (2022) "LPDA: A
-new classification method based on linear programming".
-<doi:10.1371/journal.pone.0270403>.
+Provides functions to access data from the 'FINDIC API' and the 'REST
+Countries API', related to Chile's financial indicators, international
+country information, and more. Additionally, the package includes curated
+datasets related to Chile, covering topics such as human rights violations
+during the Pinochet regime, electoral data, census samples, health
+surveys, seismic events, territorial codes, and environmental
+measurements. The package supports research and analysis focused on Chile
+by integrating open APIs with high-quality datasets from multiple domains.
+For more details on 'FINDIC', see <https://findic.cl/>, and for 'REST
+Countries', see <https://restcountries.com/>.
 
 %prep
 %setup -q -c -n %{packname}

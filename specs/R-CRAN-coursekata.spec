@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coursekata
-%global packver   0.18.1
+%global packver   0.19.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.18.1
+Version:          0.19.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Packages and Functions for 'CourseKata' Courses
 
@@ -52,7 +52,7 @@ Requires:         R-CRAN-viridisLite
 Easily install and load all packages and functions used in 'CourseKata'
 courses. Aid teaching with helper functions and augment generic functions
 to provide cohesion between the network of packages. Learn more about
-'CourseKata' at <https://coursekata.org>.
+'CourseKata' at <https://www.coursekata.org>.
 
 %prep
 %setup -q -c -n %{packname}

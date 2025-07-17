@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  admiralmetabolic
-%global packver   0.1.0
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Metabolism Extension Package for ADaM in 'R' Asset Library
 
@@ -21,8 +21,8 @@ BuildRequires:    R-CRAN-cli >= 3.6.2
 BuildRequires:    R-CRAN-lubridate >= 1.7.4
 BuildRequires:    R-CRAN-magrittr >= 1.5
 BuildRequires:    R-CRAN-stringr >= 1.4.0
+BuildRequires:    R-CRAN-admiraldev >= 1.2.0
 BuildRequires:    R-CRAN-admiral >= 1.1.1
-BuildRequires:    R-CRAN-admiraldev >= 1.0.0
 BuildRequires:    R-CRAN-tidyselect >= 1.0.0
 BuildRequires:    R-CRAN-dplyr >= 0.8.4
 BuildRequires:    R-CRAN-rlang >= 0.4.4
@@ -32,8 +32,8 @@ Requires:         R-CRAN-cli >= 3.6.2
 Requires:         R-CRAN-lubridate >= 1.7.4
 Requires:         R-CRAN-magrittr >= 1.5
 Requires:         R-CRAN-stringr >= 1.4.0
+Requires:         R-CRAN-admiraldev >= 1.2.0
 Requires:         R-CRAN-admiral >= 1.1.1
-Requires:         R-CRAN-admiraldev >= 1.0.0
 Requires:         R-CRAN-tidyselect >= 1.0.0
 Requires:         R-CRAN-dplyr >= 0.8.4
 Requires:         R-CRAN-rlang >= 0.4.4
