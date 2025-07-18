@@ -1,49 +1,44 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webdav
-%global packver   0.1.6
+%global packname  psgp
+%global packver   0.3-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.3.23
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple Interface for Interacting with 'WebDAV' Servers
+Summary:          Projected Spatial Gaussian Process Methods
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.2.0
+BuildRequires:    R-CRAN-intamap 
+BuildRequires:    R-CRAN-gstat 
+BuildRequires:    R-CRAN-automap 
+BuildRequires:    R-CRAN-sp 
+BuildRequires:    R-CRAN-doParallel 
+BuildRequires:    R-CRAN-foreach 
+BuildRequires:    R-parallel 
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-intamap 
+Requires:         R-CRAN-gstat 
+Requires:         R-CRAN-automap 
+Requires:         R-CRAN-sp 
+Requires:         R-CRAN-doParallel 
+Requires:         R-CRAN-foreach 
+Requires:         R-parallel 
+Requires:         R-CRAN-Rcpp 
 
 %description
-An easy-to-use interface for interacting with 'WebDAV' servers, including
-'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MOVE,
-DELETE and others. With built-in authentication and request handling, it
-allows for easy management of files and directories over the 'WebDAV'
-protocol.
+Implements projected sparse Gaussian process Kriging ('Ingram et. al.',
+2008, <doi:10.1007/s00477-007-0163-9>) as an additional method for the
+'intamap' package. More details on implementation ('Barillec et. al.',
+2010, <doi:10.1016/j.cageo.2010.05.008>).
 
 %prep
 %setup -q -c -n %{packname}

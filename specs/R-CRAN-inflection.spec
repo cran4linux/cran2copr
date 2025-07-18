@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  inflection
-%global packver   1.3.6
+%global packver   1.3.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.6
+Version:          1.3.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Finds the Inflection Point of a Curve
 
@@ -30,8 +31,8 @@ Implementation of methods Extremum Surface Estimator (ESE) and Extremum
 Distance Estimator (EDE) to identify the inflection point of a curve .
 Christopoulos, DT (2014) <doi:10.48550/arXiv.1206.5478> . Christopoulos,
 DT (2016)
-<https://veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf> .
-Christopoulos, DT (2016) <doi:10.2139/ssrn.3043076> .
+<https://demovtu.veltech.edu.in/wp-content/uploads/2016/04/Paper-04-2016.pdf>
+. Christopoulos, DT (2016) <doi:10.2139/ssrn.3043076> .
 
 %prep
 %setup -q -c -n %{packname}

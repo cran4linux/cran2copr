@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nlmixr2
-%global packver   3.0.2
+%global packver   4.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          4.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonlinear Mixed Effects Models in Population PK/PD
 
@@ -21,20 +21,26 @@ BuildRequires:    R-CRAN-nlmixr2est >= 2.2.2
 BuildRequires:    R-CRAN-rxode2 >= 2.1.3
 BuildRequires:    R-CRAN-nlmixr2plot >= 2.0.8
 BuildRequires:    R-CRAN-nlmixr2extra >= 2.0.10
+BuildRequires:    R-CRAN-crayon >= 1.3.4
+BuildRequires:    R-CRAN-cli >= 1.0.0
+BuildRequires:    R-CRAN-dplyr >= 0.7.4
+BuildRequires:    R-CRAN-rstudioapi >= 0.7
 BuildRequires:    R-CRAN-lotri >= 0.4.3
-BuildRequires:    R-CRAN-nlmixr2data 
+BuildRequires:    R-CRAN-purrr >= 0.2.4
+BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-crayon 
-BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-nlmixr2est >= 2.2.2
 Requires:         R-CRAN-rxode2 >= 2.1.3
 Requires:         R-CRAN-nlmixr2plot >= 2.0.8
 Requires:         R-CRAN-nlmixr2extra >= 2.0.10
+Requires:         R-CRAN-crayon >= 1.3.4
+Requires:         R-CRAN-cli >= 1.0.0
+Requires:         R-CRAN-dplyr >= 0.7.4
+Requires:         R-CRAN-rstudioapi >= 0.7
 Requires:         R-CRAN-lotri >= 0.4.3
-Requires:         R-CRAN-nlmixr2data 
+Requires:         R-CRAN-purrr >= 0.2.4
+Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-crayon 
-Requires:         R-CRAN-cli 
 
 %description
 Fit and compare nonlinear mixed-effects models in differential equations

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  srppp
-%global packver   1.0.1
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.1
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Read the Swiss Register of Plant Protection Products
 
@@ -24,6 +24,8 @@ BuildRequires:    R-CRAN-stringr
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-data.tree 
+BuildRequires:    R-CRAN-rlang 
 Requires:         R-CRAN-dm 
 Requires:         R-CRAN-xml2 
 Requires:         R-CRAN-tibble 
@@ -31,6 +33,8 @@ Requires:         R-CRAN-stringr
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-data.tree 
+Requires:         R-CRAN-rlang 
 
 %description
 Generate data objects from XML versions of the Swiss Register of Plant

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Spower
-%global packver   0.2.3
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.3
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Power Analyses using Monte Carlo Simulations
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-SimDesign >= 2.19.1
+BuildRequires:    R-CRAN-SimDesign >= 2.20.0
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-cocor 
 BuildRequires:    R-CRAN-car 
@@ -28,7 +28,7 @@ BuildRequires:    R-CRAN-ggplot2
 BuildRequires:    R-CRAN-plotly 
 BuildRequires:    R-CRAN-lavaan 
 BuildRequires:    R-CRAN-EnvStats 
-Requires:         R-CRAN-SimDesign >= 2.19.1
+Requires:         R-CRAN-SimDesign >= 2.20.0
 Requires:         R-stats 
 Requires:         R-CRAN-cocor 
 Requires:         R-CRAN-car 
@@ -43,16 +43,17 @@ Requires:         R-CRAN-EnvStats
 %description
 Provides a general purpose simulation-based power analysis API for routine
 and customized simulation experimental designs. The package focuses
-exclusively on Monte Carlo simulation variants of (expected) prospective
-power analyses, criterion analyses, compromise analyses, sensitivity
-analyses, and a priori analyses. The default simulation experiment
-functions found within the package provide stochastic variants of the
-power analyses subroutines found in the G*Power 3.1 software (Faul,
-Erdfelder, Buchner, and Lang, 2009) <doi:10.3758/brm.41.4.1149>, along
-with various other parametric and non-parametric power analysis examples
-(e.g., mediation analyses). Supporting functions are also included, such
-as for building empirical power curve estimates, which utilize a similar
-API structure.
+exclusively on Monte Carlo simulation experiment variants of (expected)
+prospective power analyses, criterion analyses, compromise analyses,
+sensitivity analyses, and a priori/post-hoc analyses. The default
+simulation experiment functions defined within the package provide
+stochastic variants of the power analysis subroutines in G*Power 3.1
+(Faul, Erdfelder, Buchner, and Lang, 2009) <doi:10.3758/brm.41.4.1149>,
+along with various other parametric and non-parametric power analysis
+applications (e.g., mediation analyses). Additional functions for building
+empirical power curves, reanalyzing simulation information, and for
+increasing the precision of the resulting power estimates are also
+included, each of which utilize similar API structures.
 
 %prep
 %setup -q -c -n %{packname}

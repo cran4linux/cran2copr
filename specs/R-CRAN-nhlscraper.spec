@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  nhlscraper
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Scraper for National Hockey League Data
 
@@ -17,22 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-magrittr 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-magrittr 
+BuildRequires:    R-CRAN-tibble >= 3.3.0
+BuildRequires:    R-CRAN-jsonlite >= 2.0.0
+BuildRequires:    R-CRAN-magrittr >= 2.0.0
+BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
+Requires:         R-CRAN-tibble >= 3.3.0
+Requires:         R-CRAN-jsonlite >= 2.0.0
+Requires:         R-CRAN-magrittr >= 2.0.0
+Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 
 %description
-Scrapes data from the 'NHL' API into 'tibble's. It primarily wraps
-endpoints documented by Zach Maludzinski (2023)
-<https://github.com/Zmalski/NHL-API-Reference>. It covers data from
-high-level multi-season summaries to low-level play-by-play logs.
+Scrapes data from the 'NHL' and 'ESPN' APIs into 'tibble's. It primarily
+wraps endpoints documented by Zach Maludzinski (2023)
+<https://github.com/Zmalski/NHL-API-Reference>, Drew Hynes (2018)
+<https://gitlab.com/dword4/nhlapi/>, and Joseph Wilson (2023)
+<https://github.com/pseudo-r/Public-ESPN-API>, covering data from
+high-level multi-season summaries and award winners to low-level
+play-by-play logs and sports books' odds.
 
 %prep
 %setup -q -c -n %{packname}

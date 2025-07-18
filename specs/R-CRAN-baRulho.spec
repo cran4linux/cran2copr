@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  baRulho
-%global packver   2.1.3
+%global packver   2.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.3
+Version:          2.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Quantifying (Animal) Sound Degradation
 
@@ -47,7 +47,7 @@ Requires:         R-CRAN-cli
 Requires:         R-CRAN-rlang 
 
 %description
-Intended to facilitate acoustic analysis of (animal) sound transmission
+Intended to facilitate acoustic analysis of (animal) sound propagation
 experiments, which typically aim to quantify changes in signal structure
 when transmitted in a given habitat by broadcasting and re-recording
 animal sounds at increasing distances. The package offers a workflow with

@@ -1,49 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webdav
-%global packver   0.1.6
+%global packname  metaphonebr
+%global packver   0.0.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Simple Interface for Interacting with 'WebDAV' Servers
+Summary:          Custom 'MetaphoneBR' Phonetic Encoding for Brazilian Names
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-httpuv 
-BuildRequires:    R-CRAN-xml2 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-curl 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-httpuv 
-Requires:         R-CRAN-xml2 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-curl 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-stringi 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-stringi 
 
 %description
-An easy-to-use interface for interacting with 'WebDAV' servers, including
-'OwnCloud'. It simplifies the use of 'WebDAV' methods such as COPY, MOVE,
-DELETE and others. With built-in authentication and request handling, it
-allows for easy management of files and directories over the 'WebDAV'
-protocol.
+Simplifies Brazilian names phonetically using a custom 'metaphoneBR'
+algorithm that preserves ending vowels. Useful for name matching
+processing preserving gender information carried generally by ending
+vowels in Portuguese. Mation (2025) <doi:10.6082/uchicago.15104>.
 
 %prep
 %setup -q -c -n %{packname}

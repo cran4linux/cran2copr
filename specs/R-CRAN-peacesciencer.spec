@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  peacesciencer
-%global packver   1.1.0
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.0
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tools and Data for Quantitative Peace Science Research
 
@@ -14,25 +14,27 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-stevemisc >= 1.6.0
+BuildRequires:    R-CRAN-dplyr >= 1.1.0
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-geosphere 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-stringr 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-isard 
 Requires:         R-CRAN-stevemisc >= 1.6.0
+Requires:         R-CRAN-dplyr >= 1.1.0
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-geosphere 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-stringr 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-isard 
 
 %description
 These are useful tools and data sets for the study of quantitative peace

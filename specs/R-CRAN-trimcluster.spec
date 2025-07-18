@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  trimcluster
-%global packver   0.1-6
+%global packver   0.2-0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cluster Analysis with Trimming
 
@@ -17,6 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 1.9.0
 Requires:         R-core >= 1.9.0
 BuildArch:        noarch
+BuildRequires:    R-CRAN-tclust 
+Requires:         R-CRAN-tclust 
 
 %description
 Trimmed k-means clustering. The method is described in Cuesta-Albertos et

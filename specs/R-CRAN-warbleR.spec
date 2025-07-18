@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  warbleR
-%global packver   1.1.34
+%global packver   1.1.35
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.34
+Version:          1.1.35
 Release:          1%{?dist}%{?buildtag}
 Summary:          Streamline Bioacoustic Analysis
 
@@ -65,11 +65,12 @@ Requires:         R-CRAN-curl
 Functions aiming to facilitate the analysis of the structure of animal
 acoustic signals in 'R'. 'warbleR' makes use of the basic sound analysis
 tools from the packages 'tuneR' and 'seewave', and offers new tools for
-explore and quantify acoustic signal structure. The package allows to
+exploring and quantifying acoustic signal structure. The package allows to
 organize and manipulate multiple sound files, create spectrograms of
 complete recordings or individual signals in different formats, run
 several measures of acoustic structure, and characterize different
-structural levels in acoustic signals.
+structural levels in acoustic signals (Araya-Salas et al 2016
+<doi:10.1111/2041-210X.12624>).
 
 %prep
 %setup -q -c -n %{packname}

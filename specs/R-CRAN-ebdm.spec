@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ebdm
-%global packver   1.0.0
+%global packver   1.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of Estimating Binary Dependency from Marginal Data
+Summary:          Estimating Bivariate Dependency from Marginal Data
 
 License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,11 +21,12 @@ BuildRequires:    R-stats
 Requires:         R-stats 
 
 %description
-Provides a maximum likelihood estimation method to recover the joint
-distribution of two binary variables using only marginal summary data from
-multiple studies. This approach allows for privacy-preserving estimation
-in settings where individual-level data are unavailable. The method is
-fully described in the manuscript by Shang, Tsao and Zhang (2025)
+Provides maximum likelihood methods to estimate bivariate dependency
+(correlation) from marginal summary statistics in multi-study settings.
+The package supports both binary and continuous variables assumed to
+follow a bivariate normal distribution, enabling privacy-preserving joint
+estimation when individual-level data are unavailable. The binary method
+is fully described in the manuscript by Shang, Tsao and Zhang (2025)
 <doi:10.48550/arXiv.2505.03995>: "Estimating the Joint Distribution of Two
 Binary Variables from Their Marginal Summaries".
 

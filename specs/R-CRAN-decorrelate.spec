@@ -1,43 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  monitOS
-%global packver   0.1.6
+%global packname  decorrelate
+%global packver   0.1.6.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6
+Version:          0.1.6.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          Monitoring Overall Survival in Pivotal Trials in Indolent Cancers
+Summary:          Decorrelation Projection Scalable to High Dimensional Data
 
-License:          MIT + file LICENSE
+License:          Artistic-2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildArch:        noarch
+BuildRequires:    R-devel >= 4.2.0
+Requires:         R-core >= 4.2.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-irlba 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-CholWishart 
+BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-utils 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinydashboard 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-methods 
+Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-irlba 
+Requires:         R-graphics 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-CholWishart 
+Requires:         R-CRAN-Matrix 
+Requires:         R-utils 
 Requires:         R-stats 
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinydashboard 
 
 %description
-These guidelines are meant to provide a pragmatic, yet rigorous, help to
-drug developers and decision makers, since they are shaped by three
-fundamental ingredients: the clinically determined margin of detriment on
-OS that is unacceptably high (delta null); the benefit on OS that is
-plausible given the mechanism of action of the novel intervention (delta
-alt); and the quantity of information (i.e. survival events) it is
-feasible to accrue given the clinical and drug development setting. The
-proposed guidelines facilitate transparent discussions between
-stakeholders focusing on the risks of erroneous decisions and what might
-be an acceptable trade-off between power and the false positive error
-rate.
+Data whitening is a widely used preprocessing step to remove correlation
+structure since statistical models often assume independence. Here we use
+a probabilistic model of the observed data to apply a whitening
+transformation. Our Gaussian Inverse Wishart Empirical Bayes model
+substantially reduces computational complexity, and regularizes the
+eigen-values of the sample covariance matrix to improve out-of-sample
+performance.
 
 %prep
 %setup -q -c -n %{packname}
