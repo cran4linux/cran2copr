@@ -1,49 +1,41 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  decorrelate
-%global packver   0.1.6.4
+%global packname  rim
+%global packver   0.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.4
+Version:          0.8.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Decorrelation Projection Scalable to High Dimensional Data
+Summary:          Interface to 'Maxima', Enabling Symbolic Computation
 
-License:          Artistic-2.0
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
+Recommends:       maxima
+BuildRequires:    R-devel
+Requires:         R-core
 BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-CholWishart 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-utils 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-knitr 
+BuildRequires:    R-CRAN-GlobalOptions 
 Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-irlba 
-Requires:         R-graphics 
 Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-CholWishart 
-Requires:         R-CRAN-Matrix 
-Requires:         R-utils 
-Requires:         R-stats 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-knitr 
+Requires:         R-CRAN-GlobalOptions 
 
 %description
-Data whitening is a widely used preprocessing step to remove correlation
-structure since statistical models often assume independence. Here we use
-a probabilistic model of the observed data to apply a whitening
-transformation. This Gaussian Inverse Wishart Empirical Bayes model
-substantially reduces computational complexity, and regularizes the
-eigen-values of the sample covariance matrix to improve out-of-sample
-performance.
+An interface to the powerful and fairly complete computer algebra system
+'Maxima'. It can be used to start and control 'Maxima' from within R by
+entering 'Maxima' commands. Results from 'Maxima' can be parsed and
+evaluated in R. It facilitates outputting results from 'Maxima' in 'LaTeX'
+and 'MathML'. 2D and 3D plots can be displayed directly. This package also
+registers a 'knitr'-engine enabling 'Maxima' code chunks to be written in
+'RMarkdown' documents.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  statnetWeb
-%global packver   0.5.8
+%global packver   0.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.8
+Version:          0.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Shiny App for Network Modeling with 'statnet'
 
@@ -22,6 +22,7 @@ BuildRequires:    R-CRAN-shiny >= 1.8
 BuildRequires:    R-CRAN-network >= 1.18
 BuildRequires:    R-CRAN-lattice 
 BuildRequires:    R-CRAN-latticeExtra 
+BuildRequires:    R-CRAN-DT 
 BuildRequires:    R-CRAN-sna 
 BuildRequires:    R-CRAN-RColorBrewer 
 Requires:         R-CRAN-ergm >= 4.6
@@ -29,6 +30,7 @@ Requires:         R-CRAN-shiny >= 1.8
 Requires:         R-CRAN-network >= 1.18
 Requires:         R-CRAN-lattice 
 Requires:         R-CRAN-latticeExtra 
+Requires:         R-CRAN-DT 
 Requires:         R-CRAN-sna 
 Requires:         R-CRAN-RColorBrewer 
 

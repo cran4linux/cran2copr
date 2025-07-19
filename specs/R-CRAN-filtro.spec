@@ -1,49 +1,36 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  decorrelate
-%global packver   0.1.6.4
+%global packname  filtro
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Decorrelation Projection Scalable to High Dimensional Data
+Summary:          Feature Selection Using Supervised Filter-Based Methods
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-CholWishart 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
+BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-irlba 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-CholWishart 
-Requires:         R-CRAN-Matrix 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-purrr 
 Requires:         R-stats 
+Requires:         R-CRAN-tibble 
 
 %description
-Data whitening is a widely used preprocessing step to remove correlation
-structure since statistical models often assume independence. Here we use
-a probabilistic model of the observed data to apply a whitening
-transformation. This Gaussian Inverse Wishart Empirical Bayes model
-substantially reduces computational complexity, and regularizes the
-eigen-values of the sample covariance matrix to improve out-of-sample
-performance.
+Tidy tools to apply filter-based supervised feature selection methods.
+These methods score and rank feature relevance using metrics such as
+p-values, correlation, and importance scores (Kuhn and Johnson (2019)
+<doi:10.1201/9781315108230>).
 
 %prep
 %setup -q -c -n %{packname}

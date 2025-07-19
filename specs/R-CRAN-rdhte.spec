@@ -1,26 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rdhte
-%global packver   0.0.2
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Heterogeneous Treatment Effects in Regression Discontinuity Designs
 
-License:          GPL-2
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 BuildRequires:    R-CRAN-rdrobust 
 BuildRequires:    R-CRAN-sandwich 
+BuildRequires:    R-CRAN-multcomp 
 Requires:         R-CRAN-rdrobust 
 Requires:         R-CRAN-sandwich 
+Requires:         R-CRAN-multcomp 
 
 %description
 Understanding heterogeneous causal effects based on pretreatment
@@ -31,8 +33,9 @@ this package provides tools for estimation and inference of heterogeneous
 treatment effects in Regression Discontinuity (RD) Designs. The package
 includes two main commands: 'rdhte' to conduct estimation and robust
 bias-corrected inference for conditional RD treatment effects (given
-choice of bandwidth parameter); and 'rdbwhte', which implements automatic
-bandwidth selection methods.
+choice of bandwidth parameter); 'rdbwhte', which implements automatic
+bandwidth selection methods; and 'rdhte_lincom' to test linear
+combinations of parameters.
 
 %prep
 %setup -q -c -n %{packname}

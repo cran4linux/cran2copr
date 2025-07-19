@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  heatindex
-%global packver   0.0.1
+%global packver   0.0.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.1
+Version:          0.0.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Calculating Heat Stress
 
@@ -23,7 +23,8 @@ Requires:         R-CRAN-Rcpp
 Implements the simpler and faster heat index, which matches the values of
 the original 1979 heat index and its 2022 extension for air temperatures
 above 300 K (27 C, 80 F) and with only minor differences at lower
-temperatures.
+temperatures. Also implements an algorithm for calculating the
+thermodynamic (and psychrometric) wet-bulb (and ice-bulb) temperature.
 
 %prep
 %setup -q -c -n %{packname}

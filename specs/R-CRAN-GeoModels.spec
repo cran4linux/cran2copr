@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  GeoModels
-%global packver   2.1.6
+%global packver   2.1.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.6
+Version:          2.1.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Procedures for Gaussian and Non Gaussian Geostatistical (Large) Data Analysis
 
@@ -19,7 +19,8 @@ Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-mapproj 
 BuildRequires:    R-CRAN-shape 
-BuildRequires:    R-CRAN-codetools 
+BuildRequires:    R-CRAN-progressr 
+BuildRequires:    R-CRAN-future.apply 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-spam 
 BuildRequires:    R-CRAN-scatterplot3d 
@@ -38,12 +39,12 @@ BuildRequires:    R-CRAN-VGAM
 BuildRequires:    R-CRAN-foreach 
 BuildRequires:    R-CRAN-future 
 BuildRequires:    R-CRAN-doFuture 
-BuildRequires:    R-CRAN-progressr 
 BuildRequires:    R-CRAN-minqa 
 Requires:         R-CRAN-fields 
 Requires:         R-CRAN-mapproj 
 Requires:         R-CRAN-shape 
-Requires:         R-CRAN-codetools 
+Requires:         R-CRAN-progressr 
+Requires:         R-CRAN-future.apply 
 Requires:         R-methods 
 Requires:         R-CRAN-spam 
 Requires:         R-CRAN-scatterplot3d 
@@ -62,7 +63,6 @@ Requires:         R-CRAN-VGAM
 Requires:         R-CRAN-foreach 
 Requires:         R-CRAN-future 
 Requires:         R-CRAN-doFuture 
-Requires:         R-CRAN-progressr 
 Requires:         R-CRAN-minqa 
 
 %description

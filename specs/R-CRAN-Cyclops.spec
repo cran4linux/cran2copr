@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Cyclops
-%global packver   3.5.2
+%global packver   3.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.5.2
+Version:          3.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cyclic Coordinate Descent for Logistic, Poisson and Survival Analysis
 
@@ -17,22 +17,25 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
 BuildRequires:    R-CRAN-RcppEigen >= 0.3.2
-BuildRequires:    R-CRAN-Andromeda >= 0.3.1
 BuildRequires:    R-CRAN-Rcpp >= 0.12.12
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-Matrix 
+BuildRequires:    R-CRAN-Andromeda 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-bit 
 BuildRequires:    R-CRAN-bit64 
-BuildRequires:    R-CRAN-RcppParallel 
-Requires:         R-CRAN-Andromeda >= 0.3.1
 Requires:         R-CRAN-Rcpp >= 0.12.12
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-Matrix 
+Requires:         R-CRAN-Andromeda 
 Requires:         R-CRAN-dplyr 
 Requires:         R-methods 
 Requires:         R-CRAN-survival 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-bit 
 Requires:         R-CRAN-bit64 
 
 %description

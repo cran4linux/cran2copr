@@ -1,60 +1,55 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  GGally
-%global packver   2.3.0
+%global packname  cancerradarr
+%global packver   1.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.0
+Version:          1.3.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Extension to 'ggplot2'
+Summary:          Cancer RADAR Project Tool
 
-License:          GPL (>= 2.0)
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.3
-Requires:         R-core >= 4.3
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.2
-BuildRequires:    R-CRAN-scales >= 1.3.0
-BuildRequires:    R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-openxlsx >= 4.2.7
 BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-ggstats >= 0.9.0
-BuildRequires:    R-CRAN-gtable >= 0.2.0
-BuildRequires:    R-CRAN-S7 >= 0.2.0
-BuildRequires:    R-grDevices 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-epitools 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-progress 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-rmarkdown 
 BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-ggplot2 >= 3.5.2
-Requires:         R-CRAN-scales >= 1.3.0
-Requires:         R-CRAN-tidyr >= 1.3.0
+BuildRequires:    R-CRAN-plyr 
+Requires:         R-CRAN-openxlsx >= 4.2.7
 Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-ggstats >= 0.9.0
-Requires:         R-CRAN-gtable >= 0.2.0
-Requires:         R-CRAN-S7 >= 0.2.0
-Requires:         R-grDevices 
-Requires:         R-grid 
-Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-epitools 
 Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-progress 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-rmarkdown 
 Requires:         R-CRAN-rlang 
+Requires:         R-stats 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-utils 
+Requires:         R-CRAN-plyr 
 
 %description
-The R package 'ggplot2' is a plotting system based on the grammar of
-graphics.  'GGally' extends 'ggplot2' by adding several functions to
-reduce the complexity of combining geometric objects with transformed
-data.  Some of these functions include a pairwise plot matrix, a two group
-pairwise plot matrix, a parallel coordinates plot, a survival plot, and
-several functions to plot networks.
+Cancer RADAR is a project which aim is to develop an infrastructure that
+allows quantifying the risk of cancer by migration background across
+Europe. This package contains a set of functions cancer registries
+partners should use to reshape 5 year-age group cancer incidence data into
+a set of summary statistics (see Boyle & Parkin (1991,
+ISBN:978-92-832-1195-2)) in lines with Cancer RADAR data protections
+rules.
 
 %prep
 %setup -q -c -n %{packname}

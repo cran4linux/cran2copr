@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  shinyMixR
-%global packver   0.5.0
+%global packver   0.5.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.5.0
+Version:          0.5.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interactive 'shiny' Dashboard for 'nlmixr2'
 
@@ -34,9 +34,9 @@ BuildRequires:    R-CRAN-shinyjs
 BuildRequires:    R-CRAN-ps 
 BuildRequires:    R-CRAN-xfun 
 BuildRequires:    R-CRAN-fresh 
-BuildRequires:    R-CRAN-nlmixr2 
 BuildRequires:    R-CRAN-nlmixr2est 
 BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-rxode2 
 BuildRequires:    R-CRAN-cli 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-ggplot2 
@@ -55,9 +55,9 @@ Requires:         R-CRAN-shinyjs
 Requires:         R-CRAN-ps 
 Requires:         R-CRAN-xfun 
 Requires:         R-CRAN-fresh 
-Requires:         R-CRAN-nlmixr2 
 Requires:         R-CRAN-nlmixr2est 
 Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-rxode2 
 Requires:         R-CRAN-cli 
 
 %description

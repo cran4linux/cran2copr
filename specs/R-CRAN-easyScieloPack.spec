@@ -1,49 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  decorrelate
-%global packver   0.1.6.4
+%global packname  easyScieloPack
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.6.4
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Decorrelation Projection Scalable to High Dimensional Data
+Summary:          Easy Interface to Search 'SciELO' Database
 
-License:          Artistic-2.0
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.2.0
-Requires:         R-core >= 4.2.0
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rfast 
-BuildRequires:    R-CRAN-irlba 
-BuildRequires:    R-graphics 
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-CholWishart 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-utils 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-magrittr >= 2.0.3
+BuildRequires:    R-CRAN-stringr >= 1.5.1
+BuildRequires:    R-CRAN-httr >= 1.4.6
+BuildRequires:    R-CRAN-xml2 >= 1.3.6
+BuildRequires:    R-CRAN-dplyr >= 1.1.4
+BuildRequires:    R-CRAN-rvest >= 1.0.3
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-methods 
-Requires:         R-CRAN-Rfast 
-Requires:         R-CRAN-irlba 
-Requires:         R-graphics 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-CholWishart 
-Requires:         R-CRAN-Matrix 
-Requires:         R-utils 
+Requires:         R-CRAN-magrittr >= 2.0.3
+Requires:         R-CRAN-stringr >= 1.5.1
+Requires:         R-CRAN-httr >= 1.4.6
+Requires:         R-CRAN-xml2 >= 1.3.6
+Requires:         R-CRAN-dplyr >= 1.1.4
+Requires:         R-CRAN-rvest >= 1.0.3
 Requires:         R-stats 
 
 %description
-Data whitening is a widely used preprocessing step to remove correlation
-structure since statistical models often assume independence. Here we use
-a probabilistic model of the observed data to apply a whitening
-transformation. This Gaussian Inverse Wishart Empirical Bayes model
-substantially reduces computational complexity, and regularizes the
-eigen-values of the sample covariance matrix to improve out-of-sample
-performance.
+Provides a simple interface to search and retrieve scientific articles
+from the 'SciELO' (Scientific Electronic Library Online) database
+<https://scielo.org>. It allows querying, filtering, and visualizing
+results in an interactive table.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rjwsacruncher
-%global packver   0.2.1
+%global packver   0.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.1
+Version:          0.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Interface to the 'JWSACruncher' of 'JDemetra+'
 
@@ -26,9 +26,10 @@ adjustment software officially recommended to the members of the European
 Statistical System and the European System of Central Banks. Seasonal
 adjustment models performed with 'JDemetra+' can be stored into
 workspaces. 'JWSACruncher'
-(<https://github.com/jdemetra/jwsacruncher/releases>) is a console tool
-that re-estimates all the multi-processing defined in a workspace and to
-export the result. 'rjwsacruncher' allows to launch easily the
+(<https://github.com/jdemetra/jwsacruncher/releases> for v2 and
+<https://github.com/jdemetra/jdplus-main/releases> for v3) is a console
+tool that re-estimates all the multi-processing defined in a workspace and
+to export the result. 'rjwsacruncher' allows to launch easily the
 'JWSACruncher'.
 
 %prep

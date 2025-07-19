@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  torchvision
-%global packver   0.6.0
+%global packver   0.7.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.0
+Version:          0.7.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Models, Datasets and Transformations for Images
 
@@ -23,20 +23,30 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-rappdirs 
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-jpeg 
+BuildRequires:    R-CRAN-tiff 
 BuildRequires:    R-CRAN-magrittr 
 BuildRequires:    R-CRAN-png 
 BuildRequires:    R-CRAN-abind 
+BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-withr 
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-zeallot 
 Requires:         R-CRAN-torch >= 0.5.0
 Requires:         R-CRAN-fs 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-rappdirs 
 Requires:         R-utils 
 Requires:         R-CRAN-jpeg 
+Requires:         R-CRAN-tiff 
 Requires:         R-CRAN-magrittr 
 Requires:         R-CRAN-png 
 Requires:         R-CRAN-abind 
+Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-withr 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-zeallot 
 
 %description
 Provides access to datasets, models and preprocessing facilities for deep

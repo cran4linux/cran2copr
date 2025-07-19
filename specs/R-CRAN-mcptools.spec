@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  maestro
-%global packver   0.6.1
+%global packname  mcptools
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Orchestration of Data Pipelines
+Summary:          Model Context Protocol Servers and Clients
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -17,39 +17,29 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli >= 3.3.0
-BuildRequires:    R-CRAN-lubridate >= 1.9.1
-BuildRequires:    R-CRAN-dplyr >= 1.1.0
-BuildRequires:    R-CRAN-purrr >= 1.0.0
-BuildRequires:    R-CRAN-rlang >= 1.0.0
-BuildRequires:    R-CRAN-glue 
-BuildRequires:    R-CRAN-lifecycle 
-BuildRequires:    R-CRAN-logger 
-BuildRequires:    R-CRAN-R.utils 
-BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-roxygen2 
-BuildRequires:    R-CRAN-tictoc 
-BuildRequires:    R-CRAN-timechange 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-cli >= 3.3.0
-Requires:         R-CRAN-lubridate >= 1.9.1
-Requires:         R-CRAN-dplyr >= 1.1.0
-Requires:         R-CRAN-purrr >= 1.0.0
-Requires:         R-CRAN-rlang >= 1.0.0
-Requires:         R-CRAN-glue 
-Requires:         R-CRAN-lifecycle 
-Requires:         R-CRAN-logger 
-Requires:         R-CRAN-R.utils 
-Requires:         R-CRAN-R6 
-Requires:         R-CRAN-roxygen2 
-Requires:         R-CRAN-tictoc 
-Requires:         R-CRAN-timechange 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-nanonext >= 1.6.0
+BuildRequires:    R-CRAN-ellmer >= 0.2.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-processx 
+BuildRequires:    R-CRAN-promises 
+BuildRequires:    R-CRAN-rlang 
+Requires:         R-CRAN-nanonext >= 1.6.0
+Requires:         R-CRAN-ellmer >= 0.2.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-processx 
+Requires:         R-CRAN-promises 
+Requires:         R-CRAN-rlang 
 
 %description
-Framework for creating and orchestrating data pipelines. Organize,
-orchestrate, and monitor multiple pipelines in a single project. Use tags
-to decorate functions with scheduling parameters and configuration.
+Implements the Model Context Protocol (MCP). Users can start 'R'-based
+servers, serving functions as tools for large language models to call
+before responding to the user in MCP-compatible apps like 'Claude Desktop'
+and 'Claude Code', with options to run those tools inside of interactive
+'R' sessions. On the other end, when 'R' is the client via the 'ellmer'
+package, users can register tools from third-party MCP servers to
+integrate additional context into chats.
 
 %prep
 %setup -q -c -n %{packname}
