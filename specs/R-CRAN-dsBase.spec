@@ -1,44 +1,53 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  BGmisc
-%global packver   1.5.0
+%global packname  dsBase
+%global packver   6.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          6.3.3
 Release:          1%{?dist}%{?buildtag}
-Summary:          An R Package for Extended Behavior Genetics Analysis
+Summary:          'DataSHIELD' Server Site Base Functions
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-igraph 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-polycor >= 0.8
+BuildRequires:    R-CRAN-RANN 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-methods 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-igraph 
-Requires:         R-CRAN-Matrix 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-lme4 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-reshape2 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-gamlss 
+BuildRequires:    R-CRAN-gamlss.dist 
+BuildRequires:    R-CRAN-mice 
+BuildRequires:    R-CRAN-childsds 
+Requires:         R-CRAN-polycor >= 0.8
+Requires:         R-CRAN-RANN 
 Requires:         R-CRAN-stringr 
-Requires:         R-methods 
+Requires:         R-CRAN-lme4 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-reshape2 
+Requires:         R-splines 
+Requires:         R-CRAN-gamlss 
+Requires:         R-CRAN-gamlss.dist 
+Requires:         R-CRAN-mice 
+Requires:         R-CRAN-childsds 
 
 %description
-Provides functions for behavior genetics analysis, including variance
-component model identification [Hunter et al. (2021)
-<doi:10.1007/s10519-021-10055-x>], calculation of relatedness coefficients
-using path-tracing methods [Wright (1922) <doi:10.1086/279872>; McArdle &
-McDonald (1984) <doi:10.1111/j.2044-8317.1984.tb00802.x>], inference of
-relatedness, pedigree conversion, and simulation of multi-generational
-family data [Lyu et al. (2024) <doi:10.1101/2024.12.19.629449>]. For a
-full overview, see [Garrison et al. (2024) <doi:10.21105/joss.06203>].
+Base 'DataSHIELD' functions for the server side. 'DataSHIELD' is a
+software package which allows you to do non-disclosive federated analysis
+on sensitive data. 'DataSHIELD' analytic functions have been designed to
+only share non disclosive summary statistics, with built in automated
+output checking based on statistical disclosure control. With data sites
+setting the threshold values for the automated output checks. For more
+details, see 'citation("dsBase")'.
 
 %prep
 %setup -q -c -n %{packname}

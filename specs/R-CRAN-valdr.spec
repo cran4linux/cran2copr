@@ -1,38 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  CEOdata
-%global packver   1.3.1.1
+%global packname  valdr
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.1.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Datasets of the CEO (Centre d'Estudis d'Opinio) for Opinion Polls in Catalonia
+Summary:          Access and Analyse 'VALD' Data via Our External 'APIs'
 
-License:          GPL-3
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr >= 1.0.0
-BuildRequires:    R-CRAN-haven 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-base64enc 
+BuildRequires:    R-CRAN-keyring 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-dplyr >= 1.0.0
-Requires:         R-CRAN-haven 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-base64enc 
+Requires:         R-CRAN-keyring 
 Requires:         R-CRAN-jsonlite 
 
 %description
-Easy and convenient access to the datasets of the "Centre d'Estudis
-d'Opinio", the Catalan institution for polling and public opinion. The
-package uses the data stored in the servers of the CEO and returns it in a
-tidy format.
+Provides helper functions and wrappers to simplify authentication, data
+retrieval, and result processing from the 'VALD' 'APIs'. Designed to
+streamline integration for analysts and researchers working with 'VALD's
+external 'APIs'. For further documentation, please see
+<https://support.vald.com/hc/en-au/articles/23415335574553-How-to-integrate-with-VALD-APIs>
+for documentation.
 
 %prep
 %setup -q -c -n %{packname}

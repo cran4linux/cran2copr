@@ -1,39 +1,31 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastei
-%global packver   0.0.0.9
+%global packname  gentransmuted
+%global packver   1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.9
+Version:          1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Case''
+Summary:          Estimation and Other Tools for Generalized Transmuted Models
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-pracma 
+BuildRequires:    R-CRAN-VGAM 
+Requires:         R-CRAN-pracma 
+Requires:         R-CRAN-VGAM 
 
 %description
-Estimates the probability matrix for the R×C Ecological Inference problem
-using the Expectation-Maximization Algorithm with four approximation
-methods for the E-Step, and an exact method as well. It also provides a
-bootstrap function to estimate the standard deviation of the estimated
-probabilities. In addition, it has functions that aggregate rows optimally
-to have more reliable estimates in cases of having few data points. For
-comparing the probability estimates of two groups, a Wald test routine is
-implemented. The library has data from the first round of the Chilean
-Presidential Election 2021 and can also generate synthetic election data.
-Methods described in Thraves, Charles; Ubilla, Pablo; Hermosilla, Daniel
-(2024) ''A Fast Ecological Inference Algorithm for the R×C case''
-<doi:10.2139/ssrn.4832834>.
+Provide estimation and data generation tools for a generalization of the
+transmuted distributions discussed in Shaw and Buckley (2007). See
+<doi:10.48550/arXiv.0901.0434> for more information.
 
 %prep
 %setup -q -c -n %{packname}

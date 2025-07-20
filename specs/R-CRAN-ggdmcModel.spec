@@ -1,39 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastei
-%global packver   0.0.0.9
+%global packname  ggdmcModel
+%global packver   0.2.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.9
+Version:          0.2.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Case''
+Summary:          Model Builders for 'ggdmc' Package
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.7
+BuildRequires:    R-CRAN-RcppArmadillo >= 0.10.7.5.0
+BuildRequires:    R-methods 
+BuildRequires:    R-CRAN-ggdmcHeaders 
+Requires:         R-CRAN-Rcpp >= 1.0.7
+Requires:         R-methods 
 
 %description
-Estimates the probability matrix for the R×C Ecological Inference problem
-using the Expectation-Maximization Algorithm with four approximation
-methods for the E-Step, and an exact method as well. It also provides a
-bootstrap function to estimate the standard deviation of the estimated
-probabilities. In addition, it has functions that aggregate rows optimally
-to have more reliable estimates in cases of having few data points. For
-comparing the probability estimates of two groups, a Wald test routine is
-implemented. The library has data from the first round of the Chilean
-Presidential Election 2021 and can also generate synthetic election data.
-Methods described in Thraves, Charles; Ubilla, Pablo; Hermosilla, Daniel
-(2024) ''A Fast Ecological Inference Algorithm for the R×C case''
-<doi:10.2139/ssrn.4832834>.
+A suite of tools for specifying and examining experimental designs related
+to choice response time models (e.g., the Diffusion Decision Model). This
+package allows users to define how experimental factors influence one or
+more model parameters using R-style formula syntax, while also checking
+the logical consistency of these associations. Additionally, it integrates
+with the 'ggdmc' package, which employs Differential Evolution Markov
+Chain Monte Carlo (DE-MCMC) sampling to optimise model parameters. For
+further details on the model-building approach, see Heathcote, Lin,
+Reynolds, Strickland, Gretton, and Matzke (2019)
+<doi:10.3758/s13428-018-1067-y>.
 
 %prep
 %setup -q -c -n %{packname}

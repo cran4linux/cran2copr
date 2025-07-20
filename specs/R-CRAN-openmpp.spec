@@ -1,39 +1,52 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastei
-%global packver   0.0.0.9
+%global packname  openmpp
+%global packver   0.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.9
+Version:          0.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Case''
+Summary:          Programmatic Interface to 'OpenM++'
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
+BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tidyselect 
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tidyselect 
 
 %description
-Estimates the probability matrix for the R×C Ecological Inference problem
-using the Expectation-Maximization Algorithm with four approximation
-methods for the E-Step, and an exact method as well. It also provides a
-bootstrap function to estimate the standard deviation of the estimated
-probabilities. In addition, it has functions that aggregate rows optimally
-to have more reliable estimates in cases of having few data points. For
-comparing the probability estimates of two groups, a Wald test routine is
-implemented. The library has data from the first round of the Chilean
-Presidential Election 2021 and can also generate synthetic election data.
-Methods described in Thraves, Charles; Ubilla, Pablo; Hermosilla, Daniel
-(2024) ''A Fast Ecological Inference Algorithm for the R×C case''
-<doi:10.2139/ssrn.4832834>.
+A programmatic interface to the 'OpenM++' microsimulation platform
+(<https://openmpp.org>). The primary goal of this package is to wrap the
+'OpenM++' Web Service (OMS) to provide 'OpenM++' users a programmatic
+interface for the R language.
 
 %prep
 %setup -q -c -n %{packname}

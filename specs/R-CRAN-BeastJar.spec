@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  BeastJar
-%global packver   1.10.6
+%global packver   10.5.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.10.6
+Version:          10.5.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          JAR Dependency for MCMC Using 'BEAST'
 
@@ -21,14 +22,14 @@ Requires:         R-CRAN-rJava
 
 %description
 Provides JAR to perform Markov chain Monte Carlo (MCMC) inference using
-the popular Bayesian Evolutionary Analysis by Sampling Trees 'BEAST'
-software library of Suchard et al (2018) <doi:10.1093/ve/vey016>. 'BEAST'
-supports auto-tuning Metropolis-Hastings, slice, Hamiltonian Monte Carlo
-and Sequential Monte Carlo sampling for a large variety of composable
-standard and phylogenetic statistical models using high performance
-computing.  By placing the 'BEAST' JAR in this package, we offer an
-efficient distribution system for 'BEAST' use by other R packages using
-CRAN.
+the popular Bayesian Evolutionary Analysis by Sampling Trees 'BEAST X'
+software library of Baele et al (2025) <doi:10.1038/s41592-025-02751-x>.
+'BEAST X' supports auto-tuning Metropolis-Hastings, slice, Hamiltonian
+Monte Carlo and Sequential Monte Carlo sampling for a large variety of
+composable standard and phylogenetic statistical models using high
+performance computing.  By placing the 'BEAST X' JAR in this package, we
+offer an efficient distribution system for 'BEAST X' use by other R
+packages using CRAN.
 
 %prep
 %setup -q -c -n %{packname}
@@ -38,6 +39,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

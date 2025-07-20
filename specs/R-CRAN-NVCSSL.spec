@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  NVCSSL
-%global packver   2.0
+%global packver   3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0
+Version:          3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Nonparametric Varying Coefficient Spike-and-Slab Lasso
 
@@ -41,7 +41,8 @@ Requires:         R-CRAN-mvtnorm
 %description
 Fits Bayesian regularized varying coefficient models with the
 Nonparametric Varying Coefficient Spike-and-Slab Lasso (NVC-SSL)
-introduced by Bai et al. (2023) <arXiv:1907.06477>. Functions to fit
+introduced by Bai et al. (2023)
+<https://jmlr.org/papers/volume24/20-1437/20-1437.pdf>. Functions to fit
 frequentist penalized varying coefficients are also provided, with the
 option of employing the group lasso penalty of Yuan and Lin (2006)
 <doi:10.1111/j.1467-9868.2005.00532.x>, the group minimax concave penalty

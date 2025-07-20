@@ -1,39 +1,35 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  fastei
-%global packver   0.0.0.9
+%global packname  ceblR
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.0.9
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Methods for ''A Fast Alternative for the R x C Ecological Inference Case''
+Summary:          Extract Data from the Canadian Elite Basketball League
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5
-Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-Rcpp 
-BuildRequires:    R-CRAN-jsonlite 
-Requires:         R-CRAN-Rcpp 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-devel
+Requires:         R-core
+BuildArch:        noarch
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-lifecycle 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-readr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-lifecycle 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-readr 
 
 %description
-Estimates the probability matrix for the R×C Ecological Inference problem
-using the Expectation-Maximization Algorithm with four approximation
-methods for the E-Step, and an exact method as well. It also provides a
-bootstrap function to estimate the standard deviation of the estimated
-probabilities. In addition, it has functions that aggregate rows optimally
-to have more reliable estimates in cases of having few data points. For
-comparing the probability estimates of two groups, a Wald test routine is
-implemented. The library has data from the first round of the Chilean
-Presidential Election 2021 and can also generate synthetic election data.
-Methods described in Thraves, Charles; Ubilla, Pablo; Hermosilla, Daniel
-(2024) ''A Fast Ecological Inference Algorithm for the R×C case''
-<doi:10.2139/ssrn.4832834>.
+Gather boxscore and play-by-play data from the Canadian Elite Basketball
+League (CEBL) <https://www.cebl.ca> to create a repository of basic and
+advanced statistics for teams and players.
 
 %prep
 %setup -q -c -n %{packname}
