@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  thisutils
-%global packver   0.0.5
+%global packver   0.0.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.5
+Version:          0.0.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collection of Utility Functions for Data Analysis and Computing
 
@@ -42,10 +42,9 @@ Requires:         R-CRAN-rlang
 Requires:         R-stats 
 
 %description
-Provides a collection of utility functions commonly used in data analysis
-and scientific computing. Includes functions for parallel processing,
-matrix operations, correlation calculations, and other computational tasks
-to streamline R workflows.
+Provides utility functions for data analysis and scientific computing.
+Includes functions for parallel processing, and other computational tasks
+to streamline workflows.
 
 %prep
 %setup -q -c -n %{packname}

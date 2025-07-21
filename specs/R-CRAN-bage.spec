@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bage
-%global packver   0.9.0
+%global packver   0.9.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.9.0
+Version:          0.9.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Estimation and Forecasting of Age-Specific Rates
 
@@ -16,7 +16,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.3.0
 Requires:         R-core >= 4.3.0
-BuildRequires:    R-CRAN-poputils >= 0.3.3
+BuildRequires:    R-CRAN-poputils >= 0.3.4
 BuildRequires:    R-CRAN-rvec >= 0.0.7
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-generics 
@@ -30,7 +30,7 @@ BuildRequires:    R-CRAN-TMB
 BuildRequires:    R-utils 
 BuildRequires:    R-CRAN-vctrs 
 BuildRequires:    R-CRAN-RcppEigen 
-Requires:         R-CRAN-poputils >= 0.3.3
+Requires:         R-CRAN-poputils >= 0.3.4
 Requires:         R-CRAN-rvec >= 0.0.7
 Requires:         R-CRAN-cli 
 Requires:         R-CRAN-generics 

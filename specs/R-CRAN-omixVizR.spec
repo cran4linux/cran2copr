@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  omixVizR
-%global packver   1.0.5
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Toolkit for Omics Data Visualization
 
@@ -18,9 +18,12 @@ BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-genpwr 
 BuildRequires:    R-CRAN-ggbreak 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-ggrepel 
+BuildRequires:    R-CRAN-ggsci 
 BuildRequires:    R-CRAN-ggtext 
 BuildRequires:    R-grid 
 BuildRequires:    R-CRAN-magrittr 
@@ -29,9 +32,12 @@ BuildRequires:    R-CRAN-scales
 BuildRequires:    R-CRAN-showtext 
 BuildRequires:    R-CRAN-sysfonts 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-genpwr 
 Requires:         R-CRAN-ggbreak 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-ggrepel 
+Requires:         R-CRAN-ggsci 
 Requires:         R-CRAN-ggtext 
 Requires:         R-grid 
 Requires:         R-CRAN-magrittr 
