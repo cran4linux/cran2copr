@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  MolgenisAuth
-%global packver   0.0.25
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.25
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'OpenID Connect' Discovery and Authentication
 
@@ -14,13 +14,15 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-urltools >= 1.7.0
-BuildRequires:    R-CRAN-httr >= 1.4.0
+BuildRequires:    R-CRAN-httr2 >= 1.0.1
+BuildRequires:    R-CRAN-assertthat 
 Requires:         R-CRAN-urltools >= 1.7.0
-Requires:         R-CRAN-httr >= 1.4.0
+Requires:         R-CRAN-httr2 >= 1.0.1
+Requires:         R-CRAN-assertthat 
 
 %description
 Discover 'OpenID Connect' endpoints and authenticate using device flow.

@@ -1,45 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmockr
-%global packver   2.2.0
+%global packname  libdeflate
+%global packver   1.24-7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.24.7
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
+Summary:          DEFLATE Compression and Static Library
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.3
-BuildRequires:    R-CRAN-urltools >= 1.6.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-fauxpas 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 >= 2.1.3
-Requires:         R-CRAN-urltools >= 1.6.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-fauxpas 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 
 %description
-Stubbing and setting expectations on 'HTTP' requests. Includes tools for
-stubbing 'HTTP' requests, including expected request conditions and
-response conditions. Match on 'HTTP' method, query parameters, request
-body, headers and more. Can be used for unit tests or outside of a testing
-context.
+Whole-buffer DEFLATE-based compression and decompression of raw vectors
+using the 'libdeflate' library (see
+<https://github.com/ebiggers/libdeflate>). Provides the user with
+additional control over the speed and the quality of DEFLATE compression
+compared to the fixed level of compression offered in R's 'memCompress()'
+function. Also provides the 'libdeflate' static library and 'C' headers
+along with a 'CMake' target and 'package‑config' file that ease linking of
+'libdeflate' in packages that compile and statically link bundled
+libraries using 'CMake'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DCEtool
-%global packver   1.1.1
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.1
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Efficient and Accessible Discrete Choice Experiments
 
@@ -27,18 +27,13 @@ BuildRequires:    R-CRAN-DT
 BuildRequires:    R-CRAN-writexl 
 BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-idefix 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-mlogit 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-htmltools 
-BuildRequires:    R-CRAN-knitr 
-BuildRequires:    R-CRAN-usethis 
-BuildRequires:    R-CRAN-dfidx 
-BuildRequires:    R-CRAN-adjustedcranlogs 
-BuildRequires:    R-CRAN-rlist 
-BuildRequires:    R-CRAN-remotes 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-remotes 
+BuildRequires:    R-CRAN-rlist 
+BuildRequires:    R-CRAN-shinyhelper 
+BuildRequires:    R-CRAN-usethis 
+BuildRequires:    R-CRAN-htmltools 
 Requires:         R-CRAN-survival 
 Requires:         R-CRAN-shinyBS 
 Requires:         R-CRAN-shinycssloaders 
@@ -49,18 +44,13 @@ Requires:         R-CRAN-DT
 Requires:         R-CRAN-writexl 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-idefix 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-mlogit 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-htmltools 
-Requires:         R-CRAN-knitr 
-Requires:         R-CRAN-usethis 
-Requires:         R-CRAN-dfidx 
-Requires:         R-CRAN-adjustedcranlogs 
-Requires:         R-CRAN-rlist 
-Requires:         R-CRAN-remotes 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-remotes 
+Requires:         R-CRAN-rlist 
+Requires:         R-CRAN-shinyhelper 
+Requires:         R-CRAN-usethis 
+Requires:         R-CRAN-htmltools 
 
 %description
 Design, conduct and analyze 'DCEs' from a virtual interface in shiny.

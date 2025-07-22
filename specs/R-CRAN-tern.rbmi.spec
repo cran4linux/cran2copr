@@ -1,45 +1,46 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmockr
-%global packver   2.2.0
+%global packname  tern.rbmi
+%global packver   0.1.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.6
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
+Summary:          Create Interface for 'RBMI' and 'tern'
 
-License:          MIT + file LICENSE
+License:          Apache License 2.0
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.6
+Requires:         R-core >= 3.6
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.3
-BuildRequires:    R-CRAN-urltools >= 1.6.0
+BuildRequires:    R-CRAN-checkmate >= 2.1.0
 BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-fauxpas 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 >= 2.1.3
-Requires:         R-CRAN-urltools >= 1.6.0
+BuildRequires:    R-CRAN-rbmi >= 1.2.5
+BuildRequires:    R-CRAN-tern >= 0.9.7
+BuildRequires:    R-CRAN-rtables >= 0.6.11
+BuildRequires:    R-CRAN-broom >= 0.5.4
+BuildRequires:    R-CRAN-formatters >= 0.5.10
+BuildRequires:    R-CRAN-lifecycle >= 0.2.0
+Requires:         R-CRAN-checkmate >= 2.1.0
 Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-fauxpas 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-rbmi >= 1.2.5
+Requires:         R-CRAN-tern >= 0.9.7
+Requires:         R-CRAN-rtables >= 0.6.11
+Requires:         R-CRAN-broom >= 0.5.4
+Requires:         R-CRAN-formatters >= 0.5.10
+Requires:         R-CRAN-lifecycle >= 0.2.0
 
 %description
-Stubbing and setting expectations on 'HTTP' requests. Includes tools for
-stubbing 'HTTP' requests, including expected request conditions and
-response conditions. Match on 'HTTP' method, query parameters, request
-body, headers and more. Can be used for unit tests or outside of a testing
-context.
+'RBMI' implements standard and reference based multiple imputation methods
+for continuous longitudinal endpoints (Gower-Page et al. (2022)
+<doi:10.21105/joss.04251>). This package provides an interface for 'RBMI'
+uses the 'tern' <https://cran.r-project.org/package=tern> framework by Zhu
+et al. (2023) and tabulate results easily using 'rtables'
+<https://cran.r-project.org/package=rtables> by Becker et al. (2023).
 
 %prep
 %setup -q -c -n %{packname}

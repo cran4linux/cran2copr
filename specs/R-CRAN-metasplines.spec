@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  dataviewR
-%global packver   0.1.1
+%global packname  metasplines
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          An Interactive and Feature-Rich Data Viewer
+Summary:          Pool Literature-Based and Individual Participant Data Based Spline Estimates
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,36 +17,33 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.2.0
 Requires:         R-core >= 4.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-shiny 
-BuildRequires:    R-CRAN-shinyjs 
-BuildRequires:    R-CRAN-DT 
+BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-labelled 
-BuildRequires:    R-CRAN-forcats 
-BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-tibble 
-BuildRequires:    R-CRAN-datamods 
-BuildRequires:    R-CRAN-htmlwidgets 
-Requires:         R-CRAN-shiny 
-Requires:         R-CRAN-shinyjs 
-Requires:         R-CRAN-DT 
+BuildRequires:    R-CRAN-stringr 
+BuildRequires:    R-CRAN-meta 
+BuildRequires:    R-CRAN-optimization 
+Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-labelled 
-Requires:         R-CRAN-forcats 
-Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-tibble 
-Requires:         R-CRAN-datamods 
-Requires:         R-CRAN-htmlwidgets 
+Requires:         R-CRAN-stringr 
+Requires:         R-CRAN-meta 
+Requires:         R-CRAN-optimization 
 
 %description
-Provides an interactive viewer for 'data.frame' and 'tibble' objects using
-'shiny' <https://shiny.posit.co/> and 'DT'
-<https://rstudio.github.io/DT/>. It supports complex filtering, column
-selection, and automatic generation of reproducible 'dplyr'
-<https://dplyr.tidyverse.org/> code for data manipulation. The package is
-designed for ease of use in data exploration and reporting workflows.
+Pooling estimates reported in meta-analyses (literature-based, LB) and
+estimates based on individual participant data (IPD) is not
+straight-forward as the details of the LB nonlinear function estimate are
+not usually reported. This package pools the nonlinear IPD dose-response
+estimates based on a natural cubic spline from lm or glm with the
+pointwise LB estimates and their estimated variances. Details will be
+presented in Härkänen, Tapanainen, Sares-Jäske, Männistö, Kaartinen and
+Paalanen (2025) "Novel pooling method for nonlinear cohort analysis and
+meta-analysis estimates: Predicting health outcomes based on
+climate-friendly diets" (under revision)
+<https://journals.lww.com/epidem/pages/default.aspx>.
 
 %prep
 %setup -q -c -n %{packname}

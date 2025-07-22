@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bayesRecon
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Probabilistic Reconciliation via Conditioning
 
@@ -32,8 +32,8 @@ Gaussian reconciliation (Corani et al., 2021)
 series (Corani et al., 2024) <doi:10.1016/j.ijforecast.2023.04.003>,
 Bottom-Up Importance Sampling (Zambon et al., 2024)
 <doi:10.1007/s11222-023-10343-y>, methods for the reconciliation of mixed
-hierarchies (Mix-Cond and TD-cond) (Zambon et al., 2024. The 40th
-Conference on Uncertainty in Artificial Intelligence, accepted).
+hierarchies (Mix-Cond and TD-cond) (Zambon et al., 2024)
+<https://proceedings.mlr.press/v244/zambon24a.html>.
 
 %prep
 %setup -q -c -n %{packname}

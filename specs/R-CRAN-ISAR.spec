@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ISAR
-%global packver   0.1.12
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.12
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Introduction to Sports Analytics using R (ISAR) Data
 
@@ -14,14 +14,13 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
 
 %description
-We provide data sets used in the forthcoming textbook "Introduction to
-Sports Analytics using R" by Elmore and Urbaczweski (2024). The package
-currently contains sixteen datasets and should be published in early 2024.
+We provide data sets used in the textbook "Introduction to Sports
+Analytics using R" by Elmore and Urbaczweski (2025).
 
 %prep
 %setup -q -c -n %{packname}

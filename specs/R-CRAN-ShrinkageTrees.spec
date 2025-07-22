@@ -1,45 +1,28 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmockr
-%global packver   2.2.0
+%global packname  ShrinkageTrees
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
+Summary:          Regression Trees with Shrinkage Priors
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.3
-BuildRequires:    R-CRAN-urltools >= 1.6.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-fauxpas 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 >= 2.1.3
-Requires:         R-CRAN-urltools >= 1.6.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-fauxpas 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
+BuildRequires:    R-CRAN-Rcpp >= 1.0.11
+Requires:         R-CRAN-Rcpp >= 1.0.11
 
 %description
-Stubbing and setting expectations on 'HTTP' requests. Includes tools for
-stubbing 'HTTP' requests, including expected request conditions and
-response conditions. Match on 'HTTP' method, query parameters, request
-body, headers and more. Can be used for unit tests or outside of a testing
-context.
+Bayesian regression tree models with shrinkage priors on step heights.
+Supports continuous, binary, and right-censored (survival) outcomes. Used
+for high-dimensional prediction and causal inference.
 
 %prep
 %setup -q -c -n %{packname}

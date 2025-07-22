@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  mscstts
-%global packver   0.6.3
+%global packver   0.6.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.3
+Version:          0.6.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Client for the Microsoft Cognitive Services 'Text-to-Speech' REST API
 
@@ -27,7 +28,7 @@ Requires:         R-CRAN-tuneR
 R Client for the Microsoft Cognitive Services 'Text-to-Speech' REST API,
 including voice synthesis. A valid account must be registered at the
 Microsoft Cognitive Services website
-<https://azure.microsoft.com/services/cognitive-services/> in order to
+<https://azure.microsoft.com/en-us/products/ai-services/> in order to
 obtain a (free) API key. Without an API key, this package will not work
 properly.
 

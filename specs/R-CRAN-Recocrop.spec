@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Recocrop
-%global packver   0.4-1
+%global packver   0.4-2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.4.1
+Version:          0.4.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Estimating Environmental Suitability for Plants
 
@@ -16,11 +16,11 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5.0
 Requires:         R-core >= 3.5.0
-BuildRequires:    R-CRAN-terra >= 1.1.4
+BuildRequires:    R-CRAN-terra >= 1.8.5
 BuildRequires:    R-methods >= 0.2.2
 BuildRequires:    R-CRAN-Rcpp >= 0.12.4
 BuildRequires:    R-CRAN-meteor 
-Requires:         R-CRAN-terra >= 1.1.4
+Requires:         R-CRAN-terra >= 1.8.5
 Requires:         R-methods >= 0.2.2
 Requires:         R-CRAN-Rcpp >= 0.12.4
 Requires:         R-CRAN-meteor 

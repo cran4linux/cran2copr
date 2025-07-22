@@ -1,42 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  loopevd
-%global packver   1.0.2
+%global packname  PAGE
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Loop Functions for Extreme Value Distributions
+Summary:          Predictor-Assisted Graphical Models under Error-in-Variables
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-evd 
-BuildRequires:    R-CRAN-ncdf4 
+BuildRequires:    R-CRAN-glasso 
+BuildRequires:    R-CRAN-lars 
+BuildRequires:    R-CRAN-network 
+BuildRequires:    R-CRAN-GGally 
+BuildRequires:    R-CRAN-caret 
+BuildRequires:    R-CRAN-randomForest 
+BuildRequires:    R-CRAN-metrica 
+BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-ismev 
-BuildRequires:    R-parallel 
-Requires:         R-CRAN-terra 
-Requires:         R-CRAN-evd 
-Requires:         R-CRAN-ncdf4 
+Requires:         R-CRAN-glasso 
+Requires:         R-CRAN-lars 
+Requires:         R-CRAN-network 
+Requires:         R-CRAN-GGally 
+Requires:         R-CRAN-caret 
+Requires:         R-CRAN-randomForest 
+Requires:         R-CRAN-metrica 
+Requires:         R-CRAN-MASS 
 Requires:         R-stats 
-Requires:         R-utils 
-Requires:         R-CRAN-ismev 
-Requires:         R-parallel 
 
 %description
-Performs extreme value analysis at multiple locations using functions from
-the 'evd' package. Supports both point-based and gridded input data using
-the 'terra' package, enabling flexible looping across spatial datasets for
-batch processing of generalised extreme value, Gumbel fits.
+We consider the network structure detection for variables Y with auxiliary
+variables X accommodated, which are possibly subject to measurement error.
+The following three functions are designed to address various structures
+by different methods : one is NP_Graph() that is used for handling the
+nonlinear relationship between the responses and the covariates, another
+is Joint_Gaussian() that is used for correction in linear regression
+models via the Gaussian maximum likelihood, and the other Cond_Gaussian()
+is for linear regression models via conditional likelihood function.
 
 %prep
 %setup -q -c -n %{packname}

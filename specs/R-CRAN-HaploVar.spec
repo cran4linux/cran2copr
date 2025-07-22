@@ -1,45 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmockr
-%global packver   2.2.0
+%global packname  HaploVar
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
+Summary:          Defining Local Haplotype Variants for Use in Trait Association and Trait Prediction Analyses
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.00
+Requires:         R-core >= 4.00
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.3
-BuildRequires:    R-CRAN-urltools >= 1.6.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-fauxpas 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 >= 2.1.3
-Requires:         R-CRAN-urltools >= 1.6.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-fauxpas 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-dbscan 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-dbscan 
 
 %description
-Stubbing and setting expectations on 'HTTP' requests. Includes tools for
-stubbing 'HTTP' requests, including expected request conditions and
-response conditions. Match on 'HTTP' method, query parameters, request
-body, headers and more. Can be used for unit tests or outside of a testing
-context.
+A local haplotyping tool for use in trait association and trait prediction
+analyses pipelines. 'HaploVar' enables users take single nucleotide
+polymorphisms (SNPs) (in VCF format) and a linkage disequilibrium (LD)
+matrix, calculate local haplotypes and format the output to be compatible
+with a wide range of trait association and trait prediction tools. The
+local haplotypes are calculated from the LD matrix using a clustering
+algorithm called density-based spatial clustering of applications with
+noise ('DBSCAN') (Ester et al., 1996) <ISBN: 1577350049>.
 
 %prep
 %setup -q -c -n %{packname}

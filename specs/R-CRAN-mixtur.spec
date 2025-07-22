@@ -1,45 +1,38 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmockr
-%global packver   2.2.0
+%global packname  mixtur
+%global packver   1.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.2.2
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
+Summary:          Modelling Continuous Report Visual Short-Term Memory Studies
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 4.0
+Requires:         R-core >= 4.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.3
-BuildRequires:    R-CRAN-urltools >= 1.6.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-fauxpas 
+BuildRequires:    R-CRAN-dplyr 
+BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 >= 2.1.3
-Requires:         R-CRAN-urltools >= 1.6.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-fauxpas 
+BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-dplyr 
+Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
+Requires:         R-CRAN-tidyr 
 
 %description
-Stubbing and setting expectations on 'HTTP' requests. Includes tools for
-stubbing 'HTTP' requests, including expected request conditions and
-response conditions. Match on 'HTTP' method, query parameters, request
-body, headers and more. Can be used for unit tests or outside of a testing
-context.
+A set of utility functions for analysing and modelling data from
+continuous report short-term memory experiments using either the
+2-component mixture model of Zhang and Luck (2008)
+<doi:10.1038/nature06860> or the 3-component mixture model of Bays et al.
+(2009) <doi:10.1167/9.10.7>. Users are also able to simulate from these
+models.
 
 %prep
 %setup -q -c -n %{packname}

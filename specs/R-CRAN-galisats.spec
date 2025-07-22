@@ -1,45 +1,39 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  webmockr
-%global packver   2.2.0
+%global packname  galisats
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Stubbing and Setting Expectations on 'HTTP' Requests
+Summary:          Configuration of Jupiter's Four Largest Satellites
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-R6 >= 2.1.3
-BuildRequires:    R-CRAN-urltools >= 1.6.0
-BuildRequires:    R-CRAN-magrittr >= 1.5
-BuildRequires:    R-CRAN-curl 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-CRAN-fauxpas 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-cli 
-Requires:         R-CRAN-R6 >= 2.1.3
-Requires:         R-CRAN-urltools >= 1.6.0
-Requires:         R-CRAN-magrittr >= 1.5
-Requires:         R-CRAN-curl 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-CRAN-fauxpas 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-cli 
+BuildRequires:    R-graphics 
+BuildRequires:    R-CRAN-png 
+Requires:         R-graphics 
+Requires:         R-CRAN-png 
 
 %description
-Stubbing and setting expectations on 'HTTP' requests. Includes tools for
-stubbing 'HTTP' requests, including expected request conditions and
-response conditions. Match on 'HTTP' method, query parameters, request
-body, headers and more. Can be used for unit tests or outside of a testing
-context.
+Calculate and plot the configuration of Jupiter's four largest satellites
+(known as Galilean satellites) for a given date and time (ET - Ephemeris
+Time). The 'galsat' function returns numerical values of the satellites’
+positions. x – the apparent rectangular coordinate of the satellite with
+respect to the center of Jupiter’s disk in the equatorial plane in the
+units of Jupiter’s equatorial radius; X is positive toward the west, y –
+the apparent rectangular coordinate of the satellite with respect to the
+center of Jupiter’s disk from the equatorial plane in the units of
+Jupiter’s equatorial radius; Y is positive toward the north. For more
+details see Meeus (1988, ISBN 0-943396-22-0) "Astronomical Formulae for
+Calculators".
 
 %prep
 %setup -q -c -n %{packname}

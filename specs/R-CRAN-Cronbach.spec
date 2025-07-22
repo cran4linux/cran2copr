@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Cronbach
-%global packver   0.2
+%global packver   0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2
+Version:          0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Cronbach's Alpha
 
@@ -19,9 +19,11 @@ Requires:         R-core >= 3.6.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-Rfast 
+BuildRequires:    R-CRAN-Rfast2 
 BuildRequires:    R-stats 
 Requires:         R-CRAN-boot 
 Requires:         R-CRAN-Rfast 
+Requires:         R-CRAN-Rfast2 
 Requires:         R-stats 
 
 %description

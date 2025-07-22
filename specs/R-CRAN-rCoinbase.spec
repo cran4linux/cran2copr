@@ -1,41 +1,50 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  wiesbaden
-%global packver   1.2.10
+%global packname  rCoinbase
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.2.10
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Access Databases from the Federal Statistical Office of Germany
+Summary:          'Coinbase Advance Trade API Interface'
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.3.1
-Requires:         R-core >= 3.3.1
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-jsonlite >= 1.6.0
-BuildRequires:    R-CRAN-stringi >= 1.4.0
-BuildRequires:    R-CRAN-httr >= 1.2.1
-BuildRequires:    R-CRAN-stringr >= 1.1.0
-BuildRequires:    R-CRAN-keyring >= 1.1.0
-BuildRequires:    R-CRAN-xml2 >= 1.0.0
-BuildRequires:    R-CRAN-readr >= 1.0.0
-Requires:         R-CRAN-jsonlite >= 1.6.0
-Requires:         R-CRAN-stringi >= 1.4.0
-Requires:         R-CRAN-httr >= 1.2.1
-Requires:         R-CRAN-stringr >= 1.1.0
-Requires:         R-CRAN-keyring >= 1.1.0
-Requires:         R-CRAN-xml2 >= 1.0.0
-Requires:         R-CRAN-readr >= 1.0.0
+BuildRequires:    R-CRAN-httr 
+BuildRequires:    R-CRAN-jose 
+BuildRequires:    R-CRAN-openssl 
+BuildRequires:    R-CRAN-uuid 
+BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-tidyr 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-lubridate 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-dplyr 
+Requires:         R-CRAN-httr 
+Requires:         R-CRAN-jose 
+Requires:         R-CRAN-openssl 
+Requires:         R-CRAN-uuid 
+Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-tidyr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-lubridate 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-dplyr 
 
 %description
-Retrieve and import data from different databases of the Federal
-Statistical Office of Germany (DESTATIS) using their SOAP XML web service
-<https://www-genesis.destatis.de/>.
+The 'Coinbase Advanced Trade API'
+<https://docs.cdp.coinbase.com/api-reference/advanced-trade-api/rest-api/introduction>
+lets you manage orders, portfolios, products, and fees with the new v3
+endpoints.
 
 %prep
 %setup -q -c -n %{packname}

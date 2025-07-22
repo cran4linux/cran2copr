@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  brickster
-%global packver   0.2.8
+%global packver   0.2.8.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.8
+Version:          0.2.8.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          R Toolkit for 'Databricks'
 
@@ -27,6 +27,7 @@ BuildRequires:    R-CRAN-ini
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-nanoarrow 
 BuildRequires:    R-CRAN-purrr 
+BuildRequires:    R-CRAN-R6 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-utils 
@@ -40,6 +41,7 @@ Requires:         R-CRAN-ini
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-nanoarrow 
 Requires:         R-CRAN-purrr 
+Requires:         R-CRAN-R6 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-tibble 
 Requires:         R-utils 
