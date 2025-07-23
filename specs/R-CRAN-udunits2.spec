@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  udunits2
-%global packver   0.13.2.1
+%global packver   0.13.2.2
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.13.2.1
+Version:          0.13.2.2
 Release:          1%{?dist}%{?buildtag}
 Summary:          Udunits-2 Bindings for R
 

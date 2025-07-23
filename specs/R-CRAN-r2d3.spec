@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  r2d3
 %global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library

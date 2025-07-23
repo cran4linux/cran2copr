@@ -1,42 +1,31 @@
 %global __brp_check_rpaths %{nil}
-%global packname  chkptstanr
-%global packver   0.1.1
+%global __requires_exclude ^libmpi
+%global packname  seminrExtras
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Checkpoint MCMC Sampling with 'Stan'
+Summary:          Conduct Additional Modeling and Analysis for 'seminr'
 
-License:          Apache License 2.0 | file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-brms >= 2.16.1
-BuildRequires:    R-CRAN-abind 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Rdpack 
-BuildRequires:    R-CRAN-rstan 
-BuildRequires:    R-CRAN-rstantools
-Requires:         R-CRAN-brms >= 2.16.1
-Requires:         R-CRAN-abind 
-Requires:         R-methods 
-Requires:         R-CRAN-Rdpack 
-Requires:         R-CRAN-rstan 
-Requires:         R-CRAN-rstantools
+BuildRequires:    R-CRAN-seminr >= 2.3.0
+BuildRequires:    R-stats 
+Requires:         R-CRAN-seminr >= 2.3.0
+Requires:         R-stats 
 
 %description
-Fit Bayesian models in Stan <doi: 10.18637/jss.v076.i01> with
-checkpointing, that is, the ability to stop the MCMC sampler at will, and
-then pick right back up where the MCMC sampler left off. Custom 'Stan'
-models can be fitted, or the popular package 'brms' <doi:
-10.18637/jss.v080.i01> can be used to generate the 'Stan' code. This
-package is fully compatible with the R packages 'brms', 'posterior',
-'cmdstanr', and 'bayesplot'.
+Supplemental functions for estimating and analysing structural equation
+models including Cross Validated Prediction and Testing (CVPAT, Liengaard
+et al., 2021 <doi:10.1111/deci.12445>).
 
 %prep
 %setup -q -c -n %{packname}

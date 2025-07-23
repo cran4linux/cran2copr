@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  HighFive
-%global packver   3.0.0
+%global packver   3.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          The 'HighFive' 'C++' Interface to 'HDF5'
 
@@ -19,7 +19,7 @@ Requires:         R-core
 BuildArch:        noarch
 
 %description
-A modern idiomatic header-only C++ interface for 'libhdf5'. Original
+A modern idiomatic header-only 'C++'' interface for 'libhdf5'. Original
 software can be found at <https://github.com/highfive-devs/highfive/>.
 
 %prep

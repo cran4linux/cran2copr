@@ -1,50 +1,39 @@
 %global __brp_check_rpaths %{nil}
-%global packname  processanimateR
-%global packver   1.0.5
+%global __requires_exclude ^libmpi
+%global packname  metacor
+%global packver   1.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.5
+Version:          1.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Process Map Token Replay Animation
+Summary:          Meta-Analytic Effect Size Calculation for Pre-Post Designs with Correlation Imputation
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 2.10
-Requires:         R-core >= 2.10
+BuildRequires:    R-devel
+Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-DiagrammeR >= 1.0.0
-BuildRequires:    R-CRAN-processmapR >= 0.3.1
-BuildRequires:    R-CRAN-bupaR 
-BuildRequires:    R-CRAN-rlang 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-tidyr 
-BuildRequires:    R-CRAN-htmlwidgets 
-BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-officer 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-htmltools 
-Requires:         R-CRAN-DiagrammeR >= 1.0.0
-Requires:         R-CRAN-processmapR >= 0.3.1
-Requires:         R-CRAN-bupaR 
-Requires:         R-CRAN-rlang 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-tidyr 
-Requires:         R-CRAN-htmlwidgets 
-Requires:         R-grDevices 
+BuildRequires:    R-stats 
+Requires:         R-CRAN-officer 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-htmltools 
+Requires:         R-stats 
 
 %description
-Provides animated process maps based on the 'procesmapR' package. Cases
-stored in event logs created with with 'bupaR' S3 class eventlog() are
-rendered as tokens (SVG shapes) and animated according to their occurrence
-times on top of the process map. For rendering SVG animations ('SMIL') and
-the 'htmlwidget' package are used.
+Tools for the calculation of effect sizes (standardised mean difference)
+and mean difference in pre-post controlled studies, including robust
+imputation of missing variances (standard deviation of changes) and
+correlations (Pearson correlation coefficient). The main function
+metacor_dual() implements several methods for imputing missing standard
+deviation of changes or Pearson correlation coefficient, and generates
+transparent imputation reports. Designed for meta-analyses with incomplete
+summary statistics. For more details on the methods, see Higgins et al.
+(2023) and Fu et al. (2013).
 
 %prep
 %setup -q -c -n %{packname}

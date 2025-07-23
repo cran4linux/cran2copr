@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Boruta
-%global packver   8.0.0
+%global packver   9.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          8.0.0
+Version:          9.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Wrapper Algorithm for All Relevant Feature Selection
 

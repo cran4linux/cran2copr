@@ -1,39 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  conformalbayes
-%global packver   0.1.2
+%global packname  ppls
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.2
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Jackknife(+) Predictive Intervals for Bayesian Models
+Summary:          Penalized Partial Least Squares
 
-License:          MIT + file LICENSE
+License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-cli 
-BuildRequires:    R-CRAN-rstantools 
-BuildRequires:    R-CRAN-loo 
-BuildRequires:    R-CRAN-matrixStats 
-Requires:         R-CRAN-cli 
-Requires:         R-CRAN-rstantools 
-Requires:         R-CRAN-loo 
-Requires:         R-CRAN-matrixStats 
+BuildRequires:    R-splines 
+BuildRequires:    R-CRAN-MASS 
+Requires:         R-splines 
+Requires:         R-CRAN-MASS 
 
 %description
-Provides functions to construct finite-sample calibrated predictive
-intervals for Bayesian models, following the approach in Barber et al.
-(2021) <doi:10.1214/20-AOS1965>. These intervals are calculated
-efficiently using importance sampling for the leave-one-out residuals. By
-default, the intervals will also reflect the relative uncertainty in the
-Bayesian model, using the locally-weighted conformal methods of Lei et al.
-(2018) <doi:10.1080/01621459.2017.1307116>.
+Linear and nonlinear regression methods based on Partial Least Squares and
+Penalization Techniques. Model parameters are selected via
+cross-validation, and confidence intervals ans tests for the regression
+coefficients can be conducted via jackknifing. The method is described and
+applied to simulated and experimental data in Kraemer et al. (2008)
+<doi:10.1016/j.chemolab.2008.06.009>.
 
 %prep
 %setup -q -c -n %{packname}

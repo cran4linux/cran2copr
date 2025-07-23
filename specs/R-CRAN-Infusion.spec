@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Infusion
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Inference Using Simulation
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.3.0
 Requires:         R-core >= 3.3.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-spaMM >= 4.4.16
+BuildRequires:    R-CRAN-spaMM >= 4.5.0
 BuildRequires:    R-CRAN-blackbox >= 1.1.41
 BuildRequires:    R-CRAN-proxy 
 BuildRequires:    R-CRAN-mvtnorm 
@@ -32,7 +32,7 @@ BuildRequires:    R-CRAN-nloptr
 BuildRequires:    R-CRAN-geometry 
 BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-viridisLite 
-Requires:         R-CRAN-spaMM >= 4.4.16
+Requires:         R-CRAN-spaMM >= 4.5.0
 Requires:         R-CRAN-blackbox >= 1.1.41
 Requires:         R-CRAN-proxy 
 Requires:         R-CRAN-mvtnorm 
@@ -51,9 +51,10 @@ Requires:         R-CRAN-viridisLite
 %description
 Implements functions for simulation-based inference. In particular,
 implements functions to perform likelihood inference from data summaries
-whose distributions are simulated. The package implements more advanced
-methods than the ones first described in: Rousset, Gouy, Almoyna and
-Courtiol (2017) <doi:10.1111/1755-0998.12627>.
+whose distributions are simulated, as first described in Rousset et al.
+(2017) <doi:10.1111/1755-0998.12627>. The package implements more advanced
+methods described in Rousset et al. (2025)
+<doi:10.1101/2024.09.30.615940>.
 
 %prep
 %setup -q -c -n %{packname}

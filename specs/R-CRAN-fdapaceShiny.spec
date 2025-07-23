@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  fdapaceShiny
 %global packver   1.0.5
 %global rlibdir   /usr/local/lib/R/library

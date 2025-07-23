@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  time.slots
-%global packver   0.2.0
+%global packname  bcRP
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Display Data in a Weekly Calendar View
+Summary:          Access 'BCRPDATA' API
 
-License:          MIT + file LICENSE
+License:          GPL (>= 3)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,20 +17,19 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ggfittext 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-lubridate 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ggfittext 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-lubridate 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-httr2 
+BuildRequires:    R-CRAN-readr 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-yyjsonr 
+Requires:         R-CRAN-httr2 
+Requires:         R-CRAN-readr 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-yyjsonr 
 
 %description
-Generate weekly timetables as a ggplot2 layer. Add informative timeslots
-with elements such as title, key-value pairs, or colour to reveal trends.
+Search and access more than ten thousand datasets included in 'BCRPDATA'
+(see <https://estadisticas.bcrp.gob.pe/estadisticas/series/ayuda/bcrpdata>
+for more information).
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rpyANTs
-%global packver   0.0.4
+%global packver   0.0.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.4
+Version:          0.0.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          An Alternative Advanced Normalization Tools ('ANTs')
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-RNifti >= 1.5.0
 BuildRequires:    R-CRAN-reticulate >= 1.26
 BuildRequires:    R-CRAN-rpymat >= 0.1.6
 BuildRequires:    R-grDevices 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-RNifti >= 1.5.0
 Requires:         R-CRAN-reticulate >= 1.26
 Requires:         R-CRAN-rpymat >= 0.1.6
 Requires:         R-grDevices 
+Requires:         R-stats 
 
 %description
 Provides portable access from 'R' to biomedical image processing toolbox

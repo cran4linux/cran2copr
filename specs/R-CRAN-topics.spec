@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  topics
-%global packver   0.50
+%global packver   0.60
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.50
+Version:          0.60
 Release:          1%{?dist}%{?buildtag}
 Summary:          Creating and Significance Testing Language Features for Visualisation
 
@@ -21,7 +21,6 @@ BuildRequires:    R-CRAN-textmineR
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-mallet 
-BuildRequires:    R-CRAN-rJava 
 BuildRequires:    R-CRAN-ggwordcloud 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-methods 
@@ -34,11 +33,11 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-purrr 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-ggforce 
 Requires:         R-CRAN-textmineR 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-mallet 
-Requires:         R-CRAN-rJava 
 Requires:         R-CRAN-ggwordcloud 
 Requires:         R-CRAN-tibble 
 Requires:         R-methods 
@@ -51,6 +50,7 @@ Requires:         R-CRAN-rlang
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-purrr 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-ggforce 
 
 %description
 Implements differential language analysis with statistical tests and

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  eyeris
-%global packver   2.0.0
+%global packver   2.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.1.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Flexible, Extensible, & Reproducible Pupillometry Preprocessing
 
@@ -37,6 +37,8 @@ BuildRequires:    R-CRAN-lifecycle
 BuildRequires:    R-CRAN-MASS 
 BuildRequires:    R-CRAN-viridis 
 BuildRequires:    R-CRAN-fields 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-rmarkdown 
 Requires:         R-CRAN-eyelinker 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-gsignal 
@@ -57,6 +59,8 @@ Requires:         R-CRAN-lifecycle
 Requires:         R-CRAN-MASS 
 Requires:         R-CRAN-viridis 
 Requires:         R-CRAN-fields 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-rmarkdown 
 
 %description
 Pupillometry offers a non-invasive window into the mind and has been used

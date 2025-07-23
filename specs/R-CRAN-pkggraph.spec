@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  pkggraph
 %global packver   0.2.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
 Version:          0.2.3
-Release:          3%{?dist}%{?buildtag}
-Summary:          A Consistent and Intuitive Platform to Explore the Dependenciesof Packages on the Comprehensive R Archive Network LikeRepositories
+Release:          1%{?dist}%{?buildtag}
+Summary:          A Consistent and Intuitive Platform to Explore the Dependencies of Packages on the Comprehensive R Archive Network Like Repositories
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -21,8 +22,8 @@ BuildRequires:    R-CRAN-ggplot2 >= 2.2.1
 BuildRequires:    R-CRAN-intergraph >= 2.0.2
 BuildRequires:    R-CRAN-plyr >= 1.8.4
 BuildRequires:    R-CRAN-tibble >= 1.3.0
-BuildRequires:    R-Matrix >= 1.2.10
-BuildRequires:    R-CRAN-network >= 1.13
+BuildRequires:    R-CRAN-Matrix >= 1.2.10
+BuildRequires:    R-CRAN-network >= 1.13.0
 BuildRequires:    R-CRAN-data.table >= 1.10.4
 BuildRequires:    R-CRAN-RColorBrewer >= 1.1.2
 BuildRequires:    R-CRAN-igraph >= 1.0.1
@@ -37,8 +38,8 @@ Requires:         R-CRAN-ggplot2 >= 2.2.1
 Requires:         R-CRAN-intergraph >= 2.0.2
 Requires:         R-CRAN-plyr >= 1.8.4
 Requires:         R-CRAN-tibble >= 1.3.0
-Requires:         R-Matrix >= 1.2.10
-Requires:         R-CRAN-network >= 1.13
+Requires:         R-CRAN-Matrix >= 1.2.10
+Requires:         R-CRAN-network >= 1.13.0
 Requires:         R-CRAN-data.table >= 1.10.4
 Requires:         R-CRAN-RColorBrewer >= 1.1.2
 Requires:         R-CRAN-igraph >= 1.0.1
@@ -61,6 +62,15 @@ graphs. The 'plot' method produces a static plot based on 'ggnetwork' and
 %prep
 %setup -q -c -n %{packname}
 
+# fix end of executable files
+find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
+# prevent binary stripping
+[ -d %{packname}/src ] && find %{packname}/src -type f -exec \
+  sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
+# don't allow local prefix in executable scripts
+find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 
 %build
 
@@ -68,9 +78,10 @@ graphs. The 'plot' method produces a static plot based on 'ggnetwork' and
 
 mkdir -p %{buildroot}%{rlibdir}
 %{_bindir}/R CMD INSTALL -l %{buildroot}%{rlibdir} %{packname}
-
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
+# remove buildroot from installed files
+find %{buildroot}%{rlibdir} -type f -exec sed -i "s@%{buildroot}@@g" {} \;
 
 %files
 %{rlibdir}/%{packname}

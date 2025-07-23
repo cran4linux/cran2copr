@@ -1,4 +1,5 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  rrpack
 %global packver   0.1-13
 %global rlibdir   /usr/local/lib/R/library

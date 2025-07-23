@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  autoslider.core
-%global packver   0.2.5
+%global packver   0.2.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.5
+Version:          0.2.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Slide Automation for Tables, Listings and Figures
 
@@ -28,13 +28,13 @@ BuildRequires:    R-CRAN-tidyr >= 1.3.0
 BuildRequires:    R-CRAN-dplyr >= 1.1.3
 BuildRequires:    R-CRAN-rlang >= 1.1.1
 BuildRequires:    R-CRAN-forcats >= 1.0.0
-BuildRequires:    R-CRAN-tern >= 0.9.8
+BuildRequires:    R-CRAN-tern >= 0.9.9
 BuildRequires:    R-CRAN-flextable >= 0.9.4
-BuildRequires:    R-CRAN-rtables >= 0.6.12
+BuildRequires:    R-CRAN-rtables >= 0.6.13
 BuildRequires:    R-CRAN-ggpubr >= 0.6.0
 BuildRequires:    R-CRAN-officer >= 0.3.18
 BuildRequires:    R-CRAN-rvg >= 0.2.5
-BuildRequires:    R-CRAN-rlistings >= 0.2.11
+BuildRequires:    R-CRAN-rlistings >= 0.2.12
 BuildRequires:    R-CRAN-assertthat >= 0.2.1
 BuildRequires:    R-grid 
 BuildRequires:    R-methods 
@@ -50,13 +50,13 @@ Requires:         R-CRAN-tidyr >= 1.3.0
 Requires:         R-CRAN-dplyr >= 1.1.3
 Requires:         R-CRAN-rlang >= 1.1.1
 Requires:         R-CRAN-forcats >= 1.0.0
-Requires:         R-CRAN-tern >= 0.9.8
+Requires:         R-CRAN-tern >= 0.9.9
 Requires:         R-CRAN-flextable >= 0.9.4
-Requires:         R-CRAN-rtables >= 0.6.12
+Requires:         R-CRAN-rtables >= 0.6.13
 Requires:         R-CRAN-ggpubr >= 0.6.0
 Requires:         R-CRAN-officer >= 0.3.18
 Requires:         R-CRAN-rvg >= 0.2.5
-Requires:         R-CRAN-rlistings >= 0.2.11
+Requires:         R-CRAN-rlistings >= 0.2.12
 Requires:         R-CRAN-assertthat >= 0.2.1
 Requires:         R-grid 
 Requires:         R-methods 

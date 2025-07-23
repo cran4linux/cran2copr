@@ -1,15 +1,15 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  phaseR
-%global packver   2.2.1
+%global packname  easyViz
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.1
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Phase Plane Analysis of One- And Two-Dimensional Autonomous ODE Systems
+Summary:          Easy Visualization of Conditional Effects from Regression Models
 
-License:          MIT + file LICENSE
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
@@ -17,25 +17,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-deSolve 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-deSolve 
+Requires:         R-stats 
+Requires:         R-utils 
 Requires:         R-graphics 
 Requires:         R-grDevices 
-Requires:         R-utils 
 
 %description
-Performs a qualitative analysis of one- and two-dimensional autonomous
-ordinary differential equation systems, using phase plane methods.
-Programs are available to identify and classify equilibrium points, plot
-the direction field, and plot trajectories for multiple initial
-conditions. In the one-dimensional case, a program is also available to
-plot the phase portrait. Whilst in the two-dimensional case, programs are
-additionally available to plot nullclines and stable/unstable manifolds of
-saddle points. Many example systems are provided for the user. For further
-details can be found in Grayling (2014) <doi:10.32614/RJ-2014-023>.
+Offers a flexible and user-friendly interface for visualizing conditional
+effects from a broad range of regression models, including mixed-effects
+and generalized additive (mixed) models. Compatible model types include
+lm(), rlm(), glm(), glm.nb(), and gam() (from 'mgcv'); nonlinear models
+via nls(); and generalized least squares via gls(). Mixed-effects models
+with random intercepts and/or slopes can be fitted using lmer(), glmer(),
+glmer.nb(), glmmTMB(), or gam() (from 'mgcv', via smooth terms). Plots are
+rendered using base R graphics with extensive customization options.
+Robust standard errors for rlm() are computed using the sandwich estimator
+(Zeileis 2004) <doi:10.18637/jss.v011.i10>. For mixed models using
+'glmmTMB', see Brooks et al. (2017) <doi:10.32614/RJ-2017-066>. For linear
+mixed-effects models with 'lme4', see Bates et al. (2015)
+<doi:10.18637/jss.v067.i01>. Methods for generalized additive models
+follow Wood (2017) <doi:10.1201/9781315370279>.
 
 %prep
 %setup -q -c -n %{packname}

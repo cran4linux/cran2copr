@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  modsem
-%global packver   1.0.10
+%global packver   1.0.11
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.10
+Version:          1.0.11
 Release:          1%{?dist}%{?buildtag}
 Summary:          Latent Interaction (and Moderation) Analysis in Structural Equation Models (SEM)
 
@@ -31,6 +31,11 @@ BuildRequires:    R-CRAN-mvtnorm
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-parallel 
 BuildRequires:    R-CRAN-plotly 
+BuildRequires:    R-CRAN-Deriv 
+BuildRequires:    R-CRAN-MASS 
+BuildRequires:    R-CRAN-Amelia 
+BuildRequires:    R-grDevices 
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-purrr 
@@ -47,6 +52,11 @@ Requires:         R-CRAN-mvtnorm
 Requires:         R-CRAN-ggplot2 
 Requires:         R-parallel 
 Requires:         R-CRAN-plotly 
+Requires:         R-CRAN-Deriv 
+Requires:         R-CRAN-MASS 
+Requires:         R-CRAN-Amelia 
+Requires:         R-grDevices 
+Requires:         R-CRAN-cli 
 
 %description
 Estimation of interaction (i.e., moderation) effects between latent
@@ -55,32 +65,31 @@ The constrained approach (Algina & Moulder, 2001). The unconstrained
 approach (Marsh et al., 2004). The residual centering approach (Little et
 al., 2006). The double centering approach (Lin et al., 2010). The latent
 moderated structural equations (LMS) approach (Klein & Moosbrugger, 2000).
-The quasi-maximum likelihood (QML) approach (Klein & Muthén, 2007)
-(temporarily unavailable) The constrained- unconstrained, residual- and
-double centering- approaches are estimated via 'lavaan' (Rosseel, 2012),
-whilst the LMS- and QML- approaches are estimated via 'modsem' it self.
-Alternatively model can be estimated via 'Mplus' (Muthén & Muthén,
-1998-2017). References: Algina, J., & Moulder, B. C. (2001).
-<doi:10.1207/S15328007SEM0801_3>. "A note on estimating the Jöreskog-Yang
-model for latent variable interaction using 'LISREL' 8.3." Klein, A., &
-Moosbrugger, H. (2000). <doi:10.1007/BF02296338>. "Maximum likelihood
-estimation of latent interaction effects with the LMS method." Klein, A.
-G., & Muthén, B. O. (2007). <doi:10.1080/00273170701710205>.
-"Quasi-maximum likelihood estimation of structural equation models with
-multiple interaction and quadratic effects." Lin, G. C., Wen, Z., Marsh,
-H. W., & Lin, H. S. (2010). <doi:10.1080/10705511.2010.488999>.
-"Structural equation models of latent interactions: Clarification of
-orthogonalizing and double-mean-centering strategies." Little, T. D.,
-Bovaird, J. A., & Widaman, K. F. (2006). <doi:10.1207/s15328007sem1304_1>.
-"On the merits of orthogonalizing powered and product terms: Implications
-for modeling interactions among latent variables." Marsh, H. W., Wen, Z.,
-& Hau, K. T. (2004). <doi:10.1037/1082-989X.9.3.275>. "Structural equation
-models of latent interactions: evaluation of alternative estimation
-strategies and indicator construction." Muthén, L.K. and Muthén, B.O.
-(1998-2017). "'Mplus' User’s Guide. Eighth Edition."
-<https://www.statmodel.com/>. Rosseel Y (2012).
-<doi:10.18637/jss.v048.i02>. "'lavaan': An R Package for Structural
-Equation Modeling."
+The quasi-maximum likelihood (QML) approach (Klein & Muthén, 2007) The
+constrained- unconstrained, residual- and double centering- approaches are
+estimated via 'lavaan' (Rosseel, 2012), whilst the LMS- and QML-
+approaches are estimated via 'modsem' it self. Alternatively model can be
+estimated via 'Mplus' (Muthén & Muthén, 1998-2017). References: Algina,
+J., & Moulder, B. C. (2001). <doi:10.1207/S15328007SEM0801_3>. "A note on
+estimating the Jöreskog-Yang model for latent variable interaction using
+'LISREL' 8.3." Klein, A., & Moosbrugger, H. (2000).
+<doi:10.1007/BF02296338>. "Maximum likelihood estimation of latent
+interaction effects with the LMS method." Klein, A. G., & Muthén, B. O.
+(2007). <doi:10.1080/00273170701710205>. "Quasi-maximum likelihood
+estimation of structural equation models with multiple interaction and
+quadratic effects." Lin, G. C., Wen, Z., Marsh, H. W., & Lin, H. S.
+(2010). <doi:10.1080/10705511.2010.488999>. "Structural equation models of
+latent interactions: Clarification of orthogonalizing and
+double-mean-centering strategies." Little, T. D., Bovaird, J. A., &
+Widaman, K. F. (2006). <doi:10.1207/s15328007sem1304_1>. "On the merits of
+orthogonalizing powered and product terms: Implications for modeling
+interactions among latent variables." Marsh, H. W., Wen, Z., & Hau, K. T.
+(2004). <doi:10.1037/1082-989X.9.3.275>. "Structural equation models of
+latent interactions: evaluation of alternative estimation strategies and
+indicator construction." Muthén, L.K. and Muthén, B.O. (1998-2017).
+"'Mplus' User’s Guide. Eighth Edition." <https://www.statmodel.com/>.
+Rosseel Y (2012). <doi:10.18637/jss.v048.i02>. "'lavaan': An R Package for
+Structural Equation Modeling."
 
 %prep
 %setup -q -c -n %{packname}

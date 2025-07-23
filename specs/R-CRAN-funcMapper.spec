@@ -1,12 +1,13 @@
 %global __brp_check_rpaths %{nil}
-%global packname  europeanaR
-%global packver   0.1.0
+%global __requires_exclude ^libmpi
+%global packname  funcMapper
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Interact with Metadata Records and Media on the Europeana Repository
+Summary:          Map User-Created Functions
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,31 +17,21 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-utils 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-functiondepends 
+BuildRequires:    R-CRAN-glue 
+BuildRequires:    R-CRAN-visNetwork 
+BuildRequires:    R-CRAN-htmlwidgets 
 Requires:         R-CRAN-magrittr 
-Requires:         R-utils 
-Requires:         R-CRAN-Rdpack 
+Requires:         R-CRAN-functiondepends 
+Requires:         R-CRAN-glue 
+Requires:         R-CRAN-visNetwork 
+Requires:         R-CRAN-htmlwidgets 
 
 %description
-Interact with the Europeana Data Model via a variety of API endpoints that
-contains digital collections from thousands of institutions around Europe.
-This translates to millions of Cultural Heritage Objects in the form of
-image, text, video, sound and 3D, accompanied by rich metadata. The Data
-Model design principles are based on the core principles and best
-practices of the Semantic Web and Linked Data efforts to which Europeana
-contributes (see, e.g., Doerr, Martin, et al. The europeana data model
-(edm). World Library and Information Congress: 76th IFLA general
-conference and assembly. Vol. 10. 2010.). The package also provides
-methods for bulk downloads of specific subsets of items, including both
-their metadata and their associated media files.
+Create an interactive function map by analyzing a specified R script. It
+uses the find_dependencies() function from the 'functiondepends' package
+to recursively trace all user-defined function dependencies.
 
 %prep
 %setup -q -c -n %{packname}
