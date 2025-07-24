@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  R2WinBUGS
-%global packver   2.1-22.1
+%global packver   2.1-23
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.1.22.1
+Version:          2.1.23
 Release:          1%{?dist}%{?buildtag}
 Summary:          Running 'WinBUGS' and 'OpenBUGS' from 'R' / 'S-PLUS'
 
@@ -34,7 +34,9 @@ Invoke a 'BUGS' model in 'OpenBUGS' or 'WinBUGS', a class "bugs" for
 'BUGS' results and functions to work with that class. Function
 write.model() allows a 'BUGS' model file to be written. The class and
 auxiliary functions could be used with other MCMC programs, including
-'JAGS'.
+'JAGS'. The suggested package 'BRugs' (only needed for function
+openbugs()) is only available from the CRAN archives, see
+<https://cran.r-project.org/package=BRugs>.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  reactRouter
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          'React Router' for 'shiny' Apps and 'Quarto'
 
@@ -21,10 +21,12 @@ BuildRequires:    R-CRAN-htmltools
 BuildRequires:    R-CRAN-shiny 
 BuildRequires:    R-CRAN-shiny.react 
 BuildRequires:    R-CRAN-checkmate 
+BuildRequires:    R-CRAN-uuid 
 Requires:         R-CRAN-htmltools 
 Requires:         R-CRAN-shiny 
 Requires:         R-CRAN-shiny.react 
 Requires:         R-CRAN-checkmate 
+Requires:         R-CRAN-uuid 
 
 %description
 You can easily share url pages using 'React Router' in 'shiny'

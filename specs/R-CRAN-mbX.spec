@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mbX
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          A Comprehensive Microbiome Data Processing Pipeline
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-tools 
 BuildRequires:    R-CRAN-readxl 
@@ -23,21 +23,31 @@ BuildRequires:    R-CRAN-openxlsx
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-ggplot2 
+BuildRequires:    R-CRAN-rstatix 
+BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-FSA 
+BuildRequires:    R-CRAN-multcompView 
 Requires:         R-tools 
 Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-openxlsx 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-ggplot2 
+Requires:         R-CRAN-rstatix 
+Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-FSA 
+Requires:         R-CRAN-multcompView 
 
 %description
 Provides tools for cleaning, processing, and preparing microbiome
 sequencing data (e.g., 16S rRNA) for downstream analysis. Supports CSV,
-TXT, and 'Excel' file formats. The main function, ezclean(), automates
+TXT, and Excel file formats. The main function, ezclean(), automates
 microbiome data transformation, including format validation,
-transposition, numeric conversion, and metadata integration. Also ensures
-efficient handling of taxonomic levels, resolves duplicated taxa entries,
-and outputs a well-structured, analysis-ready dataset.
+transposition, numeric conversion, and metadata integration. It also
+handles taxonomic levels efficiently, resolves duplicated taxa entries,
+and outputs a well-structured, analysis-ready dataset. The companion
+functions ezstat() run statistical tests and summarize results, while
+ezviz() produces publication-ready visualizations.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tatoo
-%global packver   1.1.2
+%global packver   1.1.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.2
+Version:          1.1.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combine and Export Data Frames
 
@@ -19,19 +19,19 @@ Requires:         R-core
 BuildArch:        noarch
 BuildRequires:    R-CRAN-openxlsx >= 4.0.0
 BuildRequires:    R-CRAN-assertthat 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-colt 
 BuildRequires:    R-CRAN-crayon 
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-magrittr 
+BuildRequires:    R-CRAN-stringi 
 BuildRequires:    R-CRAN-withr 
 Requires:         R-CRAN-openxlsx >= 4.0.0
 Requires:         R-CRAN-assertthat 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-colt 
 Requires:         R-CRAN-crayon 
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-magrittr 
+Requires:         R-CRAN-stringi 
 Requires:         R-CRAN-withr 
 
 %description

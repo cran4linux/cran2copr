@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  cooltools
-%global packver   2.4
+%global packver   2.18
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.4
+Version:          2.18
 Release:          1%{?dist}%{?buildtag}
 Summary:          Practical Tools for Scientific Computations and Visualizations
 
@@ -28,9 +28,11 @@ BuildRequires:    R-CRAN-raster
 BuildRequires:    R-CRAN-sp 
 BuildRequires:    R-CRAN-cubature 
 BuildRequires:    R-CRAN-bit64 
+BuildRequires:    R-CRAN-float 
 BuildRequires:    R-CRAN-randtoolbox 
 BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-FNN 
+BuildRequires:    R-CRAN-hdf5r 
 Requires:         R-CRAN-plotrix 
 Requires:         R-CRAN-celestial 
 Requires:         R-CRAN-data.table 
@@ -43,9 +45,11 @@ Requires:         R-CRAN-raster
 Requires:         R-CRAN-sp 
 Requires:         R-CRAN-cubature 
 Requires:         R-CRAN-bit64 
+Requires:         R-CRAN-float 
 Requires:         R-CRAN-randtoolbox 
 Requires:         R-CRAN-Rcpp 
 Requires:         R-CRAN-FNN 
+Requires:         R-CRAN-hdf5r 
 
 %description
 Collection of routines for efficient scientific computations in physics

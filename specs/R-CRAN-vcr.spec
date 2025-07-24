@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vcr
-%global packver   1.7.0
+%global packver   2.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.7.0
+Version:          2.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Record 'HTTP' Calls to Disk
 
@@ -14,36 +14,33 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 4.1
+Requires:         R-core >= 4.1
 BuildArch:        noarch
-BuildRequires:    R-CRAN-crul >= 0.8.4
-BuildRequires:    R-CRAN-webmockr >= 0.8.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-httr2 
-BuildRequires:    R-CRAN-urltools 
-BuildRequires:    R-CRAN-yaml 
+BuildRequires:    R-CRAN-curl >= 6.3.0
+BuildRequires:    R-CRAN-rlang >= 1.1.0
+BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 BuildRequires:    R-CRAN-R6 
-BuildRequires:    R-CRAN-base64enc 
 BuildRequires:    R-CRAN-rprojroot 
-Requires:         R-CRAN-crul >= 0.8.4
-Requires:         R-CRAN-webmockr >= 0.8.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-httr2 
-Requires:         R-CRAN-urltools 
-Requires:         R-CRAN-yaml 
+BuildRequires:    R-CRAN-waldo 
+BuildRequires:    R-CRAN-yaml 
+Requires:         R-CRAN-curl >= 6.3.0
+Requires:         R-CRAN-rlang >= 1.1.0
+Requires:         R-CRAN-cli 
+Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 Requires:         R-CRAN-R6 
-Requires:         R-CRAN-base64enc 
 Requires:         R-CRAN-rprojroot 
+Requires:         R-CRAN-waldo 
+Requires:         R-CRAN-yaml 
 
 %description
 Record test suite 'HTTP' requests and replays them during future runs. A
 port of the Ruby gem of the same name (<https://github.com/vcr/vcr/>).
-Works by hooking into the 'webmockr' R package for matching 'HTTP'
-requests by various rules ('HTTP' method, 'URL', query parameters,
-headers, body, etc.), and then caching real 'HTTP' responses on disk in
-'cassettes'. Subsequent 'HTTP' requests matching any previous requests in
-the same 'cassette' use a cached 'HTTP' response.
+Works by recording real 'HTTP' requests/responses on disk in 'cassettes',
+and then replaying matching responses on subsequent requests.
 
 %prep
 %setup -q -c -n %{packname}

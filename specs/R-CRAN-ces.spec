@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ces
-%global packver   0.1.0
+%global packver   1.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          1.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access to Canadian Election Study Data
 
@@ -32,11 +32,12 @@ The package simplifies the process of downloading, cleaning, and using
 'CES' datasets for political science research and analysis. The Canadian
 Election Study ('CES') has been conducted during federal elections since
 1965, surveying Canadians on their political preferences, engagement, and
-demographics. Data is accessed from the 'Borealis' Data repository
-<https://borealisdata.ca/>, which serves as the official host for 'CES'
-datasets. This package is not officially affiliated with the Canadian
-Election Study or 'Borealis' Data, and users should cite the original data
-sources in their work.
+demographics. Data is accessed from multiple sources including the
+'Borealis' Data repository <https://borealisdata.ca/> and the official
+'Canadian Election Study' website <https://ces-eec.arts.ubc.ca/>. This
+package is not officially affiliated with the Canadian Election Study,
+'Borealis' Data, or the University of British Columbia, and users should
+cite the original data sources in their work.
 
 %prep
 %setup -q -c -n %{packname}

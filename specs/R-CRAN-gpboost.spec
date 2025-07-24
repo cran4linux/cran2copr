@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  gpboost
-%global packver   1.5.8
+%global packver   1.6.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.8
+Version:          1.6.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Combining Tree-Boosting with Gaussian Process and Mixed Effects Models
 
@@ -16,14 +16,14 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 3.5
 Requires:         R-core >= 3.5
-BuildRequires:    R-CRAN-R6 >= 2.0
+BuildRequires:    R-CRAN-R6 >= 2.4.0
 BuildRequires:    R-CRAN-data.table >= 1.9.6
 BuildRequires:    R-CRAN-Matrix >= 1.1.0
 BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-RJSONIO 
 BuildRequires:    R-methods 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-R6 >= 2.0
+Requires:         R-CRAN-R6 >= 2.4.0
 Requires:         R-CRAN-data.table >= 1.9.6
 Requires:         R-CRAN-Matrix >= 1.1.0
 Requires:         R-graphics 

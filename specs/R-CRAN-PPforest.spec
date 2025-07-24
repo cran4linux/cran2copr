@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  PPforest
-%global packver   0.1.3
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Projection Pursuit Classification Forest
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildRequires:    R-CRAN-dplyr >= 0.7.5
 BuildRequires:    R-CRAN-Rcpp >= 0.12.7
 BuildRequires:    R-CRAN-magrittr 
@@ -23,6 +23,7 @@ BuildRequires:    R-CRAN-plyr
 BuildRequires:    R-CRAN-tidyr 
 BuildRequires:    R-CRAN-doParallel 
 BuildRequires:    R-CRAN-tibble 
+BuildRequires:    R-CRAN-tidyselect 
 BuildRequires:    R-CRAN-RcppArmadillo 
 Requires:         R-CRAN-dplyr >= 0.7.5
 Requires:         R-CRAN-Rcpp >= 0.12.7
@@ -31,6 +32,7 @@ Requires:         R-CRAN-plyr
 Requires:         R-CRAN-tidyr 
 Requires:         R-CRAN-doParallel 
 Requires:         R-CRAN-tibble 
+Requires:         R-CRAN-tidyselect 
 
 %description
 Implements projection pursuit forest algorithm for supervised

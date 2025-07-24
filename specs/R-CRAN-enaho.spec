@@ -1,37 +1,32 @@
 %global __brp_check_rpaths %{nil}
-%global packname  ebreg
-%global packver   0.1.3
+%global __requires_exclude ^libmpi
+%global packname  enaho
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Implementation of the Empirical Bayes Method
+Summary:          Encuesta Nacional de Hogares (Peruvian Home National Survey)
 
-License:          GPL-3
+License:          GPL (>= 2.0)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
+BuildRequires:    R-devel >= 3.5
+Requires:         R-core >= 3.5
 BuildArch:        noarch
-BuildRequires:    R-CRAN-lars 
-BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-Rdpack 
-Requires:         R-CRAN-lars 
-Requires:         R-stats 
-Requires:         R-CRAN-Rdpack 
+BuildRequires:    R-CRAN-haven 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-haven 
+Requires:         R-CRAN-tibble 
 
 %description
-Implements a Bayesian-like approach to the high-dimensional sparse linear
-regression problem based on an empirical or data-dependent prior
-distribution, which can be used for estimation/inference on the model
-parameters, variable selection, and prediction of a future response. The
-method was first presented in Martin, Ryan and Mess, Raymond and Walker,
-Stephen G (2017) <doi:10.3150/15-BEJ797>. More details focused on the
-prediction problem are given in Martin, Ryan and Tang, Yiqi (2019)
-<arXiv:1903.00961>.
+Descarga, lee y combina bases de la Encuesta Nacional de Hogares (ENAHO)
+del Instituto Nacional de Estadística e Informática (INEI) del Perú.
+(Downloads, reads, and combines data from the Peruvian Home National
+Survey.)
 
 %prep
 %setup -q -c -n %{packname}
@@ -41,6 +36,8 @@ find -type f -executable -exec grep -Iq . {} \; -exec sed -i -e '$a\' {} \;
 # prevent binary stripping
 [ -d %{packname}/src ] && find %{packname}/src -type f -exec \
   sed -i 's@/usr/bin/strip@/usr/bin/true@g' {} \; || true
+[ -d %{packname}/src ] && find %{packname}/src/Make* -type f -exec \
+  sed -i 's@-g0@@g' {} \; || true
 # don't allow local prefix in executable scripts
 find -type f -executable -exec sed -Ei 's@#!( )*/usr/local/bin@#!/usr/bin@g' {} \;
 

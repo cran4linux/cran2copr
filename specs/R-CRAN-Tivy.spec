@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Tivy
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          Processing and Analysis of Peruvian Fishery Logbook Data
+Summary:          Toolkit for Investigation and Visualization of Young Anchovies
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}

@@ -1,47 +1,49 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  tcplfit2
-%global packver   0.1.9
+%global packname  RDML
+%global packver   1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.9
+Version:          1.1
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Concentration-Response Modeling Utility
+Summary:          Importing Real-Time Thermo Cycler (qPCR) Data from RDML Format Files
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 3.2.0
+Requires:         R-core >= 3.2.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 >= 3.5.0
-BuildRequires:    R-stats 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-numDeriv 
-BuildRequires:    R-CRAN-RColorBrewer 
+BuildRequires:    R-tools >= 3.2
+BuildRequires:    R-CRAN-R6 >= 2.0.1
+BuildRequires:    R-CRAN-checkmate >= 1.6.2
+BuildRequires:    R-CRAN-lubridate >= 1.6.0
+BuildRequires:    R-CRAN-xml2 >= 1.0
+BuildRequires:    R-CRAN-rlist >= 0.4
+BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-pipeR 
+BuildRequires:    R-CRAN-readxl 
 BuildRequires:    R-CRAN-stringr 
-BuildRequires:    R-CRAN-reshape2 
-Requires:         R-CRAN-ggplot2 >= 3.5.0
-Requires:         R-stats 
-Requires:         R-methods 
-Requires:         R-CRAN-numDeriv 
-Requires:         R-CRAN-RColorBrewer 
+Requires:         R-tools >= 3.2
+Requires:         R-CRAN-R6 >= 2.0.1
+Requires:         R-CRAN-checkmate >= 1.6.2
+Requires:         R-CRAN-lubridate >= 1.6.0
+Requires:         R-CRAN-xml2 >= 1.0
+Requires:         R-CRAN-rlist >= 0.4
+Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-pipeR 
+Requires:         R-CRAN-readxl 
 Requires:         R-CRAN-stringr 
-Requires:         R-CRAN-reshape2 
 
 %description
-The tcplfit2 R package performs basic concentration-response curve
-fitting. The original tcplFit() function in the tcpl R package performed
-basic concentration-response curvefitting to 3 models. With tcplfit2, the
-core tcpl concentration-response functionality has been expanded to
-process diverse high-throughput screen (HTS) data generated at the US
-Environmental Protection Agency, including targeted ToxCast,
-high-throughput transcriptomics (HTTr) and high-throughput phenotypic
-profiling (HTPP). tcplfit2 can be used independently to support analysis
-for diverse chemical screening efforts.
+Imports real-time thermo cycler (qPCR) data from Real-time PCR Data Markup
+Language (RDML) and transforms to the appropriate formats of the 'qpcR'
+and 'chipPCR' packages, as described in Rodiger et al. (2017)
+<doi:10.1093/bioinformatics/btx528>. Contains a dendrogram visualization
+for the structure of RDML object and GUI for RDML editing.
 
 %prep
 %setup -q -c -n %{packname}

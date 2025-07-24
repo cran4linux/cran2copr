@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  bfsMaps
-%global packver   1.99.3
+%global packver   1.99.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.99.3
+Version:          1.99.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Plot Maps from Switzerland by Swiss Federal Statistical Office
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.0.0
-Requires:         R-core >= 4.0.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-base 
 BuildRequires:    R-stats 
@@ -23,12 +23,14 @@ BuildRequires:    R-CRAN-DescTools
 BuildRequires:    R-graphics 
 BuildRequires:    R-grDevices 
 BuildRequires:    R-CRAN-sf 
+BuildRequires:    R-CRAN-httr 
 Requires:         R-base 
 Requires:         R-stats 
 Requires:         R-CRAN-DescTools 
 Requires:         R-graphics 
 Requires:         R-grDevices 
 Requires:         R-CRAN-sf 
+Requires:         R-CRAN-httr 
 
 %description
 At the Swiss Federal Statistical Office (SFSO), spatial maps of

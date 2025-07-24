@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  hwep
-%global packver   2.0.2
+%global packver   2.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.2
+Version:          2.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Hardy-Weinberg Equilibrium in Polyploids
 
@@ -62,9 +62,8 @@ function is hwefit(). This material is based upon work supported by the
 National Science Foundation under Grant No. 2132247. The opinions,
 findings, and conclusions or recommendations expressed are those of the
 author and do not necessarily reflect the views of the National Science
-Foundation. For details of these methods, see Gerard (2022a)
-<doi:10.1111/biom.13722> and Gerard (2022b)
-<doi:10.1101/2022.08.11.503635>.
+Foundation. For details of these methods, see Gerard (2023a)
+<doi:10.1111/biom.13722> and Gerard (2023b) <doi:10.1111/1755-0998.13856>.
 
 %prep
 %setup -q -c -n %{packname}

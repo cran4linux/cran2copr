@@ -1,35 +1,42 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  MTest
-%global packver   1.0.2
+%global packname  BKP
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Procedure for Multicollinearity Testing using Bootstrap
+Summary:          Beta and Dirichlet Kernel Processes for Binomial and Multinomial Modeling
 
-License:          GPL (>= 3)
+License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
+BuildRequires:    R-devel >= 3.5.0
+Requires:         R-core >= 3.5.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-car 
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-Requires:         R-CRAN-car 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-lattice 
+BuildRequires:    R-CRAN-optimx 
+BuildRequires:    R-CRAN-tgp 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-lattice 
+Requires:         R-CRAN-optimx 
+Requires:         R-CRAN-tgp 
 
 %description
-Functions for detecting multicollinearity. This test gives statistical
-support to two of the most famous methods for detecting multicollinearity
-in applied work: Klein’s rule and Variance Inflation Factor (VIF). See the
-URL for the papers associated with this package, as for instance,
-Morales-Oñate and Morales-Oñate (2015) <doi:10.33333/rp.vol51n2.05>.
+Provides methods for nonparametric modeling of binomial and multinomial
+success probabilities via the Beta Kernel Process and its extension, the
+Dirichlet Kernel Process. Supports model fitting, predictive inference
+with uncertainty quantification, posterior simulation, and visualization
+in one- and two-dimensional input spaces. The package implements multiple
+kernel functions (Gaussian, Matern 5/2, and Matern 3/2), and performs
+hyperparameter optimization using multi-start gradient-based search.
+Applications include spatial statistics, probabilistic classification, and
+Bayesian experimental design. For more details, see MacKenzie, Trafalis,
+and Barker (2014) <doi:10.1002/sam.11241>.
 
 %prep
 %setup -q -c -n %{packname}

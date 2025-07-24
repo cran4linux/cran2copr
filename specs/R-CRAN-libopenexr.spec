@@ -1,44 +1,29 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  clusEvol
-%global packver   1.0.0
+%global packname  libopenexr
+%global packver   3.4.0-4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          3.4.0.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          A Procedure for Cluster Evolution Analytics
+Summary:          Static Library and Headers for 'OpenEXR' Image I/O
 
-License:          GPL (>= 3)
+License:          BSD_3_clause + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 4.1.0
-Requires:         R-core >= 4.1.0
-BuildArch:        noarch
-BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-plotly 
-BuildRequires:    R-CRAN-cluster 
-BuildRequires:    R-CRAN-fpc 
-BuildRequires:    R-CRAN-viridis 
-BuildRequires:    R-CRAN-clusterSim 
-BuildRequires:    R-CRAN-dplyr 
-Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-plotly 
-Requires:         R-CRAN-cluster 
-Requires:         R-CRAN-fpc 
-Requires:         R-CRAN-viridis 
-Requires:         R-CRAN-clusterSim 
-Requires:         R-CRAN-dplyr 
+BuildRequires:    R-devel >= 4.3.0
+Requires:         R-core >= 4.3.0
+BuildRequires:    R-CRAN-libimath 
+BuildRequires:    R-CRAN-libdeflate 
 
 %description
-Cluster Evolution Analytics allows us to use exploratory what if questions
-in the sense that the present information of an object is plugged-in a
-dataset in a previous time frame so that we can explore its evolution (and
-of its neighbors) to the present. See the URL for the papers associated
-with this package, as for instance, Morales-Oñate and Morales-Oñate (2024)
-<https://mpra.ub.uni-muenchen.de/120220>.
+Provides the 'OpenEXR' static library and 'C++' headers for
+high-dynamic-range image I/O (see <https://openexr.com/>) needed to link R
+packages against the 'OpenEXR' library, along with a basic R interface to
+load 'EXR' images.
 
 %prep
 %setup -q -c -n %{packname}

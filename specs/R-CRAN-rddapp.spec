@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rddapp
-%global packver   1.3.2
+%global packver   1.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.3.2
+Version:          1.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Discontinuity Design Application
 
@@ -22,7 +22,7 @@ BuildRequires:    R-CRAN-sandwich >= 2.3.4
 BuildRequires:    R-CRAN-sp >= 1.3.1
 BuildRequires:    R-CRAN-AER >= 1.2.5
 BuildRequires:    R-CRAN-Formula >= 1.2.1
-BuildRequires:    R-CRAN-plot3D >= 1.1
+BuildRequires:    R-CRAN-plot3D >= 1.1.1
 BuildRequires:    R-CRAN-lmtest >= 0.9.35
 BuildRequires:    R-CRAN-DT >= 0.2
 BuildRequires:    R-CRAN-shiny >= 0.14
@@ -31,7 +31,7 @@ Requires:         R-CRAN-sandwich >= 2.3.4
 Requires:         R-CRAN-sp >= 1.3.1
 Requires:         R-CRAN-AER >= 1.2.5
 Requires:         R-CRAN-Formula >= 1.2.1
-Requires:         R-CRAN-plot3D >= 1.1
+Requires:         R-CRAN-plot3D >= 1.1.1
 Requires:         R-CRAN-lmtest >= 0.9.35
 Requires:         R-CRAN-DT >= 0.2
 Requires:         R-CRAN-shiny >= 0.14

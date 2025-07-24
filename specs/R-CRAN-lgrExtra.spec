@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  lgrExtra
-%global packver   0.1.1
+%global packver   0.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          0.2.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Appenders for 'lgr'
 
@@ -17,16 +17,17 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-lgr >= 0.5.0
 BuildRequires:    R-CRAN-data.table 
-BuildRequires:    R-CRAN-lgr 
 BuildRequires:    R-CRAN-R6 
+Requires:         R-CRAN-lgr >= 0.5.0
 Requires:         R-CRAN-data.table 
-Requires:         R-CRAN-lgr 
 Requires:         R-CRAN-R6 
 
 %description
 Additional appenders for the logging package 'lgr' that support logging to
-databases, email and push notifications.
+'Elasticsearch', 'Dynatrace', 'AWSCloudWatchLog', databases, 'syslog',
+email- and push notifications, and more.
 
 %prep
 %setup -q -c -n %{packname}

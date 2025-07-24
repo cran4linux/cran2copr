@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  crul
-%global packver   1.5.0
+%global packver   1.6.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.5.0
+Version:          1.6.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          HTTP Client
 
@@ -23,12 +23,16 @@ BuildRequires:    R-CRAN-urltools >= 1.6.0
 BuildRequires:    R-CRAN-httpcode >= 0.2.0
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-mime 
+BuildRequires:    R-CRAN-rlang 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-curl >= 3.3
 Requires:         R-CRAN-R6 >= 2.2.0
 Requires:         R-CRAN-urltools >= 1.6.0
 Requires:         R-CRAN-httpcode >= 0.2.0
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-mime 
+Requires:         R-CRAN-rlang 
+Requires:         R-CRAN-lifecycle 
 
 %description
 A simple HTTP client, with tools for making HTTP requests, and mocking

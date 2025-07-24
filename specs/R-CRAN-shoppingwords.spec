@@ -1,41 +1,34 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  civis
-%global packver   3.1.2
+%global packname  shoppingwords
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.1.2
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          R Client for the 'Civis Platform API'
+Summary:          Text Processing Tools for Turkish E-Commerce Data
 
-License:          BSD_3_clause + file LICENSE
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.2.0
-Requires:         R-core >= 3.2.0
+BuildRequires:    R-devel >= 4.0.0
+Requires:         R-core >= 4.0.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-future >= 1.8.0
-BuildRequires:    R-CRAN-httr 
-BuildRequires:    R-CRAN-jsonlite 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-memoise 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
-Requires:         R-CRAN-future >= 1.8.0
-Requires:         R-CRAN-httr 
-Requires:         R-CRAN-jsonlite 
-Requires:         R-methods 
-Requires:         R-CRAN-memoise 
-Requires:         R-stats 
-Requires:         R-utils 
+BuildRequires:    R-CRAN-stringi 
+BuildRequires:    R-CRAN-stopwords 
+BuildRequires:    R-CRAN-stringdist 
+BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-stringi 
+Requires:         R-CRAN-stopwords 
+Requires:         R-CRAN-stringdist 
+Requires:         R-CRAN-tibble 
 
 %description
-A convenient interface for making requests directly to the 'Civis Platform
-API' <https://www.civisanalytics.com/platform/>. Full documentation
-available 'here' <https://civisanalytics.github.io/civis-r/>.
+Provides several datasets useful for processing and analysis of text in
+Turkish from an online shopping platform.
 
 %prep
 %setup -q -c -n %{packname}

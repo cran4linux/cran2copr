@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  REEMtree
-%global packver   0.90.5
+%global packver   0.90.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.90.5
+Version:          0.90.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Regression Trees with Random Effects for Longitudinal (Panel) Data
 
@@ -22,11 +22,13 @@ BuildRequires:    R-CRAN-rpart
 BuildRequires:    R-methods 
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-AER 
 Requires:         R-CRAN-nlme 
 Requires:         R-CRAN-rpart 
 Requires:         R-methods 
 Requires:         R-graphics 
 Requires:         R-stats 
+Requires:         R-CRAN-AER 
 
 %description
 A data mining approach for longitudinal and clustered data, which combines

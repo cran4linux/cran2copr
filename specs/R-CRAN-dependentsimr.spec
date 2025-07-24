@@ -1,35 +1,32 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  JNplots
-%global packver   0.1.1
+%global packname  dependentsimr
+%global packver   1.0.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.1
+Version:          1.0.0.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Visualize Outputs from the 'Johnson-Neyman' Technique
+Summary:          Simulate Omics-Scale Data with Dependency
 
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.2
+Requires:         R-core >= 4.2
 BuildArch:        noarch
-BuildRequires:    R-CRAN-ape 
-BuildRequires:    R-CRAN-nlme 
-BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-ape 
-Requires:         R-CRAN-nlme 
-Requires:         R-CRAN-scales 
+BuildRequires:    R-CRAN-rlang >= 1.0.0
+Requires:         R-CRAN-rlang >= 1.0.0
 
 %description
-Aids in the calculation and visualization of regions of non-significance
-using the 'Johnson-Neyman' technique and its extensions as described by
-Bauer and Curran (2005) <doi:10.1207/s15327906mbr4003_5> to assess the
-influence of categorical and continuous moderators. Allows correcting for
-phylogenetic relatedness.
+Using a Gaussian copula approach, this package generates simulated data
+mimicking a target real dataset. It supports normal, Poisson, empirical,
+and 'DESeq2' (negative binomial with size factors) marginal distributions.
+It uses an low-rank plus diagonal covariance matrix to efficiently
+generate omics-scale data. Methods are described in: Yang, Grant, and
+Brooks (2025) <doi:10.1101/2025.01.31.634335>.
 
 %prep
 %setup -q -c -n %{packname}

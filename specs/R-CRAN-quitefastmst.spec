@@ -1,29 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  SASmarkdown
-%global packver   0.8.2
+%global packname  quitefastmst
+%global packver   0.9.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.8.2
+Version:          0.9.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          'SAS' Markdown
+Summary:          Euclidean and Mutual Reachability Minimum Spanning Trees
 
-License:          MIT + file LICENSE
+License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-knitr >= 1.21
-BuildRequires:    R-CRAN-xfun >= 0.4
-Requires:         R-CRAN-knitr >= 1.21
-Requires:         R-CRAN-xfun >= 0.4
+BuildRequires:    R-CRAN-Rcpp 
+Requires:         R-CRAN-Rcpp 
 
 %description
-Settings and functions to extend the 'knitr' 'SAS' engine.
+Functions to compute Euclidean minimum spanning trees using single-,
+sesqui-, and dual-tree Boruvka algorithms.  Thanks to K-d trees, they are
+fast in spaces of low intrinsic dimensionality.  Mutual reachability
+distances (used in the definition of the 'HDBSCAN*' algorithm) are also
+supported.  The package also features relatively fast fallback minimum
+spanning tree and nearest-neighbours algorithms for spaces of higher
+dimensionality.  The 'Python' version of 'quitefastmst' is available via
+'PyPI'.
 
 %prep
 %setup -q -c -n %{packname}

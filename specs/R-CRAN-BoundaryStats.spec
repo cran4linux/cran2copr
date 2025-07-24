@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  BoundaryStats
-%global packver   2.2.0
+%global packver   2.3.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.2.0
+Version:          2.3.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          Boundary Overlap Statistics
 
@@ -17,9 +17,8 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 4.1.0
 Requires:         R-core >= 4.1.0
 BuildArch:        noarch
-BuildRequires:    R-CRAN-sf 
 BuildRequires:    R-CRAN-terra 
-BuildRequires:    R-CRAN-pdqr 
+BuildRequires:    R-CRAN-gstat 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-tibble 
@@ -28,9 +27,8 @@ BuildRequires:    R-CRAN-magrittr
 BuildRequires:    R-CRAN-igraph 
 BuildRequires:    R-CRAN-fields 
 BuildRequires:    R-CRAN-scales 
-Requires:         R-CRAN-sf 
 Requires:         R-CRAN-terra 
-Requires:         R-CRAN-pdqr 
+Requires:         R-CRAN-gstat 
 Requires:         R-methods 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-tibble 

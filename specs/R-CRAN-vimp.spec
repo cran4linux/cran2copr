@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  vimp
-%global packver   2.3.3
+%global packver   2.3.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.3
+Version:          2.3.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Perform Inference on Algorithm-Agnostic Variable Importance
 
@@ -25,8 +25,8 @@ BuildRequires:    R-CRAN-ROCR
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-rlang 
 BuildRequires:    R-CRAN-MASS 
-BuildRequires:    R-CRAN-boot 
 BuildRequires:    R-CRAN-data.table 
+BuildRequires:    R-CRAN-boot 
 Requires:         R-CRAN-SuperLearner 
 Requires:         R-stats 
 Requires:         R-CRAN-dplyr 
@@ -35,8 +35,8 @@ Requires:         R-CRAN-ROCR
 Requires:         R-CRAN-tibble 
 Requires:         R-CRAN-rlang 
 Requires:         R-CRAN-MASS 
-Requires:         R-CRAN-boot 
 Requires:         R-CRAN-data.table 
+Requires:         R-CRAN-boot 
 
 %description
 Calculate point estimates of and valid confidence intervals for

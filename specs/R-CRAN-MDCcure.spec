@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  geeasy
-%global packver   0.1.3
+%global packname  MDCcure
+%global packver   0.1.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Solve Generalized Estimating Equations for Clustered Data
+Summary:          Martingale Dependence Tools and Testing for Mixture Cure Models
 
 License:          GPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,36 +16,36 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildArch:        noarch
-BuildRequires:    R-CRAN-geepack 
-BuildRequires:    R-stats 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-RcppParallel 
 BuildRequires:    R-CRAN-ggplot2 
-BuildRequires:    R-CRAN-geeM 
-BuildRequires:    R-CRAN-lme4 
-BuildRequires:    R-methods 
-BuildRequires:    R-CRAN-Matrix 
-BuildRequires:    R-CRAN-MESS 
-Requires:         R-CRAN-geepack 
-Requires:         R-stats 
+BuildRequires:    R-CRAN-ggtext 
+BuildRequires:    R-CRAN-gridExtra 
+BuildRequires:    R-CRAN-future 
+BuildRequires:    R-CRAN-future.apply 
+BuildRequires:    R-CRAN-smcure 
+BuildRequires:    R-CRAN-npcure 
+BuildRequires:    R-CRAN-survival 
+BuildRequires:    R-CRAN-RcppArmadillo 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-CRAN-RcppParallel 
 Requires:         R-CRAN-ggplot2 
-Requires:         R-CRAN-geeM 
-Requires:         R-CRAN-lme4 
-Requires:         R-methods 
-Requires:         R-CRAN-Matrix 
-Requires:         R-CRAN-MESS 
+Requires:         R-CRAN-ggtext 
+Requires:         R-CRAN-gridExtra 
+Requires:         R-CRAN-future 
+Requires:         R-CRAN-future.apply 
+Requires:         R-CRAN-smcure 
+Requires:         R-CRAN-npcure 
+Requires:         R-CRAN-survival 
 
 %description
-Estimation of generalized linear models with correlated/clustered
-observations by use of generalized estimating equations (GEE). See e.g.
-Halekoh and Højsgaard, (2005, <doi:10.18637/jss.v015.i02>), for details.
-Several types of clustering are supported, including exchangeable variance
-structures, AR1 structures, M-dependent, user-specified variance
-structures and more. The model fitting computations are performed using
-modified code from the 'geeM' package, while the interface and output
-objects have been written to resemble the 'geepack' package. The package
-also contains additional tools for working with and inspecting results
-from the 'geepack' package, e.g. a 'confint' method for 'geeglm' objects
-from 'geepack'.
+Computes martingale difference correlation (MDC), martingale difference
+divergence, and their partial extensions to assess conditional mean
+dependence. The methods are based on Shao and Zhang (2014)
+<doi:10.1080/01621459.2014.887012>. Additionally, introduces a novel
+hypothesis test for evaluating covariate effects on the cure rate in
+mixture cure models, using MDC-based statistics. The methodology is
+described in Monroy-Castillo et al. (2025, manuscript submitted).
 
 %prep
 %setup -q -c -n %{packname}
