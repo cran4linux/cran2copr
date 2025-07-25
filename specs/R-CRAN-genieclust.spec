@@ -1,13 +1,13 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  genieclust
-%global packver   1.1.6
+%global packver   1.2.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.1.6
+Version:          1.2.0
 Release:          1%{?dist}%{?buildtag}
-Summary:          Fast and Robust Hierarchical Clustering with Noise Points Detection
+Summary:          Fast and Robust Hierarchical Clustering with Noise Point Detection
 
 License:          AGPL-3
 URL:              https://cran.r-project.org/package=%{packname}
@@ -16,33 +16,30 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
-Requires:         R-CRAN-Rcpp >= 1.0.4
+BuildRequires:    R-CRAN-quitefastmst 
+Requires:         R-CRAN-Rcpp 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-CRAN-quitefastmst 
 
 %description
-A retake on the Genie algorithm (Gagolewski, 2021
-<DOI:10.1016/j.softx.2021.100722>) - a robust hierarchical clustering
-method (Gagolewski, Bartoszuk, Cena, 2016
-<DOI:10.1016/j.ins.2016.05.003>). Now faster and more memory efficient;
-determining the whole hierarchy for datasets of 10M points in low
-dimensional Euclidean spaces or 100K points in high-dimensional ones takes
-only 1-2 minutes. Allows clustering with respect to mutual reachability
-distances so that it can act as a noise point detector or a robustified
-version of 'HDBSCAN*' (that is able to detect a predefined number of
-clusters and hence it does not dependent on the somewhat fragile 'eps'
-parameter). The package also features an implementation of inequality
-indices (the Gini, Bonferroni index), external cluster validity measures
-(e.g., the normalised clustering accuracy and partition similarity scores
-such as the adjusted Rand, Fowlkes-Mallows, adjusted mutual information,
-and the pair sets index), and internal cluster validity indices (e.g., the
+The Genie algorithm (Gagolewski, 2021 <DOI:10.1016/j.softx.2021.100722>)
+is a robust and outlier-resistant hierarchical clustering method
+(Gagolewski, Bartoszuk, Cena, 2016 <DOI:10.1016/j.ins.2016.05.003>). This
+package features its faster and more powerful version. It allows
+clustering with respect to mutual reachability distances, enabling it to
+act as a noise point detector or a version of 'HDBSCAN*' that can identify
+a predefined number of clusters. The package also features an
+implementation of the Gini and Bonferroni inequality indices, external
+cluster validity measures (e.g., the normalised clustering accuracy, the
+adjusted Rand index, the Fowlkes-Mallows index, and normalised mutual
+information), and internal cluster validity indices (e.g., the
 Calinski-Harabasz, Davies-Bouldin, Ball-Hall, Silhouette, and generalised
-Dunn indices). See also the 'Python' version of 'genieclust' available on
-'PyPI', which supports sparse data, more metrics, and even larger
-datasets.
+Dunn indices). The 'Python' version of 'genieclust' is available via
+'PyPI'.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  soilhypfit
-%global packver   0.1-7
+%global packver   0.1-8
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.7
+Version:          0.1.8
 Release:          1%{?dist}%{?buildtag}
 Summary:          Modelling of Soil Water Retention and Hydraulic Conductivity Data
 
@@ -21,22 +21,22 @@ BuildRequires:    R-CRAN-quadprog >= 1.5.7
 BuildRequires:    R-CRAN-nloptr >= 1.2.1
 BuildRequires:    R-CRAN-Rmpfr >= 0.7.2
 BuildRequires:    R-CRAN-SoilHyP >= 0.1.3
-BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-snowfall 
-BuildRequires:    R-stats 
-BuildRequires:    R-utils 
+BuildRequires:    R-graphics 
 BuildRequires:    R-CRAN-mgcv 
 BuildRequires:    R-parallel 
+BuildRequires:    R-stats 
+BuildRequires:    R-utils 
 Requires:         R-CRAN-quadprog >= 1.5.7
 Requires:         R-CRAN-nloptr >= 1.2.1
 Requires:         R-CRAN-Rmpfr >= 0.7.2
 Requires:         R-CRAN-SoilHyP >= 0.1.3
-Requires:         R-graphics 
 Requires:         R-CRAN-snowfall 
-Requires:         R-stats 
-Requires:         R-utils 
+Requires:         R-graphics 
 Requires:         R-CRAN-mgcv 
 Requires:         R-parallel 
+Requires:         R-stats 
+Requires:         R-utils 
 
 %description
 Provides functions for efficiently estimating properties of the Van

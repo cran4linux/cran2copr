@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  mvSLOUCH
-%global packver   2.7.6
+%global packver   2.7.7
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.7.6
+Version:          2.7.7
 Release:          1%{?dist}%{?buildtag}
 Summary:          Multivariate Stochastic Linear Ornstein-Uhlenbeck Models for Phylogenetic Comparative Hypotheses
 
@@ -42,8 +42,11 @@ Requires:         R-CRAN-matrixcalc
 Fits multivariate Ornstein-Uhlenbeck types of models to continues trait
 data from species related by a common evolutionary history. See K.
 Bartoszek, J, Pienaar, P. Mostad, S. Andersson, T. F. Hansen (2012)
-<doi:10.1016/j.jtbi.2012.08.005>. The suggested PCMBaseCpp package (which
-significantly speeds up the likelihood calculations) can be obtained from
+<doi:10.1016/j.jtbi.2012.08.005> and K. Bartoszek, and J. Tredgett Clarke,
+J. Fuentes-Gonzalez, V. Mitov, J. Pienaar, M. Piwczynski, R. Puchalka, K.
+Spalik, K. L. Voje (2024) <doi:10.1111/2041-210X.14376>. The suggested
+PCMBaseCpp package (which significantly speeds up the likelihood
+calculations) can be obtained from
 <https://github.com/venelin/PCMBaseCpp/>.
 
 %prep

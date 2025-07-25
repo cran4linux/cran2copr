@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmBlock
-%global packver   0.1.4
+%global packname  parzer
+%global packver   0.4.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.4.4
 Release:          1%{?dist}%{?buildtag}
-Summary:          k-Means Like Blockmodeling of One-Mode and Linked Networks
+Summary:          Parse Messy Geographic Coordinates
 
-License:          GPL (>= 2)
+License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
 BuildRequires:    R-devel
 Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-blockmodeling 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-blockmodeling 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-CRAN-Rcpp >= 1.0.2
+BuildRequires:    R-CRAN-withr 
+Requires:         R-CRAN-Rcpp >= 1.0.2
+Requires:         R-CRAN-withr 
 
 %description
-Implements k-means like blockmodeling of one-mode and linked networks as
-presented in Žiberna (2020) <doi:10.1016/j.socnet.2019.10.006>. The
-development of this package is financially supported by the Slovenian
-Research Agency (<https://www.arrs.si/>) within the research programs
-P5-0168 and the research projects J7-8279 (Blockmodeling multilevel and
-temporal networks) and J5-2557 (Comparison and evaluation of different
-approaches to blockmodeling dynamic networks by simulations with
-application to Slovenian co-authorship networks).
+Parse messy geographic coordinates from various character formats to
+decimal degree numeric values. Parse coordinates into their parts (degree,
+minutes, seconds); calculate hemisphere from coordinates; pull out
+individually degrees, minutes, or seconds; add and subtract degrees,
+minutes, and seconds. C++ code herein originally inspired from code
+written by Jeffrey D. Bogan, but then completely re-written.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  fastRG
-%global packver   0.3.2
+%global packver   0.3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.2
+Version:          0.3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Sample Generalized Random Dot Product Graphs in Linear Time
 
@@ -17,9 +17,9 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel
 Requires:         R-core
 BuildArch:        noarch
+BuildRequires:    R-CRAN-rlang >= 1.0.0
 BuildRequires:    R-CRAN-Matrix 
 BuildRequires:    R-CRAN-dplyr 
-BuildRequires:    R-CRAN-ellipsis 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-glue 
 BuildRequires:    R-CRAN-igraph 
@@ -29,9 +29,9 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidygraph 
 BuildRequires:    R-CRAN-tidyr 
+Requires:         R-CRAN-rlang >= 1.0.0
 Requires:         R-CRAN-Matrix 
 Requires:         R-CRAN-dplyr 
-Requires:         R-CRAN-ellipsis 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-glue 
 Requires:         R-CRAN-igraph 

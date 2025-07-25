@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  seminr
-%global packver   2.3.4
+%global packver   2.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.3.4
+Version:          2.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Building and Estimating Structural Equation Models
 
@@ -14,8 +14,8 @@ URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel >= 3.5.0
-Requires:         R-core >= 3.5.0
+BuildRequires:    R-devel >= 4.1.0
+Requires:         R-core >= 4.1.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DiagrammeR >= 1.0.6
 BuildRequires:    R-CRAN-DiagrammeRsvg >= 0.1
@@ -37,7 +37,7 @@ Requires:         R-CRAN-rmarkdown
 Requires:         R-CRAN-webp 
 
 %description
-A powerful, easy to syntax for specifying and estimating complex
+A powerful, easy to use syntax for specifying and estimating complex
 Structural Equation Models. Models can be estimated using Partial Least
 Squares Path Modeling or Covariance-Based Structural Equation Modeling or
 covariance based Confirmatory Factor Analysis. Methods described in Ray,

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  tmaptools
-%global packver   3.2
+%global packver   3.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.2
+Version:          3.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Thematic Map Tools
 
@@ -22,24 +22,14 @@ BuildRequires:    R-CRAN-units >= 0.6.1
 BuildRequires:    R-CRAN-stars >= 0.4.1
 BuildRequires:    R-CRAN-lwgeom >= 0.1.4
 BuildRequires:    R-methods 
-BuildRequires:    R-grid 
-BuildRequires:    R-CRAN-magrittr 
-BuildRequires:    R-CRAN-RColorBrewer 
-BuildRequires:    R-CRAN-viridisLite 
 BuildRequires:    R-stats 
-BuildRequires:    R-CRAN-dichromat 
 BuildRequires:    R-CRAN-XML 
 Requires:         R-CRAN-sf >= 0.9.2
 Requires:         R-CRAN-units >= 0.6.1
 Requires:         R-CRAN-stars >= 0.4.1
 Requires:         R-CRAN-lwgeom >= 0.1.4
 Requires:         R-methods 
-Requires:         R-grid 
-Requires:         R-CRAN-magrittr 
-Requires:         R-CRAN-RColorBrewer 
-Requires:         R-CRAN-viridisLite 
 Requires:         R-stats 
-Requires:         R-CRAN-dichromat 
 Requires:         R-CRAN-XML 
 
 %description

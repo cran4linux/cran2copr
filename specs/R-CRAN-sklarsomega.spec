@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sklarsomega
-%global packver   3.0-2
+%global packver   3.0-3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          3.0.2
+Version:          3.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Measuring Agreement Using Sklar's Omega Coefficient
 
@@ -34,11 +34,11 @@ Requires:         R-CRAN-spam
 Requires:         R-CRAN-dfoptim 
 
 %description
-Provides tools for applying Sklar's Omega (Hughes, 2018)
-<arXiv:1803.02734> methodology to nominal scores, ordinal scores,
-percentages, counts, amounts (i.e., non-negative real numbers), and
-balances (i.e., any real number). The framework can accommodate any number
-of units, any number of coders, and missingness; and can be used to
+Provides tools for applying Sklar's Omega (Hughes, 2022)
+<doi:10.1007/s11222-022-10105-2> methodology to nominal scores, ordinal
+scores, percentages, counts, amounts (i.e., non-negative real numbers),
+and balances (i.e., any real number). The framework can accommodate any
+number of units, any number of coders, and missingness; and can be used to
 measure agreement with a gold standard, intra-coder agreement, and/or
 inter-coder agreement. Frequentist inference is supported for all levels
 of measurement. Bayesian inference is supported for continuous scores

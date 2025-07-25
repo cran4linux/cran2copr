@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  CITAN
-%global packver   2022.1.1
+%global packver   2025.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2022.1.1
+Version:          2025.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          CITation ANalysis Toolpack
 
@@ -24,6 +25,7 @@ BuildRequires:    R-grDevices
 BuildRequires:    R-graphics 
 BuildRequires:    R-stats 
 BuildRequires:    R-utils 
+BuildRequires:    R-methods 
 Requires:         R-CRAN-agop 
 Requires:         R-CRAN-RSQLite 
 Requires:         R-CRAN-stringi 
@@ -32,13 +34,14 @@ Requires:         R-grDevices
 Requires:         R-graphics 
 Requires:         R-stats 
 Requires:         R-utils 
+Requires:         R-methods 
 
 %description
 Supports quantitative research in scientometrics and bibliometrics.
 Provides various tools for preprocessing bibliographic data retrieved,
-e.g., from Elsevier's SciVerse Scopus, computing bibliometric impact of
+e.g., from Elsevier's Scopus, computing bibliometric impact of
 individuals, or modelling phenomena encountered in the social sciences.
-This package is deprecated, see 'agop' instead.
+This package is deprecated; see 'agop' instead.
 
 %prep
 %setup -q -c -n %{packname}

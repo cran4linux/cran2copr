@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  coconots
-%global packver   2.0.0
+%global packver   2.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Convolution-Closed Models for Count Time Series
 
@@ -16,20 +16,22 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 BuildRequires:    R-devel >= 4.0.2
 Requires:         R-core >= 4.0.2
-BuildRequires:    R-CRAN-Rcpp 
 BuildRequires:    R-CRAN-forecast 
 BuildRequires:    R-CRAN-numDeriv 
 BuildRequires:    R-CRAN-HMMpa 
 BuildRequires:    R-CRAN-ggplot2 
 BuildRequires:    R-CRAN-matrixStats 
 BuildRequires:    R-CRAN-JuliaConnectoR 
-Requires:         R-CRAN-Rcpp 
+BuildRequires:    R-CRAN-Rcpp 
+BuildRequires:    R-stats 
 Requires:         R-CRAN-forecast 
 Requires:         R-CRAN-numDeriv 
 Requires:         R-CRAN-HMMpa 
 Requires:         R-CRAN-ggplot2 
 Requires:         R-CRAN-matrixStats 
 Requires:         R-CRAN-JuliaConnectoR 
+Requires:         R-CRAN-Rcpp 
+Requires:         R-stats 
 
 %description
 Useful tools for fitting, validating, and forecasting of practical

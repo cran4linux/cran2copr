@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  robustbetareg
-%global packver   0.3.0
+%global packver   0.3.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.0
+Version:          0.3.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Robust Beta Regression
 
@@ -56,7 +56,7 @@ data-driven algorithm also implemented in the package. Diagnostic tools
 associated with the fitted model, such as the residuals and
 goodness-of-fit statistics, are implemented. Robust Wald-type tests are
 available. More details about robust beta regression are described in
-Maluf et al. (2022) <arXiv:2209.11315>.
+Maluf et al. (2025) <doi:10.1007/s00184-024-00949-1>.
 
 %prep
 %setup -q -c -n %{packname}

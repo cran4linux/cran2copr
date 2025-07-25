@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  DSMolgenisArmadillo
-%global packver   2.0.9
+%global packver   3.0.0
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2.0.9
+Version:          3.0.0
 Release:          1%{?dist}%{?buildtag}
 Summary:          'DataSHIELD' Client for 'MOLGENIS Armadillo'
 
@@ -18,7 +18,7 @@ BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
 BuildRequires:    R-CRAN-DSI >= 1.3.0
-BuildRequires:    R-CRAN-MolgenisAuth >= 0.0.25
+BuildRequires:    R-CRAN-MolgenisAuth >= 1.0.0
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-httr 
 BuildRequires:    R-CRAN-stringr 
@@ -27,8 +27,9 @@ BuildRequires:    R-CRAN-base64enc
 BuildRequires:    R-CRAN-urltools 
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-jsonlite 
+BuildRequires:    R-CRAN-lifecycle 
 Requires:         R-CRAN-DSI >= 1.3.0
-Requires:         R-CRAN-MolgenisAuth >= 0.0.25
+Requires:         R-CRAN-MolgenisAuth >= 1.0.0
 Requires:         R-methods 
 Requires:         R-CRAN-httr 
 Requires:         R-CRAN-stringr 
@@ -37,6 +38,7 @@ Requires:         R-CRAN-base64enc
 Requires:         R-CRAN-urltools 
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-jsonlite 
+Requires:         R-CRAN-lifecycle 
 
 %description
 'DataSHIELD' is an infrastructure and series of R packages that enables

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  scimo
-%global packver   0.0.2
+%global packver   0.0.3
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.0.2
+Version:          0.0.3
 Release:          1%{?dist}%{?buildtag}
 Summary:          Extra Recipes Steps for Dealing with Omics Data
 
@@ -17,7 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 2.10
 Requires:         R-core >= 2.10
 BuildArch:        noarch
-BuildRequires:    R-CRAN-recipes 
+BuildRequires:    R-CRAN-recipes >= 1.1
 BuildRequires:    R-CRAN-dplyr 
 BuildRequires:    R-CRAN-generics 
 BuildRequires:    R-CRAN-magrittr 
@@ -25,7 +25,7 @@ BuildRequires:    R-CRAN-rlang
 BuildRequires:    R-stats 
 BuildRequires:    R-CRAN-tibble 
 BuildRequires:    R-CRAN-tidyr 
-Requires:         R-CRAN-recipes 
+Requires:         R-CRAN-recipes >= 1.1
 Requires:         R-CRAN-dplyr 
 Requires:         R-CRAN-generics 
 Requires:         R-CRAN-magrittr 

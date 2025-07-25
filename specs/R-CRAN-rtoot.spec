@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  rtoot
-%global packver   0.3.5
+%global packver   0.3.6
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.3.5
+Version:          0.3.6
 Release:          1%{?dist}%{?buildtag}
 Summary:          Collecting and Analyzing Mastodon Data
 
@@ -17,6 +17,7 @@ Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 BuildRequires:    R-devel >= 3.6
 Requires:         R-core >= 3.6
 BuildArch:        noarch
+BuildRequires:    R-CRAN-cli 
 BuildRequires:    R-CRAN-clipr 
 BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-dplyr 
@@ -24,6 +25,7 @@ BuildRequires:    R-CRAN-httr
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-methods 
 BuildRequires:    R-CRAN-tibble 
+Requires:         R-CRAN-cli 
 Requires:         R-CRAN-clipr 
 Requires:         R-CRAN-curl 
 Requires:         R-CRAN-dplyr 

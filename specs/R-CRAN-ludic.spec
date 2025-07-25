@@ -1,10 +1,11 @@
 %global __brp_check_rpaths %{nil}
+%global __requires_exclude ^libmpi
 %global packname  ludic
-%global packver   0.2.0
+%global packver   0.2.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.2.0
+Version:          0.2.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Linkage Using Diagnosis Codes
 
@@ -34,8 +35,7 @@ Probabilistic record linkage without direct identifiers using only
 diagnosis codes. Method is detailed in: Hejblum, Weber, Liao, Palmer,
 Churchill, Szolovits, Murphy, Kohane & Cai (2019) <doi:
 10.1038/sdata.2018.298> ; Zhang, Hejblum, Weber, Palmer, Churchill,
-Szolovits, Murphy, Liao, Kohane & Cai (2021) <doi:
-10.1101/2021.05.02.21256490>.
+Szolovits, Murphy, Liao, Kohane & Cai (2021) <doi: 10.1093/jamia/ocab187>.
 
 %prep
 %setup -q -c -n %{packname}

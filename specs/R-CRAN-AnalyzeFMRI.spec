@@ -1,42 +1,33 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
-%global packname  kmBlock
-%global packver   0.1.4
+%global packname  AnalyzeFMRI
+%global packver   1.1-25
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          1.1.25
 Release:          1%{?dist}%{?buildtag}
-Summary:          k-Means Like Blockmodeling of One-Mode and Linked Networks
+Summary:          Functions for Analysis of fMRI Datasets Stored in the ANALYZE or 'NIFTI' Format
 
 License:          GPL (>= 2)
 URL:              https://cran.r-project.org/package=%{packname}
 Source0:          %{url}&version=%{packver}#/%{packname}_%{packver}.tar.gz
 
 
-BuildRequires:    R-devel
-Requires:         R-core
-BuildRequires:    R-CRAN-Rcpp >= 1.0.0
-BuildRequires:    R-CRAN-blockmodeling 
-BuildRequires:    R-CRAN-doParallel 
-BuildRequires:    R-CRAN-doRNG 
-BuildRequires:    R-CRAN-foreach 
-BuildRequires:    R-CRAN-RcppArmadillo 
-Requires:         R-CRAN-Rcpp >= 1.0.0
-Requires:         R-CRAN-blockmodeling 
-Requires:         R-CRAN-doParallel 
-Requires:         R-CRAN-doRNG 
-Requires:         R-CRAN-foreach 
+BuildRequires:    R-devel >= 4.4.0
+Requires:         R-core >= 4.4.0
+BuildRequires:    R-CRAN-R.matlab 
+BuildRequires:    R-CRAN-fastICA 
+BuildRequires:    R-tcltk 
+Requires:         R-CRAN-R.matlab 
+Requires:         R-CRAN-fastICA 
+Requires:         R-tcltk 
 
 %description
-Implements k-means like blockmodeling of one-mode and linked networks as
-presented in Žiberna (2020) <doi:10.1016/j.socnet.2019.10.006>. The
-development of this package is financially supported by the Slovenian
-Research Agency (<https://www.arrs.si/>) within the research programs
-P5-0168 and the research projects J7-8279 (Blockmodeling multilevel and
-temporal networks) and J5-2557 (Comparison and evaluation of different
-approaches to blockmodeling dynamic networks by simulations with
-application to Slovenian co-authorship networks).
+Functions for I/O, visualisation and analysis of functional Magnetic
+Resonance Imaging (fMRI) datasets stored in the ANALYZE or 'NIFTI' format.
+Note that the latest version of 'XQuartz' seems to be necessary under
+MacOS.
 
 %prep
 %setup -q -c -n %{packname}

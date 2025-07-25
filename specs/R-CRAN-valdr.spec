@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  valdr
-%global packver   1.0.0
+%global packver   1.0.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          1.0.0
+Version:          1.0.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Access and Analyse 'VALD' Data via Our External 'APIs'
 
@@ -30,9 +30,11 @@ Requires:         R-CRAN-jsonlite
 Provides helper functions and wrappers to simplify authentication, data
 retrieval, and result processing from the 'VALD' 'APIs'. Designed to
 streamline integration for analysts and researchers working with 'VALD's
-external 'APIs'. For further documentation, please see
-<https://support.vald.com/hc/en-au/articles/23415335574553-How-to-integrate-with-VALD-APIs>
-for documentation.
+external 'APIs'. For further documentation on integrating with 'VALD'
+'APIs', see:
+<https://support.vald.com/hc/en-au/articles/23415335574553-How-to-integrate-with-VALD-APIs>.
+For a step-by-step guide to using this package, see:
+<https://support.vald.com/hc/en-au/articles/48730811824281-A-guide-to-using-the-valdr-R-package>.
 
 %prep
 %setup -q -c -n %{packname}

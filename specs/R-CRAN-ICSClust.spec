@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  ICSClust
-%global packver   0.1.0
+%global packver   0.1.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.0
+Version:          0.1.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Tandem Clustering with Invariant Coordinate Selection
 
@@ -51,7 +51,7 @@ Requires:         R-CRAN-tclust
 Implementation of tandem clustering with invariant coordinate selection
 with different scatter matrices and several choices for the selection of
 components as described in Alfons, A., Archimbaud, A., Nordhausen, K.and
-Ruiz-Gazen, A. (2022) <arXiv:2212.06108>.
+Ruiz-Gazen, A. (2024) <doi:10.1016/j.ecosta.2024.03.002>.
 
 %prep
 %setup -q -c -n %{packname}

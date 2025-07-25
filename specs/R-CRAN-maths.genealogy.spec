@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  maths.genealogy
-%global packver   0.1.3
+%global packver   0.1.4
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.3
+Version:          0.1.4
 Release:          1%{?dist}%{?buildtag}
 Summary:          Mathematics PhD Genealogy Data and Plotting
 
@@ -19,6 +19,7 @@ Requires:         R-core >= 4.2.0
 BuildArch:        noarch
 BuildRequires:    R-CRAN-checkmate 
 BuildRequires:    R-CRAN-cli 
+BuildRequires:    R-CRAN-curl 
 BuildRequires:    R-CRAN-httr2 
 BuildRequires:    R-CRAN-jsonlite 
 BuildRequires:    R-CRAN-later 
@@ -28,6 +29,7 @@ BuildRequires:    R-stats
 BuildRequires:    R-CRAN-websocket 
 Requires:         R-CRAN-checkmate 
 Requires:         R-CRAN-cli 
+Requires:         R-CRAN-curl 
 Requires:         R-CRAN-httr2 
 Requires:         R-CRAN-jsonlite 
 Requires:         R-CRAN-later 

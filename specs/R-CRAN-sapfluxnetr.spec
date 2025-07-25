@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  sapfluxnetr
-%global packver   0.1.4
+%global packver   0.1.5
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.1.4
+Version:          0.1.5
 Release:          1%{?dist}%{?buildtag}
 Summary:          Working with 'Sapfluxnet' Project Data
 
@@ -47,9 +47,8 @@ Requires:         R-CRAN-tibble
 Requires:         R-CRAN-tidyr 
 
 %description
-Access, modify, aggregate and plot data from the 'Sapfluxnet' project
-(<http://sapfluxnet.creaf.cat>), the first global database of sap flow
-measurements.
+Access, modify, aggregate and plot data from the 'Sapfluxnet' project, the
+first global database of sap flow measurements.
 
 %prep
 %setup -q -c -n %{packname}

@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  birdie
-%global packver   0.6.1
+%global packver   0.7.1
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          0.6.1
+Version:          0.7.1
 Release:          1%{?dist}%{?buildtag}
 Summary:          Bayesian Instrumental Regression for Disparity Estimation
 
@@ -47,7 +47,8 @@ Requires:         R-CRAN-SQUAREM
 Bayesian models for accurately estimating conditional distributions by
 race, using Bayesian Improved Surname Geocoding (BISG) probability
 estimates of individual race. Implements the methods described in
-McCartan, Fisher, Goldin, Ho and Imai (2024) <doi:10.3386/w32373>.
+McCartan, Fisher, Goldin, Ho and Imai (2025)
+<doi:10.1080/01621459.2025.2526695>.
 
 %prep
 %setup -q -c -n %{packname}

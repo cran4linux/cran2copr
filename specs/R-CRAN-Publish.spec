@@ -1,11 +1,11 @@
 %global __brp_check_rpaths %{nil}
 %global __requires_exclude ^libmpi
 %global packname  Publish
-%global packver   2023.01.17
+%global packver   2025.07.24
 %global rlibdir   /usr/local/lib/R/library
 
 Name:             R-CRAN-%{packname}
-Version:          2023.01.17
+Version:          2025.07.24
 Release:          1%{?dist}%{?buildtag}
 Summary:          Format Output of Various Routines in a Suitable Way for Reports and Publication
 
